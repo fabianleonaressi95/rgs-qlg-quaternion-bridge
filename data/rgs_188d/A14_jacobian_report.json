@@ -1,0 +1,38 @@
+{
+  "title": "A14 RGS-PSU QLG labelled constraint Jacobian reconstruction",
+  "status": "RECONSTRUCTED_AND_VALIDATED",
+  "source_archive": "A14_RGS_PSU_QLG_JACOBIAN_BUNDLE.zip",
+  "source_archive_sha256": "80442238349cd6ddc720dabae93d083075dea88decba8acf0a78c3ec03e0abcc",
+  "definitions": {
+    "F_translation": "F_a(X)=sum_{i=1}^{64} X_i^a, a=x,y,z",
+    "F_scale": "F_r(X)=1/2*(sum_i ||X_i||^2-R2_ref), R2_ref is the archived embedding norm",
+    "Jacobian_rows": "three uniform Cartesian translation covectors and one radial covector X_flat^T",
+    "variation_constraint": "J deltaX=0",
+    "tangent": "Im(Q)=ker(J)"
+  },
+  "shapes": {
+    "X": [64,3],
+    "J": [4,192],
+    "Q_archived": [192,188],
+    "normal_basis_svd": [192,4],
+    "normal_basis_labelled": [192,4],
+    "Q_svd": [192,188]
+  },
+  "rank": 4,
+  "singular_values": [15.49193338482967,8.000000000000002,8.000000000000002,8.000000000000002],
+  "row_norms": [8.0,8.0,8.0,15.49193338482967],
+  "geometry": {"centroid":[-2.220446049250313e-16,0.0,0.0],"R2":240.00000000000006,"radial_norm":15.49193338482967,"R_rms":1.9364916731037087},
+  "residuals": {
+    "JQ_frobenius": 1.2385465290863038e-14,
+    "Q_orthonormality": 1.3145467710370518e-14,
+    "projector_archived_vs_svd": 0.0,
+    "projector_complement": 9.013175987547113e-15,
+    "normal_orthonormality": 2.084958479688378e-16,
+    "labelled_normal_orthonormality": 2.4532694666933987e-18,
+    "labelled_normal_span_vs_svd": 7.807730318727159e-16,
+    "J_normal_diagonalization": 4.951041375472743e-15,
+    "finite_difference_directional_derivative_relative": 4.110283102810646e-09,
+    "centroid_constraint_abs": 2.220446049250313e-16
+  },
+  "scope_note": "This validates the archived constraint Jacobian and tangent basis. It does not validate the original 192x192 energy Hessian or the 29/3/156 spectrum."
+}
