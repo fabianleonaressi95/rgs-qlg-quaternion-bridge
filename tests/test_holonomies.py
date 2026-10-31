@@ -206,4 +206,3 @@ def test_path_with_unknown_vertex_is_rejected():
 
     with pytest.raises(KeyError):
         lattice.path_transport([0, 1, 99])
-```
