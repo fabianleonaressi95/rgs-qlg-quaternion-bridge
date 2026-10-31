@@ -1,4 +1,3 @@
-```yaml
 name: RGS-QLG Quaternion Bridge — Full Audit
 
 on:
@@ -81,4 +80,3 @@ jobs:
           echo "Complete test suite: PASS"
           echo "Lattice demonstration: PASS"
           echo "=============================================="
-```
