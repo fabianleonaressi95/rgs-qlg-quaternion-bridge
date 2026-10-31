@@ -1,321 +1,226 @@
-"""Discrete SU(2) connections and lattice holonomies.
-
-The module implements:
-- oriented SU(2) links;
-- reverse-link construction;
-- path parallel transport;
-- plaquette and closed-loop holonomies;
-- vertex-based gauge transformations;
-- gauge-invariant Wilson traces.
+```python
+"""SU(2) lattice links, path transport and gauge-covariant holonomies.
 
 Convention:
-    U_reverse = U_forward^{-1} = U_forward.conj().T
+    - Links are oriented matrices U_{source,target} in SU(2).
+    - Reverse links are U_{target,source} = U_{source,target}^dagger.
+    - Gauge transformations act as:
+          U_{gh} -> G_g U_{gh} G_h^dagger
+    - Vectors are column vectors. Therefore, for a path
+          v0 -> v1 -> ... -> vn
+      the path transporter is
+          P = U_{v(n-1),vn} ... U_{v1,v2} U_{v0,v1}.
 
-For a path (v0, v1, ..., vn):
-    P = U[v0,v1] @ U[v1,v2] @ ... @ U[v(n-1),vn]
-
-Gauge transformation:
-    U[g,h] -> G[g] @ U[g,h] @ G[h]^{-1}
+For a closed path based at v0:
+    P -> G_v0 P G_v0^dagger
+and consequently Tr(P) is gauge invariant.
 """
 
-from __future__ import annotations
-
 from dataclasses import dataclass
-from typing import Hashable, Iterable, Sequence
+from typing import Dict, Hashable, Iterable, List, Sequence, Tuple
 
 import numpy as np
-from numpy.typing import NDArray
-
-try:
-    from .su2_lifts import is_su2, su2_inverse
-except ImportError:
-    from su2_lifts import is_su2, su2_inverse
 
 
-ComplexArray = NDArray[np.complex128]
-Vertex = Hashable
-Edge = tuple[Vertex, Vertex]
+def dagger(matrix: np.ndarray) -> np.ndarray:
+    """Hermitian conjugate."""
+    return np.asarray(matrix, dtype=complex).conj().T
 
 
-def _matrix2(value: NDArray[np.complex128]) -> ComplexArray:
-    """Validate and copy a finite 2x2 complex matrix."""
-    matrix = np.asarray(value, dtype=np.complex128)
+def is_su2(
+    matrix: np.ndarray,
+    atol: float = 1e-10,
+) -> bool:
+    """Return True if matrix satisfies the defining SU(2) conditions."""
+    matrix = np.asarray(matrix, dtype=complex)
 
     if matrix.shape != (2, 2):
-        raise ValueError("An SU(2) link must be a 2x2 matrix.")
-    if not np.all(np.isfinite(matrix)):
-        raise ValueError("Matrix entries must be finite.")
+        return False
+
+    identity = np.eye(2, dtype=complex)
+
+    return (
+        np.allclose(dagger(matrix) @ matrix, identity, atol=atol)
+        and np.isclose(np.linalg.det(matrix), 1.0, atol=atol)
+    )
+
+
+def validate_su2(
+    matrix: np.ndarray,
+    atol: float = 1e-10,
+) -> np.ndarray:
+    """Validate and return a complex SU(2) matrix."""
+    matrix = np.asarray(matrix, dtype=complex)
+
+    if not is_su2(matrix, atol=atol):
+        raise ValueError("Matrix is not an element of SU(2).")
 
     return matrix.copy()
 
 
 @dataclass(frozen=True)
 class SU2Link:
-    """An oriented link carrying an SU(2) matrix."""
+    """An oriented SU(2) link from source to target."""
 
-    source: Vertex
-    target: Vertex
-    matrix: ComplexArray
+    source: Hashable
+    target: Hashable
+    matrix: np.ndarray
 
-    def __post_init__(self) -> None:
-        matrix = _matrix2(self.matrix)
+    def __post_init__(self):
+        object.__setattr__(
+            self,
+            "matrix",
+            validate_su2(self.matrix),
+        )
 
         if self.source == self.target:
-            raise ValueError("A link must connect two distinct vertices.")
+            raise ValueError("A link must connect distinct vertices.")
 
-        if not is_su2(matrix):
-            raise ValueError("Link matrix is not in SU(2).")
-
-        matrix.setflags(write=False)
-        object.__setattr__(self, "matrix", matrix)
-
-    def reverse(self) -> SU2Link:
+    def reversed(self) -> "SU2Link":
         """Return the oppositely oriented link."""
         return SU2Link(
             source=self.target,
             target=self.source,
-            matrix=su2_inverse(self.matrix),
-        )
-
-    def gauge_transform(
-        self,
-        source_gauge: ComplexArray,
-        target_gauge: ComplexArray,
-    ) -> SU2Link:
-        """Apply U' = G_source U G_target^{-1}."""
-        gs = _matrix2(source_gauge)
-        gt = _matrix2(target_gauge)
-
-        if not is_su2(gs) or not is_su2(gt):
-            raise ValueError("Gauge transformations must belong to SU(2).")
-
-        transformed = gs @ self.matrix @ gt.conj().T
-
-        return SU2Link(
-            source=self.source,
-            target=self.target,
-            matrix=transformed,
+            matrix=dagger(self.matrix),
         )
 
 
 class SU2Lattice:
-    """Finite graph equipped with oriented SU(2) link variables.
+    """Finite graph carrying oriented SU(2) link variables."""
 
-    Each undirected edge is stored once in a canonical orientation.
-    Reverse links are generated using the group inverse.
-    """
+    def __init__(self, vertices: Iterable[Hashable]):
+        self.vertices = tuple(vertices)
 
-    def __init__(self) -> None:
-        self._links: dict[Edge, SU2Link] = {}
-        self._vertices: set[Vertex] = set()
+        if len(set(self.vertices)) != len(self.vertices):
+            raise ValueError("Vertex labels must be unique.")
 
-    @property
-    def vertices(self) -> frozenset[Vertex]:
-        return frozenset(self._vertices)
-
-    @property
-    def edges(self) -> tuple[Edge, ...]:
-        return tuple(self._links.keys())
+        self._vertex_set = set(self.vertices)
+        self._links: Dict[Tuple[Hashable, Hashable], np.ndarray] = {}
 
     def add_link(
         self,
-        source: Vertex,
-        target: Vertex,
-        matrix: ComplexArray,
+        source: Hashable,
+        target: Hashable,
+        matrix: np.ndarray,
     ) -> None:
-        """Add one oriented link, rejecting duplicate undirected edges."""
+        """Add one oriented link and its inverse orientation."""
+        if source not in self._vertex_set or target not in self._vertex_set:
+            raise KeyError("Both link endpoints must belong to the lattice.")
+
         if source == target:
-            raise ValueError("Self-links are not supported.")
+            raise ValueError("A link must connect distinct vertices.")
 
         key = (source, target)
         reverse_key = (target, source)
 
         if key in self._links or reverse_key in self._links:
-            raise ValueError("This undirected edge is already present.")
+            raise ValueError("This undirected edge already exists.")
 
-        link = SU2Link(source, target, matrix)
-        self._links[key] = link
-        self._vertices.update((source, target))
+        matrix = validate_su2(matrix)
 
-    def link(self, source: Vertex, target: Vertex) -> ComplexArray:
-        """Return the matrix for either orientation of an existing edge."""
-        key = (source, target)
+        self._links[key] = matrix
+        self._links[reverse_key] = dagger(matrix)
 
-        if key in self._links:
-            return self._links[key].matrix.copy()
-
-        reverse_key = (target, source)
-
-        if reverse_key in self._links:
-            return self._links[reverse_key].reverse().matrix.copy()
-
-        raise KeyError(f"No link connects {source!r} and {target!r}.")
+    def link(
+        self,
+        source: Hashable,
+        target: Hashable,
+    ) -> np.ndarray:
+        """Return the oriented link matrix."""
+        try:
+            return self._links[(source, target)].copy()
+        except KeyError as exc:
+            raise KeyError(
+                f"No link exists between {source!r} and {target!r} "
+                "in the requested orientation."
+            ) from exc
 
     def path_transport(
         self,
-        path: Sequence[Vertex],
-    ) -> ComplexArray:
-        """Compute ordered parallel transport along a vertex path.
+        path: Sequence[Hashable],
+    ) -> np.ndarray:
+        """Compute the transporter along an ordered path.
 
-        The rightmost matrix acts first on a state vector.
+        For column vectors, later links multiply on the left:
+            P = U_{v[n-1],v[n]} ... U_{v[0],v[1]}.
         """
         if len(path) < 2:
             raise ValueError("A path must contain at least two vertices.")
 
-        transport = np.eye(2, dtype=np.complex128)
+        if any(vertex not in self._vertex_set for vertex in path):
+            raise KeyError("Every path vertex must belong to the lattice.")
+
+        transport = np.eye(2, dtype=complex)
 
         for source, target in zip(path[:-1], path[1:]):
-            transport = transport @ self.link(source, target)
+            transport = self.link(source, target) @ transport
 
         return transport
 
     def holonomy(
         self,
-        closed_path: Sequence[Vertex],
-    ) -> ComplexArray:
-        """Compute the holonomy of a closed path."""
+        closed_path: Sequence[Hashable],
+    ) -> np.ndarray:
+        """Compute holonomy around a closed path."""
         if len(closed_path) < 3:
-            raise ValueError("A closed path must contain at least three entries.")
+            raise ValueError("A closed path must contain at least three steps.")
 
         if closed_path[0] != closed_path[-1]:
-            raise ValueError("The path is not closed.")
+            raise ValueError("The path must begin and end at the same vertex.")
 
         return self.path_transport(closed_path)
 
-    def plaquette_holonomy(
-        self,
-        vertices: Sequence[Vertex],
-    ) -> ComplexArray:
-        """Compute a four-edge plaquette holonomy.
-
-        Expected input:
-            (v0, v1, v2, v3, v0)
-        """
-        if len(vertices) != 5:
-            raise ValueError(
-                "A plaquette requires four vertices and a repeated endpoint."
-            )
-
-        return self.holonomy(vertices)
-
     def wilson_trace(
         self,
-        closed_path: Sequence[Vertex],
+        closed_path: Sequence[Hashable],
         normalized: bool = True,
-    ) -> complex:
-        """Return the trace of a closed-loop holonomy.
+    ) -> float:
+        """Return the real Wilson trace of a closed path."""
+        value = np.trace(self.holonomy(closed_path))
 
-        For the fundamental SU(2) representation, normalized Wilson trace
-        is Tr(H)/2.
-        """
-        h = self.holonomy(closed_path)
-        value = complex(np.trace(h))
+        if not np.isclose(value.imag, 0.0, atol=1e-9):
+            raise ArithmeticError("SU(2) Wilson trace should be real.")
 
-        return value / 2.0 if normalized else value
+        result = float(value.real)
+
+        return result / 2.0 if normalized else result
 
     def gauge_transform(
         self,
-        gauge: dict[Vertex, ComplexArray],
-    ) -> SU2Lattice:
-        """Return a new lattice transformed by vertex SU(2) matrices."""
-        missing = self._vertices.difference(gauge.keys())
-        if missing:
-            raise ValueError(f"Missing gauge matrices for vertices: {missing!r}")
+        gauge_matrices: Dict[Hashable, np.ndarray],
+    ) -> "SU2Lattice":
+        """Return the gauge-transformed lattice.
 
-        for vertex in self._vertices:
-            if not is_su2(gauge[vertex]):
-                raise ValueError(
-                    f"Gauge matrix at vertex {vertex!r} is not in SU(2)."
+        Each vertex must have one SU(2) gauge matrix.
+        """
+        if set(gauge_matrices) != self._vertex_set:
+            raise ValueError(
+                "A gauge matrix must be supplied for every lattice vertex."
+            )
+
+        gauge = {
+            vertex: validate_su2(gauge_matrices[vertex])
+            for vertex in self.vertices
+        }
+
+        transformed = SU2Lattice(self.vertices)
+
+        for (source, target), matrix in self._links.items():
+            if self.vertices.index(source) < self.vertices.index(target):
+                new_matrix = (
+                    gauge[source]
+                    @ matrix
+                    @ dagger(gauge[target])
                 )
-
-        transformed = SU2Lattice()
-
-        for (source, target), link in self._links.items():
-            transformed_link = link.gauge_transform(
-                gauge[source],
-                gauge[target],
-            )
-            transformed.add_link(
-                source,
-                target,
-                transformed_link.matrix,
-            )
+                transformed.add_link(source, target, new_matrix)
 
         return transformed
 
-    def reverse_link_residual(
-        self,
-        source: Vertex,
-        target: Vertex,
-    ) -> float:
-        """Check U[target,source] = U[source,target] dagger."""
-        forward = self.link(source, target)
-        reverse = self.link(target, source)
-
-        return float(
-            np.linalg.norm(reverse - forward.conj().T, ord="fro")
-        )
-
-
-def wilson_trace(
-    holonomy: ComplexArray,
-    normalized: bool = True,
-) -> complex:
-    """Compute the trace of an already constructed SU(2) holonomy."""
-    h = _matrix2(holonomy)
-
-    if not is_su2(h):
-        raise ValueError("Holonomy matrix is not in SU(2).")
-
-    value = complex(np.trace(h))
-    return value / 2.0 if normalized else value
-
-
-def gauge_covariance_residual(
-    original: ComplexArray,
-    transformed: ComplexArray,
-    base_gauge: ComplexArray,
-) -> float:
-    """Check H' = G H G^{-1} for a based closed-loop holonomy."""
-    h = _matrix2(original)
-    hp = _matrix2(transformed)
-    g = _matrix2(base_gauge)
-
-    if not is_su2(h) or not is_su2(hp) or not is_su2(g):
-        raise ValueError("All matrices must belong to SU(2).")
-
-    expected = g @ h @ g.conj().T
-
-    return float(np.linalg.norm(hp - expected, ord="fro"))
-
-
-def wilson_gauge_invariance_residual(
-    original: ComplexArray,
-    transformed: ComplexArray,
-) -> float:
-    """Check invariance of the normalized Wilson trace."""
-    w1 = wilson_trace(original)
-    w2 = wilson_trace(transformed)
-
-    return float(abs(w1 - w2))
-
-
-def holonomy_unitarity_residual(
-    holonomy: ComplexArray,
-) -> float:
-    """Return ||H†H-I||_F."""
-    h = _matrix2(holonomy)
-    return float(
-        np.linalg.norm(
-            h.conj().T @ h - np.eye(2),
-            ord="fro",
-        )
-    )
-
-
-def holonomy_determinant_residual(
-    holonomy: ComplexArray,
-) -> float:
-    """Return |det(H)-1|."""
-    h = _matrix2(holonomy)
-    return float(abs(np.linalg.det(h) - 1.0))
+    def edges(self) -> List[Tuple[Hashable, Hashable]]:
+        """Return each undirected edge exactly once."""
+        return [
+            (source, target)
+            for source, target in self._links
+            if self.vertices.index(source) < self.vertices.index(target)
+        ]
+```
