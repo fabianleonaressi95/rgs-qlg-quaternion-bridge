@@ -4,11 +4,10 @@ Convention:
     - Links are oriented matrices U_{source,target} in SU(2).
     - Reverse links are U_{target,source} = U_{source,target}^dagger.
     - Gauge transformations act as:
-          U_{gh} -> G_g U_{gh} G_h^dagger
-    - Vectors are column vectors. Therefore, for a path
-          v0 -> v1 -> ... -> vn
-      the path transporter is
-          P = U_{v(n-1),vn} ... U_{v1,v2} U_{v0,v1}.
+          U_{gh} -> G_h U_{gh} G_g^dagger
+    - For a path v0 -> v1 -> ... -> vn, the column-vector
+      transporter is P = U_{v(n-1),vn} ... U_{v1,v2} U_{v0,v1}.
+      This convention makes P -> G_vn P G_v0^dagger.
 
 For a closed path based at v0:
     P -> G_v0 P G_v0^dagger
@@ -207,9 +206,9 @@ class SU2Lattice:
         for (source, target), matrix in self._links.items():
             if self.vertices.index(source) < self.vertices.index(target):
                 new_matrix = (
-                    gauge[source]
+                    gauge[target]
                     @ matrix
-                    @ dagger(gauge[target])
+                    @ dagger(gauge[source])
                 )
                 transformed.add_link(source, target, new_matrix)
 
