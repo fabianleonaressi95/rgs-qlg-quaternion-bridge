@@ -119,13 +119,11 @@ def test_hamilton_product_is_not_commutative():
         TOL,
     )
     assert not ij.almost_equal(ji, TOL)
-
-
 def test_dot_product():
-    q1 = Quaternion(1.0, 2.0, 3.0, 4.0)
-    q2 = Quaternion(2.0, 0.0, -1.0, 3.0)
+    q1 = Quaternion(1, 2, 3, 4)
+    q2 = Quaternion(2, 0, -1, 3)
 
-    assert quaternion_dot(q1, q2) == pytest.approx(13.0)
+    assert q1.dot(q2) == 11
 
 
 def test_normalization():
