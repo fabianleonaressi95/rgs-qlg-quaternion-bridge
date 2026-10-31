@@ -1,4 +1,3 @@
-```python
 """SU(2) lattice links, path transport and gauge-covariant holonomies.
 
 Convention:
