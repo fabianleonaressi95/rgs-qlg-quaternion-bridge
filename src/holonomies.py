@@ -1,4 +1,3 @@
-```python
 """SU(2) lattice links, path transport and gauge-covariant holonomies.
 
 Convention:
@@ -223,4 +222,3 @@ class SU2Lattice:
             for source, target in self._links
             if self.vertices.index(source) < self.vertices.index(target)
         ]
-```
