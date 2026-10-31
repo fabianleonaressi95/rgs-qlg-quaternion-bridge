@@ -1,0 +1,84 @@
+```yaml
+name: RGS-QLG Quaternion Bridge — Full Audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rgs-qlg-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quaternion-su2-so3-audit:
+    name: Quaternion / SU2 / SO3 / QLG tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install numpy pytest
+
+      - name: Verify Python version and dependencies
+        run: |
+          python --version
+          python -c "import numpy, pytest; print('NumPy:', numpy.__version__); print('pytest:', pytest.__version__)"
+
+      - name: Compile all Python modules
+        run: |
+          python -m compileall -q src tests examples
+
+      - name: Run quaternion algebra tests
+        run: |
+          python -m pytest tests/test_quaternion_algebra.py -v
+
+      - name: Run SU2-SO3 tests
+        run: |
+          python -m pytest tests/test_su2_so3.py -v
+
+      - name: Run QLG holonomy tests
+        run: |
+          python -m pytest tests/test_holonomies.py -v
+
+      - name: Run complete test suite
+        run: |
+          python -m pytest tests/ -v
+
+      - name: Run lattice holonomy demonstration
+        run: |
+          python examples/lattice_rotation_demo.py
+
+      - name: Final audit summary
+        if: success()
+        run: |
+          echo "=============================================="
+          echo "RGS-QLG QUATERNION BRIDGE"
+          echo "=============================================="
+          echo "Python compilation: PASS"
+          echo "Quaternion algebra: PASS"
+          echo "SU(2)-SO(3): PASS"
+          echo "QLG holonomies: PASS"
+          echo "Complete test suite: PASS"
+          echo "Lattice demonstration: PASS"
+          echo "=============================================="
+```
