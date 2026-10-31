@@ -1,4 +1,4 @@
-```python
+
 """Demonstration of SU(2) lattice holonomies and gauge invariance.
 
 Run from the repository root:
