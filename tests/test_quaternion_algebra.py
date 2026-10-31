@@ -10,6 +10,7 @@ from src.quaternions import (
     quaternion_conjugate,
     quaternion_dot,
     quaternion_inverse,
+    quaternion_dot,
     same_rotation,
 )
 
@@ -123,7 +124,7 @@ def test_dot_product():
     q1 = Quaternion(1, 2, 3, 4)
     q2 = Quaternion(2, 0, -1, 3)
 
-    assert q1.dot(q2) == 11
+    assert quaternion_dot(q1, q2) == 11
 
 
 def test_normalization():
