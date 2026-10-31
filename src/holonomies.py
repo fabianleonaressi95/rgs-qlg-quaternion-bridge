@@ -222,4 +222,3 @@ class SU2Lattice:
             for source, target in self._links
             if self.vertices.index(source) < self.vertices.index(target)
         ]
-```
