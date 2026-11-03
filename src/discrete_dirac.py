@@ -124,9 +124,13 @@ def assemble_wilson_laplacian(
         min_length=min(min_length,length)
         sji=np.asarray(spin_links[(i,j)],dtype=complex)
         if sji.shape==(2,2):
+            if np.linalg.norm(sji.conj().T@sji-np.eye(2),ord="fro")>1e-9 or abs(np.linalg.det(sji)-1)>1e-9:
+                raise ValueError("2x2 spin links must lie in SU(2)")
             sji=np.block([[sji,np.zeros((2,2))],[np.zeros((2,2)),sji]])
         if sji.shape!=(4,4):
-            raise ValueError("spin link must be 2x2 SU(2) or 4x4")
+            raise ValueError("spin link must be 2x2 SU(2) or 4x4 unitary")
+        if np.linalg.norm(sji.conj().T@sji-np.eye(4),ord="fro")>1e-9:
+            raise ValueError("4x4 spin links must be unitary")
         si=slice(4*i,4*i+4); sj=slice(4*j,4*j+4)
         weight=r/(2.0*length)
         raw[si,si]+=weight*identity
