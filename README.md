@@ -140,3 +140,23 @@ A necessary distinction is recorded: the graph cycle rank is 129, whereas
 the cellular first Betti number after attaching all 240 square faces is 0;
 the second cellular Betti number is 111. The abstract Q6-to-RGS X_Oh
 geometric identification and SU(2) dynamics on this complex remain OPEN.
+
+ 
+## Recovered RGS seed and induced O_h action (Phase 18)
+
+`src/rgs_q6_oh_action.py` reconstructs the original 64-point RGS seed
+through the hash-checked source routine and derives all 48 signed
+coordinate permutations. It verifies the faithful group action,
+composition law, coordinate antipode, and induced permutations on Q6
+edges and square faces. Coordinate O_h validity and Q6-label
+equivariance are reported as separate gates; the latter is not assumed.
+See [RGS_Q6_OH_EQUIVARIANCE.md](docs/RGS_Q6_OH_EQUIVARIANCE.md).
+
+Run:
+`PYTHONPATH=. python -m pytest tests/test_rgs_q6_oh_action.py -q`
+and
+`PYTHONPATH=. python examples/rgs_q6_oh_equivariance_audit.py`.
+
+The recovered 64 points form four full O_h orbits of sizes 8, 24, 24,
+and 8 (represented by eight coordinate-sign blocks). This corrects the
+older shorthand "eight O_h orbits" in the Phase 15-era description.
