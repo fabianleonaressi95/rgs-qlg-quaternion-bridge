@@ -319,3 +319,57 @@ Gauge covariance of \(U_p\) and gauge invariance of \(S_W\) follow algebraically
 ## L4. Open bridge to a geometric connection
 A physical map from the archived RGS vierbein/coframe to a preferred connection \(U_{ij}\) is not yet unique. It requires a specified local frame, a connection prescription (e.g. a discrete spin connection), link orientation, lift-sign convention and independent covariance tests. The Pin lift of improper elements and the continuum Yang–Mills limit are also open.
 **Stato:** OPEN.
+
+
+# M. Entanglement Q6 a due fogli e ponte QAT–olografia (Phase 20)
+
+## M1. Stato heat-kernel PSU a due fogli
+
+Per il Laplaciano combinatorio \(L_6\) del grafo Q6, definire
+\[
+K_\tau=e^{-\tau L_6/2},\qquad
+C_\tau=K_\tau/\|K_\tau\|_F,\qquad
+\rho_+=C_\tau C_\tau^\dagger.
+\]
+Lo stato bipartito è \(|\Psi_\tau\rangle=\sum_{xy}(C_\tau)_{xy}|x\rangle_+|y\rangle_-\).
+
+**Stato:** DEFINIZIONE DI MODELLO per il kernel e la fattorizzazione a due fogli.
+
+## M2. Spettro di Schmidt e entropia
+
+Usando \(\lambda_j(L_6)=2j\), \(m_j=\binom6j\), si ha
+\[
+Z_6(\tau)=(1+e^{-2\tau})^6,\qquad
+\operatorname{spec}(\rho_+):
+\frac{e^{-2\tau j}}{Z_6(\tau)}
+\quad\text{con molteplicità }\binom6j,
+\]
+e quindi
+\[
+S_+(\tau)=6h\!\left(\frac{1}{1+e^{2\tau}}\right).
+\]
+Per \(\tau=0\), \(S_+=\log64\); per \(\tau\to\infty\), \(S_+\to0\). Per lo stato puro bipartito \(I(+:-)=2S_+\).
+
+**Stato:** IDENTITÀ FINITA ESATTA per il particolare stato heat-kernel. La corrispondenza con una geometria fisica non segue da questa identità.
+
+## M3. Ponte QAT–Van Raamsdonk
+
+La proposta di identificare i due fogli PSU–Anti-Twin con fattori quantistici correlati e la loro connessione con una geometria emergente è una **IPOTESI FISICA APERTA**. Il parametro \(\tau\) è adimensionale e non è ancora derivato dalla tetrade, dal cono nullo o dall'ovalizzazione QAT. La relazione con Van Raamsdonk richiede una mappa fra osservabili di entanglement e osservabili geometriche.
+
+## M4. Area discreta e limite olografico
+
+La relazione candidata è \(S(A)\simeq\operatorname{Area}(\gamma_A)/(4G_{\rm eff})\), con \(\gamma_A\) superficie minima discreta. Non sono ancora definiti in modo completo il complesso bulk, la nozione di area indotta dal coframe, il dominio delle partizioni e la costante \(G_{\rm eff}\).
+
+**Stato:** CANDIDATO / APERTO. Non è lecito dichiarare verificata una legge di Ryu–Takayanagi sulla sola base dell'entropia Q6.
+
+## M5. Raffinamento e correzioni
+
+Swingle motiva l'organizzazione multiscala dell'informazione; Faulkner–Lewkowycz–Maldacena mostrano che, nei contesti olografici pertinenti, il termine di area può ricevere contributi di entanglement bulk. La loro implementazione su PRISM/Krist-All richiede tensori di rinormalizzazione, superfici e misure definiti esplicitamente.
+
+**Stato:** PROGRAMMA DI DERIVAZIONE, non risultato stabilito.
+
+## M6. Wormhole euclidei e PSU–Anti-Twin
+
+Il confronto con Van Raamsdonk–Vilar López (2026) riguarda la costruzione dei saddles euclidei, il gluing di tubi AdS, le condizioni al bordo e la dominanza nell'integrale di cammino. L'identificazione con il throat PSU–Anti-Twin e con i wormhole EMS precedenti resta aperta.
+
+**Stato:** CONFRONTO TEORICO DA SVILUPPARE; equivalenza fisica non stabilita.
