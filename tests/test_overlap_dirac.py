@@ -24,6 +24,6 @@ def test_overlap_rejects_kernel_without_gamma5_hermiticity():
     try:
         assemble_overlap_from_wilson(naive,wilson,gamma5)
     except ValueError as exc:
-        assert "anticommutes" in str(exc)
+        assert "requires" in str(exc)
     else:
         raise AssertionError("invalid naive operator must be rejected")
