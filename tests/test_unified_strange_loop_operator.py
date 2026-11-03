@@ -2,6 +2,7 @@ import numpy as np
 from src.unified_strange_loop_operator import (
     audit_unified_operator, build_strange_loop_operator, cantor_parry_q6_laplacian,
     escher_lifted_torus_laplacian, torus_q6_embedding,\n    doppler_moire_phase_audit, build_doppler_moire_operator,
+    escher_lifted_torus_laplacian, torus_q6_embedding,
 )
 
 def test_operator_is_symmetric_psd_and_constant_mode_kernel():
