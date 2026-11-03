@@ -595,7 +595,7 @@ def assemble_ellis_common_l2_operators(
 
         dF_dt = np.concatenate(
             (Rp[..., None] * nvec * du[:, None, None],
-             (zp * du)[:, :, None]),
+             (zp * du[:, None])[:, :, None]),
             axis=2,
         )
         dF_da = np.concatenate(
