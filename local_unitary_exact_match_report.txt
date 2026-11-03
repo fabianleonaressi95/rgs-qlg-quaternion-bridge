@@ -1,0 +1,4 @@
+mean_N_main=0.321795087151
+mean_N_control=0.321795087151
+max_abs_N_diff=9.99200722163e-16
+mean_purity_difference=5.55111512313e-17

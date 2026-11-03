@@ -1,0 +1,13 @@
+INTERACTING ONTOLOGICAL QNN TEST
+G-dependent Ising Hamiltonians produce non-permutation Gibbs amplitudes.
+mean Gibbs entropy=0.178025 bits; sd=0.000000
+MI G-B ontological=0.462290; null=0.462290
+MI L1-L2 ontological=0.434826; null=0.434826
+MI L2-L3 ontological=0.434826; null=0.434826
+Hamming distance, JS output distance ontological, JS null
+1,0.057584,0.059819
+2,0.056251,0.058009
+3,0.062271,0.064186
+4,0.063872,0.065762
+5,0.064902,0.066785
+6,0.065644,0.067494

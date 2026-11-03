@@ -1,0 +1,4 @@
+rows=69120
+normalization_max_error=4.440892098500626e-16
+phase_mean_output_variance=0.0001711810273308686
+phase_bins=30

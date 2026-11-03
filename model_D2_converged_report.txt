@@ -1,0 +1,7 @@
+epsilon_translation=0
+epsilon_S6=0.0313111225043
+pearson_r=-0.229171135736
+within_shell_max=7.3278480691e-05
+within_shell_rmse=6.21454980078e-05
+min_kernel=0.0136702800125
+max_kernel=0.020264556975

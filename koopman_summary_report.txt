@@ -1,0 +1,16 @@
+=== KOOPMAN DNA ANALYSIS REPORT ===
+Dataset: E. coli K-12 RefSeq CDS
+Total Sequences: 4318
+Valid Codon Transitions: 1337977
+
+Top 10 Dominant Eigenvalues:
+Mode 1: Lambda = 0.9998+0.0000j, Magnitude = 0.9998
+Mode 2: Lambda = 0.1201+0.0000j, Magnitude = 0.1201
+Mode 3: Lambda = 0.0758+0.0000j, Magnitude = 0.0758
+Mode 4: Lambda = 0.0690+0.0000j, Magnitude = 0.0690
+Mode 5: Lambda = -0.0637+0.0000j, Magnitude = 0.0637
+Mode 6: Lambda = 0.0050-0.0519j, Magnitude = 0.0522
+Mode 7: Lambda = 0.0050+0.0519j, Magnitude = 0.0522
+Mode 8: Lambda = 0.0468+0.0140j, Magnitude = 0.0488
+Mode 9: Lambda = 0.0468-0.0140j, Magnitude = 0.0488
+Mode 10: Lambda = -0.0069-0.0479j, Magnitude = 0.0484

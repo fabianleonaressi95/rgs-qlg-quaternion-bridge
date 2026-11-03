@@ -1,0 +1,161 @@
+
+================================================================
+FIBONACCI DUAL-QPM V2 — FINAL REPORT
+================================================================
+
+PHYSICAL TARGETS
+-----------------
+
+CH1:
+1550 -> 775 nm
+
+Delta-k1:
+3.2200000000e+05 m^-1
+
+CH2:
+1064 -> 532 nm
+
+Delta-k2:
+9.0100000000e+05 m^-1
+
+Target ratio:
+2.7981366460
+
+
+FIBONACCI OPTIMIZATION
+----------------------
+
+Order:
+20
+
+Domains:
+17711
+
+Optimized r=lA/lB:
+2.4400000000
+
+Dimensionless q1:
+0.8745332933
+
+Dimensionless q2:
+2.4470636562
+
+q2/q1:
+2.7981366460
+
+
+ABSOLUTE GEOMETRY
+-----------------
+
+lA:
+6.62689825 um
+
+lB:
+2.71594190 um
+
+Total normalized length:
+33473.23999999
+
+Total physical length:
+90.91137520 mm
+
+
+PHASE MATCHING
+--------------
+
+G1:
+3.2200000000e+05 m^-1
+
+Target DK1:
+3.2200000000e+05 m^-1
+
+Relative error CH1:
+0.0000000000e+00
+
+G2:
+9.0100000000e+05 m^-1
+
+Target DK2:
+9.0100000000e+05 m^-1
+
+Relative error CH2:
+0.0000000000e+00
+
+
+FOURIER RESPONSE
+----------------
+
+F1:
+0.0022407033
+
+F2:
+0.0932654420
+
+Dual score:
+1.4456146883e-02
+
+
+EFFECTIVE NONLINEARITY
+----------------------
+
+d_eff CH1:
+0.04234929 pm/V
+
+d_eff CH2:
+1.76271685 pm/V
+
+
+FABRICATION MONTE CARLO
+-----------------------
+
+sigma:
+2.00 %
+
+CH1 mean:
+0.0045865480
+
+CH1 P05:
+0.0010953710
+
+CH1 P95:
+0.0088790257
+
+CH2 mean:
+0.0127937232
+
+CH2 P05:
+0.0029887760
+
+CH2 P95:
+0.0239274192
+
+
+IMPORTANT
+---------
+
+The Fibonacci/QPM geometry has been optimized independently
+of the absolute physical scale.
+
+The absolute scale is obtained only after the dimensionless
+dual phase-matching pair has been found.
+
+The SHG length calculation uses approximate refractive indices
+and a phenomenological modal-overlap factor.
+
+It is NOT yet a fabrication-ready optical design.
+
+The next physical refinement should replace these assumptions
+with:
+
+1. MgO:LiNbO3 Sellmeier equations
+2. waveguide mode calculation
+3. modal overlap integral
+4. propagation loss
+5. temperature-dependent phase matching
+6. actual poling duty cycle
+7. domain-wall placement errors
+8. radiation effects
+9. photorefractive effects
+10. pump depletion if required
+
+================================================================

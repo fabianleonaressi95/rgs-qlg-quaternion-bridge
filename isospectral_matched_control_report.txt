@@ -1,0 +1,7 @@
+ISOSPECTRAL MATCHED CONTROL AUDIT
+mean N main=0.40526356; control=2.36558610
+mean E main=-7.67083286; control=-7.67083286
+mean S=0.09646328
+slope L1 main-ent vs N=0.07436731; control-ent vs Ncontrol=0.02126814
+bootstrap slope difference CI=(0.02409995,0.13222068)
+Control is exactly isospectral by unitary conjugation; energy equality is not guaranteed and is reported explicitly.

@@ -1,0 +1,8 @@
+count_6qubit_states=64
+count_Z6^3xZ5=1080
+total_microstates=69120
+lcm_period=30
+hex_central_angle=60 degrees
+pent_central_angle=72 degrees
+common_cover_steps_hex=5
+common_cover_steps_pent=6

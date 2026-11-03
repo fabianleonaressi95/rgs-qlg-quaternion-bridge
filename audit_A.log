@@ -1,0 +1,31 @@
+versions: python 3.12.3 numpy 2.4.4 scipy 1.17.1 sympy 1.14.0 matplotlib 3.10.8
+E_N+ - [3Mg2 a+^3 H+^2 - m4 Mg2 a+^3 V+ - c+] = 0
+E_N- - [3Mf2 a-^3 H-^2 - m4 Mg2 a+^3 V-  - c-] = 0
+  => minus Friedmann: 6H-^2 = 2 rho-/Mf2 + 2 m4 (Mg2/Mf2) V-/Y^3  (power Y^-3, since a+^3/a-^3)
+P+ = a+' E_a+ - N+ dE_N+/dt = 3*Mg2*m4*(-Nm(t)*Derivative(ap(t), t) + Np(t)*Derivative(am(t), t))*(b1*ap(t)**2 + 2*b2*am(t)*ap(t) + b3*am(t)**2)
+P- = a-' E_a- - N- dE_N-/dt = -3*Mg2*m4*(-Nm(t)*Derivative(ap(t), t) + Np(t)*Derivative(am(t), t))*(b1*ap(t)**2 + 2*b2*am(t)*ap(t) + b3*am(t)**2)
+P+ in terms of H+,H-,Y,N: 3*Mg2*m4*(Hm*Y - Hp)*(Y**2*b3 + 2*Y*b2 + b1)*Nm(t)*Np(t)*ap(t)**3
+P+ + P- = 0
+beta0 must be 0 for Pi_+(Y)=3 b2 Y(Y-Y0) with b1=-b2*Y0: V+ = -3*am(t)**2/ap(t)**2 + 6*am(t)/ap(t)
+
+--- convergence in solver tolerance ---
+rtol=1e-06  n=4001 E_N+: 6.80e-04 | E_a+: 2.04e-03 | Bianchi(cons_-): 4.75e-11 | Noether H+=Y H-: 5.83e-16 | Friedmann+ (H^2-(8piG/3)(rho+Pi)): 1.36e-03
+rtol=1e-09  n=4001 E_N+: 1.02e-06 | E_a+: 3.06e-06 | Bianchi(cons_-): 5.42e-11 | Noether H+=Y H-: 4.22e-16 | Friedmann+ (H^2-(8piG/3)(rho+Pi)): 2.04e-06
+rtol=1e-12  n=4001 E_N+: 4.66e-09 | E_a+: 2.50e-08 | Bianchi(cons_-): 5.47e-11 | Noether H+=Y H-: 4.11e-16 | Friedmann+ (H^2-(8piG/3)(rho+Pi)): 5.77e-09
+
+--- background quantities (rtol=1e-12) ---
+bounce: min |H+| = 0.0 at rho = 1.0 , a_min = 1.0
+Y range: 2.0000000001832223 2.1547005383792515  X range: 1.2886751345948126 1.99999999908389
+hidden rho_-(eff) range: -29.553755053224442 -28.00304457910932  -> sign: all negative? True
+hidden p_- range: 20.347344950834593 29.499999993025224
+hidden rho_-+p_- range: -9.20641010238985 0.7696048797139063
+rho_- at bounce: -29.553755053224442   (analytic -V-/Y^3 at H=0: -29.553755053224442 )
+max |H-| = 0.7096467003756926 ; H-/H+ x Y max dev: 2.220446049250313e-16
+rho_- using Y^-4 (wrong) at bounce: -13.71594545358704
+
+--- A4: F(T) reconstruction, F-2T F_T = 16 pi G rho_pm(T) ---
+branch 1 : -2*sqrt(A0)*sqrt(T)*asinh(sqrt(T)/sqrt(A0)) + 2*sqrt(A0)*sqrt(A0 + T) + 2*A0 + C1*sqrt(T)
+branch -1 : 2*sqrt(A0)*sqrt(T)*asinh(sqrt(T)/sqrt(A0)) - 2*sqrt(A0)*sqrt(A0 + T) + 2*A0 + C1*sqrt(T)
+branch 1 : 16piG d rho/dT = sqrt(A0)/sqrt(A0 + Tt)  -> diverges as (T+A)^(-1/2) at T=-A
+branch -1 : 16piG d rho/dT = -sqrt(A0)/sqrt(A0 + Tt)  -> diverges as (T+A)^(-1/2) at T=-A
+F_T+2T F_TT = -16 pi G rho_T  => Hdot coefficient (F_T+2T F_TT) diverges at T=-A; Hdot there = 0 only as limit 0*inf

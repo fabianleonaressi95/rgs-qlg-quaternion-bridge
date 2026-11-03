@@ -1,0 +1,6 @@
+mean_delta=0.000996125
+sd_delta=7.646929822764544e-05
+bootstrap_CI95_low=0.000946125
+bootstrap_CI95_high=0.0010457500000000002
+paired_signflip_p=0.006899655017249137
+all_positive=True
