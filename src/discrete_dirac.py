@@ -89,7 +89,72 @@ def compact_kernel_transform(features,edges,kernels:Mapping,transporters:Mapping
             y[target]+=k@p@f[source]; support.add(key)
     return y,support
 
-def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None):
+
+def assemble_wilson_laplacian(
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None
+):
+    """Build the positive, gauge-covariant graph Wilson term.
+
+    For each canonical edge i<j with weight w_ij=r/(2 length_ij):
+      L[j,i] -= w_ij S_ji; L[i,j] -= w_ij S_ji^dagger
+      L[i,i] += w_ij I;     L[j,j] += w_ij I.
+    The returned operator is volume-normalized by V^(-1/2) on both sides.
+    edge_lengths optionally supplies physical lengths for periodic edges
+    whose endpoint coordinate difference is not the periodic geodesic length.
+    """
+    x,e=_validate_geometry(coordinates,vierbein)
+    r=float(wilson_r)
+    if not np.isfinite(r) or r<0:
+        raise ValueError("wilson_r must be finite and non-negative")
+    n=len(x)
+    if spin_links is None:
+        spin_links,_=polar_spin_links(e,edges)
+    raw=np.zeros((4*n,4*n),dtype=complex)
+    identity=np.eye(4,dtype=complex)
+    min_length=np.inf
+    for i,j in edges:
+        if not (0<=i<j<n):
+            raise ValueError("edges must be canonical i<j")
+        if edge_lengths is None:
+            length=float(np.linalg.norm(x[j]-x[i]))
+        else:
+            length=float(edge_lengths.get((i,j),np.linalg.norm(x[j]-x[i])))
+        if not np.isfinite(length) or length<=1e-14:
+            raise ValueError(f"edge {(i,j)} must have a positive finite length")
+        min_length=min(min_length,length)
+        sji=np.asarray(spin_links[(i,j)],dtype=complex)
+        if sji.shape==(2,2):
+            sji=np.block([[sji,np.zeros((2,2))],[np.zeros((2,2)),sji]])
+        if sji.shape!=(4,4):
+            raise ValueError("spin link must be 2x2 SU(2) or 4x4")
+        si=slice(4*i,4*i+4); sj=slice(4*j,4*j+4)
+        weight=r/(2.0*length)
+        raw[si,si]+=weight*identity
+        raw[sj,sj]+=weight*identity
+        raw[sj,si]-=weight*sji
+        raw[si,sj]-=weight*sji.conj().T
+    volumes=np.linalg.det(e)
+    v4=np.repeat(volumes,4)
+    invsqrt=1.0/np.sqrt(v4)
+    operator=invsqrt[:,None]*raw*invsqrt[None,:]
+    herm=float(np.linalg.norm(operator-operator.conj().T,ord="fro"))
+    eigmin=float(np.linalg.eigvalsh(operator)[0]) if operator.size else 0.0
+    return operator,{
+        "vertices":n,"edges":len(edges),"wilson_r":r,
+        "min_edge_length":None if not np.isfinite(min_length) else float(min_length),
+        "volume_min":float(volumes.min()),"volume_max":float(volumes.max()),
+        "hermiticity_residual":herm,"minimum_eigenvalue":eigmin,
+        "status":"GAUGE_COVARIANT_WILSON_LAPLACIAN"
+    }
+
+
+def chirality_matrix():
+    """Return gamma_5=i gamma^0 gamma^1 gamma^2 gamma^3 in this convention."""
+    gs=gamma_matrices()
+    return 1j*gs[0]@gs[1]@gs[2]@gs[3]
+
+
+def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None,wilson_r=0.0):
     """Hermitian volume-weighted nearest-neighbour spatial Dirac candidate."""
     x,e=_validate_geometry(coordinates,vierbein); n=len(x); gs=gamma_matrices()
     if local_spatial_gamma is None: local=np.broadcast_to(np.asarray(gs[1:]),(n,3,4,4)).copy()
@@ -111,7 +176,13 @@ def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spat
         h[sj,si]+=block; h[si,sj]+=block.conj().T
     volumes=np.linalg.det(e); v4=np.repeat(volumes,4); invsqrt=1/np.sqrt(v4)
     d=invsqrt[:,None]*h*invsqrt[None,:]
-    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","status":"CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+    r=float(wilson_r)
+    if not np.isfinite(r) or r<0: raise ValueError("wilson_r must be finite and non-negative")
+    wilson_audit=None
+    if r>0:
+        wilson,wilson_audit=assemble_wilson_laplacian(x,e,edges,spin_links=spin_links,wilson_r=r)
+        d=d+wilson
+    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"CANDIDATE_DISCRETE_SPATIAL_DIRAC_WITH_WILSON_TERM" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
 
 def discrete_dirac_spectrum(operator):
     d=np.asarray(operator,dtype=complex); residual=float(np.linalg.norm(d-d.conj().T,ord="fro"))
