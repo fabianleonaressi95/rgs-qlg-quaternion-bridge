@@ -103,6 +103,72 @@ def build_strange_loop_operator(kappa=1.0, sheet_weight=1.0):
     return H,{"L_cantor_parry_q6":Lcq,"measure":measure,"L_torus_lifted":Lt,"L_sheet":Lsheet}
 
 
+
+def doppler_moire_phase_audit(
+    omega0=1.0, beta=0.1, k1=(1.0,0.0), k2=(1.0,0.08),
+    projection=None, phase0=0.0, t=1.0
+):
+    """Doppler temporal generator and Moire spatial phase on the 64 Q6 vertices.
+
+    projection maps six Q6 bit coordinates to a physical 2D plane (2x6).
+    The default is an explicitly declared coordinate chart, not a derived
+    RGS metric. Frequencies and wavevectors retain their input units.
+    """
+    if not (0.0 <= abs(beta) < 1.0):
+        raise ValueError("beta must satisfy |beta|<1")
+    k1=np.asarray(k1,dtype=float); k2=np.asarray(k2,dtype=float)
+    if k1.shape!=(2,) or k2.shape!=(2,):
+        raise ValueError("k1 and k2 must be two-dimensional wavevectors")
+    if projection is None:
+        projection=np.zeros((2,6)); projection[0,0]=1.; projection[1,1]=1.
+    P=np.asarray(projection,dtype=float)
+    if P.shape!=(2,6):
+        raise ValueError("projection must have shape (2,6)")
+    dk=k2-k1
+    positions=np.asarray([P@np.array([(x>>a)&1 for a in range(6)],dtype=float)
+                          for x in range(64)])
+    phase=positions@dk+float(phase0)
+    moire_potential=1.-np.cos(phase)
+    # Standard longitudinal relativistic Doppler factor for source/observer
+    # convention omega' = gamma omega (1 - beta . k_hat).
+    khat=k1/np.linalg.norm(k1) if np.linalg.norm(k1)>0 else np.array([1.,0.])
+    gamma=1./np.sqrt(1.-beta*beta)
+    omega_obs=gamma*float(omega0)*(1.-float(beta)*float(khat[0]))
+    # A spatially uniform observer has a uniform Doppler shift. Keep it as a
+    # temporal generator, not as an energy added to a dimensionless Laplacian.
+    temporal_phase=omega_obs*float(t)-phase
+    coherence=np.exp(-1j*temporal_phase)
+    return {
+        "delta_k":dk.tolist(),
+        "moire_length":float(2.*np.pi/np.linalg.norm(dk)) if np.linalg.norm(dk)>0 else None,
+        "moire_phase":phase.tolist(),
+        "moire_potential":moire_potential.tolist(),
+        "doppler_factor":float(gamma*(1.-beta*float(khat[0]))),
+        "omega_observed":float(omega_obs),
+        "temporal_phase":float(omega_obs*t),
+        "spacetime_phase":temporal_phase.tolist(),
+        "coherence_real":coherence.real.tolist(),
+        "coherence_imag":coherence.imag.tolist(),
+        "phase_identity":"Delta theta(x,t)=Delta omega*t-Delta k dot x+phase0; Doppler is temporal, Moire is spatial",
+        "projection":P.tolist(),
+        "caveat":"projection and beta are model inputs; the RGS vierbein/action must determine them for a physical prediction",
+    }
+
+
+def build_doppler_moire_operator(kappa=1.0,sheet_weight=1.0,
+                                  moire_strength=0.0,omega0=1.0,beta=0.0,
+                                  k1=(1.0,0.0),k2=(1.0,0.08),projection=None):
+    """Return static Hermitian spatial operator and separate Doppler generator."""
+    H,parts=build_strange_loop_operator(kappa,sheet_weight)
+    audit=doppler_moire_phase_audit(omega0=omega0,beta=beta,k1=k1,k2=k2,projection=projection)
+    vm=np.asarray(audit["moire_potential"])
+    V=np.tile(vm,3)
+    V=np.repeat(V,2)
+    H_ext=H+float(moire_strength)*np.diag(V)
+    omega=np.full(384,audit["omega_observed"],dtype=float)
+    return H_ext,omega,{**parts,"doppler_moire":audit,"moire_diagonal":V}
+
+
 def _prism_constant_mode_intertwiner(H):
     """Factorized rank-one T=v u*: maps the constant mode to PRISM constant mode."""
     n=H.shape[0]
