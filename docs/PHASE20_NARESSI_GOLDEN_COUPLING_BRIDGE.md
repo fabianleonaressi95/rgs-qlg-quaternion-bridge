@@ -51,7 +51,7 @@ This is a parameter-free spectral dictionary, but remains a model ansatz. It is 
 
 **Exact from definitions:** golden decay ratio, phase identity, chi projection, Q6 entropy evaluated at tau_phi.
 
-**Numerically audited:** corrected QAT finite-Fock Hermiticity/unitarity; CSR TFIM symmetry, low-energy spectrum and half-chain entropy for tested N.
+**Numerically audited by the added test suite:** corrected QAT finite-Fock Hermiticity/unitarity; CSR TFIM symmetry, low-energy spectrum and half-chain entropy for tested N. The test run for these new commits is pending confirmation.
 
 **Model choices:** displacement quadrature b+b†, open-chain boundaries, spectral dictionary q_phi=exp(-tau).
 
@@ -59,5 +59,8 @@ This is a parameter-free spectral dictionary, but remains a model ansatz. It is 
 
 ## Reproduction
 
-Run:
+Run the focused tests:
 PYTHONPATH=. python -m pytest tests/test_naressi_golden_bridge.py -q
+
+Generate the JSON audit (default sizes N=4,8,12,16):
+PYTHONPATH=. python examples/naressi_golden_bridge_audit.py
