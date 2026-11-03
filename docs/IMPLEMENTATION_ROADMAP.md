@@ -70,10 +70,16 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 
 
 ### Phase 4 — 2I representations and intertwiners
-- [ ] Audit the 120 unit-quaternion elements, closure, inverses and multiplication convention.
-- [ ] Construct explicit representation matrices.
-- [ ] Compute intertwiner spaces and verify their defining equations.
-- [ ] Compare dimensions against representation-theoretic predictions.
+- [x] Reuse the exhaustive 120-element 2I audit: unit norm, all 14,400 products closed, inverses present and 60 SO(3) classes.
+- [x] Preserve scalar-first Hamilton multiplication and active column-vector rotation conventions.
+- [x] Implement the trivial 1D, defining fundamental 2D complex, and vector 3D representations.
+- [x] Verify representation homomorphism and unitarity/orthogonality on all 120 elements (and deterministic product samples).
+- [x] Verify the central element -1 acts as +1 in trivial/vector representations and -I in the fundamental representation.
+- [x] Compute numerical Hom-space bases from the defining equations rho_out(g)K = K rho_in(g).
+- [x] Verify selected Schur-lemma dimensions: one-dimensional commutants and zero intertwiners between inequivalent selected irreducibles.
+- [x] Keep this explicitly a selected representation set, not the complete irreducible character table of 2I.
+- [x] Keep orientation-reversing Möbius transitions outside 2I; no reflection or Pin lift is inferred.
+
 
 ### Phase 5 — Clifford-valued operators
 - [ ] Fix the Clifford relation, basis ordering and metric signature.
