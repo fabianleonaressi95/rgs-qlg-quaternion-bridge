@@ -67,6 +67,10 @@ jobs:
         run: |
           python examples/lattice_rotation_demo.py
 
+      - name: Run Wilson fermion audit
+        run: |
+          python examples/wilson_fermion_audit.py
+
       - name: Final audit summary
         if: success()
         run: |
