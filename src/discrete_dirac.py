@@ -91,7 +91,6 @@ def compact_kernel_transform(features,edges,kernels:Mapping,transporters:Mapping
 
 
 def assemble_wilson_laplacian(
-    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None
     coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None, r=None
 ):
     """Build the positive, gauge-covariant graph Wilson term.
