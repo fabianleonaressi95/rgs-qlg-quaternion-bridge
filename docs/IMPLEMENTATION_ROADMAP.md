@@ -47,13 +47,16 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 - [x] Compute Euler characteristic 0 and Betti numbers (b0,b1,b2) = (1,1,0).
 - [x] Detect non-orientability by face-orientation propagation.
 
-## Next phases
-
 ### Phase 2 — Gauge-covariance audit
-- [ ] Add randomized vertex gauge transformations using the existing SU2Lattice convention.
-- [ ] Check open-path covariance and closed-loop conjugation.
-- [ ] Check Wilson-trace invariance and inverse-edge consistency.
-- [ ] Export residuals, tolerances, random seed and input metadata as JSON.
+- [x] Generate deterministic random SU(2) link variables on all 18 Möbius edges.
+- [x] Generate independent SU(2) gauge transformations at all 12 vertices.
+- [x] Check open-path covariance on each of the six face paths.
+- [x] Check closed-loop holonomy conjugation on all six square boundaries.
+- [x] Check normalized Wilson-trace invariance.
+- [x] Check reverse-link consistency before and after gauge transformation.
+- [x] Record seed, tolerance, graph counts and maximum residuals in a JSON audit; the module CLI writes to results/json/.
+
+## Next phases
 
 ### Phase 3 — Local frame and feature representations
 - [ ] Specify the local frame group separately from the internal SU(2) group.
