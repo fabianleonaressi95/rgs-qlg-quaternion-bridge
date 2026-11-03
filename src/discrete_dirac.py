@@ -92,6 +92,7 @@ def compact_kernel_transform(features,edges,kernels:Mapping,transporters:Mapping
 
 def assemble_wilson_laplacian(
     coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None, r=None
 ):
     """Build the positive, gauge-covariant graph Wilson term.
 
@@ -103,6 +104,8 @@ def assemble_wilson_laplacian(
     whose endpoint coordinate difference is not the periodic geodesic length.
     """
     x,e=_validate_geometry(coordinates,vierbein)
+    if r is not None:
+        wilson_r = r  # backward-compatible alias used by Phase 7 callers
     r=float(wilson_r)
     if not np.isfinite(r) or r<0:
         raise ValueError("wilson_r must be finite and non-negative")
@@ -160,6 +163,7 @@ def chirality_matrix():
 
 def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None,wilson_r=0.0):
     """Hermitian volume-weighted nearest-neighbour spatial Dirac candidate."""
+    """Hermitian nearest-neighbour Dirac candidate.\n\n    wilson_r>0 adds the scalar graph Laplacian to this Hermitian matrix;\n    use assemble_euclidean_wilson_dirac for the standard gamma5-Hermitian\n    Euclidean Wilson-Dirac formulation.\n    """
     x,e=_validate_geometry(coordinates,vierbein); n=len(x); gs=gamma_matrices()
     if local_spatial_gamma is None: local=np.broadcast_to(np.asarray(gs[1:]),(n,3,4,4)).copy()
     else:
@@ -187,9 +191,58 @@ def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spat
         wilson,wilson_audit=assemble_wilson_laplacian(x,e,edges,spin_links=spin_links,wilson_r=r)
         d=d+wilson
     return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"CANDIDATE_DISCRETE_SPATIAL_DIRAC_WITH_WILSON_TERM" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"HERMITIAN_SCALAR_PERTURBED_SPATIAL_OPERATOR_NOT_STANDARD_EUCLIDEAN_WILSON" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+
+def assemble_euclidean_wilson_dirac(
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0
+):
+    """Assemble the gamma5-Hermitian Euclidean Wilson-Dirac matrix.
+
+    In this repository D0 is Hermitian and anticommutes with Gamma5.
+    The Euclidean convention is therefore D_E = i D0 + W, not D0 + W.
+    It obeys D_E^dagger = Gamma5 D_E Gamma5 when W commutes with Gamma5.
+    """
+    x,e=_validate_geometry(coordinates,vierbein)
+    d0,dirac_audit=assemble_spatial_dirac(
+        x,e,edges,spin_links=spin_links,wilson_r=0.0
+    )
+    w,wilson_audit=assemble_wilson_laplacian(
+        x,e,edges,spin_links=spin_links,wilson_r=wilson_r
+    )
+    d_e=1j*d0+w
+    gamma5_global=np.kron(np.eye(len(x)),chirality_matrix())
+    gamma5_res=float(np.linalg.norm(
+        d_e.conj().T-gamma5_global@d_e@gamma5_global,ord="fro"
+    ))
+    return d_e,{
+        "vertices":len(x),"edges":len(edges),"wilson_r":float(wilson_r),
+        "gamma5_hermiticity_residual":gamma5_res,
+        "naive_hermiticity_residual":dirac_audit["hermiticity_residual"],
+        "wilson_hermiticity_residual":wilson_audit["hermiticity_residual"],
+        "wilson_minimum_eigenvalue":wilson_audit["minimum_eigenvalue"],
+        "status":"EUCLIDEAN_GAMMA5_HERMITIAN_WILSON_DIRAC"
+    }
+
 
 def discrete_dirac_spectrum(operator):
     d=np.asarray(operator,dtype=complex); residual=float(np.linalg.norm(d-d.conj().T,ord="fro"))
     if residual>1e-9: raise ValueError(f"operator is not Hermitian: {residual}")
     values=np.linalg.eigvalsh(d)
     return {"eigenvalues":values,"min":float(values[0]),"max":float(values[-1]),"near_zero_count_1e-9":int(np.sum(np.abs(values)<1e-9)),"spectral_pairing_residual":float(np.max(np.abs(values+values[::-1])))}
+
+
+def assemble_dirac_wilson(coordinates, vierbein, edges, spin_links=None, r=1.0):
+    """Backward-compatible finite-graph Hermitian sum D_naive + W.
+
+    For the standard Euclidean Wilson operator use
+    assemble_euclidean_wilson_dirac instead.
+    """
+    if spin_links is None:
+        spin_links, _ = polar_spin_links(vierbein, edges)
+    d, da = assemble_spatial_dirac(coordinates, vierbein, edges, spin_links=spin_links)
+    w, wa = assemble_wilson_laplacian(coordinates, vierbein, edges, spin_links=spin_links, wilson_r=r)
+    total = d + w
+    return total, {"naive": da, "wilson": wa,
+        "hermiticity_residual": float(np.linalg.norm(total-total.conj().T, ord="fro")),
+        "operator_norm": float(np.linalg.norm(total, ord=2)),
+        "status": "FINITE_GRAPH_DIRAC_WILSON_CANDIDATE"}

@@ -117,6 +117,7 @@ def test_wilson_term_lifts_pi_mode_on_periodic_1d_ring():
 
 
 def test_wilson_term_breaks_exact_chiral_anticommutation():
+def test_hermitian_scalar_perturbation_breaks_exact_chiral_anticommutation():
     from src.discrete_dirac import assemble_spatial_dirac, chirality_matrix
     x=np.array([[0.,0.,0.],[1.,0.,0.]])
     e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
@@ -148,3 +149,14 @@ def test_wilson_laplacian_rejects_nonunitary_spin_links():
     e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
     with pytest.raises(ValueError,match="unitary|SU\\(2\\)"):
         assemble_wilson_laplacian(x,e,[(0,1)],spin_links={(0,1):2*np.eye(2)})
+
+
+def test_euclidean_wilson_dirac_has_gamma5_hermiticity():
+    from src.discrete_dirac import assemble_euclidean_wilson_dirac, chirality_matrix
+    x=np.array([[0.,0.,0.],[1.,0.,0.]])
+    e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
+    de,audit=assemble_euclidean_wilson_dirac(x,e,[(0,1)],wilson_r=1.0)
+    gamma5=np.kron(np.eye(2),chirality_matrix())
+    assert audit["gamma5_hermiticity_residual"]<1e-12
+    assert np.linalg.norm(de-de.conj().T,ord="fro")>1e-6
+    assert np.allclose(de.conj().T,gamma5@de@gamma5,atol=1e-12)

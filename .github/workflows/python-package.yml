@@ -71,6 +71,20 @@ jobs:
         run: |
           PYTHONPATH=. python examples/wilson_fermion_audit.py
 
+      - name: Run refinement / overlap / Dirac-Kahler audit
+        run: |
+          PYTHONPATH=. python examples/wilson_refinement_audit.py
+
+      - name: Run flat-torus G0-G3 refinement audit
+        run: |
+          PYTHONPATH=. python examples/flat_torus_refinement_audit.py
+          PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py -v
+
+      - name: Mobius boundary thermodynamics audit
+        run: |
+          PYTHONPATH=. python examples/mobius_hawking_thermodynamics.py
+          PYTHONPATH=. python -m pytest tests/test_thermodynamics.py -v
+
       - name: Final audit summary
         if: success()
         run: |
@@ -84,4 +98,6 @@ jobs:
           echo "Complete test suite: PASS"
           echo "Lattice demonstration: PASS"
           echo "Wilson fermion audit: PASS"
+          echo "Refinement / overlap / Dirac-Kahler audit: PASS"
+          echo "Mobius boundary thermodynamics: PASS"
           echo "=============================================="

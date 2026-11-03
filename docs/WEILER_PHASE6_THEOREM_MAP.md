@@ -79,6 +79,20 @@ The volume-weighted operator is `W = V^(-1/2) L V^(-1/2)`, and the
 Wilson-corrected finite operator is `D_W = D_naive + W`. The implementation
 is `assemble_wilson_laplacian(...)`; `assemble_spatial_dirac(..., wilson_r=r)`
 adds it when r>0. The default r=0 preserves the previous Phase 6 operator.
+The volume-weighted positive graph Laplacian is `W = V^(-1/2) L V^(-1/2)`.
+The legacy option `assemble_spatial_dirac(..., wilson_r=r)` returns the
+Hermitian scalar perturbation `D_H = D_naive + W`; it is **not** the standard
+Euclidean Wilson-Dirac matrix in this repository's Hermitian convention.
+
+The correct Euclidean Wilson operator is
+
+`D_E = i D_naive + W`,
+
+implemented by `assemble_euclidean_wilson_dirac(...)`. It satisfies
+`D_E^dagger = Gamma5 D_E Gamma5` when the naive operator anticommutes with
+Gamma5 and W commutes with Gamma5. The overlap construction uses this
+gamma5-Hermitian Euclidean matrix. The default `wilson_r=0` preserves the
+Phase 6 naive operator.
 
 ### Algebraic properties
 
@@ -93,6 +107,11 @@ adds it when r>0. The default r=0 preserves the previous Phase 6 operator.
   with gamma_5. For r>0 and a nontrivial graph,
   `{D_W,Gamma_5}` is generally nonzero. The naive operator's exact
   anticommutation is therefore deliberately broken.
+- **Chiral breaking:** W is scalar in spinor space and commutes with
+  Gamma5. Thus `D_E=iD_naive+W` is gamma5-Hermitian but does not have the
+  naive exact anticommutation. The legacy Hermitian sum `D_H=D_naive+W`
+  also breaks the anticommutator, but this fact alone does not make it the
+  standard Euclidean Wilson operator.
 - **Scaling:** if all edge lengths are dilated by alpha while E and r are fixed,
   W scales as alpha^(-1), matching the scaling of the implemented first-order
   graph operator. A continuum Wilson coefficient normally carries an explicit
@@ -108,6 +127,20 @@ term has Fourier eigenvalue
 It vanishes at p=0 and equals 2r/a at p=pi/a. Thus it lifts the naive
 Nyquist doubler from zero to the cutoff scale in this controlled periodic
 test. The test uses an explicit periodic edge length for the wrap-around edge.
+On a uniform periodic ring with spacing a and trivial links,
+
+`W(p) = (r/a) [1 - cos(pa)]`, and the naive Hermitian symbol magnitude is
+`E0(p)=(2/a)|sin(pa)|`.
+
+The Euclidean Wilson matrix `D_E=iD0+W` has singular-value magnitude
+`sqrt(E0(p)^2+W(p)^2)`: it vanishes at p=0 and equals 2r/a at p=pi/a.
+This is the standard Wilson lifting mechanism in the current convention.
+
+**Important correction:** the legacy Hermitian sum `D_H=D0+W` has branches
+`W(p) +/- E0(p)`. In one dimension it has an additional accidental zero
+at `pa=2 arctan(2/r)`, besides p=0. Therefore the earlier test of W(p) at
+p=pi/a alone did not prove that the combined Hermitian sum is free of
+additional zeros. No no-doubling claim is based on that sum.
 
 ### Evidence and limits
 
