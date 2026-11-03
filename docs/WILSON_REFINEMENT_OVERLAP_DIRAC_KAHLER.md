@@ -138,3 +138,36 @@ PYTHONPATH=. python examples/wilson_refinement_audit.py
 ```
 
 The JSON report is written to `results/json/wilson_refinement_audit.json`.
+
+
+## 6. Overlap operator on the archived RGS-Q6 geometry
+
+The overlap construction was also evaluated on the supplied 64-vertex RGS archive. The vierbein was reconstructed with the established constants, the Phase 8 polar SU(2) links were reused, and the Wilson parameter and overlap parameter were set to r=1 and rho=1. Since Q6 is embedded with nonuniform edge lengths, the reference length a_ref was explicitly chosen as the mean of the 192 Euclidean edge lengths (1.6699217666); this is a normalization convention for this finite experiment, not a demonstrated mesh spacing in a refinement family.
+
+For the resulting 256x256 matrices:
+
+| Quantity | Result |
+|---|---:|
+| Mean reference edge length | 1.6699217666 |
+| Wilson kernel Hermiticity residual | 2.29e-15 |
+| Wilson kernel minimum absolute eigenvalue | 2.00326562 |
+| Ginsparg–Wilson residual | 3.38e-14 |
+| gamma5-Hermiticity residual | 8.97e-16 |
+| Overlap matrix Hermiticity residual | 14.1686 |
+
+The overlap operator is not expected to be Hermitian in this convention; gamma5-Hermiticity, not ordinary Hermiticity, is the relevant relation.
+
+The mean Frobenius norm of the 4x4 vertex-to-vertex overlap blocks decreases with Q6 Hamming distance:
+
+| Hamming distance | Mean block norm |
+|---:|---:|
+| 1 | 0.34020 |
+| 2 | 0.05123 |
+| 3 | 0.02640 |
+| 4 | 0.01188 |
+| 5 | 0.00819 |
+| 6 | 0.00511 |
+
+A log-linear fit gives a finite-sample decay factor about 0.459 per Hamming step. This is an **empirical finite-graph locality diagnostic**, not a proof of exponential locality uniform over a graph family. The positive kernel gap is established only for this archive, rho and chosen reference scale. No index theorem, anomaly statement, or continuum locality theorem follows.
+
+Reproduction script: `examples/rgs_q6_overlap_audit.py`. It accepts the NPZ archive as a command-line argument and writes `results/json/rgs_q6_overlap_audit.json`. The numerical snapshot is committed at that path.
