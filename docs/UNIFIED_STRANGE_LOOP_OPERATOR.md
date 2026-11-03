@@ -52,3 +52,26 @@ H=L_{\mathrm{Cantor,Parry,Q6}}\otimes I_2+
 \gamma I_{192}\otimes(I_2-J).
 \]
 Quindi Cantor, supergolden/Bach, esagrammi Q6, toro di Escher e doppio foglio entrano nello stesso spazio di stati di dimensione 384. La simmetrizzazione conserva la struttura di conduttanza ma non la dinamica temporale orientata originale; quest'ultima resta rappresentata dal kernel Parry prima della simmetrizzazione.
+
+## Estensione Doppler–Moiré
+
+Le due grandezze vengono mantenute distinte ma accoppiate attraverso la fase relativa delle due onde:
+\[
+\Delta\theta(\mathbf x,t)=\Delta\omega\,t-
+\Delta\mathbf k\cdot\mathbf x+\Delta\theta_0.
+\]
+Il Doppler è la componente temporale:
+\[
+\omega_{\rm obs}=-k_\mu u^\mu,
+\qquad
+\omega'=\gamma\omega(1-\boldsymbol\beta\cdot\hat{\mathbf k}),
+\]
+mentre il Moiré è la componente spaziale:
+\[
+\Delta\mathbf k=\mathbf k_2-\mathbf k_1,
+\qquad L_M=\frac{2\pi}{|\Delta\mathbf k|},
+\qquad V_M(x)=1-\cos(\Delta\mathbf k\cdot\mathbf x+\Delta\theta_0).
+\]
+Il modulo calcola il generatore temporale Doppler separatamente dall'operatore spaziale; non somma frequenze dimensionali a un Laplaciano adimensionale. Il potenziale Moiré entra come modulazione diagonale non negativa sul reticolo Q6. La proiezione 2x6 e i parametri cinematici sono input espliciti: non vengono spacciati per conseguenze già dimostrate della vierbein RGS. La derivata temporale e il gradiente spaziale della stessa fase rendono il ponte matematico preciso, senza identificare i due fenomeni.
+
+Per due onde di frequenze proprie uguali \\(\\omega_0\\), osservate da un riferimento che si muove lungo il primo asse (con \\(c=1\\)), il codice usa \\(\\omega_i'=\\gamma(\\omega_0-\\beta k_{i,x})\\) e quindi \\(\\Delta\\omega'=\\omega_2'-\\omega_1'\\). Il periodo di battimento è \\(T_b=2\\pi/|\\Delta\\omega'|\\), quando la differenza è non nulla. In questo modo la fase relativa usa davvero la differenza Doppler delle due onde, non una frequenza assoluta impropriamente attribuita al battimento.
