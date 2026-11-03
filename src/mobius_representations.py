@@ -152,7 +152,7 @@ def audit_local_frame_representations() -> dict[str, object]:
         "representations": rep_holonomies,
         "representation_homomorphism_max_residual": representation_law_residual,
         "transition_inverse_consistency": all(
-            item.sign == item.sign for item in transitions
+            item.sign * item.sign == 1 for item in transitions
         ),
         "orientation_obstruction_detected": holonomy == -1,
     }
