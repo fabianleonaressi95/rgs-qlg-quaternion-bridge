@@ -29,7 +29,7 @@ def curved_gamma_matrices(vierbein,gammas=None):
     out=np.zeros((len(e),4,4,4),dtype=complex); out[:,0]=gs[0]
     for i,ei in enumerate(e):
         inv=np.linalg.inv(ei)
-        for mu in range(3): out[i,mu+1]=sum(inv[a,mu]*gs[a+1] for a in range(3))
+        for mu in range(3): out[i,mu+1]=sum(inv[mu,a]*gs[a+1] for a in range(3))
     return out
 
 def curved_clifford_audit(vierbein,tol=2e-10):
