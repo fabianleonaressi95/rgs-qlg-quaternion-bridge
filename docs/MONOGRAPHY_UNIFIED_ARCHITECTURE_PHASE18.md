@@ -80,3 +80,26 @@ La connessione \(SU(2)^{192}\) è definita come campo di link sul complesso; le 
 Restano aperti la ricostruzione fisica univoca della connessione a partire dal vierbein/coframe RGS, il sollevamento Pin degli elementi impropri e il limite continuo Yang–Mills. La fase costituisce quindi una costruzione e un audit di gauge theory su complesso finito, non ancora una derivazione della dinamica fisica continua.
 
 **Regola editoriale:** la Fase 19 è un avanzamento interno della medesima catena RGS–PSU–PRISM–QLG e va collocata nel capitolo pertinente dell'indice canonico a 27 capitoli, senza alterarne titoli o numerazione.
+
+
+## Fase 20 — QAT, doppio foglio PSU, entanglement e geometria emergente
+
+La Fase 20 integra il quadro QAT (cubo, sfera inscritta, cono nullo, evento centrale e doppio foglio PSU–Anti-Twin) con il programma di emergenza geometrica da entanglement. Prosegue la catena già sviluppata nelle Fasi 18–19: geometria RGS e simmetrie \(O_h\), complesso Q6, connessione \(SU(2)^{192}\), olonomie e azione di Wilson.
+
+Il primo ponte quantitativo è un modello finito a due fogli con spazio di Hilbert \(\mathcal H_+\otimes\mathcal H_-\), ciascun fattore di dimensione 64. Sul grafo Q6 si definisce \(K_\tau=e^{-\tau L_{Q6}/2}\) e lo stato normalizzato con coefficienti \(C_\tau=K_\tau/\|K_\tau\|_F\). La matrice ridotta è
+\[
+\rho_+(\tau)=\frac{e^{-\tau L_{Q6}}}{\operatorname{Tr}(e^{-\tau L_{Q6}})}.
+\]
+Dallo spettro \(\lambda_j=2j\), \(m_j=\binom6j\), segue esattamente
+\[
+S_+(\tau)=6h\!\left(\frac{1}{1+e^{2\tau}}\right).
+\]
+Il risultato è un'identità del modello heat-kernel finito; \(\tau\) è adimensionale e non è ancora identificato con tempo proprio, velocità QAT, raggio del cono o parametro di ovalizzazione.
+
+Van Raamsdonk fornisce la motivazione fisica: in contesti gravitazionali olografici la connessione geometrica può essere legata all'entanglement. Ryu–Takayanagi fornisce il programma area-entropia; Maldacena–Susskind il quadro congetturale ER=EPR; Swingle la direzione di scala tramite entanglement renormalization; Faulkner–Lewkowycz–Maldacena ricordano che esistono correzioni quantistiche oltre il termine di area. Van Raamsdonk–Vilar López (2026) offre un confronto specifico per saddles euclidei, cosmologie chiuse e tubi AdS. Nessuna di queste corrispondenze è assunta automaticamente valida per QAT o PSU.
+
+La fase apre i test: (i) costruire uno scalare geometrico \(\chi[e]\) dalla tetrade QAT e derivare, non adattare, \(\tau=f(\chi)\); (ii) definire superfici minime/cut discrete Q6–PRISM con pesi derivati dal coframe; (iii) verificare \(S(A)=\mathrm{Area}(\gamma_A)/(4G_{\rm eff})\) su più partizioni e raffinamenti, con \(G_{\rm eff}\) fissato indipendentemente; (iv) accoppiare il kernel ai link SU(2) solo tramite un termine gauge-invariante esplicito; (v) confrontare saddles euclidei e tetrade lorentziana dichiarando continuazione e condizioni al bordo.
+
+**Classificazione:** formula entropica Q6 = IDENTITÀ FINITA ESATTA per lo stato scelto; audit matriciale = VERIFICA NUMERICA; kernel e fattorizzazione a due fogli = DEFINIZIONE DI MODELLO; derivazione QAT, legge area, metrica emergente, limite continuo e identificazione con wormhole = APERTI.
+
+**Regola editoriale:** la Fase 20 resta un inserto nella monografia unitaria di 27 capitoli; non crea capitoli autonomi né modifica l'indice canonico.
