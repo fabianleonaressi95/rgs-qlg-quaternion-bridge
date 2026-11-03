@@ -27,3 +27,39 @@ def test_overlap_rejects_kernel_without_gamma5_hermiticity():
         assert "requires" in str(exc)
     else:
         raise AssertionError("invalid naive operator must be rejected")
+
+
+def test_overlap_index_trace_resolves_a_single_negative_chirality_zero_mode():
+    gamma5=np.diag([1.0,-1.0]).astype(complex)
+    naive=np.zeros((2,2),dtype=complex)
+    wilson=np.diag([1.5,0.5]).astype(complex)
+    overlap,audit=assemble_overlap_from_wilson(
+        naive,wilson,gamma5,lattice_spacing=1.0,rho=1.0
+    )
+    from src.overlap_dirac import overlap_index
+    result=overlap_index(overlap,gamma5,1.0,1.0)
+    assert result["nearest_integer_candidate"]==-1
+    assert result["integer_within_tolerance"]
+    assert result["zero_mode_count"]==1
+    assert np.isclose(result["zero_mode_chirality_sum"],-1.0,atol=1e-12)
+
+
+def test_overlap_spectral_flow_detects_sampled_sign_count_change():
+    from src.overlap_dirac import overlap_kernel_spectral_flow
+    gamma5=np.diag([1.0,-1.0]).astype(complex)
+    naive=np.zeros((2,2),dtype=complex)
+    wilson=np.diag([1.5,0.5]).astype(complex)
+    result=overlap_kernel_spectral_flow(naive,wilson,gamma5,1.0,[0.25,0.75,1.25,1.75])
+    assert len(result["samples"])==4
+    assert len(result["sampled_sign_count_changes"])>=1
+
+
+def test_overlap_locality_profile_uses_graph_shortest_path_shells():
+    from src.overlap_dirac import overlap_locality_profile
+    d=np.zeros((12,12),dtype=complex)
+    for i in range(3):
+        for j in range(3):
+            d[4*i:4*i+4,4*j:4*j+4]=np.eye(4)/(1+abs(i-j))
+    result=overlap_locality_profile(d,[(0,1),(1,2)],3,4)
+    assert set(result["shells"])=={"1","2"}
+    assert result["status"].startswith("FINITE_GRAPH_DIAGNOSTIC")

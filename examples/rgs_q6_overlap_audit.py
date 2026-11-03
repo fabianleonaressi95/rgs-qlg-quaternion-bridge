@@ -4,7 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 from src.discrete_dirac import assemble_spatial_dirac, assemble_wilson_laplacian, chirality_matrix, polar_spin_links
-from src.overlap_dirac import assemble_overlap_from_wilson
+from src.overlap_dirac import (assemble_overlap_from_wilson, overlap_index, overlap_kernel_spectral_flow, overlap_locality_profile)
 
 
 def reconstruct_vierbein(x, ell2=7.035514834154695, c0=43.96495130838031):
@@ -30,6 +30,11 @@ def run(archive, output, wilson_r=1.0, rho=1.0):
     lengths=np.array([np.linalg.norm(x[j]-x[i]) for i,j in edges])
     a=float(lengths.mean())
     dov,oa=assemble_overlap_from_wilson(d0,w,g5,lattice_spacing=a,rho=rho)
+    index_audit=overlap_index(dov,g5,lattice_spacing=a,rho=rho)
+    spectral_flow=overlap_kernel_spectral_flow(
+        d0,w,g5,a,np.linspace(max(0.1,0.5*rho),1.5*rho,9)
+    )
+    locality_audit=overlap_locality_profile(dov,edges,64,4)
     blocks=defaultdict(list)
     for i in range(64):
         for j in range(64):
@@ -51,12 +56,15 @@ def run(archive, output, wilson_r=1.0, rho=1.0):
                    "wilson_hermiticity":wa["hermiticity_residual"],
                    "wilson_min_eigenvalue":wa["minimum_eigenvalue"],"wilson_r":wilson_r},
       "overlap":oa,
+      "index":index_audit,
+      "spectral_flow":spectral_flow,
+      "locality_graph_distance":locality_audit,
       "locality":{"distance":"Q6 Hamming distance","block_norms":locality,
                   "log_mean_fit_slope":slope,"empirical_factor_per_step":float(np.exp(slope)),
                   "status":"finite graph diagnostic, not a uniform locality theorem"},
       "status":{"Q6_overlap":"NUMERICALLY_CONSTRUCTED","GW":"VERIFIED",
                 "kernel_gap":"POSITIVE_FOR_THIS_ARCHIVE_AND_RHO",
-                "continuum_locality":"OPEN","index_theorem":"OPEN","Mosco":"OPEN"}
+                "continuum_locality":"OPEN","finite_matrix_index_trace":("INTEGER_WITHIN_TOLERANCE" if index_audit["integer_within_tolerance"] else "NONINTEGER_OR_UNRESOLVED"),"continuum_index_theorem":"OPEN","Mosco":"OPEN"}
     }
     out=Path(output); out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(report,indent=2)+"\n")
