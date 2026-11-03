@@ -59,10 +59,15 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 ## Next phases
 
 ### Phase 3 — Local frame and feature representations
-- [ ] Specify the local frame group separately from the internal SU(2) group.
-- [ ] Define scalar, sign-changing and regular two-channel representations for Möbius reflection transitions.
-- [ ] Verify transition cocycles and seam-crossing transport.
-- [ ] Do not infer torsion or a Pin structure from non-orientability alone.
+- [x] Derive the six dual-face Z2 transition signs from shared-edge incidence and the fixed cyclic face orientations.
+- [x] Keep the local-frame Z2 transition system separate from the independent internal SU(2) lattice gauge field.
+- [x] Implement scalar, sign-changing and regular two-channel representations.
+- [x] Verify the representation homomorphism laws and local-frame change covariance.
+- [x] Verify the dual-face cycle (0,1,2,5,4,3,0) has Z2 holonomy -1, the discrete orientation obstruction.
+- [x] Verify regular two-channel transport swaps components across a reversing transition.
+- [x] Test invalid signs and feature dimensions; 85 tests passed on the Phase 3 implementation commit.
+- [x] Do not infer torsion or a Pin structure from non-orientability alone.
+
 
 ### Phase 4 — 2I representations and intertwiners
 - [ ] Audit the 120 unit-quaternion elements, closure, inverses and multiplication convention.
