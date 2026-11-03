@@ -9,7 +9,7 @@ M=[[0,0,1],[1,0,0],[0,1,1]]. Its characteristic polynomial is x^3-x^2-1 and its 
 
 ## Escher — torus, periods and double sheet
 
-The finite Q6 torus is the periodic 4x4 grid with each square split into two triangles: V=16, E=48, F=32, Euler characteristic 0. The boundary maps satisfy B1 B2=0; ranks give Betti numbers (1,2,1). Two closed 1-cochains have fundamental period matrix identity. These are discrete homology/cohomology facts.
+The Escher torus cell complex is the periodic 4x4 grid with each square split into two triangles: V=16, E=48, F=32, Euler characteristic 0. Its 16 vertices embed into Q6 through two cyclic 2-bit Gray codes, padded by two zero bits. The horizontal and vertical C4xC4 edges are genuine Hamming-distance-one Q6 edges (32 total); the 16 triangulation diagonals have Hamming length two and are auxiliary simplicial edges, not Q6 1-skeleton edges. The boundary maps satisfy B1 B2=0; ranks give Betti numbers (1,2,1). Two closed 1-cochains have fundamental period matrix identity. These are discrete homology/cohomology facts.
 
 The sheet involution J(i,j,s)=(i,j,1-s) satisfies J^2=I. A double cover of T2 is connected iff its monodromy class rho in H1(T2;Z2) is nonzero. A nontrivial cocycle must be explicitly built on the triangulation before claiming that this particular cover has been constructed. The 2-sheet cell counts are (32,96,64), not (32,64,32), for a genuine two-fold cover of this triangulated complex.
 
