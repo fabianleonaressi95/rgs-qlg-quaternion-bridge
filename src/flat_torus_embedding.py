@@ -8,6 +8,7 @@ assembled exactly, not replaced by the lumped G3 mass.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 
 import numpy as np
 
@@ -30,7 +31,7 @@ def assemble_consistent_mass0(mesh: FlatTorusMesh) -> np.ndarray:
         offsets = np.mod(mesh.vertices[ids] - origin, mesh.side_length)
         coords = origin + offsets
         A = (coords[1:] - coords[0]).T
-        volume = abs(float(np.linalg.det(A))) / float(np.math.factorial(d))
+        volume = abs(float(np.linalg.det(A))) / float(math.factorial(d))
         local = (volume / factor_denominator) * (
             np.eye(d + 1) + np.ones((d + 1, d + 1))
         )
