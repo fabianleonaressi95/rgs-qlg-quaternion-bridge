@@ -106,3 +106,20 @@ No numerical experiment will be presented as a proof of a physical theorem.
 ## License
 
 MIT License — subject to confirmation before publication.
+
+
+## RGS–PSU Gauge–Clifford QLG research direction
+
+The next development stage is documented in:
+
+- [Research proposal](docs/RGS_PSU_GAUGE_CLIFFORD_QLG_RESEARCH_PROPOSAL.md)
+- [Implementation roadmap](docs/IMPLEMENTATION_ROADMAP.md)
+- [Tracked implementation issue #3](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/issues/3)
+
+The first Q6 implementation is `src/q6_complex.py`, with structural and incidence tests in
+`tests/test_q6_complex.py`. It fixes big-endian six-bit vertex indexing, canonical edge
+orientation and an explicit square-face orientation, and checks the chain-complex identity
+`B1 @ B2 = 0`.
+
+This is a mathematical/computational development programme. It does not assert that the
+broader physical interpretation of RGS–PSU has been established.
