@@ -166,7 +166,9 @@ def test_doppler_moire_phase_separation_and_relativistic_factor():
     expected=(1./np.sqrt(1.-.3**2))*(1.-.3)
     assert abs(r["doppler_factor"]-expected)<1e-12
     assert abs(r["moire_length"]-2.*np.pi/np.sqrt(.02))<1e-10
-    assert abs(r["delta_omega_observed"]+expected*.1)<1e-12
+    # Lorentz-transform the frequency difference: Delta omega' = gamma(Delta omega - beta Delta k_x).
+    gamma=1./np.sqrt(1.-.3**2)
+    assert abs(r["delta_omega_observed"]+gamma*.3*.1)<1e-12
     assert r["beat_period"] is not None
     assert len(r["moire_phase"])==64
     assert len(r["spacetime_phase"])==64
