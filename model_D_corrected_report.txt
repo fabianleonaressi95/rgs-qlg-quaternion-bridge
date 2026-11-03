@@ -1,0 +1,7 @@
+epsilon_eq=0
+pearson_r=0.160545697191
+within_shell_sd_mean=0.0299771460297
+within_shell_sd_max=0.0447419301023
+min_kernel=0.00121287095233
+max_kernel=0.0737848684565
+D corrected: exact covariant parameterization P(a|G)=softmax(q[a xor G]) with q free over all 64 channels, plus separation-preserving nonuniform kernel; no Hamming-shell parameterization.

@@ -1,0 +1,36 @@
+=== REPORT: BLOCCO CONTRATTO M_c ===
+
+1. POLINOMIO CARATTERISTICO:
+   1.0*(1.0*lambda**8 - 0.199999*lambda**7 - 1.31176599982297e-6*lambda**6 + 0.125000174012975*lambda**5 - 2.02843185137525e-7*lambda**4 - 0.249999786846718*lambda**3 - 1.58121031229586e-6*lambda**2 - 0.499998607059857*lambda + 0.333332979192041)
+
+2. AUTOVALORI:
+   -0.876914 - 0.422464*I (mult. 1)
+   -0.876914 + 0.422464*I (mult. 1)
+   -0.229051 - 0.849989*I (mult. 1)
+   -0.229051 + 0.849989*I (mult. 1)
+   0.488575 - 0.817011*I (mult. 1)
+   0.488575 + 0.817011*I (mult. 1)
+   0.834306000000000 (mult. 1)
+   0.600473000000000 (mult. 1)
+
+3. RAGGIO SPETTRALE: rho(M_c) = 0.9733724851 < 1
+
+4. NONNORMALITA': ||[M_c, M_c*]||_F = 2.2456342619 > 0
+
+5. AMPLIFICAZIONE TRANSIENTE:
+   ||M_c^1||_2 = 1.4143281548
+   sup_n ||M_c^n||_2 >= 1.4143281548 > 1
+
+6. OPERATOR-SCHMIDT RANK (R^2 ⊗ R^4): OSR(M_c) = 3
+
+7. ENTANGLEMENT DINAMICO:
+   Stato separabile v0 con SR(v0)=1
+   Stato v1 = M_c v0 con SR(v1) = 2
+   Valori singolari di Schmidt: [0.70434458 0.48832089]
+
+8. MASSIMO ANGolo DI SCHMIDT OSSERVATO:
+   tan(theta)_max = 0.9954611491
+   theta_max = 44.8697 gradi
+   Distanza dal massimo teorico (45 gradi): 0.1303 gradi
+
+=== END REPORT ===

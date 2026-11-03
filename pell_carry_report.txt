@@ -1,0 +1,31 @@
+=== REPORT: Pell dynamics on Z/8^2 -> F2^6 -> ANF -> Koopman ===
+
+ANF delle 6 coordinate di F (x0'..x5'):
+x0' = x3
+x1' = x0 + x4
+x2' = x0*x4 + x1 + x5
+x3' = x0
+x4' = x1
+x5' = x2
+
+Numero di monomi di grado >=2 (carry) trovati: 1
+Monomi di carry (indici delle variabili):
+  (0, 4)
+
+Dimensione di V_carry: 1
+K^8 = I su V_carry? False
+
+Polinomio caratteristico di K|_V_carry:
+  (4*lambda - 1)/4
+
+Dimensioni dei settori V_k (k=0..7) tramite trace(P_k):
+  dim V_0 = 21845/131072
+  dim V_1 = 255/2048 - 255*(-1)**(3/4)/8192 - 255*I/32768 - 255*(-1)**(1/4)/131072
+  dim V_2 = 3855/32768 - 3855*I/131072
+  dim V_3 = 255/2048 - 255*(-1)**(1/4)/8192 - 255*(-1)**(3/4)/131072 + 255*I/32768
+  dim V_4 = 13107/131072
+  dim V_5 = 255/2048 - 255*I/32768 + 255*(-1)**(1/4)/131072 + 255*(-1)**(3/4)/8192
+  dim V_6 = 3855/32768 + 3855*I/131072
+  dim V_7 = 255/2048 + 255*(-1)**(3/4)/131072 + 255*I/32768 + 255*(-1)**(1/4)/8192
+
+=== END REPORT ===

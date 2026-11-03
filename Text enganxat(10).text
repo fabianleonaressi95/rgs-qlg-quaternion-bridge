@@ -1,0 +1,578 @@
+================================================================================================
+CARICAMENTO MODELLI
+================================================================================================
+g_c = 1.62868729163081
+H_selected shape = (9, 9)
+K_field_best shape = (3, 3)
+J shape = (3, 9)
+x_soft shape = (9,)
+
+A_coupling shape = (9, 9)
+eig(A_coupling) = [-3.033175200770387e-17 -6.304125093362047e-18 -3.847508728421740e-18 -2.539440964638568e-18  3.499964297653084e-18  1.358489369762707e-17  1.791528575841335e-01
+  1.791528575841344e-01  1.791528575841352e-01]
+
+================================================================================================
+RICOSTRUZIONE SADDLE E SOTTO-SPAZIO SELEZIONATO
+================================================================================================
+E_Oh      = 897.0080867574304
+E_lowest  = 893.7848531813503
+E_M_T2u   = 893.7869301651795
+selected_rank = 9
+selected_singular_values = [3.357194475899173e+00 3.357194475899172e+00 3.357194475899171e+00 2.128574586976180e+00 2.128574586976178e+00 2.128574586976178e+00 4.454385240089465e-01 4.454385240089465e-01
+ 4.454385240089463e-01 4.101077764320263e-15 3.996443776458312e-15 3.214446716579961e-15 3.165147149624528e-15 2.981787684230117e-15 2.707006120840303e-15 2.466902838040825e-15
+ 2.400333539457053e-15 2.352096420892665e-15 2.195159662509625e-15 2.143298980192670e-15 2.088995810973942e-15 1.845043257197882e-15 1.750472794813662e-15 1.330166318631492e-15
+ 1.255456398623333e-15 1.179693899836975e-15 1.047242013227332e-15 1.046604914188255e-15 1.017117719634185e-15 9.553825489034767e-16 8.534870635672479e-16 8.264887879541789e-16
+ 8.204704485424982e-16 7.971454838900613e-16 7.828602531226553e-16 7.694000926031726e-16 7.554555036085621e-16 7.394776410557937e-16 6.998894858529099e-16 6.918556936435321e-16
+ 6.659856941996665e-16 6.591875325244672e-16 6.575583403222603e-16 6.455543941381994e-16 5.992383223578686e-16 5.867340966084868e-16 5.119761848749743e-16 4.017933473234877e-16]
+||v_soft_tan|| = 1.0
+
+================================================================================================
+COSTRUZIONE SEED
+================================================================================================
+soft triplet rank = 3
+soft singular values = [4.000000000000001e+00 4.000000000000000e+00 3.999999999999999e+00 4.351403004932996e-15 3.901180349879464e-15 3.552713678800502e-15 3.302144470136736e-15 2.714372759621118e-15
+ 2.564198618231780e-15 2.302758986099369e-15 1.811362495048284e-15 1.530670311757631e-15 1.476172802303600e-15 1.394693473300437e-15 1.383319440142229e-15 1.361899330703901e-15
+ 1.298150417389608e-15 1.205977317134940e-15 1.154251848569015e-15 1.103552018201440e-15 1.041377670857498e-15 1.034082196760653e-15 1.030681802060277e-15 9.252310502336362e-16
+ 8.468527602066068e-16 8.333665892448944e-16 7.408070182524068e-16 6.886383189539361e-16 6.781645895448122e-16 6.388717780552172e-16 6.266744751104431e-16 6.251838833557820e-16
+ 5.961386490352306e-16 5.940065086656142e-16 5.568461473659473e-16 5.543952335136847e-16 5.339015879364764e-16 5.234761281655797e-16 4.413148059735833e-16 4.374491421663463e-16
+ 4.359687147193206e-16 4.111631462818121e-16 3.996750155185795e-16 3.996750155185795e-16 3.894433840314680e-16 3.678538842840122e-16 3.205741705703350e-16 3.014966904956349e-16]
+Numero seed per ogni g = 32
+
+================================================================================================
+RILASSAMENTI DEL POTENZIALE EFFICACE
+================================================================================================
+
+------------------------------------------------------------------------------------------------
+g/g_c = 0.000000 | g = 0.000000000000000
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=893.919304704703 | Ec=893.919304704703 | Eint=-0.000000e+00 | ||F||=9.798e-07 | qsel=1.931154 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=893.919304704700 | Ec=893.919304704700 | Eint=-0.000000e+00 | ||F||=1.322e-06 | qsel=1.931186 | cluster=0
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=893.919304704681 | Ec=893.919304704681 | Eint=-0.000000e+00 | ||F||=7.011e-07 | qsel=1.931159 | cluster=0
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=893.919304704679 | Ec=893.919304704679 | Eint=-0.000000e+00 | ||F||=6.945e-07 | qsel=1.833470 | cluster=0
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=893.919304704707 | Ec=893.919304704707 | Eint=-0.000000e+00 | ||F||=8.282e-07 | qsel=1.833488 | cluster=0
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=893.919304704683 | Ec=893.919304704683 | Eint=-0.000000e+00 | ||F||=7.770e-07 | qsel=1.931155 | cluster=0
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=893.919304704694 | Ec=893.919304704694 | Eint=-0.000000e+00 | ||F||=8.082e-07 | qsel=1.931187 | cluster=0
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=max_iterations_reached   | Eeff=893.919304704726 | Ec=893.919304704726 | Eint=-0.000000e+00 | ||F||=9.459e-07 | qsel=1.931155 | cluster=0
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=893.919304704689 | Ec=893.919304704689 | Eint=-0.000000e+00 | ||F||=7.459e-07 | qsel=1.833471 | cluster=0
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=893.919304704684 | Ec=893.919304704684 | Eint=-0.000000e+00 | ||F||=7.213e-07 | qsel=1.833487 | cluster=0
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=893.813949463809 | Ec=893.813949463809 | Eint=-0.000000e+00 | ||F||=7.520e-07 | qsel=2.093889 | cluster=1
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=893.813949463797 | Ec=893.813949463797 | Eint=-0.000000e+00 | ||F||=5.958e-07 | qsel=2.093849 | cluster=1
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=893.813949463800 | Ec=893.813949463800 | Eint=-0.000000e+00 | ||F||=9.212e-07 | qsel=2.093762 | cluster=1
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=893.813949463799 | Ec=893.813949463799 | Eint=-0.000000e+00 | ||F||=6.418e-07 | qsel=2.094086 | cluster=1
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=893.813949463809 | Ec=893.813949463809 | Eint=-0.000000e+00 | ||F||=7.699e-07 | qsel=2.094019 | cluster=1
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=893.813949463801 | Ec=893.813949463801 | Eint=-0.000000e+00 | ||F||=5.880e-07 | qsel=2.093888 | cluster=1
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=893.813949463797 | Ec=893.813949463797 | Eint=-0.000000e+00 | ||F||=5.105e-07 | qsel=2.093849 | cluster=1
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=893.813949463812 | Ec=893.813949463812 | Eint=-0.000000e+00 | ||F||=1.590e-06 | qsel=2.093763 | cluster=1
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=893.813949463819 | Ec=893.813949463819 | Eint=-0.000000e+00 | ||F||=8.774e-07 | qsel=2.094087 | cluster=1
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=893.813949463810 | Ec=893.813949463810 | Eint=-0.000000e+00 | ||F||=7.571e-07 | qsel=2.094019 | cluster=1
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=893.820023923132 | Ec=893.820023923132 | Eint=-0.000000e+00 | ||F||=1.244e-06 | qsel=1.954375 | cluster=2
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=893.820023923122 | Ec=893.820023923122 | Eint=-0.000000e+00 | ||F||=6.443e-07 | qsel=2.041597 | cluster=2
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=893.813949463801 | Ec=893.813949463801 | Eint=-0.000000e+00 | ||F||=5.878e-07 | qsel=2.093565 | cluster=1
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=893.875004970839 | Ec=893.875004970839 | Eint=-0.000000e+00 | ||F||=6.578e-07 | qsel=2.033236 | cluster=3
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=893.875004970846 | Ec=893.875004970846 | Eint=-0.000000e+00 | ||F||=9.829e-07 | qsel=2.159452 | cluster=3
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=893.820023923133 | Ec=893.820023923133 | Eint=-0.000000e+00 | ||F||=7.059e-07 | qsel=1.954375 | cluster=2
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=893.820023923128 | Ec=893.820023923128 | Eint=-0.000000e+00 | ||F||=6.586e-07 | qsel=2.041596 | cluster=2
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=893.813949463809 | Ec=893.813949463809 | Eint=-0.000000e+00 | ||F||=7.284e-07 | qsel=2.093564 | cluster=1
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=893.875004970841 | Ec=893.875004970841 | Eint=-0.000000e+00 | ||F||=9.029e-07 | qsel=2.033237 | cluster=3
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=893.875004970838 | Ec=893.875004970838 | Eint=-0.000000e+00 | ||F||=5.966e-07 | qsel=2.159453 | cluster=3
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=force_tolerance_reached  | Eeff=893.784853181350 | Ec=893.784853181350 | Eint=-0.000000e+00 | ||F||=4.714e-14 | qsel=1.451393 | cluster=4
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=force_tolerance_reached  | Eeff=893.786930165179 | Ec=893.786930165179 | Eint=-0.000000e+00 | ||F||=1.923e-14 | qsel=0.399827 | cluster=5
+
+------------------------------------------------------------------------------------------------
+g/g_c = 0.900000 | g = 1.465818562467729
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=860.473761801428 | Ec=894.744291053376 | Eint=-3.427053e+01 | ||F||=9.032e-07 | qsel=13.527500 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=860.896043498805 | Ec=894.760818727833 | Eint=-3.386478e+01 | ||F||=9.938e-07 | qsel=13.451312 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=861.607743912547 | Ec=894.821981899233 | Eint=-3.321424e+01 | ||F||=1.151e-06 | qsel=13.362052 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=860.640202944052 | Ec=894.755740405960 | Eint=-3.411554e+01 | ||F||=8.176e-07 | qsel=13.480556 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=867.879124117726 | Ec=894.935257621752 | Eint=-2.705613e+01 | ||F||=8.411e-07 | qsel=11.931371 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=861.110913134620 | Ec=894.772108121493 | Eint=-3.366119e+01 | ||F||=6.450e-07 | qsel=13.411697 | cluster=5
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=861.038816789862 | Ec=894.779135504178 | Eint=-3.374032e+01 | ||F||=8.793e-07 | qsel=13.498216 | cluster=6
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=861.607743912542 | Ec=894.821981684485 | Eint=-3.321424e+01 | ||F||=7.129e-07 | qsel=13.362052 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=860.640202944048 | Ec=894.755740555807 | Eint=-3.411554e+01 | ||F||=5.951e-07 | qsel=13.480556 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=867.879124117725 | Ec=894.935257603973 | Eint=-2.705613e+01 | ||F||=8.037e-07 | qsel=11.931371 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=860.418194421830 | Ec=894.792167945067 | Eint=-3.437397e+01 | ||F||=3.468e-07 | qsel=13.498987 | cluster=7
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=max_iterations_reached   | Eeff=860.570848388722 | Ec=894.720126915935 | Eint=-3.414928e+01 | ||F||=6.388e-07 | qsel=13.461944 | cluster=8
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=860.779558948463 | Ec=894.741421106887 | Eint=-3.396186e+01 | ||F||=1.402e-06 | qsel=13.411524 | cluster=9
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=860.961791788725 | Ec=894.758482458479 | Eint=-3.379669e+01 | ||F||=8.375e-07 | qsel=13.390297 | cluster=10
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=860.383266588267 | Ec=894.710162488663 | Eint=-3.432690e+01 | ||F||=7.124e-07 | qsel=13.482880 | cluster=11
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=max_iterations_reached   | Eeff=860.328104711658 | Ec=894.719736962548 | Eint=-3.439163e+01 | ||F||=7.045e-07 | qsel=13.548130 | cluster=12
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=860.728436291421 | Ec=894.737858966635 | Eint=-3.400942e+01 | ||F||=6.476e-07 | qsel=13.459229 | cluster=13
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=860.779558948473 | Ec=894.741420908239 | Eint=-3.396186e+01 | ||F||=1.065e-06 | qsel=13.411524 | cluster=9
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=860.961791788720 | Ec=894.758482880776 | Eint=-3.379669e+01 | ||F||=7.335e-07 | qsel=13.390297 | cluster=10
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=860.383266588268 | Ec=894.710162525754 | Eint=-3.432690e+01 | ||F||=7.839e-07 | qsel=13.482880 | cluster=11
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=861.062474951651 | Ec=894.788338250000 | Eint=-3.372586e+01 | ||F||=9.967e-07 | qsel=13.405206 | cluster=14
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=861.230392351155 | Ec=894.805005000091 | Eint=-3.357461e+01 | ||F||=1.259e-06 | qsel=13.343475 | cluster=15
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=860.279392777272 | Ec=894.688933451816 | Eint=-3.440954e+01 | ||F||=1.018e-06 | qsel=13.549625 | cluster=16
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=861.482592542937 | Ec=894.759313500487 | Eint=-3.327672e+01 | ||F||=9.658e-07 | qsel=13.255191 | cluster=17
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=860.398258882489 | Ec=894.827896190285 | Eint=-3.442964e+01 | ||F||=8.736e-07 | qsel=13.504727 | cluster=18
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=max_iterations_reached   | Eeff=860.613556194984 | Ec=894.718182301219 | Eint=-3.410463e+01 | ||F||=7.128e-07 | qsel=13.455360 | cluster=19
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=861.024040764917 | Ec=894.789348882130 | Eint=-3.376531e+01 | ||F||=1.007e-06 | qsel=13.404723 | cluster=20
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=860.204558059247 | Ec=894.726099077319 | Eint=-3.452154e+01 | ||F||=1.095e-06 | qsel=13.535731 | cluster=21
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=861.482592542935 | Ec=894.759313532444 | Eint=-3.327672e+01 | ||F||=7.913e-07 | qsel=13.255191 | cluster=17
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=860.398258882490 | Ec=894.827895989817 | Eint=-3.442964e+01 | ||F||=1.280e-06 | qsel=13.504727 | cluster=18
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=861.204360857772 | Ec=894.715299632508 | Eint=-3.351094e+01 | ||F||=7.428e-07 | qsel=13.352366 | cluster=22
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=867.144472395266 | Ec=894.948514145560 | Eint=-2.780404e+01 | ||F||=7.851e-07 | qsel=12.157862 | cluster=23
+
+------------------------------------------------------------------------------------------------
+g/g_c = 0.990000 | g = 1.612400418714502
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=853.784793772179 | Ec=895.059961876378 | Eint=-4.127517e+01 | ||F||=8.914e-07 | qsel=13.459681 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.722076682473 | Ec=895.130437249660 | Eint=-4.140836e+01 | ||F||=8.537e-07 | qsel=13.495519 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=861.198097259274 | Ec=895.490246647849 | Eint=-3.429215e+01 | ||F||=8.731e-07 | qsel=12.216648 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=860.205985301506 | Ec=895.352973322838 | Eint=-3.514699e+01 | ||F||=5.214e-07 | qsel=12.425195 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.545606060509 | Ec=895.156864078548 | Eint=-4.161126e+01 | ||F||=9.641e-07 | qsel=13.547260 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=853.960569497395 | Ec=895.076307098081 | Eint=-4.111574e+01 | ||F||=6.312e-07 | qsel=13.454246 | cluster=5
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.722076682467 | Ec=895.130437259142 | Eint=-4.140836e+01 | ||F||=6.159e-07 | qsel=13.495519 | cluster=1
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=861.198097259273 | Ec=895.490246685152 | Eint=-3.429215e+01 | ||F||=8.378e-07 | qsel=12.216648 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=860.205985301509 | Ec=895.352973327408 | Eint=-3.514699e+01 | ||F||=7.870e-07 | qsel=12.425195 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.545606060507 | Ec=895.156864072927 | Eint=-4.161126e+01 | ||F||=7.563e-07 | qsel=13.547260 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=853.539604924136 | Ec=895.144923779898 | Eint=-4.160532e+01 | ||F||=1.054e-06 | qsel=13.495863 | cluster=6
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.747643903019 | Ec=895.063176717521 | Eint=-4.131553e+01 | ||F||=6.574e-07 | qsel=13.434107 | cluster=7
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=max_iterations_reached   | Eeff=853.669437437932 | Ec=895.079933405605 | Eint=-4.141050e+01 | ||F||=5.289e-07 | qsel=13.495972 | cluster=8
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=853.349305258200 | Ec=895.074315978797 | Eint=-4.172501e+01 | ||F||=7.367e-07 | qsel=13.537597 | cluster=9
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.106906410855 | Ec=895.042587204075 | Eint=-4.193568e+01 | ||F||=5.470e-07 | qsel=13.589769 | cluster=10
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=853.345300377273 | Ec=895.077019330873 | Eint=-4.173172e+01 | ||F||=1.103e-06 | qsel=13.534734 | cluster=11
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.747643903020 | Ec=895.063176747831 | Eint=-4.131553e+01 | ||F||=7.014e-07 | qsel=13.434107 | cluster=7
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=max_iterations_reached   | Eeff=853.669437437937 | Ec=895.079933314014 | Eint=-4.141050e+01 | ||F||=7.943e-07 | qsel=13.495972 | cluster=8
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=853.349305258200 | Ec=895.074315999889 | Eint=-4.172501e+01 | ||F||=8.253e-07 | qsel=13.537597 | cluster=9
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=max_iterations_reached   | Eeff=853.106906410855 | Ec=895.042587184914 | Eint=-4.193568e+01 | ||F||=6.235e-07 | qsel=13.589769 | cluster=10
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.764832805034 | Ec=895.052802182752 | Eint=-4.228797e+01 | ||F||=6.759e-07 | qsel=13.625071 | cluster=12
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.309551134298 | Ec=895.062361454130 | Eint=-4.175281e+01 | ||F||=7.468e-07 | qsel=13.509672 | cluster=13
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=853.010644611834 | Ec=895.035436559696 | Eint=-4.202479e+01 | ||F||=1.122e-06 | qsel=13.561623 | cluster=14
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=853.388852720490 | Ec=895.072682224492 | Eint=-4.168383e+01 | ||F||=7.335e-07 | qsel=13.501017 | cluster=15
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.368972362667 | Ec=895.112030172948 | Eint=-4.174306e+01 | ||F||=5.331e-07 | qsel=13.573640 | cluster=16
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.866384708370 | Ec=895.017538173553 | Eint=-4.215115e+01 | ||F||=1.014e-06 | qsel=13.621678 | cluster=17
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.171357004080 | Ec=895.075648239037 | Eint=-4.190429e+01 | ||F||=7.450e-07 | qsel=13.540210 | cluster=18
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=853.010644611821 | Ec=895.035436472094 | Eint=-4.202479e+01 | ||F||=9.676e-07 | qsel=13.561623 | cluster=14
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=853.388852720493 | Ec=895.072682232328 | Eint=-4.168383e+01 | ||F||=8.441e-07 | qsel=13.501017 | cluster=15
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.368972362672 | Ec=895.112030008276 | Eint=-4.174306e+01 | ||F||=8.217e-07 | qsel=13.573640 | cluster=16
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=852.816365201543 | Ec=894.994897232394 | Eint=-4.217853e+01 | ||F||=1.587e-06 | qsel=13.584063 | cluster=19
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=860.260875149876 | Ec=895.449683788851 | Eint=-3.518881e+01 | ||F||=6.271e-07 | qsel=12.445128 | cluster=20
+
+------------------------------------------------------------------------------------------------
+g/g_c = 1.000000 | g = 1.628687291630810
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.752500591019 | Ec=895.095930666205 | Eint=-4.234343e+01 | ||F||=9.034e-07 | qsel=13.469267 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.244739193786 | Ec=895.135662053697 | Eint=-4.189092e+01 | ||F||=7.148e-07 | qsel=13.426610 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=852.317739853742 | Ec=895.082445382876 | Eint=-4.276471e+01 | ||F||=9.043e-07 | qsel=13.587317 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=852.647805760070 | Ec=895.245863397890 | Eint=-4.259806e+01 | ||F||=6.522e-07 | qsel=13.559487 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.607780979891 | Ec=895.184899161834 | Eint=-4.157712e+01 | ||F||=6.298e-07 | qsel=13.437553 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.752500591017 | Ec=895.095930554987 | Eint=-4.234343e+01 | ||F||=7.541e-07 | qsel=13.469267 | cluster=0
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=852.349574136070 | Ec=895.086521077165 | Eint=-4.273695e+01 | ||F||=1.920e-06 | qsel=13.524402 | cluster=5
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=852.317739853742 | Ec=895.082445491165 | Eint=-4.276471e+01 | ||F||=6.188e-07 | qsel=13.587317 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=852.647805760082 | Ec=895.245863463058 | Eint=-4.259806e+01 | ||F||=9.290e-07 | qsel=13.559487 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=853.607780979892 | Ec=895.184899039117 | Eint=-4.157712e+01 | ||F||=7.032e-07 | qsel=13.437553 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.317068922712 | Ec=895.081305491463 | Eint=-4.276424e+01 | ||F||=8.712e-07 | qsel=13.525788 | cluster=6
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=852.415876914196 | Ec=895.045606167767 | Eint=-4.262973e+01 | ||F||=7.068e-07 | qsel=13.558193 | cluster=7
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=852.506171468692 | Ec=895.122655066480 | Eint=-4.261648e+01 | ||F||=5.793e-07 | qsel=13.547407 | cluster=8
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=852.025726080831 | Ec=895.058812034123 | Eint=-4.303309e+01 | ||F||=8.492e-07 | qsel=13.604565 | cluster=9
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=max_iterations_reached   | Eeff=852.487200324329 | Ec=895.055218395024 | Eint=-4.256802e+01 | ||F||=1.177e-06 | qsel=13.556739 | cluster=10
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.504418133490 | Ec=895.069461187456 | Eint=-4.256504e+01 | ||F||=5.406e-07 | qsel=13.505622 | cluster=11
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=852.415876914196 | Ec=895.045606192708 | Eint=-4.262973e+01 | ||F||=7.280e-07 | qsel=13.558193 | cluster=7
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=852.506171468697 | Ec=895.122654864048 | Eint=-4.261648e+01 | ||F||=1.549e-06 | qsel=13.547407 | cluster=8
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=852.025726080833 | Ec=895.058811989203 | Eint=-4.303309e+01 | ||F||=8.700e-07 | qsel=13.604565 | cluster=9
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=852.487200324286 | Ec=895.055218844834 | Eint=-4.256802e+01 | ||F||=1.357e-06 | qsel=13.556738 | cluster=10
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.251065398710 | Ec=895.077863726873 | Eint=-4.282680e+01 | ||F||=1.067e-06 | qsel=13.558378 | cluster=12
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=852.860406120643 | Ec=895.095993139469 | Eint=-4.223559e+01 | ||F||=1.001e-06 | qsel=13.456515 | cluster=13
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=852.529427261733 | Ec=895.094305768794 | Eint=-4.256488e+01 | ||F||=9.019e-07 | qsel=13.529475 | cluster=14
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=852.501868907387 | Ec=895.091491522119 | Eint=-4.258962e+01 | ||F||=8.923e-07 | qsel=13.536052 | cluster=15
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=852.212286954646 | Ec=895.147408994662 | Eint=-4.293512e+01 | ||F||=6.528e-07 | qsel=13.600108 | cluster=16
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=852.255344788370 | Ec=895.099851187414 | Eint=-4.284451e+01 | ||F||=7.929e-07 | qsel=13.562763 | cluster=17
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=853.180944685901 | Ec=895.154827342064 | Eint=-4.197388e+01 | ||F||=8.097e-07 | qsel=13.386828 | cluster=18
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=852.529427261729 | Ec=895.094305823521 | Eint=-4.256488e+01 | ||F||=6.889e-07 | qsel=13.529475 | cluster=14
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=852.501868907376 | Ec=895.091491915181 | Eint=-4.258962e+01 | ||F||=7.524e-07 | qsel=13.536052 | cluster=15
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=852.212286954643 | Ec=895.147408971144 | Eint=-4.293512e+01 | ||F||=4.167e-07 | qsel=13.600108 | cluster=16
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=852.951241677142 | Ec=895.112177148976 | Eint=-4.216094e+01 | ||F||=7.408e-07 | qsel=13.503798 | cluster=19
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=859.482970970945 | Ec=895.421802814580 | Eint=-3.593883e+01 | ||F||=1.281e-06 | qsel=12.429570 | cluster=20
+
+------------------------------------------------------------------------------------------------
+g/g_c = 1.010000 | g = 1.644974164547118
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=851.974802621859 | Ec=895.170743361577 | Eint=-4.319594e+01 | ||F||=9.013e-07 | qsel=13.486352 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=851.446209264941 | Ec=895.141065861112 | Eint=-4.369486e+01 | ||F||=5.973e-07 | qsel=13.597780 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=851.406936038810 | Ec=895.098408780464 | Eint=-4.369147e+01 | ||F||=5.909e-07 | qsel=13.591864 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=851.589327018413 | Ec=895.154534436985 | Eint=-4.356521e+01 | ||F||=9.678e-07 | qsel=13.532035 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=852.460380772178 | Ec=895.163639479858 | Eint=-4.270326e+01 | ||F||=6.034e-07 | qsel=13.416729 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=851.378197174812 | Ec=895.124963882134 | Eint=-4.374677e+01 | ||F||=9.386e-07 | qsel=13.573924 | cluster=5
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=852.369167261623 | Ec=895.365872821186 | Eint=-4.299671e+01 | ||F||=9.224e-07 | qsel=13.452735 | cluster=6
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=851.397036049828 | Ec=895.072531168068 | Eint=-4.367550e+01 | ||F||=1.091e-06 | qsel=13.585395 | cluster=7
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=851.589327018414 | Ec=895.154534552819 | Eint=-4.356521e+01 | ||F||=9.180e-07 | qsel=13.532035 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=852.460380772179 | Ec=895.163639481815 | Eint=-4.270326e+01 | ||F||=7.109e-07 | qsel=13.416729 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=850.956359869950 | Ec=895.065881396104 | Eint=-4.410952e+01 | ||F||=9.360e-07 | qsel=13.624522 | cluster=8
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=851.256135440968 | Ec=895.204312747612 | Eint=-4.394818e+01 | ||F||=9.761e-07 | qsel=13.609072 | cluster=9
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=851.275941562823 | Ec=895.097332952770 | Eint=-4.382139e+01 | ||F||=6.287e-07 | qsel=13.578635 | cluster=10
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=851.340449642378 | Ec=895.117168885156 | Eint=-4.377672e+01 | ||F||=8.628e-07 | qsel=13.545606 | cluster=11
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=851.795050333723 | Ec=895.156050488046 | Eint=-4.336100e+01 | ||F||=1.497e-06 | qsel=13.502898 | cluster=12
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=max_iterations_reached   | Eeff=851.099563774849 | Ec=895.094309050849 | Eint=-4.399475e+01 | ||F||=8.639e-07 | qsel=13.609849 | cluster=13
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=851.256135440972 | Ec=895.204312260959 | Eint=-4.394818e+01 | ||F||=8.515e-07 | qsel=13.609072 | cluster=9
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=851.275941562824 | Ec=895.097332873612 | Eint=-4.382139e+01 | ||F||=7.249e-07 | qsel=13.578635 | cluster=10
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=851.340449642379 | Ec=895.117168922856 | Eint=-4.377672e+01 | ||F||=8.713e-07 | qsel=13.545606 | cluster=11
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=851.795050333725 | Ec=895.156050340576 | Eint=-4.336100e+01 | ||F||=1.098e-06 | qsel=13.502898 | cluster=12
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=851.376032039900 | Ec=895.102554789988 | Eint=-4.372652e+01 | ||F||=7.378e-07 | qsel=13.569201 | cluster=14
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=851.220706835795 | Ec=895.131356621292 | Eint=-4.391065e+01 | ||F||=7.172e-07 | qsel=13.632421 | cluster=15
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=max_iterations_reached   | Eeff=851.904546869666 | Ec=895.197550139485 | Eint=-4.329300e+01 | ||F||=8.441e-07 | qsel=13.492874 | cluster=16
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=851.242576812946 | Ec=895.126295809987 | Eint=-4.388372e+01 | ||F||=1.310e-06 | qsel=13.562491 | cluster=17
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=851.430523205119 | Ec=895.182074854489 | Eint=-4.375155e+01 | ||F||=5.872e-07 | qsel=13.558947 | cluster=18
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=851.278045129908 | Ec=895.135710696116 | Eint=-4.385767e+01 | ||F||=7.272e-07 | qsel=13.574009 | cluster=19
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=851.377194301302 | Ec=895.130711089670 | Eint=-4.375352e+01 | ||F||=6.415e-07 | qsel=13.605593 | cluster=20
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=851.904546869667 | Ec=895.197549892553 | Eint=-4.329300e+01 | ||F||=1.292e-06 | qsel=13.492874 | cluster=16
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=851.242576812951 | Ec=895.126295945832 | Eint=-4.388372e+01 | ||F||=1.394e-06 | qsel=13.562491 | cluster=17
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=851.430523205133 | Ec=895.182075310339 | Eint=-4.375155e+01 | ||F||=1.255e-06 | qsel=13.558947 | cluster=18
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=851.370194306026 | Ec=895.087255678046 | Eint=-4.371706e+01 | ||F||=6.909e-07 | qsel=13.576061 | cluster=21
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=851.428703421081 | Ec=895.133478955039 | Eint=-4.370478e+01 | ||F||=8.630e-07 | qsel=13.603300 | cluster=22
+
+------------------------------------------------------------------------------------------------
+g/g_c = 1.050000 | g = 1.710121656212350
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=848.008236731360 | Ec=895.353681032568 | Eint=-4.734544e+01 | ||F||=5.709e-07 | qsel=13.590405 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=848.306612134190 | Ec=895.443498709711 | Eint=-4.713689e+01 | ||F||=7.348e-07 | qsel=13.534830 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=848.071474395994 | Ec=895.372412399416 | Eint=-4.730094e+01 | ||F||=7.055e-07 | qsel=13.598501 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=847.720756351169 | Ec=895.298703657975 | Eint=-4.757795e+01 | ||F||=8.795e-07 | qsel=13.591283 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=848.358426446885 | Ec=895.301138589000 | Eint=-4.694271e+01 | ||F||=9.846e-07 | qsel=13.530502 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=848.095444794004 | Ec=895.279784191799 | Eint=-4.718434e+01 | ||F||=9.520e-07 | qsel=13.531408 | cluster=5
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=max_iterations_reached   | Eeff=848.306612134189 | Ec=895.443498647428 | Eint=-4.713689e+01 | ||F||=5.584e-07 | qsel=13.534830 | cluster=1
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=848.071474395998 | Ec=895.372412409080 | Eint=-4.730094e+01 | ||F||=8.015e-07 | qsel=13.598501 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=847.720756351169 | Ec=895.298703734072 | Eint=-4.757795e+01 | ||F||=1.005e-06 | qsel=13.591283 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=848.358426446882 | Ec=895.301138489359 | Eint=-4.694271e+01 | ||F||=1.203e-06 | qsel=13.530502 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=847.986874085560 | Ec=895.330802245587 | Eint=-4.734393e+01 | ||F||=5.878e-07 | qsel=13.606294 | cluster=6
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=848.091369007741 | Ec=895.289156585397 | Eint=-4.719779e+01 | ||F||=9.450e-07 | qsel=13.523798 | cluster=7
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=848.743487985088 | Ec=895.350213155683 | Eint=-4.660673e+01 | ||F||=6.776e-07 | qsel=13.450290 | cluster=8
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=848.082943707618 | Ec=895.304165329128 | Eint=-4.722122e+01 | ||F||=7.470e-07 | qsel=13.601856 | cluster=9
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=847.655702910554 | Ec=895.298937024068 | Eint=-4.764323e+01 | ||F||=7.014e-07 | qsel=13.607718 | cluster=10
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=847.864777242391 | Ec=895.244859052370 | Eint=-4.738008e+01 | ||F||=7.438e-07 | qsel=13.563478 | cluster=11
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=848.570079548004 | Ec=895.320106029719 | Eint=-4.675003e+01 | ||F||=4.916e-07 | qsel=13.455053 | cluster=12
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=848.743487985088 | Ec=895.350213243564 | Eint=-4.660673e+01 | ||F||=1.254e-06 | qsel=13.450290 | cluster=8
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=848.082943707617 | Ec=895.304165161513 | Eint=-4.722122e+01 | ||F||=6.799e-07 | qsel=13.601856 | cluster=9
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=847.655702910565 | Ec=895.298936739706 | Eint=-4.764323e+01 | ||F||=1.386e-06 | qsel=13.607718 | cluster=10
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=847.630691253888 | Ec=895.313886886443 | Eint=-4.768320e+01 | ||F||=9.146e-07 | qsel=13.647909 | cluster=13
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=848.163088372915 | Ec=895.341644995393 | Eint=-4.717856e+01 | ||F||=1.700e-06 | qsel=13.577303 | cluster=14
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=max_iterations_reached   | Eeff=847.905361284761 | Ec=895.345493088845 | Eint=-4.744013e+01 | ||F||=8.459e-07 | qsel=13.577549 | cluster=15
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=848.193662024705 | Ec=895.406090969805 | Eint=-4.721243e+01 | ||F||=6.636e-07 | qsel=13.573944 | cluster=16
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=847.882666419437 | Ec=895.311643784996 | Eint=-4.742898e+01 | ||F||=5.893e-07 | qsel=13.608469 | cluster=17
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=847.630691253897 | Ec=895.313886561221 | Eint=-4.768320e+01 | ||F||=9.850e-07 | qsel=13.647909 | cluster=13
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=848.163088372911 | Ec=895.341645070373 | Eint=-4.717856e+01 | ||F||=6.454e-07 | qsel=13.577303 | cluster=14
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=847.905361284759 | Ec=895.345493346354 | Eint=-4.744013e+01 | ||F||=1.649e-06 | qsel=13.577549 | cluster=15
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=848.193662024706 | Ec=895.406090907940 | Eint=-4.721243e+01 | ||F||=7.299e-07 | qsel=13.573944 | cluster=16
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=847.882666419439 | Ec=895.311643832413 | Eint=-4.742898e+01 | ||F||=7.164e-07 | qsel=13.608469 | cluster=17
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=848.410247318061 | Ec=895.381976058526 | Eint=-4.697173e+01 | ||F||=6.634e-07 | qsel=13.550535 | cluster=18
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=855.878981815478 | Ec=895.643769432640 | Eint=-3.976479e+01 | ||F||=8.247e-07 | qsel=12.460875 | cluster=19
+
+------------------------------------------------------------------------------------------------
+g/g_c = 1.100000 | g = 1.791556020793891
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=843.133662701579 | Ec=895.605491712141 | Eint=-5.247183e+01 | ||F||=8.159e-07 | qsel=13.638358 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=843.060246496680 | Ec=895.528651355280 | Eint=-5.246840e+01 | ||F||=6.966e-07 | qsel=13.645673 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=844.672937556989 | Ec=895.645823205390 | Eint=-5.097289e+01 | ||F||=6.423e-07 | qsel=13.440134 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=843.486189080931 | Ec=895.632468533526 | Eint=-5.214628e+01 | ||F||=8.625e-07 | qsel=13.612984 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=843.428335959508 | Ec=895.557783098885 | Eint=-5.212945e+01 | ||F||=6.166e-07 | qsel=13.603287 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=843.482312416105 | Ec=895.553684028853 | Eint=-5.207137e+01 | ||F||=8.560e-07 | qsel=13.611280 | cluster=5
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=843.060246496679 | Ec=895.528651325167 | Eint=-5.246840e+01 | ||F||=6.301e-07 | qsel=13.645673 | cluster=1
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=844.672937556995 | Ec=895.645823047269 | Eint=-5.097289e+01 | ||F||=7.883e-07 | qsel=13.440134 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=843.486189080927 | Ec=895.632468692157 | Eint=-5.214628e+01 | ||F||=7.298e-07 | qsel=13.612984 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=843.428335959514 | Ec=895.557783190583 | Eint=-5.212945e+01 | ||F||=1.285e-06 | qsel=13.603287 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=843.665360900012 | Ec=895.669685176017 | Eint=-5.200432e+01 | ||F||=1.077e-06 | qsel=13.597244 | cluster=6
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=842.954405220671 | Ec=895.534734608145 | Eint=-5.258033e+01 | ||F||=1.499e-06 | qsel=13.663145 | cluster=7
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=843.660996544586 | Ec=895.582589514029 | Eint=-5.192159e+01 | ||F||=7.677e-07 | qsel=13.573653 | cluster=8
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=842.982403415826 | Ec=895.542595352070 | Eint=-5.256019e+01 | ||F||=1.494e-06 | qsel=13.673472 | cluster=9
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=843.420264202370 | Ec=895.553375181208 | Eint=-5.213311e+01 | ||F||=9.948e-07 | qsel=13.630074 | cluster=10
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=843.665360900011 | Ec=895.669685378100 | Eint=-5.200432e+01 | ||F||=9.264e-07 | qsel=13.597244 | cluster=6
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=842.968921702767 | Ec=895.516084554306 | Eint=-5.254716e+01 | ||F||=7.884e-07 | qsel=13.658982 | cluster=11
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=843.660996544585 | Ec=895.582589403596 | Eint=-5.192159e+01 | ||F||=1.329e-06 | qsel=13.573653 | cluster=8
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=842.982403415823 | Ec=895.542595506696 | Eint=-5.256019e+01 | ||F||=1.091e-06 | qsel=13.673472 | cluster=9
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=843.420264202371 | Ec=895.553375255765 | Eint=-5.213311e+01 | ||F||=1.314e-06 | qsel=13.630074 | cluster=10
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=843.175677376198 | Ec=895.548293544448 | Eint=-5.237262e+01 | ||F||=8.726e-07 | qsel=13.602095 | cluster=12
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=842.732905926915 | Ec=895.549909887187 | Eint=-5.281700e+01 | ||F||=8.354e-07 | qsel=13.708134 | cluster=13
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=843.183278090745 | Ec=895.570044655592 | Eint=-5.238677e+01 | ||F||=7.851e-07 | qsel=13.641553 | cluster=14
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=843.984899602704 | Ec=895.637013551156 | Eint=-5.165211e+01 | ||F||=1.718e-06 | qsel=13.526005 | cluster=15
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=842.961832312874 | Ec=895.545189644805 | Eint=-5.258336e+01 | ||F||=1.133e-06 | qsel=13.647125 | cluster=16
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=842.954594197778 | Ec=895.494577971359 | Eint=-5.253998e+01 | ||F||=8.079e-07 | qsel=13.636364 | cluster=17
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=842.732905926920 | Ec=895.549909860362 | Eint=-5.281700e+01 | ||F||=9.072e-07 | qsel=13.708134 | cluster=13
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=843.183278090745 | Ec=895.570044480210 | Eint=-5.238677e+01 | ||F||=1.630e-06 | qsel=13.641553 | cluster=14
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=843.984899602696 | Ec=895.637013008066 | Eint=-5.165211e+01 | ||F||=1.156e-06 | qsel=13.526004 | cluster=15
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=842.961832312878 | Ec=895.545189491437 | Eint=-5.258336e+01 | ||F||=1.119e-06 | qsel=13.647125 | cluster=16
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=843.338719004419 | Ec=895.517102486884 | Eint=-5.217838e+01 | ||F||=8.994e-07 | qsel=13.612624 | cluster=18
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=851.090544829458 | Ec=895.945958644750 | Eint=-4.485541e+01 | ||F||=6.209e-07 | qsel=12.610200 | cluster=19
+
+------------------------------------------------------------------------------------------------
+g/g_c = 1.200000 | g = 1.954424749956972
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=833.113942882685 | Ec=896.083041784717 | Eint=-6.296910e+01 | ||F||=1.741e-06 | qsel=13.723466 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=833.382933821665 | Ec=896.153089134174 | Eint=-6.277016e+01 | ||F||=9.590e-07 | qsel=13.700102 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=833.739826426842 | Ec=896.153961742788 | Eint=-6.241414e+01 | ||F||=6.708e-07 | qsel=13.646898 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=833.317508179563 | Ec=896.168895974200 | Eint=-6.285139e+01 | ||F||=9.692e-07 | qsel=13.713869 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=833.439887151215 | Ec=896.153787352829 | Eint=-6.271390e+01 | ||F||=1.199e-06 | qsel=13.671115 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=833.113942882696 | Ec=896.083042153094 | Eint=-6.296910e+01 | ||F||=1.466e-06 | qsel=13.723466 | cluster=0
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=833.382933821661 | Ec=896.153089178883 | Eint=-6.277016e+01 | ||F||=6.651e-07 | qsel=13.700102 | cluster=1
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=833.739826426844 | Ec=896.153961725902 | Eint=-6.241414e+01 | ||F||=8.199e-07 | qsel=13.646898 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=max_iterations_reached   | Eeff=833.317508179556 | Ec=896.168896231566 | Eint=-6.285139e+01 | ||F||=5.833e-07 | qsel=13.713869 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=833.439887151210 | Ec=896.153787466800 | Eint=-6.271390e+01 | ||F||=8.425e-07 | qsel=13.671115 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=833.296726066404 | Ec=896.127710699977 | Eint=-6.283098e+01 | ||F||=1.214e-06 | qsel=13.717115 | cluster=5
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=832.868464181578 | Ec=896.108983241994 | Eint=-6.324052e+01 | ||F||=1.097e-06 | qsel=13.760414 | cluster=6
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=832.982105712137 | Ec=896.091542059926 | Eint=-6.310944e+01 | ||F||=8.596e-07 | qsel=13.721208 | cluster=7
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=833.425332497671 | Ec=896.048290802570 | Eint=-6.262296e+01 | ||F||=1.307e-06 | qsel=13.631583 | cluster=8
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=833.914158716408 | Ec=896.158883819163 | Eint=-6.224473e+01 | ||F||=8.463e-07 | qsel=13.604683 | cluster=9
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=832.721471799774 | Ec=895.976140941358 | Eint=-6.325467e+01 | ||F||=4.658e-07 | qsel=13.760409 | cluster=10
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=832.868464181578 | Ec=896.108983337160 | Eint=-6.324052e+01 | ||F||=8.334e-07 | qsel=13.760414 | cluster=6
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=832.982105712134 | Ec=896.091542091053 | Eint=-6.310944e+01 | ||F||=5.702e-07 | qsel=13.721208 | cluster=7
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=833.425332497677 | Ec=896.048290691027 | Eint=-6.262296e+01 | ||F||=1.252e-06 | qsel=13.631583 | cluster=8
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=833.914158716406 | Ec=896.158883648726 | Eint=-6.224472e+01 | ||F||=7.211e-07 | qsel=13.604683 | cluster=9
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=833.420851332485 | Ec=896.174289842235 | Eint=-6.275344e+01 | ||F||=9.850e-07 | qsel=13.669938 | cluster=11
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=833.359182469233 | Ec=896.148774047832 | Eint=-6.278959e+01 | ||F||=6.197e-07 | qsel=13.674808 | cluster=12
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=832.664178316450 | Ec=896.069776289561 | Eint=-6.340560e+01 | ||F||=9.470e-07 | qsel=13.758434 | cluster=13
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=max_iterations_reached   | Eeff=833.160346104681 | Ec=896.107147485943 | Eint=-6.294680e+01 | ||F||=7.818e-07 | qsel=13.690725 | cluster=14
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=832.925406665325 | Ec=896.049047033845 | Eint=-6.312364e+01 | ||F||=7.365e-07 | qsel=13.736606 | cluster=15
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=833.144832858800 | Ec=896.097112677328 | Eint=-6.295228e+01 | ||F||=7.123e-07 | qsel=13.688965 | cluster=16
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=833.359182469238 | Ec=896.148774088796 | Eint=-6.278959e+01 | ||F||=7.824e-07 | qsel=13.674808 | cluster=12
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=832.664178316448 | Ec=896.069776467528 | Eint=-6.340560e+01 | ||F||=7.085e-07 | qsel=13.758434 | cluster=13
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=833.160346104682 | Ec=896.107147319256 | Eint=-6.294680e+01 | ||F||=1.141e-06 | qsel=13.690725 | cluster=14
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=832.925406665325 | Ec=896.049047041005 | Eint=-6.312364e+01 | ||F||=7.389e-07 | qsel=13.736606 | cluster=15
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=833.189507673316 | Ec=896.024742675999 | Eint=-6.283524e+01 | ||F||=7.235e-07 | qsel=13.717278 | cluster=17
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=833.794874513335 | Ec=896.162290795935 | Eint=-6.236742e+01 | ||F||=7.880e-07 | qsel=13.656471 | cluster=18
+
+------------------------------------------------------------------------------------------------
+g/g_c = 1.300000 | g = 2.117293479120053
+------------------------------------------------------------------------------------------------
+[ 1/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=822.132415594783 | Ec=896.730192269788 | Eint=-7.459778e+01 | ||F||=2.035e-06 | qsel=13.785687 | cluster=0
+[ 2/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=822.242863345934 | Ec=896.721212690922 | Eint=-7.447835e+01 | ||F||=1.203e-06 | qsel=13.754216 | cluster=1
+[ 3/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=822.087013133338 | Ec=896.727413495173 | Eint=-7.464040e+01 | ||F||=7.587e-07 | qsel=13.806774 | cluster=2
+[ 4/32] soft_triplet_component   comp= 0 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=822.066721310981 | Ec=896.729907898739 | Eint=-7.466319e+01 | ||F||=1.205e-06 | qsel=13.800256 | cluster=3
+[ 5/32] soft_triplet_component   comp= 0 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=822.214803921092 | Ec=896.716466612525 | Eint=-7.450166e+01 | ||F||=6.943e-07 | qsel=13.786393 | cluster=4
+[ 6/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=822.249148739696 | Ec=896.814221620071 | Eint=-7.456507e+01 | ||F||=8.605e-07 | qsel=13.814058 | cluster=5
+[ 7/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=822.242863345934 | Ec=896.721212550115 | Eint=-7.447835e+01 | ||F||=7.322e-07 | qsel=13.754216 | cluster=1
+[ 8/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=822.087013133339 | Ec=896.727413447009 | Eint=-7.464040e+01 | ||F||=9.211e-07 | qsel=13.806774 | cluster=2
+[ 9/32] soft_triplet_component   comp= 0 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=822.066721310937 | Ec=896.729908861166 | Eint=-7.466319e+01 | ||F||=1.207e-06 | qsel=13.800257 | cluster=3
+[10/32] soft_triplet_component   comp= 0 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=822.214803921095 | Ec=896.716466561013 | Eint=-7.450166e+01 | ||F||=1.546e-06 | qsel=13.786393 | cluster=4
+[11/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=822.048642132155 | Ec=896.712134836502 | Eint=-7.466349e+01 | ||F||=6.833e-07 | qsel=13.773553 | cluster=6
+[12/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=822.093907759452 | Ec=896.778704604178 | Eint=-7.468480e+01 | ||F||=9.166e-07 | qsel=13.803522 | cluster=7
+[13/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-02 | reason=max_iterations_reached   | Eeff=821.855155618806 | Ec=896.687364100787 | Eint=-7.483221e+01 | ||F||=5.535e-07 | qsel=13.806008 | cluster=8
+[14/32] soft_triplet_component   comp= 1 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=822.779087868799 | Ec=896.847174610468 | Eint=-7.406809e+01 | ||F||=1.123e-06 | qsel=13.709696 | cluster=9
+[15/32] soft_triplet_component   comp= 1 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=821.880335781268 | Ec=896.725337367426 | Eint=-7.484500e+01 | ||F||=9.218e-07 | qsel=13.800498 | cluster=10
+[16/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=821.943330766951 | Ec=896.732163438898 | Eint=-7.478883e+01 | ||F||=9.168e-07 | qsel=13.798176 | cluster=11
+[17/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=821.887497756925 | Ec=896.869602604590 | Eint=-7.498210e+01 | ||F||=6.032e-07 | qsel=13.844972 | cluster=12
+[18/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=821.855155618808 | Ec=896.687364243193 | Eint=-7.483221e+01 | ||F||=9.407e-07 | qsel=13.806008 | cluster=8
+[19/32] soft_triplet_component   comp= 1 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=822.779087868798 | Ec=896.847174474217 | Eint=-7.406809e+01 | ||F||=9.076e-07 | qsel=13.709696 | cluster=9
+[20/32] soft_triplet_component   comp= 1 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=821.880335781268 | Ec=896.725337271942 | Eint=-7.484500e+01 | ||F||=1.127e-06 | qsel=13.800498 | cluster=10
+[21/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-04 | reason=line_search_failed       | Eeff=821.744586439055 | Ec=896.679614591389 | Eint=-7.493503e+01 | ||F||=1.221e-06 | qsel=13.786642 | cluster=13
+[22/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-03 | reason=line_search_failed       | Eeff=821.678377306184 | Ec=896.680306051402 | Eint=-7.500193e+01 | ||F||=8.001e-07 | qsel=13.795731 | cluster=14
+[23/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-02 | reason=line_search_failed       | Eeff=821.665813182473 | Ec=896.699165525934 | Eint=-7.503335e+01 | ||F||=7.445e-07 | qsel=13.786315 | cluster=15
+[24/32] soft_triplet_component   comp= 2 sign=-1 eps=5.000e-02 | reason=line_search_failed       | Eeff=821.835830850664 | Ec=896.695721154095 | Eint=-7.485989e+01 | ||F||=7.040e-07 | qsel=13.791145 | cluster=16
+[25/32] soft_triplet_component   comp= 2 sign=-1 eps=1.000e-01 | reason=line_search_failed       | Eeff=822.128951891650 | Ec=896.699041452240 | Eint=-7.457009e+01 | ||F||=6.799e-07 | qsel=13.734433 | cluster=17
+[26/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-04 | reason=line_search_failed       | Eeff=821.744586439057 | Ec=896.679614598217 | Eint=-7.493503e+01 | ||F||=7.982e-07 | qsel=13.786642 | cluster=13
+[27/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-03 | reason=line_search_failed       | Eeff=821.697398001739 | Ec=896.745716094908 | Eint=-7.504832e+01 | ||F||=7.378e-07 | qsel=13.814793 | cluster=18
+[28/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-02 | reason=line_search_failed       | Eeff=821.665813182469 | Ec=896.699165605883 | Eint=-7.503335e+01 | ||F||=4.865e-07 | qsel=13.786315 | cluster=15
+[29/32] soft_triplet_component   comp= 2 sign=+1 eps=5.000e-02 | reason=line_search_failed       | Eeff=821.835830850663 | Ec=896.695721113485 | Eint=-7.485989e+01 | ||F||=6.787e-07 | qsel=13.791145 | cluster=16
+[30/32] soft_triplet_component   comp= 2 sign=+1 eps=1.000e-01 | reason=line_search_failed       | Eeff=822.128951891655 | Ec=896.699041349513 | Eint=-7.457009e+01 | ||F||=8.995e-07 | qsel=13.734433 | cluster=17
+[31/32] M_lowest_control         comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=822.685012595029 | Ec=896.751140753746 | Eint=-7.406613e+01 | ||F||=9.400e-07 | qsel=13.703381 | cluster=19
+[32/32] M_T2u_control            comp=-1 sign=+0 eps=0.000e+00 | reason=line_search_failed       | Eeff=822.150078532102 | Ec=896.707025871006 | Eint=-7.455695e+01 | ||F||=6.641e-07 | qsel=13.797167 | cluster=20
+
+================================================================================================
+RIEPILOGO ENDPOINT
+================================================================================================
+
+g/g_c=0.000000 | g=0.000000000000 | best Eeff=893.784853181350 | Ec=893.784853181350 | qsel=1.451393387191 | clusters=6
+  cluster= 4 | members= 1 | Eeff=893.784853181350 | Ec=893.784853181350 | qsel=1.451393387191 | seeds=M_lowest_control
+  cluster= 5 | members= 1 | Eeff=893.786930165179 | Ec=893.786930165179 | qsel=0.399826977788 | seeds=M_T2u_control
+  cluster= 1 | members=12 | Eeff=893.813949463797 | Ec=893.813949463797 | qsel=2.093849318439 | seeds=soft_triplet_component
+  cluster= 2 | members= 4 | Eeff=893.820023923122 | Ec=893.820023923122 | qsel=2.041597198221 | seeds=soft_triplet_component
+  cluster= 3 | members= 4 | Eeff=893.875004970838 | Ec=893.875004970838 | qsel=2.159453084892 | seeds=soft_triplet_component
+  cluster= 0 | members=10 | Eeff=893.919304704679 | Ec=893.919304704679 | qsel=1.833469998178 | seeds=soft_triplet_component
+
+g/g_c=0.900000 | g=1.465818562468 | best Eeff=860.204558059247 | Ec=894.726099077319 | qsel=13.535731108273 | clusters=24
+  cluster=21 | members= 1 | Eeff=860.204558059247 | Ec=894.726099077319 | qsel=13.535731108273 | seeds=soft_triplet_component
+  cluster=16 | members= 1 | Eeff=860.279392777272 | Ec=894.688933451816 | qsel=13.549624801840 | seeds=soft_triplet_component
+  cluster=12 | members= 1 | Eeff=860.328104711658 | Ec=894.719736962548 | qsel=13.548129512883 | seeds=soft_triplet_component
+  cluster=11 | members= 2 | Eeff=860.383266588267 | Ec=894.710162488663 | qsel=13.482879536311 | seeds=soft_triplet_component
+  cluster=18 | members= 2 | Eeff=860.398258882489 | Ec=894.827896190285 | qsel=13.504726943349 | seeds=soft_triplet_component
+  cluster= 7 | members= 1 | Eeff=860.418194421830 | Ec=894.792167945067 | qsel=13.498987474283 | seeds=soft_triplet_component
+  cluster= 0 | members= 1 | Eeff=860.473761801428 | Ec=894.744291053376 | qsel=13.527499688454 | seeds=soft_triplet_component
+  cluster= 8 | members= 1 | Eeff=860.570848388722 | Ec=894.720126915935 | qsel=13.461944376233 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=860.613556194984 | Ec=894.718182301219 | qsel=13.455360366824 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=860.640202944048 | Ec=894.755740555807 | qsel=13.480556080786 | seeds=soft_triplet_component
+  cluster=13 | members= 1 | Eeff=860.728436291421 | Ec=894.737858966635 | qsel=13.459229131682 | seeds=soft_triplet_component
+  cluster= 9 | members= 2 | Eeff=860.779558948463 | Ec=894.741421106887 | qsel=13.411524082790 | seeds=soft_triplet_component
+  cluster= 1 | members= 1 | Eeff=860.896043498805 | Ec=894.760818727833 | qsel=13.451311949602 | seeds=soft_triplet_component
+  cluster=10 | members= 2 | Eeff=860.961791788720 | Ec=894.758482880776 | qsel=13.390297247966 | seeds=soft_triplet_component
+  cluster=20 | members= 1 | Eeff=861.024040764917 | Ec=894.789348882130 | qsel=13.404722627213 | seeds=soft_triplet_component
+  cluster= 6 | members= 1 | Eeff=861.038816789862 | Ec=894.779135504178 | qsel=13.498216136684 | seeds=soft_triplet_component
+  cluster=14 | members= 1 | Eeff=861.062474951651 | Ec=894.788338250000 | qsel=13.405206152787 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=861.110913134620 | Ec=894.772108121493 | qsel=13.411697338771 | seeds=soft_triplet_component
+  cluster=22 | members= 1 | Eeff=861.204360857772 | Ec=894.715299632508 | qsel=13.352365560652 | seeds=M_lowest_control
+  cluster=15 | members= 1 | Eeff=861.230392351155 | Ec=894.805005000091 | qsel=13.343474898134 | seeds=soft_triplet_component
+  cluster=17 | members= 2 | Eeff=861.482592542935 | Ec=894.759313532444 | qsel=13.255191136376 | seeds=soft_triplet_component
+  cluster= 2 | members= 2 | Eeff=861.607743912542 | Ec=894.821981684485 | qsel=13.362052324544 | seeds=soft_triplet_component
+  cluster=23 | members= 1 | Eeff=867.144472395266 | Ec=894.948514145560 | qsel=12.157861797529 | seeds=M_T2u_control
+  cluster= 4 | members= 2 | Eeff=867.879124117725 | Ec=894.935257603973 | qsel=11.931370587136 | seeds=soft_triplet_component
+
+g/g_c=0.990000 | g=1.612400418715 | best Eeff=852.764832805034 | Ec=895.052802182752 | qsel=13.625071225550 | clusters=21
+  cluster=12 | members= 1 | Eeff=852.764832805034 | Ec=895.052802182752 | qsel=13.625071225550 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=852.816365201543 | Ec=894.994897232394 | qsel=13.584062976935 | seeds=M_lowest_control
+  cluster=17 | members= 1 | Eeff=852.866384708370 | Ec=895.017538173553 | qsel=13.621678364177 | seeds=soft_triplet_component
+  cluster=14 | members= 2 | Eeff=853.010644611821 | Ec=895.035436472094 | qsel=13.561622831872 | seeds=soft_triplet_component
+  cluster=10 | members= 2 | Eeff=853.106906410855 | Ec=895.042587204075 | qsel=13.589768773856 | seeds=soft_triplet_component
+  cluster=18 | members= 1 | Eeff=853.171357004080 | Ec=895.075648239037 | qsel=13.540210323997 | seeds=soft_triplet_component
+  cluster=13 | members= 1 | Eeff=853.309551134298 | Ec=895.062361454130 | qsel=13.509672487126 | seeds=soft_triplet_component
+  cluster=11 | members= 1 | Eeff=853.345300377273 | Ec=895.077019330873 | qsel=13.534733801010 | seeds=soft_triplet_component
+  cluster= 9 | members= 2 | Eeff=853.349305258200 | Ec=895.074315999889 | qsel=13.537596763807 | seeds=soft_triplet_component
+  cluster=16 | members= 2 | Eeff=853.368972362667 | Ec=895.112030172948 | qsel=13.573640400111 | seeds=soft_triplet_component
+  cluster=15 | members= 2 | Eeff=853.388852720490 | Ec=895.072682224492 | qsel=13.501016736203 | seeds=soft_triplet_component
+  cluster= 6 | members= 1 | Eeff=853.539604924136 | Ec=895.144923779898 | qsel=13.495862878235 | seeds=soft_triplet_component
+  cluster= 4 | members= 2 | Eeff=853.545606060507 | Ec=895.156864072927 | qsel=13.547259514356 | seeds=soft_triplet_component
+  cluster= 8 | members= 2 | Eeff=853.669437437932 | Ec=895.079933405605 | qsel=13.495972310781 | seeds=soft_triplet_component
+  cluster= 1 | members= 2 | Eeff=853.722076682467 | Ec=895.130437259142 | qsel=13.495518600182 | seeds=soft_triplet_component
+  cluster= 7 | members= 2 | Eeff=853.747643903019 | Ec=895.063176717521 | qsel=13.434107114274 | seeds=soft_triplet_component
+  cluster= 0 | members= 1 | Eeff=853.784793772179 | Ec=895.059961876378 | qsel=13.459680995551 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=853.960569497395 | Ec=895.076307098081 | qsel=13.454246072943 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=860.205985301506 | Ec=895.352973322838 | qsel=12.425194553430 | seeds=soft_triplet_component
+  cluster=20 | members= 1 | Eeff=860.260875149876 | Ec=895.449683788851 | qsel=12.445127751202 | seeds=M_T2u_control
+  cluster= 2 | members= 2 | Eeff=861.198097259273 | Ec=895.490246685152 | qsel=12.216647547898 | seeds=soft_triplet_component
+
+g/g_c=1.000000 | g=1.628687291631 | best Eeff=852.025726080831 | Ec=895.058812034123 | qsel=13.604564702565 | clusters=21
+  cluster= 9 | members= 2 | Eeff=852.025726080831 | Ec=895.058812034123 | qsel=13.604564702565 | seeds=soft_triplet_component
+  cluster=16 | members= 2 | Eeff=852.212286954643 | Ec=895.147408971144 | qsel=13.600108443705 | seeds=soft_triplet_component
+  cluster=12 | members= 1 | Eeff=852.251065398710 | Ec=895.077863726873 | qsel=13.558377645639 | seeds=soft_triplet_component
+  cluster=17 | members= 1 | Eeff=852.255344788370 | Ec=895.099851187414 | qsel=13.562762986561 | seeds=soft_triplet_component
+  cluster= 6 | members= 1 | Eeff=852.317068922712 | Ec=895.081305491463 | qsel=13.525787820342 | seeds=soft_triplet_component
+  cluster= 2 | members= 2 | Eeff=852.317739853742 | Ec=895.082445382876 | qsel=13.587317460890 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=852.349574136070 | Ec=895.086521077165 | qsel=13.524402025185 | seeds=soft_triplet_component
+  cluster= 7 | members= 2 | Eeff=852.415876914196 | Ec=895.045606167767 | qsel=13.558193217703 | seeds=soft_triplet_component
+  cluster=10 | members= 2 | Eeff=852.487200324286 | Ec=895.055218844834 | qsel=13.556738396803 | seeds=soft_triplet_component
+  cluster=15 | members= 2 | Eeff=852.501868907376 | Ec=895.091491915181 | qsel=13.536052394359 | seeds=soft_triplet_component
+  cluster=11 | members= 1 | Eeff=852.504418133490 | Ec=895.069461187456 | qsel=13.505622433346 | seeds=soft_triplet_component
+  cluster= 8 | members= 2 | Eeff=852.506171468692 | Ec=895.122655066480 | qsel=13.547406550115 | seeds=soft_triplet_component
+  cluster=14 | members= 2 | Eeff=852.529427261729 | Ec=895.094305823521 | qsel=13.529474529018 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=852.647805760070 | Ec=895.245863397890 | qsel=13.559487339084 | seeds=soft_triplet_component
+  cluster= 0 | members= 2 | Eeff=852.752500591017 | Ec=895.095930554987 | qsel=13.469266856617 | seeds=soft_triplet_component
+  cluster=13 | members= 1 | Eeff=852.860406120643 | Ec=895.095993139469 | qsel=13.456514841703 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=852.951241677142 | Ec=895.112177148976 | qsel=13.503798048057 | seeds=M_lowest_control
+  cluster=18 | members= 1 | Eeff=853.180944685901 | Ec=895.154827342064 | qsel=13.386827898946 | seeds=soft_triplet_component
+  cluster= 1 | members= 1 | Eeff=853.244739193786 | Ec=895.135662053697 | qsel=13.426610209916 | seeds=soft_triplet_component
+  cluster= 4 | members= 2 | Eeff=853.607780979891 | Ec=895.184899161834 | qsel=13.437553383072 | seeds=soft_triplet_component
+  cluster=20 | members= 1 | Eeff=859.482970970945 | Ec=895.421802814580 | qsel=12.429569744158 | seeds=M_T2u_control
+
+g/g_c=1.010000 | g=1.644974164547 | best Eeff=850.956359869950 | Ec=895.065881396104 | qsel=13.624521559782 | clusters=23
+  cluster= 8 | members= 1 | Eeff=850.956359869950 | Ec=895.065881396104 | qsel=13.624521559782 | seeds=soft_triplet_component
+  cluster=13 | members= 1 | Eeff=851.099563774849 | Ec=895.094309050849 | qsel=13.609849495810 | seeds=soft_triplet_component
+  cluster=15 | members= 1 | Eeff=851.220706835795 | Ec=895.131356621292 | qsel=13.632421117782 | seeds=soft_triplet_component
+  cluster=17 | members= 2 | Eeff=851.242576812946 | Ec=895.126295809987 | qsel=13.562490826366 | seeds=soft_triplet_component
+  cluster= 9 | members= 2 | Eeff=851.256135440968 | Ec=895.204312747612 | qsel=13.609072157174 | seeds=soft_triplet_component
+  cluster=10 | members= 2 | Eeff=851.275941562823 | Ec=895.097332952770 | qsel=13.578635120641 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=851.278045129908 | Ec=895.135710696116 | qsel=13.574009405127 | seeds=soft_triplet_component
+  cluster=11 | members= 2 | Eeff=851.340449642378 | Ec=895.117168885156 | qsel=13.545606023242 | seeds=soft_triplet_component
+  cluster=21 | members= 1 | Eeff=851.370194306026 | Ec=895.087255678046 | qsel=13.576060687728 | seeds=M_lowest_control
+  cluster=14 | members= 1 | Eeff=851.376032039900 | Ec=895.102554789988 | qsel=13.569201402727 | seeds=soft_triplet_component
+  cluster=20 | members= 1 | Eeff=851.377194301302 | Ec=895.130711089670 | qsel=13.605593194522 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=851.378197174812 | Ec=895.124963882134 | qsel=13.573923878226 | seeds=soft_triplet_component
+  cluster= 7 | members= 1 | Eeff=851.397036049828 | Ec=895.072531168068 | qsel=13.585394622543 | seeds=soft_triplet_component
+  cluster= 2 | members= 1 | Eeff=851.406936038810 | Ec=895.098408780464 | qsel=13.591863767293 | seeds=soft_triplet_component
+  cluster=22 | members= 1 | Eeff=851.428703421081 | Ec=895.133478955039 | qsel=13.603299509116 | seeds=M_T2u_control
+  cluster=18 | members= 2 | Eeff=851.430523205119 | Ec=895.182074854489 | qsel=13.558946772283 | seeds=soft_triplet_component
+  cluster= 1 | members= 1 | Eeff=851.446209264941 | Ec=895.141065861112 | qsel=13.597780269320 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=851.589327018413 | Ec=895.154534436985 | qsel=13.532035161173 | seeds=soft_triplet_component
+  cluster=12 | members= 2 | Eeff=851.795050333723 | Ec=895.156050488046 | qsel=13.502898266908 | seeds=soft_triplet_component
+  cluster=16 | members= 2 | Eeff=851.904546869666 | Ec=895.197550139485 | qsel=13.492874177021 | seeds=soft_triplet_component
+  cluster= 0 | members= 1 | Eeff=851.974802621859 | Ec=895.170743361577 | qsel=13.486352209336 | seeds=soft_triplet_component
+  cluster= 6 | members= 1 | Eeff=852.369167261623 | Ec=895.365872821186 | qsel=13.452734894066 | seeds=soft_triplet_component
+  cluster= 4 | members= 2 | Eeff=852.460380772178 | Ec=895.163639479858 | qsel=13.416728941899 | seeds=soft_triplet_component
+
+g/g_c=1.050000 | g=1.710121656212 | best Eeff=847.630691253888 | Ec=895.313886886443 | qsel=13.647908836829 | clusters=20
+  cluster=13 | members= 2 | Eeff=847.630691253888 | Ec=895.313886886443 | qsel=13.647908836829 | seeds=soft_triplet_component
+  cluster=10 | members= 2 | Eeff=847.655702910554 | Ec=895.298937024068 | qsel=13.607717968426 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=847.720756351169 | Ec=895.298703734072 | qsel=13.591283475102 | seeds=soft_triplet_component
+  cluster=11 | members= 1 | Eeff=847.864777242391 | Ec=895.244859052370 | qsel=13.563478051050 | seeds=soft_triplet_component
+  cluster=17 | members= 2 | Eeff=847.882666419437 | Ec=895.311643784996 | qsel=13.608469333301 | seeds=soft_triplet_component
+  cluster=15 | members= 2 | Eeff=847.905361284759 | Ec=895.345493346354 | qsel=13.577549289102 | seeds=soft_triplet_component
+  cluster= 6 | members= 1 | Eeff=847.986874085560 | Ec=895.330802245587 | qsel=13.606293530206 | seeds=soft_triplet_component
+  cluster= 0 | members= 1 | Eeff=848.008236731360 | Ec=895.353681032568 | qsel=13.590404813788 | seeds=soft_triplet_component
+  cluster= 2 | members= 2 | Eeff=848.071474395994 | Ec=895.372412399416 | qsel=13.598501307609 | seeds=soft_triplet_component
+  cluster= 9 | members= 2 | Eeff=848.082943707617 | Ec=895.304165161513 | qsel=13.601856310399 | seeds=soft_triplet_component
+  cluster= 7 | members= 1 | Eeff=848.091369007741 | Ec=895.289156585397 | qsel=13.523798295161 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=848.095444794004 | Ec=895.279784191799 | qsel=13.531407637056 | seeds=soft_triplet_component
+  cluster=14 | members= 2 | Eeff=848.163088372911 | Ec=895.341645070373 | qsel=13.577303110560 | seeds=soft_triplet_component
+  cluster=16 | members= 2 | Eeff=848.193662024705 | Ec=895.406090969805 | qsel=13.573944101045 | seeds=soft_triplet_component
+  cluster= 1 | members= 2 | Eeff=848.306612134189 | Ec=895.443498647428 | qsel=13.534830297118 | seeds=soft_triplet_component
+  cluster= 4 | members= 2 | Eeff=848.358426446882 | Ec=895.301138489359 | qsel=13.530502428668 | seeds=soft_triplet_component
+  cluster=18 | members= 1 | Eeff=848.410247318061 | Ec=895.381976058526 | qsel=13.550534930341 | seeds=M_lowest_control
+  cluster=12 | members= 1 | Eeff=848.570079548004 | Ec=895.320106029719 | qsel=13.455052976735 | seeds=soft_triplet_component
+  cluster= 8 | members= 2 | Eeff=848.743487985088 | Ec=895.350213155683 | qsel=13.450289570422 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=855.878981815478 | Ec=895.643769432640 | qsel=12.460875113721 | seeds=M_T2u_control
+
+g/g_c=1.100000 | g=1.791556020794 | best Eeff=842.732905926915 | Ec=895.549909887187 | qsel=13.708133926474 | clusters=20
+  cluster=13 | members= 2 | Eeff=842.732905926915 | Ec=895.549909887187 | qsel=13.708133926474 | seeds=soft_triplet_component
+  cluster= 7 | members= 1 | Eeff=842.954405220671 | Ec=895.534734608145 | qsel=13.663144872471 | seeds=soft_triplet_component
+  cluster=17 | members= 1 | Eeff=842.954594197778 | Ec=895.494577971359 | qsel=13.636364489070 | seeds=soft_triplet_component
+  cluster=16 | members= 2 | Eeff=842.961832312874 | Ec=895.545189644805 | qsel=13.647124749858 | seeds=soft_triplet_component
+  cluster=11 | members= 1 | Eeff=842.968921702767 | Ec=895.516084554306 | qsel=13.658982294697 | seeds=soft_triplet_component
+  cluster= 9 | members= 2 | Eeff=842.982403415823 | Ec=895.542595506696 | qsel=13.673472394039 | seeds=soft_triplet_component
+  cluster= 1 | members= 2 | Eeff=843.060246496679 | Ec=895.528651325167 | qsel=13.645673303092 | seeds=soft_triplet_component
+  cluster= 0 | members= 1 | Eeff=843.133662701579 | Ec=895.605491712141 | qsel=13.638357904701 | seeds=soft_triplet_component
+  cluster=12 | members= 1 | Eeff=843.175677376198 | Ec=895.548293544448 | qsel=13.602094809040 | seeds=soft_triplet_component
+  cluster=14 | members= 2 | Eeff=843.183278090745 | Ec=895.570044480210 | qsel=13.641552875147 | seeds=soft_triplet_component
+  cluster=18 | members= 1 | Eeff=843.338719004419 | Ec=895.517102486884 | qsel=13.612623898701 | seeds=M_lowest_control
+  cluster=10 | members= 2 | Eeff=843.420264202370 | Ec=895.553375181208 | qsel=13.630074125976 | seeds=soft_triplet_component
+  cluster= 4 | members= 2 | Eeff=843.428335959508 | Ec=895.557783098885 | qsel=13.603287026785 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=843.482312416105 | Ec=895.553684028853 | qsel=13.611279985731 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=843.486189080927 | Ec=895.632468692157 | qsel=13.612983943519 | seeds=soft_triplet_component
+  cluster= 8 | members= 2 | Eeff=843.660996544585 | Ec=895.582589403596 | qsel=13.573652946698 | seeds=soft_triplet_component
+  cluster= 6 | members= 2 | Eeff=843.665360900011 | Ec=895.669685378100 | qsel=13.597244441704 | seeds=soft_triplet_component
+  cluster=15 | members= 2 | Eeff=843.984899602696 | Ec=895.637013008066 | qsel=13.526004426789 | seeds=soft_triplet_component
+  cluster= 2 | members= 2 | Eeff=844.672937556989 | Ec=895.645823205390 | qsel=13.440133734485 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=851.090544829458 | Ec=895.945958644750 | qsel=12.610200419832 | seeds=M_T2u_control
+
+g/g_c=1.200000 | g=1.954424749957 | best Eeff=832.664178316448 | Ec=896.069776467528 | qsel=13.758434230450 | clusters=19
+  cluster=13 | members= 2 | Eeff=832.664178316448 | Ec=896.069776467528 | qsel=13.758434230450 | seeds=soft_triplet_component
+  cluster=10 | members= 1 | Eeff=832.721471799774 | Ec=895.976140941358 | qsel=13.760408827081 | seeds=soft_triplet_component
+  cluster= 6 | members= 2 | Eeff=832.868464181578 | Ec=896.108983337160 | qsel=13.760414367958 | seeds=soft_triplet_component
+  cluster=15 | members= 2 | Eeff=832.925406665325 | Ec=896.049047033845 | qsel=13.736606028300 | seeds=soft_triplet_component
+  cluster= 7 | members= 2 | Eeff=832.982105712134 | Ec=896.091542091053 | qsel=13.721207752126 | seeds=soft_triplet_component
+  cluster= 0 | members= 2 | Eeff=833.113942882685 | Ec=896.083041784717 | qsel=13.723465522515 | seeds=soft_triplet_component
+  cluster=16 | members= 1 | Eeff=833.144832858800 | Ec=896.097112677328 | qsel=13.688965442127 | seeds=soft_triplet_component
+  cluster=14 | members= 2 | Eeff=833.160346104681 | Ec=896.107147485943 | qsel=13.690725349590 | seeds=soft_triplet_component
+  cluster=17 | members= 1 | Eeff=833.189507673316 | Ec=896.024742675999 | qsel=13.717277931720 | seeds=M_lowest_control
+  cluster= 5 | members= 1 | Eeff=833.296726066404 | Ec=896.127710699977 | qsel=13.717114606669 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=833.317508179556 | Ec=896.168896231566 | qsel=13.713868570638 | seeds=soft_triplet_component
+  cluster=12 | members= 2 | Eeff=833.359182469233 | Ec=896.148774047832 | qsel=13.674807843258 | seeds=soft_triplet_component
+  cluster= 1 | members= 2 | Eeff=833.382933821661 | Ec=896.153089178883 | qsel=13.700101903982 | seeds=soft_triplet_component
+  cluster=11 | members= 1 | Eeff=833.420851332485 | Ec=896.174289842235 | qsel=13.669938310114 | seeds=soft_triplet_component
+  cluster= 8 | members= 2 | Eeff=833.425332497671 | Ec=896.048290802570 | qsel=13.631583226901 | seeds=soft_triplet_component
+  cluster= 4 | members= 2 | Eeff=833.439887151210 | Ec=896.153787466800 | qsel=13.671114898351 | seeds=soft_triplet_component
+  cluster= 2 | members= 2 | Eeff=833.739826426842 | Ec=896.153961742788 | qsel=13.646898098097 | seeds=soft_triplet_component
+  cluster=18 | members= 1 | Eeff=833.794874513335 | Ec=896.162290795935 | qsel=13.656470698919 | seeds=M_T2u_control
+  cluster= 9 | members= 2 | Eeff=833.914158716406 | Ec=896.158883648726 | qsel=13.604683412088 | seeds=soft_triplet_component
+
+g/g_c=1.300000 | g=2.117293479120 | best Eeff=821.665813182469 | Ec=896.699165605883 | qsel=13.786314539895 | clusters=21
+  cluster=15 | members= 2 | Eeff=821.665813182469 | Ec=896.699165605883 | qsel=13.786314539895 | seeds=soft_triplet_component
+  cluster=14 | members= 1 | Eeff=821.678377306184 | Ec=896.680306051402 | qsel=13.795730868481 | seeds=soft_triplet_component
+  cluster=18 | members= 1 | Eeff=821.697398001739 | Ec=896.745716094908 | qsel=13.814792609273 | seeds=soft_triplet_component
+  cluster=13 | members= 2 | Eeff=821.744586439055 | Ec=896.679614591389 | qsel=13.786642103851 | seeds=soft_triplet_component
+  cluster=16 | members= 2 | Eeff=821.835830850663 | Ec=896.695721113485 | qsel=13.791144502543 | seeds=soft_triplet_component
+  cluster= 8 | members= 2 | Eeff=821.855155618806 | Ec=896.687364100787 | qsel=13.806007943442 | seeds=soft_triplet_component
+  cluster=10 | members= 2 | Eeff=821.880335781268 | Ec=896.725337271942 | qsel=13.800498425544 | seeds=soft_triplet_component
+  cluster=12 | members= 1 | Eeff=821.887497756925 | Ec=896.869602604590 | qsel=13.844972283632 | seeds=soft_triplet_component
+  cluster=11 | members= 1 | Eeff=821.943330766951 | Ec=896.732163438898 | qsel=13.798175772292 | seeds=soft_triplet_component
+  cluster= 6 | members= 1 | Eeff=822.048642132155 | Ec=896.712134836502 | qsel=13.773553076940 | seeds=soft_triplet_component
+  cluster= 3 | members= 2 | Eeff=822.066721310937 | Ec=896.729908861166 | qsel=13.800256522549 | seeds=soft_triplet_component
+  cluster= 2 | members= 2 | Eeff=822.087013133338 | Ec=896.727413495173 | qsel=13.806773635960 | seeds=soft_triplet_component
+  cluster= 7 | members= 1 | Eeff=822.093907759452 | Ec=896.778704604178 | qsel=13.803521660032 | seeds=soft_triplet_component
+  cluster=17 | members= 2 | Eeff=822.128951891650 | Ec=896.699041452240 | qsel=13.734433155935 | seeds=soft_triplet_component
+  cluster= 0 | members= 1 | Eeff=822.132415594783 | Ec=896.730192269788 | qsel=13.785686830608 | seeds=soft_triplet_component
+  cluster=20 | members= 1 | Eeff=822.150078532102 | Ec=896.707025871006 | qsel=13.797167051934 | seeds=M_T2u_control
+  cluster= 4 | members= 2 | Eeff=822.214803921092 | Ec=896.716466612525 | qsel=13.786392953565 | seeds=soft_triplet_component
+  cluster= 1 | members= 2 | Eeff=822.242863345934 | Ec=896.721212690922 | qsel=13.754216134824 | seeds=soft_triplet_component
+  cluster= 5 | members= 1 | Eeff=822.249148739696 | Ec=896.814221620071 | qsel=13.814058434060 | seeds=soft_triplet_component
+  cluster=19 | members= 1 | Eeff=822.685012595029 | Ec=896.751140753746 | qsel=13.703381473251 | seeds=M_lowest_control
+  cluster= 9 | members= 2 | Eeff=822.779087868798 | Ec=896.847174474217 | qsel=13.709695885645 | seeds=soft_triplet_component
+
+================================================================================================
+SALVATAGGIO
+================================================================================================
+JSON:
+  64B_effective_coupled_landscape_results.json
+CSV:
+  64B_effective_coupled_landscape_results.csv
+Endpoint NPY:
+  64B_effective_coupled_landscape_endpoints.npy
+
+Numero rilassamenti = 288
+
+Completato.

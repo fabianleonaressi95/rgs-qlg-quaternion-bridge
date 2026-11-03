@@ -1,0 +1,5 @@
+epsilon_eq=0.934097753496
+pearson_r=-0.0167730398867
+within_shell_sd_mean=0.00114766866121
+within_shell_sd_max=0.00119297193454
+D uses a non-shell-parametrized random base and XOR-equivariance penalty.

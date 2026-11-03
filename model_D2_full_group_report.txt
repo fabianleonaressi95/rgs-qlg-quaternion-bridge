@@ -1,0 +1,6 @@
+epsilon_translation=0.0
+epsilon_S6_parameter=0.07490111657897429
+epsilon_group_pair_sample=0.00045475020851304664
+pearson_r=0.3695052794627289
+within_shell_sd_mean=8.562721590814062e-05
+within_shell_sd_max=0.00014457491604966021
