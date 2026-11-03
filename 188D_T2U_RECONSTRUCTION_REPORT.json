@@ -1,0 +1,34 @@
+{
+  "status": "RECONSTRUCTED_FROM_EXPLICIT_FORMULA",
+  "formula_source": "T2U_DATA__eigenvectors_T2u_tan[:, first_triplet_indices] and T2U_DATA__V_first_triplet",
+  "input_files": [
+    "all_T2u_arrays.npz",
+    "K_tangent_rebuilt.npy"
+  ],
+  "input_hashes": {
+    "all_T2u_arrays.npz": "sha256-not-computed",
+    "K_tangent_rebuilt.npy": "sha256-not-computed"
+  },
+  "shape_B_T2u": [
+    188,
+    39
+  ],
+  "shape_K_T2u": [
+    39,
+    39
+  ],
+  "shape_first_triplet_indices": [
+    3
+  ],
+  "shape_B_T2U_TAN": [
+    188,
+    3
+  ],
+  "construction": "B_T2U_TAN = T2U_DATA__eigenvectors_T2u_tan[:, first_triplet_indices]; equivalent to T2U_DATA__V_first_triplet. K_T2u = B_T2u^T K_coulomb B_T2u; M_geom = B_T2U_TAN^T K^{-1} B_T2U_TAN.",
+  "verified": true,
+  "relative_difference_vs_archive": 0.0,
+  "J_A_J_B_status": "NOT_RECOVERABLE",
+  "A_B_semantic_definition": "NOT_RECOVERABLE",
+  "T2u_semantic_definition": "T2u irrep sector basis; first triplet in the tangent space of the Coulombic constrained manifold",
+  "J0_equivalence": "B_T2U_TAN = J0 = T2U_DATA__V_first_triplet"
+}

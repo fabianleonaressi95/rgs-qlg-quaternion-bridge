@@ -1,0 +1,35 @@
+{
+  "title": "188D J_A / J_B first-principles reconstruction report",
+  "status": "NOT_RECOVERABLE",
+  "original_provenance": {
+    "J_A": "NOT_RECOVERABLE",
+    "J_B": "NOT_RECOVERABLE"
+  },
+  "mathematical_definition_recovered": "NOT_RECOVERABLE",
+  "A_B_semantic_definition": "PARTIALLY_RECOVERED",
+  "verified_inputs": {
+    "X_Oh": "X_Oh_reconstructed.npy",
+    "Q": "Q_rebuilt.npy",
+    "K_tangent": "K_tangent_rebuilt.npy"
+  },
+  "forbidden_inputs": [
+    "J_A.npy",
+    "J_B.npy",
+    "Kinv.npy",
+    "K0.npy"
+  ],
+  "evidence": [
+    "Recovered notebook contains synthetic mock construction J_A = J + 0.01 * rng.normal(...); J_B = J + 0.01 * rng.normal(...)",
+    "Recovered notebook contains fallback random Gaussian construction J_A = np.random.randn(...), J_B = np.random.randn(...)",
+    "No explicit verified derivation from X_Oh, Q, and K_tangent to a unique original J_A/J_B formula was found",
+    "Bundle J_A/J_B and K0/Kinv remain UNVERIFIED and cannot be used as truth data"
+  ],
+  "construction": "NOT_APPLICABLE - formula not recoverable from verified sources",
+  "verified": false,
+  "classification": {
+    "original_provenance": "NOT_RECOVERABLE",
+    "mathematical_reproducibility": "NOT_RECOVERABLE",
+    "numerical_reproducibility": "SYNTHETIC_ONLY",
+    "historical_bundle_compatibility": "MISMATCH"
+  }
+}
