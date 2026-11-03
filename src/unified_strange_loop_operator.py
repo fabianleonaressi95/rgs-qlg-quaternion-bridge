@@ -61,22 +61,46 @@ def escher_lifted_torus_laplacian():
     return E@torus_laplacian()@E.T
 
 
+def cantor_parry_q6_laplacian():
+    """Symmetrized stationary-flow Laplacian coupling Cantor emissions to Q6."""
+    A=bach_matrix()
+    r=np.array([1.,PSI**-1,PSI**-2])
+    P=A*r[None,:]/(PSI*r[:,None])
+    vals,vecs=np.linalg.eig(P.T)
+    k=int(np.argmin(np.abs(vals-1.)))
+    pi=np.real(vecs[:,k])
+    if pi.sum()<0: pi=-pi
+    pi=pi/pi.sum()
+    phi=(1.+np.sqrt(5.))/2.
+    qphi=np.exp(-1./phi**2)/phi
+    q=qphi*r/float(np.prod(r)**(1./3.))
+    p1=q/(1.+q); p0=1./(1.+q)
+    F=np.zeros((192,192))
+    for i in range(3):
+        for x in range(64):
+            u=64*i+x
+            for j in range(3):
+                if A[i,j]==0: continue
+                bit_index=(i+j)%6
+                for b,pb in ((0,p0[i]),(1,p1[i])):
+                    y=x^(int(b)<<bit_index)
+                    F[u,64*j+y]+=pi[i]*P[i,j]*pb/64.
+    W=.5*(F+F.T)
+    L=np.diag(W.sum(axis=1))-W
+    return L,{"parry_transition":P,"stationary":pi,"cantor_p0":p0,"cantor_p1":p1}
+
+
 def build_strange_loop_operator(kappa=1.0, sheet_weight=1.0):
-    """Symmetric Kronecker-sum operator on Bach(3) x Q6(64) x sheets(2)."""
+    """Symmetric operator on Parry(3) x Cantor-prefix Q6(64) x sheets(2)."""
     if kappa<0 or sheet_weight<0:
         raise ValueError("weights must be nonnegative")
-    A=bach_matrix()
-    W=.5*(A+A.T)
-    d=W.sum(axis=1)
-    Lb=np.diag(d)-W
-    L6=q6_laplacian()
+    Lcq,measure=cantor_parry_q6_laplacian()
     Lt=escher_lifted_torus_laplacian()
     Lsheet=np.array([[1.,-1.],[-1.,1.]])
-    I3,I64,I2=np.eye(3),np.eye(64),np.eye(2)
-    H=(np.kron(np.kron(Lb,I64),I2)
-       +np.kron(np.kron(I3,L6+kappa*Lt),I2)
-       +sheet_weight*np.kron(np.kron(I3,I64),Lsheet))
-    return H,{"L_bach":Lb,"L_q6":L6,"L_torus_lifted":Lt,"L_sheet":Lsheet}
+    H=(np.kron(Lcq,np.eye(2))
+       +kappa*np.kron(np.kron(np.eye(3),Lt),np.eye(2))
+       +sheet_weight*np.kron(np.eye(192),Lsheet))
+    return H,{"L_cantor_parry_q6":Lcq,"measure":measure,"L_torus_lifted":Lt,"L_sheet":Lsheet}
 
 
 def _prism_constant_mode_intertwiner(H):
@@ -110,9 +134,9 @@ def audit_unified_operator(kappa=1.0,sheet_weight=1.0):
     torus_edges=sum(1 for i in range(4) for j in range(4)
                     for ni,nj in (((i+1)%4,j),(i,(j+1)%4)))
     payload={
-        "operator":"H=L_Bach (x) I + I (x) (L_Q6+kappa L_Torus) (x) I + sheet_weight I (x) I (x) L_Z2",
+        "operator":"H=L_Cantor-Parry-Q6 (x) I_sheet + kappa I_Bach (x) L_Torus_Q6 (x) I_sheet + gamma I_192 (x) (I_sheet-J_sheet)",
         "shape":list(H.shape),"kappa":float(kappa),"sheet_weight":float(sheet_weight),
-        "bach_matrix":bach.tolist(),"torus_embedding":torus_ids.tolist(),
+        "bach_matrix":bach.tolist(),"torus_embedding":torus_ids.tolist(),"cantor_branch":"golden state-dependent emissions on Parry transitions update Q6 bit (i+j) mod 6",
         "q6_vertices":64,"q6_edges":192,"torus_vertices":16,"torus_cycle_edges":torus_edges,
         "sheet_involution":"J(s)=1-s",
     }
