@@ -134,3 +134,7 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 
 - [x] Audit the full dispersion of the Hermitian scalar sum D0+W; identify its additional one-dimensional zero at pa=2 arctan(2/r), and distinguish it from the Euclidean Wilson operator.
 - [x] Add `assemble_euclidean_wilson_dirac` implementing D_E=iD0+W and verify gamma5-Hermiticity. The overlap construction uses this Euclidean convention.
+
+- [x] Prove a Fourier-embedded Mosco-convergence prototype for the Euclidean Wilson quadratic form on a flat periodic torus, distinguishing Mosco liminf/recovery from the additional UV compactness needed for spectral convergence.
+- [x] Add numerical sampling of the fixed-mode quadratic form and the doubler mass along the periodic-torus refinement sequence.
+- [ ] Transfer the prototype proof to a nonuniform RGS refinement family; the fixed Q6 graph does not provide such a family.
