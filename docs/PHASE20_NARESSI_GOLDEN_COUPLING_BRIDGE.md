@@ -64,3 +64,17 @@ PYTHONPATH=. python -m pytest tests/test_naressi_golden_bridge.py -q
 
 Generate the JSON audit (default sizes N=4,8,12,16):
 PYTHONPATH=. python examples/naressi_golden_bridge_audit.py
+
+
+## Reconciliation against the capsule's printed energies
+
+An independent sparse diagonalization of the explicitly written open-chain Hamiltonian above, with g=1, alpha=1 and site index n=1,...,N-1, gives:
+
+| N | E0 from this explicit convention |
+|---:|---:|
+| 4 | -4.053481 |
+| 8 | -8.053786 |
+| 12 | -12.053786 |
+| 16 | -16.053786 |
+
+The capsule log supplied for comparison reports -4.731639, -8.736170, -12.736174 and -16.736174. These sequences do **not** coincide. Therefore the prose-level Hamiltonian and parameter convention are not yet sufficient to reproduce the capsule output. The original implementation's indexing, field coefficient, boundary convention and actual coupling helper must be checked against the source file before attributing the logged energies to this exact Hamiltonian. This discrepancy is recorded as an unresolved reproduction issue, not silently calibrated away.
