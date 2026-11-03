@@ -116,7 +116,7 @@ def test_wilson_term_lifts_pi_mode_on_periodic_1d_ring():
     assert a["minimum_eigenvalue"]>-1e-12
 
 
-def test_wilson_term_breaks_exact_chiral_anticommutation():
+def test_hermitian_scalar_perturbation_breaks_exact_chiral_anticommutation():
     from src.discrete_dirac import assemble_spatial_dirac, chirality_matrix
     x=np.array([[0.,0.,0.],[1.,0.,0.]])
     e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
