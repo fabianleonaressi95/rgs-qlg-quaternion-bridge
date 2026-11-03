@@ -64,7 +64,7 @@ def escher_lifted_torus_laplacian():
 def cantor_parry_q6_laplacian():
     """Symmetrized stationary-flow Laplacian coupling Cantor emissions to Q6."""
     A=bach_matrix()
-    r=np.array([1.,PSI**-1,PSI**-2])
+    r=np.array([1.,PSI**-1,PSI])
     P=A*r[None,:]/(PSI*r[:,None])
     vals,vecs=np.linalg.eig(P.T)
     k=int(np.argmin(np.abs(vals-1.)))
