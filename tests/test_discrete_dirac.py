@@ -61,3 +61,53 @@ def test_compact_kernel_field_transform_is_gauge_covariant():
     yp,supportp=compact_kernel_transform(fp,[(0,1)],kp,pp)
     assert support==supportp=={(0,1)}
     assert np.allclose(yp[1],g1@y[1],atol=2e-12)
+
+
+def test_covariant_wilson_laplacian_is_hermitian_positive_and_zero_at_r_zero():
+    from src.discrete_dirac import assemble_wilson_laplacian
+    x=np.array([[0.,0.,0.],[1.,0.,0.],[1.,1.,0.]])
+    e=np.broadcast_to(np.eye(3),(3,3,3)).copy()
+    edges=[(0,1),(1,2),(0,2)]
+    w,a=assemble_wilson_laplacian(x,e,edges,r=1.0)
+    assert a["hermiticity_residual"]<1e-12
+    assert a["positive_semidefinite"]
+    assert a["minimum_eigenvalue"]>-1e-10
+    wz,_=assemble_wilson_laplacian(x,e,edges,r=0.0)
+    assert np.linalg.norm(wz)<1e-14
+
+
+def test_wilson_laplacian_local_gauge_covariance():
+    from src.discrete_dirac import assemble_wilson_laplacian
+    from src.representations_2i import quaternion_to_fundamental_su2
+    rng=np.random.default_rng(20261103)
+    x=np.array([[0.,0.,0.],[1.,0.,0.],[1.,1.,0.]])
+    e=np.broadcast_to(np.eye(3),(3,3,3)).copy()
+    edges=[(0,1),(1,2),(0,2)]
+    links={}
+    for edge in edges:
+        q=rng.normal(size=4); q/=np.linalg.norm(q)
+        u=quaternion_to_fundamental_su2(q)
+        links[edge]=np.block([[u,np.zeros((2,2))],[np.zeros((2,2)),u]])
+    gauges=[]
+    for _ in range(3):
+        q=rng.normal(size=4); q/=np.linalg.norm(q)
+        u=quaternion_to_fundamental_su2(q)
+        gauges.append(np.block([[u,np.zeros((2,2))],[np.zeros((2,2)),u]]))
+    transformed={}
+    for i,j in edges:
+        transformed[(i,j)]=gauges[j]@links[(i,j)]@gauges[i].conj().T
+    w,_=assemble_wilson_laplacian(x,e,edges,spin_links=links)
+    wp,_=assemble_wilson_laplacian(x,e,edges,spin_links=transformed)
+    big=np.zeros((12,12),dtype=complex)
+    for i,g in enumerate(gauges): big[4*i:4*i+4,4*i:4*i+4]=g
+    assert np.linalg.norm(wp-big@w@big.conj().T,ord="fro")<2e-11
+
+
+def test_dirac_wilson_candidate_is_hermitian():
+    from src.discrete_dirac import assemble_dirac_wilson
+    x=np.array([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[0.,0.,1.]])
+    e=np.broadcast_to(np.eye(3),(4,3,3)).copy()
+    edges=[(0,1),(0,2),(0,3),(1,2),(1,3),(2,3)]
+    dw,a=assemble_dirac_wilson(x,e,edges,r=1.0)
+    assert dw.shape==(16,16)
+    assert a["hermiticity_residual"]<1e-11
