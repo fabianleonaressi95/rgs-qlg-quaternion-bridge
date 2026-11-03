@@ -9,7 +9,8 @@ from pathlib import Path
 import numpy as np
 
 from src.dirac_kahler import assemble_q6_dirac_kahler
-from src.overlap_dirac import assemble_overlap_from_wilson\nfrom src.mosco_torus import torus_mosco_sampling_audit
+from src.overlap_dirac import assemble_overlap_from_wilson
+from src.mosco_torus import torus_mosco_sampling_audit
 from src.wilson_refinement import (
     euclidean_wilson_singular_value, hermitian_scalar_sum_branches,
     refinement_audit, scalar_sum_accidental_zero_angle, wilson_brillouin_corners,
@@ -25,7 +26,10 @@ def main():
         sizes=(16,32,64,128,256),dimension=3,physical_length=1.0,
         mode=(1,0,0),r0=1.0,r_exponent=0.5
     )
-    kahler,kahler_audit=assemble_q6_dirac_kahler()\n    mosco_torus=torus_mosco_sampling_audit(\n        sizes=(16,32,64,128,256),dimension=3,physical_length=1.0,\n        mode=(1,0,0),r0=1.0,r_exponent=0.0\n    )
+    kahler,kahler_audit=assemble_q6_dirac_kahler()\n    mosco_torus=torus_mosco_sampling_audit(
+        sizes=(16,32,64,128,256),dimension=3,physical_length=1.0,
+        mode=(1,0,0),r0=1.0,r_exponent=0.0
+    )
 
     # A transparent finite-dimensional overlap/GW algebra check. This is a
     # matrix identity test, not an RGS-Q6 overlap spectrum.
@@ -80,7 +84,8 @@ def main():
             and kahler_audit["square_to_hodge_laplacian_residual"]<1e-10
             and overlap_audit["ginsparg_wilson_residual"]<1e-10
             and abs(scalar_branches[0])<1e-10
-            and euclidean_sigma_star>1e-8\n            and mosco_torus["fixed_mode_form_converges"]\n            and mosco_torus["doubler_mass_diverges"]):
+            and euclidean_sigma_star>1e-8
+            and mosco_torus["fixed_mode_form_converges"]\n            and mosco_torus["doubler_mass_diverges"]):
         raise SystemExit("Phase 9 audit failed")
 
 
