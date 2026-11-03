@@ -87,12 +87,13 @@ def torus_audit(n: int = 4) -> dict:
         alpha[k] = di / n
         beta[k] = dj / n
     # Fundamental cycles, with orientation matching increasing coordinates.
+    edge_lookup = {tuple(sorted(edge)): k for k, edge in enumerate(edges)}
     cycle_x, cycle_y = [], []
     for j in range(n):
         row = np.zeros(len(edges))
         for i in range(n):
             u, v = i*n+j, ((i+1)%n)*n+j
-            k = edges[(min(u,v), max(u,v))]
+            k = edge_lookup[(min(u,v), max(u,v))]
             row[k] = 1 if (u,v)==edges[k] else -1
         cycle_x.append(row)
     for i in range(n):
