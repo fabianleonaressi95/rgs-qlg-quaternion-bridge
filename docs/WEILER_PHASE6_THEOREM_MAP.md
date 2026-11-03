@@ -1,0 +1,64 @@
+# Phase 6 — Weiler-compatible geometry and discrete Dirac operator
+
+## Mathematical contract
+
+The listed Weiler results are translated into finite-graph obligations. Their Euclidean/manifold hypotheses are not silently transferred to Q6.
+
+| Weiler result | Constraint | Phase 6 status |
+|---|---|---|
+| 3.2.1, 4.3.1 | Equivariant linear maps are relative-position kernel transforms; graph matrices are not automatically convolutions. | Finite-support field transform implemented; metric graph automorphism classification open |
+| 3.2.2, 4.3.2 | Bias belongs to the invariant subspace of spatial and fibre actions. | No bias added; invariant-bias projector open |
+| 3.2.3, 4.3.3 | Pointwise nonlinearities commute with fibre representations and are position-independent. | No nonlinear layer added |
+| 3.2.4–3.2.8, 4.3.4–4.3.9 | Pooling/subsampling require invariant windows, appropriate permutation/unitary reps and correct measure factors. | Not used in Dirac construction |
+| 4.5.1 | Aff(G) group convolution equals regular-field steerable convolution under its hypotheses. | Not invoked: Q6 is not assumed to be a continuous affine group |
+| 5.3.1 | Steerable kernels are built from representation intertwiners / Wigner–Eckart data. | Selected 2I Hom spaces already tested; complete Q6 kernel basis open |
+| 12.2.6 | Compact support and geometric assumptions ensure well-defined kernel-field transforms. | Finite sums are algebraically well-defined; this is not a continuum integral theorem |
+| 12.2.8–12.2.9 | Coordinate formula includes local gauges and transporters. | Compact-support transform explicitly includes source-to-target transport |
+| 13.1.3–13.1.4 | Isometries act compatibly on local gauges and transporter pullbacks. | Need actual metric-preserving automorphism subgroup of reconstructed X,E |
+| 13.2.4–13.2.7 | Equivariance iff the kernel field is invariant under the relevant isometries. | Exact audit open until that subgroup and kernel field are specified |
+| 13.3.1–13.3.3 | Quotient representatives and homogeneous-space convolution require quotient/homogeneity hypotheses. | Not invoked before transitivity is proved |
+| 15.1.2–15.1.6 | Affine chart transitions induce compatible G-gauge atlases. | Local coframe convention fixed; global atlas/cocycle open |
+| 15.2.1–15.2.2 | Coordinate-independent Euclidean GM convolution reduces to coordinate form and remains affine equivariant. | Not claimed for this finite non-Euclidean graph |
+| 17.2.1–17.2.2 | Spherical tangent kernels correspond to steerable kernels under geodesic hypotheses. | No spherical geodesic model supplied for the 64 vertices |
+| 17.3.1 | Gnomonic projection is a warped exponential map under spherical hypotheses. | Not used |
+| B.3.7 | Orbit-stabilizer controls finite group orbits/stabilizers. | Required to classify actual metric-preserving subgroup |
+| B.5.10 | Schur's lemma constrains intertwiners of irreducibles. | Selected 2I Hom spaces tested; not a complete catalogue |
+| B.5.14, B.5.16 | Compact unitary representations are completely reducible. | Applies to finite unitary 2I reps, not arbitrary GL(3) matrices |
+| B.5.22 | Peter–Weyl decomposes functions on compact groups. | Finite-group analogue exists; full Q6 kernel harmonic analysis open |
+| J.0.1 | Regular feature fields correspond to scalar functions on the G-structure. | Conceptual target; total-space implementation open |
+
+## Vierbein and curved Clifford field
+
+Input E has shape (64,3,3), as defined in the RGS reconstruction. The static ansatz is
+e^A_mu(i)=diag(1,E_i), with eta=diag(-1,+1,+1,+1).
+The inverse coframe defines Gamma^mu(i)=e_A^mu(i) gamma^A. The audit
+checks all 16 anticommutators at every vertex. The time leg is assumed static;
+no lapse, shift, or time-dependent vierbein is derived.
+
+## Discrete spatial Dirac candidate
+
+For canonical edge i<j, define M_ji=E_j E_i^{-1}, take its right-polar
+rotational factor R_ji in SO(3), and lift it to S_ji in SU(2). This is an
+explicit discrete frame-transport ansatz, not yet the Levi-Civita spin connection.
+
+For d_ij=x_j-x_i, let n_i=E_i d_ij/||E_i d_ij|| and similarly at j.
+With c_i(n)=n_a gamma_i^a, set
+
+H_ji = i/(2||d_ij||) [ c_j(n_j) S_ji + S_ji c_i(n_i) ],
+H_ij = H_ji^dagger.
+
+For vertex volumes v_i=det(E_i)>0, define D=V^(-1/2) H V^(-1/2).
+Thus D=D^dagger by construction. This proves finite-dimensional
+self-adjointness for the stated weighted inner product, not continuum
+consistency, absence of fermion doubling, or Mosco convergence.
+
+## Evidence labels and open obligations
+
+- PROVED algebraically: the curved Clifford relation follows from the inverse tetrad when E_i is invertible and orientation-preserving.
+- NUMERICALLY VERIFIED by tests: pointwise Clifford identities, SU(2) unitarity of polar lifts, Hermiticity and coordinate-dilation scaling of the finite operator.
+- CANDIDATE: polar-factor spin transport and nearest-neighbour spatial Dirac operator.
+- OPEN: convergence of links to Levi-Civita spin connection; smooth-field consistency; spectral convergence; fermion doubling; 4D time-dependent Lorentzian operator; Mosco convergence.
+- OPEN: identify the subgroup of Q6 automorphisms preserving the actual reconstructed X_i,E_i. Only this subgroup can support an exact Weiler-style isometry-equivariance audit.
+- OPEN: complete 2I/Clebsch–Gordan kernel basis and invariant bias/pooling spaces.
+
+No claim of physical unification or of a proven continuum Dirac equation is made.
