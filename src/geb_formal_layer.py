@@ -100,7 +100,7 @@ def torus_audit(n: int = 4) -> dict:
         col = np.zeros(len(edges))
         for j in range(n):
             u, v = i*n+j, i*n+(j+1)%n
-            k = edges[(min(u,v), max(u,v))]
+            k = edge_lookup[(min(u,v), max(u,v))]
             col[k] = 1 if (u,v)==edges[k] else -1
         cycle_y.append(col)
     periods = np.array([
