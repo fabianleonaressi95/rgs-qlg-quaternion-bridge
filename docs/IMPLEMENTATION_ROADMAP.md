@@ -116,3 +116,18 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 - **NUMERICALLY VERIFIED** — reproducible computation with inputs and tolerances.
 - **CANDIDATE** — specified but incompletely verified construction.
 - **OPEN** — unresolved mathematical or physical question.
+
+
+### Phase 9 — Wilson refinement, overlap/Ginsparg–Wilson, and Dirac–Kähler
+- [x] Derive the low-momentum Wilson correction and Brillouin-corner masses for the existing centered operator.
+- [x] Determine the simultaneous scaling window for a running Wilson parameter: if r(a)=r0(a/L)^alpha, then low-mode correction vanishes and doubler masses diverge iff -1<alpha<1.
+- [x] Audit all eight 3D Brillouin corners, including the seven lifted doubler corners and multiplicities by the number of pi-components.
+- [x] Add a multi-resolution Fourier-symbol audit at fixed physical momentum (N=16,32,64,128,256).
+- [x] Add a finite overlap construction from a gamma5-Hermitian Euclidean Wilson kernel and test the Ginsparg–Wilson identity.
+- [x] Add the unweighted combinatorial Dirac–Kähler operator on the Q6 2-skeleton (cochain dimensions 64,192,240), verifying d^2=0, Hermiticity, D_K^2=Hodge Laplacian and degree-parity anticommutation.
+- [x] Document the distinctions between the spinor Wilson operator, overlap construction, and cochain Dirac–Kähler operator.
+- [ ] Build the overlap operator from the actual archived RGS-Q6 256x256 Wilson/Dirac pair and test its kernel gap and graph locality.
+- [ ] Construct a vierbein-weighted DEC Hodge star and metric Dirac–Kähler operator.
+- [ ] Specify a refining family of RGS complexes, common Hilbert-space embeddings and quadratic forms; prove Mosco liminf and recovery-sequence conditions.
+- [ ] Prove spectral convergence and a continuum index/anomaly statement under explicit hypotheses.
+- [ ] No Q6 physical/doubler labels are inferred from a finite spectrum without a momentum or continuum identification.
