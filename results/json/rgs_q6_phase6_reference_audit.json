@@ -1,0 +1,48 @@
+{
+  "audit": "RGS_Q6_WEILER_PHASE6",
+  "input_archive": "RGS_PSU_all_matrices(1).npz",
+  "constants": {
+    "ell_squared": 7.035514834154695,
+    "c0": 43.96495130838031
+  },
+  "complex": {
+    "vertices": 64,
+    "edges": 192,
+    "degree_min": 6,
+    "degree_max": 6
+  },
+  "vierbein": {
+    "shape": [
+      64,
+      3,
+      3
+    ],
+    "det_min": 0.7939630833124259,
+    "det_max": 1.010983011060624,
+    "condition_max": 1.7337124421817225
+  },
+  "curved_clifford": {
+    "max_clifford_residual": 3.552763214943459e-15,
+    "passed": true
+  },
+  "polar_spin_transport": {
+    "links": 192,
+    "max_SO3_orthogonality_residual": 3.0036859205570877e-15,
+    "max_SU2_unitarity_residual": 3.140497365306406e-16,
+    "max_rotation_reconstruction_residual": 1.4451256715679163e-15
+  },
+  "dirac": {
+    "dimension": 256,
+    "hermiticity_residual": 3.247142869956266e-15,
+    "operator_norm": 3.389472184835037
+  },
+  "spectrum": {
+    "min": -3.3894721848,
+    "max": 3.3894721848,
+    "near_zero_count_1e_9": 0,
+    "spectral_pairing_residual": 1.354472090042691e-14,
+    "distinct_rounded_levels": 32,
+    "multiplicity_each_level": 8
+  },
+  "interpretation": "NUMERICALLY VERIFIED finite-graph candidate only; not a continuum Dirac or Mosco-convergence result"
+}
