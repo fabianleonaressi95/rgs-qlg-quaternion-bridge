@@ -35,7 +35,7 @@ def test_generalized_dimensions():
     assert np.isclose(vals[0],np.log(2.*PSI)/np.log(3.*PSI))
 
 def test_cylinder_probability():
-    assert 0.<cylinder_probability([0,0,1],[0,1])<1.
+    assert 0.<cylinder_probability([0,0,0],[0,1])<1.
     assert cylinder_probability([0,1],[0])==0.
 
 def test_q6_spectrum():
