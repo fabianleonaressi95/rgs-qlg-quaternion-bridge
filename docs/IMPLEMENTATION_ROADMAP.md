@@ -116,3 +116,14 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 - **NUMERICALLY VERIFIED** — reproducible computation with inputs and tolerances.
 - **CANDIDATE** — specified but incompletely verified construction.
 - **OPEN** — unresolved mathematical or physical question.
+
+
+### Phase 7 — Chiral / Wilson finite-graph audit
+- [x] Implement a volume-weighted covariant graph Wilson Laplacian with unitary link transport.
+- [x] Prove edgewise positivity for r >= 0 from the quadratic form ||psi_j - S_ji psi_i||^2.
+- [x] Test Hermiticity, positive semidefiniteness, r=0 limit and local fibre-frame gauge covariance.
+- [x] Add the finite-graph Dirac-plus-Wilson candidate.
+- [x] Record the exact boundary between finite-graph results and the hypotheses of Nielsen–Ninomiya in docs/CHIRAL_WILSON_AUDIT.md.
+- [ ] Do not claim eight Q6 doublers or a DOS ratio from a Brillouin-zone calculation until a periodic refinement family and its momentum-space symbol are defined.
+- [ ] Derive the axial Ward identity from a specified fermion action; non-orientability alone does not establish an anomaly or net Möbius face flux.
+- [ ] Implement a Ginsparg–Wilson/overlap operator only after a controlled Hermitian kernel and locality bounds are available.
