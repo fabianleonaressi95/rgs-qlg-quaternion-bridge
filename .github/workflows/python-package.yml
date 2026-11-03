@@ -75,10 +75,10 @@ jobs:
         run: |
           PYTHONPATH=. python examples/wilson_refinement_audit.py
 
-      - name: Run flat-torus G0-G3 and G4 embedding audits
+      - name: Run flat-torus G0-G5 and P1 Mosco recovery audits
         run: |
           PYTHONPATH=. python examples/flat_torus_refinement_audit.py
-          PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py tests/test_flat_torus_embedding.py tests/test_flat_torus_stability.py -v
+          PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py tests/test_flat_torus_embedding.py tests/test_flat_torus_stability.py tests/test_flat_torus_mosco_p1.py -v
 
       - name: Mobius boundary thermodynamics audit
         run: |
