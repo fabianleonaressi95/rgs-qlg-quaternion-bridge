@@ -74,13 +74,13 @@ def clifford_grade_projections(
     value = np.asarray(value, dtype=np.complex128)
     if value.shape != (4, 4):
         raise ValueError("A Clifford-algebra element must be a 4x4 matrix.")
-    labels, basis = clifford_blade_basis(gammas)
+    gs = tuple(gamma_matrices() if gammas is None else gammas)
+    labels, basis = clifford_blade_basis(gs)
     coefficients, *_ = np.linalg.lstsq(basis, value.reshape(-1), rcond=None)
     projections = {grade: np.zeros((4, 4), dtype=np.complex128)
                    for grade in range(5)}
     for coefficient, indices in zip(coefficients, labels):
         blade = I4.copy()
-        gs = tuple(gamma_matrices() if gammas is None else gammas)
         for index in indices:
             blade = blade @ gs[index]
         projections[len(indices)] += coefficient * blade
@@ -132,14 +132,11 @@ def spinor_group_action_audit(tol: float = 3e-10) -> dict[str, object]:
             transformed = s @ gammas[i+1] @ inverse
             expected = sum(rotation[j, i] * gammas[j+1] for j in range(3))
             covariance = max(covariance, float(np.linalg.norm(transformed-expected, ord="fro")))
-    for q in elements:
-        for p in elements:
-            # Exhaustive multiplication is already audited in binary_icosahedral;
-            # sample deterministic pairs here for the 4x4 spin lift.
-            pass
+    # Exhaustive 2I closure is audited in binary_icosahedral; sample deterministic
+    # products here to check that the 4x4 spin lift preserves multiplication.
+    from src.binary_icosahedral import qmul
     rng = np.random.default_rng(20261103)
     for i, j in rng.integers(0, len(elements), size=(512, 2)):
-        from src.binary_icosahedral import qmul
         lhs = spinor_lift_2i(qmul(elements[i], elements[j]))
         rhs = spinor_lift_2i(elements[i]) @ spinor_lift_2i(elements[j])
         hom = max(hom, float(np.linalg.norm(lhs-rhs, ord="fro")))
