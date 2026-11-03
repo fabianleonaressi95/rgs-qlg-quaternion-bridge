@@ -20,7 +20,11 @@ def test_recovered_rgs_seed_and_q6_coframe_are_reconstructed():
     assert np.allclose(np.linalg.norm(seed.directions, axis=1), 1.0)
     assert np.allclose(np.linalg.norm(seed.q6_unit_coframe, axis=1), 1.0)
     assert np.array_equal(seed.coordinates[ np.arange(64) ^ 63 ], -seed.coordinates)
-    assert np.all(np.bincount(seed.q6_edges[:, 0], minlength=64) == 6)
+    degree = (
+        np.bincount(seed.q6_edges[:, 0], minlength=64)
+        + np.bincount(seed.q6_edges[:, 1], minlength=64)
+    )
+    assert np.all(degree == 6)
 
 
 def test_ellis_embedding_induces_the_target_warped_product_metric():
