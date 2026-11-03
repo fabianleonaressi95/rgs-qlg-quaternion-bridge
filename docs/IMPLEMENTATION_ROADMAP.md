@@ -82,10 +82,16 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 
 
 ### Phase 5 — Clifford-valued operators
-- [ ] Fix the Clifford relation, basis ordering and metric signature.
-- [ ] Implement grade projections and group actions.
-- [ ] Build steerable kernel bases as intertwiners.
-- [ ] Test equivariance independently of any learning/training code.
+- [x] Fix signature eta=diag(-1,+1,+1,+1) and the anticommutator convention {gamma^mu,gamma^nu}=2 eta^{mu nu} I_4.
+- [x] Implement an explicit complex 4x4 Dirac representation and the 16 ordered Clifford blades.
+- [x] Verify the 16 anticommutator identities and linear independence of the 16-blade basis.
+- [x] Implement grade 0 through grade 4 projections and reconstruction.
+- [x] Restrict the 2I defining SU(2) lift to spatial Spin(3) acting on Dirac spinors by diag(U,U).
+- [x] Verify the spinor representation law, unitarity, central -1 action, and covariance of the three spatial gamma matrices.
+- [x] Compute the 4-dimensional space of 2I-equivariant Dirac-spinor endomorphisms as intertwiners.
+- [x] Test Clifford and group equivariance independently of any learning/training code.
+- [x] Explicitly limit this phase to spatial rotations: boosts, Möbius reflections, Pin lifts and a full Lorentz-group action remain open.
+
 
 ### Phase 6 — Discrete differential operators and continuum limit
 - [ ] Define discrete inner products and adjoints.
