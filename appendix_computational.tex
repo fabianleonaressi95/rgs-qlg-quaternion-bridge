@@ -1,0 +1,129 @@
+\section{Appendice computazionale: costruzione e audit numerico}
+\label{app:computational}
+
+Questa appendice fornisce una famiglia esplicita di grafi raffinati e un
+protocollo computazionale. I calcoli sono da intendersi come
+verifiche numeriche di proprietà teoricamente formulate; non sostituiscono
+le dimostrazioni analitiche.
+
+\subsection{Famiglia di griglie e embedding}
+
+Sia $M$ una varietà riemanniana spaziale compatta di dimensione $d$,
+con atlante finito e metrica $h\in C^5$. Per semplicità espositiva,
+si consideri inizialmente il toro piatto
+$M=\mathbb T^d=\mathbb R^d/\mathbb Z^d$. Per
+$a=1/n$, $n\in\mathbb N$, definiamo
+\[
+V_a=(\mathbb Z/n\mathbb Z)^d,
+\qquad
+X_a(k)=k/n\pmod{\mathbb Z^d}.
+\]
+Connettiamo $k$ a $k\pm e_i$ e poniamo peso unitario su ciascun link.
+La distanza dei link è $a$ e la valenza è $2d$ indipendentemente da
+$a$. Il Laplaciano discreto è
+\[
+\Delta_a f(k)=\frac1{a^2}\sum_{i=1}^d
+\bigl[f(k+e_i)+f(k-e_i)-2f(k)\bigr].
+\]
+Per una varietà generale si costruiscono triangolazioni quasi-uniformi
+con diametro massimo $a$, si scelgono coordinate normali locali e si
+impongono pesi consistenti con il tensore metrico. Le ipotesi di
+shape-regularity e quasi-uniformità devono essere uniformi nella
+famiglia.
+
+\subsection{Audit dei momenti}
+
+Per ogni vertice e ogni direzione si calcolano
+\[
+M_{1,a}^\nu=\frac1{a^2}\sum_yw_a\xi_{xy}^\nu,
+\qquad
+M_{2,a}^{\mu\nu}=\frac1{2a^2}\sum_yw_a\xi_{xy}^\mu\xi_{xy}^\nu.
+\]
+L'audit deve registrare
+\[
+E_{1,a}=\max_x\|M_{1,a}(x)-b(x)\|,
+\qquad
+E_{2,a}=\max_x\|M_{2,a}(x)-h^{-1}(x)\|,
+\]
+insieme al massimo del terzo momento e del quarto momento normalizzato.
+Una regressione di $\log E$ contro $\log a$ stima soltanto l'ordine
+osservato sul campione di scale testato.
+
+\subsection{Ricostruzione metrica e stabilità inversa}
+
+Sia $\mathcal R_a$ l'operatore di ricostruzione che associa ai momenti
+la matrice metrica stimata $\widehat h_a$. Per ottenere convergenza
+metrica occorre assumere, oltre alla convergenza dei momenti,
+\[
+\|\mathcal R_a(M_{2,a})-\mathcal R_a(h^{-1})\|
+\leq L\|M_{2,a}-h^{-1}\|,
+\]
+con $L$ indipendente da $a$. Se inoltre
+\[
+\|M_{2,a}-h^{-1}\|\leq Ca^2,
+\]
+allora
+\[
+\|\widehat h_a-h\|\leq LCa^2
+\]
+quando l'inversione matriciale resta uniformemente lontana dalla
+singolarità. In particolare, se gli autovalori di $h$ sono compresi in
+$[\lambda_-,\lambda_+]$ con $\lambda_->0$ e l'errore è inferiore a
+$\lambda_-/2$, l'inversione è uniformemente stabile.
+
+\subsection{Test di stabilità}
+
+Per un problema ellittico discreto $A_au_a=f_a$, si deve controllare
+una stima uniforme
+\[
+\|u_a\|_{X_a}\leq C\|f_a\|_{Y_a},
+\]
+con $C$ indipendente da $a$. Per il settore lorentziano, tale test
+non è sufficiente: occorre una famiglia di operatori evolutivi
+$U_a(t,s)$ e una stima di energia
+\[
+\|u_a(t)\|_{E_a}\leq C_T\left(\|u_a(0)\|_{E_a}
++\int_0^t\|F_a(\tau)\|\,\dd\tau\right),
+\qquad 0\leq t\leq T,
+\]
+con $C_T$ indipendente da $a$.
+
+\subsection{Audit Schwarzschild}
+
+Nella regione esterna si confrontano le componenti ricostruite con
+\[
+g_{tt}^{\rm Schw}=-(1-2M/r),
+\qquad
+g_{rr}^{\rm Schw}=(1-2M/r)^{-1}.
+\]
+La condizione geometrica forte non è soltanto l'accordo di due
+componenti: occorre controllare il tensore di Einstein discreto,
+la simmetria sferica, la convergenza dei vincoli e la stabilità rispetto
+alla regione di fitting. Un risultato numerico è compatibile con
+Schwarzschild soltanto se l'errore tende a zero sotto raffinamento e
+se le ipotesi di vuoto e di identificazione del settore Einstein sono
+soddisfatte.
+
+\subsection{Pseudo-codice riproducibile}
+
+\begin{verbatim}
+for n in refinement_levels:
+    a = 1.0/n
+    G = build_quasi_uniform_graph(M, a)
+    X = build_embedding(G, M)
+    moments = compute_moments(G, X)
+    metric = reconstruct_metric(moments)
+    residuals = compute_moment_residuals(moments, metric)
+    stability = solve_discrete_problem(G, boundary_data)
+    store(a, residuals, stability, metric)
+fit_loglog(error, a)
+compare_with_schwarzschild(metric, M)
+\end{verbatim}
+
+\subsection{Limiti dell'audit}
+
+Senza coordinate effettive, pesi, precisione numerica, condizioni al
+bordo, dati grezzi e definizione completa dell'operatore lorentziano,
+non è possibile certificare una convergenza numerica completa. I test
+forniti nel corpo principale restano quindi evidenza computazionale
+riportata, mentre i teoremi richiedono le ipotesi analitiche esplicitate.
