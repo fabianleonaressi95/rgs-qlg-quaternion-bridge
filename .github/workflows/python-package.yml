@@ -75,6 +75,11 @@ jobs:
         run: |
           PYTHONPATH=. python examples/wilson_refinement_audit.py
 
+      - name: Run flat-torus G0-G3 refinement audit
+        run: |
+          PYTHONPATH=. python examples/flat_torus_refinement_audit.py
+          PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py -v
+
       - name: Mobius boundary thermodynamics audit
         run: |
           PYTHONPATH=. python examples/mobius_hawking_thermodynamics.py
