@@ -255,3 +255,60 @@ index theorem one still needs a specified family of complexes, locality and
 regularity bounds uniform in refinement, and a continuum comparison theorem.
 The Möbius (w_1) cocycle remains a separate orientation local system: it
 does not itself create an axial anomaly or determine the overlap index.
+
+
+## 9. Executed Phase 10 audit on the archived RGS-Q6 matrices
+
+The archive `RGS_PSU_all_matrices(1).npz` was materialized and the 64-vertex,
+192-edge Q6 geometry was reconstructed using the established coframe
+constants `ell2=7.035514834154695` and `c0=43.96495130838031`. The
+right-polar SU(2) spin links, 256-dimensional spatial Dirac operator and
+positive graph Wilson Laplacian were assembled. The reference spacing was
+defined as the mean of the 192 Euclidean edge lengths
+(`a_ref=1.66992176661911`); it is a finite-experiment normalization, not
+a proven mesh size in a refinement family. Parameters: `r=rho=1`.
+
+| Quantity | Result |
+|---|---:|
+| det(E) range | [0.7939630833, 1.0109830111] |
+| Mean / min / max edge length | 1.6699217666 / 0.9161471367 / 3.8078213472 |
+| Polar rotation residual | 3.00e-15 |
+| Naive Dirac Hermiticity residual | 3.38e-15 |
+| Naive chiral anticommutator residual | 0 (machine precision) |
+| Wilson Hermiticity residual | 1.24e-15 |
+| Wilson minimum eigenvalue | 5.22119e-4 |
+| Wilson-kernel Hermiticity residual | 6.23e-15 |
+| Wilson-kernel minimum absolute eigenvalue at rho=1 | 2.0032656191 |
+| Ginsparg-Wilson residual | 3.27e-14 |
+| Gamma5-Hermiticity residual | 8.63e-16 |
+| Finite GW index trace | -8.19e-15; nearest integer 0 |
+| Overlap zero modes (tolerance 1e-8) | 0 |
+
+A nine-point scan from rho=0.5 to 1.5 has a positive sampled kernel gap
+decreasing from 2.18117 to 1.83385. The negative-eigenvalue count remains
+128 at every sample; no crossing interval is detected in this scan. This
+does not exclude crossings between sample points or outside the interval.
+
+Mean off-diagonal 4x4 overlap-block Frobenius norms by shortest-path distance
+(identical here to Q6 Hamming distance) are:
+
+| Distance | Mean block norm |
+|---:|---:|
+| 1 | 0.3401956871 |
+| 2 | 0.0512332138 |
+| 3 | 0.0264034777 |
+| 4 | 0.0118796920 |
+| 5 | 0.0081889189 |
+| 6 | 0.0051101370 |
+
+**NUMERICALLY VERIFIED:** for this archive, link prescription and reference
+scale, the finite overlap matrix satisfies the GW relation, has a positive
+kernel gap at rho=1, and its index trace is numerically zero with no detected
+zero modes. The sampled rho scan shows no sign-count change.
+
+**OPEN:** a continuum index theorem, uniform exponential locality on a
+refining graph family, an axial Ward identity/anomaly on the Möbius local
+system, and Mosco convergence on curved RGS. The nontrivial Mobius
+orientation cocycle alone does not imply a nonzero axial anomaly.
+
+Snapshot: `results/json/rgs_q6_phase10_index_spectral_flow.json`.
