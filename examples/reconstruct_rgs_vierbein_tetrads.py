@@ -125,7 +125,7 @@ def kerr_schild_tetrad(
 
 
 def metric_from_coframe(e: np.ndarray) -> np.ndarray:
-    return np.einsum("...aμ,ab,...bν->...μν", e, ETA, e)
+    return np.einsum("...am,ab,...bn->...mn", e, ETA, e)
 
 
 def main() -> None:
@@ -192,7 +192,7 @@ def main() -> None:
         "ellis": {
             "metric": "ds^2=-dt^2+du^2+(u^2+r0^2)(dtheta^2+sin(theta)^2 dphi^2)",
             "r0": 0.8292,
-            "metric_reconstruction_residual": float(np.linalg.norm(g_ellis-np.einsum("...aμ,ab,...bν->...μν",e_ellis,ETA,e_ellis))),
+            "metric_reconstruction_residual": float(np.linalg.norm(g_ellis-np.einsum("...am,ab,...bn->...mn",e_ellis,ETA,e_ellis))),
             "det_min": float(np.linalg.det(e_ellis).min()),
         },
         "kerr_schild": {
