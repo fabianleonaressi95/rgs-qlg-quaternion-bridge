@@ -124,3 +124,19 @@ The [flat periodic P1 G6 proof](docs/FLAT_TORUS_G6_P1_MOSCO_PROOF.md) establishe
 The [curved Ellis–RGS refinement (G1)](docs/RGS_ELLIS_CURVED_REFINEMENT_G1.md) now uses the recovered 64B/O_h coordinates and the RGS spherical-branch metric. Its finite-domain geometric family and P1 audits are distinct from the still-open curved Mosco G4–G6 proof and from a full RGS-EMS field-equation solution.
 
 The [curved Ellis–RGS G4 common-L2 embedding](docs/RGS_ELLIS_CURVED_G4_COMMON_L2.md) now defines J_h into the single Hilbert space L2(M_L,dmu_g) and assembles mass/stiffness using the exact curved Ellis metric. Curved G5 uniform estimates and G6 Mosco convergence remain separate proof gates.
+
+
+## Q6 square-complex formalization
+
+The canonical six-cube 2-skeleton is formalized in
+[Q6_COMPLEX_FORMALIZATION.md](docs/Q6_COMPLEX_FORMALIZATION.md).
+The existing incidence constructor in src/q6_complex.py is complemented by
+src/q6_spectral_audit.py, which checks the hypercube Laplacian spectrum,
+the exact chain identity, the bit-complement automorphism and the cellular
+homology rank. The reproducible exporter is
+examples/q6_formalization_audit.py.
+
+A necessary distinction is recorded: the graph cycle rank is 129, whereas
+the cellular first Betti number after attaching all 240 square faces is 0;
+the second cellular Betti number is 111. The abstract Q6-to-RGS X_Oh
+geometric identification and SU(2) dynamics on this complex remain OPEN.
