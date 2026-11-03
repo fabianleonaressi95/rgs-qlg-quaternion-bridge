@@ -35,3 +35,10 @@ def test_dirac_operator_scales_under_coordinate_dilation():
 def test_nonpositive_vierbein_rejected():
     x=np.array([[0.,0.,0.],[1.,0.,0.]]); e=np.array([np.eye(3),np.diag([-1.,1.,1.])])
     with pytest.raises(ValueError): assemble_spatial_dirac(x,e,[(0,1)])
+
+def test_curved_clifford_for_nonsymmetric_coframe():
+    e=np.array([[[1.2,.2,.1],[.0,1.1,.3],[.1,.0,.9]]])
+    assert np.linalg.det(e[0])>0
+    audit=curved_clifford_audit(e)
+    assert audit["passed"]
+    assert audit["max_clifford_residual"]<2e-10
