@@ -3,7 +3,7 @@ import pytest
 from src.geb_formal_layer import (
     audit_geb, bach_spectral_audit, bach_substitution_matrix,
     connected_double_cover_criterion, escher_sheet_involution,
-    godel_finite_encoding, strange_loop_residual, torus_audit,
+    godel_finite_encoding, q6_gray_torus_embedding, strange_loop_residual, torus_audit,
 )
 
 def test_bach_supergolden_matrix_identity():
@@ -21,6 +21,10 @@ def test_escher_triangulated_torus_chain_complex():
     assert r["period_matrix"]==[[1.0,0.0],[0.0,1.0]]
     assert max(r["closed_cochain_residuals"])<1e-12
     assert r["hodge_zero_mode_counts"]==[1,2,1]
+    emb=r["gray_code_q6_embedding"]
+    assert emb["vertices"]==16
+    assert emb["horizontal_vertical_edges_are_Q6_edges"]
+    assert not emb["triangulation_diagonals_are_Q6_edges"]
 
 def test_escher_involution():
     for s in (0,1):
