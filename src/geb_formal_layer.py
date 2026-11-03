@@ -116,7 +116,7 @@ def torus_audit(n: int = 4) -> dict:
     return {
         "n": n, "V": len(coords), "E": len(edges), "F": len(faces),
         "euler_characteristic": int(chi),
-        "betti_numbers_from_ranks": [len(coords)-r1, len(edges)-r1-r2, len(faces)-r2],
+        "betti_numbers_from_ranks": [int(len(coords)-r1), int(len(edges)-r1-r2), int(len(faces)-r2)],
         "rank_B1": int(r1), "rank_B2": int(r2),
         "boundary_squared_residual": int(np.max(np.abs(B1 @ B2))),
         "period_matrix": periods.tolist(),
