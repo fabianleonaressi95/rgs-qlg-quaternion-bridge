@@ -1,125 +1,107 @@
-# rgs-qlg-quaternion-bridge
-Quaternionic rotations, SU(2)/SO(3), lattice holonomies and reproducible computational validation
 # RGS–QLG Quaternion Bridge
 
-**An open mathematical and computational collaboration on unit quaternions, SU(2), SO(3), lattice rotations and holonomy structures.**
+**Research codebase for quaternionic geometry, discrete lattice structures, spectral operators and reproducible computational validation.**
 
-[![Status](https://img.shields.io/badge/status-research%20proposal-blue)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
+This repository is part of the RGS–PSU–QLG research programme. It develops explicit mathematical constructions and computational tests involving unit quaternions, SU(2)/SO(3), discrete incidence geometry, lattice holonomies, symmetry representations and Dirac-type operators.
 
-## Purpose
+> **Evidence policy:** mathematical identities, numerical verification, candidate constructions and open physical hypotheses are reported separately. Passing a finite numerical test does not establish a continuum limit or a physical theory.
 
-This repository develops a reproducible computational framework for quaternionic representations of three-dimensional rotations and their application to discrete lattice connections and holonomies.
+## Research scope
 
-The project focuses on a precise mathematical question:
+### Quaternionic and group geometry
+- Hamilton quaternion conventions and composition order.
+- SU(2) and its double covering of SO(3).
+- Binary icosahedral group 2I, order 120, and selected representations.
+- Representation intertwiners and symmetry-sector checks.
 
-**How can quaternionic rotation conventions, SU(2) lifts, and lattice holonomies be implemented and independently validated without conflating quaternion equality with equality of the represented SO(3) rotations?**
+### Discrete geometry
+- Q6: 64 vertices, 192 edges and 240 square faces.
+- Integer incidence operators and chain-complex identities.
+- Möbius-complex test constructions and local-frame conventions.
+- Graph Laplacians, cochain operators and topology.
 
-The repository is an invitation to mathematical and computational collaboration. It does not assume that the physical interpretations of the broader RGS–PSU programme have been established.
+### Spectral and spinorial operators
+- Clifford algebra conventions.
+- Discrete Dirac-type and Dirac–Kähler constructions.
+- Wilson-kernel and overlap-operator experiments.
+- Spectral residuals, multiplicities and symmetry checks.
 
-## Mathematical starting point
+### Geometric field structures
+- Lattice holonomies and gauge covariance.
+- Discrete vierbein and connection constructions.
+- Torsion and teleparallel research directions.
 
-A unit quaternion is written as
+## Mathematical starting point: SU(2) to SO(3)
 
-\[
-q=(\mathbf v,w),\qquad
-\|\mathbf v\|^2+w^2=1.
-\]
+Unit quaternions form a group isomorphic to SU(2). The standard map
 
-Its quaternionic conjugate and inverse are
-
-\[
-q^*=(-\mathbf v,w),\qquad q^{-1}=q^*.
-\]
-
-The unit-quaternion group is isomorphic to \(SU(2)\), and the standard rotation map
-
-\[
-\rho:SU(2)\longrightarrow SO(3)
-\]
+    rho: SU(2) -> SO(3)
 
 is a double covering:
 
-\[
-\rho(q)=\rho(-q).
-\]
+    rho(q) = rho(-q).
 
-Consequently,
+Thus q and -q represent the same spatial rotation, while remaining distinct elements of SU(2). This distinction is essential in spinorial calculations and in the treatment of the central element of 2I.
 
-\[
--q^*=(\mathbf v,-w)
-\]
+## Q6 reference structure
 
-represents the same inverse rotation in \(SO(3)\) as \(q^*\), but it is not the quaternionic inverse of \(q\):
+The six-dimensional hypercube graph has
 
-\[
-q(-q^*)=-1,\qquad qq^*=1.
-\]
+    |V| = 64, |E| = 192, degree(v) = 6.
 
-This distinction is central to the conventions and tests developed here.
+With the six-bit vertex convention and the oriented incidence matrices B1 and B2, the chain-complex condition is
 
-## Research objectives
+    B1 B2 = 0.
 
-1. Establish unambiguous quaternion conventions and composition order.
-2. Validate the SU(2) to SO(3) map and its double-cover property.
-3. Compare direct matrix rotations with quaternionic rotations.
-4. Implement and test lattice parallel transport and plaquette holonomies.
-5. Examine complex conjugation and orientation reversal in a two-sheet construction.
-6. Publish reproducible numerical tests and document all limitations.
+Its graph Laplacian has exact eigenvalues
 
-## Proposed computational programme
+    lambda_j = 2j, multiplicity = binomial(6,j), j = 0,...,6.
 
-The initial implementation will include:
+These identities provide exact finite-dimensional reference tests. They do not, by themselves, establish a continuum geometric limit.
 
-- quaternion multiplication, conjugation, inverse and normalization;
-- quaternion-to-rotation-matrix conversion;
-- SO(3) orthogonality and determinant tests;
-- SU(2) representation and lift consistency;
-- composition-order tests;
-- closed-loop holonomy calculations;
-- gauge covariance checks;
-- numerical stability and edge-case tests.
+## Repository map
 
-## Connection to the RGS–PSU / QLG programme
+- src/ — mathematical and computational implementations.
+- tests/ — unit and structural tests.
+- docs/RGS_PSU_GAUGE_CLIFFORD_QLG_RESEARCH_PROPOSAL.md — research direction.
+- docs/IMPLEMENTATION_ROADMAP.md — implementation roadmap.
+- docs/STEM_INTEROPERABILITY_PROFILE.md — proposed interoperability profile.
+- [Issue #3](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/issues/3) — tracked implementation discussion.
 
-The broader research programme contains a discrete geometric model with an SU(2) connection, 192 edge rotations and 240 plaquette holonomies.
+The precise modules and callable functions used for a benchmark must always be identified by repository commit SHA and recorded in its provenance manifest.
 
-These structures provide a test case for the mathematical framework developed here. Their physical interpretation remains a separate research question and will not be treated as a consequence of the quaternionic identities alone.
+## RGS–STEM interoperability
 
-## Collaboration proposal
+The [RGS–STEM Interoperability Profile](docs/STEM_INTEROPERABILITY_PROFILE.md) proposes a conservative sidecar-based exchange format for finite algebraic, geometric and spectral data.
 
-We welcome independent review, corrections, alternative implementations and discussion of quaternion conventions, rotation representations and numerical validation.
+It is a proposal for technical discussion, **not an approved Ontos extension or an endorsement by Stem Framework**. The current Ontos stream specification remains unchanged unless its maintainers agree to a formal extension.
 
-A particularly valuable contribution would be an independent review of the relationship between quaternionic inversion, the SU(2) double cover and the composition of lattice holonomies.
+## Evidence and reproducibility standards
 
-## Evidence policy
+Every reported result should state:
 
-Results will be labelled explicitly as:
+1. the mathematical object and conventions;
+2. the implementation and exact repository revision;
+3. the test method and expected invariant;
+4. numerical residuals and tolerances, where relevant;
+5. whether verification uses the same code, a separate module or an independent implementation;
+6. limitations and unresolved assumptions.
 
-- **Mathematical identity** — established by proof.
-- **Numerically verified** — supported by reproducible tests.
-- **Candidate construction** — mathematically specified but not fully established.
-- **Open question** — requiring further analysis.
+Claims are classified as:
 
-No numerical experiment will be presented as a proof of a physical theorem.
+- **PROVED** — established by a mathematical proof.
+- **NUMERICALLY VERIFIED** — supported by reproducible computation with stated tolerances.
+- **CANDIDATE** — explicitly constructed but not fully established.
+- **OPEN** — requiring further mathematical, numerical or empirical work.
+
+In particular, finite Q6 or 2I computations do not automatically prove continuum quantum field theory, general relativity, Einstein–Cartan dynamics, antimatter phenomenology or cosmological claims.
+
+## Collaboration
+
+Independent mathematical review, alternative implementations, code review and reproducibility audits are welcome. The most useful contributions are precise, testable and accompanied by explicit conventions.
+
+For the broader research overview, see the [research profile](docs/GITHUB_PROFILE_README.md).
 
 ## License
 
-MIT License — subject to confirmation before publication.
-
-
-## RGS–PSU Gauge–Clifford QLG research direction
-
-The next development stage is documented in:
-
-- [Research proposal](docs/RGS_PSU_GAUGE_CLIFFORD_QLG_RESEARCH_PROPOSAL.md)
-- [Implementation roadmap](docs/IMPLEMENTATION_ROADMAP.md)
-- [Tracked implementation issue #3](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/issues/3)
-
-The first Q6 implementation is `src/q6_complex.py`, with structural and incidence tests in
-`tests/test_q6_complex.py`. It fixes big-endian six-bit vertex indexing, canonical edge
-orientation and an explicit square-face orientation, and checks the chain-complex identity
-`B1 @ B2 = 0`.
-
-This is a mathematical/computational development programme. It does not assert that the
-broader physical interpretation of RGS–PSU has been established.
+See the repository license file. If no license file is present, reuse permissions should not be inferred from this README.
