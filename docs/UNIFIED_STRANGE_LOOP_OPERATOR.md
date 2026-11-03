@@ -75,3 +75,64 @@ mentre il Moiré è la componente spaziale:
 Il modulo calcola il generatore temporale Doppler separatamente dall'operatore spaziale; non somma frequenze dimensionali a un Laplaciano adimensionale. Il potenziale Moiré entra come modulazione diagonale non negativa sul reticolo Q6. La proiezione 2x6 e i parametri cinematici sono input espliciti: non vengono spacciati per conseguenze già dimostrate della vierbein RGS. La derivata temporale e il gradiente spaziale della stessa fase rendono il ponte matematico preciso, senza identificare i due fenomeni.
 
 Per due onde di frequenze proprie uguali \\(\\omega_0\\), osservate da un riferimento che si muove lungo il primo asse (con \\(c=1\\)), il codice usa \\(\\omega_i'=\\gamma(\\omega_0-\\beta k_{i,x})\\) e quindi \\(\\Delta\\omega'=\\omega_2'-\\omega_1'\\). Il periodo di battimento è \\(T_b=2\\pi/|\\Delta\\omega'|\\), quando la differenza è non nulla. In questo modo la fase relativa usa davvero la differenza Doppler delle due onde, non una frequenza assoluta impropriamente attribuita al battimento.
+
+
+## Legge baricentrica, gradienti e risposta Doppler–Moiré
+
+Per punti \(X_i\in\mathbb R^d\) e pesi non negativi normalizzati \(w_i\),
+\[
+X_B=\sum_iw_iX_i,\qquad Y_i=X_i-X_B,\qquad
+\sum_iw_iY_i=0,
+\]
+\[
+\Sigma_B=\sum_iw_iY_iY_i^T.
+\]
+La fase relativa centrata è
+\[
+\theta_i(t)=\theta_B(t)-\Delta k\cdot Y_i,\qquad
+\theta_B=\Delta\omega_{\rm obs}t-\Delta k\cdot X_B+\theta_0.
+\]
+La funzione caratteristica baricentrica
+\[
+C_B(q)=\sum_iw_i e^{-iq\cdot Y_i}
+\]
+fornisce l'identità esatta
+\[
+\overline V_M=1-\operatorname{Re}\{e^{i\theta_B}C_B(\Delta k)\}.
+\]
+La sua espansione al secondo ordine è
+\[
+\overline V_M=
+1-\cos\theta_B+
+\frac12\cos\theta_B\,\Delta k^T\Sigma_B\Delta k
++O(\langle|\Delta k\cdot Y|^3\rangle).
+\]
+Il termine lineare è nullo esattamente per la definizione del baricentro. Il codice restituisce sia la media esatta tramite funzione caratteristica sia l'approssimazione quadratica: non confonde l'identità esatta con la sua espansione.
+
+Per metrica costante SPD \(g\), il gradiente metrico della fase è
+\[
+\operatorname{grad}_g\theta=-g^{-1}\Delta k.
+\]
+Con \(U_M=\eta(1-\cos\theta)\), la forza è
+\[
+F_M=-\operatorname{grad}_gU_M
+=+\eta\sin\theta\,g^{-1}\Delta k.
+\]
+Il modulo include inoltre la derivata del baricentro mobile:
+\[
+\dot X_B=\sum_iw_i\dot X_i+\sum_i\dot w_i(X_i-X_B),
+\qquad \sum_i\dot w_i=0.
+\]
+La seconda parte descrive lo spostamento del centro dovuto alla variazione dei pesi, anche a posizioni fisse.
+
+### Ambito e limiti
+
+L'audit accetta una metrica costante nel chart fornito. Una vierbein variabile nello spazio/tempo richiede una connessione, trasporto covariante e una regola di confronto fra spazi tangenti; non viene sostituita tacitamente da una media di matrici. I pesi derivati da \(|\det E_i|\) devono essere forniti dal livello RGS superiore. La proiezione Q6 \(P\), la metrica e i vettori d'onda restano input finché non sono derivati dall'azione RGS–PSU.
+
+La covarianza \(\Sigma_B\) è positiva semidefinita; \(\Delta k^T\Sigma_B\Delta k\ge0\). Non segue automaticamente una legge di scala aurea: questa va verificata sulle misure Cantor–Parry a profondità crescente. Il potenziale Moiré aggiunto all'operatore può sollevare il modo costante; i risultati di kernel/intertwiner dell'operatore non modulato non si trasferiscono automaticamente.
+
+### Riproduzione
+
+~~~bash
+PYTHONPATH=. python -m pytest tests/test_unified_strange_loop_operator.py -q
+~~~
