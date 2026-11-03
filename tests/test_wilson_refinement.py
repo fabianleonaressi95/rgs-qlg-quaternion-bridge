@@ -48,3 +48,26 @@ def test_invalid_refinement_inputs_are_rejected():
         refinement_audit((8,16),dimension=3,mode=(1,0))
     with pytest.raises(ValueError):
         wilson_symbol([1.0],0.0,1.0)
+
+
+def test_hermitian_scalar_sum_has_an_accidental_non_nyquist_zero():
+    from src.wilson_refinement import (
+        hermitian_scalar_sum_branches, scalar_sum_accidental_zero_angle,
+    )
+    r=1.0; a=0.25
+    theta=scalar_sum_accidental_zero_angle(r)
+    low,high=hermitian_scalar_sum_branches([theta/a],a,r)
+    assert abs(low)<1e-12
+    assert high>0
+    assert not np.isclose(theta,np.pi)
+
+
+def test_euclidean_wilson_symbol_has_no_accidental_zero_at_that_angle():
+    from src.wilson_refinement import (
+        euclidean_wilson_singular_value, scalar_sum_accidental_zero_angle,
+    )
+    r=1.0; a=0.25
+    theta=scalar_sum_accidental_zero_angle(r)
+    assert euclidean_wilson_singular_value([theta/a],a,r)>1e-6
+    assert np.isclose(euclidean_wilson_singular_value([0.0],a,r),0.0,atol=1e-12)
+    assert np.isclose(euclidean_wilson_singular_value([np.pi/a],a,r),2*r/a,atol=1e-10)
