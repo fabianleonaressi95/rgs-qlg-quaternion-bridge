@@ -6,7 +6,7 @@ separate 3+1 and analytic Lorentzian tetrads.
 
 Important distinctions:
 - RGS_PRISM_FINAL_vierbein_E.npy is the 64-site spatial coframe E_i.
-- RGS_PRISM_tetrad_4d_static.npy is its static block-diagonal 3+1 lift.
+- RGS_PRISM_tetrad_4d.npy is its static block-diagonal 3+1 lift.
 - Ellis_tetrad_4d.npy is a coordinate coframe for the Ellis wormhole metric.
 - Kerr_Schild_tetrad_4d.npy is a Kerr-Schild Cartesian coframe.
 
@@ -173,7 +173,7 @@ def main() -> None:
         "outputs": {
             "X_Oh_reconstructed.npy": list(X.shape),
             "RGS_PRISM_FINAL_vierbein_E.npy": list(E.shape),
-            "RGS_PRISM_tetrad_4d_static.npy": list(e_static.shape),
+            "RGS_PRISM_tetrad_4d.npy": list(e_static.shape),
             "Ellis_tetrad_4d.npy": list(e_ellis.shape),
             "Kerr_Schild_tetrad_4d.npy": list(e_kerr.shape),
         },
@@ -212,7 +212,7 @@ def main() -> None:
 
     np.save(out/"X_Oh_reconstructed.npy", X)
     np.save(out/"RGS_PRISM_FINAL_vierbein_E.npy", E)
-    np.save(out/"RGS_PRISM_tetrad_4d_static.npy", e_static)
+    np.save(out/"RGS_PRISM_tetrad_4d.npy", e_static)
     np.save(out/"Ellis_tetrad_4d.npy", e_ellis)
     np.save(out/"Kerr_Schild_tetrad_4d.npy", e_kerr)
     np.save(out/"Kerr_Schild_aux_r_H_costheta.npy", kerr_aux)
