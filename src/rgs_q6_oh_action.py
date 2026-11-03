@@ -155,6 +155,13 @@ def audit_rgs_q6_oh(tolerance: float = 1e-10) -> dict:
     orbit_list = _orbits(tuple(induced))
     orbit_sizes = sorted(len(orbit) for orbit in orbit_list)
 
+    geometry_pass = bool(
+        len(group) == 48 and faithful and homomorphism
+        and antipodal_involution and antipodal_fixed_points == 0
+    )
+    q6_equivariance_pass = bool(
+        edge_preserving_count == 48 and face_preserving_count == 48
+    )
     return {
         "audit": "RGS_XOH_Q6_INDUCED_OH_ACTION",
         "coordinate_source": "load_rgs_seed_data; archived coordinate/coframe hashes checked",
@@ -196,11 +203,9 @@ def audit_rgs_q6_oh(tolerance: float = 1e-10) -> dict:
             ),
             "SU2_gauge_equivariance": "OPEN",
         },
-        "pass": bool(
-            len(group) == 48 and faithful and homomorphism
-            and antipodal_involution and antipodal_fixed_points == 0
-            and edge_preserving_count == 48 and face_preserving_count == 48
-        ),
+        "geometry_pass": geometry_pass,
+        "q6_equivariance_pass": q6_equivariance_pass,
+        "pass": geometry_pass,
     }
 
 
