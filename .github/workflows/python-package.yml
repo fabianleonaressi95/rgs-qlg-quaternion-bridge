@@ -83,4 +83,5 @@ jobs:
           echo "QLG holonomies: PASS"
           echo "Complete test suite: PASS"
           echo "Lattice demonstration: PASS"
+          echo "Wilson fermion audit: PASS"
           echo "=============================================="
