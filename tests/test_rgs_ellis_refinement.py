@@ -94,3 +94,48 @@ def test_curved_refinement_rejects_invalid_parameters_and_levels():
         build_ellis_rgs_refinement(0, r0=0.0)
     with pytest.raises(ValueError):
         audit_ellis_rgs_refinement(levels=(0, 2))
+
+def test_curved_g4_common_l2_embedding_and_exact_metric_mass():
+    from src.rgs_ellis_refinement import (
+        J_h,
+        _duffy_tetra_quadrature,
+        audit_ellis_g4_common_l2,
+    )
+
+    mesh = build_ellis_rgs_refinement(0, r0=0.8292, radial_base=8)
+    points, weights = _duffy_tetra_quadrature(6)
+    assert points.shape == (216, 3)
+    assert np.isclose(np.sum(weights), 1.0 / 6.0, atol=1e-14)
+
+    values = np.linspace(-1.0, 1.0, mesh.vertices_r4.shape[0])
+    embedding = J_h(mesh, values)
+    tet = mesh.tetrahedra[0]
+    nodal = embedding.evaluate_on_element(0, np.eye(4))
+    assert np.allclose(nodal, values[tet], atol=1e-14)
+    bary = np.asarray([0.1, 0.2, 0.3, 0.4])
+    assert np.isclose(
+        embedding.evaluate_on_element(0, bary),
+        bary @ values[tet],
+    )
+
+    report = audit_ellis_g4_common_l2(mesh, quadrature_order=6)
+    assert report["mass_positive_definite"]
+    assert report["mass_min_eigenvalue"] > 0.0
+    assert report["mass_symmetry_residual"] < 1e-11
+    assert report["stiffness_symmetry_residual"] < 1e-9
+    assert report["stiffness_constant_mode_residual"] < 1e-8
+    assert report["volume_relative_error"] < 1e-8
+
+
+def test_curved_g4_embedding_rejects_invalid_nodal_or_barycentric_data():
+    from src.rgs_ellis_refinement import J_h
+
+    mesh = build_ellis_rgs_refinement(0, radial_base=8)
+    with pytest.raises(ValueError):
+        J_h(mesh, np.ones(mesh.vertices_r4.shape[0] - 1))
+    embedding = J_h(mesh, np.ones(mesh.vertices_r4.shape[0]))
+    with pytest.raises(ValueError):
+        embedding.evaluate_on_element(0, [0.1, 0.2, 0.3, 0.3])
+    with pytest.raises(ValueError):
+        embedding.evaluate_on_element(0, [-0.1, 0.4, 0.3, 0.4])
+
