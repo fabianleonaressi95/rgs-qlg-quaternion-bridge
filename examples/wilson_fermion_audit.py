@@ -56,7 +56,7 @@ def main():
     }
     out=Path("results/json/wilson_fermion_audit.json")
     out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(report,indent=2)+"\\n",encoding="utf-8")
+    out.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(report,indent=2))
     if not report["passed"]:
         raise SystemExit("Wilson audit failed")
