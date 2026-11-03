@@ -237,3 +237,41 @@ def koopman_semigroup_residual(generator, dt, steps=1):
     E = vecs @ np.diag(np.exp(vals * dt)) @ inv
     En = vecs @ np.diag(np.exp(vals * dt * steps)) @ inv
     return float(np.linalg.norm(np.linalg.matrix_power(E, steps) - En))
+
+
+def build_q6_rgs_geometry_lookup(X, q6_states):
+    """Build the exact finite Q6->RGS lookup from archived 64-site coordinates.
+
+    The canonical Q6 integer is g=sum_a 2**a b_a. The archive stores rows in
+    lexicographic bit order, so this routine explicitly reindexes rather than
+    assuming row number equals g. This is a lookup chart, not an affine map.
+    """
+    X = np.asarray(X, dtype=float)
+    states = np.asarray(q6_states, dtype=int)
+    if X.shape != (64, 3) or states.shape != (64, 6):
+        raise ValueError("X must be (64,3) and q6_states must be (64,6)")
+    if not np.all(np.isfinite(X)) or not np.all((states == 0) | (states == 1)):
+        raise ValueError("coordinates must be finite and states binary")
+    ids = states @ (2 ** np.arange(6, dtype=int))
+    if not np.array_equal(np.sort(ids), np.arange(64)):
+        raise ValueError("q6_states must enumerate every canonical Q6 state once")
+    lookup = np.empty((64, 3), dtype=float)
+    lookup[ids] = X
+    # Affine fit is diagnostic only: a poor fit must not replace the lookup.
+    B = states.astype(float)
+    Bc, Xc = B - B.mean(axis=0), X - X.mean(axis=0)
+    coef = np.linalg.lstsq(Bc, Xc, rcond=None)[0]
+    affine_residual = Xc - Bc @ coef
+    return {
+        "positions_by_q6_integer": lookup,
+        "canonical_state_ids": ids.tolist(),
+        "centroid": X.mean(axis=0).tolist(),
+        "radius_squared_sum": float(np.sum(X * X)),
+        "affine_projection_diagnostic": coef.T.tolist(),
+        "affine_relative_residual": float(
+            np.linalg.norm(affine_residual) /
+            max(np.linalg.norm(Xc), np.finfo(float).tiny)
+        ),
+        "geometry_map": "exact 64-state lookup; no affine assumption",
+        "bit_order": "g=sum_a 2**a*b_a; archived state rows explicitly reindexed",
+    }
