@@ -73,6 +73,45 @@ def _torus_complex(n: int = 4):
     return coords, edge_list, faces, B1, B2
 
 
+def gray_code_2bit(i: int) -> int:
+    """Two-bit cyclic Gray code on Z4."""
+    i = int(i) % 4
+    return i ^ (i >> 1)
+
+
+def q6_gray_torus_embedding() -> dict:
+    """Embed the 4x4 torus vertices into Q6 using two Gray-coded coordinates.
+
+    Horizontal/vertical cycle edges are Q6 Hamming edges. Triangulation
+    diagonals are auxiliary 2-cells' edges of Hamming length two, not Q6
+    1-skeleton edges.
+    """
+    embedding = {}
+    for i in range(4):
+        for j in range(4):
+            gi, gj = gray_code_2bit(i), gray_code_2bit(j)
+            bits = ((gi >> 1) & 1, gi & 1, (gj >> 1) & 1, gj & 1, 0, 0)
+            embedding[(i, j)] = bits
+    horizontal, vertical, diagonal = [], [], []
+    hamming = lambda a, b: sum(x != y for x, y in zip(a, b))
+    for i in range(4):
+        for j in range(4):
+            a = embedding[(i, j)]
+            horizontal.append(hamming(a, embedding[((i+1) % 4, j)]))
+            vertical.append(hamming(a, embedding[(i, (j+1) % 4)]))
+            diagonal.append(hamming(a, embedding[((i+1) % 4, (j+1) % 4)]))
+    return {
+        "vertices": len(set(embedding.values())),
+        "ambient_vertices": 64,
+        "horizontal_hamming_values": sorted(set(horizontal)),
+        "vertical_hamming_values": sorted(set(vertical)),
+        "diagonal_hamming_values": sorted(set(diagonal)),
+        "horizontal_vertical_edges_are_Q6_edges": all(x == 1 for x in horizontal + vertical),
+        "triangulation_diagonals_are_Q6_edges": all(x == 1 for x in diagonal),
+        "embedding": {f"{i},{j}": list(bits) for (i,j), bits in embedding.items()},
+    }
+
+
 def torus_audit(n: int = 4) -> dict:
     coords, edges, faces, B1, B2 = _torus_complex(n)
     r1, r2 = np.linalg.matrix_rank(B1), np.linalg.matrix_rank(B2)
@@ -113,7 +152,9 @@ def torus_audit(n: int = 4) -> dict:
     eig0 = np.linalg.eigvalsh(H0.astype(float))
     eig1 = np.linalg.eigvalsh(H1.astype(float))
     eig2 = np.linalg.eigvalsh(H2.astype(float))
+    embedding = q6_gray_torus_embedding()
     return {
+        "gray_code_q6_embedding": embedding,
         "n": n, "V": len(coords), "E": len(edges), "F": len(faces),
         "euler_characteristic": int(chi),
         "betti_numbers_from_ranks": [int(len(coords)-r1), int(len(edges)-r1-r2), int(len(faces)-r2)],
