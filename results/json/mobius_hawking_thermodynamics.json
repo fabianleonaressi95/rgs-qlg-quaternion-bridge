@@ -1,0 +1,145 @@
+{
+  "audit": "RGS_MOBIUS_HAWKING_THERMODYNAMICS",
+  "temperature": 0.026665184413350203,
+  "beta": 37.50208453459409,
+  "boundary_length": 37.50208453459409,
+  "surface_gravity": 0.16754229491919612,
+  "naive": {
+    "thermodynamics": {
+      "ensemble": "independent_fermion_modes_mu_zero",
+      "vacuum_convention": "all_negative_energy_levels_filled",
+      "temperature": 0.026665184413350203,
+      "beta": 37.50208453459409,
+      "mode_count": 24,
+      "total_degeneracy": 24,
+      "vacuum_energy": -5.1734113298481645,
+      "logZ_grand_canonical_raw": 194.11557665710114,
+      "Z_grand_canonical_raw": 2.0105912752456666e+84,
+      "logZ_vacuum_normalized": 0.10186763290843714,
+      "Z_vacuum_normalized": 1.1072369002993667,
+      "mean_occupation_sum": 11.999999999999998,
+      "energy_raw": -5.161649856189395,
+      "energy_above_filled_vacuum": 0.011761473658769894,
+      "entropy_thermodynamic": 0.5429474123110367,
+      "free_energy_above_vacuum": -0.0027163192172549385,
+      "heat_capacity": 1.8980991878546063
+    },
+    "modular": {
+      "mode_count": 24,
+      "endpoint_tolerance": 1e-12,
+      "projected_zero_modes": 0,
+      "projected_unit_modes": 0,
+      "logZ_modular": 43.09010936532924,
+      "Z_modular": 5173646150198377000,
+      "entropy_entanglement": 9.23887876498968,
+      "modular_energies": [
+        7.4425029909841385,
+        7.442502990983892,
+        7.442502990983686,
+        7.442502990983296,
+        1.515105755474324,
+        1.5151057554743188,
+        1.5151057554743108,
+        1.5151057554743097,
+        0.34788018685649713,
+        0.347880186856495,
+        0.34788018685649436,
+        0.3478801868564928,
+        -0.34788018685649136,
+        -0.34788018685649413,
+        -0.3478801868564959,
+        -0.34788018685649824,
+        -1.5151057554743144,
+        -1.5151057554743188,
+        -1.5151057554743255,
+        -1.5151057554743295,
+        -7.442502990983178,
+        -7.442502990984317,
+        -7.442502990984696,
+        -7.4425029909852665
+      ],
+      "status": "FINITE_MODULAR_PARTITION"
+    }
+  },
+  "wilson": {
+    "thermodynamics": {
+      "ensemble": "independent_fermion_modes_mu_zero",
+      "vacuum_convention": "all_negative_energy_levels_filled",
+      "temperature": 0.026665184413350203,
+      "beta": 37.50208453459409,
+      "mode_count": 24,
+      "total_degeneracy": 24,
+      "vacuum_energy": -1.3792156263326387,
+      "logZ_grand_canonical_raw": 51.94072734411593,
+      "Z_grand_canonical_raw": 3.610532607792457e+22,
+      "logZ_vacuum_normalized": 0.21726633395617512,
+      "Z_vacuum_normalized": 1.2426750246234084,
+      "mean_occupation_sum": 4.211452362195913,
+      "energy_raw": -1.3629403120318888,
+      "energy_above_filled_vacuum": 0.01627531430074991,
+      "entropy_thermodynamic": 0.8276245466899894,
+      "free_energy_above_vacuum": -0.005793446861753941,
+      "heat_capacity": 1.6697371727543193
+    },
+    "modular": {
+      "mode_count": 24,
+      "endpoint_tolerance": 1e-12,
+      "projected_zero_modes": 8,
+      "projected_unit_modes": 0,
+      "logZ_modular": 17.39813951829361,
+      "Z_modular": 35967975.04030681,
+      "entropy_entanglement": 7.533537955127289,
+      "modular_energies": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        2.1516456125688617,
+        2.1516456125688603,
+        2.13579368690734,
+        2.1357936869073377,
+        0.5994905132492101,
+        0.5994905132492074,
+        0.5124010374737604,
+        0.5124010374737595,
+        -0.4273114122633722,
+        -0.42731141226337355,
+        -0.5198603421569079,
+        -0.5198603421569108,
+        -2.5818965932851112,
+        -2.581896593285133,
+        -2.9484615459571444,
+        -2.9484615459571724
+      ],
+      "status": "FINITE_MODULAR_PARTITION"
+    }
+  },
+  "entanglement_entropy_consistency": {
+    "naive": {
+      "reported": 9.238878764989678,
+      "reconstructed": 9.23887876498968,
+      "absolute_residual": 1.7763568394002505e-15
+    },
+    "wilson": {
+      "reported": 7.533537955356336,
+      "reconstructed": 7.533537955127289,
+      "absolute_residual": 2.290470035859471e-10
+    }
+  },
+  "reported_hawking_power": {
+    "naive": 0.0009852721442110593,
+    "wilson": 0.0027262438125450943,
+    "wilson_to_naive_ratio": 2.766995726574702,
+    "note": "Imported diagnostic; not derived without transmission coefficients and a flux prescription."
+  },
+  "interpretation": {
+    "thermal_entropy_and_entanglement_entropy_are_distinct": true,
+    "modular_partition_is_not_an_independent_factor_of_thermal_partition": true,
+    "hawking_temperature_is_an_input_scale_not_derived_by_this_module": true,
+    "continuum_hawking_flux_and_gravitational_backreaction": "OPEN"
+  }
+}

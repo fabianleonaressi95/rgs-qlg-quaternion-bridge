@@ -1,0 +1,140 @@
+{
+  "audit": "RGS_Q6_PHASE10_OVERLAP_INDEX_SPECTRAL_FLOW",
+  "source_archive": "RGS_PSU_all_matrices(1).npz",
+  "archive_arrays": [
+    "X_Oh_reconstructed",
+    "Q6_adjacency",
+    "Q6_states"
+  ],
+  "geometry": {
+    "vertices": 64,
+    "edges": 192,
+    "spinor_dimension": 256,
+    "ell2": 7.035514834154695,
+    "c0": 43.96495130838031,
+    "detE_min": 0.7939630833124259,
+    "detE_max": 1.010983011060624,
+    "mean_edge_length_reference_spacing": 1.66992176661911,
+    "edge_length_min": 0.9161471366746884,
+    "edge_length_max": 3.807821347223322,
+    "polar_rotation_residual": 3.0036859205570877e-15
+  },
+  "operators": {
+    "naive_hermiticity_residual": 3.382630713481203e-15,
+    "naive_gamma5_anticommutator_residual": 0,
+    "wilson_hermiticity_residual": 1.2417241717931542e-15,
+    "wilson_minimum_eigenvalue": 0.0005221194474396149,
+    "wilson_kernel_hermiticity_residual": 6.228431295608517e-15,
+    "wilson_kernel_minimum_absolute_eigenvalue_rho_1": 2.0032656191037743,
+    "wilson_parameter": 1,
+    "rho": 1,
+    "ginsparg_wilson_residual": 3.270882041130036e-14,
+    "gamma5_hermiticity_residual": 8.633841835356181e-16
+  },
+  "index": {
+    "convention": "Tr[Gamma5 (I - a D_ov/(2 rho))]",
+    "trace_real": -8.18789480661053e-15,
+    "trace_imag_abs": 1.220920784212681e-18,
+    "nearest_integer_candidate": 0,
+    "integer_residual": 8.18789480661053e-15,
+    "integer_within_tolerance": true,
+    "zero_mode_tolerance": 1e-8,
+    "zero_mode_count": 0,
+    "zero_mode_chirality_sum": 0
+  },
+  "spectral_flow": {
+    "rho_samples": [
+      {
+        "rho": 0.5,
+        "gap": 2.1811716147765705,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 0.625,
+        "gap": 2.134501997350834,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 0.75,
+        "gap": 2.0895819359596794,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 0.875,
+        "gap": 2.0460112736869704,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 1,
+        "gap": 2.003265619103771,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 1.125,
+        "gap": 1.9607837905934014,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 1.25,
+        "gap": 1.9182038968331256,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 1.375,
+        "gap": 1.8756586459616928,
+        "negative_eigenvalue_count": 128
+      },
+      {
+        "rho": 1.5,
+        "gap": 1.8338467810298291,
+        "negative_eigenvalue_count": 128
+      }
+    ],
+    "sampled_sign_count_changes": [],
+    "status": "FINITE_SAMPLED_SPECTRAL_FLOW_NO_CROSSING_DETECTED_ON_SCAN"
+  },
+  "locality": {
+    "distance": "shortest-path graph distance equals Q6 Hamming distance",
+    "shells": {
+      "1": {
+        "count": 384,
+        "mean": 0.3401956870510599,
+        "max": 0.5717498176748819
+      },
+      "2": {
+        "count": 960,
+        "mean": 0.051233213796700865,
+        "max": 0.11434141383970209
+      },
+      "3": {
+        "count": 1280,
+        "mean": 0.02640347774826161,
+        "max": 0.0964856864674075
+      },
+      "4": {
+        "count": 960,
+        "mean": 0.011879692014186602,
+        "max": 0.0335497864900679
+      },
+      "5": {
+        "count": 384,
+        "mean": 0.008188918948953782,
+        "max": 0.018952058314688183
+      },
+      "6": {
+        "count": 64,
+        "mean": 0.005110137033336579,
+        "max": 0.006819720219324251
+      }
+    },
+    "status": "FINITE_GRAPH_DIAGNOSTIC_NOT_UNIFORM_LOCALITY_THEOREM"
+  },
+  "epistemic_status": {
+    "finite_matrix_overlap": "NUMERICALLY_VERIFIED",
+    "finite_matrix_index": "NUMERICALLY_ZERO",
+    "uniform_exponential_locality": "OPEN",
+    "continuum_index_theorem": "OPEN",
+    "axial_anomaly_and_mobius_ward_identity": "OPEN",
+    "mosco_convergence_on_curved_rgs_family": "OPEN"
+  }
+}

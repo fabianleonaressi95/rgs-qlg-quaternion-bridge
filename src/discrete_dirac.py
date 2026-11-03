@@ -92,6 +92,7 @@ def compact_kernel_transform(features,edges,kernels:Mapping,transporters:Mapping
 
 def assemble_wilson_laplacian(
     coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None, r=None
 ):
     """Build the positive, gauge-covariant graph Wilson term.
 
@@ -103,6 +104,8 @@ def assemble_wilson_laplacian(
     whose endpoint coordinate difference is not the periodic geodesic length.
     """
     x,e=_validate_geometry(coordinates,vierbein)
+    if r is not None:
+        wilson_r = r  # backward-compatible alias used by Phase 7 callers
     r=float(wilson_r)
     if not np.isfinite(r) or r<0:
         raise ValueError("wilson_r must be finite and non-negative")
@@ -224,3 +227,20 @@ def discrete_dirac_spectrum(operator):
     if residual>1e-9: raise ValueError(f"operator is not Hermitian: {residual}")
     values=np.linalg.eigvalsh(d)
     return {"eigenvalues":values,"min":float(values[0]),"max":float(values[-1]),"near_zero_count_1e-9":int(np.sum(np.abs(values)<1e-9)),"spectral_pairing_residual":float(np.max(np.abs(values+values[::-1])))}
+
+
+def assemble_dirac_wilson(coordinates, vierbein, edges, spin_links=None, r=1.0):
+    """Backward-compatible finite-graph Hermitian sum D_naive + W.
+
+    For the standard Euclidean Wilson operator use
+    assemble_euclidean_wilson_dirac instead.
+    """
+    if spin_links is None:
+        spin_links, _ = polar_spin_links(vierbein, edges)
+    d, da = assemble_spatial_dirac(coordinates, vierbein, edges, spin_links=spin_links)
+    w, wa = assemble_wilson_laplacian(coordinates, vierbein, edges, spin_links=spin_links, wilson_r=r)
+    total = d + w
+    return total, {"naive": da, "wilson": wa,
+        "hermiticity_residual": float(np.linalg.norm(total-total.conj().T, ord="fro")),
+        "operator_norm": float(np.linalg.norm(total, ord=2)),
+        "status": "FINITE_GRAPH_DIRAC_WILSON_CANDIDATE"}
