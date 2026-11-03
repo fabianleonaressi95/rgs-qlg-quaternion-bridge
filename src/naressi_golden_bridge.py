@@ -122,6 +122,9 @@ def audit_golden_naressi_bridge(phi=PHI):
     pars=golden_parameters(phi,1.,1); bridge=golden_q6_bridge(phi)
     return {"audit":"NARESSI_GOLDEN_QAT_TFIM_Q6_BRIDGE","parameters":pars,
             "q6_spectral_dictionary":bridge,
+            "capsule_reported_ground_energies":{"4":-4.731639,"8":-8.736170,
+                "12":-12.736174,"16":-16.736174},
+            "reproduction_status":"OPEN: the declared n=1..N-1, g=1 TFIM convention does not reproduce the supplied capsule energy log",
             "evidence":{"golden_decay_ratio":"exact from declared coupling law",
               "chi_projection":"exact scalar definition chi=J_1*cos(theta_phi)",
               "q6_entropy":"exact finite-Q6 formula evaluated at tau=-log(q_phi)",
