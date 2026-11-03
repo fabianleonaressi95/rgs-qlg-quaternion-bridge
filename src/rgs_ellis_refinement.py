@@ -79,6 +79,9 @@ class EllisRGSRefinement:
     angular_faces: np.ndarray
     vertices_r4: np.ndarray
     tetrahedra: np.ndarray
+    tetrahedron_parameter_vertices: np.ndarray
+    tetrahedron_angular_faces: np.ndarray
+    tetrahedron_radial_layers: np.ndarray
     element_gram: np.ndarray
     element_volumes: np.ndarray
     element_condition: np.ndarray
@@ -228,9 +231,12 @@ def ellis_embedding(
 
 def _product_tetrahedra(
     n_radial: int, n_angular: int, faces: np.ndarray
-) -> np.ndarray:
-    """Conforming staircase split of every triangular prism into 3 tets."""
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Conforming staircase prism split plus exact (t,alpha,beta) charts."""
     tets: list[tuple[int, int, int, int]] = []
+    params: list[np.ndarray] = []
+    angular_faces: list[tuple[int, int, int]] = []
+    radial_layers: list[int] = []
     for j in range(n_radial):
         lo = j * n_angular
         hi = (j + 1) * n_angular
@@ -238,14 +244,37 @@ def _product_tetrahedra(
             a, b, c = sorted(map(int, tri))
             A, B, C = lo + a, lo + b, lo + c
             Ap, Bp, Cp = hi + a, hi + b, hi + c
-            tets.extend((
-                (A, B, C, Cp),
-                (A, B, Bp, Cp),
-                (A, Ap, Bp, Cp),
-            ))
-    # Canonical vertex ordering fixes the orientation convention for chains.
-    return np.asarray([tuple(sorted(t)) for t in tets], dtype=np.int64)
-
+            # Parameter coordinates are (t,alpha,beta), where the
+            # spherical face is n=normalize((1-alpha-beta)n_a
+            # + alpha*n_b + beta*n_c).
+            local = (
+                ((A, B, C, Cp), np.asarray([
+                    (0., 0., 0.), (0., 1., 0.),
+                    (0., 0., 1.), (1., 0., 1.)
+                ])),
+                ((A, B, Bp, Cp), np.asarray([
+                    (0., 0., 0.), (0., 1., 0.),
+                    (1., 1., 0.), (1., 0., 1.)
+                ])),
+                ((A, Ap, Bp, Cp), np.asarray([
+                    (0., 0., 0.), (1., 0., 0.),
+                    (1., 1., 0.), (1., 0., 1.)
+                ])),
+            )
+            for ids, coordinates in local:
+                ordered = sorted(
+                    zip(ids, coordinates), key=lambda item: item[0]
+                )
+                tets.append(tuple(int(item[0]) for item in ordered))
+                params.append(np.asarray([item[1] for item in ordered]))
+                angular_faces.append((a, b, c))
+                radial_layers.append(j)
+    return (
+        np.asarray(tets, dtype=np.int64),
+        np.asarray(params, dtype=float),
+        np.asarray(angular_faces, dtype=np.int64),
+        np.asarray(radial_layers, dtype=np.int64),
+    )
 
 def _element_geometry(
     vertices: np.ndarray, tetrahedra: np.ndarray
@@ -370,7 +399,10 @@ def build_ellis_rgs_refinement(
     n_radial = rb * (2**lev)
     u = np.linspace(-L, L, n_radial + 1)
     vertices = ellis_embedding(u, directions, r0)
-    tetrahedra = _product_tetrahedra(n_radial, len(directions), faces)
+    (tetrahedra, parameter_vertices, tetrahedron_faces,
+     tetrahedron_layers) = _product_tetrahedra(
+        n_radial, len(directions), faces
+    )
     gram, volumes, conditions, max_diameter = _element_geometry(
         vertices, tetrahedra
     )
@@ -388,6 +420,9 @@ def build_ellis_rgs_refinement(
         angular_faces=faces,
         vertices_r4=vertices,
         tetrahedra=tetrahedra,
+        tetrahedron_parameter_vertices=parameter_vertices,
+        tetrahedron_angular_faces=tetrahedron_faces,
+        tetrahedron_radial_layers=tetrahedron_layers,
         element_gram=gram,
         element_volumes=volumes,
         element_condition=conditions,
