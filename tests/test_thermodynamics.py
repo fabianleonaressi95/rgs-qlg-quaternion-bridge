@@ -4,7 +4,7 @@ from src.thermodynamics import compare_boundary_spectra, fermion_partition, modu
 
 def test_fermion_partition_closed_form_and_thermodynamic_identity():
     t=.7; e=np.array([-.4,.4]); r=fermion_partition(e,t); beta=1/t
-    expected=2*np.log1p(np.exp(-.4*beta))-.4*beta
+    expected=2*np.log1p(np.exp(-.4*beta))
     assert np.isclose(r["logZ_vacuum_normalized"],expected)
     assert np.isclose(r["entropy_thermodynamic"],r["logZ_grand_canonical_raw"]+beta*r["energy_raw"])
     assert r["heat_capacity"]>0
