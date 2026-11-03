@@ -166,6 +166,8 @@ def build_doppler_moire_operator(kappa=1.0,sheet_weight=1.0,
                                   moire_strength=0.0,omega0=1.0,beta=0.0,
                                   k1=(1.0,0.0),k2=(1.0,0.08),projection=None):
     """Return static Hermitian spatial operator and separate Doppler generator."""
+    if moire_strength<0:
+        raise ValueError('moire_strength must be nonnegative')
     H,parts=build_strange_loop_operator(kappa,sheet_weight)
     audit=doppler_moire_phase_audit(omega0=omega0,beta=beta,k1=k1,k2=k2,projection=projection)
     vm=np.asarray(audit["moire_potential"])
