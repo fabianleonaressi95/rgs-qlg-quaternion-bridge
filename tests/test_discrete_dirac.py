@@ -61,3 +61,82 @@ def test_compact_kernel_field_transform_is_gauge_covariant():
     yp,supportp=compact_kernel_transform(fp,[(0,1)],kp,pp)
     assert support==supportp=={(0,1)}
     assert np.allclose(yp[1],g1@y[1],atol=2e-12)
+
+
+def _su2_phase(theta):
+    return np.array([[np.cos(theta), 1j*np.sin(theta)],
+                     [1j*np.sin(theta), np.cos(theta)]], dtype=complex)
+
+
+def test_wilson_laplacian_is_hermitian_positive_and_scale_covariant():
+    from src.discrete_dirac import assemble_wilson_laplacian
+    x=np.array([[0.,0.,0.],[1.,0.,0.],[1.,1.,0.]])
+    e=np.broadcast_to(np.eye(3),(3,3,3)).copy()
+    edges=[(0,1),(1,2),(0,2)]
+    w,a=assemble_wilson_laplacian(x,e,edges,wilson_r=1.25)
+    assert a["hermiticity_residual"]<1e-12
+    assert a["minimum_eigenvalue"]>-1e-12
+    w2,_=assemble_wilson_laplacian(3*x,e,edges,wilson_r=1.25)
+    assert np.allclose(w2,w/3,atol=1e-12)
+
+
+def test_wilson_laplacian_is_locally_gauge_covariant():
+    from src.discrete_dirac import assemble_wilson_laplacian
+    x=np.array([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.]])
+    e=np.broadcast_to(np.eye(3),(3,3,3)).copy()
+    edges=[(0,1),(0,2),(1,2)]
+    links={(0,1):_su2_phase(.17),(0,2):_su2_phase(-.31),(1,2):_su2_phase(.43)}
+    gauges=[_su2_phase(.11),_su2_phase(-.29),_su2_phase(.37)]
+    links_g={(i,j):gauges[j]@links[(i,j)]@gauges[i].conj().T for i,j in edges}
+    l,_=assemble_wilson_laplacian(x,e,edges,spin_links=links,wilson_r=.8)
+    lg,_=assemble_wilson_laplacian(x,e,edges,spin_links=links_g,wilson_r=.8)
+    big_g=np.zeros((12,12),dtype=complex)
+    for i,g in enumerate(gauges):
+        g4=np.block([[g,np.zeros((2,2))],[np.zeros((2,2)),g]])
+        big_g[4*i:4*i+4,4*i:4*i+4]=g4
+    assert np.allclose(lg,big_g@l@big_g.conj().T,atol=2e-12)
+
+
+def test_wilson_term_lifts_pi_mode_on_periodic_1d_ring():
+    from src.discrete_dirac import assemble_wilson_laplacian
+    n=16
+    x=np.column_stack([np.arange(n,dtype=float),np.zeros(n),np.zeros(n)])
+    e=np.broadcast_to(np.eye(3),(n,3,3)).copy()
+    edges=[(i,i+1) for i in range(n-1)]+[(0,n-1)]
+    lengths={(i,j):1.0 for i,j in edges}
+    w,a=assemble_wilson_laplacian(x,e,edges,wilson_r=1.0,edge_lengths=lengths)
+    # A normalized plane wave on the periodic ring is an exact eigenvector.
+    def rayleigh(k):
+        phase=np.exp(2j*np.pi*k*np.arange(n)/n)
+        v=np.zeros(4*n,dtype=complex)
+        v[0::4]=phase/np.sqrt(n)
+        return float(np.real(np.vdot(v,w@v)))
+    assert abs(rayleigh(0))<1e-12
+    assert np.isclose(rayleigh(n//2),2.0,atol=1e-12)
+    assert a["minimum_eigenvalue"]>-1e-12
+
+
+def test_wilson_term_breaks_exact_chiral_anticommutation():
+    from src.discrete_dirac import assemble_spatial_dirac, chirality_matrix
+    x=np.array([[0.,0.,0.],[1.,0.,0.]])
+    e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
+    edges=[(0,1)]
+    d0,_=assemble_spatial_dirac(x,e,edges)
+    dw,a=assemble_spatial_dirac(x,e,edges,wilson_r=1.0)
+    g5=chirality_matrix()
+    assert np.allclose(g5,g5.conj().T,atol=1e-12)
+    assert np.allclose(g5@g5,np.eye(4),atol=1e-12)
+    gamma5=np.kron(np.eye(2),g5)
+    naive=float(np.linalg.norm(d0@gamma5+gamma5@d0,ord="fro"))
+    wilson=float(np.linalg.norm(dw@gamma5+gamma5@dw,ord="fro"))
+    assert naive<1e-12
+    assert wilson>1e-6
+    assert a["hermiticity_residual"]<1e-12
+    assert a["wilson_audit"]["minimum_eigenvalue"]>-1e-12
+
+
+def test_assemble_spatial_dirac_rejects_negative_wilson_parameter():
+    x=np.array([[0.,0.,0.],[1.,0.,0.]])
+    e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
+    with pytest.raises(ValueError):
+        assemble_spatial_dirac(x,e,[(0,1)],wilson_r=-1.0)
