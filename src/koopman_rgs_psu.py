@@ -275,3 +275,102 @@ def build_q6_rgs_geometry_lookup(X, q6_states):
         "geometry_map": "exact 64-state lookup; no affine assumption",
         "bit_order": "g=sum_a 2**a*b_a; archived state rows explicitly reindexed",
     }
+
+
+def project_q6_laplacian_to_rgs_tangent(Q, L_q6=None, diffusion=1.0, tolerance=1e-10):
+    """Galerkin-project the Q6 x R^3 graph diffusion onto the archived RGS tangent.
+
+    Ambient ordering is vertex-major: (g, x/y/z), hence L_ambient=L_Q6 kron I_3.
+    The returned generator is -diffusion * Q.T @ L_ambient @ Q. This is a
+    finite-dimensional dissipative generator, not a continuum Koopman limit.
+    """
+    Q = np.asarray(Q, dtype=float)
+    if Q.shape != (192, 188) or not np.all(np.isfinite(Q)):
+        raise ValueError("Q must be a finite (192,188) tangent frame")
+    if L_q6 is None:
+        L_q6 = np.zeros((64, 64), dtype=float)
+        for g in range(64):
+            for bit in range(6):
+                L_q6[g, g] -= 1.0
+                L_q6[g, g ^ (1 << bit)] += 1.0
+        L_q6 *= -1.0
+    L_q6 = np.asarray(L_q6, dtype=float)
+    if L_q6.shape != (64, 64) or not np.all(np.isfinite(L_q6)):
+        raise ValueError("L_q6 must be a finite (64,64) matrix")
+    diffusion = float(diffusion)
+    if not np.isfinite(diffusion) or diffusion < 0.0:
+        raise ValueError("diffusion must be finite and nonnegative")
+    q_orth = float(np.linalg.norm(Q.T @ Q - np.eye(188), ord="fro"))
+    if q_orth > tolerance:
+        raise ValueError("Q columns must be orthonormal")
+    lap_sym = float(np.linalg.norm(L_q6 - L_q6.T, ord="fro"))
+    if lap_sym > tolerance:
+        raise ValueError("L_q6 must be symmetric")
+    lap_min = float(np.linalg.eigvalsh(L_q6)[0])
+    if lap_min < -tolerance:
+        raise ValueError("L_q6 must be positive semidefinite")
+    ambient = np.kron(L_q6, np.eye(3))
+    stiffness = Q.T @ ambient @ Q
+    stiffness = 0.5 * (stiffness + stiffness.T)
+    generator = -diffusion * stiffness
+    eig = np.linalg.eigvalsh(stiffness)
+    leakage = float(np.linalg.norm((np.eye(192) - Q @ Q.T) @ ambient @ Q, ord="fro"))
+    return {
+        "generator": generator,
+        "stiffness": stiffness,
+        "ambient_laplacian": ambient,
+        "tangent_orthogonality_residual": q_orth,
+        "laplacian_symmetry_residual": lap_sym,
+        "laplacian_min_eigenvalue": lap_min,
+        "projected_symmetry_residual": float(np.linalg.norm(stiffness - stiffness.T, ord="fro")),
+        "projected_min_eigenvalue": float(eig[0]),
+        "projected_max_eigenvalue": float(eig[-1]),
+        "projected_positive_modes": int(np.count_nonzero(eig > tolerance)),
+        "projected_kernel_modes": int(np.count_nonzero(np.abs(eig) <= tolerance)),
+        "tangent_invariance_leakage": leakage,
+        "diffusion": diffusion,
+        "sign_convention": "generator=-diffusion*Q.T@(L_Q6 kron I_3)@Q",
+        "interpretation": "finite Galerkin-projected graph diffusion; continuum/physical Koopman identification remains open",
+    }
+
+
+def discrete_euclidean_killing_audit(X, edges, tolerance=1e-12):
+    """Check the three ambient SO(3) Killing fields on the 64-point Euclidean seed.
+
+    For K_a(x)=e_a cross x and edge d=x_h-x_g, the first variation
+    d dot (K_a(x_h)-K_a(x_g)) vanishes because each rotation generator is
+    skew-symmetric. This is an exact Euclidean edge-length audit only; it
+    does not certify a position-dependent tetrad metric or its spin connection.
+    """
+    X = np.asarray(X, dtype=float)
+    edges = np.asarray(edges, dtype=int)
+    if X.shape != (64, 3) or not np.all(np.isfinite(X)):
+        raise ValueError("X must be a finite (64,3) coordinate array")
+    if edges.ndim != 2 or edges.shape[1] < 2:
+        raise ValueError("edges must have at least two endpoint columns")
+    endpoints = edges[:, :2]
+    if np.any(endpoints < 0) or np.any(endpoints >= 64):
+        raise ValueError("edge endpoints must lie in [0,63]")
+    generators = np.array([
+        [[0., 0., 0.], [0., 0., -1.], [0., 1., 0.]],
+        [[0., 0., 1.], [0., 0., 0.], [-1., 0., 0.]],
+        [[0., -1., 0.], [1., 0., 0.], [0., 0., 0.]],
+    ])
+    d = X[endpoints[:, 1]] - X[endpoints[:, 0]]
+    residuals = []
+    for J in generators:
+        field = X @ J.T
+        delta_field = field[endpoints[:, 1]] - field[endpoints[:, 0]]
+        residuals.append(float(np.max(np.abs(np.einsum("ij,ij->i", d, delta_field)))))
+    max_residual = max(residuals, default=0.0)
+    return {
+        "vertices": 64,
+        "edges": int(len(edges)),
+        "rotation_generators": 3,
+        "edge_length_first_variation_residuals": residuals,
+        "max_killing_residual": max_residual,
+        "passed": bool(max_residual <= tolerance),
+        "metric_scope": "ambient Euclidean metric on X",
+        "tetrad_scope": "not audited: a per-vertex (64,3,3) vierbein/coframe is not supplied by the A13/A14 matrix bundles",
+        "interpretation": "discrete restriction of the three ambient SO(3) Killing fields; not a curved-metric Killing theorem",
+    }
