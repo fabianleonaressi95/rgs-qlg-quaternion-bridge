@@ -114,3 +114,38 @@ def test_barycenter_rejects_indefinite_metric_and_negative_weights():
                                           metric=[[1., 2.], [2., 1.]])
     with pytest.raises(ValueError):
         barycentric_gradient_moire_audit([[0., 0.], [1., 1.]], [1., -1.], [1., 0.])
+
+
+
+def test_q6_projection_recovers_affine_rgs_seed_exactly():
+    from src.unified_strange_loop_operator import derive_q6_projection_from_rgs_seed
+    B=np.array([[(g>>a)&1 for a in range(6)] for g in range(64)],dtype=float)
+    P=np.array([[.3,-.2,.1,.4,.0,-.1],
+                [.1,.2,-.3,.0,.5,.2],
+                [-.2,.1,.0,.3,-.1,.4]])
+    offset=np.array([1.2,-.7,.4])
+    X=B@P.T+offset
+    r=derive_q6_projection_from_rgs_seed(X)
+    assert r["rank"]==6
+    assert r["weighted_relative_residual"]<1e-12
+    assert np.allclose(r["projection_3x6"],P,atol=1e-12)
+    assert np.allclose(r["intercept_3"],offset,atol=1e-12)
+
+
+def test_q6_projection_reports_non_affine_geometry_instead_of_hiding_it():
+    from src.unified_strange_loop_operator import derive_q6_projection_from_rgs_seed
+    B=np.array([[(g>>a)&1 for a in range(6)] for g in range(64)],dtype=float)
+    X=np.column_stack((B[:,0],B[:,1],B[:,2]))
+    X[:,2]+=0.07*((B[:,3]+B[:,4]+B[:,5])%2)
+    r=derive_q6_projection_from_rgs_seed(X)
+    assert r["rank"]==6
+    assert r["weighted_relative_residual"]>1e-3
+    assert r["max_point_residual"]>0
+
+
+def test_q6_projection_rejects_wrong_seed_shape_and_bad_weights():
+    from src.unified_strange_loop_operator import derive_q6_projection_from_rgs_seed
+    with pytest.raises(ValueError):
+        derive_q6_projection_from_rgs_seed(np.zeros((63,3)))
+    with pytest.raises(ValueError):
+        derive_q6_projection_from_rgs_seed(np.zeros((64,3)),weights=np.ones(63))
