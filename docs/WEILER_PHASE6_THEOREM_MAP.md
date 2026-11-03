@@ -121,3 +121,31 @@ curved Q6 graph or in a continuum limit, nor Mosco/spectral convergence.
 The Wilson parameter's physical scaling under refinement and the relation
 between this Hermitian finite operator and a covariant continuum Dirac
 operator remain open obligations.
+
+
+### RGS/Q6 archive audit (64 vertices, 192 edges)
+
+A separate numerical evaluation using the supplied `RGS_PSU_all_matrices(1).npz`
+archive and the Phase 6 vierbein reconstruction constants gives, for r=1:
+
+- Wilson matrix dimension 256x256; Hermiticity residual
+  `1.39e-15`; minimum eigenvalue `5.221e-4`; maximum eigenvalue
+  `5.13545`.
+- Maximum spin-link unitarity residual `7.02e-16`; local gauge-covariance
+  residual under deterministic random sitewise SU(2) transformations
+  `6.86e-15`.
+- Naive Dirac matrix Hermiticity residual `3.16e-15` and chiral
+  anticommutator residual `0`.
+- Wilson-corrected matrix Hermiticity residual `3.46e-15`; chiral
+  anticommutator norm `89.2471`.
+- The smallest absolute eigenvalues of the corrected Q6 matrix begin at
+  `0.0127313` (eightfold cluster), then `0.0293490`. The uncorrected
+  operator's smallest absolute eigenvalue is about `1.25821`.
+
+These are **numerical observations on this one finite reconstructed graph**.
+They do not label any Q6 mode as a physical fermion or a doubler: Q6 has no
+Brillouin torus or canonical momentum, and the chosen polar links have
+nontrivial graph holonomy. In particular, the small eigenvalue cluster after
+adding W is not evidence of a removed doubler. The archive-derived values are
+recorded in `results/json/rgs_q6_wilson_audit.json`; the 1D periodic ring
+mechanism is independently tested in CI.
