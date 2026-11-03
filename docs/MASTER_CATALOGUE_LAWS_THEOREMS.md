@@ -286,3 +286,36 @@ Registro consolidato dai materiali recuperati, tra cui:
 Ogni futura voce deve contenere ID stabile, enunciato esatto, ipotesi/convenzioni, dimostrazione o derivazione, implementazione e commit SHA, test indipendente, residuo/tolleranza, classe epistemica, limiti e bibliografia. I risultati storici non vanno promossi silenziosamente a uno stato epistemico superiore.
 
 **Regola editoriale:** “legge” richiede relazione definita e validata nel proprio dominio; “teorema” richiede dimostrazione. Le nuove affermazioni fisiche restano ipotesi finché non sono derivate e testate indipendentemente.
+
+
+# L. RGS–Q6–SU(2)–Wilson bridge (Phase 19)
+
+## L1. Finite symmetry compatibility
+Let \(\pi_S\) be the permutation induced on the recovered 64-point seed by \(S\in O_h\). Define
+\[
+H=\{S\in O_h:\pi_S(E)=E,\ \pi_S(F_2)=F_2\}.
+\]
+The reproducible audit reports \(|O_h|=48\), \(|H|=16\), and \(|H\cap SO(3)|=8\). The full \(O_h\) action is therefore not an automorphism action of the fixed canonical Q6 2-complex. The proper subgroup admits SU(2) lifts; the improper subgroup requires a Pin-type extension if a spinorial lift is intended.
+**Stato:** NUMERICAMENTE VERIFICATO for the recovered finite seed and the specified Q6 labeling. It is not a statement about all possible relabelings or continuum symmetries.
+
+## L2. Finite lattice connection
+\[
+\mathcal A_{Q_6}=SU(2)^{192},\qquad
+\mathcal G_{Q_6}=SU(2)^{64}.
+\]
+Each independent oriented edge carries one link \(U_{ij}\), with \(U_{ji}=U_{ij}^{\dagger}\), and gauge action \(U_{ij}\mapsto G_jU_{ij}G_i^\dagger\).
+**Stato:** DEFINITIONE ESATTA of a finite lattice gauge configuration space. The RGS point coordinates determine the base labels and symmetry action, not a unique choice of the 192 link matrices.
+
+## L3. Plaquette holonomy and Wilson action
+For each of the 240 square faces,
+\[
+U_p=U_{v_3v_0}U_{v_2v_3}U_{v_1v_2}U_{v_0v_1},
+\qquad
+S_W=\beta\sum_{p=1}^{240}\left(1-\frac12\operatorname{ReTr}U_p\right).
+\]
+Gauge covariance of \(U_p\) and gauge invariance of \(S_W\) follow algebraically from the endpoint transformation law. The action is invariant under Q6 2-complex automorphisms; the proper eight-element subgroup also admits the tested lifted spin action.
+**Stato:** exact finite identities, with numerical residual tests in src/rgs_q6_su2_wilson.py. The random seeded link field is a validation fixture, not a physically reconstructed connection.
+
+## L4. Open bridge to a geometric connection
+A physical map from the archived RGS vierbein/coframe to a preferred connection \(U_{ij}\) is not yet unique. It requires a specified local frame, a connection prescription (e.g. a discrete spin connection), link orientation, lift-sign convention and independent covariance tests. The Pin lift of improper elements and the continuum Yang–Mills limit are also open.
+**Stato:** OPEN.
