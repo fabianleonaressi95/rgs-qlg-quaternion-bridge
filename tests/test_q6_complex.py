@@ -40,7 +40,7 @@ def test_big_endian_axis_convention_is_fixed():
     # Axis 0 flips the most significant bit; axis 5 flips the least.
     assert (0, 32) in q6.edges
     assert (0, 1) in q6.edges
-    assert (0, 2) not in q6.edges
+    assert (0, 2) in q6.edges  # Axis 4 flips the 2^1 bit.
 
 
 def test_incidence_matrices_are_integer_valued():
