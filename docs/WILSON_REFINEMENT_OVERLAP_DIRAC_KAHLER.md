@@ -211,3 +211,47 @@ and its plane-wave singular-value magnitude is
 It vanishes at p=0 and is 2r/a at p=pi/a, without the accidental cancellation above. This is the formulation used by `assemble_euclidean_wilson_dirac(...)` and by the overlap construction. The archive-derived RGS-Q6 overlap audit already uses this Euclidean convention.
 
 The correction does not alter the established positive/Hermitian/gauge-covariant properties of the graph Laplacian W. It corrects the interpretation of the *combined* operator and narrows the earlier Phase 8 claim. No theorem of absence of doublers on the curved finite Q6 graph is claimed.
+
+
+## 8. Phase 10 — finite-matrix index, spectral flow and graph locality
+
+The overlap module now provides three additional diagnostics:
+
+- `overlap_index(...)` evaluates
+  [
+  
+u_{m GW}=operatorname{Tr}left[
+  Gamma_5left(I-rac{a}{2ho}D_{m ov}ight)ight],
+  ]
+  checks the GW and gamma5-hermiticity residuals, reports distance to the
+  nearest integer, and resolves the chirality spectrum restricted to the
+  numerically identified zero-mode subspace. The integer is called a
+  **finite-matrix index candidate** only when the trace is real and close to
+  an integer. It is not a continuum index theorem.
+
+- `overlap_kernel_spectral_flow(...)` samples the Hermitian kernel
+  (H_W(ho)=Gamma_5[a(iD_0+W)-ho I]), recording its eigenvalues, minimum
+  absolute gap and negative-eigenvalue count. Changes in that count between
+  sampled rho values flag crossing intervals. A finite scan cannot locate all
+  crossings between samples; refine the rho grid around each interval before
+  making a stability statement.
+
+- `overlap_locality_profile(...)` bins off-diagonal spinor-block norms by
+  shortest-path graph distance. It reports shell means/maxima and an empirical
+  log-linear slope. This is a finite graph diagnostic, not a uniform
+  exponential-locality bound.
+
+The RGS-Q6 archive audit now records all three outputs alongside the
+previous Hamming-distance profile. In particular, the mean edge length remains
+an explicit reference-scale convention; it is not silently reinterpreted as
+a mesh size in a refinement sequence.
+
+### Mathematical conditions still required
+
+A stable integer under a rho interval is evidence for a stable finite-matrix
+sector only if the kernel gap remains uniformly separated from zero over that
+interval and the rho scan is sufficiently resolved. To promote this to an
+index theorem one still needs a specified family of complexes, locality and
+regularity bounds uniform in refinement, and a continuum comparison theorem.
+The Möbius (w_1) cocycle remains a separate orientation local system: it
+does not itself create an axial anomaly or determine the overlap index.
