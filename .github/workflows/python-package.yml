@@ -78,7 +78,7 @@ jobs:
       - name: Run flat-torus G0-G3 and G4 embedding audits
         run: |
           PYTHONPATH=. python examples/flat_torus_refinement_audit.py
-          PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py tests/test_flat_torus_embedding.py -v
+          PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py tests/test_flat_torus_embedding.py tests/test_flat_torus_stability.py -v
 
       - name: Mobius boundary thermodynamics audit
         run: |
