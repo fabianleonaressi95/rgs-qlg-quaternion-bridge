@@ -127,7 +127,7 @@ def doppler_moire_phase_audit(
     dk=k2-k1
     positions=np.asarray([P@np.array([(x>>a)&1 for a in range(6)],dtype=float)
                           for x in range(64)])
-    phase=positions@dk+float(phase0)
+    phase=positions@dk-float(phase0)
     moire_potential=1.-np.cos(phase)
     # Observer moves along the first physical axis; c=1. Transform both
     # wave four-vectors, then form the *difference* of observed frequencies.
@@ -156,7 +156,7 @@ def doppler_moire_phase_audit(
         "spacetime_phase":spacetime_phase.tolist(),
         "coherence_real":coherence.real.tolist(),
         "coherence_imag":coherence.imag.tolist(),
-        "phase_identity":"Delta theta(x,t)=Delta omega*t-Delta k dot x+phase0; Doppler is temporal, Moire is spatial",
+        "phase_identity":"Delta theta(x,t)=Delta omega_obs*t-Delta k dot x+phase0; Doppler is temporal, Moire is spatial",
         "projection":P.tolist(),
         "caveat":"projection and beta are model inputs; the RGS vierbein/action must determine them for a physical prediction",
     }
