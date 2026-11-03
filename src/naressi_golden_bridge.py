@@ -2,8 +2,7 @@
 from __future__ import annotations
 from math import sqrt
 import numpy as np
-from scipy.linalg import expm
-from scipy.sparse import coo_matrix, csr_matrix
+from scipy.sparse import coo_matrix
 from scipy.sparse.linalg import eigsh
 
 PHI = (1.0 + sqrt(5.0)) / 2.0
