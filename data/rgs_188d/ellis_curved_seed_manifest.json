@@ -37,7 +37,7 @@
       "large_1": 1.507311680616975,
       "large_2": 1.903910673611661
     },
-    "q6_edge_order": "for g=0..63 and axes 0..5, add (g,g xor 2^(5-axis),axis) when that bit of g is zero",
+    "q6_edge_order": "for g=0..63 and axes 0..5, add (g,g xor 2^axis,axis) when that bit of g is zero",
     "q6_raw_coframe": "(X_h-X_g, ||X_h||-||X_g||)",
     "q6_unit_coframe": "raw coframe divided by its Euclidean R4 norm",
     "distinct_rays": 56,
