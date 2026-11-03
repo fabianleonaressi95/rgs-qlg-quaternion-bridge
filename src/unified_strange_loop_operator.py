@@ -127,6 +127,7 @@ def doppler_moire_phase_audit(
     dk=k2-k1
     positions=np.asarray([P@np.array([(x>>a)&1 for a in range(6)],dtype=float)
                           for x in range(64)])
+    phase=positions@dk-float(phase0)
     phase=positions@dk+float(phase0)
     moire_potential=1.-np.cos(phase)
     # Observer moves along the first physical axis; c=1. Transform both
@@ -156,6 +157,7 @@ def doppler_moire_phase_audit(
         "spacetime_phase":spacetime_phase.tolist(),
         "coherence_real":coherence.real.tolist(),
         "coherence_imag":coherence.imag.tolist(),
+        "phase_identity":"Delta theta(x,t)=Delta omega_obs*t-Delta k dot x+phase0; Doppler is temporal, Moire is spatial",
         "phase_identity":"Delta theta(x,t)=Delta omega*t-Delta k dot x+phase0; Doppler is temporal, Moire is spatial",
         "projection":P.tolist(),
         "caveat":"projection and beta are model inputs; the RGS vierbein/action must determine them for a physical prediction",
@@ -244,4 +246,149 @@ def audit_unified_operator(kappa=1.0,sheet_weight=1.0):
             "prove convergence of finite Cantor cylinders to an infinite transfer operator",
             "define a formal arithmetic theory before making any Gödel incompleteness claim",
         ],
+    }
+
+
+def barycentric_gradient_moire_audit(
+    positions, weights, delta_k, metric=None, delta_omega=0.0,
+    phase0=0.0, t=0.0, eta=1.0
+):
+    """Exact barycentric/phase audit plus second-order Moire expansion.
+
+    positions: (N,d) coordinate array; weights: nonnegative length-N weights.
+    delta_k is a covector in these coordinates. metric is a constant SPD
+    covariant metric g_ab; identity is used only when metric is omitted.
+    """
+    X=np.asarray(positions,dtype=float)
+    w=np.asarray(weights,dtype=float)
+    dk=np.asarray(delta_k,dtype=float)
+    if X.ndim!=2 or w.shape!=(X.shape[0],) or dk.shape!=(X.shape[1],):
+        raise ValueError("incompatible positions, weights, or delta_k shapes")
+    if not np.all(np.isfinite(X)) or not np.all(np.isfinite(w)) or not np.all(np.isfinite(dk)):
+        raise ValueError("inputs must be finite")
+    if np.any(w<0) or w.sum()<=0:
+        raise ValueError("weights must be nonnegative with positive sum")
+    if eta<0:
+        raise ValueError("eta must be nonnegative")
+    w=w/w.sum()
+    d=X.shape[1]
+    g=np.eye(d) if metric is None else np.asarray(metric,dtype=float)
+    if g.shape!=(d,d) or not np.allclose(g,g.T,atol=1e-12):
+        raise ValueError("metric must be a symmetric (d,d) matrix")
+    if np.linalg.eigvalsh(g)[0]<=0:
+        raise ValueError("metric must be positive definite")
+    xb=w@X
+    Y=X-xb
+    cov=(Y*w[:,None]).T@Y
+    phase_b=float(delta_omega)*float(t)-float(dk@xb)+float(phase0)
+    q=Y@dk
+    phases=phase_b-q
+    exact=float(np.sum(w*(1.-np.cos(phases))))
+    char=np.sum(w*np.exp(-1j*q))
+    exact_characteristic=float(1.-np.real(np.exp(1j*phase_b)*char))
+    quadratic=float(1.-np.cos(phase_b)+.5*np.cos(phase_b)*(dk@cov@dk))
+    dtheta=-dk
+    grad_theta=np.linalg.solve(g,dtheta)
+    # Force is minus the metric gradient of eta*(1-cos(theta)).
+    grad_potential=float(eta)*np.sin(phases)[:,None]*grad_theta[None,:]
+    force=-grad_potential
+    return {
+        "barycenter":xb.tolist(),
+        "centered_positions":Y.tolist(),
+        "weight_sum":float(w.sum()),
+        "first_moment_residual":float(np.linalg.norm(w@Y)),
+        "covariance":cov.tolist(),
+        "covariance_eigenvalues":np.linalg.eigvalsh(cov).tolist(),
+        "phase_at_barycenter":phase_b,
+        "relative_phases":phases.tolist(),
+        "characteristic_real":float(char.real),
+        "characteristic_imag":float(char.imag),
+        "moire_average_exact":exact,
+        "moire_average_characteristic":exact_characteristic,
+        "moire_average_quadratic":quadratic,
+        "moire_quadratic_index":float(dk@cov@dk),
+        "phase_covector_gradient":dtheta.tolist(),
+        "metric_phase_gradient":grad_theta.tolist(),
+        "moire_force":force.tolist(),
+        "metric":g.tolist(),
+        "expansion_order":"second order in delta_k dot centered_position; exact characteristic also returned",
+        "caveat":"constant metric in the supplied coordinate chart; a varying RGS metric requires covariant transport and a specified connection",
+    }
+
+
+def moving_barycenter_audit(positions, weights, velocities, weight_rates=None):
+    """Differentiate X_B=sum(w_i X_i), including changing normalized weights."""
+    X=np.asarray(positions,dtype=float)
+    w=np.asarray(weights,dtype=float)
+    V=np.asarray(velocities,dtype=float)
+    if X.ndim!=2 or V.shape!=X.shape or w.shape!=(X.shape[0],):
+        raise ValueError("incompatible positions, velocities, or weights")
+    if np.any(w<0) or w.sum()<=0:
+        raise ValueError("weights must be nonnegative with positive sum")
+    w=w/w.sum()
+    wd=np.zeros_like(w) if weight_rates is None else np.asarray(weight_rates,dtype=float)
+    if wd.shape!=w.shape:
+        raise ValueError("weight_rates must have shape (N,)")
+    # Rates are required to be tangent to the normalized simplex.
+    wd=wd-wd.sum()*w
+    xb=w@X
+    y=X-xb
+    xbdot=w@V+wd@X
+    identity_residual=float(np.linalg.norm(xbdot-(w@V+wd@y)))
+    return {
+        "barycenter":xb.tolist(),
+        "barycenter_velocity":xbdot.tolist(),
+        "normalized_weight_rate_sum":float(wd.sum()),
+        "centered_weight_rate_term":(wd@y).tolist(),
+        "derivative_identity_residual":identity_residual,
+    }
+
+
+def derive_q6_projection_from_rgs_seed(X, weights=None, rcond=None):
+    """Fit affine Q6-bit -> RGS seed map and report its geometric residual.
+
+    X is the archived 64x3 O_h seed in canonical integer order
+    g=sum_a 2**a b_a. This is a data-derived least-squares chart, not a claim
+    that the 188D vierbein has already been reduced to this map.
+    """
+    X=np.asarray(X,dtype=float)
+    if X.shape!=(64,3) or not np.all(np.isfinite(X)):
+        raise ValueError("X must be a finite (64,3) RGS seed in canonical Q6 order")
+    B=np.asarray([[(g>>a)&1 for a in range(6)] for g in range(64)],dtype=float)
+    if weights is None:
+        w=np.full(64,1./64.)
+    else:
+        w=np.asarray(weights,dtype=float)
+        if w.shape!=(64,) or not np.all(np.isfinite(w)) or np.any(w<0) or w.sum()<=0:
+            raise ValueError("weights must be 64 finite nonnegative values with positive sum")
+        w=w/w.sum()
+    xbar=w@X
+    bbar=w@B
+    Xc=X-xbar
+    Bc=B-bbar
+    sw=np.sqrt(w)[:,None]
+    Bw=Bc*sw
+    Xw=Xc*sw
+    P_t, residuals, rank, singular=np.linalg.lstsq(Bw,Xw,rcond=rcond)
+    P=P_t.T
+    intercept=xbar-bbar@P_t
+    Xhat=B@P_t+intercept
+    R=X-Xhat
+    denom=float(np.linalg.norm(Xw))
+    rel=float(np.linalg.norm(R*sw)/denom) if denom>0 else float(np.linalg.norm(R*sw))
+    return {
+        "projection_3x6":P.tolist(),
+        "intercept_3":intercept.tolist(),
+        "rank":int(rank),
+        "singular_values":singular.tolist(),
+        "condition_number":float(singular[0]/singular[-1]) if singular[-1]>0 else None,
+        "weighted_relative_residual":rel,
+        "weighted_rms_residual":float(np.sqrt(np.sum(w[:,None]*R**2))),
+        "max_point_residual":float(np.max(np.linalg.norm(R,axis=1))),
+        "weighted_centroid_seed":xbar.tolist(),
+        "weighted_centroid_reconstruction":(w@Xhat).tolist(),
+        "centroid_residual":float(np.linalg.norm(w@X-w@Xhat)),
+        "q6_bit_order":"g=sum_a 2**a b_a; columns a=0,...,5",
+        "interpretation":"best affine least-squares Q6 chart of the supplied RGS seed; nonzero residual measures non-affine O_h geometry",
+        "not_claimed":"This does not derive the full 188D vierbein, its connection, or a physical wavevector from an action.",
     }
