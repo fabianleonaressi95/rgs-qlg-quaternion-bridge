@@ -38,12 +38,16 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 - [x] Repair pre-existing 2I audit lookup bug (NumPy rows were used as dictionary keys instead of rounded quaternion tuples).
 - [x] Correct the Q6 axis test to reflect that all six single-bit flips are edges.
 
-## Next phases
-
 ### Phase 1B — Möbius complex audit
-- [ ] Encode the agreed 12-vertex, 18-edge, 6-face subcomplex without conflating it with all Q6 plaquettes.
-- [ ] Verify B1 B2 = 0, boundary components, Euler characteristic and Betti numbers.
-- [ ] Verify non-orientability by orientation propagation.
+- [x] Encode the agreed six face patterns as a 12-vertex, 18-edge, 6-face subcomplex.
+- [x] Preserve the cyclic free-bit order 00, 10, 11, 01; lexicographic order would incorrectly introduce crossed diagonals.
+- [x] Build integer incidence matrices B1 (12 x 18) and B2 (18 x 6).
+- [x] Add an exact chain-complex test B1 B2 = 0.
+- [x] Audit 12 boundary edges, 6 interior edges and one boundary component.
+- [x] Compute Euler characteristic 0 and Betti numbers (b0,b1,b2) = (1,1,0).
+- [x] Detect non-orientability by face-orientation propagation.
+
+## Next phases
 
 ### Phase 2 — Gauge-covariance audit
 - [ ] Add randomized vertex gauge transformations using the existing SU2Lattice convention.
