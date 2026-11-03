@@ -107,3 +107,30 @@ def refinement_audit(
         "refinements":rows,
         "corners_at_finest_refinement":wilson_brillouin_corners(d,L/int(sizes[-1]),r0*(1.0/int(sizes[-1]))**alpha)
     }
+
+
+def hermitian_scalar_sum_branches(momentum, spacing: float, r: float = 1.0):
+    """Eigenvalue branches of the nonstandard Hermitian sum D0+W."""
+    w=wilson_symbol(momentum,spacing,r)
+    e=naive_symbol_energy(momentum,spacing)
+    return float(w-e),float(w+e)
+
+
+def euclidean_wilson_singular_value(momentum, spacing: float, r: float = 1.0):
+    """Singular-value magnitude of i*D0+W for a Clifford plane wave."""
+    w=wilson_symbol(momentum,spacing,r)
+    e=naive_symbol_energy(momentum,spacing)
+    return float(np.hypot(e,w))
+
+
+def scalar_sum_accidental_zero_angle(r: float = 1.0) -> float:
+    """Return theta in (0,pi) where W(theta)-|D0(theta)| vanishes in 1D.
+
+    For D0=2 sin(theta)/a and W=r(1-cos(theta))/a, tan(theta/2)=2/r.
+    This zero shows why lifting the Nyquist corner alone is not sufficient
+    when the Hermitian scalar Wilson Laplacian is simply added to D0.
+    """
+    r=float(r)
+    if not np.isfinite(r) or r<=0:
+        raise ValueError("r must be positive and finite")
+    return float(2.0*np.arctan(2.0/r))
