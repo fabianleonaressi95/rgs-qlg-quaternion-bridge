@@ -64,7 +64,7 @@ The eigenvalues of \(\rho_+\) are \(q^j/Z_6\), each with multiplicity \(\binom6j
 where \(h(p)=-p\log p-(1-p)\log(1-p)\). This is an exact finite identity for this state ansatz.
 
 Boundary checks:
-- \(\tau=0\): \(K_0=I\), the state is a product of 64 matched pairs with respect to the chosen basis? **Correction:** its coefficient matrix is \(I/8\), hence it is maximally entangled across the two sheets and \(S_+=\log64\).
+- \(\tau=0\): \(K_0=I\), so \(C_0=I/8\). This is a maximally entangled state across the two sheets and \(S_+=\log64\).
 - \(\tau\to\infty\): \(K_\tau\) tends to the projector onto the constant Q6 mode; the normalized coefficient matrix has rank one and \(S_+\to0\).
 
 For a pure bipartite state, \(I(+:-)=2S_+\). The code computes the density matrix, entropy, purity, Schmidt spectrum and residuals, and compares them with the analytic formula.
