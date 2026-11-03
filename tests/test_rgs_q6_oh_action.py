@@ -32,6 +32,7 @@ def test_induced_oh_action_is_faithful_and_respects_group_product():
     assert report["group"]["action_homomorphism_exact"]
     assert report["antipodal"]["involution_exact"]
     assert report["antipodal"]["fixed_point_count"] == 0
+    assert report["vertex_orbit_sizes"] == [8, 8, 24, 24]
     assert report["pass"]
 
 
