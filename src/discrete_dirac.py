@@ -118,3 +118,53 @@ def discrete_dirac_spectrum(operator):
     if residual>1e-9: raise ValueError(f"operator is not Hermitian: {residual}")
     values=np.linalg.eigvalsh(d)
     return {"eigenvalues":values,"min":float(values[0]),"max":float(values[-1]),"near_zero_count_1e-9":int(np.sum(np.abs(values)<1e-9)),"spectral_pairing_residual":float(np.max(np.abs(values+values[::-1])))}
+
+
+def assemble_wilson_laplacian(coordinates, vierbein, edges, spin_links=None, r=1.0):
+    """Assemble a positive covariant graph Laplacian (Wilson kernel).
+
+    This is a finite-graph regulator candidate. It does not by itself prove
+    Nielsen--Ninomiya doubling or its removal on an irregular finite graph.
+    The link convention is source i -> target j: S_ji maps fibre i to fibre j.
+    """
+    x,e=_validate_geometry(coordinates,vierbein); n=len(x)
+    if not np.isfinite(r) or r<0: raise ValueError("Wilson parameter r must be finite and nonnegative")
+    if spin_links is None: spin_links,_=polar_spin_links(e,edges)
+    wmat=np.zeros((4*n,4*n),dtype=complex)
+    identity=np.eye(4,dtype=complex)
+    for i,j in edges:
+        dx=x[j]-x[i]; length=float(np.linalg.norm(dx))
+        if length<=1e-14: raise ValueError("edge endpoints must be distinct")
+        s=np.asarray(spin_links[(i,j)],dtype=complex)
+        if s.shape==(2,2): s=np.block([[s,np.zeros((2,2))],[np.zeros((2,2)),s]])
+        if s.shape!=(4,4): raise ValueError("spin link must be 2x2 SU(2) or 4x4")
+        unit=float(np.linalg.norm(s.conj().T@s-identity,ord="fro"))
+        if unit>1e-8: raise ValueError(f"spin link is not unitary: residual {unit}")
+        weight=float(r)/(2.0*length)
+        si=slice(4*i,4*i+4); sj=slice(4*j,4*j+4)
+        wmat[si,si]+=weight*identity
+        wmat[sj,sj]+=weight*identity
+        wmat[sj,si]-=weight*s
+        wmat[si,sj]-=weight*s.conj().T
+    volumes=np.linalg.det(e); v4=np.repeat(volumes,4); invsqrt=1/np.sqrt(v4)
+    out=invsqrt[:,None]*wmat*invsqrt[None,:]
+    herm=float(np.linalg.norm(out-out.conj().T,ord="fro"))
+    eig=np.linalg.eigvalsh(out)
+    return out,{"vertices":n,"edges":len(edges),"wilson_r":float(r),
+        "hermiticity_residual":herm,"minimum_eigenvalue":float(eig[0]),
+        "positive_semidefinite":bool(eig[0]>=-1e-10),
+        "volume_min":float(volumes.min()),"volume_max":float(volumes.max()),
+        "status":"FINITE_GRAPH_COVARIANT_WILSON_LAPLACIAN_CANDIDATE"}
+
+
+def assemble_dirac_wilson(coordinates, vierbein, edges, spin_links=None, r=1.0):
+    """Return D_naive + W with the same finite-graph links and volume weights."""
+    if spin_links is None:
+        spin_links,_=polar_spin_links(vierbein,edges)
+    d,da=assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=spin_links)
+    w,wa=assemble_wilson_laplacian(coordinates,vierbein,edges,spin_links=spin_links,r=r)
+    total=d+w
+    return total,{"naive":da,"wilson":wa,
+        "hermiticity_residual":float(np.linalg.norm(total-total.conj().T,ord="fro")),
+        "operator_norm":float(np.linalg.norm(total,ord=2)),
+        "status":"FINITE_GRAPH_DIRAC_WILSON_CANDIDATE"}
