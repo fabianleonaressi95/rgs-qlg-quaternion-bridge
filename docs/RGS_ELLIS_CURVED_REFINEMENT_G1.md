@@ -9,7 +9,7 @@ The 64 coordinates are reconstructed exactly from the recovered
 `X_Oh_reconstructed` array in
 `A14_RGS_PSU_QLG_JACOBIAN_BUNDLE.zip` (SHA-256
 `80442238349cd6ddc720dabae93d083075dea88decba8acf0a78c3ec03e0abcc`).
-They consist of eight `O_h` orbits, with the six
+They are reconstructed from eight coordinate-sign blocks, which form four full `O_h` orbits (sizes 8, 24, 24, 8), with the six
 absolute coordinate values recorded in
 `data/rgs_188d/ellis_curved_seed_manifest.json`.
 The orbit construction reproduces the archived 64x3 array entry by entry.
