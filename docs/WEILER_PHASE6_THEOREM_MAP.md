@@ -75,6 +75,10 @@ the target fibre j, and positive edge length l_ij, define
 `L_ii += w_ij I_4`, `L_jj += w_ij I_4`,
 `L_ji -= w_ij S_ji`, `L_ij -= w_ij S_ji^dagger`.
 
+The volume-weighted operator is `W = V^(-1/2) L V^(-1/2)`, and the
+Wilson-corrected finite operator is `D_W = D_naive + W`. The implementation
+is `assemble_wilson_laplacian(...)`; `assemble_spatial_dirac(..., wilson_r=r)`
+adds it when r>0. The default r=0 preserves the previous Phase 6 operator.
 The volume-weighted positive graph Laplacian is `W = V^(-1/2) L V^(-1/2)`.
 The legacy option `assemble_spatial_dirac(..., wilson_r=r)` returns the
 Hermitian scalar perturbation `D_H = D_naive + W`; it is **not** the standard
@@ -99,6 +103,10 @@ Phase 6 naive operator.
   `W -> G W G^dagger`, where G is block diagonal over vertices.
 - **Positivity:** before volume normalization, the quadratic form is a sum of
   `w_ij ||psi_j - S_ji psi_i||^2`; hence W is positive semidefinite.
+- **Chiral breaking:** W is scalar in spinor space, so it does not anticommute
+  with gamma_5. For r>0 and a nontrivial graph,
+  `{D_W,Gamma_5}` is generally nonzero. The naive operator's exact
+  anticommutation is therefore deliberately broken.
 - **Chiral breaking:** W is scalar in spinor space and commutes with
   Gamma5. Thus `D_E=iD_naive+W` is gamma5-Hermitian but does not have the
   naive exact anticommutation. The legacy Hermitian sum `D_H=D_naive+W`
@@ -111,6 +119,14 @@ Phase 6 naive operator.
 
 ### Periodic one-dimensional check
 
+On a uniform periodic ring with spacing a and trivial links, the graph Wilson
+term has Fourier eigenvalue
+
+`W(p) = (r/a) [1 - cos(pa)]`.
+
+It vanishes at p=0 and equals 2r/a at p=pi/a. Thus it lifts the naive
+Nyquist doubler from zero to the cutoff scale in this controlled periodic
+test. The test uses an explicit periodic edge length for the wrap-around edge.
 On a uniform periodic ring with spacing a and trivial links,
 
 `W(p) = (r/a) [1 - cos(pa)]`, and the naive Hermitian symbol magnitude is

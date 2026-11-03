@@ -161,6 +161,7 @@ def chirality_matrix():
 
 
 def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None,wilson_r=0.0):
+    """Hermitian volume-weighted nearest-neighbour spatial Dirac candidate."""
     """Hermitian nearest-neighbour Dirac candidate.\n\n    wilson_r>0 adds the scalar graph Laplacian to this Hermitian matrix;\n    use assemble_euclidean_wilson_dirac for the standard gamma5-Hermitian\n    Euclidean Wilson-Dirac formulation.\n    """
     x,e=_validate_geometry(coordinates,vierbein); n=len(x); gs=gamma_matrices()
     if local_spatial_gamma is None: local=np.broadcast_to(np.asarray(gs[1:]),(n,3,4,4)).copy()
@@ -188,6 +189,7 @@ def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spat
     if r>0:
         wilson,wilson_audit=assemble_wilson_laplacian(x,e,edges,spin_links=spin_links,wilson_r=r)
         d=d+wilson
+    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"CANDIDATE_DISCRETE_SPATIAL_DIRAC_WITH_WILSON_TERM" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
     return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"HERMITIAN_SCALAR_PERTURBED_SPATIAL_OPERATOR_NOT_STANDARD_EUCLIDEAN_WILSON" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
 
 def assemble_euclidean_wilson_dirac(
