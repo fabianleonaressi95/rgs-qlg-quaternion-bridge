@@ -83,7 +83,7 @@ def audit_binary_icosahedral(tol: float = 2e-10) -> dict:
     """Exhaustively audit cardinality, S3 norm, closure, inverses and SO(3) quotient."""
     elements = binary_icosahedral_elements()
     keys = {tuple(np.round(q, 10)) for q in elements}
-    lookup = {key: i for i, key in enumerate(elements)}
+    lookup = {tuple(np.round(q, 10)): i for i, q in enumerate(elements)}
     identity_key = tuple(np.round(IDENTITY, 10))
     if identity_key not in lookup:
         raise AssertionError("Identity missing")
