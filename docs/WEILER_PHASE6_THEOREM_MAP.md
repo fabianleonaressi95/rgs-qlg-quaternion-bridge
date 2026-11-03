@@ -62,3 +62,62 @@ consistency, absence of fermion doubling, or Mosco convergence.
 - OPEN: complete 2I/Clebsch–Gordan kernel basis and invariant bias/pooling spaces.
 
 No claim of physical unification or of a proven continuum Dirac equation is made.
+
+
+## Phase 8 — Gauge-covariant Wilson term and fermion-doubling audit
+
+The spatial Dirac candidate now has an optional Wilson graph Laplacian. For each
+canonical edge i<j, with spin transporter S_ji mapping the source fibre i to
+the target fibre j, and positive edge length l_ij, define
+
+`w_ij = r/(2 l_ij)`, with r >= 0, and the unnormalized blocks
+
+`L_ii += w_ij I_4`, `L_jj += w_ij I_4`,
+`L_ji -= w_ij S_ji`, `L_ij -= w_ij S_ji^dagger`.
+
+The volume-weighted operator is `W = V^(-1/2) L V^(-1/2)`, and the
+Wilson-corrected finite operator is `D_W = D_naive + W`. The implementation
+is `assemble_wilson_laplacian(...)`; `assemble_spatial_dirac(..., wilson_r=r)`
+adds it when r>0. The default r=0 preserves the previous Phase 6 operator.
+
+### Algebraic properties
+
+- **Hermiticity:** opposite edge blocks are adjoints and V is positive diagonal,
+  hence W is Hermitian.
+- **Gauge covariance:** for local fibre transformations G_i, the link law is
+  `S_ji -> G_j S_ji G_i^dagger`; therefore
+  `W -> G W G^dagger`, where G is block diagonal over vertices.
+- **Positivity:** before volume normalization, the quadratic form is a sum of
+  `w_ij ||psi_j - S_ji psi_i||^2`; hence W is positive semidefinite.
+- **Chiral breaking:** W is scalar in spinor space, so it does not anticommute
+  with gamma_5. For r>0 and a nontrivial graph,
+  `{D_W,Gamma_5}` is generally nonzero. The naive operator's exact
+  anticommutation is therefore deliberately broken.
+- **Scaling:** if all edge lengths are dilated by alpha while E and r are fixed,
+  W scales as alpha^(-1), matching the scaling of the implemented first-order
+  graph operator. A continuum Wilson coefficient normally carries an explicit
+  lattice spacing; its refinement scaling must be specified separately.
+
+### Periodic one-dimensional check
+
+On a uniform periodic ring with spacing a and trivial links, the graph Wilson
+term has Fourier eigenvalue
+
+`W(p) = (r/a) [1 - cos(pa)]`.
+
+It vanishes at p=0 and equals 2r/a at p=pi/a. Thus it lifts the naive
+Nyquist doubler from zero to the cutoff scale in this controlled periodic
+test. The test uses an explicit periodic edge length for the wrap-around edge.
+
+### Evidence and limits
+
+Tests cover Hermiticity, positive semidefiniteness, local SU(2) gauge covariance,
+coordinate-dilation scaling, exact p=0 and p=pi/a Wilson eigenvalues on a
+16-site ring, and nonzero chiral anticommutator after adding W.
+
+This establishes the stated finite-graph algebra and the one-dimensional
+Fourier mechanism. It does **not** by itself prove absence of doublers on the
+curved Q6 graph or in a continuum limit, nor Mosco/spectral convergence.
+The Wilson parameter's physical scaling under refinement and the relation
+between this Hermitian finite operator and a covariant continuum Dirac
+operator remain open obligations.
