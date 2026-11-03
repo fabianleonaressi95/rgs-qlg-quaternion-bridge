@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-11-03",
+  "catalogue": "docs/MASTER_CATALOGUE_LAWS_THEOREMS.md",
+  "detailed_register": "docs/MASTER_CATALOGUE_PHASE6_10_ADDENDUM.md",
+  "evidence_legend": {
+    "PROVEN": "algebraic or analytic proof under stated assumptions",
+    "EXACT_FINITE": "exact finite combinatorial/algebraic identity",
+    "NUMERIC": "numerically checked for the named finite data",
+    "MODEL": "definition or model-specific construction",
+    "CANDIDATE": "candidate requiring additional proof",
+    "OPEN": "not established"
+  },
+  "entries": [
+    {
+      "id": "Q6-CX-001",
+      "title": "Q6 cellular complex and incidence",
+      "status": [
+        "EXACT_FINITE",
+        "PROVEN"
+      ],
+      "scope": "canonical 6-cube 2-skeleton",
+      "statement": "64 vertices, 192 edges, 240 square faces; oriented incidence satisfies B1 B2 = 0; graph cycle rank is 129.",
+      "sources": [
+        "src/q6_complex.py",
+        "tests/test_q6_complex.py"
+      ]
+    },
+    {
+      "id": "Q6-SP-002",
+      "title": "Hypercube Laplacian spectrum",
+      "status": [
+        "PROVEN"
+      ],
+      "scope": "canonical graph Q6",
+      "statement": "Eigenvalues 2j with multiplicity binomial(6,j), j=0,...,6.",
+      "sources": [
+        "src/q6_complex.py"
+      ]
+    },
+    {
+      "id": "RGS-GEO-003",
+      "title": "Curved Clifford field from coframe",
+      "status": [
+        "PROVEN",
+        "NUMERIC"
+      ],
+      "scope": "each site with invertible coframe and consistent signature",
+      "statement": "Gamma^mu=e_A^mu gamma^A obeys the curved Clifford relation for g^mu nu=e_A^mu e_B^nu eta^AB; archived maximum residual 3.55e-15.",
+      "sources": [
+        "docs/WEILER_PHASE6_THEOREM_MAP.md",
+        "results/json/rgs_q6_phase6_reference_audit.json"
+      ]
+    },
+    {
+      "id": "RGS-SPIN-004",
+      "title": "Polar SO(3)-to-SU(2) edge lift",
+      "status": [
+        "CANDIDATE",
+        "NUMERIC"
+      ],
+      "scope": "archived finite RGS-Q6 data",
+      "statement": "Polar rotational factors and SU(2) lifts pass finite orthogonality, unitarity and reconstruction checks; global sign/holonomy consistency and identification with Levi-Civita spin transport remain open.",
+      "sources": [
+        "results/json/rgs_q6_phase6_reference_audit.json"
+      ]
+    },
+    {
+      "id": "RGS-DIRAC-005",
+      "title": "Spatial discrete Dirac operator",
+      "status": [
+        "MODEL",
+        "NUMERIC"
+      ],
+      "scope": "256-dimensional archived finite operator",
+      "statement": "A coframe/link-based operator is constructed; archived Hermiticity residual 3.25e-15 and spectral pairing residual 1.35e-14. Continuum consistency and doubling control are open.",
+      "sources": [
+        "results/json/rgs_q6_phase6_reference_audit.json"
+      ]
+    },
+    {
+      "id": "RGS-WILSON-006",
+      "title": "Covariant Wilson graph Laplacian",
+      "status": [
+        "PROVEN",
+        "NUMERIC"
+      ],
+      "scope": "unitary links and nonnegative edge weights",
+      "statement": "Quadratic-form representation implies positivity and Hermiticity; block gauge covariance follows from link transformation. Finite archived covariance residual 6.86e-15.",
+      "sources": [
+        "docs/CHIRAL_WILSON_AUDIT.md",
+        "results/json/rgs_q6_wilson_audit.json"
+      ]
+    },
+    {
+      "id": "RGS-WILSON-007",
+      "title": "Euclidean Wilson convention correction",
+      "status": [
+        "EXACT_FINITE",
+        "PROVEN"
+      ],
+      "scope": "specified periodic symbol and operator convention",
+      "statement": "For Hermitian spatial D0, the overlap Euclidean kernel uses i D0 + W; the legacy D0 + W symbol has an additional accidental zero in the stated one-dimensional test.",
+      "sources": [
+        "docs/WEILER_PHASE6_THEOREM_MAP.md",
+        "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md"
+      ]
+    },
+    {
+      "id": "WILSON-SCALE-008",
+      "title": "Wilson scaling window",
+      "status": [
+        "PROVEN"
+      ],
+      "scope": "regular periodic Fourier lattice symbol",
+      "statement": "For r(a)=r0(a/L)^alpha, the joint consistency and corner-decoupling window is -1 < alpha < 1.",
+      "sources": [
+        "src/wilson_refinement.py",
+        "examples/wilson_refinement_audit.py",
+        "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md"
+      ]
+    },
+    {
+      "id": "MOSCO-TORUS-009",
+      "title": "Flat periodic-torus Mosco prototype",
+      "status": [
+        "PROVEN"
+      ],
+      "scope": "flat periodic torus and explicitly stated common-Hilbert/Fourier assumptions",
+      "statement": "Liminf and recovery are established for the documented flat model; this is not a Mosco proof for curved RGS-Q6 refinements.",
+      "sources": [
+        "docs/MOSCO_PROTOTYPE_REGULAR_TORUS.md",
+        "src/mosco_torus.py",
+        "tests/test_mosco_torus.py"
+      ]
+    },
+    {
+      "id": "DK-Q6-010",
+      "title": "Combinatorial Dirac-Kahler operator",
+      "status": [
+        "PROVEN",
+        "EXACT_FINITE"
+      ],
+      "scope": "unweighted Q6 2-skeleton cochains",
+      "statement": "On C0 direct-sum C1 direct-sum C2, D=d+d* has square equal to the block Hodge Laplacian and anticommutes with degree parity.",
+      "sources": [
+        "src/dirac_kahler.py",
+        "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md"
+      ]
+    },
+    {
+      "id": "OVERLAP-GW-011",
+      "title": "Finite overlap Ginsparg-Wilson identity",
+      "status": [
+        "PROVEN",
+        "NUMERIC"
+      ],
+      "scope": "finite gamma5-Hermitian kernel with nonzero Hermitian-kernel gap",
+      "statement": "The sign-function overlap construction satisfies the Ginsparg-Wilson relation under the stated hypotheses; archived Q6 residual 3.27e-14.",
+      "sources": [
+        "src/overlap_dirac.py",
+        "results/json/rgs_q6_phase10_index_spectral_flow.json"
+      ]
+    },
+    {
+      "id": "OVERLAP-LOC-012",
+      "title": "Finite overlap locality diagnostics",
+      "status": [
+        "NUMERIC",
+        "OPEN"
+      ],
+      "scope": "one archived Q6 matrix and sampled rho values",
+      "statement": "Distance-binned block norms decrease in the archived matrix; uniform exponential locality on a refinement family is not established.",
+      "sources": [
+        "results/json/rgs_q6_phase10_index_spectral_flow.json"
+      ]
+    },
+    {
+      "id": "THERM-MOB-013",
+      "title": "Finite Mobius spectral thermodynamics",
+      "status": [
+        "NUMERIC",
+        "MODEL"
+      ],
+      "scope": "specified finite 24-level-per-sector spectrum",
+      "statement": "Partition functions and correlation-spectrum entropies are evaluated for the finite reference data; Hawking temperature and physical horizon interpretation remain model assumptions.",
+      "sources": [
+        "docs/MOBIUS_HAWKING_THERMODYNAMICS.md",
+        "src/thermodynamics.py"
+      ]
+    },
+    {
+      "id": "WEILER-EQV-014",
+      "title": "Geometric equivariance constraints",
+      "status": [
+        "PROVEN",
+        "OPEN"
+      ],
+      "scope": "standard equivariant-map theorems plus partial Q6 implementation",
+      "statement": "Intertwiner and invariant-kernel conditions are standard; the metric-preserving automorphism subgroup, complete kernel basis, global atlas/cocycle and transitivity claims remain unfinished.",
+      "sources": [
+        "docs/WEILER_PHASE6_THEOREM_MAP.md"
+      ]
+    }
+  ],
+  "mosco_curved_program": {
+    "status": "OPEN",
+    "protocol": "docs/RGS_MOSCO_CURVED_REFINEMENT_PROGRAM.md",
+    "target": "A Mosco-convergent family of RGS-derived discrete Dirichlet forms on a fixed compact smooth Riemannian manifold, followed only later by spinorial and gauge-covariant extensions.",
+    "warning": "No curved RGS-Q6 convergence theorem is claimed by this index."
+  }
+}
