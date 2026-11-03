@@ -58,7 +58,7 @@ class RGSSeedData:
 
 
 @dataclass(frozen=True)
-class ElllisRGSRefinement:
+class EllisRGSRefinement:
     level: int
     r0: float
     half_width: float
@@ -324,7 +324,7 @@ def build_ellis_rgs_refinement(
     half_width: float | None = None,
     radial_base: int = 8,
     include_chain: bool = False,
-) -> ElllisRGSRefinement:
+) -> EllisRGSRefinement:
     """Build one level of the curved RGS Ellis-wormhole product family.
 
     At level l, angular edges are midpoint-refined l times and the radial
@@ -359,7 +359,7 @@ def build_ellis_rgs_refinement(
         _build_chain_complex(len(vertices), tetrahedra)
         if include_chain else None
     )
-    return ElllisRGSRefinement(
+    return EllisRGSRefinement(
         level=lev,
         r0=r0,
         half_width=L,
@@ -378,7 +378,7 @@ def build_ellis_rgs_refinement(
 
 
 def assemble_ellis_p1_operators(
-    mesh: ElllisRGSRefinement,
+    mesh: EllisRGSRefinement,
 ) -> tuple[csr_matrix, csr_matrix]:
     """Assemble exact local P1 L2 mass and Dirichlet stiffness for chordal tets."""
     D = np.asarray(
@@ -409,6 +409,8 @@ def audit_ellis_rgs_refinement(
     radial_base: int = 8,
 ) -> dict[str, Any]:
     """Multi-level geometric, coframe, volume and chain-complex audit."""
+    if len(levels) < 3 or any(b <= a for a, b in zip(levels, levels[1:])):
+        raise ValueError("levels must contain at least three strictly increasing integers")
     seed = load_rgs_seed_data()
     L = 3.0 * r0 if half_width is None else float(half_width)
     reports: list[dict[str, Any]] = []
