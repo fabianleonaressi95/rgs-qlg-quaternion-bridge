@@ -171,3 +171,43 @@ The mean Frobenius norm of the 4x4 vertex-to-vertex overlap blocks decreases wit
 A log-linear fit gives a finite-sample decay factor about 0.459 per Hamming step. This is an **empirical finite-graph locality diagnostic**, not a proof of exponential locality uniform over a graph family. The positive kernel gap is established only for this archive, rho and chosen reference scale. No index theorem, anomaly statement, or continuum locality theorem follows.
 
 Reproduction script: `examples/rgs_q6_overlap_audit.py`. It accepts the NPZ archive as a command-line argument and writes `results/json/rgs_q6_overlap_audit.json`. The numerical snapshot is committed at that path.
+
+
+## 7. Convention audit: Hermitian scalar sum versus Euclidean Wilson–Dirac
+
+A final dispersion audit found that the expression `D_H=D_0+W`, where both D0 and W are Hermitian, is not the standard Euclidean Wilson–Dirac operator in this repository's convention. Its one-dimensional branches are
+
+\[
+\lambda_\pm(p)=W(p)\pm E_0(p),\qquad
+E_0(p)=\frac{2}{a}|\sin(pa)|.
+\]
+
+For r>0, besides p=0, the lower branch has an accidental zero at
+
+\[
+pa=2\arctan(2/r).
+\]
+
+For r=1 this is about 2.2143, inside the Brillouin zone. Thus checking only that W(pi/a)=2r/a is insufficient to prove that the *sum* D0+W has no other zeros. The optional Hermitian scalar-sum mode in `assemble_spatial_dirac(..., wilson_r=r)` is retained for compatibility, but its status is now explicitly marked as a scalar-perturbed Hermitian operator, not the standard Euclidean Wilson–Dirac matrix.
+
+In the Hermitian convention used by the Phase 6 spatial operator, the standard Euclidean Wilson matrix is
+
+\[
+\boxed{D_E=iD_0+W.}
+\]
+
+Its gamma5-Hermiticity is
+
+\[
+D_E^\dagger=\Gamma_5D_E\Gamma_5,
+\]
+
+and its plane-wave singular-value magnitude is
+
+\[
+\sqrt{E_0(p)^2+W(p)^2}.
+\]
+
+It vanishes at p=0 and is 2r/a at p=pi/a, without the accidental cancellation above. This is the formulation used by `assemble_euclidean_wilson_dirac(...)` and by the overlap construction. The archive-derived RGS-Q6 overlap audit already uses this Euclidean convention.
+
+The correction does not alter the established positive/Hermitian/gauge-covariant properties of the graph Laplacian W. It corrects the interpretation of the *combined* operator and narrows the earlier Phase 8 claim. No theorem of absence of doublers on the curved finite Q6 graph is claimed.
