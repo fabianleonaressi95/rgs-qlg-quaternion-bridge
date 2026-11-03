@@ -105,3 +105,7 @@ For the broader research overview, see the [research profile](docs/GITHUB_PROFIL
 ## License
 
 See the repository license file. If no license file is present, reuse permissions should not be inferred from this README.
+
+## Master catalogue of laws and theorems
+
+The consolidated [RGS–PSU–PRISM–QLG Master Catalogue](docs/MASTER_CATALOGUE_LAWS_THEOREMS.md) records mathematical theorems, exact finite identities, numerical results, model definitions, conjectures and open physical hypotheses with explicit evidence labels. It is versioned and deliberately does not present unproved physical interpretations as established laws.
