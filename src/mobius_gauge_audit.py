@@ -6,6 +6,7 @@ orientation-reversing transition data of the non-orientable base.
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -105,6 +106,19 @@ def audit_mobius_gauge_covariance(
         "passed": bool(passed),
     }
 
+def write_gauge_audit_json(
+    path: str | Path = "results/json/mobius_gauge_covariance_seed20261103.json",
+    seed: int = 20261103,
+    atol: float = 1e-10,
+) -> dict[str, Any]:
+    """Run the audit and persist its complete metadata and residuals as JSON."""
+    result = audit_mobius_gauge_covariance(seed=seed, atol=atol)
+    output = Path(path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\\n", encoding="utf-8")
+    return result
+
 
 if __name__ == "__main__":
-    print(json.dumps(audit_mobius_gauge_covariance(), indent=2, sort_keys=True))
+    result = write_gauge_audit_json()
+    print(json.dumps(result, indent=2, sort_keys=True))
