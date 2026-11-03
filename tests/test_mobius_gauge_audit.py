@@ -5,6 +5,7 @@ from src.mobius_complex import build_mobius_complex
 from src.mobius_gauge_audit import (
     audit_mobius_gauge_covariance,
     build_random_mobius_lattice,
+    write_gauge_audit_json,
 )
 from src.holonomies import dagger
 
@@ -42,3 +43,16 @@ def test_gauge_transformation_preserves_su2_links_and_reverse_edges():
         assert np.allclose(
             transformed.link(v, u), dagger(transformed.link(u, v)), atol=1e-12
         )
+
+
+
+def test_gauge_audit_json_export_contains_reproducibility_metadata(tmp_path):
+    output = tmp_path / "audit" / "mobius.json"
+    result = write_gauge_audit_json(output, seed=1234, atol=1e-10)
+    import json
+
+    loaded = json.loads(output.read_text(encoding="utf-8"))
+    assert loaded == result
+    assert loaded["seed"] == 1234
+    assert loaded["tolerance"] == 1e-10
+    assert loaded["passed"] is True
