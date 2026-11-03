@@ -220,8 +220,13 @@ The overlap module now provides three additional diagnostics:
 - `overlap_index(...)` evaluates
   [
   
-u_{m GW}=operatorname{Tr}left[
-  Gamma_5left(I-rac{a}{2ho}D_{m ov}ight)ight],
+u_{
+m GW}=operatorname{Tr}left[
+  Gamma_5left(I-rac{a}{2
+ho}D_{
+m ov}
+ight)
+ight],
   ]
   checks the GW and gamma5-hermiticity residuals, reports distance to the
   nearest integer, and resolves the chirality spectrum restricted to the
@@ -230,7 +235,9 @@ u_{m GW}=operatorname{Tr}left[
   an integer. It is not a continuum index theorem.
 
 - `overlap_kernel_spectral_flow(...)` samples the Hermitian kernel
-  (H_W(ho)=Gamma_5[a(iD_0+W)-ho I]), recording its eigenvalues, minimum
+  (H_W(
+ho)=Gamma_5[a(iD_0+W)-
+ho I]), recording its eigenvalues, minimum
   absolute gap and negative-eigenvalue count. Changes in that count between
   sampled rho values flag crossing intervals. A finite scan cannot locate all
   crossings between samples; refine the rho grid around each interval before
