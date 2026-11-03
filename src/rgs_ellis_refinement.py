@@ -79,6 +79,9 @@ class EllisRGSRefinement:
     angular_faces: np.ndarray
     vertices_r4: np.ndarray
     tetrahedra: np.ndarray
+    tetrahedron_parameter_vertices: np.ndarray
+    tetrahedron_angular_faces: np.ndarray
+    tetrahedron_radial_layers: np.ndarray
     element_gram: np.ndarray
     element_volumes: np.ndarray
     element_condition: np.ndarray
@@ -228,9 +231,12 @@ def ellis_embedding(
 
 def _product_tetrahedra(
     n_radial: int, n_angular: int, faces: np.ndarray
-) -> np.ndarray:
-    """Conforming staircase split of every triangular prism into 3 tets."""
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Conforming staircase prism split plus exact (t,alpha,beta) charts."""
     tets: list[tuple[int, int, int, int]] = []
+    params: list[np.ndarray] = []
+    angular_faces: list[tuple[int, int, int]] = []
+    radial_layers: list[int] = []
     for j in range(n_radial):
         lo = j * n_angular
         hi = (j + 1) * n_angular
@@ -238,14 +244,37 @@ def _product_tetrahedra(
             a, b, c = sorted(map(int, tri))
             A, B, C = lo + a, lo + b, lo + c
             Ap, Bp, Cp = hi + a, hi + b, hi + c
-            tets.extend((
-                (A, B, C, Cp),
-                (A, B, Bp, Cp),
-                (A, Ap, Bp, Cp),
-            ))
-    # Canonical vertex ordering fixes the orientation convention for chains.
-    return np.asarray([tuple(sorted(t)) for t in tets], dtype=np.int64)
-
+            # Parameter coordinates are (t,alpha,beta), where the
+            # spherical face is n=normalize((1-alpha-beta)n_a
+            # + alpha*n_b + beta*n_c).
+            local = (
+                ((A, B, C, Cp), np.asarray([
+                    (0., 0., 0.), (0., 1., 0.),
+                    (0., 0., 1.), (1., 0., 1.)
+                ])),
+                ((A, B, Bp, Cp), np.asarray([
+                    (0., 0., 0.), (0., 1., 0.),
+                    (1., 1., 0.), (1., 0., 1.)
+                ])),
+                ((A, Ap, Bp, Cp), np.asarray([
+                    (0., 0., 0.), (1., 0., 0.),
+                    (1., 1., 0.), (1., 0., 1.)
+                ])),
+            )
+            for ids, coordinates in local:
+                ordered = sorted(
+                    zip(ids, coordinates), key=lambda item: item[0]
+                )
+                tets.append(tuple(int(item[0]) for item in ordered))
+                params.append(np.asarray([item[1] for item in ordered]))
+                angular_faces.append((a, b, c))
+                radial_layers.append(j)
+    return (
+        np.asarray(tets, dtype=np.int64),
+        np.asarray(params, dtype=float),
+        np.asarray(angular_faces, dtype=np.int64),
+        np.asarray(radial_layers, dtype=np.int64),
+    )
 
 def _element_geometry(
     vertices: np.ndarray, tetrahedra: np.ndarray
@@ -370,7 +399,10 @@ def build_ellis_rgs_refinement(
     n_radial = rb * (2**lev)
     u = np.linspace(-L, L, n_radial + 1)
     vertices = ellis_embedding(u, directions, r0)
-    tetrahedra = _product_tetrahedra(n_radial, len(directions), faces)
+    (tetrahedra, parameter_vertices, tetrahedron_faces,
+     tetrahedron_layers) = _product_tetrahedra(
+        n_radial, len(directions), faces
+    )
     gram, volumes, conditions, max_diameter = _element_geometry(
         vertices, tetrahedra
     )
@@ -388,6 +420,9 @@ def build_ellis_rgs_refinement(
         angular_faces=faces,
         vertices_r4=vertices,
         tetrahedra=tetrahedra,
+        tetrahedron_parameter_vertices=parameter_vertices,
+        tetrahedron_angular_faces=tetrahedron_faces,
+        tetrahedron_radial_layers=tetrahedron_layers,
         element_gram=gram,
         element_volumes=volumes,
         element_condition=conditions,
@@ -419,6 +454,218 @@ def assemble_ellis_p1_operators(
     M = coo_matrix((local_M.ravel(), (rows, cols)), shape=(n, n)).tocsr()
     K = coo_matrix((local_K.ravel(), (rows, cols)), shape=(n, n)).tocsr()
     return M, K
+
+
+def _duffy_tetra_quadrature(order: int) -> tuple[np.ndarray, np.ndarray]:
+    """Tensor Gauss-Legendre quadrature mapped to the reference 3-simplex."""
+    n = int(order)
+    if n < 2 or n > 10:
+        raise ValueError("quadrature_order must be between 2 and 10")
+    nodes, weights = np.polynomial.legendre.leggauss(n)
+    nodes = 0.5 * (nodes + 1.0)
+    weights = 0.5 * weights
+    points: list[tuple[float, float, float]] = []
+    out_weights: list[float] = []
+    for i, r in enumerate(nodes):
+        for j, s in enumerate(nodes):
+            for k, t in enumerate(nodes):
+                points.append((r, (1.0 - r) * s,
+                               (1.0 - r) * (1.0 - s) * t))
+                out_weights.append(
+                    weights[i] * weights[j] * weights[k]
+                    * (1.0 - r) ** 2 * (1.0 - s)
+                )
+    return np.asarray(points), np.asarray(out_weights)
+
+
+@dataclass(frozen=True)
+class EllisP1Embedding:
+    """P1 nodal data pulled back to the common L2 Ellis manifold."""
+
+    mesh: EllisRGSRefinement
+    nodal_values: np.ndarray
+
+    def __post_init__(self) -> None:
+        values = np.asarray(self.nodal_values)
+        if values.ndim != 1 or values.size != self.mesh.vertices_r4.shape[0]:
+            raise ValueError("nodal_values must have one value per curved-mesh vertex")
+        if not np.all(np.isfinite(values)):
+            raise ValueError("nodal_values must be finite")
+        object.__setattr__(self, "nodal_values", values.copy())
+
+    def evaluate_on_element(
+        self, element_index: int, barycentric: np.ndarray
+    ) -> np.ndarray | float:
+        """Evaluate J_h u_h at barycentric points of one curved element."""
+        k = int(element_index)
+        if k < 0 or k >= self.mesh.tetrahedra.shape[0]:
+            raise IndexError("element_index out of range")
+        lam = np.asarray(barycentric, dtype=float)
+        scalar = lam.ndim == 1
+        if scalar:
+            lam = lam[None, :]
+        if lam.ndim != 2 or lam.shape[1] != 4:
+            raise ValueError("barycentric must have shape (n_points,4)")
+        if not np.all(np.isfinite(lam)):
+            raise ValueError("barycentric coordinates must be finite")
+        if np.max(np.abs(np.sum(lam, axis=1) - 1.0)) > 1e-10:
+            raise ValueError("barycentric coordinates must sum to one")
+        if np.min(lam) < -1e-10:
+            raise ValueError("barycentric coordinates must be nonnegative")
+        values = lam @ self.nodal_values[self.mesh.tetrahedra[k]]
+        return float(values[0]) if scalar else values
+
+
+def J_h(mesh: EllisRGSRefinement, nodal_values: np.ndarray) -> EllisP1Embedding:
+    """Embed curved-mesh nodal data into H=L2(M_L,dmu_g) by P1 pullback."""
+    return EllisP1Embedding(mesh=mesh, nodal_values=nodal_values)
+
+
+def assemble_ellis_common_l2_operators(
+    mesh: EllisRGSRefinement,
+    quadrature_order: int = 6,
+    chunk_size: int = 128,
+) -> tuple[csr_matrix, csr_matrix]:
+    """Integrate P1 mass and Dirichlet stiffness in the exact Ellis metric.
+
+    Each reference tetrahedron maps into the smooth manifold by
+    (t,alpha,beta) -> (u(t), normalize((1-alpha-beta)n_a+
+    alpha*n_b+beta*n_c)) -> F(u,n). The integration is over the true
+    metric du^2+(u^2+r0^2)dOmega^2, not the chordal PL surrogate.
+    """
+    qpoints, qweights = _duffy_tetra_quadrature(quadrature_order)
+    D = np.asarray(
+        [[-1.0, -1.0, -1.0], [1.0, 0.0, 0.0],
+         [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],
+        dtype=float,
+    )
+    barycentric = np.column_stack((
+        1.0 - np.sum(qpoints, axis=1), qpoints
+    ))
+    n_tets = mesh.tetrahedra.shape[0]
+    local_mass = np.empty((n_tets, 4, 4), dtype=float)
+    local_stiffness = np.empty_like(local_mass)
+    directions = mesh.angular_directions
+
+    for first in range(0, n_tets, int(chunk_size)):
+        last = min(first + int(chunk_size), n_tets)
+        params = mesh.tetrahedron_parameter_vertices[first:last]
+        affine = np.transpose(
+            params[:, 1:, :] - params[:, :1, :], (0, 2, 1)
+        )
+        y = params[:, None, 0, :] + np.einsum(
+            "tij,qj->tqi", affine, qpoints
+        )
+        tcoord, alpha, beta = y[..., 0], y[..., 1], y[..., 2]
+
+        face = mesh.tetrahedron_angular_faces[first:last]
+        na = directions[face[:, 0]]
+        nb = directions[face[:, 1]]
+        nc = directions[face[:, 2]]
+        vab = nb - na
+        vac = nc - na
+        w = (
+            na[:, None, :]
+            + alpha[..., None] * vab[:, None, :]
+            + beta[..., None] * vac[:, None, :]
+        )
+        wnorm = np.linalg.norm(w, axis=2)
+        if np.any(wnorm <= 1e-12):
+            raise RuntimeError("singular spherical chart in curved P1 element")
+        nvec = w / wnorm[..., None]
+        ndot_ab = np.einsum("tqi,ti->tq", nvec, vab)
+        ndot_ac = np.einsum("tqi,ti->tq", nvec, vac)
+        dn_alpha = (
+            vab[:, None, :] - nvec * ndot_ab[..., None]
+        ) / wnorm[..., None]
+        dn_beta = (
+            vac[:, None, :] - nvec * ndot_ac[..., None]
+        ) / wnorm[..., None]
+
+        layers = mesh.tetrahedron_radial_layers[first:last]
+        u0 = mesh.radial_coordinates[layers]
+        du = (
+            mesh.radial_coordinates[layers + 1]
+            - mesh.radial_coordinates[layers]
+        )
+        u = u0[:, None] + du[:, None] * tcoord
+        R = np.sqrt(u * u + mesh.r0 * mesh.r0)
+        Rp = u / R
+        zp = mesh.r0 / R
+
+        dF_dt = np.concatenate(
+            (Rp[..., None] * nvec * du[:, None, None],
+             (zp * du[:, None])[:, :, None]),
+            axis=2,
+        )
+        dF_da = np.concatenate(
+            (R[..., None] * dn_alpha, np.zeros((*R.shape, 1))), axis=2
+        )
+        dF_db = np.concatenate(
+            (R[..., None] * dn_beta, np.zeros((*R.shape, 1))), axis=2
+        )
+        dF_dy = np.stack((dF_dt, dF_da, dF_db), axis=-1)
+        dF_dxi = np.einsum("tqai,tij->tqaj", dF_dy, affine)
+        gram = np.einsum("tqki,tqkj->tqij", dF_dxi, dF_dxi)
+        determinant = np.linalg.det(gram)
+        if np.any(determinant <= 1e-18):
+            raise RuntimeError("nonpositive curved element metric determinant")
+        inverse_gram = np.linalg.inv(gram)
+        weighted_jacobian = np.sqrt(determinant) * qweights[None, :]
+        local_mass[first:last] = np.einsum(
+            "tq,qi,qj->tij",
+            weighted_jacobian, barycentric, barycentric,
+        )
+        local_stiffness[first:last] = np.einsum(
+            "tq,ai,tqij,bj->tab",
+            weighted_jacobian, D, inverse_gram, D,
+        )
+
+    n_vertices = mesh.vertices_r4.shape[0]
+    rows = np.repeat(mesh.tetrahedra, 4, axis=1).ravel()
+    cols = np.tile(mesh.tetrahedra, (1, 4)).ravel()
+    mass = coo_matrix(
+        (local_mass.ravel(), (rows, cols)),
+        shape=(n_vertices, n_vertices),
+    ).tocsr()
+    stiffness = coo_matrix(
+        (local_stiffness.ravel(), (rows, cols)),
+        shape=(n_vertices, n_vertices),
+    ).tocsr()
+    return mass, stiffness
+
+
+def audit_ellis_g4_common_l2(
+    mesh: EllisRGSRefinement, quadrature_order: int = 6
+) -> dict[str, Any]:
+    """Audit the common-L2 P1 embedding and true curved metric operators."""
+    mass, stiffness = assemble_ellis_common_l2_operators(
+        mesh, quadrature_order=quadrature_order
+    )
+    one = np.ones(mesh.vertices_r4.shape[0])
+    exact_volume = 4.0 * np.pi * (
+        2.0 * mesh.half_width**3 / 3.0 + 2.0 * mesh.r0**2 * mesh.half_width
+    )
+    volume = float(one @ (mass @ one))
+    mass_dense = mass.toarray()
+    mass_eigen_min = float(np.linalg.eigvalsh(
+        (mass_dense + mass_dense.T) / 2.0
+    )[0])
+    return {
+        "gate": "CURVED_ELLIS_G4_COMMON_L2_EMBEDDING",
+        "hilbert_space": "L2([-L,L] x S2, R(u)^2 du dOmega)",
+        "embedding": "continuous P1 on curved reference tetrahedra, pulled back by exact Ellis element maps",
+        "mass_symmetry_residual": float(np.linalg.norm((mass - mass.T).data)),
+        "stiffness_symmetry_residual": float(np.linalg.norm((stiffness - stiffness.T).data)),
+        "mass_min_eigenvalue": mass_eigen_min,
+        "mass_positive_definite": bool(mass_eigen_min > 0.0),
+        "stiffness_constant_mode_residual": float(np.linalg.norm(stiffness @ one)),
+        "volume_from_mass": volume,
+        "volume_exact": exact_volume,
+        "volume_relative_error": abs(volume - exact_volume) / exact_volume,
+        "quadrature_order_per_duffy_axis": int(quadrature_order),
+        "scope": "finite Ellis-RGS domain with boundary; common L2 embedding is defined for this curved benchmark",
+    }
 
 
 def audit_ellis_rgs_refinement(

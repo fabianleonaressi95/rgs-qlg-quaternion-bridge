@@ -5,7 +5,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from src.rgs_ellis_refinement import audit_ellis_rgs_refinement
+from src.rgs_ellis_refinement import (
+    audit_ellis_g4_common_l2,
+    audit_ellis_rgs_refinement,
+    build_ellis_rgs_refinement,
+)
 
 
 def main() -> None:
@@ -15,7 +19,13 @@ def main() -> None:
         half_width=3.0 * 0.8292,
         radial_base=8,
     )
-    output = Path("results/json/rgs_ellis_curved_refinement_g1.json")
+    g4_mesh = build_ellis_rgs_refinement(
+        level=0, r0=0.8292, half_width=3.0 * 0.8292, radial_base=8
+    )
+    report["G4_common_L2"] = audit_ellis_g4_common_l2(
+        g4_mesh, quadrature_order=6
+    )
+    output = Path("results/json/rgs_ellis_curved_refinement_g1_g4.json")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
