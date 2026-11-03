@@ -140,3 +140,11 @@ def test_assemble_spatial_dirac_rejects_negative_wilson_parameter():
     e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
     with pytest.raises(ValueError):
         assemble_spatial_dirac(x,e,[(0,1)],wilson_r=-1.0)
+
+
+def test_wilson_laplacian_rejects_nonunitary_spin_links():
+    from src.discrete_dirac import assemble_wilson_laplacian
+    x=np.array([[0.,0.,0.],[1.,0.,0.]])
+    e=np.broadcast_to(np.eye(3),(2,3,3)).copy()
+    with pytest.raises(ValueError,match="unitary|SU\\(2\\)"):
+        assemble_wilson_laplacian(x,e,[(0,1)],spin_links={(0,1):2*np.eye(2)})
