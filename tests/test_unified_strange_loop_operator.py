@@ -2,14 +2,15 @@ import numpy as np
 import pytest
 
 from src.unified_strange_loop_operator import (
-    audit_unified_operator, build_strange_loop_operator,
-    cantor_parry_q6_laplacian, escher_lifted_torus_laplacian,
-    torus_q6_embedding, doppler_moire_phase_audit,
-    build_doppler_moire_operator, barycentric_gradient_moire_audit,
+    audit_unified_operator,
+    barycentric_gradient_moire_audit,
+    build_doppler_moire_operator,
+    build_strange_loop_operator,
+    cantor_parry_q6_laplacian,
+    doppler_moire_phase_audit,
+    escher_lifted_torus_laplacian,
     moving_barycenter_audit,
-    audit_unified_operator, build_strange_loop_operator, cantor_parry_q6_laplacian,
-    escher_lifted_torus_laplacian, torus_q6_embedding,\n    doppler_moire_phase_audit, build_doppler_moire_operator,
-    escher_lifted_torus_laplacian, torus_q6_embedding,
+    torus_q6_embedding,
 )
 
 
