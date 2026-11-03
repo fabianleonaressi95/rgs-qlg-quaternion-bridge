@@ -340,3 +340,53 @@ def moving_barycenter_audit(positions, weights, velocities, weight_rates=None):
         "centered_weight_rate_term":(wd@y).tolist(),
         "derivative_identity_residual":identity_residual,
     }
+
+
+def derive_q6_projection_from_rgs_seed(X, weights=None, rcond=None):
+    """Fit affine Q6-bit -> RGS seed map and report its geometric residual.
+
+    X is the archived 64x3 O_h seed in canonical integer order
+    g=sum_a 2**a b_a. This is a data-derived least-squares chart, not a claim
+    that the 188D vierbein has already been reduced to this map.
+    """
+    X=np.asarray(X,dtype=float)
+    if X.shape!=(64,3) or not np.all(np.isfinite(X)):
+        raise ValueError("X must be a finite (64,3) RGS seed in canonical Q6 order")
+    B=np.asarray([[(g>>a)&1 for a in range(6)] for g in range(64)],dtype=float)
+    if weights is None:
+        w=np.full(64,1./64.)
+    else:
+        w=np.asarray(weights,dtype=float)
+        if w.shape!=(64,) or not np.all(np.isfinite(w)) or np.any(w<0) or w.sum()<=0:
+            raise ValueError("weights must be 64 finite nonnegative values with positive sum")
+        w=w/w.sum()
+    xbar=w@X
+    bbar=w@B
+    Xc=X-xbar
+    Bc=B-bbar
+    sw=np.sqrt(w)[:,None]
+    Bw=Bc*sw
+    Xw=Xc*sw
+    P_t, residuals, rank, singular=np.linalg.lstsq(Bw,Xw,rcond=rcond)
+    P=P_t.T
+    intercept=xbar-bbar@P_t
+    Xhat=B@P_t+intercept
+    R=X-Xhat
+    denom=float(np.linalg.norm(Xw))
+    rel=float(np.linalg.norm(R*sw)/denom) if denom>0 else float(np.linalg.norm(R*sw))
+    return {
+        "projection_3x6":P.tolist(),
+        "intercept_3":intercept.tolist(),
+        "rank":int(rank),
+        "singular_values":singular.tolist(),
+        "condition_number":float(singular[0]/singular[-1]) if singular[-1]>0 else None,
+        "weighted_relative_residual":rel,
+        "weighted_rms_residual":float(np.sqrt(np.sum(w[:,None]*R**2))),
+        "max_point_residual":float(np.max(np.linalg.norm(R,axis=1))),
+        "weighted_centroid_seed":xbar.tolist(),
+        "weighted_centroid_reconstruction":(w@Xhat).tolist(),
+        "centroid_residual":float(np.linalg.norm(w@X-w@Xhat)),
+        "q6_bit_order":"g=sum_a 2**a b_a; columns a=0,...,5",
+        "interpretation":"best affine least-squares Q6 chart of the supplied RGS seed; nonzero residual measures non-affine O_h geometry",
+        "not_claimed":"This does not derive the full 188D vierbein, its connection, or a physical wavevector from an action.",
+    }
