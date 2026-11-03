@@ -42,3 +42,22 @@ def test_curved_clifford_for_nonsymmetric_coframe():
     audit=curved_clifford_audit(e)
     assert audit["passed"]
     assert audit["max_clifford_residual"]<2e-10
+
+def test_compact_kernel_field_transform_is_gauge_covariant():
+    from src.discrete_dirac import compact_kernel_transform
+    rng=np.random.default_rng(41)
+    def unitary():
+        a=rng.normal(size=(2,2))+1j*rng.normal(size=(2,2))
+        q,r=np.linalg.qr(a)
+        return q
+    f=rng.normal(size=(2,2))+1j*rng.normal(size=(2,2))
+    p=unitary(); k=rng.normal(size=(2,2))+1j*rng.normal(size=(2,2))
+    g0,g1=unitary(),unitary()
+    kernels={(0,1):k}; transports={(0,1):p}
+    y,support=compact_kernel_transform(f,[(0,1)],kernels,transports)
+    fp=np.stack([g0@f[0],g1@f[1]])
+    pp={(0,1):g1@p@g0.conj().T}
+    kp={(0,1):g1@k@g1.conj().T}
+    yp,supportp=compact_kernel_transform(fp,[(0,1)],kp,pp)
+    assert support==supportp=={(0,1)}
+    assert np.allclose(yp[1],g1@y[1],atol=2e-12)
