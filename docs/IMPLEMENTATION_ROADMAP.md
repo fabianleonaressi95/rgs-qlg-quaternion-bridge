@@ -93,10 +93,17 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 - [x] Explicitly limit this phase to spatial rotations: boosts, Möbius reflections, Pin lifts and a full Lorentz-group action remain open.
 
 
-### Phase 6 — Discrete differential operators and continuum limit
-- [ ] Define discrete inner products and adjoints.
-- [ ] Test consistency and stability on controlled smooth fields.
-- [ ] State compactness hypotheses and formulate the Mosco convergence problem.
+### Phase 6 — Weiler-compatible geometry and discrete Dirac candidate
+- [x] Add the static 3+1 tetrad adapter and pointwise curved gamma fields from the RGS spatial coframe.
+- [x] Verify all 16 curved Clifford anticommutators at every vertex, including a non-symmetric coframe test.
+- [x] Add compact-support graph kernel-field transform with explicit source-to-target transport.
+- [x] Define a polar-frame SU(2) transport candidate, keeping it distinct from the internal gauge field and Möbius Z2 transition system.
+- [x] Assemble a volume-weighted Hermitian nearest-neighbour spatial Dirac candidate and test Hermiticity and coordinate-dilation scaling.
+- [x] Map the supplied Weiler results (Chs. 3–5, 12–13, 15, 17; Appendices B and J) to implementation obligations and explicit unimplemented hypotheses in docs/WEILER_PHASE6_THEOREM_MAP.md.
+- [ ] Identify the subgroup of Q6 automorphisms preserving the reconstructed coordinates and vierbein; then test exact kernel-field invariance/equivariance.
+- [ ] Complete the 2I/Clebsch–Gordan kernel basis and invariant bias/pooling spaces.
+- [ ] Test smooth-field consistency, spectral stability, fermion doubling and compactness; formulate Mosco convergence.
+- [ ] Extend from the static spatial operator to a 4D Lorentzian/time-dependent Dirac operator only after defining lapse, shift and temporal connection.
 - [ ] Do not claim a continuum theorem from equivariance or spectral plots alone.
 
 ## Continuous integration gate
