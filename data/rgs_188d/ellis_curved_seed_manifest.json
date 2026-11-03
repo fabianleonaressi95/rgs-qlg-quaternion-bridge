@@ -55,5 +55,10 @@
     "The archived Q6 link coframe is not silently relabelled as the new tetrahedral coframe.",
     "The flat-torus Mosco theorem is not transferred to this curved family.",
     "No physical field-equation solution is claimed."
-  ]
+  ],
+  "source_array_sha256": {
+    "X_Oh_reconstructed_float64": "6a158cb30a671a5c994d8ab223e9283b57ac703808041d46e67f286126e419cf",
+    "Q6_edges_int64": "da7854ca655577b629dc508208918326fde1d50563485f953ea0fdc1b2fb78e8",
+    "edge_coframe_float64": "72980c38fdc652ece31895cf5c9f113a6206675fdf876c924bf6890d6e7fc263"
+  }
 }
