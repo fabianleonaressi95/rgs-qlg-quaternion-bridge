@@ -159,7 +159,7 @@ def chirality_matrix():
 
 
 def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None,wilson_r=0.0):
-    """Hermitian volume-weighted nearest-neighbour spatial Dirac candidate."""
+    """Hermitian nearest-neighbour Dirac candidate.\n\n    wilson_r>0 adds the scalar graph Laplacian to this Hermitian matrix;\n    use assemble_euclidean_wilson_dirac for the standard gamma5-Hermitian\n    Euclidean Wilson-Dirac formulation.\n    """
     x,e=_validate_geometry(coordinates,vierbein); n=len(x); gs=gamma_matrices()
     if local_spatial_gamma is None: local=np.broadcast_to(np.asarray(gs[1:]),(n,3,4,4)).copy()
     else:
