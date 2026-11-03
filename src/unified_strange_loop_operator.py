@@ -129,15 +129,19 @@ def doppler_moire_phase_audit(
                           for x in range(64)])
     phase=positions@dk+float(phase0)
     moire_potential=1.-np.cos(phase)
-    # Standard longitudinal relativistic Doppler factor for source/observer
-    # convention omega' = gamma omega (1 - beta . k_hat).
-    khat=k1/np.linalg.norm(k1) if np.linalg.norm(k1)>0 else np.array([1.,0.])
+    # Observer moves along the first physical axis; c=1. Transform both
+    # wave four-vectors, then form the *difference* of observed frequencies.
     gamma=1./np.sqrt(1.-beta*beta)
-    omega_obs=gamma*float(omega0)*(1.-float(beta)*float(khat[0]))
-    # A spatially uniform observer has a uniform Doppler shift. Keep it as a
-    # temporal generator, not as an energy added to a dimensionless Laplacian.
-    temporal_phase=omega_obs*float(t)-phase
-    coherence=np.exp(-1j*temporal_phase)
+    omega1_obs=gamma*(float(omega0)-float(beta)*float(k1[0]))
+    omega2_obs=gamma*(float(omega0)-float(beta)*float(k2[0]))
+    delta_omega=omega2_obs-omega1_obs
+    khat=k1/np.linalg.norm(k1) if np.linalg.norm(k1)>0 else np.array([1.,0.])
+    doppler_factor=gamma*(1.-beta*float(khat[0]))
+    # Keep the temporal generator separate from the dimensionless spatial
+    # Laplacian; the relative phase is Delta omega*t - Delta k dot x.
+    temporal_phase=delta_omega*float(t)
+    spacetime_phase=temporal_phase-phase
+    coherence=np.exp(-1j*spacetime_phase)
     return {
         "delta_k":dk.tolist(),
         "moire_length":float(2.*np.pi/np.linalg.norm(dk)) if np.linalg.norm(dk)>0 else None,
@@ -165,7 +169,7 @@ def build_doppler_moire_operator(kappa=1.0,sheet_weight=1.0,
     V=np.tile(vm,3)
     V=np.repeat(V,2)
     H_ext=H+float(moire_strength)*np.diag(V)
-    omega=np.full(384,audit["omega_observed"],dtype=float)
+    omega=np.full(384,audit["delta_omega_observed"],dtype=float)
     return H_ext,omega,{**parts,"doppler_moire":audit,"moire_diagonal":V}
 
 
