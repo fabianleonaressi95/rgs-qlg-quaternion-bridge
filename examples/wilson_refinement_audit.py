@@ -51,7 +51,7 @@ def main():
         "epistemic_status":{
             "fixed_physical_momentum_consistency":"NUMERICALLY_AUDITED_FROM_EXACT_FOURIER_SYMBOL",
             "doubler_mass_scaling":"ANALYTICALLY_DERIVED_AND_NUMERICALLY_SAMPLED",
-            "q6_dirac_kahler":"FINITE_UNWEIGHTED_COHOMOLGICAL_OPERATOR",
+            "q6_dirac_kahler":"FINITE_UNWEIGHTED_COMBINATORIAL_OPERATOR",
             "overlap":"FINITE_MATRIX_GW_IDENTITY_TEST_ON_TOY_KERNEL",
             "rgs_q6_overlap_operator":"NOT_YET_ASSEMBLED",
             "mosco_convergence":"NOT_PROVED",
