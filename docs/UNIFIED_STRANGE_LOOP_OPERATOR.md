@@ -39,3 +39,16 @@ Exact finite definitions: Q6, Gray embedding, torus lift, sheet involution, Kron
 PYTHONPATH=. python -m pytest tests/test_unified_strange_loop_operator.py -q
 PYTHONPATH=. python examples/unified_strange_loop_operator_audit.py
 ~~~
+
+
+## Correzione sostanziale: Cantor è ora accoppiato nell'operatore
+
+La prima versione della formula era una somma di settori. La versione aggiornata costruisce invece il Laplaciano di conduttanza sullo spazio congiunto Parry × Q6. Per ogni transizione ammessa i->j della matrice supergolden, un bit Cantor b è emesso con probabilità p_b(i) e aggiorna il prefisso Q6 mediante x -> x xor (b e_{(i+j) mod 6}). Il flusso stazionario diretto viene simmetrizzato per ottenere un Laplaciano reale simmetrico positivo.
+
+La formula implementata è ora
+\[
+H=L_{\mathrm{Cantor,Parry,Q6}}\otimes I_2+
+\kappa I_3\otimes(E L_T E^T)\otimes I_2+
+\gamma I_{192}\otimes(I_2-J).
+\]
+Quindi Cantor, supergolden/Bach, esagrammi Q6, toro di Escher e doppio foglio entrano nello stesso spazio di stati di dimensione 384. La simmetrizzazione conserva la struttura di conduttanza ma non la dinamica temporale orientata originale; quest'ultima resta rappresentata dal kernel Parry prima della simmetrizzazione.
