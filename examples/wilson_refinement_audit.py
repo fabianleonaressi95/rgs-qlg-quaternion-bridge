@@ -26,7 +26,8 @@ def main():
         sizes=(16,32,64,128,256),dimension=3,physical_length=1.0,
         mode=(1,0,0),r0=1.0,r_exponent=0.5
     )
-    kahler,kahler_audit=assemble_q6_dirac_kahler()\n    mosco_torus=torus_mosco_sampling_audit(
+    kahler,kahler_audit=assemble_q6_dirac_kahler()
+    mosco_torus=torus_mosco_sampling_audit(
         sizes=(16,32,64,128,256),dimension=3,physical_length=1.0,
         mode=(1,0,0),r0=1.0,r_exponent=0.0
     )
@@ -62,7 +63,8 @@ def main():
             "euclidean_wilson_singular_value_at_same_angle":euclidean_sigma_star,
             "interpretation":"D0+W has an accidental zero; i*D0+W does not"
         },
-        "flat_torus_mosco_prototype":mosco_torus,\n        "q6_dirac_kahler":kahler_audit,
+        "flat_torus_mosco_prototype":mosco_torus,
+        "q6_dirac_kahler":kahler_audit,
         "finite_overlap_ginsparg_wilson":overlap_audit,
         "epistemic_status":{
             "fixed_physical_momentum_consistency":"NUMERICALLY_AUDITED_FROM_EXACT_FOURIER_SYMBOL",
@@ -85,7 +87,8 @@ def main():
             and overlap_audit["ginsparg_wilson_residual"]<1e-10
             and abs(scalar_branches[0])<1e-10
             and euclidean_sigma_star>1e-8
-            and mosco_torus["fixed_mode_form_converges"]\n            and mosco_torus["doubler_mass_diverges"]):
+            and mosco_torus["fixed_mode_form_converges"]
+            and mosco_torus["doubler_mass_diverges"]):
         raise SystemExit("Phase 9 audit failed")
 
 
