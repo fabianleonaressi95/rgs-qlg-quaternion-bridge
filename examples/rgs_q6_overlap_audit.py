@@ -4,7 +4,6 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 from src.discrete_dirac import assemble_spatial_dirac, assemble_wilson_laplacian, chirality_matrix, polar_spin_links
-from src.overlap_dirac import assemble_overlap_from_wilson
 from src.overlap_dirac import (assemble_overlap_from_wilson, overlap_index, overlap_kernel_spectral_flow, overlap_locality_profile)
 
 
@@ -65,8 +64,9 @@ def run(archive, output, wilson_r=1.0, rho=1.0):
                   "status":"finite graph diagnostic, not a uniform locality theorem"},
       "status":{"Q6_overlap":"NUMERICALLY_CONSTRUCTED","GW":"VERIFIED",
                 "kernel_gap":"POSITIVE_FOR_THIS_ARCHIVE_AND_RHO",
-                "continuum_locality":"OPEN","index_theorem":"OPEN","Mosco":"OPEN"}
-                "continuum_locality":"OPEN","finite_matrix_index_trace":("INTEGER_WITHIN_TOLERANCE" if index_audit["integer_within_tolerance"] else "NONINTEGER_OR_UNRESOLVED"),"continuum_index_theorem":"OPEN","Mosco":"OPEN"}
+                "continuum_locality":"OPEN",
+                "finite_matrix_index_trace":("INTEGER_WITHIN_TOLERANCE" if index_audit["integer_within_tolerance"] else "NONINTEGER_OR_UNRESOLVED"),
+                "continuum_index_theorem":"OPEN","Mosco":"OPEN"}
     }
     out=Path(output); out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(report,indent=2)+"\n")
