@@ -97,3 +97,36 @@ spectra as cylinder depth increases.
 ~~~bash
 PYTHONPATH=. python -m pytest tests/test_koopman_rgs_psu.py -q
 ~~~
+
+
+## 6. Projection of Q6 diffusion to the archived 188D tangent
+
+For the vertex-major coordinate space
+\[
+\mathcal H_{\rm amb}=\mathbb R^{64}\otimes\mathbb R^3,
+\qquad L_{\rm amb}=L_{Q6}\otimes I_3,
+\]
+and the archived orthonormal tangent frame \(Q\in\mathbb R^{192\times188}\), define
+\[
+L_{\rm tan}=Q^T L_{\rm amb}Q,\qquad
+G_{\rm tan}=-D L_{\rm tan},\quad D\geq0.
+\]
+The implementation reports the projected spectrum and invariance leakage
+\(\|(I-QQ^T)L_{\rm amb}Q\|_F\). Nonzero leakage means the archived
+188D subspace is not invariant under the ambient graph diffusion: the
+compression is Galerkin, not an exact restriction. A continuum or physical
+Koopman identification still requires a dynamical derivation and convergence.
+
+## 7. Discrete rotational Killing check and metric boundary
+
+On the archived Euclidean seed \(X_g\), the three ambient rotation fields
+\(K_a(X_g)=J_aX_g\), with \(J_a^T=-J_a\), satisfy
+\[
+(X_h-X_g)\cdot(K_a(X_h)-K_a(X_g))=0
+\]
+for every Q6 edge. This is the exact first-variation identity for Euclidean
+edge lengths. The A13/A14 matrix bundles provide \(X\), \(Q\), and edge/
+connection data, but not a per-vertex \(64\times3\times3\) vierbein array.
+Thus this audit does not establish the curved-metric Killing equation
+\(\nabla_{(\mu}K_{\nu)}=0\). That requires the actual local coframes and
+their metric/connection convention.
