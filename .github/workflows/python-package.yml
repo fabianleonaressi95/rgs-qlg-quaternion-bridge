@@ -36,12 +36,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install numpy pytest
+          python -m pip install numpy pytest scipy
 
       - name: Verify Python version and dependencies
         run: |
           python --version
-          python -c "import numpy, pytest; print('NumPy:', numpy.__version__); print('pytest:', pytest.__version__)"
+          python -c "import numpy, pytest, scipy; print('NumPy:', numpy.__version__); print('pytest:', pytest.__version__); print('SciPy:', scipy.__version__)"
 
       - name: Compile all Python modules
         run: |
@@ -79,6 +79,11 @@ jobs:
         run: |
           PYTHONPATH=. python examples/flat_torus_refinement_audit.py
           PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py tests/test_flat_torus_embedding.py tests/test_flat_torus_stability.py tests/test_flat_torus_mosco_p1.py -v
+
+      - name: Run curved RGS Ellis refinement audit
+        run: |
+          PYTHONPATH=. python examples/rgs_ellis_curved_refinement_audit.py
+          PYTHONPATH=. python -m pytest tests/test_rgs_ellis_refinement.py -v
 
       - name: Mobius boundary thermodynamics audit
         run: |

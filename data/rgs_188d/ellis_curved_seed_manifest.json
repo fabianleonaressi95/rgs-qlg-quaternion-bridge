@@ -1,0 +1,64 @@
+{
+  "title": "RGS 64B seed provenance for the Ellis curved refinement",
+  "status": "RECOVERED_SOURCE_DATA_RECONSTRUCTED_DETERMINISTICALLY",
+  "source_archives": {
+    "A14": {
+      "file": "A14_RGS_PSU_QLG_JACOBIAN_BUNDLE.zip",
+      "sha256": "80442238349cd6ddc720dabae93d083075dea88decba8acf0a78c3ec03e0abcc",
+      "source_array": "RGS_PSU_QlG_sources/RGS_PSU_all_matrices.npz::X_Oh_reconstructed",
+      "shape": [
+        64,
+        3
+      ],
+      "use": "exact O_h coordinate seed"
+    },
+    "A13": {
+      "file": "A13_RGS_PSU_QLG_KAGGLE_BUNDLE.zip",
+      "sha256": "7ca0cdfeadbe1d693d4f776a5e22d957630b206b842f4b822f3afb578c488922",
+      "source_array": "RGS_PSU_SEA_DERIVATION/sea_operators.npz::edges,edge_coframe",
+      "edge_shape": [
+        192,
+        3
+      ],
+      "coframe_shape": [
+        192,
+        4
+      ],
+      "use": "independent Q6 edge/coframe provenance and audit"
+    }
+  },
+  "reconstruction": {
+    "coordinate_order": "8 O_h orbits; each orbit uses sign order product((-1,+1), repeat=3)",
+    "absolute_coordinate_values": {
+      "cube_inner": 0.47863916086470326,
+      "small_1": 0.4804298481859356,
+      "small_2": 0.48230704367200045,
+      "cube_outer": 0.9518396334290641,
+      "large_1": 1.507311680616975,
+      "large_2": 1.903910673611661
+    },
+    "q6_edge_order": "for g=0..63 and axes 0..5, add (g,g xor 2^axis,axis) when that bit of g is zero",
+    "q6_raw_coframe": "(X_h-X_g, ||X_h||-||X_g||)",
+    "q6_unit_coframe": "raw coframe divided by its Euclidean R4 norm",
+    "distinct_rays": 56,
+    "repeated_ray_vertices": 8
+  },
+  "geometry": {
+    "r0": 0.8292,
+    "source": "RGS Formulazione-4D diagnostic profile",
+    "metric": "du^2+(u^2+r0^2)dOmega^2",
+    "finite_domain_default": "[-3*r0,3*r0] x S^2",
+    "status": "geometric benchmark only; not a full RGS-EMS field-equation solution"
+  },
+  "non_identifications": [
+    "The Q6 2-skeleton is not treated as a tetrahedral mesh.",
+    "The archived Q6 link coframe is not silently relabelled as the new tetrahedral coframe.",
+    "The flat-torus Mosco theorem is not transferred to this curved family.",
+    "No physical field-equation solution is claimed."
+  ],
+  "source_array_sha256": {
+    "X_Oh_reconstructed_float64": "6a158cb30a671a5c994d8ab223e9283b57ac703808041d46e67f286126e419cf",
+    "Q6_edges_int64": "da7854ca655577b629dc508208918326fde1d50563485f953ea0fdc1b2fb78e8",
+    "edge_coframe_float64": "72980c38fdc652ece31895cf5c9f113a6206675fdf876c924bf6890d6e7fc263"
+  }
+}
