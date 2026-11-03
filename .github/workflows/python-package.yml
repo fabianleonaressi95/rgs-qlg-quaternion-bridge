@@ -67,6 +67,14 @@ jobs:
         run: |
           python examples/lattice_rotation_demo.py
 
+      - name: Run Wilson fermion audit
+        run: |
+          PYTHONPATH=. python examples/wilson_fermion_audit.py
+
+      - name: Run refinement / overlap / Dirac-Kahler audit
+        run: |
+          PYTHONPATH=. python examples/wilson_refinement_audit.py
+
       - name: Final audit summary
         if: success()
         run: |
@@ -79,4 +87,6 @@ jobs:
           echo "QLG holonomies: PASS"
           echo "Complete test suite: PASS"
           echo "Lattice demonstration: PASS"
+          echo "Wilson fermion audit: PASS"
+          echo "Refinement / overlap / Dirac-Kahler audit: PASS"
           echo "=============================================="

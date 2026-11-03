@@ -89,8 +89,79 @@ def compact_kernel_transform(features,edges,kernels:Mapping,transporters:Mapping
             y[target]+=k@p@f[source]; support.add(key)
     return y,support
 
-def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None):
-    """Hermitian volume-weighted nearest-neighbour spatial Dirac candidate."""
+
+def assemble_wilson_laplacian(
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0, edge_lengths=None, r=None
+):
+    """Build the positive, gauge-covariant graph Wilson term.
+
+    For each canonical edge i<j with weight w_ij=r/(2 length_ij):
+      L[j,i] -= w_ij S_ji; L[i,j] -= w_ij S_ji^dagger
+      L[i,i] += w_ij I;     L[j,j] += w_ij I.
+    The returned operator is volume-normalized by V^(-1/2) on both sides.
+    edge_lengths optionally supplies physical lengths for periodic edges
+    whose endpoint coordinate difference is not the periodic geodesic length.
+    """
+    x,e=_validate_geometry(coordinates,vierbein)
+    if r is not None:
+        wilson_r = r  # backward-compatible alias used by Phase 7 callers
+    r=float(wilson_r)
+    if not np.isfinite(r) or r<0:
+        raise ValueError("wilson_r must be finite and non-negative")
+    n=len(x)
+    if spin_links is None:
+        spin_links,_=polar_spin_links(e,edges)
+    raw=np.zeros((4*n,4*n),dtype=complex)
+    identity=np.eye(4,dtype=complex)
+    min_length=np.inf
+    for i,j in edges:
+        if not (0<=i<j<n):
+            raise ValueError("edges must be canonical i<j")
+        if edge_lengths is None:
+            length=float(np.linalg.norm(x[j]-x[i]))
+        else:
+            length=float(edge_lengths.get((i,j),np.linalg.norm(x[j]-x[i])))
+        if not np.isfinite(length) or length<=1e-14:
+            raise ValueError(f"edge {(i,j)} must have a positive finite length")
+        min_length=min(min_length,length)
+        sji=np.asarray(spin_links[(i,j)],dtype=complex)
+        if sji.shape==(2,2):
+            if np.linalg.norm(sji.conj().T@sji-np.eye(2),ord="fro")>1e-9 or abs(np.linalg.det(sji)-1)>1e-9:
+                raise ValueError("2x2 spin links must lie in SU(2)")
+            sji=np.block([[sji,np.zeros((2,2))],[np.zeros((2,2)),sji]])
+        if sji.shape!=(4,4):
+            raise ValueError("spin link must be 2x2 SU(2) or 4x4 unitary")
+        if np.linalg.norm(sji.conj().T@sji-np.eye(4),ord="fro")>1e-9:
+            raise ValueError("4x4 spin links must be unitary")
+        si=slice(4*i,4*i+4); sj=slice(4*j,4*j+4)
+        weight=r/(2.0*length)
+        raw[si,si]+=weight*identity
+        raw[sj,sj]+=weight*identity
+        raw[sj,si]-=weight*sji
+        raw[si,sj]-=weight*sji.conj().T
+    volumes=np.linalg.det(e)
+    v4=np.repeat(volumes,4)
+    invsqrt=1.0/np.sqrt(v4)
+    operator=invsqrt[:,None]*raw*invsqrt[None,:]
+    herm=float(np.linalg.norm(operator-operator.conj().T,ord="fro"))
+    eigmin=float(np.linalg.eigvalsh(operator)[0]) if operator.size else 0.0
+    return operator,{
+        "vertices":n,"edges":len(edges),"wilson_r":r,
+        "min_edge_length":None if not np.isfinite(min_length) else float(min_length),
+        "volume_min":float(volumes.min()),"volume_max":float(volumes.max()),
+        "hermiticity_residual":herm,"minimum_eigenvalue":eigmin,
+        "status":"GAUGE_COVARIANT_WILSON_LAPLACIAN"
+    }
+
+
+def chirality_matrix():
+    """Return gamma_5=i gamma^0 gamma^1 gamma^2 gamma^3 in this convention."""
+    gs=gamma_matrices()
+    return 1j*gs[0]@gs[1]@gs[2]@gs[3]
+
+
+def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spatial_gamma=None,wilson_r=0.0):
+    """Hermitian nearest-neighbour Dirac candidate.\n\n    wilson_r>0 adds the scalar graph Laplacian to this Hermitian matrix;\n    use assemble_euclidean_wilson_dirac for the standard gamma5-Hermitian\n    Euclidean Wilson-Dirac formulation.\n    """
     x,e=_validate_geometry(coordinates,vierbein); n=len(x); gs=gamma_matrices()
     if local_spatial_gamma is None: local=np.broadcast_to(np.asarray(gs[1:]),(n,3,4,4)).copy()
     else:
@@ -111,7 +182,44 @@ def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spat
         h[sj,si]+=block; h[si,sj]+=block.conj().T
     volumes=np.linalg.det(e); v4=np.repeat(volumes,4); invsqrt=1/np.sqrt(v4)
     d=invsqrt[:,None]*h*invsqrt[None,:]
-    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","status":"CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+    r=float(wilson_r)
+    if not np.isfinite(r) or r<0: raise ValueError("wilson_r must be finite and non-negative")
+    wilson_audit=None
+    if r>0:
+        wilson,wilson_audit=assemble_wilson_laplacian(x,e,edges,spin_links=spin_links,wilson_r=r)
+        d=d+wilson
+    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"HERMITIAN_SCALAR_PERTURBED_SPATIAL_OPERATOR_NOT_STANDARD_EUCLIDEAN_WILSON" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+
+def assemble_euclidean_wilson_dirac(
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0
+):
+    """Assemble the gamma5-Hermitian Euclidean Wilson-Dirac matrix.
+
+    In this repository D0 is Hermitian and anticommutes with Gamma5.
+    The Euclidean convention is therefore D_E = i D0 + W, not D0 + W.
+    It obeys D_E^dagger = Gamma5 D_E Gamma5 when W commutes with Gamma5.
+    """
+    x,e=_validate_geometry(coordinates,vierbein)
+    d0,dirac_audit=assemble_spatial_dirac(
+        x,e,edges,spin_links=spin_links,wilson_r=0.0
+    )
+    w,wilson_audit=assemble_wilson_laplacian(
+        x,e,edges,spin_links=spin_links,wilson_r=wilson_r
+    )
+    d_e=1j*d0+w
+    gamma5_global=np.kron(np.eye(len(x)),chirality_matrix())
+    gamma5_res=float(np.linalg.norm(
+        d_e.conj().T-gamma5_global@d_e@gamma5_global,ord="fro"
+    ))
+    return d_e,{
+        "vertices":len(x),"edges":len(edges),"wilson_r":float(wilson_r),
+        "gamma5_hermiticity_residual":gamma5_res,
+        "naive_hermiticity_residual":dirac_audit["hermiticity_residual"],
+        "wilson_hermiticity_residual":wilson_audit["hermiticity_residual"],
+        "wilson_minimum_eigenvalue":wilson_audit["minimum_eigenvalue"],
+        "status":"EUCLIDEAN_GAMMA5_HERMITIAN_WILSON_DIRAC"
+    }
+
 
 def discrete_dirac_spectrum(operator):
     d=np.asarray(operator,dtype=complex); residual=float(np.linalg.norm(d-d.conj().T,ord="fro"))
@@ -120,51 +228,18 @@ def discrete_dirac_spectrum(operator):
     return {"eigenvalues":values,"min":float(values[0]),"max":float(values[-1]),"near_zero_count_1e-9":int(np.sum(np.abs(values)<1e-9)),"spectral_pairing_residual":float(np.max(np.abs(values+values[::-1])))}
 
 
-def assemble_wilson_laplacian(coordinates, vierbein, edges, spin_links=None, r=1.0):
-    """Assemble a positive covariant graph Laplacian (Wilson kernel).
-
-    This is a finite-graph regulator candidate. It does not by itself prove
-    Nielsen--Ninomiya doubling or its removal on an irregular finite graph.
-    The link convention is source i -> target j: S_ji maps fibre i to fibre j.
-    """
-    x,e=_validate_geometry(coordinates,vierbein); n=len(x)
-    if not np.isfinite(r) or r<0: raise ValueError("Wilson parameter r must be finite and nonnegative")
-    if spin_links is None: spin_links,_=polar_spin_links(e,edges)
-    wmat=np.zeros((4*n,4*n),dtype=complex)
-    identity=np.eye(4,dtype=complex)
-    for i,j in edges:
-        dx=x[j]-x[i]; length=float(np.linalg.norm(dx))
-        if length<=1e-14: raise ValueError("edge endpoints must be distinct")
-        s=np.asarray(spin_links[(i,j)],dtype=complex)
-        if s.shape==(2,2): s=np.block([[s,np.zeros((2,2))],[np.zeros((2,2)),s]])
-        if s.shape!=(4,4): raise ValueError("spin link must be 2x2 SU(2) or 4x4")
-        unit=float(np.linalg.norm(s.conj().T@s-identity,ord="fro"))
-        if unit>1e-8: raise ValueError(f"spin link is not unitary: residual {unit}")
-        weight=float(r)/(2.0*length)
-        si=slice(4*i,4*i+4); sj=slice(4*j,4*j+4)
-        wmat[si,si]+=weight*identity
-        wmat[sj,sj]+=weight*identity
-        wmat[sj,si]-=weight*s
-        wmat[si,sj]-=weight*s.conj().T
-    volumes=np.linalg.det(e); v4=np.repeat(volumes,4); invsqrt=1/np.sqrt(v4)
-    out=invsqrt[:,None]*wmat*invsqrt[None,:]
-    herm=float(np.linalg.norm(out-out.conj().T,ord="fro"))
-    eig=np.linalg.eigvalsh(out)
-    return out,{"vertices":n,"edges":len(edges),"wilson_r":float(r),
-        "hermiticity_residual":herm,"minimum_eigenvalue":float(eig[0]),
-        "positive_semidefinite":bool(eig[0]>=-1e-10),
-        "volume_min":float(volumes.min()),"volume_max":float(volumes.max()),
-        "status":"FINITE_GRAPH_COVARIANT_WILSON_LAPLACIAN_CANDIDATE"}
-
-
 def assemble_dirac_wilson(coordinates, vierbein, edges, spin_links=None, r=1.0):
-    """Return D_naive + W with the same finite-graph links and volume weights."""
+    """Backward-compatible finite-graph Hermitian sum D_naive + W.
+
+    For the standard Euclidean Wilson operator use
+    assemble_euclidean_wilson_dirac instead.
+    """
     if spin_links is None:
-        spin_links,_=polar_spin_links(vierbein,edges)
-    d,da=assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=spin_links)
-    w,wa=assemble_wilson_laplacian(coordinates,vierbein,edges,spin_links=spin_links,r=r)
-    total=d+w
-    return total,{"naive":da,"wilson":wa,
-        "hermiticity_residual":float(np.linalg.norm(total-total.conj().T,ord="fro")),
-        "operator_norm":float(np.linalg.norm(total,ord=2)),
-        "status":"FINITE_GRAPH_DIRAC_WILSON_CANDIDATE"}
+        spin_links, _ = polar_spin_links(vierbein, edges)
+    d, da = assemble_spatial_dirac(coordinates, vierbein, edges, spin_links=spin_links)
+    w, wa = assemble_wilson_laplacian(coordinates, vierbein, edges, spin_links=spin_links, wilson_r=r)
+    total = d + w
+    return total, {"naive": da, "wilson": wa,
+        "hermiticity_residual": float(np.linalg.norm(total-total.conj().T, ord="fro")),
+        "operator_norm": float(np.linalg.norm(total, ord=2)),
+        "status": "FINITE_GRAPH_DIRAC_WILSON_CANDIDATE"}

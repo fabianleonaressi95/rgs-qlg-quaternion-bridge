@@ -1,0 +1,70 @@
+{
+  "audit": "RGS_Q6_OVERLAP_OPERATOR",
+  "archive": "RGS_PSU_all_matrices(1).npz",
+  "parameters": {
+    "wilson_r": 1.0,
+    "overlap_rho": 1.0,
+    "reference_spacing": "mean Euclidean length of the 192 Q6 edges",
+    "reference_spacing_value": 1.66992176661911,
+    "vierbein_ell_squared": 7.035514834154695,
+    "vierbein_c0": 43.96495130838031
+  },
+  "geometry": {
+    "vertices": 64,
+    "edges": 192,
+    "detE_min": 0.7939630833124259,
+    "detE_max": 1.010983011060624,
+    "edge_length_min": 0.9161471366746884,
+    "edge_length_max": 3.807821347223322,
+    "polar_rotation_residual": 3.0036859205570877e-15
+  },
+  "operators": {
+    "naive_hermiticity_residual": 0.0,
+    "naive_chiral_anticommutator_residual": 0.0,
+    "wilson_hermiticity_residual": 1.2417241717931542e-15,
+    "wilson_minimum_eigenvalue": 0.0005221194474422814,
+    "wilson_gamma5_commutator_residual": 0.0
+  },
+  "overlap": {
+    "dimension": 256,
+    "wilson_kernel_hermiticity_residual": 2.292298969963447e-15,
+    "wilson_kernel_minimum_absolute_eigenvalue": 2.0032656191037694,
+    "wilson_kernel_minimum_eigenvalue_signed": -8.826541936036637,
+    "wilson_kernel_maximum_eigenvalue_signed": 8.826541936036639,
+    "ginsparg_wilson_residual": 3.3775578890030414e-14,
+    "gamma5_hermiticity_residual": 8.971933553679495e-16,
+    "overlap_operator_hermiticity_residual": 14.168619049266033
+  },
+  "graph_distance_locality": {
+    "distance_metric": "Q6 Hamming distance",
+    "mean_block_frobenius_norm": {
+      "1": 0.3401956870510598,
+      "2": 0.051233213796700844,
+      "3": 0.026403477748261607,
+      "4": 0.011879692014186597,
+      "5": 0.008188918948953764,
+      "6": 0.005110137033336586
+    },
+    "max_block_frobenius_norm": {
+      "1": 0.5717498176748818,
+      "2": 0.11434141383970199,
+      "3": 0.09648568646740752,
+      "4": 0.03354978649006782,
+      "5": 0.018952058314688183,
+      "6": 0.006819720219324204
+    },
+    "log_mean_fit_slope": -0.779741647477366,
+    "empirical_decay_factor_per_hamming_step": 0.4585244569543422,
+    "interpretation": "finite-graph empirical decay only; not a uniform exponential-locality theorem"
+  },
+  "epistemic_status": {
+    "RGS_Q6_overlap_matrix": "NUMERICALLY_CONSTRUCTED_FROM_ARCHIVE",
+    "Ginsparg_Wilson_relation": "NUMERICALLY_VERIFIED",
+    "gamma5_hermiticity": "NUMERICALLY_VERIFIED",
+    "kernel_gap": "POSITIVE_FOR_THIS_ARCHIVE_AND_RHO",
+    "overlap_locality": "EMPIRICAL_DISTANCE_DECAY_ONLY",
+    "index_theorem": "NOT_ESTABLISHED",
+    "continuum_limit": "OPEN",
+    "Mosco_convergence": "OPEN"
+  }
+}

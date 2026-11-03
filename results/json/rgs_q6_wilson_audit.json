@@ -1,0 +1,55 @@
+{
+  "audit": "RGS_Q6_WILSON_NUMERICAL_AUDIT",
+  "input_archive": "RGS_PSU_all_matrices(1).npz",
+  "construction": {
+    "vertices": 64,
+    "edges": 192,
+    "spinor_dimension": 4,
+    "wilson_r": 1.0,
+    "edge_weight": "r/(2*Euclidean edge length)",
+    "volume_weighting": "V^(-1/2) L V^(-1/2)",
+    "vierbein_reconstruction": {
+      "ell_squared": 7.035514834154695,
+      "c0": 43.96495130838031,
+      "det_min": 0.7939630833124257,
+      "det_max": 1.010983011060624
+    }
+  },
+  "wilson_laplacian": {
+    "hermiticity_residual": 1.3936875128788331e-15,
+    "minimum_eigenvalue": 0.0005221194474422814,
+    "maximum_eigenvalue": 5.135449777009908,
+    "near_zero_count_1e-9": 0,
+    "positive_eigenvalue_count_1e-9": 256,
+    "spin_link_unitarity_max_residual": 7.021667310486783e-16,
+    "local_gauge_covariance_residual": 6.861280583237069e-15
+  },
+  "dirac_comparison": {
+    "naive_hermiticity_residual": 3.162385195978308e-15,
+    "naive_chiral_anticommutator_residual": 0.0,
+    "naive_spectrum_minmax": [-3.3894721848350375, 3.3894721848350393],
+    "naive_near_zero_count_1e-9": 0,
+    "naive_10_smallest_abs_eigenvalues": [
+      1.2582071521911544, 1.2582071521911553, 1.2582071521911569,
+      1.2582071521911578, 1.2582071521911582, 1.258207152191159,
+      1.2582071521911598, 1.2582071521911598, 1.25820715219116,
+      1.25820715219116
+    ],
+    "wilson_corrected_hermiticity_residual": 3.4558710929803426e-15,
+    "wilson_corrected_chiral_anticommutator_residual": 89.24714497750583,
+    "wilson_corrected_spectrum_minmax": [-1.7811100439437177, 6.919655200270931],
+    "wilson_corrected_near_zero_count_1e-9": 0,
+    "wilson_corrected_10_smallest_abs_eigenvalues": [
+      0.012731282540868607, 0.012731282540869778, 0.012731282540874073,
+      0.012731282540875386, 0.029348977411112948, 0.029348977411117357,
+      0.02934897741112111, 0.02934897741112329, 0.05659684587875848,
+      0.05659684587875955
+    ]
+  },
+  "interpretation": {
+    "status": "NUMERICALLY_VERIFIED_FINITE_Q6_OPERATOR",
+    "claim": "Wilson graph term is Hermitian, positive, and locally SU(2)-gauge covariant for the reconstructed Q6 data.",
+    "limitation": "Q6 has no Brillouin torus or canonical momentum labels; these eigenvalues do not identify physical fermions versus doublers. The Wilson-corrected spectrum still has small nonzero eigenvalues, so no Q6 no-doubling conclusion is claimed.",
+    "continuum_limit": "OPEN"
+  }
+}
