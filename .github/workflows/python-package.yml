@@ -69,7 +69,7 @@ jobs:
 
       - name: Run Wilson fermion audit
         run: |
-          python examples/wilson_fermion_audit.py
+          PYTHONPATH=. python examples/wilson_fermion_audit.py
 
       - name: Final audit summary
         if: success()
