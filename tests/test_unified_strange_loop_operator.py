@@ -1,6 +1,6 @@
 import numpy as np
 from src.unified_strange_loop_operator import (
-    audit_unified_operator, build_strange_loop_operator,
+    audit_unified_operator, build_strange_loop_operator, cantor_parry_q6_laplacian,
     escher_lifted_torus_laplacian, torus_q6_embedding,
 )
 
@@ -30,3 +30,12 @@ def test_invalid_weights():
     import pytest
     with pytest.raises(ValueError):
         build_strange_loop_operator(kappa=-1)
+
+def test_cantor_emissions_are_coupled_to_parry_q6_and_stochastic():
+    L,m=cantor_parry_q6_laplacian()
+    assert L.shape==(192,192)
+    assert np.linalg.norm(L-L.T)<1e-12
+    assert np.linalg.norm(L@np.ones(192))<1e-11
+    assert np.all(m["cantor_p0"]>0) and np.all(m["cantor_p1"]>0)
+    assert np.max(np.abs(m["cantor_p0"]+m["cantor_p1"]-1))<1e-12
+    assert np.max(np.abs(m["parry_transition"].sum(axis=1)-1))<1e-12
