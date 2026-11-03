@@ -111,7 +111,7 @@ def load_rgs_seed_data() -> RGSSeedData:
     edges: list[tuple[int, int, int]] = []
     for g in range(64):
         for axis in range(6):
-            mask = 1 << (5 - axis)
+            mask = 1 << axis
             if (g & mask) == 0:
                 edges.append((g, g | mask, axis))
     E = np.asarray(edges, dtype=np.int16)
