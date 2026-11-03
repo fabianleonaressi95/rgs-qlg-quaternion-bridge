@@ -1,3 +1,4 @@
+import math
 import numpy as np
 import pytest
 
@@ -14,7 +15,7 @@ def test_periodic_freudenthal_mesh_has_valid_chain_complex(dimension, n):
     audit = audit_flat_torus_mesh(mesh)
     assert audit["boundary_squared_exact_zero"]
     assert audit["vertex_count"] == n**dimension
-    assert audit["simplex_count"] == np.math.factorial(dimension) * n**dimension
+    assert audit["simplex_count"] == math.factorial(dimension) * n**dimension
     assert audit["hodge_star_0_positive"]
     assert audit["stiffness_positive_semidefinite_with_tolerance"]
     assert audit["stiffness_symmetry_residual"] < 1e-11
