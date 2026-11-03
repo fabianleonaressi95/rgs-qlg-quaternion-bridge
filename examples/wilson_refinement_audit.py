@@ -12,7 +12,8 @@ from src.dirac_kahler import assemble_q6_dirac_kahler
 from src.overlap_dirac import assemble_overlap_from_wilson
 from src.wilson_refinement import (
     euclidean_wilson_singular_value, hermitian_scalar_sum_branches,
-    refinement_audit, scalar_sum_accidental_zero_angle, wilson_brillouin_corners,\n)
+    refinement_audit, scalar_sum_accidental_zero_angle, wilson_brillouin_corners,
+)
 
 
 def main():
