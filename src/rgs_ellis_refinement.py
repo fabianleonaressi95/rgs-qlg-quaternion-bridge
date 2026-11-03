@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import combinations, product
+import hashlib
 from typing import Any
 
 import numpy as np
@@ -45,6 +46,16 @@ SOURCE_ARCHIVES = {
         "array": "RGS_PSU_SEA_DERIVATION/sea_operators.npz::edges,edge_coframe",
     },
 }
+SOURCE_ARRAY_SHA256 = {
+    "X_Oh_reconstructed_float64": "6a158cb30a671a5c994d8ab223e9283b57ac703808041d46e67f286126e419cf",
+    "Q6_edges_int64": "da7854ca655577b629dc508208918326fde1d50563485f953ea0fdc1b2fb78e8",
+    "edge_coframe_float64": "72980c38fdc652ece31895cf5c9f113a6206675fdf876c924bf6890d6e7fc263",
+}
+
+
+def _array_sha256(array: np.ndarray, dtype: str) -> str:
+    canonical = np.ascontiguousarray(np.asarray(array, dtype=dtype))
+    return hashlib.sha256(canonical.tobytes(order="C")).hexdigest()
 
 
 @dataclass(frozen=True)
@@ -116,6 +127,14 @@ def load_rgs_seed_data() -> RGSSeedData:
     if np.any(lengths <= 0.0):
         raise RuntimeError("zero-length Q6 seed edge")
     unit = raw / lengths[:, None]
+    hashes = {
+        "X_Oh_reconstructed_float64": _array_sha256(X, "<f8"),
+        "Q6_edges_int64": _array_sha256(E, "<i8"),
+        "edge_coframe_float64": _array_sha256(unit, "<f8"),
+    }
+    for key, expected in SOURCE_ARRAY_SHA256.items():
+        if hashes[key] != expected:
+            raise RuntimeError(f"recovered RGS seed hash mismatch for {key}")
 
     # Deduplicate only coincident rays; keep the inverse map for all 64
     # original labels. This is an exact deterministic quotient of directions.
@@ -484,6 +503,8 @@ def audit_ellis_rgs_refinement(
             "q6_coframe_shape": list(seed.q6_unit_coframe.shape),
             "q6_coframe_reconstruction_residual": coframe_residual,
             "q6_coframe_unit_norm_residual": unit_residual,
+            "archived_array_hashes_verified": True,
+            "archived_array_sha256": SOURCE_ARRAY_SHA256,
             "q6_coframe_role": (
                 "archived Q6 link data; retained and audited separately, "
                 "not silently reinterpreted as tetrahedral finite-element edges"
