@@ -34,6 +34,9 @@ The repository already contains gauge transformation and Wilson-loop tests. The 
 - [x] Orient each square by its ordered pair of coordinate axes.
 - [x] Build integer incidence matrices B1 (64 x 192) and B2 (192 x 240).
 - [x] Add tests for cardinalities, degree, shapes and the exact identity B1 B2 = 0.
+- [x] Run GitHub Actions: 65 tests passed; lattice holonomy demonstration passed.
+- [x] Repair pre-existing 2I audit lookup bug (NumPy rows were used as dictionary keys instead of rounded quaternion tuples).
+- [x] Correct the Q6 axis test to reflect that all six single-bit flips are edges.
 
 ## Next phases
 
