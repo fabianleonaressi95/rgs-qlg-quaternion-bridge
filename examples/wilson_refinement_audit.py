@@ -10,7 +10,7 @@ import numpy as np
 
 from src.dirac_kahler import assemble_q6_dirac_kahler
 from src.overlap_dirac import assemble_overlap_from_wilson
-from src.wilson_refinement import refinement_audit, wilson_brillouin_corners
+from src.wilson_refinement import (\n    euclidean_wilson_singular_value, hermitian_scalar_sum_branches,\n    refinement_audit, scalar_sum_accidental_zero_angle, wilson_brillouin_corners,\n)
 
 
 def main():
@@ -33,7 +33,7 @@ def main():
         naive,wilson,gamma5,lattice_spacing=1.0,rho=1.0
     )
 
-    corners=wilson_brillouin_corners(3,1.0/256.0,1.0)
+    corners=wilson_brillouin_corners(3,1.0/256.0,1.0)\n    theta_star=scalar_sum_accidental_zero_angle(1.0)\n    scalar_branches=hermitian_scalar_sum_branches([theta_star],1.0,1.0)\n    euclidean_sigma_star=euclidean_wilson_singular_value([theta_star],1.0,1.0)
     report={
         "audit":"RGS_QLG_PHASE9_REFINEMENT_AND_FERMION_FORMULATIONS",
         "wilson_refinement_fixed_r":refinements_fixed_r,
@@ -46,14 +46,14 @@ def main():
                 str(k):2.0*k*256.0 for k in (1,2,3)
             }
         },
-        "q6_dirac_kahler":kahler_audit,
+        "one_dimensional_convention_audit":{\n            "r":1.0,"accidental_zero_angle_of_hermitian_D0_plus_W":theta_star,\n            "hermitian_scalar_sum_branches_at_angle":list(scalar_branches),\n            "euclidean_wilson_singular_value_at_same_angle":euclidean_sigma_star,\n            "interpretation":"D0+W has an accidental zero; i*D0+W does not"\n        },\n        "q6_dirac_kahler":kahler_audit,
         "finite_overlap_ginsparg_wilson":overlap_audit,
         "epistemic_status":{
             "fixed_physical_momentum_consistency":"NUMERICALLY_AUDITED_FROM_EXACT_FOURIER_SYMBOL",
             "doubler_mass_scaling":"ANALYTICALLY_DERIVED_AND_NUMERICALLY_SAMPLED",
             "q6_dirac_kahler":"FINITE_UNWEIGHTED_COMBINATORIAL_OPERATOR",
             "overlap":"FINITE_MATRIX_GW_IDENTITY_TEST_ON_TOY_KERNEL",
-            "rgs_q6_overlap_operator":"NOT_YET_ASSEMBLED",
+            "rgs_q6_overlap_operator":"NUMERICALLY_AUDITED_FROM_ARCHIVE; SEE rgs_q6_overlap_audit.json",
             "mosco_convergence":"NOT_PROVED",
             "continuum_locality_of_overlap":"NOT_PROVED"
         }
@@ -66,7 +66,7 @@ def main():
             and refinements_running_r["simultaneous_scaling_window"]
             and kahler_audit["d_squared_residual"]<1e-12
             and kahler_audit["square_to_hodge_laplacian_residual"]<1e-10
-            and overlap_audit["ginsparg_wilson_residual"]<1e-10):
+            and overlap_audit["ginsparg_wilson_residual"]<1e-10\n            and abs(scalar_branches[0])<1e-10\n            and euclidean_sigma_star>1e-8):
         raise SystemExit("Phase 9 audit failed")
 
 
