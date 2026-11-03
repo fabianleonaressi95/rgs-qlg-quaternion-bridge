@@ -24,7 +24,7 @@ jobs:
           cache: pip
 
       - name: Install test dependencies
-        run: python -m pip install --upgrade pip numpy pytest
+        run: python -m pip install --upgrade pip numpy pytest scipy
 
       - name: Run test suite
         run: python -m pytest tests/ -v
