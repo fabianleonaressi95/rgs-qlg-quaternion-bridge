@@ -19,7 +19,12 @@ def test_recovered_rgs_seed_and_q6_coframe_are_reconstructed():
     assert seed.vertex_to_direction.shape == (64,)
     assert np.allclose(np.linalg.norm(seed.directions, axis=1), 1.0)
     assert np.allclose(np.linalg.norm(seed.q6_unit_coframe, axis=1), 1.0)
-    assert np.array_equal(seed.coordinates[ np.arange(64) ^ 63 ], -seed.coordinates)
+    antipodal_distance = np.linalg.norm(
+        seed.coordinates[:, None, :] + seed.coordinates[None, :, :], axis=2
+    )
+    antipodal = np.argmin(antipodal_distance, axis=1)
+    assert np.array_equal(np.sort(antipodal), np.arange(64))
+    assert np.max(antipodal_distance[np.arange(64), antipodal]) < 1e-14
     degree = (
         np.bincount(seed.q6_edges[:, 0], minlength=64)
         + np.bincount(seed.q6_edges[:, 1], minlength=64)
