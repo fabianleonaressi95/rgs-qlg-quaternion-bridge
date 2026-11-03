@@ -126,7 +126,7 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 - [x] Add a finite overlap construction from a gamma5-Hermitian Euclidean Wilson kernel and test the Ginsparg–Wilson identity.
 - [x] Add the unweighted combinatorial Dirac–Kähler operator on the Q6 2-skeleton (cochain dimensions 64,192,240), verifying d^2=0, Hermiticity, D_K^2=Hodge Laplacian and degree-parity anticommutation.
 - [x] Document the distinctions between the spinor Wilson operator, overlap construction, and cochain Dirac–Kähler operator.
-- [ ] Build the overlap operator from the actual archived RGS-Q6 256x256 Wilson/Dirac pair and test its kernel gap and graph locality.
+- [x] Build the overlap operator from the archived RGS-Q6 256x256 Wilson/Dirac pair; verify the kernel gap and Ginsparg–Wilson/gamma5-Hermiticity residuals, and record finite graph-distance decay. This is not a uniform locality theorem.
 - [ ] Construct a vierbein-weighted DEC Hodge star and metric Dirac–Kähler operator.
 - [ ] Specify a refining family of RGS complexes, common Hilbert-space embeddings and quadratic forms; prove Mosco liminf and recovery-sequence conditions.
 - [ ] Prove spectral convergence and a continuum index/anomaly statement under explicit hypotheses.
