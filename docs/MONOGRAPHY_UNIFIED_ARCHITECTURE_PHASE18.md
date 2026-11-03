@@ -52,3 +52,31 @@ Essa verifica una condizione strutturale intermedia: che l'azione di simmetria g
 ### Regola editoriale permanente
 
 Tutti i moduli, audit, script, matrici e risultati sono parti della medesima ricerca e vanno ricondotti ai 27 capitoli della monografia. Le fasi del repository sono milestone di verifica e sviluppo, non capitoli autonomi. Non si cambia l'indice canonico né si inventano titoli o numerazioni per accomodare un nuovo risultato.
+
+
+## Fase 19 — fibrato di connessione Q6, olonomie e azione di Wilson
+
+Questa fase continua lo stesso raccordo senza creare un capitolo separato. Una volta fissata la corrispondenza fra i 64 vertici RGS e Q6, il complesso determina l'indice delle variabili di connessione:
+\[
+\mathcal A_{Q_6}=SU(2)^{E},\quad |E|=192,
+\qquad
+\mathcal G_{Q_6}=SU(2)^{V},\quad |V|=64.
+\]
+Per ciascuna delle 240 facce quadrate si definisce l'olonomia ordinata \(U_p\), e quindi
+\[
+S_W[U]=\beta\sum_{p\in F_2}
+\left(1-\frac12\operatorname{Re}\operatorname{Tr}U_p\right).
+\]
+
+Il controllo di equivarianza della Fase 18 è ora quantitativo: il sottogruppo \(H\subset O_h\) che preserva archi e quadrati ha ordine 16; il sottogruppo proprio \(H^+=H\cap SO(3)\) ha ordine 8 e ammette il sollevamento spinoriale \(SU(2)\). Gli altri 8 elementi di \(H\) agiscono sul complesso come simmetrie improprie e richiedono un'estensione Pin se si vuole un'azione spinoriale. L'intero \(O_h\) non agisce come automorfismo del Q6 fissato.
+
+La connessione \(SU(2)^{192}\) è definita come campo di link sul complesso; le sue 192 matrici non sono dedotte univocamente dalle sole coordinate RGS. La verifica numerica usa una connessione generica riproducibile e certifica separatamente:
+- appartenenza dei link e delle olonomie a \(SU(2)\);
+- covarianza locale delle olonomie;
+- invarianza di \(S_W\) sotto \(SU(2)^{64}\);
+- invarianza di \(S_W\) sotto le 16 simmetrie del complesso;
+- azione spinoriale sollevata per gli 8 elementi propri.
+
+Restano aperti la ricostruzione fisica univoca della connessione a partire dal vierbein/coframe RGS, il sollevamento Pin degli elementi impropri e il limite continuo Yang–Mills. La fase costituisce quindi una costruzione e un audit di gauge theory su complesso finito, non ancora una derivazione della dinamica fisica continua.
+
+**Regola editoriale:** la Fase 19 è un avanzamento interno della medesima catena RGS–PSU–PRISM–QLG e va collocata nel capitolo pertinente dell'indice canonico a 27 capitoli, senza alterarne titoli o numerazione.
