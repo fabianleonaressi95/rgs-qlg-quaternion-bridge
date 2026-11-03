@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,booktabs,graphicx,geometry,microtype,hyperref,fancyhdr,xcolor,enumitem}
+\geometry{margin=2.7cm}\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\pagestyle{fancy}\fancyhf{}\lhead{Naressi -- Framework Geometrico-Dinamico}\rhead{Preprint}\cfoot{\thepage}
+\newtheorem{theorem}{Teorema}[section]\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposizione}\newtheorem{corollary}[theorem]{Corollario}\newtheorem{remark}[theorem]{Osservazione}
+\newcommand{\R}{\mathbb{R}}\newcommand{\ph}{\varphi}
+\title{\textbf{Dalla Selezione Spettrale alla Geometria di Schwarzschild:}\\[.4em]\large un Framework Geometrico-Dinamico per l'Emergenza della Metrica, della Scala e del Settore Gravitazionale\\[.5em]\normalsize\textit{Selezione discreta, coarse-graining geometrico, convergenza operativa e settore esterno di Schwarzschild}}
+\author{Fabian Leo Naressi\\\small Independent Researcher\\\small Senemosìa Punto Zero, Italy}\date{8 ottobre 2026}
+\begin{document}\maketitle
+\begin{abstract}\noindent Presentiamo un framework geometrico-dinamico nel quale un invariante spettrale dei cicli seleziona esattamente il fattore $C_5$, mentre un potenziale di scala seleziona $q_*=\varphi^2$. La parte rigorosa comprende la formula spettrale, il minimo discreto globale unico e, sotto ipotesi esplicite su una famiglia di raffinamento, la consistenza locale di ordine $O(a^2)$ di un Laplaciano discreto. La convergenza operativa, la convergenza della metrica e l'identificazione del settore di Einstein sono invece condizionali. I dati numerici forniti mostrano una legge di errore compatibile con $a^2$ e un accordo con Schwarzschild, ma non costituiscono una prova del limite continuo.\end{abstract}
+\paragraph{English Abstract.} We formulate a geometric-dynamical framework in which a spectral invariant of cycle graphs selects $C_5$, while a scale potential selects $q_*=\varphi^2$. We prove exactly the cycle spectrum and the unique global discrete minimum, and we prove local $O(a^2)$ consistency of a normalized graph Laplacian under explicit moment and regularity hypotheses. Operator convergence, metric convergence, and the identification of an Einstein sector remain conditional. The supplied numerical data support second-order scaling and compatibility with Schwarzschild, but do not establish a continuum limit.
+\paragraph{Keywords.} spectral graph theory; discrete geometry; coarse-graining; consistency; stability; Schwarzschild; Birkhoff; Petrov classification.
+\tableofcontents\newpage
+\section{Introduzione}
+Il presente articolo separa rigorosamente risultati analitici, evidenza numerica e ipotesi costitutive. La catena proposta è
+\begin{equation}\label{eq:chain}\text{selettore spettrale}\to\text{estremo di scala}\to\text{geometria discreta raffinata}\to\text{momenti normalizzati}\to\text{consistenza}\to\text{stabilità}\to\text{metrica emergente}\to\text{Einstein}\to\text{vuoto esterno}\to\text{Schwarzschild}.\end{equation}
+Il grafo microscopico $C_6^3\times C_5$ è finito. Non è, da solo, una famiglia $a\to0$: per parlare di limite continuo occorre una famiglia $G_a=(V_a,E_a,w_a)$ e un embedding $X_a$.
+\section{Motivazione fisica e struttura microscopica}
+Consideriamo formalmente
+\begin{equation}\label{eq:action}S_{\rm tot}=S_{\rm EH}+S_{\rm PSU}+S_{\rm lattice},\end{equation}
+con
+\begin{align}S_{\rm EH}&=\frac{M_{\rm Pl}^2}{2}\int d^4x\sqrt{-g}\,R,\\
+S_{\rm PSU}&=\int d^4x\sqrt{-g}\left[-\frac{Z_\chi}{2}g^{\mu\nu}\partial_\mu\chi\partial_\nu\chi-V(\chi)-\frac{\lambda_q}{2}g^{\mu\nu}\partial_\mu\ln q\partial_\nu\ln q\right],\\
+S_{\rm lattice}&=\frac{\mu^4}{2}\int d^4x\sqrt{-g}\left[q+q^{-1}-R_5-R_5^{-1}\right]^2,\quad R_5=\varphi^2.\end{align}
+Lo spaziotempo fisico è una varietà pseudo-riemanniana lorentziana. Una discretizzazione spaziale ellittica, quando usata, è discussa separatamente in un contesto riemanniano.
+\section{Selezione spettrale dei cicli}
+Per $C_N$, $N\ge3$,
+\begin{equation}\lambda_k(C_N)=2-2\cos(2\pi k/N).\end{equation}
+Quindi $R_3=1$ e, per $N\ge4$,
+\begin{equation}\label{eq:RN}R_N=\frac{\lambda_2}{\lambda_1}=4\cos^2(\pi/N).\end{equation}
+\begin{theorem}[Selezione globale discreta]\label{thm:global}Per $V(R)=\frac{\mu^4}{2}(R+R^{-1}-3)^2$, l'unico intero $N\ge3$ che realizza il minimo globale nullo è $N=5$.
+\end{theorem}
+\begin{proof}Per $R>0$, $V(R)\ge0$. L'uguaglianza equivale a $R+R^{-1}=3$, ossia $R^2-3R+1=0$, dunque $R=\varphi^{\pm2}$. Per $N\ge4$, $R_N\in[2,4)$, quindi solo $\varphi^2$ è ammissibile. La funzione $N\mapsto4\cos^2(\pi/N)$ è strettamente crescente per $N\ge4$, e $4\cos^2(\pi/5)=\varphi^2$; perciò $N=5$ è l'unica soluzione. Per $N=3$, $R_3=1$ e $V(1)=\mu^4/2>0$. Quindi $V(R_5)=0$, mentre ogni altro caso ha valore strettamente positivo.\end{proof}
+\section{Potenziale di scala}
+\begin{equation}V_{\rm scale}(q)=\frac{\mu^4}{2}(q+q^{-1}-3)^2.\end{equation}
+La stazionarietà dà $(q+q^{-1}-3)(1-q^{-2})=0$, con $q=1,\varphi^2,\varphi^{-2}$. Poiché $V''(1)=-2\mu^4<0$, $q=1$ è un massimo locale; i due valori aurei sono minimi. Per orientamento radiale $q>1$, $q_*=\varphi^2$. La scala discreta $r_n=\varphi^{2n}r_0=\exp(2\pi bn)r_0$ implica $b=\ln(\varphi)/\pi$.
+\section{Geometria discreta e consistenza locale}
+Sia $G_a$ una famiglia con embedding $X_a:V_a\to M$ e $a\to0$. Poniamo
+\begin{equation}\Delta_af(x)=\frac1{a^2}\sum_{y\sim x}w_a(x,y)[f(y)-f(x)].\end{equation}
+La versione con massa $m_a$ si ottiene sostituendo il prefattore con $(a^2m_a(x))^{-1}$; qui usiamo la convenzione $m_a=1$. Con $\xi_{xy}^\mu=X_a(y)^\mu-X_a(x)^\mu$,
+\begin{align}M_{1,a}^\nu&=a^{-2}\sum_yw_a\xi_{xy}^\nu,\\M_{2,a}^{\mu\nu}&=(2a^2)^{-1}\sum_yw_a\xi_{xy}^\mu\xi_{xy}^\nu.\end{align}
+Assumiamo $M_{2,a}^{\mu\nu}=g^{\mu\nu}+O(a^2)$ e $M_{1,a}^\nu=|g|^{-1/2}\partial_\mu(|g|^{1/2}g^{\mu\nu})+O(a^2)$, oltre a regolarità, lunghezze e valenze uniformemente limitate, cancellazione del terzo momento o simmetria sufficiente e controllo uniforme del quarto momento.
+\begin{theorem}[Consistenza locale]\label{thm:consistency}Sotto tali ipotesi, per $f\in C^4$, $\Delta_af=\Delta_gf+O(a^2)$ localmente, dove $\Delta_gf=|g|^{-1/2}\partial_\mu(|g|^{1/2}g^{\mu\nu}\partial_\nu f)$.
+\end{theorem}
+\begin{proof}Espandendo $f(X_a(y))$ in Taylor fino al quarto ordine, il termine costante si annulla perché compare $f(y)-f(x)$. Il termine lineare è $M_{1,a}^\nu\partial_\nu f$. Il termine quadratico è $M_{2,a}^{\mu\nu}\partial_{\mu\nu}f$. I termini cubici sono $O(a)$ dopo la normalizzazione, ma si annullano per cancellazione del terzo momento; il quarto termine è $O(a^2)$ grazie al controllo del quarto momento. Le condizioni sui primi due momenti ricostruiscono rispettivamente il drift e il simbolo principale di $\Delta_g$.\end{proof}
+In coordinate normali, uno stencil localmente inverso-simmetrico annulla i momenti dispari perché ogni link $\xi$ è accompagnato da $-\xi$. Questo è un fatto locale e coordinato; non autorizza a porre globalmente il drift uguale a zero in coordinate arbitrarie.
+\section{Convergenza e stabilità}
+La consistenza non implica convergenza.\begin{theorem}[Convergenza condizionale]\label{thm:conv}Se, oltre alla consistenza, valgono stabilità uniforme, limitatezza dei risolventi/operatori, convergenza degli embedding, non-degenerazione uniforme del tensore dei secondi momenti, condizioni al bordo compatibili e regolarità sufficiente, allora $\Delta_a\to\Delta_g$ nella topologia funzionale appropriata; in particolare, quando le ipotesi garantiscono la stima, $\|\Delta_af-\Delta_gf\|\le C_fa^2$.
+\end{theorem}
+Questa formulazione distingue truncation error locale, convergenza in norma d'operatore, convergenza dei risolventi e convergenza delle soluzioni. La convergenza della metrica richiede inoltre identificabilità e stabilità dell'inversa che associa i momenti discreti a $g^{\mu\nu}$. Non si dimostra qui un teorema generale per dinamiche lorentziane iperboliche a partire da un Laplaciano ellittico spaziale.
+\section{Settore di Einstein e Schwarzschild}
+Definiamo, nel caso senza termine di vuoto aggiuntivo,
+\begin{equation}T_{\mu\nu}^{\rm PSU}=M_{\rm Pl}^2G_{\mu\nu}[g].\end{equation}
+Se nel dominio esterno $T_{\mu\nu}^{\rm PSU}=0$, allora $G_{\mu\nu}=0$ e, con costante cosmologica nulla, $R_{\mu\nu}=0$. Questa identificazione è costitutiva salvo derivazione dalla variazione completa dell'azione microscopica.
+Sotto quattro-dimensionalità lorentziana, simmetria sferica, stazionarietà/staticità appropriata, piattezza asintotica e regolarità del vuoto esterno, il teorema di Birkhoff implica
+\begin{equation}\label{eq:schw}ds^2=-(1-2M/r)dt^2+\frac{dr^2}{1-2M/r}+r^2d\Omega^2.\end{equation}
+La simmetria assunta è sferica, non genericamente assiale. In unità $G=c=\hbar=k_B=1$:
+\begin{equation}r_H=2M,\qquad\kappa=\frac1{4M},\qquad T_H=\frac1{8\pi M}.\end{equation}
+La catena tensoriale è $g\to Riemann\to Weyl\to Petrov$. Il tipo D classifica il tensore di Weyl; non determina direttamente $T_{\mu\nu}$. Per Schwarzschild, il tipo D è una conseguenza della geometria esterna.
+\section{Evidenza numerica e controlli computazionali}
+I risultati seguenti sono riportati dal corpus fornito; non sono ricostruiti dati grezzi mancanti.
+\begin{table}[h]\centering\caption{Test A--C.}\begin{tabular}{ll}\toprule Test & Risultato\\\midrule A: $a=0.1,0.05,0.01$ & embedding $X_a\to M^4$, dichiarato superato\\ B: $r=2.50$ & $g_{\mu\nu}=\mathrm{diag}(1,2.3873,6.25,6.25)$; $R_5=2.6180$\\ C & $\|\nabla^\mu G_{\mu\nu}\|\sim1.00\times10^{-14}$\\\bottomrule\end{tabular}\end{table}
+Il punto $r=2.50$ non è un confronto diretto con Schwarzschild esterno per $M=1$: lì $g_{rr}=5$. È quindi interpretato prudentemente come dato di ricostruzione metrica/transizione interna. Il residuo bianchi verifica implementazione/discretizzazione, non prova l'identità geometrica esatta.
+\begin{figure}[h]\centering\includegraphics[width=.72\linewidth]{figures/fig1.pdf}\caption{$V(R_N)$ per $N=3,\ldots,20$, dalla formula esatta. Fonte: valori calcolati dal corpus fornito.}\end{figure}
+\begin{table}[h]\centering\caption{Test D: confronto con Schwarzschild, $M=1$.}\begin{tabular}{rrrr}\toprule$r$&emergente&esatto&errore relativo\\\midrule3.0&3.01890&3.00000&0.630\%\\4.8&1.71461&1.72727&0.733\%\\6.5&1.45803&1.44444&0.941\%\\8.2&1.32466&1.32000&0.353\%\\10.0&1.24025&1.25000&0.780\%\\\bottomrule\end{tabular}\end{table}
+Questo è accordo/compatibilità entro le fluttuazioni riportate, non prova del limite continuo.\begin{figure}[h]\centering\includegraphics[width=.72\linewidth]{figures/fig3.pdf}\caption{Test D. Fonte: valori forniti nel corpus.}\end{figure}
+\begin{table}[h]\centering\caption{Test E a $r=5$, $M=1$, $g_{rr}^{\rm Schw}=1.666667$.}\begin{tabular}{rrrr}\toprule$a$&$g_{rr}$&$E$&rel.\\\midrule.2&1.65236&8.583\times10^{-3}&0.8583\%\\.1&1.66309&2.146\times10^{-3}&0.2146\%\\.05&1.66577&5.360\times10^{-4}&0.0536\%\\.025&1.66644&1.340\times10^{-4}&0.0134\%\\.0125&1.66661&3.400\times10^{-5}&0.0034\%\\\bottomrule\end{tabular}\end{table}
+Il fit fornito è $\log E=\log C+p\log a$, con $p=2.0000$, $C=0.2146$, cioè $E(a)\simeq0.215a^2$; il dimezzamento di $a$ riduce $E$ di circa un fattore quattro.\begin{figure}[h]\centering\includegraphics[width=.72\linewidth]{figures/fig2.pdf}\caption{Test E in scala log-log. Fonte: valori forniti nel corpus.}\end{figure}
+\begin{table}[h]\centering\caption{Controllo $C_4$--$C_8$ a $a=0.05$.}\begin{tabular}{rr}\toprule grafo & deviazione Schwarzschild (\%)\\\midrule$C_4$&2.204\\$C_5$&0.215\\$C_6$&1.444\\$C_7$&2.239\\$C_8$&2.777\\\bottomrule\end{tabular}\end{table}
+$C_5$ è il migliore tra i controlli testati; la necessità/sufficienza per Schwarzschild non segue da questa tabella.\begin{figure}[h]\centering\includegraphics[width=.72\linewidth]{figures/fig4.pdf}\caption{Controllo $C_4$--$C_8$. Fonte: valori forniti nel corpus.}\end{figure}
+\section{Cosa è dimostrato e limitazioni}
+Il Teorema I è esatto e globale. La consistenza locale è dimostrata sotto ipotesi esplicite; la convergenza d'operatore è condizionale alla stabilità. Il grafo finito non fornisce un limite continuo letterale; servono $G_a$ e $X_a$. La convergenza metrica necessita di un'inversa stabile, mentre la dinamica lorentziana richiede un'analisi iperbolica dedicata. L'identificazione Einstein/PSU è costitutiva se non deriva dalla variazione completa. Birkhoff conduce a Schwarzschild solo sotto ipotesi sferiche di vuoto. I residui numerici sono controlli d'implementazione e $p\simeq2$ è evidenza dell'ordine previsto, non un teorema.
+\begin{table}[p]\centering\caption{Stato epistemico.}\small\begin{tabular}{p{.25\linewidth}p{.2\linewidth}p{.28\linewidth}p{.2\linewidth}}\toprule Risultato&Stato&Requisito per status pieno&Evidenza\\\midrule Formula spettrale di $C_N$&provato esattamente&nessuno&calcolo analitico\\ Minimo unico $N=5$&provato esattamente&nessuno&Teorema I\\ $q_*=\varphi^2$&provato sotto orientamento e potenziale&modello di scala&derivazione analitica\\ Consistenza $O(a^2)$&provata sotto ipotesi&momenti e regolarità&Teorema II\\ Convergenza operatore&condizionale&stabilità e risolventi&Teorema III\\ Convergenza metrica&condizionale&inversa stabile&non dimostrata\\ Settore Einstein&condizionale&identificazione emergente&assunzione costitutiva\\ Schwarzschild esterno&conseguenza GR standard&ipotesi di Birkhoff&analitica\\ Orizzonte&conseguenza GR standard&Schwarzschild&analitica\\ Temperatura Hawking&conseguenza standard&semiclassica&analitica standard\\ Petrov D&conseguenza geometrica&Schwarzschild&classificazione\\ Scaling numerico&verificato numericamente&riproducibilità dati&Test E\\ Controllo $C_4$--$C_8$&verificato numericamente&nessuna pretesa di prova&tabella controllo\\\bottomrule\end{tabular}\end{table}
+\section{Problemi aperti}
+Restano da costruire famiglie $G_a$ coerenti, dimostrare stime di stabilità, analizzare il settore iperbolico lorentziano, stabilire l'identificabilità della metrica, derivare l'equazione di Einstein dall'azione completa e fornire dati numerici riproducibili con specifiche di precisione e condizioni al bordo.
+\section{Conclusioni}
+Il risultato chiuso è il selettore spettrale: $C_5$ è il minimo discreto globale unico. Il potenziale seleziona $q_*=\varphi^2$. Da una famiglia raffinata, i momenti normalizzati conducono a consistenza locale; con stabilità si può ottenere convergenza operativa, e solo con ulteriore identificazione emergente si può passare alla metrica e al settore Einstein. Le ipotesi di vuoto sferico e asintotica piattezza conducono quindi, per Birkhoff, a Schwarzschild, da cui seguono orizzonte, superficie di gravità e temperatura di Hawking. La parte finale della catena resta una combinazione di conseguenze standard della relatività generale e ipotesi del framework, non un teorema incondizionato del grafo microscopico.
+\appendix
+\section{Spettro completo di $C_N$}
+Con vertici $j=0,\ldots,N-1$, gli autovettori $v^{(k)}_j=N^{-1/2}e^{2\pi ikj/N}$ diagonalizzano il Laplaciano combinatorio: $(Lv)_j=2v_j-v_{j-1}-v_{j+1}$, dunque $\lambda_k=2-e^{2\pi ik/N}-e^{-2\pi ik/N}=2-2\cos(2\pi k/N)$.
+\section{Formula del rapporto}
+Per $N\ge4$, $\lambda_1=4\sin^2(\pi/N)$ e $\lambda_2=4\sin^2(2\pi/N)$; il rapporto è $4\cos^2(\pi/N)$. Per $N=3$, $\lambda_2=\lambda_1=3$ e $R_3=1$.
+\section{Minimo globale}
+L'equazione $R+R^{-1}=3$ ha radici $(3\pm\sqrt5)/2=\varphi^{\pm2}$. Il dominio $R_N\in[2,4)$ esclude $\varphi^{-2}$; la monotonia stretta e $R_5=\varphi^2$ danno unicità.
+\section{Derivata del potenziale}
+Ponendo $F=q+q^{-1}-3$, $V'=\mu^4F(1-q^{-2})$ e $V''=\mu^4[(1-q^{-2})^2+2Fq^{-3}]$. Si ottiene $V''(1)=-2\mu^4$ e, nei due zeri aurei di $F$, $V''=\mu^4(1-q^{-2})^2>0$.
+\section{Espansione di Taylor}
+In multi-indici, $f(x+\xi)=\sum_{|\alpha|\le4}\xi^\alpha\partial^\alpha f(x)/\alpha!+R_5$. La sostituzione in $a^{-2}\sum w[f(x+\xi)-f(x)]$ mostra i contributi di ordine $1$, $2$, $3$, $4$; il terzo scompare per simmetria/cancellazione e il quarto diventa $O(a^2)$ dopo $a^{-2}$.
+\section{Ipotesi di momento}
+La cancellazione degli odd moments vale nello stencil locale in coordinate normali; in coordinate generali il termine $M_1$ rappresenta il drift geometrico e deve essere imposto nella forma covariante indicata nel testo.
+\section{Meccanismo di convergenza}
+La forma astratta è consistenza più stabilità implica convergenza, ma la topologia e gli operatori devono essere specificati per ciascun problema. Per risolventi, si richiede convergenza degli operatori e limitatezza uniforme dei risolventi sul dominio considerato.
+\section{Ricostruzione metrica}
+La matrice $M_{2,a}$ identifica $g^{\mu\nu}$ solo se il sistema di link copre tutte le direzioni e il tensore è non degenere. In un contesto spaziale riemanniano si richiede positività definita; per lo spaziotempo lorentziano si richiede invece la firma e la non degenerazione appropriate.
+\section{Variazione dell'azione}
+La variazione di $S_{\rm EH}$ produce, a meno dei termini al bordo, $M_{\rm Pl}^2G_{\mu\nu}$. La variazione di $S_{\rm PSU}$ definisce il suo tensore energia-impulso; il termine lattice contribuisce ulteriormente se dipende dinamicamente da $g$. Ne segue che $T^{\rm PSU}=M_{\rm Pl}^2G$ è un'identificazione efficace, non automatica.
+\section{Birkhoff e Schwarzschild}
+Il teorema richiede vuoto, simmetria sferica e condizioni regolari; la simmetria assiale generica non sostituisce quella sferica. L'integrazione delle equazioni statiche sferiche con piattezza asintotica dà la forma (\ref{eq:schw}).
+\section{Superficie di gravità e temperatura}
+Per $f(r)=1-2M/r$, $\kappa=f'(2M)/2=1/(4M)$. La relazione semiclassica $T_H=\kappa/(2\pi)$ dà $1/(8\pi M)$ in unità naturali.
+\section{Tipo Petrov D}
+Il tensore di Weyl è la parte senza traccia del Riemann. Nella tetrade nulla di Newman--Penrose, Schwarzschild ha una sola componente scalare di Weyl indipendente non nulla, tipicamente $\Psi_2$, con le altre nulle; le due direzioni nulle principali sono doppie, quindi il tipo è D.
+\section{Audit numerico}
+I valori numerici sono esattamente quelli riportati nelle tabelle del testo: Test A $a=.1,.05,.01$; Test C residuo $1.00\times10^{-14}$; Test D e Test E come indicati; controllo $C_4$--$C_8$ come indicato.
+\section{Protocollo di riproducibilità}
+Software: LuaLaTeX/latexmk, Python 3 con NumPy e Matplotlib. Precisione: non specificata nel corpus; non viene inventata. Convenzioni: Laplaciano combinatorio, $m_a=1$, unità naturali solo nella sezione Schwarzschild. Compilazione: \texttt{latexmk -lualatex -interaction=nonstopmode main.tex}; le figure sono generate dalle formule e dai valori forniti.
+\bibliographystyle{unsrt}\bibliography{Naressi_Geometric_Dynamical_Framework_Senemosia_Punto_Zero}
+\end{document}
