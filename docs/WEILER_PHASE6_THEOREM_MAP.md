@@ -62,3 +62,107 @@ consistency, absence of fermion doubling, or Mosco convergence.
 - OPEN: complete 2I/Clebsch–Gordan kernel basis and invariant bias/pooling spaces.
 
 No claim of physical unification or of a proven continuum Dirac equation is made.
+
+
+## Phase 8 — Gauge-covariant Wilson term and fermion-doubling audit
+
+The spatial Dirac candidate now has an optional Wilson graph Laplacian. For each
+canonical edge i<j, with spin transporter S_ji mapping the source fibre i to
+the target fibre j, and positive edge length l_ij, define
+
+`w_ij = r/(2 l_ij)`, with r >= 0, and the unnormalized blocks
+
+`L_ii += w_ij I_4`, `L_jj += w_ij I_4`,
+`L_ji -= w_ij S_ji`, `L_ij -= w_ij S_ji^dagger`.
+
+The volume-weighted positive graph Laplacian is `W = V^(-1/2) L V^(-1/2)`.
+The legacy option `assemble_spatial_dirac(..., wilson_r=r)` returns the
+Hermitian scalar perturbation `D_H = D_naive + W`; it is **not** the standard
+Euclidean Wilson-Dirac matrix in this repository's Hermitian convention.
+
+The correct Euclidean Wilson operator is
+
+`D_E = i D_naive + W`,
+
+implemented by `assemble_euclidean_wilson_dirac(...)`. It satisfies
+`D_E^dagger = Gamma5 D_E Gamma5` when the naive operator anticommutes with
+Gamma5 and W commutes with Gamma5. The overlap construction uses this
+gamma5-Hermitian Euclidean matrix. The default `wilson_r=0` preserves the
+Phase 6 naive operator.
+
+### Algebraic properties
+
+- **Hermiticity:** opposite edge blocks are adjoints and V is positive diagonal,
+  hence W is Hermitian.
+- **Gauge covariance:** for local fibre transformations G_i, the link law is
+  `S_ji -> G_j S_ji G_i^dagger`; therefore
+  `W -> G W G^dagger`, where G is block diagonal over vertices.
+- **Positivity:** before volume normalization, the quadratic form is a sum of
+  `w_ij ||psi_j - S_ji psi_i||^2`; hence W is positive semidefinite.
+- **Chiral breaking:** W is scalar in spinor space and commutes with
+  Gamma5. Thus `D_E=iD_naive+W` is gamma5-Hermitian but does not have the
+  naive exact anticommutation. The legacy Hermitian sum `D_H=D_naive+W`
+  also breaks the anticommutator, but this fact alone does not make it the
+  standard Euclidean Wilson operator.
+- **Scaling:** if all edge lengths are dilated by alpha while E and r are fixed,
+  W scales as alpha^(-1), matching the scaling of the implemented first-order
+  graph operator. A continuum Wilson coefficient normally carries an explicit
+  lattice spacing; its refinement scaling must be specified separately.
+
+### Periodic one-dimensional check
+
+On a uniform periodic ring with spacing a and trivial links,
+
+`W(p) = (r/a) [1 - cos(pa)]`, and the naive Hermitian symbol magnitude is
+`E0(p)=(2/a)|sin(pa)|`.
+
+The Euclidean Wilson matrix `D_E=iD0+W` has singular-value magnitude
+`sqrt(E0(p)^2+W(p)^2)`: it vanishes at p=0 and equals 2r/a at p=pi/a.
+This is the standard Wilson lifting mechanism in the current convention.
+
+**Important correction:** the legacy Hermitian sum `D_H=D0+W` has branches
+`W(p) +/- E0(p)`. In one dimension it has an additional accidental zero
+at `pa=2 arctan(2/r)`, besides p=0. Therefore the earlier test of W(p) at
+p=pi/a alone did not prove that the combined Hermitian sum is free of
+additional zeros. No no-doubling claim is based on that sum.
+
+### Evidence and limits
+
+Tests cover Hermiticity, positive semidefiniteness, local SU(2) gauge covariance,
+coordinate-dilation scaling, exact p=0 and p=pi/a Wilson eigenvalues on a
+16-site ring, and nonzero chiral anticommutator after adding W.
+
+This establishes the stated finite-graph algebra and the one-dimensional
+Fourier mechanism. It does **not** by itself prove absence of doublers on the
+curved Q6 graph or in a continuum limit, nor Mosco/spectral convergence.
+The Wilson parameter's physical scaling under refinement and the relation
+between this Hermitian finite operator and a covariant continuum Dirac
+operator remain open obligations.
+
+
+### RGS/Q6 archive audit (64 vertices, 192 edges)
+
+A separate numerical evaluation using the supplied `RGS_PSU_all_matrices(1).npz`
+archive and the Phase 6 vierbein reconstruction constants gives, for r=1:
+
+- Wilson matrix dimension 256x256; Hermiticity residual
+  `1.39e-15`; minimum eigenvalue `5.221e-4`; maximum eigenvalue
+  `5.13545`.
+- Maximum spin-link unitarity residual `7.02e-16`; local gauge-covariance
+  residual under deterministic random sitewise SU(2) transformations
+  `6.86e-15`.
+- Naive Dirac matrix Hermiticity residual `3.16e-15` and chiral
+  anticommutator residual `0`.
+- Wilson-corrected matrix Hermiticity residual `3.46e-15`; chiral
+  anticommutator norm `89.2471`.
+- The smallest absolute eigenvalues of the corrected Q6 matrix begin at
+  `0.0127313` (eightfold cluster), then `0.0293490`. The uncorrected
+  operator's smallest absolute eigenvalue is about `1.25821`.
+
+These are **numerical observations on this one finite reconstructed graph**.
+They do not label any Q6 mode as a physical fermion or a doubler: Q6 has no
+Brillouin torus or canonical momentum, and the chosen polar links have
+nontrivial graph holonomy. In particular, the small eigenvalue cluster after
+adding W is not evidence of a removed doubler. The archive-derived values are
+recorded in `results/json/rgs_q6_wilson_audit.json`; the 1D periodic ring
+mechanism is independently tested in CI.

@@ -118,12 +118,23 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 - **OPEN** — unresolved mathematical or physical question.
 
 
-### Phase 7 — Chiral / Wilson finite-graph audit
-- [x] Implement a volume-weighted covariant graph Wilson Laplacian with unitary link transport.
-- [x] Prove edgewise positivity for r >= 0 from the quadratic form ||psi_j - S_ji psi_i||^2.
-- [x] Test Hermiticity, positive semidefiniteness, r=0 limit and local fibre-frame gauge covariance.
-- [x] Add the finite-graph Dirac-plus-Wilson candidate.
-- [x] Record the exact boundary between finite-graph results and the hypotheses of Nielsen–Ninomiya in docs/CHIRAL_WILSON_AUDIT.md.
-- [ ] Do not claim eight Q6 doublers or a DOS ratio from a Brillouin-zone calculation until a periodic refinement family and its momentum-space symbol are defined.
-- [ ] Derive the axial Ward identity from a specified fermion action; non-orientability alone does not establish an anomaly or net Möbius face flux.
-- [ ] Implement a Ginsparg–Wilson/overlap operator only after a controlled Hermitian kernel and locality bounds are available.
+### Phase 9 — Wilson refinement, overlap/Ginsparg–Wilson, and Dirac–Kähler
+- [x] Derive the low-momentum Wilson correction and Brillouin-corner masses for the existing centered operator.
+- [x] Determine the simultaneous scaling window for a running Wilson parameter: if r(a)=r0(a/L)^alpha, then low-mode correction vanishes and doubler masses diverge iff -1<alpha<1.
+- [x] Audit all eight 3D Brillouin corners, including the seven lifted doubler corners and multiplicities by the number of pi-components.
+- [x] Add a multi-resolution Fourier-symbol audit at fixed physical momentum (N=16,32,64,128,256).
+- [x] Add a finite overlap construction from a gamma5-Hermitian Euclidean Wilson kernel and test the Ginsparg–Wilson identity.
+- [x] Add the unweighted combinatorial Dirac–Kähler operator on the Q6 2-skeleton (cochain dimensions 64,192,240), verifying d^2=0, Hermiticity, D_K^2=Hodge Laplacian and degree-parity anticommutation.
+- [x] Document the distinctions between the spinor Wilson operator, overlap construction, and cochain Dirac–Kähler operator.
+- [x] Build the overlap operator from the archived RGS-Q6 256x256 Wilson/Dirac pair; verify the kernel gap and Ginsparg–Wilson/gamma5-Hermiticity residuals, and record finite graph-distance decay. This is not a uniform locality theorem.
+- [ ] Construct a vierbein-weighted DEC Hodge star and metric Dirac–Kähler operator.
+- [ ] Specify a refining family of RGS complexes, common Hilbert-space embeddings and quadratic forms; prove Mosco liminf and recovery-sequence conditions.
+- [ ] Prove spectral convergence and a continuum index/anomaly statement under explicit hypotheses.
+- [ ] No Q6 physical/doubler labels are inferred from a finite spectrum without a momentum or continuum identification.
+
+- [x] Audit the full dispersion of the Hermitian scalar sum D0+W; identify its additional one-dimensional zero at pa=2 arctan(2/r), and distinguish it from the Euclidean Wilson operator.
+- [x] Add `assemble_euclidean_wilson_dirac` implementing D_E=iD0+W and verify gamma5-Hermiticity. The overlap construction uses this Euclidean convention.
+
+- [x] Prove a Fourier-embedded Mosco-convergence prototype for the Euclidean Wilson quadratic form on a flat periodic torus, distinguishing Mosco liminf/recovery from the additional UV compactness needed for spectral convergence.
+- [x] Add numerical sampling of the fixed-mode quadratic form and the doubler mass along the periodic-torus refinement sequence.
+- [ ] Transfer the prototype proof to a nonuniform RGS refinement family; the fixed Q6 graph does not provide such a family.
