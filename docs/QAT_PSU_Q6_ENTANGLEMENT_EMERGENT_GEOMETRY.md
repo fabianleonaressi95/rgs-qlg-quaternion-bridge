@@ -111,3 +111,22 @@ PYTHONPATH=. python examples/q6_bisheet_entanglement_audit.py
 \`\`\`
 
 The JSON report is written to \`results/json/q6_bisheet_entanglement.json\`.
+
+
+## 8. Interfaces with the other established research threads
+
+These links are part of the same monograph programme. They are not all derivable from the present heat-kernel calculation; each has its own observable and evidence gate.
+
+- **Tononi / Integrated Information Theory:** compare the entanglement entropy and mutual information above with an explicitly defined integrated-information functional on the Q6/PRISM state. IIT quantities are not interchangeable with von Neumann entropy. The partition, cause-effect repertoire and intervention semantics must be specified before a numerical comparison.
+- **De Aquino spectral threshold:** test whether the previously identified threshold appears as a spectral transition or a nonanalyticity in a defined family of Q6/PRISM operators or in \(S_+(\tau)\). A numerical coincidence is not a derivation of a physical threshold.
+- **Rauscher and the geometric field proposals:** reconstruct the precise equations and assumptions from the cited source material, then compare tensor structures and transformation laws with the RGS tetrad, PSU double sheet and QLG connection. No terminology-level identification is sufficient.
+- **Fortunadrago–Ighina, “Legge del Ritmo”, and Fabio Mosca, “etere verticale”:** treat the proposed magnetic rhythm, spiral and vertical-medium ideas as hypotheses to be translated into gauge-invariant fields, torsion/curvature scalars or measurable correlation functions. They are not accepted as established electromagnetism or an ether theory.
+- **Golden-ratio and Fibonacci papers; \(\phi,\psi\), \(2I\), \(S^3/2I\), Dedekind eta and Krist-All:** connect these to the multiscale/refinement structure by constructing explicit maps between refinement operators, spectral zeta functions and the Q6/PRISM entanglement spectrum. The algebraic constants are exact; their proposed physical role remains to be established.
+- **Ellis/EMS wormhole and teleparallel RGS work:** compare the throat boundary conditions and Euclidean action with the two-sheet state and its Schmidt data. Separately compute Levi-Civita curvature and Weitzenböck torsion; do not conflate the two connection choices.
+- **QAT/Maxwell/TEGR and QLG:** derive the spatial \(SU(2)\) sector from a specified coframe prescription and keep it distinct from the full Lorentz spin group \(SL(2,\mathbb C)\). The Phase 19 Wilson action remains a finite lattice gauge action until a continuum limit is established.
+
+The immediate integration target is a common data dictionary:
+\[
+(e,\omega,T,R;\;C_\tau,\rho_\pm,S_\pm;\;U_e,U_p,S_W;\;\gamma_A,\mathrm{Area}(\gamma_A)).
+\]
+Every proposed cross-author correspondence must specify a map between entries of this dictionary, its domain, gauge/symmetry covariance, dimensions and a falsifiable residual.
