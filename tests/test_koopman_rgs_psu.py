@@ -5,6 +5,7 @@ from src.koopman_rgs_psu import (
     barycentric_koopman_features, build_cantor_q6_markov_chain,
     constant_frequency_koopman_generator, edmd_koopman_audit,
     koopman_markov_audit, koopman_semigroup_residual,
+    build_q6_rgs_geometry_lookup,
 )
 
 def test_cantor_parry_q6_chain_is_stochastic_and_stationary():
@@ -72,3 +73,27 @@ def test_invalid_edmd_inputs_are_rejected():
         edmd_koopman_audit([[1.0], [2.0]], [[1.0]])
     with pytest.raises(ValueError):
         edmd_koopman_audit([[1.0], [2.0]], [[1.0], [2.0]], sample_weights=[1.0, -1.0])
+
+def test_q6_rgs_lookup_reindexes_archived_big_endian_rows_exactly():
+    canonical = np.array([[(g >> a) & 1 for a in range(6)] for g in range(64)])
+    # Simulate the archive's lexicographic row order (MSB-first).
+    archived_states = canonical[np.argsort(canonical @ (2 ** np.arange(6))[::-1])]
+    # Coordinates are deliberately nonlinear in the six bits.
+    X = np.column_stack((
+        np.sum(archived_states, axis=1),
+        archived_states[:, 0] * archived_states[:, 3] + 0.25 * archived_states[:, 5],
+        np.sum(archived_states * (2 ** np.arange(6)), axis=1) ** 2 / 4096.0,
+    ))
+    result = build_q6_rgs_geometry_lookup(X, archived_states)
+    lookup = np.asarray(result["positions_by_q6_integer"])
+    ids = archived_states @ (2 ** np.arange(6))
+    assert np.allclose(lookup[ids], X, atol=0.0)
+    assert result["geometry_map"].startswith("exact 64-state lookup")
+    assert result["affine_relative_residual"] > 1e-3
+
+
+def test_q6_rgs_lookup_rejects_duplicate_or_missing_states():
+    states = np.array([[(g >> a) & 1 for a in range(6)] for g in range(64)])
+    states[-1] = states[0]
+    with pytest.raises(ValueError):
+        build_q6_rgs_geometry_lookup(np.zeros((64, 3)), states)
