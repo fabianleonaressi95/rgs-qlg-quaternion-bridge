@@ -136,3 +136,35 @@ La covarianza \(\Sigma_B\) è positiva semidefinita; \(\Delta k^T\Sigma_B\Delta 
 ~~~bash
 PYTHONPATH=. python -m pytest tests/test_unified_strange_loop_operator.py -q
 ~~~
+
+
+## Q6 projection estimated from the archived RGS 64B seed
+
+The 64 RGS seed coordinates \(X_g\in\mathbb R^3\) are indexed by the canonical
+hexagram integer \(g=\sum_{a=0}^5 2^a b_a\). The affine chart is estimated by
+weighted least squares:
+\[
+(\widehat P,\widehat c)=
+\arg\min_{P,c}\sum_{g=0}^{63}w_g
+\|X_g-Pb(g)-c\|^2,\qquad \sum_gw_g=1.
+\]
+The returned matrix is \(P\in\mathbb R^{3\times6}\), with intercept \(c\).
+The implementation reports rank, singular values, condition number, weighted
+relative/RMS residual and maximum pointwise residual. A zero residual recovers
+an exactly affine Q6 embedding; a nonzero residual is retained as a measure of
+the non-affine O_h seed geometry, rather than hidden by forcing an exact fit.
+
+**Provenance boundary:** the repository contains the A14 report and the
+deterministic reconstruction manifest, including the 64x3 array source hash,
+but not the binary X_Oh_reconstructed.npy array itself in this path.
+Therefore the fitting routine is added and tested on synthetic exact/non-affine
+fixtures; no numerical projection of the archived physical seed is claimed yet.
+The full 188D vierbein and connection are not inferred from the 64x3 seed.
+The archived A14 Jacobian confirms J in R^(4x192), Q in R^(192x188), rank four
+and ||JQ||_F approximately 1.24e-14; it does not supply a numerical P or the
+full vierbein.
+
+Reproduction:
+~~~bash
+PYTHONPATH=. python -m pytest tests/test_unified_strange_loop_operator.py -q
+~~~
