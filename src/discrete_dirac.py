@@ -186,7 +186,38 @@ def assemble_spatial_dirac(coordinates,vierbein,edges,spin_links=None,local_spat
     if r>0:
         wilson,wilson_audit=assemble_wilson_laplacian(x,e,edges,spin_links=spin_links,wilson_r=r)
         d=d+wilson
-    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"CANDIDATE_DISCRETE_SPATIAL_DIRAC_WITH_WILSON_TERM" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+    return d,{"vertices":n,"edges":len(edges),"spinor_dimension":4,"volume_min":float(volumes.min()),"volume_max":float(volumes.max()),"hermiticity_residual":float(np.linalg.norm(d-d.conj().T,ord="fro")),"operator_norm":float(np.linalg.norm(d,ord=2)),"spin_links_derived_from":"right-polar factor of E_j E_i^{-1}","wilson_r":r,"wilson_audit":wilson_audit,"status":"HERMITIAN_SCALAR_PERTURBED_SPATIAL_OPERATOR_NOT_STANDARD_EUCLIDEAN_WILSON" if r>0 else "CANDIDATE_DISCRETE_SPATIAL_DIRAC"}
+
+def assemble_euclidean_wilson_dirac(
+    coordinates, vierbein, edges, spin_links=None, wilson_r=1.0
+):
+    """Assemble the gamma5-Hermitian Euclidean Wilson-Dirac matrix.
+
+    In this repository D0 is Hermitian and anticommutes with Gamma5.
+    The Euclidean convention is therefore D_E = i D0 + W, not D0 + W.
+    It obeys D_E^dagger = Gamma5 D_E Gamma5 when W commutes with Gamma5.
+    """
+    x,e=_validate_geometry(coordinates,vierbein)
+    d0,dirac_audit=assemble_spatial_dirac(
+        x,e,edges,spin_links=spin_links,wilson_r=0.0
+    )
+    w,wilson_audit=assemble_wilson_laplacian(
+        x,e,edges,spin_links=spin_links,wilson_r=wilson_r
+    )
+    d_e=1j*d0+w
+    gamma5_global=np.kron(np.eye(len(x)),chirality_matrix())
+    gamma5_res=float(np.linalg.norm(
+        d_e.conj().T-gamma5_global@d_e@gamma5_global,ord="fro"
+    ))
+    return d_e,{
+        "vertices":len(x),"edges":len(edges),"wilson_r":float(wilson_r),
+        "gamma5_hermiticity_residual":gamma5_res,
+        "naive_hermiticity_residual":dirac_audit["hermiticity_residual"],
+        "wilson_hermiticity_residual":wilson_audit["hermiticity_residual"],
+        "wilson_minimum_eigenvalue":wilson_audit["minimum_eigenvalue"],
+        "status":"EUCLIDEAN_GAMMA5_HERMITIAN_WILSON_DIRAC"
+    }
+
 
 def discrete_dirac_spectrum(operator):
     d=np.asarray(operator,dtype=complex); residual=float(np.linalg.norm(d-d.conj().T,ord="fro"))
