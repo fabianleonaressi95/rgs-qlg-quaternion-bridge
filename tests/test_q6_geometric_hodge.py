@@ -13,7 +13,7 @@ from src.q6_geometric_hodge import (
 def test_full_six_cube_cell_counts_and_betti_numbers():
     report = audit_cubical_whitney_hodge()
     assert report["cell_counts_by_degree"] == [64, 192, 240, 160, 60, 12, 1]
-    assert report["boundary_ranks"] == [63, 129, 91, 35, 7, 1]
+    assert report["boundary_ranks"] == [63, 129, 111, 49, 11, 1]
     assert report["betti_numbers"] == [1, 0, 0, 0, 0, 0, 0]
     assert report["harmonic_dimensions"] == [1, 0, 0, 0, 0, 0, 0]
     assert report["pass"]
