@@ -30,7 +30,7 @@ def qball_maxwell_stationary_bvp(
     Scalar:
       f''+2 f'/r = (m^2-Omega^2) f - 2 lambda f^3 + 3 g f^5
     Maxwell:
-      A0''+2 A0'/r = -2 q Omega f^2
+      A0''+2 A0'/r = +2 q Omega f^2
     Omega = omega-q A0.
 
     Conditions:
@@ -77,7 +77,7 @@ def qball_maxwell_stationary_bvp(
         local_frequency = omega - q * a0
         fpp = ((m * m - local_frequency**2) * f
                - 2.0 * lam * f**3 + 3.0 * g * f**5)
-        app = -2.0 * q * local_frequency * f**2
+        app = 2.0 * q * local_frequency * f**2
         return np.vstack((fp, fpp, ap, app))
 
     def boundary(ya, yb, parameter):
@@ -138,7 +138,7 @@ def qball_maxwell_stationary_bvp(
     # Q_particle is the phase Noether charge; Q_e=q Q_particle is electric charge.
     charge_density = 2.0 * local_frequency * f**2
     particle_charge = float(np.trapezoid(measure * charge_density, audit_radius))
-    electric_charge = q * particle_charge
+    electric_charge = -q * particle_charge
     energy_per_particle = energy / particle_charge if particle_charge > 0.0 else float("inf")
 
     gauss_flux_charge = float(-4.0 * np.pi * rmax**2 * solution.sol(rmax)[3])
