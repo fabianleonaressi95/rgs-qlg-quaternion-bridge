@@ -96,7 +96,7 @@ def audit_q6_u1_quotient(seed=20261104):
     theta=rng.uniform(-.7,.7,192); lam=rng.uniform(-math.pi,math.pi,64); beta=2.3
     moved=gauge_transform_u1(theta,lam,q); fixed,_=tree_gauge_fix(theta,q); fixed2,_=tree_gauge_fix(moved,q)
     action=u1_wilson_action(theta,beta,q)
-    flux_res=float(np.max(np.abs(plaquette_fluxes(theta,q)-plaquette_fluxes(moved,q))))
+    flux_res=float(np.max(np.abs(np.exp(1j*plaquette_fluxes(theta,q))-np.exp(1j*plaquette_fluxes(moved,q)))))
     orbit_res=float(np.max(np.abs(np.exp(1j*fixed[list(q["chord_edges"])])-np.exp(1j*fixed2[list(q["chord_edges"])]))))
     tree_res=float(np.max(np.abs(fixed[list(q["tree_edges"])])))
     singular=np.linalg.svd(q["D1_chords"],compute_uv=False)
