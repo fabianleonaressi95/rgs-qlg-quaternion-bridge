@@ -85,12 +85,12 @@ def test_sine_gordon_fluxon_has_one_flux_quantum_and_small_equation_residual():
         sine_gordon_fluxon_profile,
         sine_gordon_static_residual,
     )
-    x = np.linspace(-12.0, 12.0, 2401)
+    x = np.linspace(-20.0, 20.0, 4001)
     lam = 1.3
     kink = sine_gordon_fluxon_profile(x, center=0.2, josephson_length=lam)
     assert abs(kink["phase_jump"] - 2.0 * np.pi) < 1e-8
     # Integrating B/Phi0 = (1/2pi) dphi/dx gives one flux quantum.
-    flux_quanta = np.trapezoid(kink["normalized_magnetic_field"], x)
+    flux_quanta = np.sum(0.5 * (kink["normalized_magnetic_field"][:-1]\n                               + kink["normalized_magnetic_field"][1:]) * np.diff(x))
     assert abs(flux_quanta - 1.0) < 2e-5
     residual = sine_gordon_static_residual(kink["phase"], x[1] - x[0], lam)
     assert np.max(np.abs(residual)) < 2e-5
