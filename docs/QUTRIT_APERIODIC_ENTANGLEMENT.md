@@ -72,3 +72,8 @@ PYTHONPATH=. python examples/qutrit_aperiodic_audit.py
 
 The dense exact diagonalisation is capped at a small number of sites. Larger
 systems require sparse/Krylov or tensor-network methods and convergence tests.
+
+
+## Degenerate ground spaces
+
+The audit reports the ground-space degeneracy and the spectral gap above the entire ground manifold. If the ground state is degenerate, the entropy reported for the first numerical eigenvector is basis-dependent inside that eigenspace; it is a diagnostic for the selected vector, not a unique entanglement invariant of the full ground manifold. A follow-up analysis should compare symmetry-adapted states or reduced density matrices/projectors for the complete ground space.
