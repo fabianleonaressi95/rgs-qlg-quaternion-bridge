@@ -72,7 +72,53 @@ Consequently this bridge provides a well-defined **candidate constitutive sector
 \]
 (in rationalized conventions). No Wyler normalization or Hua cutoff is inserted.
 
-## 5. Evidence status
+## 5. The representation-theoretic bridge: restrict to the common tetrahedral A4
+
+There is a nontrivial route between the two five-dimensional sectors, but it is **not** an identification of the full groups (A_5) and (O_h).
+
+The full groups cannot be identified by an embedding: (A_5) is simple of order 60, while (O_h) has order 48. A homomorphism (A_5\to O_h) is therefore trivial (an injective image would have order 60 dividing 48). So a nonzero full-(A_5)-equivariant map into an (O_h)-representation is not the right demand.
+
+Instead, both groups contain a tetrahedral subgroup (A_4):
+- (A_4\subset A_5) as the stabilizer of one letter in the natural five-letter action;
+- (A_4\subset O_h) as the proper tetrahedral rotation subgroup.
+
+For the five-dimensional irreducible representation of (A_5), the character on the four (A_4) conjugacy classes (identity, double transpositions, and the two classes of 3-cycles) is
+\[
+\chi_{5\downarrow A_4}=(5,1,-1,-1).
+\]
+The (A_4) irreducible characters are
+\[
+\chi_{1}=(1,1,1,1),\quad
+\chi_{1'}=(1,1,\omega,\omega^2),\quad
+\chi_{1''}=(1,1,\omega^2,\omega),\quad
+\chi_3=(3,-1,0,0),
+\qquad \omega=e^{2\pi i/3}.
+\]
+Their character inner products give
+\[
+\boxed{5\downarrow A_4=1'\oplus1''\oplus3.}
+\]
+On the RGS side, the cubic decomposition (\operatorname{Sym}_0(3)=E_g\oplus T_{2g}), restricted to the same tetrahedral subgroup, has exactly the same decomposition: (E_g\downarrow A_4=1'\oplus1'') (as a real 2-plane) and (T_{2g}\downarrow A_4=3).
+
+Therefore an (A_4)-equivariant real isomorphism
+\[
+T:V_5^{A_5}\longrightarrow\operatorname{Sym}_0(3)
+\]
+**exists after restriction to (A_4)**. It is not canonical: one must choose compatible subgroup generators and orthonormal bases, then solve the finite intertwiner equations
+\[
+T\rho_{Q6}(h)=\rho_{STF}(h)T,\qquad h\in\mathcal G_{A_4},
+\]
+and fix the independent normalization/sign on the 2- and 3-dimensional irreducible blocks. This is the concrete next algebraic construction; it replaces the invalid full-group identification with a valid common-subgroup bridge.
+
+## 6. Evidence status
+
+- **Exact representation-theory consequence:** both five-dimensional sectors restrict to the same (A_4) representation (2\oplus3); hence a nonzero (A_4)-intertwiner exists.
+- **Open computational construction:** extract the actual (A_4) generator matrices from the Q6 five-mode basis and the RGS (E_g\oplus T_{2g}) basis, solve the intertwiner equations exactly/algebraically, and verify residuals.
+- **Exact tensor obstruction:** the direct (RFF) contraction vanishes by index symmetry; (R:Q) is STF.
+- **Numerically audited:** the actual 64-site seed, its fourth-moment decomposition, (O_h) invariance, and the induced constitutive matrices for the documented test (Q).
+- **Candidate:** the (Q)-dependent electric/magnetic constitutive matrices as an RGS material response.
+- **Open:** derive (Q) from the coframe/PSU–Anti-Twin geometry; derive the (Q)-measure from the complete nonlinear Wilson fibre; prove the continuum limit; determine the scalar Maxwell normalization and only then compare with Wyler.
+
 
 - **Exact:** the direct (RFF) contraction vanishes by index symmetry; (R:Q) is STF; the positivity bounds above are sufficient and sharp for the chosen (Q); simultaneous-frame covariance follows from tensor transformation.
 - **Numerically audited:** the actual 64-site seed, its fourth-moment decomposition, (O_h) invariance, and the induced constitutive matrices for the documented test (Q).
