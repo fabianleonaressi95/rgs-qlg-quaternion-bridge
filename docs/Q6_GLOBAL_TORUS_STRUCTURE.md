@@ -341,16 +341,20 @@ K=\ker(P:\Lambda_{\rm cyc}\to\mathbb Z^5)
 \simeq\mathbb Z^{124},\qquad
 \Lambda_{\rm cyc}/K\simeq\mathbb Z^5.
 \]
-Choose an integral section \(B:\mathbb Z^5\to\Lambda_{\rm cyc}\) and an integral basis matrix \(K_0\) for the fibre. Every constrained flux has the unique form
+Use the row-vector convention of the repository: \(C\in\mathbb Z^{129\times192}\), \(B\in\mathbb Z^{5\times129}\), and \(K_0\in\mathbb Z^{124\times129}\), with the stacked matrix
 \[
-n=Bm+K_0k,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124}.
+\begin{bmatrix}B\\K_0\end{bmatrix}\in GL(129,\mathbb Z).
 \]
-For the factorized compact-U(1) link character weight, the exact marginal is
+Every constrained cycle-coordinate flux has the unique form
+\[
+c=m^TB+k^TK_0,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124},
+\]
+and its edge-flux vector is \(n=cC\in\mathbb Z^{192}\). For the factorized compact-U(1) link character weight, the exact marginal is
 \[
 W_\beta(m)=
 \sum_{k\in\mathbb Z^{124}}
 \prod_{e=1}^{192}
-\frac{I_{| (Bm+K_0k)_e |}(\beta)}{I_0(\beta)},
+\frac{I_{|((m^TB+k^TK_0)C)_e|}(\beta)}{I_0(\beta)},
 \]
 with the understanding that the actual Q6 cycle embedding and any additional plaquette/temporal indices must be included exactly as specified by the chosen Wilson action. The absolute convergence and tail control of the fibre sum are the subject of the earlier integer-fibre and Bessel-majorant results. Define
 \[
