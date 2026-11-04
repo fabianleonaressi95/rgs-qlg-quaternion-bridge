@@ -127,40 +127,6 @@ def build_q6_d5_saturated_integer_kernel(data=None) -> dict:
     }
 
 
-def q6_d5_box_to_edge_l1_cutoff(kernel_basis: sp.Matrix, radius: int,
-                                 cycles: np.ndarray) -> dict:
-    """Convert a coefficient-box radius into a rigorous edge-l1 tail threshold.
-
-    This uses a pivot minor of the kernel basis to bound coefficient size
-    from the ambient integer cycle-coordinate vector.
-    """
-    r = int(radius)
-    if r < 0:
-        raise ValueError("radius must be nonnegative")
-    # For k=z*B, select 124 independent columns J of B; then
-    # z = k_J * inv(B[:,J]).  Bound ||z||_inf <= M ||k||_1.
-    _, pivots = sp.Matrix(kernel_basis.T).rref()
-    cols = list(pivots[:kernel_basis.rows])
-    square = kernel_basis[:, cols]
-    if square.det() == 0:
-        raise ArithmeticError("selected kernel pivot minor is singular")
-    inverse = square.inv()
-    max_entry = max(abs(x) for x in inverse)
-    # If any coefficient |z_i|>r, then ||k||_1 > r/M.
-    threshold = int(math.floor(r / float(max_entry))) + 1
-    # k coordinates -> edge flux n=k*C; this function's supplied C is not
-    # needed for this coefficient-space bound; kept to validate dimensions.
-    if np.asarray(cycles).shape != (129, 192):
-        raise ValueError("cycles must have shape (129,192)")
-    return {
-        "coefficient_radius": r,
-        "minimum_ambient_l1_outside_box": threshold,
-        "pivot_columns": cols,
-        "inverse_max_entry": str(max_entry),
-        "interpretation": "outside coefficient box implies ambient cycle-coordinate l1 exceeds threshold",
-    }
-
-
 def audit_q6_d5_saturated_kernel_and_tail(beta_time: float = 80.0,
                                            edge_l1_cutoff: int = 10000) -> dict:
     q = build_q6_d5_saturated_integer_kernel()
