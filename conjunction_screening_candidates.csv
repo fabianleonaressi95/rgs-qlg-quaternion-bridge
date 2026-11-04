@@ -1,0 +1,3 @@
+object_index_a,object_index_b,sat_index_a,sat_index_b,norad_id_a,norad_id_b,object_a,object_b,grid_index,grid_time_utc,grid_distance_km
+9,10,9,10,66906,67683,DUPLEX,KNACKSAT-2,11,2026-08-22T15:16:42.916525+00:00,42.56562406755389
+12,13,12,13,67686,67687,UITMSAT-2,LEOPARD,127,2026-08-23T00:56:42.916525+00:00,35.08864371237639

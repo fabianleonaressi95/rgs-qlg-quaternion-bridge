@@ -1,0 +1,26 @@
+level,field,preferred_source_or_method,intended_use,limitations_or_notes
+mapping,genetic_code,NCBI standard genetic code,codon_to_amino_acid_or_STOP,Used for the 64-node codon map; 61 sense codons plus 3 STOP.
+molecular,pKa,literature/database,amino-acid side-chain acid-base descriptor,Context/speciation must be defined.
+molecular,IP,literature or homogeneous QM,ionization potential,Do not mix QM levels without calibration.
+molecular,EA,literature or homogeneous QM,electron affinity,Do not mix QM levels without calibration.
+molecular,HOMO,homogeneous QM,electronic descriptor,Protocol required.
+molecular,LUMO,homogeneous QM,electronic descriptor,Protocol required.
+molecular,dipole,homogeneous QM,molecular dipole,Protocol required.
+molecular,polarizability,homogeneous QM,molecular polarizability,Protocol required.
+molecular,HBD,chemical structure/database,H-bond donor count,State protonation convention.
+molecular,HBA,chemical structure/database,H-bond acceptor count,State protonation convention.
+redox,Eox_standard,experiment/model proteins,oxidation potential,Primary experimental focus in source: Tyr and Trp; context-dependent.
+redox,Ered_standard,experiment/model proteins,reduction potential,Context-dependent.
+redox,DeltaG_ET,derived,electron-transfer driving force,"Derived after defining donor, acceptor, potential convention, pH and temperature."
+redox,lambda_reorganization,experiment or homogeneous calculation,ET/PCET reorganization energy,Must be associated with a specific ET/PCET reaction.
+structure,d_ET,PDB/model structure,donor–acceptor electron-transfer distance,Context-specific.
+structure,d_H,PDB/model structure,proton-transfer donor–acceptor distance,Context-specific.
+structure,theta,PDB/model structure,orientation/angle descriptor,Define geometric convention.
+structure,Hbond_count,PDB/model structure,local hydrogen-bond count,Context-specific.
+structure,dielectric_environment,model/experiment,local dielectric descriptor,Context-specific.
+structure,SASA,PDB/model structure,solvent-accessible surface area,Context-specific.
+structure,depth,PDB/model structure,residue burial/depth,Context-specific.
+structure,local_pKa,experiment/computation,local pKa,Context-specific.
+kinetics,kH,experimental kinetics,protium transfer rate,Use for tunnelling validation.
+kinetics,kD,experimental kinetics,deuterium transfer rate,Use for tunnelling validation.
+kinetics,KIE,derived,kH/kD,Mass-dependent tunnelling comparison.

@@ -1,0 +1,3 @@
+object_index_a,object_index_b,sat_index_a,sat_index_b,norad_id_a,norad_id_b,object_a,object_b,grid_distance_km,miss_distance_km,relative_velocity_km_s,tca_minutes_from_start,tca_utc,tca_optimizer_success
+9,10,9,10,66906,67683,DUPLEX,KNACKSAT-2,42.56562406755389,28.99738560732143,0.6292261120913464,55.82836856780508,2026-08-22T15:17:32.618639+00:00,True
+12,13,12,13,67686,67687,UITMSAT-2,LEOPARD,35.08864371237639,24.42347094047644,0.47679373009286635,635.8830598080311,2026-08-23T00:57:35.900113+00:00,True

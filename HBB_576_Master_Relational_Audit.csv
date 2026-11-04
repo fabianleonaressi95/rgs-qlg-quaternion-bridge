@@ -1,0 +1,577 @@
+WT,MUT,Position,AA_WT,AA_MUT,Class,dL,dC,dT,dB,d_Lambda,BasePairContext,reaction,base_pair,product_form,mechanism,Ea_forward_kcal,DeltaG_forward_kcal,Delta_E_kcal,method,source
+AAA,CAA,1,K,Q,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAA,GAA,1,K,E,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAA,TAA,1,K,*,nonsense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAA,ACA,2,K,T,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAA,AGA,2,K,R,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAA,ATA,2,K,I,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAA,AAC,3,K,N,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAA,AAG,3,K,K,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAA,AAT,3,K,N,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAC,CAC,1,N,H,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAC,GAC,1,N,D,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAC,TAC,1,N,Y,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAC,ACC,2,N,T,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAC,AGC,2,N,S,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAC,ATC,2,N,I,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAC,AAA,3,N,K,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAC,AAG,3,N,K,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAC,AAT,3,N,N,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+AAG,CAG,1,K,Q,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAG,GAG,1,K,E,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAG,TAG,1,K,*,nonsense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAG,ACG,2,K,T,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAG,AGG,2,K,R,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAG,ATG,2,K,M,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAG,AAA,3,K,K,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAG,AAC,3,K,N,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAG,AAT,3,K,N,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAT,CAT,1,N,H,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAT,GAT,1,N,D,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAT,TAT,1,N,Y,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAT,ACT,2,N,T,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AAT,AGT,2,N,S,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AAT,ATT,2,N,I,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAT,AAA,3,N,K,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AAT,AAC,3,N,N,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+AAT,AAG,3,N,K,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACA,CCA,1,T,P,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACA,GCA,1,T,A,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ACA,TCA,1,T,S,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACA,AAA,2,T,K,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACA,AGA,2,T,R,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACA,ATA,2,T,I,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ACA,ACC,3,T,T,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACA,ACG,3,T,T,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ACA,ACT,3,T,T,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACC,CCC,1,T,P,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACC,GCC,1,T,A,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ACC,TCC,1,T,S,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACC,AAC,2,T,N,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACC,AGC,2,T,S,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACC,ATC,2,T,I,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ACC,ACA,3,T,T,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACC,ACG,3,T,T,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACC,ACT,3,T,T,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+ACG,CCG,1,T,P,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACG,GCG,1,T,A,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ACG,TCG,1,T,S,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACG,AAG,2,T,K,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACG,AGG,2,T,R,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACG,ATG,2,T,M,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ACG,ACA,3,T,T,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ACG,ACC,3,T,T,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACG,ACT,3,T,T,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACT,CCT,1,T,P,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACT,GCT,1,T,A,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ACT,TCT,1,T,S,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACT,AAT,2,T,N,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ACT,AGT,2,T,S,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACT,ATT,2,T,I,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ACT,ACA,3,T,T,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ACT,ACC,3,T,T,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+ACT,ACG,3,T,T,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGA,CGA,1,R,R,synonymous,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGA,GGA,1,R,G,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGA,TGA,1,R,*,nonsense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGA,AAA,2,R,K,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGA,ACA,2,R,T,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGA,ATA,2,R,I,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGA,AGC,3,R,S,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGA,AGG,3,R,R,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGA,AGT,3,R,S,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGC,CGC,1,S,R,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGC,GGC,1,S,G,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGC,TGC,1,S,C,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGC,AAC,2,S,N,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGC,ACC,2,S,T,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGC,ATC,2,S,I,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGC,AGA,3,S,R,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGC,AGG,3,S,R,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGC,AGT,3,S,S,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+AGG,CGG,1,R,R,synonymous,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGG,GGG,1,R,G,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGG,TGG,1,R,W,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGG,AAG,2,R,K,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGG,ACG,2,R,T,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGG,ATG,2,R,M,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGG,AGA,3,R,R,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGG,AGC,3,R,S,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGG,AGT,3,R,S,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGT,CGT,1,S,R,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGT,GGT,1,S,G,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGT,TGT,1,S,C,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGT,AAT,2,S,N,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+AGT,ACT,2,S,T,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGT,ATT,2,S,I,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+AGT,AGA,3,S,R,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+AGT,AGC,3,S,S,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+AGT,AGG,3,S,R,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATA,CTA,1,I,L,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATA,GTA,1,I,V,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ATA,TTA,1,I,L,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATA,AAA,2,I,K,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATA,ACA,2,I,T,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ATA,AGA,2,I,R,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATA,ATC,3,I,I,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATA,ATG,3,I,M,missense,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ATA,ATT,3,I,I,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATC,CTC,1,I,L,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATC,GTC,1,I,V,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ATC,TTC,1,I,F,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATC,AAC,2,I,N,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATC,ACC,2,I,T,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ATC,AGC,2,I,S,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATC,ATA,3,I,I,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATC,ATG,3,I,M,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATC,ATT,3,I,I,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+ATG,CTG,1,M,L,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATG,GTG,1,M,V,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ATG,TTG,1,M,L,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATG,AAG,2,M,K,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATG,ACG,2,M,T,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ATG,AGG,2,M,R,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATG,ATA,3,M,I,missense,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ATG,ATC,3,M,I,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATG,ATT,3,M,I,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATT,CTT,1,I,L,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATT,GTT,1,I,V,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+ATT,TTT,1,I,F,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATT,AAT,2,I,N,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATT,ACT,2,I,T,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+ATT,AGT,2,I,S,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+ATT,ATA,3,I,I,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+ATT,ATC,3,I,I,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+ATT,ATG,3,I,M,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAA,AAA,1,Q,K,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAA,GAA,1,Q,E,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAA,TAA,1,Q,*,nonsense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CAA,CCA,2,Q,P,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAA,CGA,2,Q,R,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CAA,CTA,2,Q,L,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAA,CAC,3,Q,H,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAA,CAG,3,Q,Q,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CAA,CAT,3,Q,H,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAC,AAC,1,H,N,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAC,GAC,1,H,D,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAC,TAC,1,H,Y,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CAC,CCC,2,H,P,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAC,CGC,2,H,R,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CAC,CTC,2,H,L,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAC,CAA,3,H,Q,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAC,CAG,3,H,Q,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAC,CAT,3,H,H,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CAG,AAG,1,Q,K,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAG,GAG,1,Q,E,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAG,TAG,1,Q,*,nonsense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CAG,CCG,2,Q,P,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAG,CGG,2,Q,R,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CAG,CTG,2,Q,L,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAG,CAA,3,Q,Q,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CAG,CAC,3,Q,H,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAG,CAT,3,Q,H,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAT,AAT,1,H,N,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAT,GAT,1,H,D,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAT,TAT,1,H,Y,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CAT,CCT,2,H,P,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CAT,CGT,2,H,R,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CAT,CTT,2,H,L,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAT,CAA,3,H,Q,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CAT,CAC,3,H,H,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CAT,CAG,3,H,Q,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCA,ACA,1,P,T,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCA,GCA,1,P,A,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCA,TCA,1,P,S,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CCA,CAA,2,P,Q,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCA,CGA,2,P,R,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCA,CTA,2,P,L,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CCA,CCC,3,P,P,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCA,CCG,3,P,P,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CCA,CCT,3,P,P,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCC,ACC,1,P,T,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCC,GCC,1,P,A,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCC,TCC,1,P,S,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CCC,CAC,2,P,H,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCC,CGC,2,P,R,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCC,CTC,2,P,L,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CCC,CCA,3,P,P,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCC,CCG,3,P,P,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCC,CCT,3,P,P,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CCG,ACG,1,P,T,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCG,GCG,1,P,A,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCG,TCG,1,P,S,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CCG,CAG,2,P,Q,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCG,CGG,2,P,R,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCG,CTG,2,P,L,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CCG,CCA,3,P,P,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CCG,CCC,3,P,P,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCG,CCT,3,P,P,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCT,ACT,1,P,T,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCT,GCT,1,P,A,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCT,TCT,1,P,S,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CCT,CAT,2,P,H,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CCT,CGT,2,P,R,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCT,CTT,2,P,L,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CCT,CCA,3,P,P,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CCT,CCC,3,P,P,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CCT,CCG,3,P,P,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGA,AGA,1,R,R,synonymous,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGA,GGA,1,R,G,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGA,TGA,1,R,*,nonsense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CGA,CAA,2,R,Q,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CGA,CCA,2,R,P,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGA,CTA,2,R,L,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGA,CGC,3,R,R,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGA,CGG,3,R,R,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CGA,CGT,3,R,R,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGC,AGC,1,R,S,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGC,GGC,1,R,G,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGC,TGC,1,R,C,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CGC,CAC,2,R,H,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CGC,CCC,2,R,P,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGC,CTC,2,R,L,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGC,CGA,3,R,R,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGC,CGG,3,R,R,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGC,CGT,3,R,R,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CGG,AGG,1,R,R,synonymous,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGG,GGG,1,R,G,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGG,TGG,1,R,W,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CGG,CAG,2,R,Q,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CGG,CCG,2,R,P,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGG,CTG,2,R,L,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGG,CGA,3,R,R,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CGG,CGC,3,R,R,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGG,CGT,3,R,R,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGT,AGT,1,R,S,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGT,GGT,1,R,G,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGT,TGT,1,R,C,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CGT,CAT,2,R,H,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CGT,CCT,2,R,P,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGT,CTT,2,R,L,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CGT,CGA,3,R,R,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CGT,CGC,3,R,R,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CGT,CGG,3,R,R,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTA,ATA,1,L,I,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTA,GTA,1,L,V,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTA,TTA,1,L,L,synonymous,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CTA,CAA,2,L,Q,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTA,CCA,2,L,P,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CTA,CGA,2,L,R,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTA,CTC,3,L,L,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTA,CTG,3,L,L,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CTA,CTT,3,L,L,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTC,ATC,1,L,I,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTC,GTC,1,L,V,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTC,TTC,1,L,F,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CTC,CAC,2,L,H,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTC,CCC,2,L,P,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CTC,CGC,2,L,R,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTC,CTA,3,L,L,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTC,CTG,3,L,L,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTC,CTT,3,L,L,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CTG,ATG,1,L,M,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTG,GTG,1,L,V,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTG,TTG,1,L,L,synonymous,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CTG,CAG,2,L,Q,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTG,CCG,2,L,P,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CTG,CGG,2,L,R,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTG,CTA,3,L,L,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+CTG,CTC,3,L,L,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTG,CTT,3,L,L,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTT,ATT,1,L,I,missense,1,0,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTT,GTT,1,L,V,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTT,TTT,1,L,F,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+CTT,CAT,2,L,H,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTT,CCT,2,L,P,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+CTT,CGT,2,L,R,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+CTT,CTA,3,L,L,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+CTT,CTC,3,L,L,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+CTT,CTG,3,L,L,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAA,AAA,1,E,K,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAA,CAA,1,E,Q,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAA,TAA,1,E,*,nonsense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAA,GCA,2,E,A,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAA,GGA,2,E,G,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAA,GTA,2,E,V,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAA,GAC,3,E,D,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAA,GAG,3,E,E,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAA,GAT,3,E,D,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAC,AAC,1,D,N,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAC,CAC,1,D,H,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAC,TAC,1,D,Y,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAC,GCC,2,D,A,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAC,GGC,2,D,G,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAC,GTC,2,D,V,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAC,GAA,3,D,E,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAC,GAG,3,D,E,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAC,GAT,3,D,D,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GAG,AAG,1,E,K,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAG,CAG,1,E,Q,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAG,TAG,1,E,*,nonsense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAG,GCG,2,E,A,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAG,GGG,2,E,G,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAG,GTG,2,E,V,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAG,GAA,3,E,E,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAG,GAC,3,E,D,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAG,GAT,3,E,D,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAT,AAT,1,D,N,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAT,CAT,1,D,H,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAT,TAT,1,D,Y,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAT,GCT,2,D,A,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GAT,GGT,2,D,G,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GAT,GTT,2,D,V,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAT,GAA,3,D,E,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GAT,GAC,3,D,D,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GAT,GAG,3,D,E,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCA,ACA,1,A,T,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GCA,CCA,1,A,P,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCA,TCA,1,A,S,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCA,GAA,2,A,E,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCA,GGA,2,A,G,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCA,GTA,2,A,V,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GCA,GCC,3,A,A,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCA,GCG,3,A,A,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GCA,GCT,3,A,A,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCC,ACC,1,A,T,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GCC,CCC,1,A,P,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCC,TCC,1,A,S,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCC,GAC,2,A,D,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCC,GGC,2,A,G,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCC,GTC,2,A,V,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GCC,GCA,3,A,A,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCC,GCG,3,A,A,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCC,GCT,3,A,A,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GCG,ACG,1,A,T,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GCG,CCG,1,A,P,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCG,TCG,1,A,S,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCG,GAG,2,A,E,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCG,GGG,2,A,G,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCG,GTG,2,A,V,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GCG,GCA,3,A,A,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GCG,GCC,3,A,A,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCG,GCT,3,A,A,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCT,ACT,1,A,T,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GCT,CCT,1,A,P,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCT,TCT,1,A,S,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCT,GAT,2,A,D,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GCT,GGT,2,A,G,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCT,GTT,2,A,V,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GCT,GCA,3,A,A,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GCT,GCC,3,A,A,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GCT,GCG,3,A,A,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGA,AGA,1,G,R,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGA,CGA,1,G,R,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGA,TGA,1,G,*,nonsense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGA,GAA,2,G,E,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGA,GCA,2,G,A,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGA,GTA,2,G,V,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGA,GGC,3,G,G,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGA,GGG,3,G,G,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGA,GGT,3,G,G,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGC,AGC,1,G,S,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGC,CGC,1,G,R,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGC,TGC,1,G,C,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGC,GAC,2,G,D,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGC,GCC,2,G,A,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGC,GTC,2,G,V,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGC,GGA,3,G,G,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGC,GGG,3,G,G,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGC,GGT,3,G,G,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GGG,AGG,1,G,R,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGG,CGG,1,G,R,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGG,TGG,1,G,W,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGG,GAG,2,G,E,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGG,GCG,2,G,A,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGG,GTG,2,G,V,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGG,GGA,3,G,G,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGG,GGC,3,G,G,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGG,GGT,3,G,G,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGT,AGT,1,G,S,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGT,CGT,1,G,R,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGT,TGT,1,G,C,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGT,GAT,2,G,D,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GGT,GCT,2,G,A,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGT,GTT,2,G,V,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GGT,GGA,3,G,G,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GGT,GGC,3,G,G,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GGT,GGG,3,G,G,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTA,ATA,1,V,I,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GTA,CTA,1,V,L,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTA,TTA,1,V,L,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTA,GAA,2,V,E,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTA,GCA,2,V,A,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GTA,GGA,2,V,G,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTA,GTC,3,V,V,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTA,GTG,3,V,V,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GTA,GTT,3,V,V,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTC,ATC,1,V,I,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GTC,CTC,1,V,L,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTC,TTC,1,V,F,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTC,GAC,2,V,D,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTC,GCC,2,V,A,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GTC,GGC,2,V,G,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTC,GTA,3,V,V,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTC,GTG,3,V,V,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTC,GTT,3,V,V,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GTG,ATG,1,V,M,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GTG,CTG,1,V,L,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTG,TTG,1,V,L,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTG,GAG,2,V,E,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTG,GCG,2,V,A,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GTG,GGG,2,V,G,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTG,GTA,3,V,V,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GTG,GTC,3,V,V,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTG,GTT,3,V,V,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTT,ATT,1,V,I,missense,2,0,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+GTT,CTT,1,V,L,missense,1,0,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTT,TTT,1,V,F,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTT,GAT,2,V,D,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTT,GCT,2,V,A,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+GTT,GGT,2,V,G,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+GTT,GTA,3,V,V,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+GTT,GTC,3,V,V,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+GTT,GTG,3,V,V,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAA,AAA,1,*,K,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAA,CAA,1,*,Q,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TAA,GAA,1,*,E,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAA,TCA,2,*,S,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAA,TGA,2,*,*,synonymous,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TAA,TTA,2,*,L,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAA,TAC,3,*,Y,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAA,TAG,3,*,*,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TAA,TAT,3,*,Y,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAC,AAC,1,Y,N,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAC,CAC,1,Y,H,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TAC,GAC,1,Y,D,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAC,TCC,2,Y,S,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAC,TGC,2,Y,C,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TAC,TTC,2,Y,F,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAC,TAA,3,Y,*,nonsense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAC,TAG,3,Y,*,nonsense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAC,TAT,3,Y,Y,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TAG,AAG,1,*,K,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAG,CAG,1,*,Q,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TAG,GAG,1,*,E,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAG,TCG,2,*,S,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAG,TGG,2,*,W,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TAG,TTG,2,*,L,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAG,TAA,3,*,*,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TAG,TAC,3,*,Y,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAG,TAT,3,*,Y,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAT,AAT,1,Y,N,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAT,CAT,1,Y,H,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TAT,GAT,1,Y,D,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAT,TCT,2,Y,S,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TAT,TGT,2,Y,C,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TAT,TTT,2,Y,F,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAT,TAA,3,Y,*,nonsense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TAT,TAC,3,Y,Y,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TAT,TAG,3,Y,*,nonsense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCA,ACA,1,S,T,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCA,CCA,1,S,P,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TCA,GCA,1,S,A,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCA,TAA,2,S,*,nonsense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCA,TGA,2,S,*,nonsense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCA,TTA,2,S,L,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TCA,TCC,3,S,S,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCA,TCG,3,S,S,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TCA,TCT,3,S,S,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCC,ACC,1,S,T,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCC,CCC,1,S,P,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TCC,GCC,1,S,A,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCC,TAC,2,S,Y,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCC,TGC,2,S,C,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCC,TTC,2,S,F,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TCC,TCA,3,S,S,synonymous,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCC,TCG,3,S,S,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCC,TCT,3,S,S,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TCG,ACG,1,S,T,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCG,CCG,1,S,P,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TCG,GCG,1,S,A,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCG,TAG,2,S,*,nonsense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCG,TGG,2,S,W,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCG,TTG,2,S,L,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TCG,TCA,3,S,S,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TCG,TCC,3,S,S,synonymous,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCG,TCT,3,S,S,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCT,ACT,1,S,T,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCT,CCT,1,S,P,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TCT,GCT,1,S,A,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCT,TAT,2,S,Y,missense,0,1,0,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TCT,TGT,2,S,C,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCT,TTT,2,S,F,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TCT,TCA,3,S,S,synonymous,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TCT,TCC,3,S,S,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TCT,TCG,3,S,S,synonymous,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGA,AGA,1,*,R,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGA,CGA,1,*,R,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TGA,GGA,1,*,G,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGA,TAA,2,*,*,synonymous,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TGA,TCA,2,*,S,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGA,TTA,2,*,L,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGA,TGC,3,*,C,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGA,TGG,3,*,W,missense,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TGA,TGT,3,*,C,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGC,AGC,1,C,S,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGC,CGC,1,C,R,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TGC,GGC,1,C,G,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGC,TAC,2,C,Y,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TGC,TCC,2,C,S,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGC,TTC,2,C,F,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGC,TGA,3,C,*,nonsense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGC,TGG,3,C,W,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGC,TGT,3,C,C,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TGG,AGG,1,W,R,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGG,CGG,1,W,R,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TGG,GGG,1,W,G,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGG,TAG,2,W,*,nonsense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TGG,TCG,2,W,S,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGG,TTG,2,W,L,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGG,TGA,3,W,*,nonsense,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TGG,TGC,3,W,C,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGG,TGT,3,W,C,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGT,AGT,1,C,S,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGT,CGT,1,C,R,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TGT,GGT,1,C,G,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGT,TAT,2,C,Y,missense,0,2,0,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TGT,TCT,2,C,S,missense,0,1,0,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGT,TTT,2,C,F,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TGT,TGA,3,C,*,nonsense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TGT,TGC,3,C,C,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TGT,TGG,3,C,W,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTA,ATA,1,L,I,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTA,CTA,1,L,L,synonymous,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TTA,GTA,1,L,V,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTA,TAA,2,L,*,nonsense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTA,TCA,2,L,S,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TTA,TGA,2,L,*,nonsense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTA,TTC,3,L,F,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTA,TTG,3,L,L,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TTA,TTT,3,L,F,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTC,ATC,1,F,I,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTC,CTC,1,F,L,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TTC,GTC,1,F,V,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTC,TAC,2,F,Y,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTC,TCC,2,F,S,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TTC,TGC,2,F,C,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTC,TTA,3,F,L,missense,0,0,1,1,1.4142135623730951,A-C,AC_mispair,A-C,A*-C,DPT,10.53,8.17,3.64,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTC,TTG,3,F,L,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTC,TTT,3,F,F,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TTG,ATG,1,L,M,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTG,CTG,1,L,L,synonymous,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TTG,GTG,1,L,V,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTG,TAG,2,L,*,nonsense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTG,TCG,2,L,S,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TTG,TGG,2,L,W,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTG,TTA,3,L,L,synonymous,0,0,2,2,2.8284271247461903,A-G,AG_mispair,A-G,A*-G*,DPT,11.46,9.63,9.58,MP2/cc-pVQZ,Literature Database
+TTG,TTC,3,L,F,missense,0,0,1,1,1.4142135623730951,G-C,GC_tautomerization,G-C,G*-C*,DPT,13.28,9.69,8.22,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTG,TTT,3,L,F,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTT,ATT,1,F,I,missense,3,0,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTT,CTT,1,F,L,missense,2,0,0,2,2.8284271247461903,Other,,,,,,,,,
+TTT,GTT,1,F,V,missense,1,0,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTT,TAT,2,F,Y,missense,0,3,0,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTT,TCT,2,F,S,missense,0,2,0,2,2.8284271247461903,Other,,,,,,,,,
+TTT,TGT,2,F,C,missense,0,1,0,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis
+TTT,TTA,3,F,L,missense,0,0,3,2,3.605551275463989,A-T,AT_tautomerization,A-T,A*-T*,DPT,12.4,10.29,12.26,MP2/aug-cc-pVTZ,Flis et al. / Slocombe
+TTT,TTC,3,F,F,synonymous,0,0,2,2,2.8284271247461903,Other,,,,,,,,,
+TTT,TTG,3,F,L,missense,0,0,1,1,1.4142135623730951,G-T,GT_mispair,G-T,G*-T*,DPT,12.58,9.47,12.12,MP2/cc-pVQZ,Odai & Umesaki / Flis

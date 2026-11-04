@@ -1,0 +1,2 @@
+object_index_a,object_index_b,sat_index_a,sat_index_b,norad_id_a,norad_id_b,object_a,object_b,miss_distance_km,relative_velocity_km_s,tca_utc,pc_demo,mc_p05_km,mc_median_km,mc_p95_km,risk_score_demo,risk_level,true_conjunction
+12,13,12,13,67686,67687,UITMSAT-2,LEOPARD,24.42347094047644,0.47679373009286635,2026-08-23T00:57:35.900113+00:00,,22.70753684041507,24.482072273788766,26.246983635462787,50.458321097095016,HIGH,True
