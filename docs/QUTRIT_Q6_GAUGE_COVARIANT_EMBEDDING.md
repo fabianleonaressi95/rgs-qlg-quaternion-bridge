@@ -67,4 +67,4 @@ identity and a finite-size ground-state Schmidt audit.
   and continuum or physical interpretation.
 
 Run:
-\`PYTHONPATH=. python -m pytest tests/test_qutrit_q6_coupling.py -q\`
+`PYTHONPATH=. python -m pytest tests/test_qutrit_q6_coupling.py -q`
