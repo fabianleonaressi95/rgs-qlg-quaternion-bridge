@@ -15,8 +15,8 @@ from src.rgs_q6_d5_wilson_fiber_torus import q6_d5_wilson_annihilator_torus_inte
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--beta-time", type=float, default=2.0)
-    parser.add_argument("--power", type=int, default=8)
-    parser.add_argument("--scrambles", type=int, default=4)
+    parser.add_argument("--power", type=int, default=12)
+    parser.add_argument("--scrambles", type=int, default=8)
     parser.add_argument("--seed", type=int, default=20261104)
     parser.add_argument("--output", type=Path, default=Path("reports/q6_d5_wilson_annihilator_torus.json"))
     args = parser.parse_args()
