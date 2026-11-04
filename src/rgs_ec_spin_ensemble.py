@@ -83,19 +83,29 @@ def _weighted_moments(currents, weights):
     }
 
 
-def spatial_isotropy_residual(covariance):
-    """Relative Frobenius residual of C_ij=sigma^2 delta_ij in local frame."""
-    c = np.asarray(covariance, dtype=float)
-    if c.shape != (4, 4) or not np.all(np.isfinite(c)):
-        raise ValueError("covariance must be a finite (4,4) matrix")
-    spatial = c[1:, 1:]
-    sigma2 = float(np.trace(spatial) / 3.0)
-    target = sigma2 * np.eye(3)
+def spatial_isotropy_residual(second_moment, mean_current=None):
+    """Test FLRW isotropy using M^{ab}=<J^a J^b>, not covariance alone."""
+    m = np.asarray(second_moment, dtype=float)
+    if m.shape != (4, 4) or not np.all(np.isfinite(m)):
+        raise ValueError("second_moment must be a finite (4,4) matrix")
+    m = 0.5 * (m + m.T)
+    spatial = m[1:, 1:]
+    q = float(np.trace(spatial) / 3.0)
+    target = q * np.eye(3)
     scale = max(float(np.linalg.norm(spatial)), 1.0)
+    mean = np.zeros(4) if mean_current is None else np.asarray(mean_current, dtype=float)
+    if mean.shape != (4,) or not np.all(np.isfinite(mean)):
+        raise ValueError("mean_current must be a finite 4-vector")
     return {
-        "spatial_variance": sigma2,
+        "spatial_second_moment_isotropic_amplitude": q,
         "spatial_isotropy_residual": float(np.linalg.norm(spatial-target)/scale),
-        "time_space_covariance_norm": float(np.linalg.norm(c[0, 1:])),
+        "time_space_second_moment_norm": float(np.linalg.norm(m[0, 1:])),
+        "mean_spatial_polarization_norm": float(np.linalg.norm(mean[1:])),
+        "flrw_isotropy_residual": float(np.sqrt(
+            (np.linalg.norm(spatial-target)/scale)**2
+            + np.linalg.norm(m[0, 1:])**2 / max(np.linalg.norm(m), 1.0)**2
+            + np.linalg.norm(mean[1:])**2 / max(np.linalg.norm(mean), 1.0)**2
+        )),
     }
 
 
@@ -116,7 +126,7 @@ def audit_spin_ensemble(currents, kappa, *, weights=None,
     contact_coefficient = effective_four_fermion_coefficient(kappa)
     contact_average = contact_coefficient * m["mean_of_lorentz_norm_squared"]
     contact_of_mean = contact_coefficient * m["mean_current_lorentz_norm"]
-    isotropy = spatial_isotropy_residual(m["covariance"])
+    isotropy = spatial_isotropy_residual(m["second_moment"], mean)
     return {
         "schema": SPIN_ENSEMBLE_SCHEMA,
         "metric_signature": "(-,+,+,+)",
