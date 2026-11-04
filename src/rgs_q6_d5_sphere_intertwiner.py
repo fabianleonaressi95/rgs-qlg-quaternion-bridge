@@ -109,6 +109,8 @@ def build_q6_d5_relative_direction_intertwiner() -> dict:
         "target_geometric_irrep_dimension": 3,
         "A5_group_order": 60,
         "intertwiner": intertwiner,
+        "geometric_rotations": rotations,
+        "A5_mode_representation": np.asarray(rho_matrices),
         "intertwiner_nullity": nullity,
         "constraint_singular_values": singular_values,
         "intertwining_residual": residual,
