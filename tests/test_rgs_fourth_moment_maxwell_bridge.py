@@ -12,7 +12,15 @@ from src.rgs_fourth_moment_maxwell_bridge import (
 def _symmetric_rank4():
     rng = np.random.default_rng(20261104)
     points = rng.normal(size=(40, 3))
-    return np.einsum("ni,nj,nk,nl->ijkl", points, points, points, points)
+    m4 = np.einsum("ni,nj,nk,nl->ijkl", points, points, points, points)
+    coefficient = float(np.einsum("iijj", m4)) / 15.0
+    eye = np.eye(3)
+    isotropic = coefficient * (
+        np.einsum("ij,kl->ijkl", eye, eye)
+        + np.einsum("ik,jl->ijkl", eye, eye)
+        + np.einsum("il,jk->ijkl", eye, eye)
+    )
+    return m4 - isotropic
 
 
 def test_direct_contraction_with_antisymmetric_field_is_zero():
