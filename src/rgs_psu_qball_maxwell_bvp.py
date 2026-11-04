@@ -67,7 +67,7 @@ def qball_maxwell_stationary_bvp(
     # A smooth, boundary-compatible electrostatic initial iterate. Its scale
     # is O(q); the coupled BVP, not this seed, determines the final potential.
     shape = np.exp(-radius / max(1.0, rmax / 8.0)) * (1.0 - radius / rmax) ** 2
-    a_seed = q * f0**2 * shape
+    a_seed = -q * f0**2 * shape
     ap_seed = np.gradient(a_seed, radius, edge_order=2)
     initial = np.vstack((f_seed, fp_seed, a_seed, ap_seed))
 
