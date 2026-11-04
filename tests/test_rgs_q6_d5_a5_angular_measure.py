@@ -31,6 +31,8 @@ def test_q6_d5_phase_shell_pushforward_has_a5_symmetry_theorem():
     ]
     assert report["first_possible_angular_anisotropy_degree"] == 6
     assert report["degree_six_invariant_dimension"] == 1
+    assert report["zero_locus_witness_matrix_rank"] == 3
+    assert report["zero_locus_has_surface_measure_zero"]
     assert report["all_checks_passed"]
-    assert "zero set" in report["theorem"]
+    assert "surface measure zero" in report["theorem"]
     assert any("zero locus" in item for item in report["conditional_or_open"])
