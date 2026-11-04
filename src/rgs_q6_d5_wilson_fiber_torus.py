@@ -41,6 +41,14 @@ def smith_torus_parameterization(lattice_basis):
     }
 
 
+def _wilson_integrand_log_split(beta: float, cosine_sum, ambient_dimension: int):
+    """Return log scale and bounded log-amplitude for exp(beta*sum cos)/I0(beta)^E."""
+    log_i0 = beta + math.log(float(i0e(beta)))
+    log_scale = ambient_dimension * (beta - log_i0)
+    log_amplitude = beta * (np.asarray(cosine_sum, dtype=float) - ambient_dimension)
+    return log_scale, log_amplitude
+
+
 def q6_d5_wilson_annihilator_torus_integral(
     representative=None, beta_time: float = 2.0, power: int = 10,
     scrambles: int = 8, seed: int = 20261104, quotient=None,
@@ -86,8 +94,7 @@ def q6_d5_wilson_annihilator_torus_integral(
     d = np.asarray(snf["invariants"], dtype=np.int64)
     rank, ambient = snf["rank"], snf["ambient_dimension"]
     free_dim = snf["torus_dimension"]
-    log_i0 = beta + math.log(float(i0e(beta)))
-    log_scale = ambient * (beta-log_i0)
+    log_scale, _ = _wilson_integrand_log_split(beta, 0.0, ambient)
     means = []
     for j in range(scrambles):
         sampler = qmc.Sobol(d=ambient, scramble=True, seed=seed+j)
@@ -97,7 +104,7 @@ def q6_d5_wilson_annihilator_torus_integral(
         z[:, :rank] = 2.0*math.pi*discrete/d[None, :]
         z[:, rank:] = 2.0*math.pi*u[:, rank:]
         x = np.remainder(z @ v.T, 2.0*math.pi)
-        log_amp = beta*np.sum(np.cos(x), axis=1)-log_scale
+        _, log_amp = _wilson_integrand_log_split(beta, np.sum(np.cos(x), axis=1), ambient)
         amp = np.exp(np.minimum(log_amp, 0.0))
         phase = x @ n0
         vals = amp*(np.cos(phase)-1j*np.sin(phase))
@@ -128,6 +135,8 @@ def q6_d5_wilson_annihilator_torus_integral(
             "beta_time": beta, "power": power, "samples_per_scramble": 2**power,
             "scrambles": scrambles, "seed": seed, "log_scale_removed": log_scale,
             "scaled_complex_mean": [mean.real, mean.imag],
+            "scaled_integrand": "exp(beta*(sum_e cos(x_e)-ambient_dimension))",
+            "scaled_integrand_upper_bound": 1.0,
             "scaled_real_standard_error": re_se,
             "scaled_imag_standard_error": im_se,
             "log_absolute_estimate": log_abs, "real_estimate": real_est,
