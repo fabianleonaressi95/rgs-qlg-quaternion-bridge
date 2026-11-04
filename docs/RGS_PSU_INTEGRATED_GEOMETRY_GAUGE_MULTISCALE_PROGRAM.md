@@ -135,7 +135,8 @@ The next geometric construction must obey
 
 [
 elongrightarrowomegalongrightarrow T^a
-longrightarrow R^{ab}longrightarrow D_{m Clifford}
+longrightarrow R^{ab}longrightarrow D_{
+m Clifford}
 longrightarrowmathrm{TEGR/Dirac}.
 ]
 
