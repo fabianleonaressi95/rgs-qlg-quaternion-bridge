@@ -1,0 +1,243 @@
+{
+  "total_files": 29,
+  "by_category": {
+    "codice_python": 1,
+    "configurazione_o_report": 9,
+    "dati_numerici": 18,
+    "notebook": 1
+  },
+  "files": [
+    {
+      "path": "/kaggle/working/rgs_psu_unified_report.json",
+      "name": "rgs_psu_unified_report.json",
+      "suffix": ".json",
+      "bytes": 1044,
+      "sha256": "eb688fe6e966c18ac4443aa1166888c5d1ae911cac9d77ebacc30cf01d8e27a6",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/working/rgs_psu_q6_su3_color_report.json",
+      "name": "rgs_psu_q6_su3_color_report.json",
+      "suffix": ".json",
+      "bytes": 1659,
+      "sha256": "2d6d54a0b1f433413c0fafec2f4b7b9473df1c689faa2cb9eedce70df86c7d79",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/working/rgs_psu_q6_qcd_supergolden_spectrum.csv",
+      "name": "rgs_psu_q6_qcd_supergolden_spectrum.csv",
+      "suffix": ".csv",
+      "bytes": 6037,
+      "sha256": "1ff11ac486189eec2082b46379a43879d51e33ace6e62189c14a139e1113ab6f",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/working/rgs_psu_q6_qcd_supergolden_report.json",
+      "name": "rgs_psu_q6_qcd_supergolden_report.json",
+      "suffix": ".json",
+      "bytes": 2444,
+      "sha256": "3006504ba80850aa2b47b8e3bed035dacbf5d6977e4ebc02d6c4e68d2615a7d3",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/working/.virtual_documents/__notebook_source__.ipynb",
+      "name": "__notebook_source__.ipynb",
+      "suffix": ".ipynb",
+      "bytes": 469860,
+      "sha256": "ab219d96690a553d608f9edfdd9feb54860172b2ca344b64f32260fd85395b81",
+      "category": "notebook"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/vertices/X_Oh_recovered.npy",
+      "name": "X_Oh_recovered.npy",
+      "suffix": ".npy",
+      "bytes": 1664,
+      "sha256": "4792f7003a30d07d0b48fdcef90a6dac74a4a907f2aa5cfb8d417f66aaa6519f",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/vertices/generate_test_vertices.py",
+      "name": "generate_test_vertices.py",
+      "suffix": ".py",
+      "bytes": 576,
+      "sha256": "0f163863873e7b911baea7227d13319151fccbd5c50e7bb7b2837953948a0d6c",
+      "category": "codice_python"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/vertices/test_vertices.csv",
+      "name": "test_vertices.csv",
+      "suffix": ".csv",
+      "bytes": 199,
+      "sha256": "4ebe9a146f7579d8245587b8fcab4d3d60f6f69db7061b602a7248f29629d3c0",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/reconstructed/X_Oh_reconstructed.npy",
+      "name": "X_Oh_reconstructed.npy",
+      "suffix": ".npy",
+      "bytes": 1664,
+      "sha256": "4792f7003a30d07d0b48fdcef90a6dac74a4a907f2aa5cfb8d417f66aaa6519f",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/Q6_edges.npy",
+      "name": "Q6_edges.npy",
+      "suffix": ".npy",
+      "bytes": 4736,
+      "sha256": "fa1ea4b216aeb97a2978b5c654fd1773a2f05412c00a8b63a2c45eff3d7aca09",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/Q6_faces.npy",
+      "name": "Q6_faces.npy",
+      "suffix": ".npy",
+      "bytes": 7808,
+      "sha256": "b8efcf5ba6a8d1b130c30aa12ff1edd5f33354152686f55c66092f318e315cc9",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/X_test.npy",
+      "name": "X_test.npy",
+      "suffix": ".npy",
+      "bytes": 1664,
+      "sha256": "c1781ce244b144b3da5a9d382d634876124fa99f82acc19c5f01112b5a28365a",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/candidate_2d_to_3d.npz",
+      "name": "candidate_2d_to_3d.npz",
+      "suffix": ".npz",
+      "bytes": 2964,
+      "sha256": "1541af1dc385505d6b7107af5a27460050dca9ebc6c83f423014066cc5e15c64",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/icosahedron_phi.npy",
+      "name": "icosahedron_phi.npy",
+      "suffix": ".npy",
+      "bytes": 416,
+      "sha256": "b2ac71eb835a9c6b0279a672f78e11f666e92c9688f1e4243855ebf7a6298be3",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/report.json",
+      "name": "report.json",
+      "suffix": ".json",
+      "bytes": 175988,
+      "sha256": "53ec0c32f0a4eab839dcba79334d5c507180dd89e267007dbba8b6c996bbbe2f",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/tetraedron/star_tetrahedron_vertices.npy",
+      "name": "star_tetrahedron_vertices.npy",
+      "suffix": ".npy",
+      "bytes": 320,
+      "sha256": "9f1d9a5a634cbfc89150e152ca5aaf8fa65e1f32d9c286738f5bc0c0af28bd95",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/testglueball/su2_b2.3_L8.json",
+      "name": "su2_b2.3_L8.json",
+      "suffix": ".json",
+      "bytes": 2636,
+      "sha256": "e106d5f7aab249221b1c6a10f7d0cea25e5c545964456c7af8c83d4d1689f700",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/testglueball/su2_b2.3_L8.npz",
+      "name": "su2_b2.3_L8.npz",
+      "suffix": ".npz",
+      "bytes": 75913,
+      "sha256": "571ba85058022f19c9426cbefe4f9de73fb68cd0cc85f9cf6817117092b41ec5",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/testglueball/su2_b2.5_L8.json",
+      "name": "su2_b2.5_L8.json",
+      "suffix": ".json",
+      "bytes": 2558,
+      "sha256": "caa903ba6122a1604b2fd72db2ef46ad6cf758f9edca09326b45ebb074652fa3",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/testglueball/su2_b2.5_L8.npz",
+      "name": "su2_b2.5_L8.npz",
+      "suffix": ".npz",
+      "bytes": 75686,
+      "sha256": "7eac5d24283091add19974cf970b3e9b5e59938f01d4c4b3ea7d661f6a9a01bf",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/188D_PDF_AUDIT_SUMMARY.json",
+      "name": "188D_PDF_AUDIT_SUMMARY.json",
+      "suffix": ".json",
+      "bytes": 247,
+      "sha256": "8cabeb10c183230175473dc7bf7772503536c2ceb514a2f48c4b05a6c9764a39",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/188D_REAL_DATA_AUDIT_v2.json",
+      "name": "188D_REAL_DATA_AUDIT_v2.json",
+      "suffix": ".json",
+      "bytes": 297,
+      "sha256": "3e7ca4756726940bf651a9530a63a20f413c3604df145aa6207babc7a6794b70",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/188D_T2U_SAKHAROV_AUDIT.json",
+      "name": "188D_T2U_SAKHAROV_AUDIT.json",
+      "suffix": ".json",
+      "bytes": 158,
+      "sha256": "7e1ba9bb29ccb86eb943910b59e39103998e09530bc705c5a6aaf3afc7fbdf7a",
+      "category": "configurazione_o_report"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/J.npy",
+      "name": "J.npy",
+      "suffix": ".npy",
+      "bytes": 9152,
+      "sha256": "1c64086c0a8213d805858d452adc10fd31412f713a5ca7044c0b4b05e602ed0b",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/J_A.npy",
+      "name": "J_A.npy",
+      "suffix": ".npy",
+      "bytes": 4640,
+      "sha256": "b674bd78ec69fbbe2d2fe1217de90d41c6e0d6f6af08bba997dd529d9e5358c9",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/J_B.npy",
+      "name": "J_B.npy",
+      "suffix": ".npy",
+      "bytes": 4640,
+      "sha256": "0043e14ac656c444c9720d96378c661fcfa8f8fc768017238031167444260529",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/K0.npy",
+      "name": "K0.npy",
+      "suffix": ".npy",
+      "bytes": 282880,
+      "sha256": "1aa4a6c0e237f5fb43d1d05e2de5a073087f3a2c1d1d200946fd693f1476aaa1",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/Kinv.npy",
+      "name": "Kinv.npy",
+      "suffix": ".npy",
+      "bytes": 282880,
+      "sha256": "f4fbe78ebec63c237a77369dd354d8da9b5c1371c9eafcd87f775dc5b3464bc8",
+      "category": "dati_numerici"
+    },
+    {
+      "path": "/kaggle/input/datasets/fabianleonaressi/finalq/P_G.npy",
+      "name": "P_G.npy",
+      "suffix": ".npy",
+      "bytes": 282880,
+      "sha256": "2eb41891a2b545499f80078eafb504e01c3f26f583310e49a60d3bf5be787493",
+      "category": "dati_numerici"
+    }
+  ]
+}

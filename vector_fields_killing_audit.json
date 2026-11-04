@@ -1,0 +1,36 @@
+{
+  "status": "VECTOR_FIELDS_COMPUTED",
+  "num_candidates": 6,
+  "killing_audit_results": [
+    {
+      "name": "Translation_0",
+      "mean_residual": 0.0,
+      "is_approx_killing": true
+    },
+    {
+      "name": "Translation_1",
+      "mean_residual": 0.0,
+      "is_approx_killing": true
+    },
+    {
+      "name": "Translation_2",
+      "mean_residual": 0.0,
+      "is_approx_killing": true
+    },
+    {
+      "name": "Rotation_0",
+      "mean_residual": 1.97923914966612e-18,
+      "is_approx_killing": true
+    },
+    {
+      "name": "Rotation_1",
+      "mean_residual": 3.093393184460004e-17,
+      "is_approx_killing": true
+    },
+    {
+      "name": "Rotation_2",
+      "mean_residual": 3.093393184460004e-17,
+      "is_approx_killing": true
+    }
+  ]
+}

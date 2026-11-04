@@ -1,0 +1,50 @@
+{
+  "dimension": 188,
+  "subspace_dimension": 124,
+  "max_target_error": 1.5631940186722204e-13,
+  "max_integer_error": 1.5631940186722204e-13,
+  "max_spacing_error": 1.9895196601282805e-13,
+  "moments": {
+    "1": {
+      "computed": 7625.999999999998,
+      "expected": 7626.0,
+      "error": 1.8189894035458565e-12
+    },
+    "2": {
+      "computed": 627873.9999999999,
+      "expected": 627874.0,
+      "error": 1.1641532182693481e-10
+    },
+    "3": {
+      "computed": 58155875.99999999,
+      "expected": 58155876.0,
+      "error": 7.450580596923828e-09
+    },
+    "4": {
+      "computed": 5745674974.0,
+      "expected": 5745674974.0,
+      "error": 0.0
+    },
+    "5": {
+      "computed": 591309561876.0,
+      "expected": 591309561876.0,
+      "error": 0.0
+    },
+    "6": {
+      "computed": 62592288782374.0,
+      "expected": 62592288782374.0,
+      "error": 0.0
+    }
+  },
+  "K0_reconstruction_error": 3.8994493569387906e-15,
+  "K0_affine_error": 9.115370097567928e-15,
+  "passes": {
+    "N_subspace_spectrum_0_to_123": true,
+    "N_subspace_integer": true,
+    "N_subspace_spacing_one": true,
+    "moments_subspace": true,
+    "K0_reconstruction": true,
+    "K0_affine_relation": true
+  },
+  "all_pass": true
+}

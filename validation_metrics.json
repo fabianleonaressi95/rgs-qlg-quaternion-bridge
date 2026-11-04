@@ -1,0 +1,7 @@
+{
+  "seed": 20261015,
+  "validation_auc": 0.9999308641975309,
+  "total_test_events": 1000,
+  "clean_sections_survived": 495,
+  "description": "Topological bundle projection for Majorana 0nuubb search"
+}
