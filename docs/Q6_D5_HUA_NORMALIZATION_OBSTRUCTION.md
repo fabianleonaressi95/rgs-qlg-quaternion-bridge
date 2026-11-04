@@ -11,7 +11,7 @@ is 5. The Hua polynomial is
 
 with chi_5(0)=60.
 
-Let dnu be the normalized invariant Euclidean volume measure on D5 and
+Let dnu be the normalized Euclidean volume measure on D5 and
 N(z)=1-2 z* z+|z^T z|^2 its generic norm. The Hua integral formula gives
 
     I(s) = integral_D5 N(z)^s dnu(z)
