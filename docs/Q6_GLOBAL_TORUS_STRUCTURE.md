@@ -26,9 +26,13 @@ The 1-skeleton is connected and 6-regular. Therefore
 \operatorname{rank}D_0=V-1=63,\qquad
 \dim\ker D_0=E-63=129.
 \]
-The integer cycle lattice has rank 129; equivalently the first Betti number is \(b_1=129\). The 240 square faces generate the plaquette boundaries, with the chain identity \(D_1D_2=0\). The quotient of link angles by vertex gauge transformations has dimension 129; its harmonic flat-connection torus is \(\mathbb T^{129}\) when the integral homology has no torsion.
+The **graph cycle lattice** is \(Z_1=\ker D_1\subset\mathbb Z^{192}\), where here \(D_1\) is the vertex-edge incidence map (equivalently the transpose convention for \(D_0\)); its rank is \(E-V+1=129\). This is the cycle rank of the 1-skeleton. It must not be called the first Betti number of the full cubical cell complex until the plaquette-boundary quotient has been taken. The 240 square faces define a boundary map \(\partial_2:\mathbb Z^{240}\to Z_1\), with \(\partial_1\partial_2=0\). The actual first homology is
+\[
+H_1(Q6;\mathbb Z)=Z_1/\operatorname{im}\partial_2.
+\]
+Its free rank and torsion require the integral Smith data of \(\partial_2\); the counts \((64,192,240)\) alone do not determine them. Correspondingly, the quotient of link angles by vertex gauge transformations has dimension 129, but the **flat-connection moduli torus** is determined only after imposing the plaquette-flatness equations and computing \(H^1(Q6;U(1))\). It is not automatically \(\mathbb T^{129}\).
 
-This is a topological count. It does not select five physical dimensions, and it does not turn the six-dimensional Q6 complex into 3+1-dimensional spacetime.
+This distinction separates graph cycles (the domain used by the integer-cycle coordinates below) from physical flat holonomies (which also quotient plaquette boundaries). It does not select five physical dimensions or turn the six-dimensional Q6 graph into 3+1-dimensional spacetime.
 
 ## 3. The five-mode projection and its integer fibre
 
@@ -101,13 +105,13 @@ which is the integer lattice Gauss constraint. Thus the 63 gauge directions are 
 
 - **Flat P1 torus (G0–G6):** a genuine continuum manifold \(\mathbb T_L^d\), with a proved Mosco limit for the regular flat periodic P1 family. This is a rigorous analytic prototype, not a curved RGS-Q6 limit.
 - **Fourier Wilson torus:** a periodic momentum-space model with a fixed Hilbert embedding. Its symbol and scaling window belong to that specific flat translation-invariant model; they do not follow from the finite Q6 graph.
-- **Q6 link and cycle tori:** finite-dimensional compact groups determined by the incidence matrices and integer homology. These are the correct setting for U(1) holonomy, integer electric flux and Wilson character sums.
+- **Q6 link and cycle tori:** finite-dimensional compact groups determined by incidence matrices and integer lattices. The graph cycle torus, the flat-connection moduli and the Wilson annihilator must be computed as distinct quotients; the latter is not obtained by merely naming the graph cycle rank as \(b_1\).
 - **PSU–Anti-Twin / Möbius / double-torus pictures:** possible geometric or field-configuration ansätze. To connect them to the Q6 compact groups, one needs a specified map (for example, a coframe-induced connection and its holonomy representation), not a visual resemblance or equality of dimensions.
 
 ## 7. What is proved, what is not
 
 **Exact algebra/topology (under the stated Q6 incidence and saturated-kernel construction):**
-- \(\operatorname{rank}D_0=63\), cycle rank 129;
+- \(\operatorname{rank}D_0=63\), graph cycle rank 129;
 - rank-five rational coexact projector and rank-124 integer fibre kernel;
 - SNF invariants all one for the audited annihilator lattice;
 - connected annihilator \(H_L\cong\mathbb T^{68}\);
