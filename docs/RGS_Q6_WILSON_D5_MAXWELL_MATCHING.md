@@ -247,3 +247,10 @@ Run:
 The coefficient report is
 q6_u1_maxwell_matching_report(...) in
 src/rgs_q6_u1_maxwell_matching.py.
+
+
+## External sources and scope
+
+The compact-U(1) Fourier–Bessel expansion is the DLMF generating function §10.35.1–10.35.2 (https://dlmf.nist.gov/10.35), with the defining positive series in §10.25.2 (https://dlmf.nist.gov/10.25). The transfer-matrix/Hamiltonian framework is standard in Kogut and Susskind (1975), https://doi.org/10.1103/PhysRevD.11.395, Kogut (1979), https://doi.org/10.1103/RevModPhys.51.659, and Creutz (1977), https://doi.org/10.1103/PhysRevD.15.1128. The cochain Hodge framework is reviewed by Lim (2020), https://doi.org/10.1137/18M1223101.
+
+The Q6 eigenvalue/multiplicity calculation is the explicit tensor-product derivation in §2, not a result stated in these references. The Wilson-to-Maxwell step is only the fixed-flux, large-beta_t asymptotic and the declared anisotropic continuum normalization. It does not prove a continuum limit, a 3+1D reduction, or that the microscopic RGS–PSU action fixes g_7.

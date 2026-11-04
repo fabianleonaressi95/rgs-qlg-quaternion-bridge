@@ -7,7 +7,7 @@ positive marginal is
 
 \[
 W_{\rm eff}([c])=\sum_{k\in K_{\mathbb Z}}
-\prod_{e=1}^{192}\frac{I_{|(c+k)C)_e|}(\beta_t)}{I_0(\beta_t)}.
+\prod_{e=1}^{192}\frac{I_{|((c+k)C)_e|}(\beta_t)}{I_0(\beta_t)}.
 \]
 
 This note strengthens the convergence argument with an explicit
@@ -106,3 +106,8 @@ identification of a Wilson-derived radial density with the D5 generic-norm
 density still requires a constructed spatial/canonical sector and a
 derived pushforward measure. No equality between \(\beta_t\), a lattice
 spacing, and the Hua cutoff \(\epsilon\) is asserted.
+
+
+## Special-function reference
+
+For integer m>=0, the defining series for the modified Bessel function is given by NIST DLMF §10.25.2: https://dlmf.nist.gov/10.25. The termwise factorial comparison used here follows directly from that series; the subsequent multinomial and lattice-point estimates are elementary. The resulting majorant is a rigorous bound for the complete fibre, not a numerical evaluation of its mass.

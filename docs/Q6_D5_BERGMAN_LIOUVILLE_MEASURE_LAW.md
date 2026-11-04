@@ -88,3 +88,12 @@ RGS_Q6_D5_MAXWELL_HAMILTONIAN.md.
 
 The audit function is q6_d5_bergman_liouville_report in
 src/rgs_q6_d5_liouville_measure.py.
+
+
+## Literature and scope
+
+The type-IV domain, its generic norm and Bergman-kernel exponent are standard Cartan-domain results; see De Fabritiis (1990), https://www.bdim.eu/item?id=RLIN_1990_9_1_2_131_0, and Roos–Yin (arXiv:math/0301322), https://arxiv.org/abs/math/0301322. The preservation of canonical Liouville volume by Hamiltonian flow is the standard symplectic Liouville theorem; see the Hamiltonian-systems chapter in Cieliebak's symplectic geometry notes, https://ammann.app.uni-regensburg.de/lehre/2017w_symplectic/cieliebak_symplectic-geometry-a.pdf.
+
+The additional statement that the weighted density N^(-5) is preserved requires N to be a first integral. In this implementation that is proved for the isotropic five-mode oscillator because the flow is a common phase rotation and N is phase invariant. It is not asserted for a general Hamiltonian.
+
+The identity proved here is local to the explicit linear chart on the preimage of D5. It is not a pushforward theorem for the complete compact Wilson quotient, nor does it identify a physical cutoff.

@@ -61,6 +61,9 @@ These identities provide exact finite-dimensional reference tests. They do not, 
 
 ## Repository map
 
+- [Q6–D5 literature and repository evidence map](docs/Q6_D5_LITERATURE_AND_REPOSITORY_EVIDENCE_MAP.md) — external sources, internal proof files, repository inventory and open proof obligations.
+- [Research priorities and collaboration map](docs/RESEARCH_PRIORITIES_AND_COLLABORATION_MAP.md) — ordered open problems, targeted researchers, public contacts and external software benchmarks.
+
 - src/ — mathematical and computational implementations.
 - tests/ — unit and structural tests.
 - [experiments/README.md](experiments/README.md) — navigation, 311-file experiment inventory, exact-duplicate checks and safe variant-management rules.

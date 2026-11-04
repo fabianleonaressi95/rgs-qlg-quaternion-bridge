@@ -15,6 +15,8 @@
 
 The word “toroid” in the PSU–Anti-Twin geometric picture may additionally mean an embedded toroidal surface/handlebody or a two-sheeted configuration. That is a geometric ansatz and must not be identified with any of the compact abelian groups above without an explicit map.
 
+**Literature and repository audit:** see [Q6–D5 literature and repository evidence map](Q6_D5_LITERATURE_AND_REPOSITORY_EVIDENCE_MAP.md) for external references, the internal proof-file map and open obligations.
+
 ## 2. Q6 integer topology
 
 For the six-dimensional cubical Q6 complex:
@@ -26,11 +28,7 @@ The 1-skeleton is connected and 6-regular. Therefore
 \operatorname{rank}D_0=V-1=63,\qquad
 \dim\ker D_0=E-63=129.
 \]
-The **graph cycle lattice** is \(Z_1=\ker D_1\subset\mathbb Z^{192}\), where here \(D_1\) is the vertex-edge incidence map (equivalently the transpose convention for \(D_0\)); its rank is \(E-V+1=129\). This is the cycle rank of the 1-skeleton. It must not be called the first Betti number of the full cubical cell complex until the plaquette-boundary quotient has been taken. The 240 square faces define a boundary map \(\partial_2:\mathbb Z^{240}\to Z_1\), with \(\partial_1\partial_2=0\). The actual first homology is
-\[
-H_1(Q6;\mathbb Z)=Z_1/\operatorname{im}\partial_2.
-\]
-Its free rank and torsion require the integral Smith data of \(\partial_2\); the counts \((64,192,240)\) alone do not determine them. Correspondingly, the quotient of link angles by vertex gauge transformations has dimension 129, but the **flat-connection moduli torus** is determined only after imposing the plaquette-flatness equations and computing \(H^1(Q6;U(1))\). It is not automatically \(\mathbb T^{129}\).
+The **graph cycle lattice** is \(Z_1=\ker(\partial_1)\subset\mathbb Z^{192}\), where \(\partial_1\) maps oriented edges to their endpoint difference; its rank is \(E-V+1=129\). This is the cycle rank of the 1-skeleton, not the first Betti number before face boundaries are imposed. The 240 square faces define \(\partial_2:\mathbb Z^{240}\to Z_1\), with \(\partial_1\partial_2=0\), and \(H_1(Q6;\mathbb Z)=Z_1/\operatorname{im}\partial_2\). For the full six-cube, contractibility gives \(H_1=0\); equivalently the square-face boundaries generate the full integral cycle lattice and the quotient has no torsion. If one were given only the three cell counts, without the cubical boundary maps or contractibility, this conclusion would not follow.
 
 This distinction separates graph cycles (the domain used by the integer-cycle coordinates below) from physical flat holonomies (which also quotient plaquette boundaries). It does not select five physical dimensions or turn the six-dimensional Q6 graph into 3+1-dimensional spacetime.
 
@@ -341,16 +339,20 @@ K=\ker(P:\Lambda_{\rm cyc}\to\mathbb Z^5)
 \simeq\mathbb Z^{124},\qquad
 \Lambda_{\rm cyc}/K\simeq\mathbb Z^5.
 \]
-Choose an integral section \(B:\mathbb Z^5\to\Lambda_{\rm cyc}\) and an integral basis matrix \(K_0\) for the fibre. Every constrained flux has the unique form
+Use the row-vector convention of the repository: \(C\in\mathbb Z^{129\times192}\), \(B\in\mathbb Z^{5\times129}\), and \(K_0\in\mathbb Z^{124\times129}\), with the stacked matrix
 \[
-n=Bm+K_0k,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124}.
+\begin{bmatrix}B\\K_0\end{bmatrix}\in GL(129,\mathbb Z).
 \]
-For the factorized compact-U(1) link character weight, the exact marginal is
+Every constrained cycle-coordinate flux has the unique form
+\[
+c=m^TB+k^TK_0,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124},
+\]
+and its edge-flux vector is \(n=cC\in\mathbb Z^{192}\). For the factorized compact-U(1) link character weight, the exact marginal is
 \[
 W_\beta(m)=
 \sum_{k\in\mathbb Z^{124}}
 \prod_{e=1}^{192}
-\frac{I_{| (Bm+K_0k)_e |}(\beta)}{I_0(\beta)},
+\frac{I_{|((m^TB+k^TK_0)C)_e|}(\beta)}{I_0(\beta)},
 \]
 with the understanding that the actual Q6 cycle embedding and any additional plaquette/temporal indices must be included exactly as specified by the chosen Wilson action. The absolute convergence and tail control of the fibre sum are the subject of the earlier integer-fibre and Bessel-majorant results. Define
 \[
@@ -530,3 +532,8 @@ The microhistory identity \(|S_s\cdot h|/s!=1/\prod_e|n_e|!\) is an exact orbit-
 **Exact:** Q6 incidence ranks; top coexact five-mode eigenspace and A5 character; saturated rank-124 kernel and rank-five free quotient; SNF annihilator \(\mathbb T^{68}\); exact Bessel character/fibre identity and factorial tail bound; Maxwell Legendre transform under \(\beta=g^{-2}\); Bergman volume pullback; isotropic weighted Liouville invariance; Hua Mellin law and finite cutoff.
 
 **Open:** deterministic integral splitting aligned to the A5 frame; full spacetime Wilson marginal; Wilson-to-D5 Radon–Nikodym theorem; physical derivation of \(\varepsilon\); tight continuum limit; coupled U(1)–Spin–vierbein Anti-Twin construction; physical 3+1 reduction; alpha derivation; formal Gödel/modal theorem.
+
+
+## Literature anchors for the torus and Hodge statements
+
+The algebraic Hodge framework for incidence matrices and cohomology is treated in Lim, *Hodge Laplacians on Graphs*, SIAM Review 62 (2020), https://doi.org/10.1137/18M1223101. The integer normal-form and invariant-factor statements are standard Smith/Hermite theory; see https://flintlib.org/doc/algorithms/linear-algebra/hermite-smith.html. These references support the general machinery; the concrete Q6 matrices, the rank-124 saturated kernel, the unit Smith factors and the inclusion of the 63-dimensional gauge torus are checked by the repository's exact arithmetic.

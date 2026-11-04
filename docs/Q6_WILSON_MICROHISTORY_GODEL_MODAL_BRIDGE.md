@@ -79,3 +79,10 @@ Run: python scripts/run_q6_wilson_microhistory_modal_bridge.py
 The JSON report uses a small four-edge exact example. It is a structural
 unit test, not a truncation or numerical evaluation of the 124-dimensional
 Q6-D5 fiber.
+
+
+## Literature and scope
+
+The orbit–stabilizer identity is the standard finite-group action theorem; see Dummit and Foote, *Abstract Algebra*, 3rd ed. (2004). The interpretation of an equivalence accessibility relation as an S5 frame is standard Kripke semantics; see Blackburn, de Rijke and Venema, *Modal Logic* (Cambridge, 2001). For the actual Gödel–Scott ontological argument and its higher-order modal setting, see Kanckos and Lethen (2019), https://www.cambridge.org/core/journals/review-of-symbolic-logic/article/development-of-godels-ontological-proof/728D16FEF40BA2054055E378C879F369, and Benzmüller and Scott (2025), https://doi.org/10.1007/s00605-025-02078-x.
+
+The references support orbit–stabilizer and the modal-logic framework. They do not identify the exact Wilson Bessel measure with the factorial orbit count: the pair-creation indices remain. Nor does the local permutation S5 frame instantiate Gödel's positivity, essence or necessary-existence axioms.

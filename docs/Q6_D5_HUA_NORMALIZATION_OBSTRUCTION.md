@@ -133,3 +133,10 @@ exact finite-delta integral.
   Bergman measure; those remain different measures on different spaces.
 - A physical regulator must still be derived from a specified discrete
   transfer kernel or pushforward, not chosen to match alpha.
+
+
+## External sources
+
+The generic-norm integral and Hua polynomial follow from Roos and Yin, *New classes of domains with explicit Bergman kernel*, arXiv:math/0301322, Proposition 2.1 and Theorem 2.3: https://arxiv.org/abs/math/0301322. The type-IV domain and its Bergman kernel are also treated by De Fabritiis (1990): https://www.bdim.eu/item?id=RLIN_1990_9_1_2_131_0. The unit-radius Euclidean volume of the Lie ball is given by Rakhmonov and Abdullayev (2019), Theorem 3: https://doi.org/10.20537/vm190406. Moment determinacy on [0,1] is the Hausdorff theorem; see Diaconis and Freedman (2004): https://doi.org/10.1007/s00209-003-0633-9.
+
+These references support the standard domain integral, volume and moment uniqueness. The explicit density f_N, Beta-product identification and cutoff primitive are the derivations recorded in this repository. None of the cited results selects a physical epsilon or identifies it with a Wilson spectral threshold.

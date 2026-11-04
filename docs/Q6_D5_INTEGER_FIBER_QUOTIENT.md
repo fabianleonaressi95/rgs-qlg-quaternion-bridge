@@ -76,3 +76,10 @@ absolute convergence of the complete fiber-summed weight.
 Open: controlled evaluation of the complete fiber sum, spatial sector,
 full D5 phase-space measure, global map, Hua cutoff identification, and
 any physical 3+1D reduction.
+
+
+## External algebraic and special-function sources
+
+The exact integer-kernel and quotient computation uses the standard Smith/Hermite normal-form theorem; see FLINT, *Hermite and Smith normal forms*, https://flintlib.org/doc/algorithms/linear-algebra/hermite-smith.html, and Cohen, *A Course in Computational Algebraic Number Theory* (1996). The positive Bessel coefficients and power-series estimates follow from NIST DLMF §10.25.2: https://dlmf.nist.gov/10.25.
+
+These sources establish the general algorithms and special-function identities. The rank-five rational map, saturated rank-124 Q6 kernel, and fibre-summed weight are Q6-specific exact constructions audited in the source/tests. The complete fibre sum is convergent; this does not mean it has been numerically evaluated to a certified interval.
