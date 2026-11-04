@@ -41,3 +41,13 @@ jobs:
           name: q6-d5-degree-six-sobol-audit
           path: reports/q6_d5_degree_six_sobol.json
           if-no-files-found: error
+
+      - name: Run exact D5 Hua cutoff-normalization audit
+        run: python scripts/run_q6_d5_hua_cutoff.py
+
+      - name: Upload reproducible D5 Hua cutoff audit JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-hua-cutoff-normalization
+          path: reports/q6_d5_hua_cutoff_normalization.json
+          if-no-files-found: error
