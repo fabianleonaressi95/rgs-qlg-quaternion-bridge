@@ -385,3 +385,25 @@ def qball_gaussian_trial(radius, amplitude_scale: float = 0.5,
         "ansatz": "Gaussian variational trial only"
     })
     return result
+
+
+def qball_frequency_window(mass_scale: float = 1.0, quartic: float = 1.0,
+                           sextic: float = 0.2) -> dict:
+    """Necessary thin-wall existence window from min_{f>0} V(f)/f^2 < omega^2 < m^2.
+
+    For V=m^2 f^2-lambda f^4+g f^6, min(V/f^2)=m^2-lambda^2/(4g).
+    A positive lower endpoint additionally requires lambda^2 < 4 g m^2.
+    """
+    m, lam, g = float(mass_scale), float(quartic), float(sextic)
+    if m <= 0 or lam <= 0 or g <= 0:
+        raise ValueError("mass_scale, quartic and sextic must be positive")
+    lower_sq = m**2 - lam**2 / (4.0 * g)
+    stable_vacuum = lower_sq > 0.0
+    return {
+        "omega_min_squared": float(lower_sq),
+        "omega_min": float(np.sqrt(lower_sq)) if stable_vacuum else None,
+        "omega_max": m,
+        "stable_vacuum": bool(stable_vacuum),
+        "nonempty_frequency_window": bool(stable_vacuum and lower_sq < m**2),
+        "criterion": "sqrt(min(V(f)/f^2)) < omega < mass_scale; necessary Q-ball existence window, not a stability proof"
+    }
