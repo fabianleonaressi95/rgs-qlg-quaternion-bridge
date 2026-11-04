@@ -15,10 +15,12 @@ def _integrate_toy_annihilator(data, beta, character):
             2.0*math.pi*u,
         ))
         x = z @ v.T
-        amplitude = np.exp(beta*np.sum(np.cos(x), axis=1))/(i0(beta)**2)
+        log_scale, _ = _wilson_integrand_log_split(beta, 0.0, 2)
+        log_amplitude = beta*(np.sum(np.cos(x), axis=1)-2)
+        amplitude = np.exp(log_amplitude)
         phase = x @ np.asarray(character, dtype=float)
         values.append(np.mean(amplitude*np.exp(-1j*phase)))
-    return np.mean(values)
+    return math.exp(log_scale)*np.mean(values)
 
 
 def test_smith_parameterization_tracks_disconnected_annihilator():
