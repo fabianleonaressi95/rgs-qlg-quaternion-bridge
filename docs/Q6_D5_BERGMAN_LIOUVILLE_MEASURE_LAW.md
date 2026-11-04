@@ -4,9 +4,13 @@
 
 Let (q,p) be canonical coordinates on the five-mode Q6 Maxwell sector, with
 H = 1/2 [ beta lambda q.q + beta^(-1) p.p ], beta,lambda>0.
-Put omega=sqrt(beta lambda) and define
+Put Omega=sqrt(lambda), kappa=beta*Omega and define
 
-    Phi(q,p) = z = (sqrt(omega) q + i p/sqrt(omega))/sqrt(20).
+    Phi(q,p) = z = (sqrt(kappa) q + i p/sqrt(kappa))/sqrt(20).
+
+This is the flow-adapted canonical scale for this Maxwell Hamiltonian.
+The older scale sqrt(beta*lambda) gives the same constant volume Jacobian,
+but it does not produce the Hamiltonian common-phase flow unless beta=1.
 
 For the type-IV domain D5, use generic norm
 
@@ -19,7 +23,8 @@ and canonical Liouville measure dmu_L=product dq_j dp_j, the exact law is
     Phi^*(dV_B) = N(Phi(q,p))^(-5) dmu_L,
 
 wherever Phi(q,p) belongs to D5. At the origin N=1, so the two volume
-forms agree exactly.
+forms agree exactly. Hamilton's equations have frequency Omega=sqrt(lambda)
+and the chart obeys Phi(q(t),p(t))=exp(-i Omega t)Phi(q(0),p(0)).
 
 ## Proof
 
@@ -67,7 +72,15 @@ normalization.
   or a physical normalization/derivation of alpha.
 
 The factor N^(-5) is the precise measure correction any proposed global
-Q6-to-D5 completion must reproduce.
+Q6-to-D5 completion must reproduce. The weighted measure is preserved by
+this isotropic oscillator because N is constant along its common-phase flow;
+for a general Hamiltonian the exact criterion is X_H(N)=0.
+
+The PR #145 volume identity is independent of the positive reciprocal scale
+used in the linear chart. The dynamical statement is not: it requires the
+flow-adapted scale kappa=beta*sqrt(lambda). This distinction reconciles the
+older chart convention with the Maxwell-normalized Hamiltonian in
+RGS_Q6_D5_MAXWELL_HAMILTONIAN.md.
 
 ## Reproducibility
 

@@ -341,16 +341,20 @@ K=\ker(P:\Lambda_{\rm cyc}\to\mathbb Z^5)
 \simeq\mathbb Z^{124},\qquad
 \Lambda_{\rm cyc}/K\simeq\mathbb Z^5.
 \]
-Choose an integral section \(B:\mathbb Z^5\to\Lambda_{\rm cyc}\) and an integral basis matrix \(K_0\) for the fibre. Every constrained flux has the unique form
+Use the row-vector convention of the repository: \(C\in\mathbb Z^{129\times192}\), \(B\in\mathbb Z^{5\times129}\), and \(K_0\in\mathbb Z^{124\times129}\), with the stacked matrix
 \[
-n=Bm+K_0k,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124}.
+\begin{bmatrix}B\\K_0\end{bmatrix}\in GL(129,\mathbb Z).
 \]
-For the factorized compact-U(1) link character weight, the exact marginal is
+Every constrained cycle-coordinate flux has the unique form
+\[
+c=m^TB+k^TK_0,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124},
+\]
+and its edge-flux vector is \(n=cC\in\mathbb Z^{192}\). For the factorized compact-U(1) link character weight, the exact marginal is
 \[
 W_\beta(m)=
 \sum_{k\in\mathbb Z^{124}}
 \prod_{e=1}^{192}
-\frac{I_{| (Bm+K_0k)_e |}(\beta)}{I_0(\beta)},
+\frac{I_{|((m^TB+k^TK_0)C)_e|}(\beta)}{I_0(\beta)},
 \]
 with the understanding that the actual Q6 cycle embedding and any additional plaquette/temporal indices must be included exactly as specified by the chosen Wilson action. The absolute convergence and tail control of the fibre sum are the subject of the earlier integer-fibre and Bessel-majorant results. Define
 \[
@@ -447,3 +451,86 @@ Additional references:
 - NIST Digital Library of Mathematical Functions, §§10.40–10.41, modified-Bessel large-argument and large-order asymptotics: https://dlmf.nist.gov/10.40 and https://dlmf.nist.gov/10.41.
 - J. B. Kogut, “An Introduction to Lattice Gauge Theory and Spin Systems,” *Rev. Mod. Phys.* 51 (1979), 659–713, DOI: 10.1103/RevModPhys.51.659.
 - Hamiltonian Liouville theorem: preservation of the canonical symplectic volume under Hamiltonian flow; see, e.g., the standard symplectic-geometry treatment in the cited graduate text.
+
+
+## 18. Unified RGS–PSU–Q6–Wilson–Liouville synthesis
+The architecture is now summarized as a chain of different but compatible structures:
+\[
+Q6\text{ gauge quotient}\to\ker D_0^T\to V_5
+\to T^*V_5\to D_5\to N^{-5}d\mu_L\to d\mu_{B,\varepsilon}.
+\]
+In parallel, the exact character route is
+\[
+\mathbb Z^{129}\to\mathbb Z^{129}/K_{\mathbb Z}\simeq\mathbb Z^5,
+\quad
+W_\beta([c])=\sum_{k\in K_{\mathbb Z}}w_\beta(c+k),
+\quad H_L\simeq\mathbb T^{68}.
+\]
+These routes meet only after an explicit integral splitting, cotangent construction and measure pushforward. The following subsections state the interfaces and their status.
+
+### 18.1 Q6 and the A5 mode sector
+
+The six-cube has 64 vertices, 192 edges and 240 square faces. The U(1) link quotient has dimension 129; this is the graph-cycle rank and Coulomb tangent dimension, not the first Betti number of the complete cubical complex. The top coexact eigenvalue 12 has multiplicity five and carries the irreducible A5 character \((5,1,-1,0,0)\). It defines \(V_5\), and its cotangent lift is the ten-real-dimensional canonical phase space. The five modes are spectral degrees of freedom, not five homology classes or five spacetime dimensions.
+
+### 18.2 Integer Wilson quotient
+
+For a rational top-mode basis \(V_{\mathbb Q}\), the exact map \(M=CV_{\mathbb Q}\) has rank five. Its saturated integer kernel \(K_{\mathbb Z}\) has rank 124, so the quotient lattice is free of rank five. A unimodular completion \([B\ K_0]\in GL(129,\mathbb Z)\) gives the unique decomposition \(c=Bm+K_0k\). The complete marginal is
+\[
+W_{\beta_t}(m)=\sum_{k\in\mathbb Z^{124}}
+\prod_{e=1}^{192}\frac{I_{|((Bm+K_0k)C)_e|}(\beta_t)}{I_0(\beta_t)}.
+\]
+Its absolute convergence follows from the factorial Bessel majorant; the certified edge-flux tail bound controls truncations. A finite sum or Sobol estimate is not the complete marginal.
+
+The annihilator of the embedded saturated kernel is \(H_L\simeq\mathbb T^{68}\). The 63-dimensional vertex gauge torus lies inside it, and the quotient is abstractly \(\mathbb T^5\). The canonical identification of this quotient with the selected A5 mode coordinates still requires the explicit unimodular completion and intertwiner. The 68-torus, the 129-dimensional link quotient and the five-torus are distinct objects.
+
+### 18.3 Maxwell and Liouville normalization
+
+For \(H_5=\frac12(\beta\lambda|q|^2+\beta^{-1}|p|^2)\), the frequency is \(\Omega=\sqrt\lambda\). The flow-adapted complex scale is \(\kappa=\beta\sqrt\lambda\):
+\[
+z=\frac{\sqrt\kappa q+i\,p/\sqrt\kappa}{\sqrt{20}},
+\qquad H_5=10\Omega z^\dagger z,\qquad z(t)=e^{-i\Omega t}z(0).
+\]
+The Bergman generic norm is \(N=1-2z^\dagger z+|z^Tz|^2\). With \(\det g_B=10^5N^{-5}\) and real chart Jacobian \(20^{-5}\),
+\[
+\Phi^*dV_B=N^{-5}d\mu_L.
+\]
+The weighted measure is invariant under a Hamiltonian \(H\) exactly when \(X_HN=0\). The isotropic five-mode oscillator satisfies this condition because its flow is a common phase rotation. This is not an assertion for arbitrary or anisotropic Hamiltonians.
+
+### 18.4 Hua cutoff and the Wilson matching theorem
+
+The normalized Euclidean Hua Mellin law is \(60/\chi_5(s)\), where
+\[
+\chi_5(s)=(s+1)(s+2)(s+3)(s+4)(s+5/2),\quad \Re s>-1.
+\]
+The generic-norm density is
+\[
+f_N(t)=\frac{20}{3}(1-\sqrt t)^4(1+4\sqrt t+t).
+\]
+The uncut Bergman volume diverges; \(Z_5(\varepsilon)=\int_\varepsilon^1t^{-5}f_N(t)\,dt\sim(5/3)\varepsilon^{-4}\). The cutoff is exact mathematics, but its physical value is not derived.
+
+At finite coupling, the Wilson quotient is discrete in integer flux, while the Liouville target is absolutely continuous in ten real variables. A normalized smoothing/interpolation and cotangent lift are therefore required. The theorem to prove is the Radon–Nikodym identity
+\[
+F_{\beta,\sigma*}\widetilde\mu_{\beta,\sigma}
+=\frac{\mathbf1_{N\geq\varepsilon}N^{-5}}{Z_5(\varepsilon)}d\nu_E.
+\]
+It requires the full fibre sum, the exact map \(F_{\beta,\sigma}\), its Jacobian/coarea formula and a cutoff derived from the Wilson data. The Gaussian Bessel limit is only leading asymptotics and cannot replace this proof.
+
+A global diffeomorphism \(T^*\mathbb T^5\simeq D_5\) is impossible: their fundamental groups differ. A cut-cell local chart or measurable pushforward remains possible.
+
+### 18.5 PSU–Anti-Twin geometric interface
+
+A toroidal surface, a compact phase torus and a two-sheeted field configuration are different mathematical objects. The connection between Q6 and a continuum U(1) field is through link holonomies \(U_e=\exp(i\int_e A)\) and plaquette curvature \(\exp(i\int_fF)\), \(F=dA\). The vierbein is independent data: with spin connection \(\omega^a{}_b\), teleparallel torsion is \(T^a=de^a+\omega^a{}_b\wedge e^b\), and in Weitzenböck gauge \(T^a=de^a\). U(1) curvature and torsion have different bundle representations and cannot be identified without a specified coupled bundle, solder form and action.
+
+An Anti-Twin model requires a double cover, sheet-exchange involution, transformation laws for \(A,e^a,\omega^a{}_b\), and gluing conditions. A discrete Q6×Z2 construction is a candidate, not by itself a proof of a wormhole or spacetime throat. The A5 action and its binary lift \(2I\subset SU(2)\) provide a route to the quaternionic/spin sector, but the equivariant bridge to the U(1) Wilson quotient and vierbein remains open.
+
+### 18.6 Weyl/Wyler and modal status
+
+The finite Euclidean D5 volume, the invariant Bergman volume and the Hua-cutoff probability are distinct measures. In the Wyler normalization \(V_E(D_5;R)=R^{10}\pi^5/1920\), so the associated fourth-root expression scales as \(R^{5/2}\). The Bergman volume diverges. No alpha prediction follows until the physical scale, observable measure, coupling renormalization and continuum limit are derived.
+
+The microhistory identity \(|S_s\cdot h|/s!=1/\prod_e|n_e|!\) is an exact orbit-stabilizer statement and supports the Bessel factorial bound. It is not Gödel's ontological proof. A formal modal theorem requires its own language, axioms, interpretation and soundness argument.
+
+### 18.7 Final status
+
+**Exact:** Q6 incidence ranks; top coexact five-mode eigenspace and A5 character; saturated rank-124 kernel and rank-five free quotient; SNF annihilator \(\mathbb T^{68}\); exact Bessel character/fibre identity and factorial tail bound; Maxwell Legendre transform under \(\beta=g^{-2}\); Bergman volume pullback; isotropic weighted Liouville invariance; Hua Mellin law and finite cutoff.
+
+**Open:** deterministic integral splitting aligned to the A5 frame; full spacetime Wilson marginal; Wilson-to-D5 Radon–Nikodym theorem; physical derivation of \(\varepsilon\); tight continuum limit; coupled U(1)–Spin–vierbein Anti-Twin construction; physical 3+1 reduction; alpha derivation; formal Gödel/modal theorem.
