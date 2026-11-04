@@ -18,7 +18,9 @@ def test_covariant_incidence_and_dirac_kaehler_hermiticity():
     k=dirac_kaehler_operator(u)
     assert d.shape==(384,128) and k.shape==(512,512)
     assert np.linalg.norm(k-k.conj().T)<1e-12
-    assert np.linalg.eigvalsh(k)[0]>-1e-10
+    ev=np.linalg.eigvalsh(k)
+    assert np.max(np.abs(ev+ev[::-1]))<1e-10
+    assert np.linalg.eigvalsh(d.conj().T@d)[0]>-1e-10
 
 def test_gauge_covariance_and_wilson_loop_invariance():
     u=random_su2_matrices(192,seed=12)

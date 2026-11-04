@@ -135,7 +135,8 @@ def audit_q6_su2_connection(seed=20261104):
     cov_dk=float(np.linalg.norm(dkg-p@dk@p.conj().T))
     herm=float(np.linalg.norm(dk-dk.conj().T))
     eig=np.linalg.eigvalsh(dk)
-    min_eig=float(eig[0])
+    spectral_pairing=float(np.max(np.abs(eig+eig[::-1])))
+    laplacian_min=float(np.linalg.eigvalsh(d.conj().T@d)[0])
     h=plaquette_holonomies(links,c)
     hg=plaquette_holonomies(links_g,c)
     traces=np.trace(h,axis1=1,axis2=2)
@@ -154,7 +155,8 @@ def audit_q6_su2_connection(seed=20261104):
       "covariant_coboundary_shape":list(d.shape),
       "dirac_kaehler_shape":list(dk.shape),
       "dirac_kaehler_hermiticity_residual":herm,
-      "dirac_kaehler_min_eigenvalue":min_eig,
+      "dirac_kaehler_spectral_pairing_residual":spectral_pairing,
+      "covariant_laplacian_min_eigenvalue":laplacian_min,
       "gauge_covariance_DU_residual":cov_d,
       "gauge_covariance_DK_residual":cov_dk,
       "wilson_trace_gauge_invariance_residual":trace_res,
@@ -162,5 +164,5 @@ def audit_q6_su2_connection(seed=20261104):
       "mean_wilson_trace_real":float(np.mean(traces.real)),
       "all_checks_passed":bool(max(link_report["unitarity_residual"],link_report["determinant_residual"],
         gauge_report["unitarity_residual"],gauge_report["determinant_residual"],herm,cov_d,cov_dk,
-        trace_res,conj_res)<1e-10 and min_eig>-1e-10)
+        trace_res,conj_res,spectral_pairing)<1e-10 and laplacian_min>-1e-10)
     }
