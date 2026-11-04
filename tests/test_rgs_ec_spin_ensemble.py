@@ -38,6 +38,20 @@ def test_isotropic_spatial_covariance_diagnostic():
     assert r["time_space_covariance_norm"] == 0
 
 
+def test_time_space_covariance_is_connected_second_moment():
+    # A coherent mean contributes to <J^0 J^i> but is removed from Cov(J^0,J^i).
+    second = np.array([
+        [2.0, 0.6, 0.0, 0.0],
+        [0.6, 1.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0],
+    ])
+    mean = np.array([1.0, 0.4, 0.0, 0.0])
+    result = spatial_isotropy_residual(second, mean)
+    assert result["time_space_second_moment_norm"] == pytest.approx(0.6)
+    assert result["time_space_covariance_norm"] == pytest.approx(0.2)
+
+
 def test_weighted_moments_and_flavour_averaging():
     x=np.array([[1.,0,0,0],[-1.,0,0,0],[3.,0,0,0]])
     r=audit_spin_ensemble(x,1.0,weights=[1,1,2])
