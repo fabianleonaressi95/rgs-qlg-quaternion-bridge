@@ -63,3 +63,14 @@ def test_rejects_bad_weights_and_nonpositive_scale_factor():
         build_cosmological_spin_state([[1.,0,0,0]],1,scale_factor=0,
             hubble_rate=0,energy_density=0,pressure=0,
             units_id="u",derivation_id="d")
+
+
+def test_flrw_isotropy_uses_full_second_moment_and_mean_polarization():
+    # Covariance is isotropic, but a coherent spatial mean selects an axis.
+    from src.rgs_ec_spin_ensemble import spatial_isotropy_residual
+    second = np.diag([1.0, 1.0, 1.0, 1.0])
+    mean = np.array([0.0, 0.2, 0.0, 0.0])
+    result = spatial_isotropy_residual(second, mean)
+    assert result["spatial_isotropy_residual"] == pytest.approx(0.0)
+    assert result["mean_spatial_polarization_norm"] == pytest.approx(0.2)
+    assert result["flrw_isotropy_residual"] > 0.0
