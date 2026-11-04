@@ -211,3 +211,20 @@ remain open and are not asserted by the finite tests.
 
 Run:
 PYTHONPATH=. python -m pytest tests/test_q6_hypercube_gk_supergolden.py -q
+
+## RGS–Q6 induced metric and graph P1 audit
+
+The recovered 64-point RGS seed is now audited as a map
+X: {0,1}^6 -> R^3. The new
+[finite induced-metric audit](docs/RGS_Q6_INDUCED_METRIC.md) checks all
+192 edge lengths, 240 face Gram matrices and closure defects, the
+vertexwise rank-at-most-three pullback Gram, and metric-weighted 1D P1
+mass/stiffness assembled on the Q6 graph. It deliberately does not call
+the singular 6x6 pullback a nondegenerate six-dimensional metric or
+identify graph P1 matrices with a Whitney 1-form Hodge star.
+
+Run:
+```bash
+PYTHONPATH=. python -m pytest tests/test_rgs_q6_induced_metric.py -q
+PYTHONPATH=. python -m src.rgs_q6_induced_metric --output results/rgs_q6_induced_metric
+```
