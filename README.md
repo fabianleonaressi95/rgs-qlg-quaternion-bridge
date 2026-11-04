@@ -173,3 +173,4 @@ and
 The recovered 64 points form four full O_h orbits of sizes 8, 24, 24,
 and 8 (represented by eight coordinate-sign blocks). This corrects the
 older shorthand "eight O_h orbits" in the Phase 15-era description.
+\n## Qutrit entanglement on an aperiodic chain\n\n`src/qutrit_aperiodic.py` adds a three-level local Hilbert space (qutrit), the maximally entangled qutrit Bell state, Schmidt/von-Neumann diagnostics, and a finite SU(3)-invariant permutation chain whose bonds follow the Fibonacci substitution sequence. The finite-chain ground-state entanglement is computed by exact diagonalisation. See [QUTRIT_APERIODIC_ENTANGLEMENT.md](docs/QUTRIT_APERIODIC_ENTANGLEMENT.md).\n\nRun: `PYTHONPATH=. python -m pytest tests/test_qutrit_aperiodic.py -q`. This is a finite quantum-spin model; it is not a QCD colour calculation or a continuum-limit result.\n
