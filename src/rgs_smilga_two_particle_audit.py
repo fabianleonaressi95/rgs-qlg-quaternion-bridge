@@ -157,3 +157,54 @@ def audit(m=1., M=3., velocity=(.2, -.1, .15)):
                  "geometric weight equals renormalized low-energy QED alpha",
                  "Q6 U(1)^129 measure induces D5 geometry"]
     }
+
+
+# Fixed-invariant-mass five-dimensional shell chart
+
+def fixed_mass_shell_chart(total_spatial_momentum, theta, phi, M, m):
+    """Return lab-frame (p1,p2) on the equal-mass shell at fixed P^2=M^2.
+
+    Coordinates are (P_x,P_y,P_z,theta,phi), with (theta,phi) the
+    relative CM direction. The chart is regular for M>2m and
+    0<theta<pi; the usual polar singularities are coordinate singularities.
+    """
+    Pvec = np.asarray(total_spatial_momentum, dtype=float)
+    if Pvec.shape != (3,) or not np.all(np.isfinite(Pvec)):
+        raise ValueError("total_spatial_momentum must be a finite 3-vector")
+    if not (np.isfinite(theta) and np.isfinite(phi)):
+        raise ValueError("angles must be finite")
+    if not (np.isfinite(M) and np.isfinite(m) and M > 2*m and m >= 0):
+        raise ValueError("require finite M>2m and m>=0 for a regular shell chart")
+    n = np.array([math.sin(theta)*math.cos(phi),
+                  math.sin(theta)*math.sin(phi), math.cos(theta)])
+    p1_cm, p2_cm = cm_pair(M, m, n)
+    E_total = math.sqrt(M*M + float(Pvec @ Pvec))
+    velocity = Pvec / E_total
+    return boost(p1_cm, velocity), boost(p2_cm, velocity)
+
+
+def shell_chart_jacobian(total_spatial_momentum, theta, phi, M, m, step=1e-6):
+    """Central-difference 6x5 Jacobian of (p1_vec,p2_vec) by shell coordinates."""
+    if not np.isfinite(step) or step <= 0:
+        raise ValueError("step must be finite and positive")
+    z = np.array([*np.asarray(total_spatial_momentum, dtype=float), theta, phi])
+    def flatten(params):
+        a, b = fixed_mass_shell_chart(params[:3], params[3], params[4], M, m)
+        return np.concatenate([a[1:], b[1:]])
+    jac = np.empty((6, 5), dtype=float)
+    for j in range(5):
+        dz = np.zeros(5); dz[j] = step
+        jac[:, j] = (flatten(z + dz) - flatten(z - dz)) / (2*step)
+    return jac
+
+
+def factorized_invariant_shell_density_d3P_dOmega(total_spatial_momentum, M, m):
+    """Density of d^3P/(2E_P) times standard dPhi_2, w.r.t. d^3P dOmega."""
+    Pvec = np.asarray(total_spatial_momentum, dtype=float)
+    if Pvec.shape != (3,) or not np.all(np.isfinite(Pvec)):
+        raise ValueError("total_spatial_momentum must be a finite 3-vector")
+    if not (np.isfinite(M) and np.isfinite(m) and M > 2*m and m >= 0):
+        raise ValueError("require finite M>2m and m>=0")
+    E_total = math.sqrt(M*M + float(Pvec @ Pvec))
+    k = math.sqrt(M*M/4-m*m)
+    return k/(32*math.pi**3*M*E_total)
