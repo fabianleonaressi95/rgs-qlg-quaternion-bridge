@@ -35,7 +35,9 @@ def test_fibonacci_qutrit_chain_is_hermitian_and_entangled():
     assert chain.hamiltonian.shape == (81, 81)
     assert np.allclose(chain.hamiltonian, chain.hamiltonian.T)
     result = ground_state_entanglement(chain)
-    assert result["gap"] >= -1e-10
+    assert result["gap_above_ground_manifold"] >= -1e-10
+    assert result["ground_state_degeneracy"] >= 1
+    assert result["ground_state_entanglement_basis_dependent"] == (result["ground_state_degeneracy"] > 1)
     assert result["schmidt_rank"] >= 2
     assert result["entanglement_entropy_bits"] > 1e-8
     assert result["hamiltonian_hermiticity_residual"] < 1e-12
