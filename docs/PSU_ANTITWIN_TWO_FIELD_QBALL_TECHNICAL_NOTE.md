@@ -43,7 +43,7 @@ For kappa nonzero, the relative phase symmetry is broken; only the diagonal U(1)
 
 Varying the stated action with D_mu=nabla_mu-iqA_mu gives
 [
-\nabla_\mu F^{\mu\nu}=-qj_N^\nu.
+\nabla_\mu F^{\mu\nu}=+qj_N^\nu.
 ]
 The sign is convention-dependent: changing the sign in D_mu changes the assigned electric-charge sign. The Maxwell equation, current, and Gauss-flux diagnostic must be changed together.
 
@@ -51,9 +51,9 @@ For Phi=f(r) exp(i omega t), A=A_0(r)dt, Omega=omega-qA_0, one has j_N^0=2 Omega
 [
 A_0''+\frac2rA_0'=+2q\Omega f^2.
 ]
-The outward electric flux is Q_flux=-4 pi R^2 A_0'(R)=-q Q_N, where Q_N=4 pi integral_0^R 2 Omega f^2 r^2 dr.
+The outward electric flux is Q_flux=-4 pi R^2 A_0'(R)=+q Q_N, where Q_N=4 pi integral_0^R 2 Omega f^2 r^2 dr.
 
-**Important repository audit:** the current Maxwell Q-ball solver uses the opposite radial Maxwell-source sign and defines electric charge as +q Q_N. Those choices pass its present internally matched tests, but do not match the action and covariant derivative specified here. Correct the source, electric-charge convention, initial seed sign, and tests together before using that solver as a benchmark.
+**Repository audit:** an earlier patch changed the radial source to the positive sign while leaving the independent residual formula at the negative sign. That mismatch caused the reported residual of about 0.1826. The solver is now being aligned with the action-derived negative radial source, positive flux charge Q_e=+q Q_N, and matching initial iterate. The CI must confirm the correction.
 
 ## 3. Exchange-symmetric stationary branch
 
