@@ -71,3 +71,13 @@ jobs:
           name: q6-d5-integer-fiber-quotient
           path: reports/q6_d5_integer_fiber_quotient.json
           if-no-files-found: error
+
+      - name: Run saturated Q6-D5 integer-kernel and certified Wilson-tail audit
+        run: python scripts/run_q6_d5_saturated_kernel_bounds.py --beta-time 80 --edge-l1-cutoff 25000
+
+      - name: Upload saturated Q6-D5 kernel and Wilson-tail audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-saturated-kernel-wilson-tail
+          path: reports/q6_d5_saturated_kernel_bounds.json
+          if-no-files-found: error
