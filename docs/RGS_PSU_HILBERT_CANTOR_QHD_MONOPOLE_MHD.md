@@ -144,3 +144,58 @@ derivation of flux tubes in SU(3) QCD, electroweak strings, RGS torsion
 defects, or a three-dimensional Abrikosov vortex lattice. Those require
 their own gauge group, energy functional, boundary conditions, and
 topological classification.
+
+
+## 8. Q-balls: localized charged scalar configurations
+
+Introduce a complex scalar field with global U(1) symmetry,
+$\\Phi(t,r)=f(r)e^{i\\omega t}$, and the sextic potential
+
+\\[
+V(f)=m^2f^2-\\lambda f^4+g f^6,
+\\qquad m,\\lambda,g>0.
+\\]
+
+With the convention $\\mathcal L=\\partial_\\mu\\Phi^*
+\\partial^\\mu\\Phi-V(|\\Phi|)$, the three-dimensional radial field
+equation is
+
+\\[
+f''+\\frac{2}{r}f'
+=\\frac12 V'(f)-\\omega^2f
+=(m^2-\\omega^2)f-2\\lambda f^3+3g f^5.
+\\]
+
+The Noether charge and energy are
+
+\\[
+Q=2\\omega\\,4\\pi\\int_0^\\infty r^2f^2\\,dr,
+\\]
+\\[
+E=4\\pi\\int_0^\\infty r^2
+\\left[\\omega^2f^2+(f')^2+V(f)\\right]dr.
+\\]
+
+A necessary existence window follows from
+$\\min_{f>0}V(f)/f^2=m^2-\\lambda^2/(4g)$:
+\\[
+\\sqrt{m^2-\\frac{\\lambda^2}{4g}}<\\omega<m,
+\\]
+with a positive lower endpoint requiring $\\lambda^2<4gm^2$.
+This is an existence criterion, not a proof of linear or nonlinear stability.
+
+The implementation provides the potential, its derivative, this frequency
+window, the radial equation residual, and radial energy/Noether-charge
+integrals. A Gaussian profile is included strictly as a variational trial
+for exercising the diagnostics: it is **not** labelled a stationary
+Q-ball solution. A true solution requires solving the nonlinear boundary
+value problem with $f'(0)=0$, $f(\\infty)=0$, then checking convergence,
+$E(Q)$ and the fluctuation spectrum.
+
+The current Q-ball sector is the ungauged global-U(1) model. Gauging this
+U(1) introduces Maxwell dynamics and Coulomb energy and can alter or
+destroy the stable branch; it must not be obtained by merely replacing
+$\\omega$ with a covariant frequency in the scalar equation. The coupling
+to the existing fluxon sector is therefore an action-level task still open.
+No identification is made between Q-balls, sine-Gordon fluxons, QCD
+chromoelectric tubes, or RGS torsion defects.
