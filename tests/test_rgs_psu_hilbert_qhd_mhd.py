@@ -50,3 +50,55 @@ def test_integrated_periodic_benchmark_residuals():
     assert report["monopole"]["quantized_within_tolerance"]
     assert report["qhd"]["continuity_mass_residual"] < 1e-10
     assert report["mhd"]["induction_mass_residual"] < 1e-10
+
+
+def test_fluxon_winding_is_quantized_and_gauge_invariant():
+    from src.rgs_psu_hilbert_qhd_mhd import (
+        fluxon_topological_charge,
+        u1_gauge_transform,
+    )
+    n = 64
+    theta = 2.0 * np.pi * np.arange(n) / n
+    links = np.zeros(n)
+    report = fluxon_topological_charge(theta, links)
+    assert report["quantized"]
+    assert report["nearest_integer_fluxon_number"] == 1
+
+    rng = np.random.default_rng(126528)
+    chi = rng.normal(size=n)
+    psi = np.exp(1j * theta)
+    psi_g, links_g = u1_gauge_transform(psi, np.exp(1j * links), chi)
+    transformed = fluxon_topological_charge(
+        np.angle(psi_g), np.angle(links_g)
+    )
+    assert transformed["quantized"]
+    assert transformed["nearest_integer_fluxon_number"] == 1
+    assert np.allclose(
+        report["gauge_invariant_phase_drops"],
+        transformed["gauge_invariant_phase_drops"],
+        atol=1e-12,
+    )
+
+
+def test_sine_gordon_fluxon_has_one_flux_quantum_and_small_equation_residual():
+    from src.rgs_psu_hilbert_qhd_mhd import (
+        sine_gordon_fluxon_profile,
+        sine_gordon_static_residual,
+    )
+    x = np.linspace(-12.0, 12.0, 2401)
+    lam = 1.3
+    kink = sine_gordon_fluxon_profile(x, center=0.2, josephson_length=lam)
+    assert abs(kink["phase_jump"] - 2.0 * np.pi) < 1e-8
+    # Integrating B/Phi0 = (1/2pi) dphi/dx gives one flux quantum.
+    flux_quanta = np.trapezoid(kink["normalized_magnetic_field"], x)
+    assert abs(flux_quanta - 1.0) < 2e-5
+    residual = sine_gordon_static_residual(kink["phase"], x[1] - x[0], lam)
+    assert np.max(np.abs(residual)) < 2e-5
+
+
+def test_fluxon_charge_is_not_declared_quantized_with_nontrivial_background_holonomy():
+    from src.rgs_psu_hilbert_qhd_mhd import fluxon_topological_charge
+    theta = np.linspace(0.0, 2.0 * np.pi, 32, endpoint=False)
+    links = np.full(32, 0.03)
+    report = fluxon_topological_charge(theta, links)
+    assert not report["quantized"]
