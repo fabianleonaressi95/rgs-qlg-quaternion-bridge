@@ -87,15 +87,18 @@ def audit_rgs_d5_scale_identifiability(scale: float = 1.7) -> dict:
             "coframe_scaling_residual": float(
                 np.linalg.norm(e_scaled_fixed - scale * e)
             ),
-            "interpretation": "with ell2 and c0 fixed as numerical values, X->sX implies C->s^2 C and E->s E",
+            "interpretation": "with ell2 fixed, the dimensionless Gaussian weights change under X->sX; no homogeneous scaling law is expected",
         },
         "covariant_parameters": {
             "ell2_scaled": scale**2 * ELL2,
             "c0_scaled": scale**2 * C0,
+            "covariance_invariance_residual": float(
+                np.linalg.norm(c_scaled_covariant - c)
+            ),
             "coframe_invariance_residual": float(
                 np.linalg.norm(e_scaled_covariant - e)
             ),
-            "interpretation": "if ell2 and c0 carry squared-length units and scale with X, E is invariant",
+            "interpretation": "if ell2 and c0 carry squared-length units and scale with X, normalized covariance and coframe are invariant",
         },
         "q6_to_r3_rank": {
             "jacobian_shape": list(jac.shape),
@@ -112,9 +115,18 @@ def audit_rgs_d5_scale_identifiability(scale: float = 1.7) -> dict:
             "minimum_missing_rank": D5_REAL_DIMENSION - 3,
         },
         "checks": {
-            "fixed_scale_covariance": bool(np.linalg.norm(c_scaled_fixed - scale**2*c) < 1e-10),
-            "fixed_scale_coframe": bool(np.linalg.norm(e_scaled_fixed-scale*e) < 1e-10),
-            "covariant_coframe_invariance": bool(np.linalg.norm(e_scaled_covariant-e) < 1e-10),
+            "fixed_kernel_length_breaks_naive_covariance_scaling": bool(
+                not np.allclose(c_scaled_fixed, scale**2*c, rtol=2e-12, atol=2e-12)
+            ),
+            "fixed_kernel_length_breaks_naive_coframe_scaling": bool(
+                not np.allclose(e_scaled_fixed, scale*e, rtol=2e-12, atol=2e-12)
+            ),
+            "covariant_normalized_covariance_invariance": bool(
+                np.allclose(c_scaled_covariant, c, rtol=2e-12, atol=2e-12)
+            ),
+            "covariant_coframe_invariance": bool(
+                np.allclose(e_scaled_covariant, e, rtol=2e-12, atol=2e-12)
+            ),
             "q6_jacobian_rank_at_most_three": bool(max(ranks) <= 3),
             "q6_gram_rank_at_most_three": bool(max(gram_ranks) <= 3),
             "rank_gap_to_d5_is_seven": D5_REAL_DIMENSION - 3 == 7,
