@@ -21,7 +21,7 @@ def _cells_by_degree(n=6):
             for base in range(1 << n):
                 if base & free_mask:
                     continue
-                lookup[(base, dirs)] = len(cells)
+                lookup[(base, dirs)] = len(layer)
                 layer.append((base, dirs))
                 cells.append((base, dirs))
         index.append(lookup)
