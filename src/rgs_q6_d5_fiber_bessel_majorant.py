@@ -63,8 +63,10 @@ def q6_d5_fiber_bessel_majorant(beta_time: float, representative=None, quotient=
     A = 96.0 * beta
 
     def log_shell_bound(N: int) -> float:
-        box = int(math.floor(float(M * N + c_norm)))
-        log_count = rank * math.log(2 * box + 1)
+        # Use the real-valued upper bound 2R+1 >= 2 floor(R)+1.
+        # Keeping this smooth bound is essential for the ratio-test tail.
+        radius = float(M * N + c_norm)
+        log_count = rank * math.log(2.0 * radius + 1.0)
         if N == 0:
             return log_count
         return log_count + N * math.log(A) - math.lgamma(N + 1)
@@ -95,7 +97,7 @@ def q6_d5_fiber_bessel_majorant(beta_time: float, representative=None, quotient=
         "exact_inverse_infinity_norm": str(M),
         "representative_infinity_norm": c_norm,
         "bessel_product_bound": "(96*beta_time)^N/N!, N=||flux||_1",
-        "coefficient_box_count_bound": "(2*floor(M*N+||c||_infinity)+1)^129",
+        "coefficient_box_count_bound": "(2*(M*N+||c||_infinity)+1)^129",
         "geometric_tail_start_N": n0,
         "geometric_tail_ratio_bound": float(ratio),
         "log_complete_fiber_sum_upper_bound": log_total,
