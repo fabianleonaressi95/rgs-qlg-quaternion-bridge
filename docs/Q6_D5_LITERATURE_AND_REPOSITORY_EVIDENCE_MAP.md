@@ -51,13 +51,13 @@ f_N(t)=\frac{20}{3}(1-\sqrt t)^4(1+4\sqrt t+t),\quad 0<t<1.
 
 Its moments are those of the product of independent Beta(1,1), Beta(2,1), Beta(3,1), Beta(4,1), and Beta(5/2,1) variables. Hausdorff determinacy on [0,1] identifies this law. Thus f_N is the **Euclidean pushforward density of the norm**, not the Bergman density.
 
-The Bergman volume density is instead
+The Bergman volume pulls back instead as
 
 \[
-dV_B=N(z)^{-5}d\mu_L
+\Phi^*(dV_B)=N(\Phi(q,p))^{-5}d\mu_L
 \]
 
-after the specific Maxwell-to-D5 chart and normalization in the internal theorem. Its truncated radial normalizer is
+on the preimage of D5 under the specific Maxwell-to-D5 chart and normalization in the internal theorem. Its truncated radial normalizer is
 
 \[
 Z_5(\epsilon)=\int_\epsilon^1t^{-5}f_N(t)\,dt
