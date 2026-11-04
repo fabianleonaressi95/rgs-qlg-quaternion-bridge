@@ -35,10 +35,15 @@ The degree-(k) mass matrix (H_k) is assembled as the tensor product of these one
 
 With (d_k=B_{k+1}^T), the cochain Laplacian is
 [
-\Delta_k=H_k^{-1}d_{k-1}^TH_{k-1}d_{k-1}
-+d_k^TH_{k+1}d_k,
+\\Delta_k=d_{k-1}H_{k-1}^{-1}d_{k-1}^TH_k
++H_k^{-1}d_k^TH_{k+1}d_k,
 ]
-omitting terms outside degrees 0 and 6. The code returns its symmetric representative in L2-orthonormal coordinates.
+omitting terms outside degrees 0 and 6. Its symmetric representative is
+[
+H_k^{1/2}d_{k-1}H_{k-1}^{-1}d_{k-1}^TH_k^{1/2}
++H_k^{-1/2}d_k^TH_{k+1}d_kH_k^{-1/2}.
+]
+The implementation returns this representative in L2-orthonormal coordinates.
 
 ## Key distinction
 
