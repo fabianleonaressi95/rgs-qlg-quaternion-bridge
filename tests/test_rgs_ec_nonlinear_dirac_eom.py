@@ -25,7 +25,7 @@ def test_contact_sources_match_independent_barpsi_finite_difference():
     minus = contact_lagrangian_from_independent_bilinears(
         bar - h * delta_bar, psi, kappa
     )
-    fd = float(np.real((plus - minus) / (2 * h)))
+    fd = (plus - minus) / (2 * h)
     analytic = np.dot(delta_bar, result["dL_dbarpsi"])
     assert fd == pytest.approx(analytic, rel=2e-7, abs=2e-9)
 
@@ -48,7 +48,7 @@ def test_contact_sources_match_independent_psi_finite_difference():
     )
     fd = (plus - minus) / (2 * h)
     analytic = result["dL_dpsi"] @ delta_psi
-    assert fd == pytest.approx(float(np.real(analytic)), rel=2e-7, abs=2e-9)
+    assert fd == pytest.approx(analytic, rel=2e-7, abs=2e-9)
 
 
 def test_nonlinear_eom_residual_adds_contact_source_and_does_not_claim_conservation():
