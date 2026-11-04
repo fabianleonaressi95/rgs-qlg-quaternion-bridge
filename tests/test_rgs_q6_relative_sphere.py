@@ -16,6 +16,9 @@ def test_q6_vertices_map_equivariantly_to_finite_sphere_design():
     assert report["unique_direction_count"] == 32
     assert np.all(report["fibre_multiplicities"] == 2)
     assert report["antipodal_pair_count"] == 16
+    assert report["icosahedron_vertex_direction_count"] == 12
+    assert report["dual_dodecahedron_vertex_direction_count"] == 20
+    assert report["icosahedron_dual_union_match_residual"] < 1e-8
     assert report["all_checks_passed"]
 
 
