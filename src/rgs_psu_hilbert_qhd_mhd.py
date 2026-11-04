@@ -354,8 +354,8 @@ def qball_energy_charge(radius, amplitude, frequency: float,
     density_energy = frequency**2 * f**2 + fp**2 + V
     density_charge = 2.0 * frequency * f**2
     measure = 4.0 * np.pi * r**2
-    energy = float(np.trapz(measure * density_energy, r))
-    charge = float(np.trapz(measure * density_charge, r))
+    energy = float(np.trapezoid(measure * density_energy, r))
+    charge = float(np.trapezoid(measure * density_charge, r))
     return {
         "energy": energy,
         "noether_charge": charge,
@@ -390,7 +390,7 @@ def qball_gaussian_trial(radius, amplitude_scale: float = 0.5,
     result.update({
         "radius": r,
         "amplitude": f,
-        "radial_eom_residual_l2": float(np.sqrt(np.trapz(4.0 * np.pi * r**2 * residual**2, r))),
+        "radial_eom_residual_l2": float(np.sqrt(np.trapezoid(4.0 * np.pi * r**2 * residual**2, r))),
         "radial_eom_residual_max": float(np.max(np.abs(residual))),
         "profile_is_stationary_solution": False,
         "ansatz": "Gaussian variational trial only"
