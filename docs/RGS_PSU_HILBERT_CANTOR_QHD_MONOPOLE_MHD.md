@@ -104,3 +104,98 @@ independent dynamical link variables.
   nonzero monopole Chern class on the actual RGS/Q6 complex with patch data;
   full 3-D MHD/HVBK; coupled QHD–Yang–Mills equations; TEGR/YM/QHD/MHD
   continuum limit; Mosco convergence of the coupled system.
+
+
+## 7. Fluxons: compact phase winding and sine-Gordon solitons
+
+Here *fluxons* means quantized magnetic-flux kinks of a compact U(1)
+phase field, as in the long-junction sine-Gordon limit. On a periodic
+link lattice, with $U_{i\leftarrow i+1}=e^{ia_i}$ and
+$\psi_i=e^{i\theta_i}$, define the gauge-invariant compact phase drop
+
+\[
+\delta_i=\operatorname{Arg}
+\exp\{i(\theta_{i+1}-\theta_i+a_i)\}.
+\]
+
+It is invariant under $\theta_i\mapsto\theta_i+\chi_i$ and
+$a_i\mapsto a_i+\chi_i-\chi_{i+1}$. The fluxon winding audit sums
+$\sum_i\delta_i/(2\pi)$ and declares it quantized only when the
+background link holonomy is trivial. A nontrivial background holonomy
+changes the global sector; the code deliberately refuses to label a
+noninteger result as an integer fluxon number.
+
+In the continuum long-junction limit the static phase obeys
+
+\[
+\lambda_J^2\,\partial_x^2\theta=\sin\theta,
+\qquad
+\theta_K(x)=4\arctan e^{(x-X)/\lambda_J}.
+\]
+
+The normalized magnetic profile is
+$B/\Phi_0=(2\pi)^{-1}\partial_x\theta_K$ and its integral is one
+flux quantum $\Phi_0$. The implementation supplies the analytic kink,
+its magnetic profile, a finite-difference sine-Gordon residual, and
+gauge-invariant winding tests.
+
+This is a controlled U(1)/Josephson sine-Gordon sector. It is not yet a
+derivation of flux tubes in SU(3) QCD, electroweak strings, RGS torsion
+defects, or a three-dimensional Abrikosov vortex lattice. Those require
+their own gauge group, energy functional, boundary conditions, and
+topological classification.
+
+
+## 8. Q-balls: localized charged scalar configurations
+
+Introduce a complex scalar field with global U(1) symmetry,
+$\\Phi(t,r)=f(r)e^{i\\omega t}$, and the sextic potential
+
+\\[
+V(f)=m^2f^2-\\lambda f^4+g f^6,
+\\qquad m,\\lambda,g>0.
+\\]
+
+With the convention $\\mathcal L=\\partial_\\mu\\Phi^*
+\\partial^\\mu\\Phi-V(|\\Phi|)$, the three-dimensional radial field
+equation is
+
+\\[
+f''+\\frac{2}{r}f'
+=\\frac12 V'(f)-\\omega^2f
+=(m^2-\\omega^2)f-2\\lambda f^3+3g f^5.
+\\]
+
+The Noether charge and energy are
+
+\\[
+Q=2\\omega\\,4\\pi\\int_0^\\infty r^2f^2\\,dr,
+\\]
+\\[
+E=4\\pi\\int_0^\\infty r^2
+\\left[\\omega^2f^2+(f')^2+V(f)\\right]dr.
+\\]
+
+A necessary existence window follows from
+$\\min_{f>0}V(f)/f^2=m^2-\\lambda^2/(4g)$:
+\\[
+\\sqrt{m^2-\\frac{\\lambda^2}{4g}}<\\omega<m,
+\\]
+with a positive lower endpoint requiring $\\lambda^2<4gm^2$.
+This is an existence criterion, not a proof of linear or nonlinear stability.
+
+The implementation provides the potential, its derivative, this frequency
+window, the radial equation residual, and radial energy/Noether-charge
+integrals. A Gaussian profile is included strictly as a variational trial
+for exercising the diagnostics: it is **not** labelled a stationary
+Q-ball solution. A true solution requires solving the nonlinear boundary
+value problem with $f'(0)=0$, $f(\\infty)=0$, then checking convergence,
+$E(Q)$ and the fluctuation spectrum.
+
+The current Q-ball sector is the ungauged global-U(1) model. Gauging this
+U(1) introduces Maxwell dynamics and Coulomb energy and can alter or
+destroy the stable branch; it must not be obtained by merely replacing
+$\\omega$ with a covariant frequency in the scalar equation. The coupling
+to the existing fluxon sector is therefore an action-level task still open.
+No identification is made between Q-balls, sine-Gordon fluxons, QCD
+chromoelectric tubes, or RGS torsion defects.

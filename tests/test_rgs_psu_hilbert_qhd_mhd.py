@@ -48,5 +48,92 @@ def test_integrated_periodic_benchmark_residuals():
     report = audit_hilbert_cantor_qhd_gauge_mhd()
     assert report["u1_gauge"]["covariance_residual"] < 1e-11
     assert report["monopole"]["quantized_within_tolerance"]
+    assert report["fluxon"]["quantized"]
+    assert report["fluxon"]["nearest_integer_fluxon_number"] == 1
+    assert report["qball"]["frequency_window"]["nonempty_frequency_window"]
+    assert report["qball"]["trial_noether_charge"] > 0.0
+    assert not report["qball"]["trial_is_stationary_solution"]
     assert report["qhd"]["continuity_mass_residual"] < 1e-10
     assert report["mhd"]["induction_mass_residual"] < 1e-10
+
+
+def test_fluxon_winding_is_quantized_and_gauge_invariant():
+    from src.rgs_psu_hilbert_qhd_mhd import (
+        fluxon_topological_charge,
+        u1_gauge_transform,
+    )
+    n = 64
+    theta = 2.0 * np.pi * np.arange(n) / n
+    links = np.zeros(n)
+    report = fluxon_topological_charge(theta, links)
+    assert report["quantized"]
+    assert report["nearest_integer_fluxon_number"] == 1
+
+    rng = np.random.default_rng(126528)
+    chi = rng.normal(size=n)
+    psi = np.exp(1j * theta)
+    psi_g, links_g = u1_gauge_transform(psi, np.exp(1j * links), chi)
+    transformed = fluxon_topological_charge(
+        np.angle(psi_g), np.angle(links_g)
+    )
+    assert transformed["quantized"]
+    assert transformed["nearest_integer_fluxon_number"] == 1
+    assert np.allclose(
+        report["gauge_invariant_phase_drops"],
+        transformed["gauge_invariant_phase_drops"],
+        atol=1e-12,
+    )
+
+
+def test_sine_gordon_fluxon_has_one_flux_quantum_and_small_equation_residual():
+    from src.rgs_psu_hilbert_qhd_mhd import (
+        sine_gordon_fluxon_profile,
+        sine_gordon_static_residual,
+    )
+    x = np.linspace(-30.0, 30.0, 6001)
+    lam = 1.3
+    kink = sine_gordon_fluxon_profile(x, center=0.2, josephson_length=lam)
+    assert abs(kink["phase_jump"] - 2.0 * np.pi) < 1e-8
+    # Integrating B/Phi0 = (1/2pi) dphi/dx gives one flux quantum.
+    flux_quanta = np.sum(0.5 * (kink["normalized_magnetic_field"][:-1]
+                               + kink["normalized_magnetic_field"][1:]) * np.diff(x))
+    assert abs(flux_quanta - 1.0) < 2e-5
+    residual = sine_gordon_static_residual(kink["phase"], x[1] - x[0], lam)
+    assert np.max(np.abs(residual)) < 2e-5
+
+
+def test_fluxon_charge_is_not_declared_quantized_with_nontrivial_background_holonomy():
+    from src.rgs_psu_hilbert_qhd_mhd import fluxon_topological_charge
+    theta = np.linspace(0.0, 2.0 * np.pi, 32, endpoint=False)
+    links = np.full(32, 0.03)
+    report = fluxon_topological_charge(theta, links)
+    assert not report["quantized"]
+
+
+def test_qball_frequency_window_matches_scalar_potential_minimum():
+    from src.rgs_psu_hilbert_qhd_mhd import qball_frequency_window
+    window = qball_frequency_window(mass_scale=1.0, quartic=1.0, sextic=0.5)
+    assert window["stable_vacuum"]
+    assert window["nonempty_frequency_window"]
+    assert np.isclose(window["omega_min_squared"], 0.5)
+    assert window["omega_min"] < 0.8 < window["omega_max"]
+
+    unstable = qball_frequency_window(mass_scale=1.0, quartic=2.0, sextic=0.5)
+    assert not unstable["stable_vacuum"]
+    assert not unstable["nonempty_frequency_window"]
+
+
+def test_qball_gaussian_trial_has_finite_noether_charge_energy_and_residual():
+    from src.rgs_psu_hilbert_qhd_mhd import qball_gaussian_trial
+    r = np.linspace(0.0, 15.0, 1201)
+    report = qball_gaussian_trial(
+        r, amplitude_scale=0.35, width=2.0, frequency=0.8,
+        mass_scale=1.0, quartic=1.0, sextic=0.5,
+    )
+    assert report["energy"] > 0.0
+    assert report["noether_charge"] > 0.0
+    assert np.isfinite(report["energy_per_charge"])
+    assert np.isfinite(report["radial_eom_residual_l2"])
+    assert np.isfinite(report["radial_eom_residual_max"])
+    assert report["ansatz"] == "Gaussian variational trial only"
+    assert not report["profile_is_stationary_solution"]
