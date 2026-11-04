@@ -48,6 +48,8 @@ def test_integrated_periodic_benchmark_residuals():
     report = audit_hilbert_cantor_qhd_gauge_mhd()
     assert report["u1_gauge"]["covariance_residual"] < 1e-11
     assert report["monopole"]["quantized_within_tolerance"]
+    assert report["fluxon"]["quantized"]
+    assert report["fluxon"]["nearest_integer_fluxon_number"] == 1
     assert report["qhd"]["continuity_mass_residual"] < 1e-10
     assert report["mhd"]["induction_mass_residual"] < 1e-10
 
