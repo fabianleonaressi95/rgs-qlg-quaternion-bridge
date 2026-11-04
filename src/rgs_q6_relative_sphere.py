@@ -15,6 +15,7 @@ from src.rgs_icosahedral_q6_intertwiner import (
     icosahedral_signed_axis_representation,
     q6_vertex_action,
 )
+from src.rgs_weyl_phase_closure import build_icosahedral_c6
 
 
 def _sphere_moment_reference(order: int) -> np.ndarray:
