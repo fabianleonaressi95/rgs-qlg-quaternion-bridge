@@ -68,12 +68,12 @@ def build_q6_hodge_laplacians(
 
     # Delta_1 = H1^(1/2) d0 H0^(-1) d0.T H1^(1/2)
     #         + H1^(-1/2) d1.T H2 d1 H1^(-1/2).
-    lower = d0 @ (ih0**2[:, None] * d0.T)
+    lower = d0 @ ((ih0**2)[:, None] * d0.T)
     upper = d1.T @ (h2[:, None] * d1)
     lap1 = sh1[:, None] * lower * sh1[None, :] + ih1[:, None] * upper * ih1[None, :]
 
     # Delta_2 = H2^(1/2) d1 H1^(-1) d1.T H2^(1/2).
-    gram2 = d1 @ (ih1**2[:, None] * d1.T)
+    gram2 = d1 @ ((ih1**2)[:, None] * d1.T)
     lap2 = sh2[:, None] * gram2 * sh2[None, :]
 
     return Q6HodgeLaplacians(
