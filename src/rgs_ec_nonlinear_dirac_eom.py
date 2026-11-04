@@ -33,7 +33,7 @@ def _current(value):
     return x
 
 
-def effective_dirac_contact_sources(spinor, axial_current, kappa):
+def effective_dirac_contact_sources(spinor, axial_current, kappa, *, bar_spinor=None):
     """Return independent Euler derivatives of L4f wrt bar(psi) and psi.
 
     J5^a=i bar(psi) gamma5 gamma^a psi,
@@ -48,6 +48,13 @@ def effective_dirac_contact_sources(spinor, axial_current, kappa):
     """
     psi = _spinor(spinor, "spinor")
     current = _current(axial_current)
+    if bar_spinor is None:
+        from src.rgs_ec_algebraic_torsion import dirac_adjoint
+        bar = dirac_adjoint(psi)
+    else:
+        bar = np.asarray(bar_spinor, dtype=complex)
+        if bar.shape != (4,) or not np.all(np.isfinite(bar)):
+            raise ValueError("bar_spinor must be a finite complex 4-row")
     if not np.isfinite(kappa) or kappa <= 0:
         raise ValueError("kappa must be finite and positive")
     gamma = dirac_gamma_matrices_minus_plus()
@@ -60,10 +67,9 @@ def effective_dirac_contact_sources(spinor, axial_current, kappa):
         lowered[a] * (1j * gamma5 @ gamma[a] @ psi)
         for a in range(4)
     )
-    # bar(psi) is supplied in the repository convention; the row derivative
-    # is evaluated directly as a covector in the independent bar variable.
-    from src.rgs_ec_algebraic_torsion import dirac_adjoint
-    bar = dirac_adjoint(psi)
+    # The row derivative depends on bar(psi).  Accept it explicitly for
+    # independent-variable (Wirtinger) variations; physical on-shell callers
+    # may omit it and use the repository Dirac adjoint.
     source_psi = coefficient * sum(
         lowered[a] * (1j * bar @ gamma5 @ gamma[a])
         for a in range(4)
