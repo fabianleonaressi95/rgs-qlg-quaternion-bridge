@@ -7,7 +7,7 @@ positive marginal is
 
 \[
 W_{\rm eff}([c])=\sum_{k\in K_{\mathbb Z}}
-\prod_{e=1}^{192}\frac{I_{|(c+k)C)_e|}(\beta_t)}{I_0(\beta_t)}.
+\prod_{e=1}^{192}\frac{I_{|((c+k)C)_e|}(\beta_t)}{I_0(\beta_t)}.
 \]
 
 This note strengthens the convergence argument with an explicit
