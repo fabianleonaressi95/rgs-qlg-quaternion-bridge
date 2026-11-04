@@ -46,7 +46,8 @@ def d5_hua_cutoff_probability_density(t, epsilon: float):
     values = np.asarray(t, dtype=float)
     base = d5_hua_generic_norm_density(values)
     normalizer = d5_hua_cutoff_normalizer(epsilon)
-    weighted = np.where(values >= epsilon, base * values**-5, 0.) / normalizer
+    safe_values = np.maximum(values, epsilon)
+    weighted = np.where(values >= epsilon, base * safe_values**-5, 0.) / normalizer
     if np.ndim(t) == 0:
         return float(weighted)
     return weighted
