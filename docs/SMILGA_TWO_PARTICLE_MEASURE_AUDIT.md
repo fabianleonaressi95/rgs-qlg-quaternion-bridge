@@ -22,8 +22,13 @@ For equal mass shells p1^2=p2^2=m^2, direct algebra gives
     P^2 + q^2 = 4 m^2
 
 The absolute Jacobian of (p1,p2) -> (P,q) is exactly 16 in eight
-unconstrained real momentum coordinates for these conventions. Factors of
-two quoted with other definitions of P and q cannot be transferred unchanged.
+unconstrained real momentum coordinates. Restricting only to spatial
+components gives a 6D determinant of 8. Neither raw coordinate determinant
+is 2. On the fixed-invariant-mass 5D submanifold, however, an induced
+Jacobian must be computed from an explicitly specified chart and induced
+metric; it cannot be inferred by simply reusing either ambient determinant.
+Factors of two quoted for that reduced measure therefore require their own
+derivation.
 
 At fixed P^2=M^2, in the centre-of-momentum frame,
 
