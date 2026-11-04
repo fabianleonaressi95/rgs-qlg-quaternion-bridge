@@ -71,6 +71,25 @@ def _unique_directions(directions: np.ndarray, tolerance: float = 1e-9):
     return np.asarray(representatives), np.asarray(multiplicities, dtype=int)
 
 
+def _icosahedron_face_center_directions(vertices: np.ndarray) -> np.ndarray:
+    """Return the 20 normalized face-centre directions of the icosahedron."""
+    x = np.asarray(vertices, dtype=float)
+    distances = np.linalg.norm(x[:, None, :] - x[None, :, :], axis=2)
+    edge_length = float(np.min(distances[distances > 1e-7]))
+    faces = []
+    for i, j, k in itertools.combinations(range(len(x)), 3):
+        if (
+            abs(distances[i, j] - edge_length) < 1e-7
+            and abs(distances[i, k] - edge_length) < 1e-7
+            and abs(distances[j, k] - edge_length) < 1e-7
+        ):
+            faces.append((i, j, k))
+    if len(faces) != 20:
+        raise ArithmeticError(f"expected 20 icosahedron faces, got {len(faces)}")
+    centers = np.asarray([x[list(face)].mean(axis=0) for face in faces])
+    return centers / np.linalg.norm(centers, axis=1)[:, None]
+
+
 def build_q6_a5_relative_sphere_map() -> dict:
     """Map all 64 Q6 vertices equivariantly to a 32-point subset of S^2."""
     group = icosahedral_signed_axis_representation()
@@ -92,6 +111,25 @@ def build_q6_a5_relative_sphere_map() -> dict:
         raise ArithmeticError("a Q6 sign state maps to the zero vector")
     directions = raw / radii[:, None]
     unique, multiplicities = _unique_directions(directions)
+    icosa_data = build_icosahedral_c6()
+    icosa_vertices = np.asarray(icosa_data["vertices"], dtype=float)
+    icosa_vertices /= np.linalg.norm(icosa_vertices, axis=1)[:, None]
+    dodeca_dual_vertices = _icosahedron_face_center_directions(icosa_vertices)
+    vertex_matches = np.asarray([
+        min(np.linalg.norm(direction - point) for point in icosa_vertices)
+        for direction in unique
+    ])
+    dual_matches = np.asarray([
+        min(np.linalg.norm(direction - point) for point in dodeca_dual_vertices)
+        for direction in unique
+    ])
+    icosa_count = int(np.count_nonzero(vertex_matches < 1e-8))
+    dual_count = int(np.count_nonzero(dual_matches < 1e-8))
+    union_residual = float(max(
+        np.max(np.minimum(vertex_matches, dual_matches)),
+        np.max(np.linalg.norm(icosa_vertices[:, None, :] - unique[None, :, :], axis=2).min(axis=1)),
+        np.max(np.linalg.norm(dodeca_dual_vertices[:, None, :] - unique[None, :, :], axis=2).min(axis=1)),
+    ))
 
     # Group equivariance: x(g.v) = R_g x(v), before and after normalization.
     raw_residual = 0.0
@@ -138,7 +176,7 @@ def build_q6_a5_relative_sphere_map() -> dict:
         "all_64_states_used": len(directions) == 64,
         "32_distinct_sphere_directions": len(unique) == 32,
         "uniform_two_to_one_fibres": bool(np.all(multiplicities == 2)),
-        "antipodal_16_pair_structure": antipodal_pairs == 16,
+        "antipodal_16_pair_structure": antipodal_pairs == 16,\n        "icosahedron_plus_dual_dodecahedron": icosa_count == 12 and dual_count == 20 and union_residual < 1e-8,
         "A5_raw_map_equivariant": raw_residual < 1e-9,
         "A5_sphere_map_equivariant": direction_residual < 1e-9,
         "second_moment_isotropic": moment_residuals["2"] < 1e-10,
@@ -159,7 +197,7 @@ def build_q6_a5_relative_sphere_map() -> dict:
         "unique_directions": unique,
         "fibre_multiplicities": multiplicities,
         "unique_direction_count": int(len(unique)),
-        "antipodal_pair_count": int(antipodal_pairs),
+        "antipodal_pair_count": int(antipodal_pairs),\n        "icosahedron_vertex_direction_count": icosa_count,\n        "dual_dodecahedron_vertex_direction_count": dual_count,\n        "icosahedron_dual_union_match_residual": union_residual,
         "radial_shells": {
             str(float(value)): int(np.count_nonzero(np.isclose(radii, value, atol=1e-9)))
             for value in np.unique(np.round(radii, 10))
