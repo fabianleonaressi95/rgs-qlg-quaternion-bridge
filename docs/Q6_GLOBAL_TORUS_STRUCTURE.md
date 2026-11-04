@@ -132,3 +132,85 @@ The next task should not be a larger QMC run. It should be an exact integral-str
 4. Determine whether the resulting five-variable density is invariant under the relevant D5 symmetry and whether it has any relation to the Hua density. This last step must be derived, not assumed.
 
 Only after this theorem should numerical integration be used, with a certified error bound if numerical values are needed.
+
+
+## 9. Harmonic-analysis interpretation and the two-point Smith example
+
+The structural statements above are instances of Pontryagin duality. The character group of
+\(\mathbb T^E\) is \(\mathbb Z^E\), with pairing
+\[
+\langle n,x\rangle=e^{i n\cdot x}.
+\]
+For a closed subgroup \(H\leq\mathbb T^E\), its annihilator
+\[
+H^\perp=\{n\in\mathbb Z^E:e^{in\cdot x}=1\;\forall x\in H\}
+\]
+is a subgroup of the integer character lattice, and \((H^\perp)^\perp=H\). Consequently normalized Haar integration is a projector on Fourier modes:
+\[
+\int_H e^{in\cdot x}\,d\mu_H(x)
+=\begin{cases}1,&n\in H^\perp,\\0,&n\notin H^\perp.\end{cases}
+\]
+This is the exact mathematical operation behind the integer selection rules; it is not a numerical cancellation or a heuristic averaging argument.
+
+For a full-row-rank integer matrix \(A\in\mathbb Z^{r\times E}\), the subgroup
+\(H=\{x:Ax=0\pmod{2\pi}\}\) is classified by the Smith form
+\(UAV=\operatorname{diag}(d_1,\ldots,d_r,0,\ldots,0)\).
+In Smith coordinates each nonzero diagonal equation has \(d_i\) solutions on the circle, while each zero column contributes one free circle. Thus
+\[
+H\simeq\mathbb T^{E-r}\times\prod_i\mathbb Z/d_i\mathbb Z.
+\]
+The free dimension is \(E-r\); the torsion factors describe disconnected components. In particular, rank alone does not prove connectedness: one must also prove that every nonzero invariant factor is one. This is why the saturated integer lattice and its SNF, rather than a floating-point nullspace, are decisive.
+
+The toy test in the failed QMC branch is an exact miniature of this theorem. For
+\(A=(2\;0)\), the annihilator is
+\[
+H=\{(x_1,x_2):2x_1=0\}
+=\{0,\pi\}\times\mathbb T.
+\]
+With normalized Haar measure and \(\beta>0\), define
+\[
+J_m=\int_H\frac{e^{\beta(\cos x_1+\cos x_2)}}{I_0(\beta)^2}
+e^{-imx_1}\,d\mu_H.
+\]
+The free-circle integral gives \(I_0(\beta)\), while the two-point average gives
+\[
+J_0=\frac{\cosh\beta}{I_0(\beta)},\qquad
+J_1=\frac{\sinh\beta}{I_0(\beta)}.
+\]
+Both are real because the measure and weight are invariant under complex conjugation paired with \(x\mapsto-x\). A numerical implementation must form the exponent separately at each sample; summing \(\cos x\) over the entire sample-by-coordinate array changes the mathematical integrand and causes overflow. That is an implementation error, not a failure of the character identity.
+
+## 10. What “toroid” can mean in the PSU–Anti-Twin programme
+
+There are at least three geometrically different objects that must remain distinguished:
+
+- A **torus as a manifold**, such as \(S^1\times S^1\), embedded in a three-dimensional ambient space. Its genus, induced metric, second fundamental form and extrinsic curvature are geometric data.
+- A **torus as a compact group**, such as \(U(1)^k\), which is a space of phases, holonomies or moduli. It has a group law and Haar measure; it is not automatically an embedded surface.
+- A **toroidal field configuration**, for example a pair of coupled sheets, a Möbius-twisted bundle, or a PSU–Anti-Twin ovaloid. This is a field/geometric ansatz whose topology, metric, connection and dynamics must be specified separately.
+
+A map between these objects can be built only after specifying the data. A useful route is a principal \(U(1)\) bundle with connection \(A\): its holonomy gives a character of closed cycles, while its curvature \(F=dA\) controls local plaquette flux. A coframe \(e^a\) and a metric-compatible connection then provide the RGS/teleparallel geometric data. To identify the Q6 phase torus with a PSU toroidal configuration, one must construct a map from the discrete connection/coframe data to the continuum bundle and prove compatibility of holonomy, curvature, gauge transformations and the limiting measure. Equality of dimensions, a shared word “torus”, or a visual resemblance is not such a proof.
+
+For the proposed \(68=63+5\) split, the clean mathematical target is therefore a diagram of compact groups
+\[
+\mathbb T^{64}/\mathbb T^1\longrightarrow H_L\longrightarrow H_L/G\simeq\mathbb T^5,
+\]
+together with the exact character-lattice maps dual to each arrow. The first quotient removes the constant vertex phase; the second arrow is the inclusion of gauge directions into the annihilator; the last quotient is the retained five-dimensional group. The diagram must be realized integrally (unimodularly), not only at the level of real vector spaces. Its continuum counterpart would then be a separate convergence theorem for connections and measures.
+
+## 11. Literature and scope of the import
+
+The framework uses established results, not a new general theory of tori:
+
+- Pontryagin duality identifies compact abelian groups with the duals of discrete character groups; annihilators exchange closed subgroups and quotient groups.
+- Smith normal form classifies integer sublattices and the connected/disconnected structure of their annihilator subgroups in a torus.
+- Haar orthogonality is the exact Fourier projector onto characters trivial on the subgroup.
+- The Wilson character expansion converts compact-link Boltzmann weights into integer representation/flux sums; link integration imposes local flux constraints. In compact \(U(1)\), the coefficients are modified Bessel functions \(I_n(\beta)\).
+- In Hamiltonian lattice gauge theory, Gauss's law selects the gauge-invariant Hilbert subspace; it is not an optional deletion of link variables.
+
+References:
+
+1. S. A. Morris, *Pontryagin Duality and the Structure of Locally Compact Abelian Groups*, Cambridge University Press (1977), especially the annihilator and quotient-duality theorems.
+2. T. Tao, “Using the Smith normal form to manipulate lattice subgroups and closed torus subgroups” (20 July 2022), an explicit account of the integer-lattice/closed-subtorus correspondence.
+3. J. B. Kogut, “An Introduction to Lattice Gauge Theory and Spin Systems,” *Rev. Mod. Phys.* **51** (1979), 659–713.
+4. J. B. Kogut and L. Susskind, “Hamiltonian Formulation of Wilson's Lattice Gauge Theories,” *Phys. Rev. D* **11** (1975), 395–408, DOI: 10.1103/PhysRevD.11.395.
+5. K. G. Wilson, “Confinement of Quarks,” *Phys. Rev. D* **10** (1974), 2445–2459, DOI: 10.1103/PhysRevD.10.2445.
+
+These references justify the mathematical tools and the standard lattice-gauge mechanism. They do not establish the proposed physical identification of the Q6 quotient with a D5 Hua space, nor the PSU–Anti-Twin continuum interpretation; those remain project-specific theorems to prove.
