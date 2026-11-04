@@ -50,6 +50,12 @@ def q6_wilson_spectral_cutoff(
     energies = q6_u1_electric_hamiltonian_eigenvalues(states, beta, at, data)
     selected = weights >= tau
     emax = -math.log(tau) / at
+    # Independently reconstruct energies from the returned transfer weights.
+    # This catches accidental divergence between the two public spectral APIs.
+    energy_from_weight = -np.log(weights) / at
+    equivalence_residual = float(np.max(np.abs(energies - energy_from_weight)))
+    energy_selected = energies <= emax + 1e-12
+    selection_mismatch_count = int(np.count_nonzero(selected != energy_selected))
     return {
         "threshold_transfer_weight": tau,
         "equivalent_maximum_electric_energy": emax,
@@ -58,9 +64,8 @@ def q6_wilson_spectral_cutoff(
         "selected_mask": selected,
         "selected_count": int(np.count_nonzero(selected)),
         "total_count": int(len(states)),
-        "cutoff_equivalence_residual": float(
-            np.max(np.abs(energies[selected] - energies[selected]))
-        ) if np.any(selected) else 0.0,
+        "cutoff_equivalence_residual": equivalence_residual,
+        "selection_mismatch_count": selection_mismatch_count,
         "selection_rule": "lambda_n >= tau iff E_n <= -log(tau)/a_t",
     }
 
@@ -115,6 +120,12 @@ def audit_q6_wilson_d5_regulator_obstruction(
         "vacuum_is_retained": bool(selected[0]),
         "energy_threshold_matches_weight_threshold": bool(
             np.array_equal(selected, energies <= spectral["equivalent_maximum_electric_energy"] + 1e-12)
+        ),
+        "transfer_energy_formula_residual_below_tolerance": (
+            spectral["cutoff_equivalence_residual"] < 1.0e-12
+        ),
+        "spectral_selection_has_no_mismatches": (
+            spectral["selection_mismatch_count"] == 0
         ),
         "projected_coordinates_are_five_dimensional": projected_momenta.shape == (259, 5),
         "no_epsilon_identification_claimed": True,
