@@ -38,6 +38,20 @@ def test_isotropic_spatial_covariance_diagnostic():
     assert r["time_space_covariance_norm"] == 0
 
 
+def test_time_space_covariance_is_connected_second_moment():
+    # A coherent mean contributes to <J^0 J^i> but is removed from Cov(J^0,J^i).
+    second = np.array([
+        [2.0, 0.6, 0.0, 0.0],
+        [0.6, 1.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0],
+    ])
+    mean = np.array([1.0, 0.4, 0.0, 0.0])
+    result = spatial_isotropy_residual(second, mean)
+    assert result["time_space_second_moment_norm"] == pytest.approx(0.6)
+    assert result["time_space_covariance_norm"] == pytest.approx(0.2)
+
+
 def test_weighted_moments_and_flavour_averaging():
     x=np.array([[1.,0,0,0],[-1.,0,0,0],[3.,0,0,0]])
     r=audit_spin_ensemble(x,1.0,weights=[1,1,2])
@@ -63,3 +77,14 @@ def test_rejects_bad_weights_and_nonpositive_scale_factor():
         build_cosmological_spin_state([[1.,0,0,0]],1,scale_factor=0,
             hubble_rate=0,energy_density=0,pressure=0,
             units_id="u",derivation_id="d")
+
+
+def test_flrw_isotropy_uses_full_second_moment_and_mean_polarization():
+    # Covariance is isotropic, but a coherent spatial mean selects an axis.
+    from src.rgs_ec_spin_ensemble import spatial_isotropy_residual
+    second = np.diag([1.0, 1.0, 1.0, 1.0])
+    mean = np.array([0.0, 0.2, 0.0, 0.0])
+    result = spatial_isotropy_residual(second, mean)
+    assert result["spatial_isotropy_residual"] == pytest.approx(0.0)
+    assert result["mean_spatial_polarization_norm"] == pytest.approx(0.2)
+    assert result["flrw_isotropy_residual"] > 0.0
