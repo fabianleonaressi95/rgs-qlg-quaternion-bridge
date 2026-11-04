@@ -16,8 +16,10 @@ from src.qutrit_aperiodic import (
 def test_fibonacci_substitution_prefix_and_finite_period_check():
     assert fibonacci_word(8) == "ABAABABA"
     report = aperiodic_prefix_audit(fibonacci_word(8))
-    assert report["is_periodic_as_finite_word"] is False
-    assert report["finite_word_periods"] == []
+    assert report["is_periodic_as_finite_word"] is True
+    assert report["finite_word_periods"] == [5, 7]
+    # A finite Fibonacci prefix may itself have periods; this is not a proof
+    # about (or a contradiction of) aperiodicity of the infinite fixed point.
 
 
 def test_qutrit_maximally_entangled_bell_state():
