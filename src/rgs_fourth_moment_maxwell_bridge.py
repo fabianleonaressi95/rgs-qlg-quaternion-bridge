@@ -32,6 +32,9 @@ def fourth_moment_anisotropy(residual: np.ndarray) -> np.ndarray:
     if any(not np.allclose(r, r.transpose(p), atol=1e-9, rtol=0.0)
            for p in permutations):
         raise ValueError("R must be fully symmetric")
+    double_trace = np.einsum("iikl->kl", r)
+    if not np.allclose(double_trace, 0.0, atol=1e-8, rtol=0.0):
+        raise ValueError("R must have vanishing pair contraction (STF rank four)")
     return r
 
 
@@ -59,7 +62,8 @@ def maxwell_constitutive_response(
 
     a = np.einsum("ijkl,kl->ij", r, q)
     a = 0.5 * (a + a.T)
-    a -= np.eye(3) * np.trace(a) / 3.0
+    if abs(float(np.trace(a))) > 1e-8:
+        raise ArithmeticError("R:Q failed to land in Sym_0(3)")
     z_e = ze * np.eye(3) + ge * a
     z_b = zb * np.eye(3) + gb * a
     eig_e = np.linalg.eigvalsh(z_e)
