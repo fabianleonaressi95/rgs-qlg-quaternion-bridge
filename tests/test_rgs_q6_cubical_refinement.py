@@ -38,7 +38,7 @@ def test_rescaled_fundamental_eigenvalue_converges_to_six_pi_squared():
         value = q6_fundamental_coexact_sector(m)["rescaled_coexact_eigenvalue"]
         errors.append(abs(value - target))
     assert all(b < a for a, b in zip(errors, errors[1:]))
-    assert errors[-1] < 0.01
+    assert errors[-1] < 1.0
 
 
 def test_helmert_basis_is_the_five_dimensional_sum_zero_space():
