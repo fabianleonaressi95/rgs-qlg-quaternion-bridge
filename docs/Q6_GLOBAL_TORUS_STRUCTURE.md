@@ -218,3 +218,226 @@ References:
 5. K. G. Wilson, “Confinement of Quarks,” *Phys. Rev. D* **10** (1974), 2445–2459, DOI: 10.1103/PhysRevD.10.2445.
 
 These references justify the mathematical tools and the standard lattice-gauge mechanism. They do not establish the proposed physical identification of the Q6 quotient with a D5 Hua space, nor the PSU–Anti-Twin continuum interpretation; those remain project-specific theorems to prove.
+
+
+## 12. The Liouville–Bergman law: exact statement and dynamical meaning
+
+The five-mode Hamiltonian sector is a ten-real-dimensional symplectic manifold. In canonical coordinates
+\((q,p)\in\mathbb R^5\times\mathbb R^5\),
+\[
+\omega_{\mathrm{can}}=\sum_{j=1}^5dq_j\wedge dp_j,\qquad
+d\mu_L=\frac{\omega_{\mathrm{can}}^5}{5!}
+=\prod_{j=1}^5dq_j\,dp_j.
+\]
+For
+\[
+H_5(q,p)=\frac12\bigl(\beta\lambda\,|q|^2+
+\beta^{-1}|p|^2\bigr),\qquad
+\omega_0=\sqrt{\beta\lambda},
+\]
+the normalized complex chart already audited in the repository is
+\[
+\Phi(q,p)=z=\frac{\sqrt{\omega_0}\,q+
+i\,p/\sqrt{\omega_0}}{\sqrt{20}}.
+\]
+It is a real-linear isomorphism from \(\mathbb R^{10}\) to \(\mathbb C^5\). Its relevant domain is
+\[
+\Omega_5=\Phi^{-1}(D_5),\qquad
+D_5=\{z:N(z)>0,\ |z^Tz|<1\},
+\]
+where
+\[
+N(z)=1-2z^\dagger z+|z^Tz|^2.
+\]
+Thus the chart identifies \(\Omega_5\), not all of \(\mathbb R^{10}\), with \(D_5\).
+
+For the type-IV Bergman metric in the normalization fixed by PR #145,
+\[
+\det g_B(z)=10^5N(z)^{-5},\qquad
+dV_B=2^5\det(g_B)\,d^{10}z.
+\]
+The real Jacobian is \(|\det D\Phi|=20^{-5}\). Consequently
+\[
+\boxed{\Phi^*dV_B=N(\Phi(q,p))^{-5}\,d\mu_L.}
+\]
+This is an exact volume-form identity on \(\Omega_5\), not a fitted density. It does not by itself imply that the Bergman Kähler form equals the canonical symplectic form away from the origin; PR #145 proves that equality at the origin only.
+
+### Liouville transport equation
+
+Let \(\varphi_t\) be the Hamiltonian flow of any smooth \(H\) on this chart. Since
+\(\mathcal L_{X_H}d\mu_L=0\), a density \(\rho\,d\mu_L\) is invariant precisely when
+\[
+X_H(\rho)+\rho\,\operatorname{div}_{\mu_L}X_H=0.
+\]
+For the Bergman pullback density \(\rho_B=N^{-5}\), this becomes
+\[
+\boxed{\mathcal L_{X_H}(\rho_Bd\mu_L)=0
+\quad\Longleftrightarrow\quad X_HN=0.}
+\]
+The equivalence holds wherever \(N>0\). Thus the Bergman-weighted measure is not invariant under every Hamiltonian: it is invariant exactly when the Hamiltonian flow preserves the generic norm.
+
+For the isotropic fivefold oscillator above, Hamilton's equations give
+\[
+q(t)=q(0)\cos(\omega_0t)+
+\frac{p(0)}{\beta\omega_0}\sin(\omega_0t),
+\]
+\[
+p(t)=p(0)\cos(\omega_0t)-
+\beta\omega_0q(0)\sin(\omega_0t),
+\]
+and the chosen complex coordinate obeys
+\[
+z(t)=e^{-i\omega_0t}z(0).
+\]
+Both \(z^\dagger z\) and \(|z^Tz|\) are invariant under this common phase rotation. Hence \(N(z(t))=N(z(0))\), and
+\[
+\boxed{\varphi_t^*(N^{-5}d\mu_L)=N^{-5}d\mu_L.}
+\]
+This is the precise dynamical Liouville statement for the degenerate \(\lambda\)-eigenspace. For anisotropic mode frequencies, a common phase rotation is absent and invariance of \(N\) must be checked anew; it cannot be assumed.
+
+## 13. Hua normalization and the cutoff probability law
+
+Let \(d\nu_E\) denote normalized Euclidean volume on \(D_5\). The Hua identity in the normalization used by PR #146 is
+\[
+\int_{D_5}N(z)^s\,d\nu_E(z)
+=\frac{60}{(s+1)(s+2)(s+3)(s+4)(s+5/2)},
+\quad \Re s>-1.
+\]
+The induced density of \(t=N(z)\) under \(d\nu_E\) is
+\[
+f_N(t)=\frac{20}{3}(1-\sqrt t)^4(1+4\sqrt t+t),
+\quad 0<t<1.
+\]
+It follows that the Bergman volume is not finite without a cutoff, because its exponent is \(s=-5\). For \(0<\varepsilon<1\),
+\[
+Z_5(\varepsilon)=\int_\varepsilon^1t^{-5}f_N(t)\,dt
+\]
+is exactly the finite expression already recorded in PR #149, with
+\[
+Z_5(\varepsilon)\sim\frac53\varepsilon^{-4}.
+\]
+The normalized cutoff measure is
+\[
+d\mu_{B,\varepsilon}(z)=
+\frac{\mathbf1_{\{N(z)\geq\varepsilon\}}N(z)^{-5}}
+{Z_5(\varepsilon)}\,d\nu_E(z).
+\]
+This is a genuine probability measure for each fixed \(\varepsilon>0\). Its uncut limit is not a finite probability measure: the normalizer diverges and mass escapes toward the boundary \(N=0\). No physical value of \(\varepsilon\) is fixed by Hua's theorem.
+
+## 14. Exact Wilson-to-Liouville measure matching: the required theorem
+
+The compact-group reduction and the Liouville law live on spaces of different dimensions and different measure types. They must be connected in two stages.
+
+First, after the exact integral splitting of the constrained flux lattice, write
+\[
+\Lambda_{\rm cyc}\simeq\mathbb Z^{129},\qquad
+K=\ker(P:\Lambda_{\rm cyc}\to\mathbb Z^5)
+\simeq\mathbb Z^{124},\qquad
+\Lambda_{\rm cyc}/K\simeq\mathbb Z^5.
+\]
+Choose an integral section \(B:\mathbb Z^5\to\Lambda_{\rm cyc}\) and an integral basis matrix \(K_0\) for the fibre. Every constrained flux has the unique form
+\[
+n=Bm+K_0k,\qquad m\in\mathbb Z^5,\quad k\in\mathbb Z^{124}.
+\]
+For the factorized compact-U(1) link character weight, the exact marginal is
+\[
+W_\beta(m)=
+\sum_{k\in\mathbb Z^{124}}
+\prod_{e=1}^{192}
+\frac{I_{| (Bm+K_0k)_e |}(\beta)}{I_0(\beta)},
+\]
+with the understanding that the actual Q6 cycle embedding and any additional plaquette/temporal indices must be included exactly as specified by the chosen Wilson action. The absolute convergence and tail control of the fibre sum are the subject of the earlier integer-fibre and Bessel-majorant results. Define
+\[
+\mathcal Z_\beta=\sum_{m\in\mathbb Z^5}W_\beta(m).
+\]
+Then the exact quotient flux law is the discrete probability
+\[
+\mathbb P_\beta(m)=W_\beta(m)/\mathcal Z_\beta.
+\]
+The angular quotient carries normalized Haar measure \(d\theta/(2\pi)^5\) on \(\mathbb T^5\). Thus the exact reduced Wilson object is a measure on
+\(\mathbb T^5\times\mathbb Z^5\), not yet a smooth measure on a ten-dimensional cotangent bundle.
+
+Second, to compare with the five-mode Liouville law, one must specify a canonical cotangent lift and a continuum interpolation of the integer flux. At finite coupling the measure supported on integer momenta is singular with respect to
+\(d^5\theta\,d^5p\); therefore it cannot equal the absolutely continuous Bergman measure. A smoothing/interpolation kernel is necessary and is additional mathematical data, not a consequence of Haar orthogonality. For a normalized kernel \(K_\sigma(p-m)\), one possible regularized measure is
+\[
+d\widetilde\mu_{\beta,\sigma}(\theta,p)=
+\frac{d^5\theta}{(2\pi)^5}
+\sum_{m\in\mathbb Z^5}\mathbb P_\beta(m)
+K_\sigma(p-m)\,d^5p.
+\]
+A scale map from \((\theta,p)\) to canonical \((q,p_{\rm can})\), preserving
+\(\sum dq_j\wedge dp_{{\rm can},j}\), and a chart into \(\Omega_5\) must then be fixed.
+
+Let \(F_{\beta,\sigma}\) denote this map on a chosen fundamental-cell chart, and let \(r_{\beta,\sigma}(z)\,d\nu_E(z)\) be the density of its pushforward, if it is absolutely continuous. The exact finite-cutoff matching statement is the Radon–Nikodym identity
+\[
+\boxed{
+F_{\beta,\sigma*}\widetilde\mu_{\beta,\sigma}
+=d\mu_{B,\varepsilon}
+\quad\Longleftrightarrow\quad
+r_{\beta,\sigma}(z)=
+\frac{\mathbf1_{\{N(z)\geq\varepsilon\}}N(z)^{-5}}
+{Z_5(\varepsilon)}
+\quad(d\nu_E\text{-a.e.}).
+}
+\]
+If \(F_{\beta,\sigma}\) is many-to-one, the left-hand density is computed by the coarea/disintegration formula, summing the conditional Wilson weight over the full fibre with the inverse Jacobian. This is where the exact Bessel fibre sum must enter; it cannot be replaced by a five-mode projection before marginalization.
+
+This equivalence is the precise theorem to prove for a Wilson derivation of the Liouville–Bergman law. It is not yet proved by the separate Haar, SNF, Bergman or Hua identities.
+
+## 15. What the Bessel asymptotic does—and does not—give
+
+For large \(\beta\) with flux \(n=O(\sqrt\beta)\), the local Gaussian regime of the modified Bessel coefficients gives, at leading order,
+\[
+\frac{I_n(\beta)}{I_0(\beta)}
+\approx \exp\!\left(-\frac{n^2}{2\beta}\right).
+\]
+This is the standard large-parameter/large-order asymptotic regime of modified Bessel functions; see NIST DLMF §§10.40–10.41. It motivates a Gaussian approximation to the constrained integer-flux sum, but it is not an exact identity at finite \(\beta\).
+
+If the quadratic approximation is uniform on the relevant flux window and the lattice local-limit theorem applies, summing over the fibre produces an effective quadratic form on the five quotient fluxes. With the Euclidean edge quadratic form and real fibre subspace \(K_{0,\mathbb R}\), its leading exponent is governed by the Schur-complement metric
+\[
+Q_{\rm eff}=B^T(I-\Pi_K)B,\qquad
+\Pi_K=K_0(K_0^TK_0)^{-1}K_0^T.
+\]
+This expression is independent of the chosen section \(B\) up to the induced integral change of quotient coordinates. For a nontrivial Wilson action, the edge quadratic form must be replaced by its actual positive Hessian, and the corresponding weighted orthogonal projection must be used.
+
+The resulting Gaussian is only a leading local/weak-coupling approximation. It does not equal the nonlinear density \(N^{-5}\) on \(D_5\) by itself. The latter contains the full type-IV geometry and its boundary singularity. To obtain it, the exact nonlinear Jacobian of the canonical chart and the non-Gaussian corrections to the Wilson marginal must combine to give the Radon–Nikodym identity in §14. This is a testable mathematical target, not a consequence of the leading Bessel asymptotic.
+
+## 16. A dimension/topology obstruction that prevents a false identification
+
+The quotient \(H_L/G\simeq\mathbb T^5\) is five-dimensional and compact. The D5 domain is ten-dimensional, noncompact and contractible. Therefore there is no diffeomorphism
+\[
+\mathbb T^5\cong D_5,
+\]
+and a direct pushforward of five-dimensional Haar measure cannot produce a ten-dimensional absolutely continuous Bergman volume.
+
+The correct candidate bridge is the cotangent lift
+\[
+T^*\mathbb T^5\simeq\mathbb T^5\times\mathbb R^5,
+\]
+which is ten-dimensional and carries its canonical Liouville measure. Even this is not globally diffeomorphic to \(D_5\): \(T^*\mathbb T^5\) has fundamental group \(\mathbb Z^5\), whereas \(D_5\) is contractible. A global identification is therefore impossible. A chart obtained by cutting the torus along a fundamental-cell boundary can be locally identified with an open subset of \(\mathbb R^{10}\); only on such a chart can the audited linear map \(\Phi\) be used. The cut locus and the boundary of \(\Omega_5\) must be handled in the measure construction.
+
+This is not a defect of the five-mode theory. It specifies the correct scope: a local Darboux/Bergman chart or a measurable pushforward may exist, while a global symplectomorphism of the full cotangent torus with D5 cannot.
+
+## 17. Status ledger and next proof obligations
+
+**Exact results already established in the repository**
+- the five-mode chart and the exact volume pullback \(N^{-5}d\mu_L\) (PR #145);
+- equality of canonical and Bergman symplectic forms at the origin, not globally (PR #145);
+- the Hua Mellin law, the exact generic-norm density and finite-cutoff normalizer (PRs #146, #148, #149);
+- the integer fibre, saturated lattice, Bessel majorant and annihilator-torus structure (PRs #153, #156, #157, #159, #162);
+- invariance of the Bergman-weighted measure under the isotropic common-phase five-mode oscillator, by \(X_HN=0\).
+
+**New theorem not yet established**
+- construct the exact quotient character map \(P\), integral section \(B\), and fibre basis \(K_0\) in the same basis as the five-mode coexact projector;
+- derive the finite-\(\beta\) marginal \(W_\beta(m)\) for the complete Wilson action, with all temporal/plaquette indices retained;
+- specify and justify the canonical scaling and smoothing/interpolation of integer electric fluxes;
+- prove absolute continuity of the resulting pushforward and compute its Radon–Nikodym derivative;
+- prove that derivative is exactly \(N^{-5}/Z_5(\varepsilon)\), with a cutoff \(\varepsilon\) derived from the Wilson data rather than inserted by hand;
+- establish convergence (including tightness and boundary control) as the coupling/refinement limit is taken.
+
+**Conclusion.** The Liouville law is now placed at the correct point in the architecture: it is the exact target density of the five-mode Bergman chart; the Q6–Wilson torus supplies a compact quotient and an integer flux marginal; the cotangent lift and a controlled continuum limit are the missing bridge. Neither the five-torus alone nor the leading Gaussian Bessel approximation proves the Hua law.
+
+Additional references:
+- NIST Digital Library of Mathematical Functions, §§10.40–10.41, modified-Bessel large-argument and large-order asymptotics: https://dlmf.nist.gov/10.40 and https://dlmf.nist.gov/10.41.
+- J. B. Kogut, “An Introduction to Lattice Gauge Theory and Spin Systems,” *Rev. Mod. Phys.* 51 (1979), 659–713, DOI: 10.1103/RevModPhys.51.659.
+- Hamiltonian Liouville theorem: preservation of the canonical symplectic volume under Hamiltonian flow; see, e.g., the standard symplectic-geometry treatment in the cited graduate text.
