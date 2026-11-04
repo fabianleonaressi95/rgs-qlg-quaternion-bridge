@@ -76,3 +76,13 @@ Minimal Einstein-Cartan torsion remains algebraic in this construction.
 This module introduces no propagating torsion modes and makes no
 identification of axial spin current with electric/Q-ball charge or MHD
 current.
+
+
+## Tetrad orientation convention
+
+The implementation selects both an orientation and a time orientation in the
+chosen coordinate chart: det(e^a_mu)>0 and e^0_0>0. The determinant condition
+alone is insufficient in four dimensions because -I has positive determinant
+but reverses the chosen future-directed time leg. The latter is therefore
+rejected explicitly. This is a chart-level future-orientation convention,
+not an additional dynamical field equation.
