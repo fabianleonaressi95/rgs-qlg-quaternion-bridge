@@ -53,7 +53,10 @@ def build_full_q6_cubical_complex():
     d = np.zeros((total, total), dtype=np.int8)
     for k in range(6):
         block = coboundaries[k+1]
-        d[offsets[k]:offsets[k+1], offsets[k+1]:offsets[k+2]] = block
+        # D_k maps C^k -> C^(k+1): higher-degree cells are rows,
+        # lower-degree cells are columns. Keep the block orientation
+        # consistent with coboundaries[k+1].shape == (n_{k+1}, n_k).
+        d[offsets[k+1]:offsets[k+2], offsets[k]:offsets[k+1]] = block
     dk = d.astype(float) + d.T.astype(float)
     return {
         "cells": tuple(cells), "cell_counts": tuple(counts),
