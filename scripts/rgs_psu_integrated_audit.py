@@ -143,6 +143,40 @@ def _matrix_inventory(root: Path) -> dict[str, Any]:
         name for name, item in records.items()
         if item.get("shape") == [192, 192]
     ]
+    repository_192x192_candidates: list[dict[str, Any]] = []
+    for candidate in root.rglob("*.npy"):
+        if any(part in {".git", ".venv", "__pycache__"} for part in candidate.parts):
+            continue
+        try:
+            value = np.load(candidate, mmap_mode="r", allow_pickle=False)
+            if value.shape == (192, 192):
+                repository_192x192_candidates.append({
+                    "path": str(candidate.relative_to(root)),
+                    "container": "npy",
+                    "dtype": str(value.dtype),
+                    "sha256_file": sha256_file(candidate),
+                    "sha256_array_canonical": sha256_array(np.asarray(value)),
+                })
+        except Exception:
+            continue
+    for candidate in root.rglob("*.npz"):
+        if any(part in {".git", ".venv", "__pycache__"} for part in candidate.parts):
+            continue
+        try:
+            with np.load(candidate, allow_pickle=False) as archive_data:
+                for key in archive_data.files:
+                    value = archive_data[key]
+                    if value.shape == (192, 192):
+                        repository_192x192_candidates.append({
+                            "path": str(candidate.relative_to(root)),
+                            "key": key,
+                            "container": "npz",
+                            "dtype": str(value.dtype),
+                            "sha256_file": sha256_file(candidate),
+                            "sha256_array_canonical": sha256_array(value),
+                        })
+        except Exception:
+            continue
     operator_comparisons = {}
     names = sorted(matrices)
     for i, left in enumerate(names):
@@ -209,10 +243,14 @@ def _matrix_inventory(root: Path) -> dict[str, Any]:
     t2u_reconstruction: dict[str, Any] = {"status": "not_recomputed"}
     archive = folder / "all_T2u_arrays.npz"
     if archive.exists():
+        t2u_hashes["all_T2u_arrays.npz"] = sha256_file(archive)
         with np.load(archive, allow_pickle=False) as data:
             keys = list(data.files)
             t2u_reconstruction["archive_keys_and_shapes"] = {
                 key: list(data[key].shape) for key in keys
+            }
+            t2u_reconstruction["archive_arrays_sha256_canonical"] = {
+                key: sha256_array(data[key]) for key in keys
             }
             eigen_key = next((k for k in keys if "eigenvectors_T2u_tan" in k), None)
             index_key = next((k for k in keys if "first_triplet_indices" in k), None)
@@ -238,7 +276,8 @@ def _matrix_inventory(root: Path) -> dict[str, Any]:
         "array_file_count": len(records),
         "arrays": records,
         "candidate_192x192_hessians": hessian_candidates,
-        "original_192x192_hessian_recovered": bool(hessian_candidates),
+        "repository_192x192_array_candidates": repository_192x192_candidates,
+        "original_192x192_hessian_recovered": bool(repository_192x192_candidates),
         "same_shape_188x188_operator_relative_differences": operator_comparisons,
         "candidate_inverse_residuals": inverse_checks,
         "t2u_input_file_sha256": t2u_hashes,
