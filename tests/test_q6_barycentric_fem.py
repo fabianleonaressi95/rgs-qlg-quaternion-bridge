@@ -31,11 +31,18 @@ def test_q6_hypercube_embedding_and_fem_matrix_invariants():
 def test_q6_coordinate_fields_have_expected_edge_gradients_and_energy():
     fem = build_q6_barycentric_fem()
     coordinates = q6_hypercube_coordinates()
+    edge_directions = np.asarray(
+        [fem.coordinates[v] - fem.coordinates[u] for u, v in fem.edges]
+    )
     for axis in range(6):
         gradient = q6_edge_gradients(fem, coordinates[:, axis])
         assert gradient.shape == (192, 6)
-        assert np.allclose(gradient[:, axis], 1.0)
-        assert np.allclose(np.delete(gradient, axis, axis=1), 0.0)
+        # A coordinate field has a nonzero edgewise tangential derivative only
+        # on edges parallel to that coordinate axis.
+        expected = np.zeros((192, 6))
+        parallel_edges = np.abs(edge_directions[:, axis]) > 0.0
+        expected[parallel_edges, axis] = 1.0
+        assert np.allclose(gradient, expected)
         assert q6_dirichlet_energy(fem, coordinates[:, axis]) == pytest.approx(16.0)
 
 
