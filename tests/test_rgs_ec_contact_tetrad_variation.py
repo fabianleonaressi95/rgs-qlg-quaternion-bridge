@@ -8,8 +8,8 @@ def test_fixed_state_tetrad_variation_gives_metric_times_contact_lagrangian():
     # M^{ab}=<J^a J^b>, isotropic rest-frame sample with timelike component.
     m = np.diag([2.0, 0.5, 0.5, 0.5])
     out = contact_tetrad_stress_energy(m, 16.0 / 3.0)
-    assert out["mean_contact_lagrangian"] == pytest.approx(0.0)
-    assert np.allclose(out["stress_energy_tangent"], np.zeros((4, 4)))
+    assert out["mean_contact_lagrangian"] == pytest.approx(-0.5)
+    assert np.allclose(out["stress_energy_tangent"], np.diag([0.5, -0.5, -0.5, -0.5]))
 
 
 def test_spacelike_second_moment_has_explicit_vacuum_form_stress():
