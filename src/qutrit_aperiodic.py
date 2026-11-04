@@ -139,11 +139,20 @@ def ground_state_entanglement(
     if h.shape != (3**n, 3**n) or not np.allclose(h, h.T, atol=1e-12):
         raise ValueError("chain Hamiltonian has invalid shape or is not Hermitian")
     eigenvalues, eigenvectors = np.linalg.eigh(h)
+    ground_energy = float(eigenvalues[0])
+    degeneracy_tol = 1e-10 * max(1.0, abs(ground_energy))
+    ground_degeneracy = int(np.count_nonzero(eigenvalues - eigenvalues[0] <= degeneracy_tol))
     state = eigenvectors[:, 0].astype(complex)
     probs = schmidt_spectrum(state, (3**cut, 3**(n-cut)))
+    spectral_gap = (
+        float(eigenvalues[ground_degeneracy] - eigenvalues[0])
+        if ground_degeneracy < len(eigenvalues) else 0.0
+    )
     return {
-        "ground_energy": float(eigenvalues[0]),
-        "gap": float(eigenvalues[1] - eigenvalues[0]),
+        "ground_energy": ground_energy,
+        "ground_state_degeneracy": ground_degeneracy,
+        "gap_above_ground_manifold": spectral_gap,
+        "gap": spectral_gap,
         "schmidt_probabilities": probs.tolist(),
         "entanglement_entropy_bits": von_neumann_entropy(probs),
         "schmidt_rank": int(np.count_nonzero(probs > 1e-12)),
@@ -153,7 +162,8 @@ def ground_state_entanglement(
         "word": chain.word,
         "bond_couplings": list(chain.couplings),
         "hamiltonian_hermiticity_residual": float(np.linalg.norm(h-h.T)),
-        "scope": "finite-chain ground-state bipartite entanglement; no thermodynamic or continuum claim",
+        "ground_state_entanglement_basis_dependent": bool(ground_degeneracy > 1),
+        "scope": "finite-chain selected ground vector; entropy can depend on basis inside a degenerate ground space; no thermodynamic or continuum claim",
     }
 
 
