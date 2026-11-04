@@ -69,7 +69,15 @@ def q6_closed_two_cochain_projector() -> np.ndarray:
     """Orthogonal projector onto ker(B3.T) in the 240-dimensional 2-cochain space."""
     cube=build_unit_cube_complex(6)
     b3=cube.boundary[3].astype(float)
-    p=np.eye(b3.shape[0])-b3@np.linalg.pinv(b3)
+    # SVD with an explicit relative cutoff avoids promoting roundoff-sized
+    # singular values of this rank-deficient integer incidence matrix.
+    left, singular, _ = np.linalg.svd(b3, full_matrices=False)
+    cutoff = max(b3.shape) * np.finfo(float).eps * singular[0] * 100.0
+    rank = int(np.count_nonzero(singular > cutoff))
+    if rank != 111:
+        raise ArithmeticError(f"unexpected rank(B3)={rank}; expected 111 for the full six-cube")
+    image_basis = left[:, :rank]
+    p = np.eye(b3.shape[0]) - image_basis @ image_basis.T
     return 0.5*(p+p.T)
 
 def q6_hypercube_cosine_law(fluxes: np.ndarray,w: float=2.) -> dict[str,object]:
