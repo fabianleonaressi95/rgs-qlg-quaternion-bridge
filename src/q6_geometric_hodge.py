@@ -112,16 +112,18 @@ def build_cubical_whitney_hodge(dimension: int = 6) -> CubicalWhitneyHodge:
             raise ArithmeticError(f"Whitney mass matrix H_{k} is not positive definite")
         sqrt_h = (vectors * np.sqrt(evals)) @ vectors.T
         inv_sqrt_h = (vectors * (1.0 / np.sqrt(evals))) @ vectors.T
-        lap = np.zeros_like(hk)
+        # Lower-degree contribution in L2-orthonormal coordinates:
+        # H_k^(1/2) d_(k-1) H_(k-1)^(-1) d_(k-1)^T H_k^(1/2).
+        symmetric = np.zeros_like(hk)
         if k > 0:
-            d_prev = complex_.boundary[k].astype(float).T  # C^(k-1) -> C^k
-            h_prev = masses[k - 1]
-            lap += d_prev.T @ h_prev @ d_prev
+            d_prev = complex_.boundary[k].astype(float).T  # (n_k, n_(k-1))
+            h_prev_inv_dT = np.linalg.solve(masses[k - 1], d_prev.T)
+            symmetric += sqrt_h @ d_prev @ h_prev_inv_dT @ sqrt_h
+        # Upper-degree contribution:
+        # H_k^(-1/2) d_k^T H_(k+1) d_k H_k^(-1/2).
         if k < dimension:
-            d_next = complex_.boundary[k + 1].astype(float).T  # C^k -> C^(k+1)
-            h_next = masses[k + 1]
-            lap += np.linalg.solve(hk, d_next.T @ h_next @ d_next)
-        symmetric = sqrt_h @ lap @ inv_sqrt_h
+            d_next = complex_.boundary[k + 1].astype(float).T  # (n_(k+1), n_k)
+            symmetric += inv_sqrt_h @ d_next.T @ masses[k + 1] @ d_next @ inv_sqrt_h
         laplacians.append((symmetric + symmetric.T) / 2.0)
     return CubicalWhitneyHodge(complex_, masses, tuple(laplacians))
 
