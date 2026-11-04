@@ -157,6 +157,7 @@ def audit_q6_wilson_d5_regulator_obstruction(
             "source_dimension": 129,
             "target_dimension": 5,
             "rank": rank,
+            "kernel_dimension": kernel_dimension,
             "real_linear_kernel_dimension": kernel_dimension,
             "integer_lattice_injectivity": "not established by this audit",
             "integer_projection_collisions_checked": False,
