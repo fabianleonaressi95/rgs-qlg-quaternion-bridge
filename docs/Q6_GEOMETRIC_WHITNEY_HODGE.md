@@ -14,7 +14,7 @@ N_k=\binom{6}{k}2^{6-k},\qquad
 ]
 Its cellular boundary maps satisfy `B_{k-1} B_k = 0` exactly. Their ranks are
 [
-(63,129,91,35,7,1),
+(63,129,111,49,11,1),
 ]
 so the full cube has Betti numbers `(1,0,0,0,0,0,0)`, as expected for a contractible space.
 
