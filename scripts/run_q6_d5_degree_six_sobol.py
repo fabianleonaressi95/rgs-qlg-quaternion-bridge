@@ -33,7 +33,7 @@ def main() -> None:
         "python_seed": args.seed,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\\n"
+    payload = json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
     args.output.write_text(payload, encoding="utf-8")
     print(payload, end="")
     if not result["all_checks_passed"]:
