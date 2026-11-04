@@ -11,12 +11,14 @@ permissions:
 
 concurrency:
   group: rgs-qlg-audit-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   quaternion-su2-so3-audit:
     name: Quaternion / SU2 / SO3 / QLG tests
     runs-on: ubuntu-latest
+    timeout-minutes: 90
 
     steps:
       - name: Checkout repository
@@ -102,6 +104,77 @@ jobs:
             results/artifacts/Q6_canonical_incidence_v1.manifest.json
           if-no-files-found: error
           retention-days: 90
+
+
+      - name: Run full Q6-D5 degree-six Sobol audit
+        run: python scripts/run_q6_d5_degree_six_sobol.py --power 12 --scrambles 8 --seed 20261105
+
+      - name: Upload reproducible Q6-D5 audit JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-degree-six-sobol-audit
+          path: reports/q6_d5_degree_six_sobol.json
+          if-no-files-found: error
+
+      - name: Run exact D5 Hua cutoff-normalization audit
+        run: python scripts/run_q6_d5_hua_cutoff.py
+
+      - name: Upload reproducible D5 Hua cutoff audit JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-hua-cutoff-normalization
+          path: reports/q6_d5_hua_cutoff_normalization.json
+          if-no-files-found: error
+
+      - name: Run Q6 Wilson-D5 spectral regulator audit
+        run: python scripts/run_q6_wilson_d5_regulator.py
+
+      - name: Upload Q6 Wilson-D5 spectral regulator audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-wilson-d5-spectral-regulator
+          path: reports/q6_wilson_d5_regulator.json
+          if-no-files-found: error
+
+      - name: Run exact Q6-D5 integer-fiber quotient audit
+        run: python scripts/run_q6_d5_integer_fiber_quotient.py
+
+      - name: Upload Q6-D5 integer-fiber quotient audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-integer-fiber-quotient
+          path: reports/q6_d5_integer_fiber_quotient.json
+          if-no-files-found: error
+
+      - name: Run saturated Q6-D5 integer-kernel and certified Wilson-tail audit
+        run: python scripts/run_q6_d5_saturated_kernel_bounds.py --beta-time 80 --edge-l1-cutoff 25000
+
+      - name: Upload saturated Q6-D5 kernel and Wilson-tail audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-saturated-kernel-wilson-tail
+          path: reports/q6_d5_saturated_kernel_bounds.json
+          if-no-files-found: error
+
+      - name: Run Q6 Wilson microhistory and local modal bridge audit
+        run: python scripts/run_q6_wilson_microhistory_modal_bridge.py
+
+      - name: Upload Q6 Wilson microhistory and local modal bridge audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-wilson-microhistory-modal-bridge
+          path: reports/q6_wilson_microhistory_modal_bridge.json
+          if-no-files-found: error
+
+      - name: Run exact Q6-D5 Wilson annihilator-torus audit
+        run: python scripts/run_q6_d5_wilson_annihilator_torus.py --beta-time 2 --power 8 --scrambles 4
+
+      - name: Upload Q6-D5 Wilson annihilator-torus audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-d5-wilson-annihilator-torus
+          path: reports/q6_d5_wilson_annihilator_torus.json
+          if-no-files-found: error
 
       - name: Final audit summary
         if: success()
