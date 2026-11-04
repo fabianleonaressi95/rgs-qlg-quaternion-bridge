@@ -25,6 +25,30 @@ def hua_integral_ratio_type_iv5(s: float) -> float:
     return chi0 / chis
 
 
+def d5_hua_mellin_beta_factors() -> tuple[float, ...]:
+    """Beta(a,1) parameters whose independent product has the D5 Hua law."""
+    return (1., 2., 3., 4., 2.5)
+
+
+def d5_hua_product_inverse_moment() -> float:
+    """E[Y^-1] for Y=product of the four non-uniform Beta factors."""
+    parameters = d5_hua_mellin_beta_factors()[1:]
+    return math.prod(a / (a - 1.) for a in parameters)
+
+
+def d5_bergman_cutoff_leading_coefficient_type_iv5() -> float:
+    """C in E[N^-5 1_{N>=delta}] ~ C*delta^-4, for delta -> 0+."""
+    boundary_density = d5_hua_product_inverse_moment()
+    return boundary_density / 4.
+
+
+def d5_bergman_cutoff_leading_term_type_iv5(delta: float) -> float:
+    """Leading asymptotic term only; not the exact finite-cutoff integral."""
+    if not math.isfinite(delta) or not 0. < delta < 1.:
+        raise ValueError("delta must be finite and satisfy 0 < delta < 1")
+    return d5_bergman_cutoff_leading_coefficient_type_iv5() * delta ** -4
+
+
 def d5_hua_wilson_normalization_report(s_values=None) -> dict:
     """Exact threshold/residue audit for D5 volume versus compact measures."""
     if s_values is None:
@@ -63,6 +87,10 @@ def d5_hua_wilson_normalization_report(s_values=None) -> dict:
         "bergman_volume_finite": False,
         "boundary_asymptotic": "I(-1+epsilon)/I(0) ~ 20/(3 epsilon)",
         "boundary_residue": residue,
+        "mellin_beta_product_parameters": list(d5_hua_mellin_beta_factors()),
+        "boundary_density_from_product_law": d5_hua_product_inverse_moment(),
+        "bergman_cutoff_leading_coefficient": d5_bergman_cutoff_leading_coefficient_type_iv5(),
+        "bergman_cutoff_asymptotic": "E[N^-5 1_{N>=delta}] ~ (5/3) delta^-4",
         "sample_hua_ratios": ratios,
         "checks": checks,
         "all_checks_passed": bool(all(checks.values())),
