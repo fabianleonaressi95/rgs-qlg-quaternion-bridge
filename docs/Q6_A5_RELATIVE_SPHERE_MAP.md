@@ -60,3 +60,40 @@ representation used here are different irreducible representations. This
 module does not identify them. Their tensor-product/intertwiner structure
 must be computed before a claim that the relative-direction modes are
 contained in the D5 spectral sector.
+
+
+## Nonlinear bridge from the five-mode D5 tangent sector
+
+The five-dimensional coexact Hodge eigenspace V5 is an irreducible A5
+representation. Its exterior square has dimension ten and contains a
+three-dimensional summand equivalent to the geometric icosahedral rotation
+representation. The new module computes the intertwiner
+
+    T : Lambda^2(V5) -> R^3
+
+by solving all 60 finite-group intertwining equations simultaneously. The
+nullspace is required to be one-dimensional (the overall sign/scale
+ambiguity); T is normalized so that T T^T=I_3.
+
+For canonical cotangent coordinates q,p in R^5, form
+
+    w_ij = q_i p_j - q_j p_i,  i<j
+    v_rel = T w,  n_rel = v_rel/||v_rel||  (when v_rel != 0).
+
+This is equivariant under A5 and invariant under the oscillator SO(2) phase
+rotation of (q,p), because q wedge p is invariant under determinant-one
+rotations of the canonical pair. It therefore supplies a nonlinear,
+representation-theoretic candidate map from the ten-real-dimensional
+cotangent sector to a relative direction in S2. It is not a linear
+identification V5=R3.
+
+The implementation tests the unique intertwiner nullity, rank three,
+orthonormal rows, A5 covariance, SO(2) invariance and the zero case for
+collinear q,p. The map is undefined at the locus T(q wedge p)=0; this
+singular set must be characterized before using it as a global coordinate.
+
+This closes an important algebraic gap between the 5D A5 mode sector and
+the 3D geometric direction representation. It does not yet prove that the
+pushforward of the canonical Liouville measure is the standard S2 measure,
+nor that the 32-point Q6 5-design is the image of a natural discrete measure
+on the cotangent sector. The measure comparison remains the next proof gate.
