@@ -3,7 +3,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+# Executing a script by path puts scripts/, not the repository root, on sys.path.
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from src.rgs_q6_d5_degree_six_sobol import (
     build_q6_d5_degree_six_sobol_crosscheck,
