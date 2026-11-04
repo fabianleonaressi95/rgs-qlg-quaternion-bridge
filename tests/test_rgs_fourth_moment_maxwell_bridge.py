@@ -10,19 +10,18 @@ from src.rgs_fourth_moment_maxwell_bridge import (
 
 
 def _symmetric_rank4():
-    """Build a fully symmetric, pair-trace-free rank-four test tensor.
+    """Build a fully symmetric, pair-trace-free cubic-orbit test tensor."""
+    from itertools import permutations, product
 
-    Whitening enforces M2 = 40 I, which is the condition needed for the
-    isotropic fourth-moment subtraction below to have zero pair traces.
-    """
-    rng = np.random.default_rng(20261104)
-    points = rng.normal(size=(40, 3))
-    second = points.T @ points
-    eigenvalues, eigenvectors = np.linalg.eigh(second)
-    whitening = eigenvectors @ np.diag(1.0 / np.sqrt(eigenvalues)) @ eigenvectors.T
-    points = points @ whitening * np.sqrt(40.0 / 3.0)
+    seed = np.array([0.7, 1.3, 2.1])
+    points = []
+    for perm in permutations(range(3)):
+        base = seed[list(perm)]
+        for signs in product((-1.0, 1.0), repeat=3):
+            points.append(base * np.asarray(signs))
+    points = np.asarray(points)
     m2 = points.T @ points
-    assert np.allclose(m2, (40.0 / 3.0) * np.eye(3), atol=1e-10)
+    assert np.allclose(m2, np.trace(m2) / 3.0 * np.eye(3), atol=1e-10)
 
     m4 = np.einsum("ni,nj,nk,nl->ijkl", points, points, points, points)
     coefficient = float(np.einsum("iijj", m4)) / 15.0
@@ -32,8 +31,9 @@ def _symmetric_rank4():
         + np.einsum("ik,jl->ijkl", eye, eye)
         + np.einsum("il,jk->ijkl", eye, eye)
     )
-    return m4 - isotropic
-
+    residual = m4 - isotropic
+    assert np.allclose(np.einsum("iikl->kl", residual), 0.0, atol=1e-9)
+    return residual
 
 def test_direct_contraction_with_antisymmetric_field_is_zero():
     r = _symmetric_rank4()
