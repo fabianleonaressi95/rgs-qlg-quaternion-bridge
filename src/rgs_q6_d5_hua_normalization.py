@@ -49,6 +49,99 @@ def d5_bergman_cutoff_leading_term_type_iv5(delta: float) -> float:
     return d5_bergman_cutoff_leading_coefficient_type_iv5() * delta ** -4
 
 
+def d5_hua_hypoexponential_coefficients() -> tuple[tuple[float, float], ...]:
+    """(rate, coefficient) pairs for S=-log(Y), Y=prod Beta(a,1), a>1."""
+    rates = d5_hua_mellin_beta_factors()[1:]
+    rate_product = math.prod(rates)
+    pairs = []
+    for rate in rates:
+        denominator = math.prod(other - rate for other in rates if other != rate)
+        pairs.append((rate, rate_product / denominator))
+    return tuple(pairs)
+
+
+def d5_hua_truncated_exponential_moment(power: float, log_cutoff: float) -> float:
+    """E[exp(power*S) 1_{S<=L}] for S=sum Exp(rate), exact finite sum."""
+    if not math.isfinite(power) or not math.isfinite(log_cutoff) or log_cutoff < 0.:
+        raise ValueError("power must be finite and log_cutoff finite and nonnegative")
+    terms = []
+    for rate, coefficient in d5_hua_hypoexponential_coefficients():
+        gap = rate - power
+        if abs(gap) < 1e-14:
+            integral = log_cutoff
+        else:
+            integral = -math.expm1(-gap * log_cutoff) / gap
+        terms.append(coefficient * integral)
+    return math.fsum(terms)
+
+
+def d5_bergman_cutoff_normalization_type_iv5(delta: float) -> float:
+    """Exact Z_5(delta)=E[N^-5 1_{N>=delta}] for 0<delta<1."""
+    if not math.isfinite(delta) or not 0. < delta < 1.:
+        raise ValueError("delta must be finite and satisfy 0 < delta < 1")
+    log_cutoff = -math.log(delta)
+    if 4. * log_cutoff > math.log(float.fromhex("0x1.fffffffffffffp+1023")):
+        raise OverflowError("finite-cutoff normalization exceeds float range")
+    first = math.exp(4. * log_cutoff) * d5_hua_truncated_exponential_moment(1., log_cutoff)
+    second = d5_hua_truncated_exponential_moment(5., log_cutoff)
+    value = 0.25 * (first - second)
+    if value <= 0.:
+        raise ArithmeticError("finite-cutoff normalization lost positivity numerically")
+    return value
+
+
+def d5_bergman_cutoff_normalized_density_type_iv5(norm: float, delta: float) -> float:
+    """Normalized scalar density N^-5/Z_5(delta) on the cutoff domain."""
+    if not math.isfinite(norm) or not 0. <= norm <= 1.:
+        raise ValueError("generic norm must be finite and lie in [0,1]")
+    normalization = d5_bergman_cutoff_normalization_type_iv5(delta)
+    return norm ** -5 / normalization if norm >= delta else 0.
+
+
+def d5_bergman_cutoff_normalization_report_type_iv5(deltas=None) -> dict:
+    """Exact finite-cutoff normalization constants and normalized-law checks."""
+    if deltas is None:
+        deltas = (0.5, 0.2, 0.1, 0.01)
+    values = {str(float(delta)): d5_bergman_cutoff_normalization_type_iv5(float(delta))
+              for delta in deltas}
+    checks = {
+        "all_cutoff_constants_positive_finite": all(
+            math.isfinite(value) and value > 0. for value in values.values()
+        ),
+        "cutoff_constants_decrease_with_delta": all(
+            values[str(float(left))] > values[str(float(right))]
+            for left, right in zip(deltas, deltas[1:])
+        ),
+        "leading_coefficient_consistent": math.isclose(
+            d5_bergman_cutoff_normalization_type_iv5(1e-3) * 1e-12,
+            5. / 3., rel_tol=2e-3
+        ),
+        "normalized_density_vanishes_below_cutoff": (
+            d5_bergman_cutoff_normalized_density_type_iv5(0.5, 0.6) == 0.
+        ),
+        "normalized_density_positive_above_cutoff": (
+            d5_bergman_cutoff_normalized_density_type_iv5(0.8, 0.6) > 0.
+        ),
+    }
+    return {
+        "audit": "D5_EXACT_FINITE_CUTOFF_BERGMAN_NORMALIZATION",
+        "rates": list(d5_hua_mellin_beta_factors()[1:]),
+        "hypoexponential_coefficients": [
+            {"rate": rate, "coefficient": coefficient}
+            for rate, coefficient in d5_hua_hypoexponential_coefficients()
+        ],
+        "normalization_constants": values,
+        "normalized_cutoff_density": "N^-5 * 1_{N>=delta} / Z_5(delta)",
+        "all_checks_passed": bool(all(checks.values())),
+        "checks": checks,
+        "scope_limits": [
+            "the cutoff delta is a mathematical regulator, not derived from Q6 dynamics",
+            "normalization is relative to normalized Euclidean reference volume",
+            "does not identify this measure with compact Wilson Haar measure",
+        ],
+    }
+
+
 def d5_hua_wilson_normalization_report(s_values=None) -> dict:
     """Exact threshold/residue audit for D5 volume versus compact measures."""
     if s_values is None:
