@@ -126,6 +126,25 @@ def build_q6_d5_relative_direction_intertwiner() -> dict:
     }
 
 
+def relative_direction_linear_map_in_p(q, intertwiner):
+    """Return M(q) such that T(q wedge p)=M(q) p."""
+    q = np.asarray(q, dtype=float)
+    T = np.asarray(intertwiner, dtype=float)
+    if q.shape != (5,) or T.shape != (3, 10):
+        raise ValueError("q must have shape (5,) and intertwiner shape (3,10)")
+    if not np.all(np.isfinite(q)) or not np.all(np.isfinite(T)):
+        raise ValueError("q and intertwiner must be finite")
+    matrix = np.empty((3, 5), dtype=float)
+    for j in range(5):
+        basis = np.eye(5)[j]
+        wedge = np.asarray([
+            q[i]*basis[k] - q[k]*basis[i]
+            for i in range(5) for k in range(i+1, 5)
+        ])
+        matrix[:, j] = T @ wedge
+    return matrix
+
+
 def relative_direction_from_cotangent(q, p, intertwiner=None):
     """Return T(q wedge p) and its unit direction when nonzero.
 
