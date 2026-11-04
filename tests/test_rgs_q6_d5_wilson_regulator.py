@@ -22,6 +22,8 @@ def test_exact_transfer_spectral_cutoff_equivalence():
     )
     assert np.all(result["transfer_weights"] > 0.0)
     assert np.all(result["transfer_weights"] <= 1.0 + 1e-12)
+    assert result["cutoff_equivalence_residual"] < 1e-12
+    assert result["selection_mismatch_count"] == 0
 
 
 def test_q6_d5_projection_obstruction_audit():
@@ -29,6 +31,9 @@ def test_q6_d5_projection_obstruction_audit():
     assert result["all_checks_passed"], result["checks"]
     assert result["five_mode_projection"]["rank"] == 5
     assert result["five_mode_projection"]["kernel_dimension"] == 124
+    assert result["five_mode_projection"]["real_linear_kernel_dimension"] == 124
+    assert result["five_mode_projection"]["integer_lattice_injectivity"] == "not established by this audit"
+    assert result["five_mode_projection"]["integer_projection_collisions_checked"] is False
     assert result["transfer"]["total_states"] == 259
 
 

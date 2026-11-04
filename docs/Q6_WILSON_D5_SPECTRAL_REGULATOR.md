@@ -38,19 +38,30 @@ The five-mode momentum projection is
 c\mapsto cCB.
 \]
 
-The audit verifies \(\operatorname{rank}(CB)=5\), hence
-\(\dim\ker\Pi_5=129-5=124\). The projection discards 124 real flux
-directions. The finite-\(\beta_t\) transfer weight, however, is a
-product over all 192 edge-flux components. Thus the five-mode projection
-alone is not an injective encoding of the Wilson flux sector and cannot
-supply a unique scalar (N(z)\) or a unique (epsilon\) in the D5
-generic-norm condition (N(z)\geq\epsilon).
+The audit verifies \(\operatorname{rank}(CB)=5\), hence the real-linear
+extension has \(\dim\ker\Pi_5=129-5=124\). This proves that there is no
+inverse linear map on all of \(\mathbb R^{129}\). It does **not**, by
+dimension counting alone, prove that the restriction
+\(\Pi_5|_{\mathbb Z^{129}}\) is non-injective: a real-linear map with a
+nontrivial real kernel can still be injective on an integer lattice when
+its coefficients have suitable arithmetic independence.
 
-This is a precise obstruction, not a failed numerical fit. The missing
-ingredient is a specified equivariant quotient or a full action-preserving
-map from the integer cycle lattice (including its discarded directions)
-to the D5 chart. No such global map is currently established in the
-repository.
+Accordingly, the current audit establishes a 124-dimensional real kernel,
+but does not establish an integer collision, nor prove that the Wilson
+weight fails to factor through the five projected coordinates on the
+integer cycle lattice. Those are separate arithmetic/functional questions.
+The finite-\(\beta_t\) weight is a product over all 192 edge-flux
+components, and the repository currently supplies no proved factorization
+through the five-mode coordinates and no global map to the D5 generic norm.
+Thus no unique \(\epsilon\) is derived.
+
+The precise obstruction currently proved is the absence of a real-linear
+inverse/continuous linear reconstruction from the five modes to arbitrary
+real cycle coordinates. The stronger discrete obstruction requires either
+an explicit pair of distinct integer fluxes with identical projection but
+different Wilson weights, or a theorem excluding a suitable factorization.
+Neither is claimed here. A full action-preserving quotient or a
+well-defined global map to the D5 chart is still missing.
 
 ## Correct separation of the two regulators
 
