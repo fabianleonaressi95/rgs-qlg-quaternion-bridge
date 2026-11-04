@@ -27,7 +27,7 @@ def test_contact_sources_match_independent_barpsi_finite_difference():
     )
     fd = float(np.real((plus - minus) / (2 * h)))
     analytic = np.dot(delta_bar, result["dL_dbarpsi"])
-    assert fd == pytest.approx(float(np.real(analytic)), rel=2e-7, abs=2e-9)
+    assert fd == pytest.approx(analytic, rel=2e-7, abs=2e-9)
 
 
 def test_contact_sources_match_independent_psi_finite_difference():
@@ -35,7 +35,9 @@ def test_contact_sources_match_independent_psi_finite_difference():
     bar = dirac_adjoint(psi)
     current = dirac_axial_current(psi)
     kappa = 0.8
-    result = effective_dirac_contact_sources(psi, current, kappa)
+    result = effective_dirac_contact_sources(
+        psi, current, kappa, bar_spinor=bar
+    )
     delta_psi = np.array([0.1 + 0.3j, -0.2 + 0.1j, 0.4j, -0.1 - 0.2j])
     h = 1e-6
     plus = contact_lagrangian_from_independent_bilinears(
