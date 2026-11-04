@@ -89,9 +89,9 @@ Primary public repository: https://github.com/fabianleonaressi95/rgs-qlg-quatern
 
 The linked GitHub account exposed these repositories during this audit:
 
-- **Directly relevant and public:** fabianleonaressi95/rgs-qlg-quaternion-bridge. It contains the Q6, Wilson, integer-kernel, D5, Hua and Wyler audits listed above.
-- **Related research, but not independent support for these theorems:** naressi-golden-resonance (private; golden-resonance simulation framework), naressi-zuliani-law-quantum-morphodynamics (private; toy Monte Carlo), kilaw (private; mixed quantum/morphodynamic experiments), and biverse (private; currently a single README-level Yang–Mills-gap assertion, without a proof artifact in the inspected repository tree).
-- **Not direct evidence for the Q6–D5 chain:** quantum-lindblad, cosmodex, cosmodex-pwa, q-proof, ASTRAQ and astra-q-core (the latter was empty when inspected).
+- **Directly relevant and public:** [rgs-qlg-quaternion-bridge](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge). It contains the Q6, Wilson, integer-kernel, D5, Hua and Wyler audits listed above.
+- **Related research, but not independent support for these theorems:** [naressi-golden-resonance](https://github.com/fabianleonaressi95/naressi-golden-resonance) (private; golden-resonance simulation framework), [naressi-zuliani-law-quantum-morphodynamics](https://github.com/fabianleonaressi95/naressi-zuliani-law-quantum-morphodynamics) (private; toy Monte Carlo), [kilaw](https://github.com/fabianleonaressi95/kilaw) (private; mixed quantum/morphodynamic experiments), and [biverse](https://github.com/fabianleonaressi95/biverse) (private; currently a single README-level Yang–Mills-gap assertion, without a proof artifact in the inspected repository tree).
+- **Not direct evidence for the Q6–D5 chain:** [quantum-lindblad](https://github.com/fabianleonaressi95/quantum-lindblad), [cosmodex](https://github.com/fabianleonaressi95/cosmodex), [cosmodex-pwa](https://github.com/fabianleonaressi95/cosmodex-pwa), [q-proof](https://github.com/fabianleonaressi95/q-proof), [ASTRAQ](https://github.com/fabianleonaressi95/ASTRAQ) and [astra-q-core](https://github.com/fabianleonaressi95/astra-q-core) (the latter was empty when inspected).
 
 Private repositories are not cited as external validation. A project README or simulation output is not a peer-reviewed theorem and does not replace a proof. In particular, the biverse README statement is not treated as a proved Yang–Mills mass-gap result.
 
