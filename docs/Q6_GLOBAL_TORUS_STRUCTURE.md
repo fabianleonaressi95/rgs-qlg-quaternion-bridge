@@ -69,7 +69,7 @@ G=\operatorname{im}(D_0^T:\mathbb T^{64}\to\mathbb T^{192}),
 \]
 with the constant vertex phase in its kernel, hence \(\dim G=63\). Every cycle pairs trivially with a gradient:
 \[
-C D_0^T=0.
+C D_0=0.
 \]
 Consequently \(G\subset H_L\). Since \(H_L\) is a connected 68-torus, the quotient by this connected 63-dimensional subtorus is a connected 5-torus:
 \[
@@ -197,7 +197,7 @@ For the proposed \(68=63+5\) split, the clean mathematical target is therefore a
 \[
 \mathbb T^{64}/\mathbb T^1\longrightarrow H_L\longrightarrow H_L/G\simeq\mathbb T^5,
 \]
-together with the exact character-lattice maps dual to each arrow. The first quotient removes the constant vertex phase; the second arrow is the inclusion of gauge directions into the annihilator; the last quotient is the retained five-dimensional group. The diagram must be realized integrally (unimodularly), not only at the level of real vector spaces. Its continuum counterpart would then be a separate convergence theorem for connections and measures.
+together with the exact character-lattice maps dual to each arrow. The first quotient removes the constant vertex phase; the gauge subgroup is the image of the incidence map D_0; the second arrow is its inclusion into the annihilator; the last quotient is the retained five-dimensional group. The diagram must be realized integrally (unimodularly), not only at the level of real vector spaces. Its continuum counterpart would then be a separate convergence theorem for connections and measures.
 
 ## 11. Literature and scope of the import
 
