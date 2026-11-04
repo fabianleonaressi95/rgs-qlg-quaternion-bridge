@@ -89,3 +89,36 @@ state, or TorsionLambda beta.
 Run the additional tests with:
 
     python -m pytest -q tests/test_rgs_ec_nonlinear_dirac_eom.py
+
+
+## Kinetic Euler operator from the declared symmetrized action
+
+The repository's action convention is
+
+    S_D = 1/2 int [bar(psi) *gamma wedge D psi
+                    + D bar(psi) wedge *gamma psi].
+
+In an oriented orthonormal frame, metric compatibility gives
+`*e^a wedge e^b = -eta^{ab} vol` and
+`e^b wedge *e^a = eta^{ba} vol`. Therefore
+
+    L_D = 1/2 [D_a bar(psi) gamma^a psi
+               - bar(psi) gamma^a D_a psi] vol.
+
+Varying the independent row spinor and integrating the first term by parts,
+with covariantly constant gamma matrices and discarded boundary terms,
+gives
+
+    delta S_D / delta bar(psi) = -gamma^a D_a psi.
+
+The new `rgs_ec_dirac_kinetic_eom.py` implements this local kinetic Euler
+operator. The caller supplies the complete `D_a psi`, including the
+chosen tetrad and spin connection. It then adds the already audited
+Einstein-Cartan axial contact source, yielding the massless local equation
+
+    -gamma^a D_a psi + (3 kappa/8) J5_a i gamma5 gamma^a psi = 0.
+
+The declared repository action does not specify a mass term, so none is
+silently added. This is an action-derived local operator, not a global
+curved-space solution: spinor boundary conditions, a solved spin connection,
+tetrad equations, and covariant conservation remain separate tasks.
