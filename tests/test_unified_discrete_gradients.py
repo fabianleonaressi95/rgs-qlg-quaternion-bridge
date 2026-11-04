@@ -127,8 +127,11 @@ def test_full_gradients_match_full_action_directional_difference():
     for eps in (2e-4, 7e-5, 2e-5):
         numeric = (shifted(+1.0, eps) - shifted(-1.0, eps)) / (2.0 * eps)
         errors.append(abs(numeric - analytic))
-    assert errors[-1] < 3e-6 * max(1.0, abs(analytic)), (analytic, errors)
-    assert errors[-1] < errors[0], errors
+    # At small epsilon the centred difference reaches the floating-point
+    # roundoff floor; require a tight best error and a bounded full sweep,
+    # not monotone improvement at every step size.
+    assert min(errors) < 3e-6 * max(1.0, abs(analytic)), (analytic, errors)
+    assert max(errors) < 2e-7 * max(1.0, abs(analytic)), (analytic, errors)
     assert gradients["coframe"].shape == (64, 4, 4)
     assert gradients["psi_plus"].shape == gradients["psi_minus"].shape == (64, 2)
     assert gradients["links"].shape == (192, 3)
