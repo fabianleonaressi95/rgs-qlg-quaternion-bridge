@@ -87,7 +87,7 @@ def test_sine_gordon_fluxon_has_one_flux_quantum_and_small_equation_residual():
         sine_gordon_fluxon_profile,
         sine_gordon_static_residual,
     )
-    x = np.linspace(-20.0, 20.0, 4001)
+    x = np.linspace(-30.0, 30.0, 6001)
     lam = 1.3
     kink = sine_gordon_fluxon_profile(x, center=0.2, josephson_length=lam)
     assert abs(kink["phase_jump"] - 2.0 * np.pi) < 1e-8
