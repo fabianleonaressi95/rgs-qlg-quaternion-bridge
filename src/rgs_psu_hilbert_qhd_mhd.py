@@ -1,0 +1,206 @@
+"""Hilbert--Cantor / QHD / U(1) monopole / MHD coupling primitives.
+
+This module provides finite, independently testable discretizations. It is
+not a claimed continuum derivation of RGS physics. The 6-bit Q6 address is
+mapped to a level-3 Hilbert-grid point and to a middle-third Cantor coordinate.
+The fluid and gauge routines are periodic 1-D semidiscrete benchmarks.
+Monopole charge is computed from an oriented closed-surface flux cochain.
+"""
+from __future__ import annotations
+import numpy as np
+
+
+def hilbert_d2xy(order: int, distance: int) -> tuple[int, int]:
+    """Map Hilbert distance d in [0,4**order) to integer grid coordinates."""
+    if order < 0 or not 0 <= distance < 4**order:
+        raise ValueError("distance must lie in [0, 4**order)")
+    x = y = 0
+    t = int(distance)
+    s = 1
+    while s < (1 << order):
+        rx = 1 & (t // 2)
+        ry = 1 & (t ^ rx)
+        if ry == 0:
+            if rx == 1:
+                x, y = s - 1 - x, s - 1 - y
+            x, y = y, x
+        x += s * rx
+        y += s * ry
+        t //= 4
+        s *= 2
+    return x, y
+
+
+def q6_hilbert_cantor_table() -> dict:
+    """Return all 64 Q6 addresses, Hilbert coordinates and Cantor embeddings."""
+    rows = []
+    for g in range(64):
+        bits = tuple((g >> k) & 1 for k in range(6))
+        # Standard Hilbert index is the integer encoded by the six-bit word.
+        x, y = hilbert_d2xy(3, g)
+        cantor = sum(2.0 * bit / (3.0 ** (k + 1)) for k, bit in enumerate(bits))
+        rows.append((g, bits, x, y, cantor))
+    xy = np.asarray([(r[2], r[3]) for r in rows])
+    if len({tuple(v) for v in xy.tolist()}) != 64:
+        raise RuntimeError("Hilbert map is not bijective")
+    return {
+        "vertices": 64,
+        "hilbert_order": 3,
+        "hilbert_grid_side": 8,
+        "hilbert_bijection": True,
+        "rows": rows,
+        "cantor_min": float(min(r[4] for r in rows)),
+        "cantor_max": float(max(r[4] for r in rows)),
+        "cantor_coordinate_is_finite_prefix": True,
+        "warning": "Six-bit prefixes are finite cylinders, not the infinite Cantor set."
+    }
+
+
+def cantor_cylinder_mass(bits, branch_probabilities=(0.5, 0.5)) -> float:
+    """Bernoulli cylinder mass for a finite binary address."""
+    p0, p1 = map(float, branch_probabilities)
+    if min(p0, p1) <= 0 or not np.isclose(p0 + p1, 1.0):
+        raise ValueError("branch probabilities must be positive and sum to one")
+    value = 1.0
+    for bit in bits:
+        if int(bit) not in (0, 1):
+            raise ValueError("bits must be binary")
+        value *= p1 if int(bit) else p0
+    return value
+
+
+def periodic_derivative(field: np.ndarray, dx: float) -> np.ndarray:
+    """Centered periodic first derivative."""
+    f = np.asarray(field, dtype=float)
+    if f.ndim != 1 or f.size < 3 or dx <= 0:
+        raise ValueError("field must be 1-D (n>=3) and dx positive")
+    return (np.roll(f, -1) - np.roll(f, 1)) / (2.0 * dx)
+
+
+def periodic_laplacian(field: np.ndarray, dx: float) -> np.ndarray:
+    """Centered periodic second derivative."""
+    f = np.asarray(field, dtype=float)
+    if f.ndim != 1 or f.size < 3 or dx <= 0:
+        raise ValueError("field must be 1-D (n>=3) and dx positive")
+    return (np.roll(f, -1) - 2.0 * f + np.roll(f, 1)) / dx**2
+
+
+def qhd_madelung_rhs(rho, velocity, dx: float, hbar: float = 1.0,
+                     mass: float = 1.0, potential=None):
+    """Isothermal-free Madelung benchmark: continuity and quantum Euler RHS.
+
+    Q = -(hbar**2/(2m)) (d2 sqrt(rho)/dx2)/sqrt(rho);
+    m (dv/dt + v dv/dx) = -d(V+Q)/dx.
+    """
+    r = np.asarray(rho, dtype=float)
+    v = np.asarray(velocity, dtype=float)
+    if r.shape != v.shape or r.ndim != 1 or np.any(r <= 0) or mass <= 0:
+        raise ValueError("rho,v must be matching 1-D arrays; rho,mass positive")
+    root = np.sqrt(r)
+    quantum_potential = -(hbar**2 / (2.0 * mass)) * periodic_laplacian(root, dx) / root
+    V = np.zeros_like(r) if potential is None else np.asarray(potential, dtype=float)
+    if V.shape != r.shape:
+        raise ValueError("potential shape mismatch")
+    drho_dt = -periodic_derivative(r * v, dx)
+    dv_dt = -v * periodic_derivative(v, dx) - periodic_derivative(
+        V + quantum_potential, dx
+    ) / mass
+    return {"drho_dt": drho_dt, "dvelocity_dt": dv_dt,
+            "quantum_potential": quantum_potential}
+
+
+def u1_covariant_difference(psi, links):
+    """Gauge-covariant forward difference on a periodic 1-D link lattice.
+
+    links[i] transports the fibre at i+1 to i; psi[i+1] is multiplied by it.
+    Under psi_i -> g_i psi_i, U_i -> g_i U_i g_(i+1)^*, covariance is exact.
+    """
+    z = np.asarray(psi, dtype=complex)
+    u = np.asarray(links, dtype=complex)
+    if z.ndim != 1 or u.shape != z.shape or np.any(np.abs(np.abs(u) - 1.0) > 1e-10):
+        raise ValueError("psi and unit-modulus links must be matching 1-D arrays")
+    return u * np.roll(z, -1) - z
+
+
+def u1_gauge_transform(psi, links, phases):
+    z = np.asarray(psi, dtype=complex)
+    u = np.asarray(links, dtype=complex)
+    g = np.exp(1j * np.asarray(phases, dtype=float))
+    if z.shape != u.shape or z.shape != g.shape:
+        raise ValueError("psi, links and phases must have matching shapes")
+    # U_i is the transport i+1 -> i.
+    transformed_links = g * u * np.conjugate(np.roll(g, -1))
+    return g * z, transformed_links
+
+
+def monopole_chern_number(oriented_face_fluxes) -> dict:
+    """Compute c1=(1/2pi) integral F on a closed oriented 2-cycle."""
+    flux = np.asarray(oriented_face_fluxes, dtype=float)
+    if flux.ndim != 1 or flux.size == 0 or not np.all(np.isfinite(flux)):
+        raise ValueError("provide a finite nonempty oriented face-flux array")
+    total = float(np.sum(flux))
+    charge = total / (2.0 * np.pi)
+    nearest = int(np.rint(charge))
+    return {
+        "total_flux": total,
+        "chern_number": float(charge),
+        "nearest_integer_charge": nearest,
+        "quantization_residual": float(abs(charge - nearest)),
+        "quantized_within_tolerance": bool(abs(charge - nearest) < 1e-10),
+        "interpretation": "Requires a closed oriented 2-cycle and consistent patching; flux values alone do not construct a global monopole potential."
+    }
+
+
+def mhd_1d_transverse_rhs(velocity, magnetic, dx: float, density: float = 1.0,
+                          magnetic_permeability: float = 1.0,
+                          viscosity: float = 0.0, resistivity: float = 0.0):
+    """Periodic 1-D transverse ideal/resistive MHD benchmark.
+
+    u_t + u u_x = -(B B_x)/(mu rho) + nu u_xx
+    B_t + (u B)_x = eta B_xx.
+    This is a reduced transverse-field system, not full 3-D MHD.
+    """
+    u = np.asarray(velocity, dtype=float)
+    b = np.asarray(magnetic, dtype=float)
+    if u.shape != b.shape or u.ndim != 1 or density <= 0 or magnetic_permeability <= 0:
+        raise ValueError("u,B must match and density, permeability be positive")
+    du = (-u * periodic_derivative(u, dx)
+          - b * periodic_derivative(b, dx) / (magnetic_permeability * density)
+          + viscosity * periodic_laplacian(u, dx))
+    db = (-periodic_derivative(u * b, dx)
+          + resistivity * periodic_laplacian(b, dx))
+    current = periodic_derivative(b, dx) / magnetic_permeability
+    lorentz_force = -b * periodic_derivative(b, dx) / magnetic_permeability
+    return {"dvelocity_dt": du, "dmagnetic_dt": db,
+            "current": current, "lorentz_force": lorentz_force}
+
+
+def audit_hilbert_cantor_qhd_gauge_mhd() -> dict:
+    table = q6_hilbert_cantor_table()
+    n = 64
+    x = np.arange(n) / n
+    rho = 1.0 + 0.1 * np.cos(2.0 * np.pi * x)
+    velocity = 0.05 * np.sin(2.0 * np.pi * x)
+    qhd = qhd_madelung_rhs(rho, velocity, 1.0 / n)
+    magnetic = 0.2 + 0.03 * np.cos(2.0 * np.pi * x)
+    mhd = mhd_1d_transverse_rhs(velocity, magnetic, 1.0 / n)
+    psi = np.exp(1j * 2.0 * np.pi * x)
+    links = np.exp(1j * 0.1 * np.cos(2.0 * np.pi * x))
+    phases = 0.3 * np.sin(4.0 * np.pi * x)
+    d0 = u1_covariant_difference(psi, links)
+    psi_g, links_g = u1_gauge_transform(psi, links, phases)
+    d1 = u1_covariant_difference(psi_g, links_g)
+    expected = np.exp(1j * phases) * d0
+    monopole = monopole_chern_number(np.full(4, 2.0 * np.pi / 4.0))
+    return {
+        "schema": "RGS_PSU_HILBERT_CANTOR_QHD_MONOPOLE_MHD_V1",
+        "q6_hilbert": {k: table[k] for k in ("vertices", "hilbert_order", "hilbert_grid_side", "hilbert_bijection")},
+        "cantor": {"finite_prefix": True, "uniform_6_bit_cylinder_mass": 1.0 / 64.0},
+        "qhd": {"continuity_mass_residual": float(abs(np.sum(qhd["drho_dt"]))),
+                "quantum_potential_finite": bool(np.all(np.isfinite(qhd["quantum_potential"])))},
+        "u1_gauge": {"covariance_residual": float(np.linalg.norm(d1 - expected))},
+        "monopole": monopole,
+        "mhd": {"induction_mass_residual": float(abs(np.sum(mhd["dmagnetic_dt"]))),
+                "lorentz_force_finite": bool(np.all(np.isfinite(mhd["lorentz_force"])))},
+        "scope": "finite periodic benchmark; no continuum RGS field-equation theorem claimed"
+    }
