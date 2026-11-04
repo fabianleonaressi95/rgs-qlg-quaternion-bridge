@@ -2,7 +2,7 @@ import math
 import numpy as np
 from src.rgs_smilga_two_particle_audit import (
     audit, boost, cm_pair, dot, from_total_relative, integrated_phase_space,
-    jacobian_abs_8d, phase_space_density_dOmega, residuals,
+    jacobian_abs_8d, jacobian_abs_6d_spatial, phase_space_density_dOmega, residuals,
     to_total_relative, wyler_alpha_inverse,
 )
 
@@ -15,6 +15,7 @@ def test_transform_inverse_and_jacobian():
     assert np.allclose(aa,a,atol=1e-14)
     assert np.allclose(bb,b,atol=1e-14)
     assert math.isclose(jacobian_abs_8d(),16.,abs_tol=1e-12)
+    assert math.isclose(jacobian_abs_6d_spatial(),8.,abs_tol=1e-12)
 
 
 def test_mass_shell_and_casimir_are_lorentz_covariant():
