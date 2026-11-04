@@ -55,3 +55,17 @@ as a connected compact torus. The finite-component formula is retained only as t
 The Fourier–Bessel expansion used here is the NIST DLMF generating function, §10.35.1–10.35.2 (https://dlmf.nist.gov/10.35). The compact-U(1) lattice-gauge and transfer-matrix framework is reviewed by Kogut, Rev. Mod. Phys. 51, 659 (1979), https://doi.org/10.1103/RevModPhys.51.659. The Smith decomposition and invariant-factor interpretation are standard; see the FLINT reference on Hermite and Smith normal forms, https://flintlib.org/doc/algorithms/linear-algebra/hermite-smith.html.
 
 These sources support the general tools. The rank-124 Q6 lattice, its invariant factors, and the specific 68-torus are established by the exact repository computation, not by those references.
+
+
+## Stable QMC scaling identity
+
+For E=192 links, the normalized Wilson integrand is exactly factored as
+
+\[
+\prod_{e=1}^{E}\frac{e^{\beta\cos x_e}}{I_0(\beta)}
+=
+\exp\!\left(E(\beta-\log I_0(\beta))\right)
+\exp\!\left(\beta\left(\sum_e\cos x_e-E\right)\right).
+\]
+
+The second factor lies in (0,1]. The implementation removes the first, constant log-scale and integrates the bounded second factor (including the Fourier phase); it restores the scale only when reporting the estimate. This is an algebraic identity, not an approximation. The regression test checks the logarithmic factorization against the direct normalized integrand for several beta values.
