@@ -1,0 +1,85 @@
+{
+  "audit": "RGS_PSU_Q6_MULTISCALE_RELATIONAL_TIME_V1",
+  "classification": "finite-model audit; no claim of a unified physical theory",
+  "seed": 20261104,
+  "tolerances": {"absolute": 1e-11, "relative": 1e-10},
+  "input_hashes": {
+    "q6_adjacency_sha256": "c3d3e0cfc59965cf994ab2d2fabc273f6b5f049ea707f22f0cdd28432439a122"
+  },
+  "sections": {
+    "q6_exact_graph": {
+      "vertices": 64, "undirected_edges": 192, "degree_min": 6, "degree_max": 6,
+      "betti_1_graph": 129, "laplacian_spectrum_max_residual": 1.0658141036401503e-14,
+      "pass": true
+    },
+    "relational_clock_q2_q4": {
+      "clock_factor": "Q2", "system_factor": "Q4",
+      "clock_dimension": 4, "system_dimension": 16,
+      "clock_distinct_energies": [-2.0, -0.0, 2.0],
+      "global_state_terms": 4,
+      "global_constraint_residual": 1.539052504732111e-15,
+      "conditional_state_distinguishability_theta_0_vs_0p37": 0.49440041219356545,
+      "clock_period": 3.141592653589793,
+      "interpretation_limit": "finite relational-clock toy model; theta labels clock readings, not an externally calibrated physical time; only three distinct frequencies",
+      "pass": true
+    },
+    "markov_fluctuation_controls": {
+      "seed": 20261104,
+      "equilibrium": {
+        "stationarity_residual_uniform_pi": 0.0,
+        "detailed_balance_max_flux_residual": 0.0,
+        "entropy_production_rate_nats_per_model_time": 0.0,
+        "sample_mean_path_entropy_nats": 0.0,
+        "trajectories": 2500, "horizon_model_units": 3.0, "total_jumps": 45141,
+        "pass": true
+      },
+      "driven_cycle": {
+        "stationarity_residual_uniform_pi": 0.0,
+        "detailed_balance_max_flux_residual": 0.01989542444213254,
+        "entropy_production_rate_nats_per_model_time": 0.09549803732223619,
+        "sample_mean_path_entropy_nats": 0.30863999999999997,
+        "trajectories": 2500, "horizon_model_units": 3.0, "total_jumps": 45100,
+        "pass": true
+      },
+      "model_note": "The driven square is a non-equilibrium Markov process on Q6; its affinity is a model input, not derived from PSU geometry.",
+      "pass": true
+    },
+    "superfluid_analogue_metric": {
+      "metric_2plus1": [[-0.75, 0.0, -0.5], [0.0, 1.0, 0.0], [-0.5, 0.0, 1.0]],
+      "metric_determinant": -1.0,
+      "determinant_identity_residual_abs_det_plus_cs2": 0.0,
+      "metric_eigenvalues": [-0.8827822185373188, 1.0, 1.1327822185373186],
+      "lorentzian_signature_one_negative_two_positive": true,
+      "acoustic_horizon_radius": null, "ergoradius": 1.0,
+      "parameters_dimensionless_illustration": {
+        "sound_speed": 1.0, "draining_speed_parameter": 0.0,
+        "circulation_parameter": 1.0, "evaluation_radius": 2.0
+      },
+      "physical_scope": "analogue acoustic metric, not an Einstein gravitational metric; pure circulation has no radial horizon",
+      "pass": true
+    },
+    "discrete_scale_toy": {
+      "log_echoing_period": 0.6931471805599453, "scale_factor": 2.0,
+      "max_echo_residual": 3.3806291099836017e-14,
+      "status": "TOY_IDENTITY_ONLY_NOT_A_REPRODUCTION_OF_ECKER_ET_AL",
+      "pass": true
+    },
+    "gravity_scale_diagnostic": {
+      "planck_mass_kg": 2.176434342051127e-8,
+      "electron_alpha_g": 1.7518093998641384e-45,
+      "proton_alpha_g": 5.906149433384352e-39,
+      "planck_mass_alpha_g": 1.0000000000000002,
+      "interpretation": "Elementary-particle self-gravity is tiny in this dimensionless measure; Planck-scale coupling is order unity. This alone does not cause or quantify temporal or thermodynamic fluctuations.",
+      "pass": true
+    }
+  },
+  "pass": true,
+  "open_physics_questions": [
+    "derive a physical clock observable rather than choose a clock factor",
+    "derive Markov transition rates from an RGS-PSU action or measured data",
+    "derive a continuum vierbein/metric from the discrete state space",
+    "reproduce the published large-D Einstein-Klein-Gordon solution and its finite-D limits",
+    "calibrate the analogue-fluid metric without identifying it with real gravity",
+    "derive scale-dependent gravitational/thermodynamic coupling rather than fit it"
+  ]
+}
