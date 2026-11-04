@@ -36,3 +36,5 @@ def test_a5_preserves_d5_type_iv_norm_and_bergman_density():
 def test_d5_bergman_density_rejects_points_outside_domain():
     with pytest.raises(ValueError):
         d5_bergman_volume_density(np.array([1.0+0j, 0j, 0j, 0j, 0j]))
+    with pytest.raises(ValueError):
+        d5_bergman_volume_density(np.array([2.0+0j, 0j, 0j, 0j, 0j]))
