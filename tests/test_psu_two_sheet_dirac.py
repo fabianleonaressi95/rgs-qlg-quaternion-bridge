@@ -21,7 +21,10 @@ def test_nonunitary_transporter_rejected():
         assemble_two_sheet_dirac(np.eye(2),transporter=2*np.eye(2),coupling=.1)
 
 def test_scalar_sheet_coupling_is_mass_like_for_chirality():
-    d=np.diag([1.,-1.]).astype(complex); g5=np.diag([1.,-1.]).astype(complex)
+    # A valid massless one-sheet Dirac block anticommutes with gamma5.
+    # Use sigma_x against sigma_z; identical diagonal matrices commute.
+    d=np.array([[0.,1.],[1.,0.]],complex)
+    g5=np.diag([1.,-1.]).astype(complex)
     h,a=assemble_two_sheet_dirac(d,coupling=.2,gamma5=g5)
     assert a["sheet_chiral_anticommutator_residuals"][0]==0.
     assert a["inter_sheet_chiral_commutator_residual"]==0.
