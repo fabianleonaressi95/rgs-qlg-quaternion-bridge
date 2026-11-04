@@ -138,3 +138,23 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 - [x] Prove a Fourier-embedded Mosco-convergence prototype for the Euclidean Wilson quadratic form on a flat periodic torus, distinguishing Mosco liminf/recovery from the additional UV compactness needed for spectral convergence.
 - [x] Add numerical sampling of the fixed-mode quadratic form and the doubler mass along the periodic-torus refinement sequence.
 - [ ] Transfer the prototype proof to a nonuniform RGS refinement family; the fixed Q6 graph does not provide such a family.
+
+
+### Phase 10 — Physics architecture compatibility and local spin connection
+- [x] Add a central sector/evidence registry and explicit coupling gates.
+- [x] Cross-check the Clifford and EC gamma representations, metric signature and gamma5 convention.
+- [x] Re-audit the canonical Q6 incidence dimensions and exact chain identity.
+- [x] Derive a local torsion-free Levi-Civita spin connection from a coframe and its first derivatives.
+- [x] Check Lorentz antisymmetry, tetrad postulate and vanishing torsion on flat and spherical-coordinate Minkowski benchmarks.
+- [x] Convert the spin connection to the Dirac representation and construct coordinate and orthonormal covariant derivatives.
+- [x] Feed the orthonormal derivative into the action-derived EC–Dirac kinetic Euler operator in a bridge test.
+- [ ] Derive consistent coframe first derivatives on the curved RGS refinement family; the local routine does not infer derivatives from the 64-site point cloud.
+- [ ] Construct the teleparallel inertial spin connection separately and verify the TEGR boundary identity.
+- [ ] Add internal U(1), SU(2) and SU(3) connections as separate representation-valued terms.
+- [ ] Derive the full common action, tetrad/connection equations, Noether identities and total stress conservation.
+- [ ] Establish curved discrete-to-continuum convergence and quantum anomaly/doubling gates.
+
+The compatibility registry and local spin-connection scope are documented in
+`docs/PHYSICS_ARCHITECTURE_COMPATIBILITY.md` and
+`docs/LEVI_CIVITA_SPIN_CONNECTION_CORE.md`. A passing finite benchmark does
+not close the RGS refinement or teleparallel gates.
