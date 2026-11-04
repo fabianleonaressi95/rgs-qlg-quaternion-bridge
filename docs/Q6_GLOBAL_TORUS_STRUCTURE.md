@@ -28,11 +28,7 @@ The 1-skeleton is connected and 6-regular. Therefore
 \operatorname{rank}D_0=V-1=63,\qquad
 \dim\ker D_0=E-63=129.
 \]
-The **graph cycle lattice** is \(Z_1=\ker D_1\subset\mathbb Z^{192}\), where here \(D_1\) is the vertex-edge incidence map (equivalently the transpose convention for \(D_0\)); its rank is \(E-V+1=129\). This is the cycle rank of the 1-skeleton. It must not be called the first Betti number of the full cubical cell complex until the plaquette-boundary quotient has been taken. The 240 square faces define a boundary map \(\partial_2:\mathbb Z^{240}\to Z_1\), with \(\partial_1\partial_2=0\). The actual first homology is
-\[
-H_1(Q6;\mathbb Z)=Z_1/\operatorname{im}\partial_2.
-\]
-Its free rank and torsion require the integral Smith data of \(\partial_2\); the counts \((64,192,240)\) alone do not determine them. Correspondingly, the quotient of link angles by vertex gauge transformations has dimension 129, but the **flat-connection moduli torus** is determined only after imposing the plaquette-flatness equations and computing \(H^1(Q6;U(1))\). It is not automatically \(\mathbb T^{129}\).
+The **graph cycle lattice** is \(Z_1=\ker(\partial_1)\subset\mathbb Z^{192}\), where \(\partial_1\) maps oriented edges to their endpoint difference; its rank is \(E-V+1=129\). This is the cycle rank of the 1-skeleton, not the first Betti number before face boundaries are imposed. The 240 square faces define \(\partial_2:\mathbb Z^{240}\to Z_1\), with \(\partial_1\partial_2=0\), and \(H_1(Q6;\mathbb Z)=Z_1/\operatorname{im}\partial_2\). For the full six-cube, contractibility gives \(H_1=0\); equivalently the square-face boundaries generate the full integral cycle lattice and the quotient has no torsion. If one were given only the three cell counts, without the cubical boundary maps or contractibility, this conclusion would not follow.
 
 This distinction separates graph cycles (the domain used by the integer-cycle coordinates below) from physical flat holonomies (which also quotient plaquette boundaries). It does not select five physical dimensions or turn the six-dimensional Q6 graph into 3+1-dimensional spacetime.
 
