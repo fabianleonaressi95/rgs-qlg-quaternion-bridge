@@ -93,7 +93,7 @@ def effective_eom_source(axial_current, gravitational_coupling):
 def audit_four_fermion_reduction(axial_current, gravitational_coupling):
     current = _validate_current(axial_current)
     raw = real_to_raw_axial_current(current)
-    raw_norm = float(np.real(np.conjugate(raw) @ minkowski_metric() @ raw))
+    raw_norm = float(np.real(raw @ minkowski_metric() @ raw))
     real_norm = minkowski_inner(current, current)
     coefficient_real = effective_four_fermion_coefficient(gravitational_coupling)
     coefficient_raw = -3.0 * float(gravitational_coupling) / 16.0
