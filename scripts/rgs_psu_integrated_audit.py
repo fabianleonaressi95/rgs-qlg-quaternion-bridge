@@ -23,7 +23,7 @@ from src.discrete_differential import audit_discrete_differential_operators
 from src.mobius_complex import audit_mobius_complex, build_mobius_complex
 from src.mobius_gauge_audit import audit_mobius_gauge_covariance, build_random_mobius_lattice
 from src.mobius_representations import audit_local_frame_representations
-from src.q6_complex import audit_q6_complex, build_q6_complex
+from src.q6_complex import audit_q6_complex, build_q6_complex, export_q6_incidence_bundle
 from src.q6_prism_map import audit_q6_prism_map
 from src.rgs_multiscale import equidistribution_moment_audit
 from src.representations_2i import representation_audit, intertwiner_dimension_audit
@@ -244,7 +244,7 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
                 "sha256_array_canonical": sha256_array(arr),
             }
 
-    discrete_mobius = audit_discrete_differential_operators(
+    q6_bundle_path = root / "results" / "artifacts" / "Q6_canonical_incidence_v1.npz"\n    q6_bundle_export = export_q6_incidence_bundle(str(q6_bundle_path))\n    q6_bundle_export["path"] = q6_bundle_path.relative_to(root).as_posix()\n\n    discrete_mobius = audit_discrete_differential_operators(
         mobius.boundary_1, mobius.boundary_2,
         atol=TOLERANCES["discrete_differential"],
     )
@@ -275,7 +275,7 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
         "discrete_differential_q6": discrete_q6,
         "q6_to_prism_map": audit_q6_prism_map(),
         "finite_2i_haar_moment_diagnostic": moment,
-        "q6_source_arrays": q6_arrays,
+        "q6_source_arrays": q6_arrays,\n        "q6_canonical_bundle_export": q6_bundle_export,
         "rgs_188d_operator_and_t2u_inventory": _matrix_inventory(root),
         "continuum_convergence": {
             "equidistribution": "finite 2I moments reported; a nested refinement sequence is required for weak convergence",
