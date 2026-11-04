@@ -15,19 +15,19 @@ manifold. These steps remain assumptions to audit, not established results.
 ## Conventions and exact identities
 
 Use eta=diag(+1,-1,-1,-1), c=hbar=1, and
-P=p1+p2, q=(p1-p2)/2, so p1=P/2+q and p2=P/2-q.
+P=p1+p2, q=p1-p2, so p1=(P+q)/2 and p2=(P-q)/2.
 For equal mass shells p1^2=p2^2=m^2, direct algebra gives
 
     P.q = 0
-    P^2 + 4 q^2 = 4 m^2
+    P^2 + q^2 = 4 m^2
 
-The absolute Jacobian of (p1,p2) -> (P,q) is exactly one in eight
+The absolute Jacobian of (p1,p2) -> (P,q) is exactly 16 in eight
 unconstrained real momentum coordinates for these conventions. Factors of
 two quoted with other definitions of P and q cannot be transferred unchanged.
 
 At fixed P^2=M^2, in the centre-of-momentum frame,
 
-    P=(M,0), q=(0,k n), |n|=1
+    P=(M,0), q=(0,2k n), |n|=1
     k=sqrt(M^2/4-m^2).
 
 The fixed-M two-particle mass-shell manifold has three total-momentum
