@@ -32,3 +32,26 @@ numerical certification and a Wilson-to-Hua measure identification remain
 open. The representation is not a five-dimensional integral: that tempting
 reduction would incorrectly identify w(cC) with the Fourier coefficients
 of a composed product-cosine function.
+
+
+## Smith data for the audited Q6 lattice
+
+The general statement above allows a disconnected annihilator when non-unit Smith invariant factors occur. For the actual saturated Q6 kernel image used in this repository, the exact Smith audit gives
+
+\[
+d_1=\cdots=d_{124}=1.
+\]
+
+Hence there is no finite component group in this instance:
+
+\[
+H_L\cong\mathbb T^{68}
+\]
+
+as a connected compact torus. The finite-component formula is retained only as the general SNF theorem, not as a claim that the present Q6 example has nontrivial components. See also docs/Q6_GLOBAL_TORUS_STRUCTURE.md.
+
+## Literature
+
+The Fourier–Bessel expansion used here is the NIST DLMF generating function, §10.35.1–10.35.2 (https://dlmf.nist.gov/10.35). The compact-U(1) lattice-gauge and transfer-matrix framework is reviewed by Kogut, Rev. Mod. Phys. 51, 659 (1979), https://doi.org/10.1103/RevModPhys.51.659. The Smith decomposition and invariant-factor interpretation are standard; see the FLINT reference on Hermite and Smith normal forms, https://flintlib.org/doc/algorithms/linear-algebra/hermite-smith.html.
+
+These sources support the general tools. The rank-124 Q6 lattice, its invariant factors, and the specific 68-torus are established by the exact repository computation, not by those references.
