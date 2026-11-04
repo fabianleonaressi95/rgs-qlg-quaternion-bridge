@@ -90,6 +90,22 @@ jobs:
           PYTHONPATH=. python examples/mobius_hawking_thermodynamics.py
           PYTHONPATH=. python -m pytest tests/test_thermodynamics.py -v
 
+      - name: Run integrated Möbius / Q6 / 2I / Clifford / RGS-PSU audit
+        run: |
+          PYTHONPATH=. python scripts/rgs_psu_integrated_audit.py
+          PYTHONPATH=. python -m pytest tests/test_integrated_mobius_psu_audit.py tests/test_mobius_complex.py tests/test_mobius_gauge_audit.py tests/test_mobius_representations.py tests/test_binary_icosahedral.py tests/test_representations_2i.py tests/test_clifford_qlg.py tests/test_q6_complex.py -v
+
+      - name: Upload reproducible integrated audit and Q6 incidence bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: rgs-psu-integrated-audit-${{ github.sha }}
+          path: |
+            results/json/rgs_psu_integrated_geometric_gauge_audit.json
+            results/artifacts/Q6_canonical_incidence_v1.npz
+            results/artifacts/Q6_canonical_incidence_v1.manifest.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Final audit summary
         if: success()
         run: |
