@@ -33,7 +33,10 @@ def test_current_q6_embedding_cannot_induce_a_positive_definite_d5_metric():
     report = audit_rgs_d5_scale_identifiability()
     assert report["q6_to_r3_rank"]["rank_max"] <= 3
     assert report["d5_target"]["real_tangent_dimension"] == 10
+    assert report["d5_target"]["smilga_two_body_kinematic_slice_dimension"] == 5
+    assert report["d5_target"]["minimum_missing_rank_to_smilga_slice"] == 2
     assert not report["d5_target"]["positive_definite_pullback_possible_from_current_q6_to_r3_map"]
+    assert not report["d5_target"]["positive_definite_pullback_possible_from_current_q6_r3_map_to_smilga_slice"]
     assert report["checks"] and all(report["checks"].values())
 
 
