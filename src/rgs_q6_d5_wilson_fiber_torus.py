@@ -140,7 +140,13 @@ def q6_d5_wilson_annihilator_torus_integral(
         },
         "numerical_qmc": {
             "beta_time": beta, "power": power, "samples_per_scramble": 2**power,
-            "scrambles": scrambles, "seed": seed, "log_scale_removed": log_scale,
+            "scrambles": scrambles, "seed": seed,
+            "qmc_dimension": qmc_dimension,
+            "qmc_coordinate_split": {
+                "discrete_smith_coordinates": len(nontrivial),
+                "continuous_torus_coordinates": free_dim,
+            },
+            "log_scale_removed": log_scale,
             "scaled_complex_mean": [mean.real, mean.imag],
             "scaled_real_standard_error": re_se,
             "scaled_imag_standard_error": im_se,
