@@ -1,0 +1,211 @@
+{
+  "E_64B": 905.9021698539985,
+  "E_free_reference": 893.7889907454335,
+  "best": {
+    "run": 3,
+    "success": true,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 15,
+    "nfev": 19,
+    "p_opt": [
+      0.6154629106568462,
+      1.9381916693645072,
+      0.6177654837033368,
+      2.448162416745708,
+      0.6201792941312971,
+      1.2239324300386516
+    ],
+    "energy": 897.0080867574304,
+    "deltaE_from_64B": -8.894083096568124,
+    "deltaE_vs_free": 3.219096011996953,
+    "param_stationarity": {
+      "param_grad": [
+        0.0,
+        1.1731227568312848e-07,
+        0.0,
+        -4.643762070032004e-08,
+        -1.7053025658242404e-07,
+        0.0
+      ],
+      "param_grad_norm": 2.1213012763944803e-07,
+      "param_grad_maxabs": 1.7053025658242404e-07
+    },
+    "free_stationarity": {
+      "energy": 897.0080867574304,
+      "lambda": 3.7375336948226257,
+      "eps_stat_free": 7.582455976287022e-10,
+      "force_residual_norm": 4.390365075331394e-08
+    },
+    "Oh_check": {
+      "max_rms": 0.0,
+      "min_rms": 0.0,
+      "n_below_1e-10": 48
+    }
+  },
+  "all_runs": [
+    {
+      "run": 0,
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 14,
+      "nfev": 17,
+      "p_opt": [
+        0.5487025883124417,
+        1.4752863747044498,
+        0.44446959181694795,
+        2.114859038966111,
+        0.5290492412026709,
+        1.4390327520272939
+      ],
+      "energy": 897.3117694554808,
+      "deltaE_from_64B": -8.590400398517772,
+      "deltaE_vs_free": 3.522778710047305,
+      "param_stationarity": {
+        "param_grad": [
+          5.6843418860808015e-08,
+          -7.706086063757716e-08,
+          0.0,
+          -5.3756224706680224e-08,
+          0.0,
+          1.5800451735577976e-07
+        ],
+        "param_grad_norm": 1.924180597281278e-07,
+        "param_grad_maxabs": 1.5800451735577976e-07
+      },
+      "free_stationarity": {
+        "energy": 897.3117694554808,
+        "lambda": 3.738799039397837,
+        "eps_stat_free": 7.884345607114349e-10,
+        "force_residual_norm": 4.5667096107230704e-08
+      },
+      "Oh_check": {
+        "max_rms": 0.0,
+        "min_rms": 0.0,
+        "n_below_1e-10": 48
+      }
+    },
+    {
+      "run": 1,
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 1,
+      "nfev": 3,
+      "p_opt": [
+        0.55,
+        1.45,
+        0.55,
+        1.45,
+        0.55,
+        1.45
+      ],
+      "energy": 909.7256565061352,
+      "deltaE_from_64B": 3.823486652136694,
+      "deltaE_vs_free": 15.936665760701771,
+      "param_stationarity": {
+        "param_grad": [
+          16.280813554203633,
+          -15.253907537859552,
+          29.613156982577493,
+          -34.13631714403014,
+          47.36179317887945,
+          14.017348740739621
+        ],
+        "param_grad_norm": 70.56627607172821,
+        "param_grad_maxabs": 47.36179317887945
+      },
+      "free_stationarity": {
+        "energy": 909.7256565061352,
+        "lambda": 3.790523568775563,
+        "eps_stat_free": 0.20415785759681984,
+        "force_residual_norm": 12.246605933537916
+      },
+      "Oh_check": {
+        "max_rms": 0.0,
+        "min_rms": 0.0,
+        "n_below_1e-10": 48
+      }
+    },
+    {
+      "run": 2,
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 18,
+      "nfev": 28,
+      "p_opt": [
+        0.5297428021338513,
+        1.4243095535798012,
+        0.4291114514524069,
+        2.0417824487636835,
+        0.5107685484753467,
+        1.3893086146824496
+      ],
+      "energy": 897.311769455481,
+      "deltaE_from_64B": -8.590400398517545,
+      "deltaE_vs_free": 3.5227787100475325,
+      "param_stationarity": {
+        "param_grad": [
+          1.6484591469634324e-06,
+          6.784607448605408e-07,
+          -5.6843418860808015e-08,
+          -2.449928425420638e-06,
+          3.467448550509289e-06,
+          1.2274469097811049e-06
+        ],
+        "param_grad_norm": 4.765808679776823e-06,
+        "param_grad_maxabs": 3.467448550509289e-06
+      },
+      "free_stationarity": {
+        "energy": 897.311769455481,
+        "lambda": 3.738799039397839,
+        "eps_stat_free": 1.5049618365370924e-08,
+        "force_residual_norm": 8.716923414016582e-07
+      },
+      "Oh_check": {
+        "max_rms": 0.0,
+        "min_rms": 0.0,
+        "n_below_1e-10": 48
+      }
+    },
+    {
+      "run": 3,
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 15,
+      "nfev": 19,
+      "p_opt": [
+        0.6154629106568462,
+        1.9381916693645072,
+        0.6177654837033368,
+        2.448162416745708,
+        0.6201792941312971,
+        1.2239324300386516
+      ],
+      "energy": 897.0080867574304,
+      "deltaE_from_64B": -8.894083096568124,
+      "deltaE_vs_free": 3.219096011996953,
+      "param_stationarity": {
+        "param_grad": [
+          0.0,
+          1.1731227568312848e-07,
+          0.0,
+          -4.643762070032004e-08,
+          -1.7053025658242404e-07,
+          0.0
+        ],
+        "param_grad_norm": 2.1213012763944803e-07,
+        "param_grad_maxabs": 1.7053025658242404e-07
+      },
+      "free_stationarity": {
+        "energy": 897.0080867574304,
+        "lambda": 3.7375336948226257,
+        "eps_stat_free": 7.582455976287022e-10,
+        "force_residual_norm": 4.390365075331394e-08
+      },
+      "Oh_check": {
+        "max_rms": 0.0,
+        "min_rms": 0.0,
+        "n_below_1e-10": 48
+      }
+    }
+  ]
+}

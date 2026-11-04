@@ -1,0 +1,73 @@
+{
+  "status": "HYPOTHESIS_ONLY",
+  "formula_source": "notebook_source_recovered.py lines 4888-4897 + 3760-3842. B_T2U_TAN = 3 softest eigenvectors of K_tangent (proxy for T2u sector). J_A_HYPO = QR(B_T2U_TAN + 0.01*N(0,1), seed=0). J_B_HYPO = QR(B_T2U_TAN + 0.01*N(0,1), seed=1). Original RNG seed UNRECOVERABLE.",
+  "input_files": [
+    "X_Oh",
+    "Q",
+    "K_tangent"
+  ],
+  "input_hashes": {
+    "X_Oh": "4792f7003a30d07d0b48fdcef90a6dac74a4a907f2aa5cfb8d417f66aaa6519f",
+    "Q": "38729861cb95adac03cf249e3be2ac84a806073ff180f3fe6aba9e6af1641619",
+    "K_tangent": "853d81de4fc783f94cac90ea6a0b7da460fd490c78ffb091b60531a8504a26db"
+  },
+  "shape_J_A": [
+    188,
+    3
+  ],
+  "shape_J_B": [
+    188,
+    3
+  ],
+  "construction": "STEP1: K_tangent \u2192 eigendecomposition \u2192 3 softest eigenvectors = J_BASE (T2u proxy).STEP2: J_A = QR(J_BASE + 0.01*rng(seed=0).normal), canonical sign.STEP3: J_B = QR(J_BASE + 0.01*rng(seed=1).normal), canonical sign.STEP4: Kinv = spectral pinv(K_tangent, tol=1e-10*max|lambda|).STEP5: M_A = sym(J_A^T Kinv J_A). M_B = sym(J_B^T Kinv J_B).STEP6: Delta_M = M_A - M_B.",
+  "verified": false,
+  "classification": {
+    "original_provenance": "NOT_RECOVERABLE",
+    "mathematical_reproducibility": "HYPOTHESIS_ONLY",
+    "numerical_reproducibility": "REPRODUCIBLE (seed documented)",
+    "historical_bundle_compatibility": "MISMATCH"
+  },
+  "AB_semantic": "A and B are two matter species (phi_A, phi_B) coupled to different blocks of the 185D internal sector. Source: notebook comment at line 4892.",
+  "historical_bundle_comparison": {
+    "J_A": {
+      "frob_rel": 1.4911501112710526,
+      "cosine_sim_cols": [
+        0.10549980111425271,
+        0.1443181192758867,
+        0.08547506112536818
+      ],
+      "sv_hypo": [
+        1.0000000000000002,
+        1.0,
+        0.9999999999999998
+      ],
+      "sv_hist": [
+        1.0,
+        1.0,
+        0.9999999999999999
+      ],
+      "shapes_match": true,
+      "verdict": "historical_bundle != reconstructed_mathematical_object"
+    },
+    "J_B": {
+      "frob_rel": 1.4254713347601582,
+      "cosine_sim_cols": [
+        0.016075086906181226,
+        0.015661289981598943,
+        0.01621641244658081
+      ],
+      "sv_hypo": [
+        1.0000000000000004,
+        0.9999999999999998,
+        0.9999999999999997
+      ],
+      "sv_hist": [
+        0.9999999999999999,
+        0.9999999999999999,
+        0.9999999999999997
+      ],
+      "shapes_match": true,
+      "verdict": "historical_bundle != reconstructed_mathematical_object"
+    }
+  }
+}

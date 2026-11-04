@@ -1,0 +1,101 @@
+{
+  "artifacts": [
+    {
+      "artifact": "X_Oh_reconstructed.npy",
+      "status": "VERIFIED",
+      "source": "/home/fabianleo/Scaricati/X_Oh_reconstructed.npy",
+      "sha256": "4792f7003a30d07d0b48fdcef90a6dac74a4a907f2aa5cfb8d417f66aaa6519f",
+      "shape": [64, 3],
+      "validation": "M2=240.0, CM≈0, geometry audit PASS",
+      "notes": "64-point Oh geometry, duplicated as 64B_Oh_reconstructed.npy (identical hash)"
+    },
+    {
+      "artifact": "Q_rebuilt.npy",
+      "status": "RECONSTRUCTED",
+      "source": "/home/fabianleo/Scaricati/188D_LOCAL_REPLAY_OUTPUT/Q_rebuilt.npy",
+      "sha256": "COMPUTE_ON_SAVE",
+      "shape": [192, 188],
+      "validation": "Orthogonality error 3.31e-15, null_space(C) computation",
+      "notes": "Tangent basis from null_space of constraint matrix C (translation + rotation + center-of-mass)"
+    },
+    {
+      "artifact": "K_tangent_rebuilt.npy",
+      "status": "RECONSTRUCTED",
+      "source": "/home/fabianleo/Scaricati/188D_LOCAL_REPLAY_OUTPUT/K_tangent_rebuilt.npy",
+      "sha256": "COMPUTE_ON_SAVE",
+      "shape": [188, 188],
+      "validation": "Spectral audit: 29 negative, 3 zero, 156 positive eigenvalues",
+      "notes": "Documented formula: K = Q.T @ (HE + lambda_force * I) @ Q"
+    },
+    {
+      "artifact": "eigK_rebuilt.npy",
+      "status": "RECONSTRUCTED",
+      "source": "/home/fabianleo/Scaricati/188D_LOCAL_REPLAY_OUTPUT/eigK_rebuilt.npy",
+      "sha256": "COMPUTE_ON_SAVE",
+      "shape": [188],
+      "validation": "Eigenvalues of K_tangent_rebuilt",
+      "notes": "Spectral properties: min=-2.777, max=15.575"
+    },
+    {
+      "artifact": "K0.npy",
+      "status": "UNVERIFIED",
+      "source": "/home/fabianleo/Scaricati/188D_FINAL_BUNDLE/K0.npy",
+      "sha256": "1aa4a6c0e237f5fb43d1d05e2de5a073087f3a2c1d1d200946fd693f1476aaa1",
+      "shape": [188, 188],
+      "validation": "Differs from K_rebuilt by 109% relative norm",
+      "notes": "Origin unknown, not inverse of Kinv, NOT K_tangent from documented formula"
+    },
+    {
+      "artifact": "Kinv.npy",
+      "status": "UNVERIFIED",
+      "source": "/home/fabianleo/Scaricati/188D_FINAL_BUNDLE/Kinv.npy",
+      "sha256": "f4fbe78ebec63c237a77369dd354d8da9b5c1371c9eafcd87f775dc5b3464bc8",
+      "shape": [188, 188],
+      "validation": "K0 @ Kinv - I = 8.0 (not inverse)",
+      "notes": "Origin unknown, may be pseudo-inverse or from different computation"
+    },
+    {
+      "artifact": "J_A.npy",
+      "status": "UNVERIFIED",
+      "source": "/home/fabianleo/Scaricati/188D_FINAL_BUNDLE/J_A.npy",
+      "sha256": "b674bd78ec69fbbe2d2fe1217de90d41c6e0d6f6af08bba997dd529d9e5358c9",
+      "shape": [188, 3],
+      "validation": "None performed yet",
+      "notes": "Shape suggests Jacobian of geometry-to-collective-coordinates mapping, origin unknown"
+    },
+    {
+      "artifact": "J_B.npy",
+      "status": "UNVERIFIED",
+      "source": "/home/fabianleo/Scaricati/188D_FINAL_BUNDLE/J_B.npy",
+      "sha256": "0043e14ac656c444c9720d96378c661fcfa8f8fc768017238031167444260529",
+      "shape": [188, 3],
+      "validation": "None performed yet",
+      "notes": "Similar to J_A, possibly second Jacobian or different sector"
+    },
+    {
+      "artifact": "J.npy",
+      "status": "UNVERIFIED",
+      "source": "/home/fabianleo/Scaricati/188D_FINAL_BUNDLE/J.npy",
+      "sha256": "1c64086c0a8213d805858d452adc10fd31412f713a5ca7044c0b4b05e602ed0b",
+      "shape": [376, 3],
+      "validation": "None performed yet",
+      "notes": "Concatenation of J_A and J_B? Origin unknown"
+    },
+    {
+      "artifact": "P_G.npy",
+      "status": "UNVERIFIED",
+      "source": "/home/fabianleo/Scaricati/188D_FINAL_BUNDLE/P_G.npy",
+      "sha256": "2eb41891a2b545499f80078eafb504e01c3f26f583310e49a60d3bf5be787493",
+      "shape": [188, 188],
+      "validation": "None performed yet",
+      "notes": "Gauge projector mentioned in forensic report, origin unknown"
+    }
+  ],
+  "metadata": {
+    "reconstruction_date": "2026-10-04",
+    "reconstruction_method": "Local replay using X_Oh_reconstructed.npy",
+    "source_pdf": "/home/fabianleo/Documenti/formule.pdf",
+    "kaggle_notebook": "Untitled2.ipynb",
+    "notes": "K0, Kinv, J_A, J_B, J, P_G are UNVERIFIED - do not use for certified physics without understanding their origin"
+  }
+}

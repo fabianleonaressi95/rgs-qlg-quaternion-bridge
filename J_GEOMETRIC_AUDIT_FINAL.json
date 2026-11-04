@@ -1,0 +1,97 @@
+{
+  "files": {
+    "J.npy": "/kaggle/input/datasets/fabianleonaressi/finalq/J.npy",
+    "J_A.npy": "/kaggle/input/datasets/fabianleonaressi/finalq/J_A.npy",
+    "J_B.npy": "/kaggle/input/datasets/fabianleonaressi/finalq/J_B.npy",
+    "rho_188_i_generated.npy": "/kaggle/input/datasets/fabianleonaressi/generator/rho_188_i_generated.npy",
+    "P_G.npy": "/kaggle/input/datasets/fabianleonaressi/finalq/P_G.npy",
+    "K0.npy": "/kaggle/input/datasets/fabianleonaressi/finalq/K0.npy",
+    "Kinv.npy": "/kaggle/input/datasets/fabianleonaressi/finalq/Kinv.npy"
+  },
+  "dimensions": {
+    "J_full": [
+      188,
+      6
+    ],
+    "J_A": [
+      188,
+      3
+    ],
+    "J_B": [
+      188,
+      3
+    ],
+    "rho_i": [
+      188,
+      188
+    ],
+    "P_G": [
+      188,
+      188
+    ],
+    "K0": [
+      188,
+      188
+    ],
+    "Kinv": [
+      188,
+      188
+    ]
+  },
+  "commutators": {
+    "PG_rho": 3.150748275812505,
+    "K0_rho": 29.944116275947824,
+    "K0_PG": 5.378011362118088e-14
+  },
+  "parity": {
+    "J_full": {
+      "plus_fraction": 0.9862102041919046,
+      "minus_fraction": 0.1654975321500646,
+      "rho_invariance": 0.32142042565742296
+    },
+    "J_A": {
+      "plus_fraction": 0.9843022540654145,
+      "minus_fraction": 0.17649099875558596,
+      "rho_invariance": 0.3427471550676073
+    },
+    "J_B": {
+      "plus_fraction": 0.9881144702645646,
+      "minus_fraction": 0.15371985445536646,
+      "rho_invariance": 0.30285269440316076
+    }
+  },
+  "rho_restricted_to_J": {
+    "eigenvalues": [
+      0.827770402159845,
+      0.9347162150658764,
+      0.9451876251006279,
+      0.9796643275433279,
+      0.989905569784429,
+      0.9940826625727557
+    ]
+  },
+  "candidates": {
+    "J_full": {
+      "rho_residual": 0.32142042565742296,
+      "K0_residual": 5.966606489980809e-15,
+      "PG_inside_fraction": 5.164642658661872e-16,
+      "intrinsic_score": 0.8783807108560774
+    },
+    "J_A": {
+      "rho_residual": 0.3427471550676073,
+      "K0_residual": 6.8403938465930675e-15,
+      "PG_inside_fraction": 4.659795492569398e-16,
+      "intrinsic_score": 0.872370924870677
+    },
+    "J_B": {
+      "rho_residual": 0.30285269440316076,
+      "K0_residual": 5.078353908507591e-15,
+      "PG_inside_fraction": 5.372414787841113e-16,
+      "intrinsic_score": 0.8837732401735927
+    }
+  },
+  "winner": "J_B",
+  "PG_rank": 64,
+  "rho_plus_rank": 182,
+  "rho_minus_rank": 6
+}

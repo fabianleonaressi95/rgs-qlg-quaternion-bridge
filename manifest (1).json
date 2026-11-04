@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "SENEMOSIAPUNTOZERO",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "COSMODEX",
+  "start_url": "/https://fabianleonaressi95.github.io/cosmodex/",
+  "theme_color": "#ffffff"
+}
