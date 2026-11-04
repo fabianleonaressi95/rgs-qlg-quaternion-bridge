@@ -1,8 +1,9 @@
+import math
 import numpy as np
 import pytest
 from src.rgs_q6_d5_liouville_measure import (
-    d5_bergman_metric, d5_generic_norm, q6_d5_bergman_liouville_report,
-    q6_maxwell_to_d5_chart,
+    d5_bergman_metric, d5_generic_norm, d5_bergman_cutoff_volume,
+    q6_d5_bergman_liouville_report, q6_maxwell_to_d5_chart,
 )
 
 
@@ -28,6 +29,17 @@ def test_type_iv_determinant_formula():
     z = np.array([.05+.02j,.1-.03j,0,0,0], complex)
     n, _ = d5_generic_norm(z)
     assert np.linalg.det(d5_bergman_metric(z)).real == pytest.approx(10**5/n**5, rel=2e-9)
+
+
+def test_exact_hua_cutoff_volume_in_liouville_units():
+    epsilon = .05
+    report = d5_bergman_cutoff_volume(epsilon)
+    expected = 20.**5 * (math.pi**5 / 1920.) * report["normalized_Euclidean_Hua_factor"]
+    assert report["Liouville_Bergman_volume"] == pytest.approx(expected, rel=1e-14)
+    assert report["asymptotic_leading_coefficient"] == pytest.approx(25000*math.pi**5/9, rel=1e-14)
+    assert report["Liouville_Bergman_volume"] > 0
+    with pytest.raises(ValueError):
+        d5_bergman_cutoff_volume(0.)
 
 
 def test_invalid_inputs_rejected():
