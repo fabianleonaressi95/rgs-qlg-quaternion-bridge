@@ -68,3 +68,11 @@ The numerical routines do not convert units. The user must supply kappa and
 J5 in a mutually consistent system; otherwise dimensional comparisons are
 invalid. The frame is local orthonormal Lorentz frame with signature
 (-,+,+,+).
+
+
+## Isotropy refinement
+
+The FLRW test is applied to the full second moment M^{ab}=<J5^a J5^b>,
+not to the covariance alone. The audit also checks the coherent spatial
+mean. A vanishing covariance anisotropy cannot hide a nonzero mean spatial
+polarization, which would select a preferred direction.
