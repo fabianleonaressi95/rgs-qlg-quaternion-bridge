@@ -1,10 +1,10 @@
 """A5-invariant angular measure induced by the Q6/D5 cotangent sphere.
 
-The map (q,p) -> T(q wedge p) is A5-equivariant. The normalized map from
-the unit phase sphere S^9 therefore pushes its invariant surface measure to
-an A5-invariant probability measure on S^2, provided its zero set has
-surface measure zero. The A5 harmonic character calculation shows that
-every such measure has the uniform S^2 moments through degree five.
+The map (q,p) -> T(q wedge p) is A5-equivariant and is not identically zero.
+Its polynomial zero locus has S^9 surface measure zero. The normalized map
+therefore pushes invariant surface measure to an A5-invariant probability
+measure on S^2. The A5 harmonic character calculation shows that every such
+measure has the uniform S^2 moments through degree five.
 """
 from __future__ import annotations
 
