@@ -9,8 +9,7 @@ N(z)=1-2 z*z+|z^T z|^2. The Hua identity is
     integral_D5 N(z)^s dnu(z)
       = 60/[(s+1)(s+2)(s+3)(s+4)(s+5/2)], Re(s)>-1.
 
-Writing t=N(z), inverse Mellin decomposition gives the exact probability
-density of t in [0,1]:
+Writing t=N(z), the pushforward of normalized Euclidean volume under N has the exact probability density (obtained from the Hua Mellin transform and its Beta-product factorization):
 
     f_N(t) = (20/3)(1-sqrt(t))^4(1+4sqrt(t)+t).
 
@@ -78,3 +77,10 @@ Executable API:
 - d5_hua_cutoff_normalizer(epsilon)
 - d5_hua_cutoff_probability_density(t, epsilon)
 - d5_hua_cutoff_report()
+
+
+## Literature and logical dependency
+
+The Hua integral and Hua polynomial for irreducible bounded symmetric domains are given by Roos and Yin, arXiv:math/0301322, Proposition 2.1 and Theorem 2.3: https://arxiv.org/abs/math/0301322. For type IV, the generic norm and Bergman kernel form are also described by De Fabritiis (1990): https://www.bdim.eu/item?id=RLIN_1990_9_1_2_131_0. The moment uniqueness step is the Hausdorff moment theorem; see Diaconis and Freedman (2004), https://doi.org/10.1007/s00209-003-0633-9.
+
+Terminology is important: f_N is the radial pushforward density of normalized Euclidean volume. The Bergman radial density is t^(-5) f_N(t), before cutoff normalization. The literature supplies the Hua integral and moment theorem; the explicit factorization, density and cutoff primitive are derived in this repository.
