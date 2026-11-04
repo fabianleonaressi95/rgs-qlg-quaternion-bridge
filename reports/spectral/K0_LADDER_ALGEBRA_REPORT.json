@@ -1,0 +1,13 @@
+{
+  "dimension": 124,
+  "spectral_error": 9.947598300641403e-14,
+  "diagonalization_error": 1.6824372761298367e-12,
+  "ladder_unit_error": 2.3333929006252396e-12,
+  "ladder_original_error": 2.361211878819116e-12,
+  "STS_error": 0.0,
+  "SST_error": 0.0,
+  "boson_comm_error": 4.734667893864165e-13,
+  "boson_STS_error": 8.574257522495589e-14,
+  "boson_SST_error": 124.0,
+  "comm_N_STS": 0.0
+}

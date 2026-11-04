@@ -1,0 +1,88 @@
+{
+  "framework": "RGS-PSU-Q6-QLG",
+  "module": "reproducible_geometry_and_SU2_audit",
+  "timestamp_unix": 1793717658.724852,
+  "runtime_seconds": 11.422011852264404,
+  "environment": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3"
+  },
+  "geometry": {
+    "path": "/kaggle/input/datasets/fabianleonaressi/reconstructed/X_Oh_reconstructed.npy",
+    "sha256": "4792f7003a30d07d0b48fdcef90a6dac74a4a907f2aa5cfb8d417f66aaa6519f",
+    "shape": [
+      64,
+      3
+    ],
+    "vertex_count": 64,
+    "map_source": "inferred_by_global_minimum_cost_assignment",
+    "involution_index_residual": 0,
+    "coordinate_antipodal_residual": 0.0,
+    "fixed_points": [],
+    "pass": true
+  },
+  "q6_graph": {
+    "available": false,
+    "note": "edges64_Q6_generated.npy non trovato: nessun grafo inventato."
+  },
+  "gauge": {
+    "action": "4D SU(2) Wilson action",
+    "update": "Haar-S3 rejection heat-bath + microcanonical overrelaxation",
+    "beta": 2.3,
+    "lattice": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "volume": 256,
+    "seed": 20261103,
+    "thermalization_sweeps": 30,
+    "measurements": 50,
+    "sweeps_between_measurements": 1,
+    "overrelaxation_sweeps_per_heatbath_sweep": 2,
+    "mean_plaquette": 0.607230382130661,
+    "mean_plaquette_jackknife_error": 0.0017815116607812853,
+    "creutz_chi_22": 0.2797989188807874,
+    "creutz_chi_22_jackknife_error": 0.0119206737160077,
+    "wilson_loop_means": {
+      "W11": 0.607230382130661,
+      "W12": 0.3938808251176474,
+      "W21": 0.3950844536628073,
+      "W22": 0.19551053562772872
+    },
+    "autocorrelation_time_plaquette_sweeps": 1.1496333690517653,
+    "autocorrelation_time_creutz_measurement_units": 1.65189822177268,
+    "glueball_0pp_correlator": [
+      0.000802866395020738,
+      1.3155407901764439e-05,
+      -4.2303434308250155e-05,
+      1.3155407901764447e-05
+    ],
+    "glueball_mass_fit": {
+      "status": "not_attempted",
+      "reason": "Fit cosh non certificabile automaticamente su Nt piccolo; ispezionare plateau e fit-range."
+    },
+    "mass_status": "not_certified_without_volume_scaling_plateau_and_block_jackknife"
+  },
+  "transport": {
+    "status": "formalism_only",
+    "note": "Non sono stati misurati correlatori dinamici di correnti/stress; nessun coefficiente Green-Kubo \u00e8 dichiarato."
+  },
+  "continuous_limit": {
+    "G4": "benchmark common-L2 embedding previously implemented; not re-certified by this script",
+    "G5": "open",
+    "G6": "open"
+  },
+  "artifacts": {
+    "raw_npz": "/kaggle/working/rgs_psu_su2_raw_measurements.npz",
+    "measurements_csv": "/kaggle/working/rgs_psu_su2_measurements.csv",
+    "antipodal_map_used": "/kaggle/working/rgs_psu_antipodal_map_used.npy"
+  },
+  "interpretation": {
+    "geometry_pass": true,
+    "gauge_status": "executed_preliminary_measurements",
+    "scientific_warning": "A successful run is not by itself evidence of continuum physics or a validated glueball mass."
+  }
+}

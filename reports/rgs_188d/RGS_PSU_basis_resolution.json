@@ -1,0 +1,31 @@
+{
+  "commutator_observed": 9.22786262140153,
+  "commutator_random_mean_std": [
+    9.158674950930275,
+    0.049461205559616424
+  ],
+  "z_score_vs_random": 1.398827013786831,
+  "K0_nonzero_spectrum_max_dev_from_0.5+0.1j": 1.3877787807814457e-14,
+  "K0_nonzero_min_gap": 0.09999999999998366,
+  "R_signature": [
+    95,
+    93
+  ],
+  "R_K_signature": [
+    156,
+    32
+  ],
+  "trace_R_geo_vs_R_K": [
+    2.0000000000000018,
+    124.00000000000124
+  ],
+  "W_orthogonality": 1.0895688770130439e-11,
+  "W R W^T - R_prime": 6.889731626393675e-14,
+  "[R_geo, K_geo]": 2.0898977913247427e-12,
+  "W^T P_G W - A A^T": 1.0891861206830401e-11,
+  "[R_geo, W^T P_G W]": 1.529478197670204e-11,
+  "K_geo spectrum = K0 spectrum": 3.019806626980426e-14,
+  "||R - R_prime|| (distanza dall identita di base)": 17.980445322716996,
+  "||R - R_K||": 18.47221575002049,
+  "R_geo U_new - U_new Pi": 1.8139351955986173e-13
+}

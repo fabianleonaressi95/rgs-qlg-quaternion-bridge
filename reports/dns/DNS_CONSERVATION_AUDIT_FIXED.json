@@ -1,0 +1,47 @@
+{
+  "N": 32,
+  "steps": 100,
+  "dt": 0.0001,
+  "nu": 0.001,
+  "shell_edges": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "num_shells": 10,
+  "test_a": {
+    "pass": true,
+    "mean_T_total": -3.8555972224814917e-17,
+    "std_T_total": 2.0966685183186498e-16,
+    "max_abs_T_total": 5.342948306008566e-16,
+    "tolerance": 1e-06
+  },
+  "test_b": {
+    "pass": false,
+    "mean_diff": 0.007207700731379142,
+    "max_diff": 0.014406129019494968,
+    "tolerance": 1e-06
+  },
+  "test_c": {
+    "pass": true,
+    "mean_dE_NL": -3.575845956925919e-17,
+    "std_dE_NL": 2.0698010005542674e-16,
+    "max_abs_dE_NL": 5.048045315092509e-16,
+    "tolerance": 1e-06
+  },
+  "energy": {
+    "initial": 6916.258008082721,
+    "final": 4731.224890942427,
+    "change": -2185.033117140294,
+    "relative_change": -0.3159270684504169
+  },
+  "overall_pass": false
+}

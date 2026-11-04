@@ -1,0 +1,14 @@
+{
+  "event_type": "collapse",
+  "state": [
+    12,
+    2,
+    1,
+    3,
+    4
+  ],
+  "linear_index": 13369,
+  "probability_source": "rho_diagonal",
+  "physical_inputs": "not yet populated",
+  "hash": "22888139d9bf8587b2efd64bd8fab0767872e0f65fa2bd79ddd5e75d05dec29b"
+}

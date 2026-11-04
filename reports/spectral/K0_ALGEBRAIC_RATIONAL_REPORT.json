@@ -1,0 +1,7 @@
+{
+  "matrix_dimension": 188,
+  "is_symmetric": true,
+  "trace_N": 7626.00000000064,
+  "best_candidate_denominator": 8,
+  "rational_approximation_residual": 53.85325828013773
+}
