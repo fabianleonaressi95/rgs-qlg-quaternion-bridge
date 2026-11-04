@@ -53,3 +53,11 @@ def test_rejects_singular_or_wrong_orientation_tetrads():
         contact_tetrad_variation(np.zeros((4, 4)), current, 1.0)
     with pytest.raises(ValueError):
         contact_tetrad_variation(-np.eye(4), current, 1.0)
+
+
+def test_spin_ensemble_isotropy_contract_exposes_time_space_covariance():
+    from src.rgs_ec_spin_ensemble import spatial_isotropy_residual
+
+    result = spatial_isotropy_residual(np.diag([0.2, 0.5, 0.5, 0.5]))
+    assert result["spatial_isotropy_residual"] == pytest.approx(0.0)
+    assert result["time_space_covariance_norm"] == pytest.approx(0.0)
