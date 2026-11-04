@@ -77,9 +77,7 @@ def d5_hua_cutoff_report(epsilon_values=None) -> dict:
         "density_at_zero_is_hua_residue": math.isclose(
             d5_hua_generic_norm_density(0.), 20. / 3., rel_tol=1.e-14
         ),
-        "density_normalized": math.isclose(
-            float(np.dot(w, d5_hua_generic_norm_density(t))), 1., rel_tol=1.e-10
-        ),
+        "density_normalized": math.isclose(density_integral, 1., rel_tol=1.e-14),
         "mellin_moments_match_hua": max(moment_residuals.values()) < 2.e-9,
         "cutoff_normalizers_finite_positive": all(
             math.isfinite(v) and v > 0. for v in normalizers.values()
