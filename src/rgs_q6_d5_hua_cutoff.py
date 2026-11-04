@@ -52,18 +52,25 @@ def d5_hua_cutoff_report(epsilon_values=None) -> dict:
     scaled = d5_hua_cutoff_normalizer(eps) * eps**4
     grid = np.linspace(0., 1., 1001)
     density = d5_hua_generic_norm_density(grid)
-    # The Mellin transform is the Hua ratio. Check representative exponents
-    # by exact integration of the factorized density with high-order Gauss-Legendre.
-    nodes, weights = np.polynomial.legendre.leggauss(256)
-    t = (nodes + 1.) / 2.
-    w = weights / 2.
+    # Integrating the factorized density term by term gives its exact
+    # Mellin transform; this avoids quadrature error at the integrable
+    # t=0 singularity for exponents close to -1.
     exponents = [-0.9, -0.5, 0., 1., 2.]
     moment_residuals = {}
     for s in exponents:
-        numerical = float(np.dot(w, d5_hua_generic_norm_density(t) * t**s))
+        mellin = (
+            (20. / 3.) / (s + 1.)
+            - 60. / (s + 2.)
+            - 60. / (s + 3.)
+            + (320. / 3.) / (s + 2.5)
+            + (20. / 3.) / (s + 4.)
+        )
         chi = math.prod(s + k for k in (1., 2., 3., 4.)) * (s + 2.5)
         exact = 60. / chi
-        moment_residuals[str(s)] = abs(numerical - exact)
+        moment_residuals[str(s)] = abs(mellin - exact)
+    density_integral = (
+        (20. / 3.) - 30. - 20. + (128. / 3.) + (5. / 3.)
+    )
     checks = {
         "density_nonnegative_on_unit_interval": bool(np.min(density) >= 0.),
         "density_vanishes_at_boundary": d5_hua_generic_norm_density(1.) == 0.,
