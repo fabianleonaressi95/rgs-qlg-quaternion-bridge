@@ -7,17 +7,6 @@ This computes only that explicit contribution, not state-response terms.
 """
 from __future__ import annotations
 import numpy as np
-"""Explicit tetrad variation of the minimal EC axial contact operator.
-
-Convention: eta=(-,+,+,+), J5^a is a local-Lorentz-frame contravariant
-current, and L_4f = c4 * eta_ab J5^a J5^b.  In the tetrad variation below
-the spinor components (hence J5^a) are held fixed.  This isolates the
-explicit Hilbert variation of the contact operator; it is NOT the complete
-on-shell stress tensor of the interacting Dirac system.
-"""
-from __future__ import annotations
-import numpy as np
-
 from src.rgs_ec_algebraic_torsion import minkowski_metric
 from src.rgs_ec_dirac_four_fermion import effective_four_fermion_coefficient
 
