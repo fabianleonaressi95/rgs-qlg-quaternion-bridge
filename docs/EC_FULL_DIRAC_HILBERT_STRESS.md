@@ -51,3 +51,41 @@ zero propagating torsion degrees of freedom.
 Run:
 
     python -m pytest -q tests/test_rgs_ec_full_dirac_stress.py
+
+
+## Nonlinear effective Dirac equation
+
+The axial contact operator is differentiated with respect to independent
+Dirac variables. With alpha=3 kappa/16 and
+J5^a=i bar(psi) gamma5 gamma^a psi,
+
+    d L4f / d bar(psi) = 2 alpha J5_a i gamma5 gamma^a psi,
+    d L4f / d psi      = 2 alpha J5_a i bar(psi) gamma5 gamma^a.
+
+The column Dirac equation therefore has the form
+
+    K[psi] + 2 alpha J5_a i gamma5 gamma^a psi = 0,
+
+where K[psi] is the Euler operator obtained by varying the complete
+symmetrized kinetic and mass action. The new module computes the nonlinear
+contact source and combines it with a caller-supplied K[psi]. It does not
+pretend that a pointwise residual supplies the missing curved-space kinetic
+variation, boundary conditions, or a global solution.
+
+The independent-variable derivatives are checked against central
+finite-difference variations of the contact Lagrangian. This validates the
+local nonlinear source, not a solved interacting Dirac field.
+
+## Conservation remains a separate audit
+
+On-shell covariant conservation follows from diffeomorphism invariance and
+the complete matter equations, provided tetrad and spin-connection
+variations, boundary terms, and state dependence are consistently included.
+A local algebraic EOM residual is necessary but not sufficient for a
+numerical conservation claim. This implementation therefore makes no claim
+of covariant conservation and does not infer FLRW rho, pressure, equation of
+state, or TorsionLambda beta.
+
+Run the additional tests with:
+
+    python -m pytest -q tests/test_rgs_ec_nonlinear_dirac_eom.py
