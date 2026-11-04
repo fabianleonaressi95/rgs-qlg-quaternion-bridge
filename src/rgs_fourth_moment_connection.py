@@ -101,7 +101,7 @@ def gradient_energy_density(derivatives, omegas, q, h, coupling=1.0):
 
 
 def spin_current(q, covariant_derivative, h, coupling=1.0):
-    r"""Connection Euler current J_i = coupling [Q,H(D_i Q)] in so(3).
+    r"""Connection Euler current J_i = coupling [H(D_i Q),Q] in so(3).
 
     Convention: delta(D_i Q)=[delta(omega_i),Q], hence
     delta L = <J_i,delta(omega_i)>_F. The result is antisymmetric.
@@ -109,7 +109,7 @@ def spin_current(q, covariant_derivative, h, coupling=1.0):
     q=_validate_sym0(q)
     dq=_validate_sym0(covariant_derivative,"covariant_derivative")
     s=apply_constitutive_metric(h,dq)
-    j=float(coupling)*(q@s-s@q)
+    j=float(coupling)*(s@q-q@s)
     return 0.5*(j-j.T)
 
 

@@ -31,9 +31,9 @@ def coframe_action_density(coframe, lapse, residual, q, coupling=1.0):
 
 
 def coframe_euler_derivative(coframe, lapse, residual, q, coupling=1.0):
-    """dL/d e[a,i] = N det(e) V (e^{-1})[i,a]."""
+    """dL/d e[a,i] = N det(e) V (e^{-1})[i,a]; returned array is indexed [a,i], hence inv(e).T."""
     e = np.asarray(coframe, float)
-    return coframe_action_density(e, lapse, residual, q, coupling) * np.linalg.inv(e)
+    return coframe_action_density(e, lapse, residual, q, coupling) * np.linalg.inv(e).T
 
 
 def lapse_euler_derivative(coframe, residual, q, coupling=1.0):

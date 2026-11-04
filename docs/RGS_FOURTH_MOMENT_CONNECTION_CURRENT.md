@@ -41,7 +41,7 @@ bundle construction.
 With delta(D_i Q)=[delta omega_i,Q], Frobenius variation gives
 
     delta L_grad = <J_i, delta omega_i>_F,
-    J_i = kappa [Q, H(D_i Q)] in so(3).
+    J_i = kappa [H(D_i Q), Q] in so(3).
 
 The commutator of two symmetric matrices is antisymmetric, so the current
 has the correct Lie-algebra index symmetry. Central finite differences
