@@ -74,3 +74,16 @@ def test_audit_reports_orientation_obstruction_without_claiming_torsion():
     assert result["dual_cycle_holonomy"] == -1
     assert result["orientation_obstruction_detected"] is True
     assert result["representation_homomorphism_max_residual"] == 0.0
+
+def test_reflection_transitions_are_explicit_od_matrices_not_pin_lifts():
+    from src.mobius_representations import (
+        audit_reflection_transition_representation,
+        reflection_transition_matrix,
+    )
+    report = audit_reflection_transition_representation()
+    reflection = reflection_transition_matrix(-1, dimension=4, reflected_axis=2)
+    assert report["is_Od_transition"] is True
+    assert report["det_reflection"] == -1.0
+    assert report["reflection_involution_fro"] == 0.0
+    assert report["pin_lift_defined"] is False
+    assert np.linalg.det(reflection) == -1.0
