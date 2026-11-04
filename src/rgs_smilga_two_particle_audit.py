@@ -1,5 +1,5 @@
 """Exact kinematic audit for Smilga's equal-mass two-particle construction.
-Metric (+---), c=hbar=1; P=p1+p2 and q=(p1-p2)/2.
+Metric (+---), c=hbar=1; P=p1+p2 and q=p1-p2.
 """
 import math
 import numpy as np
@@ -15,14 +15,14 @@ def to_total_relative(p1, p2):
     p1, p2 = np.asarray(p1, float), np.asarray(p2, float)
     if p1.shape != p2.shape or p1.shape[-1] != 4:
         raise ValueError("p1 and p2 must have matching (...,4) shapes")
-    return p1 + p2, 0.5 * (p1 - p2)
+    return p1 + p2, p1 - p2
 
 
 def from_total_relative(P, q):
     P, q = np.asarray(P, float), np.asarray(q, float)
     if P.shape != q.shape or P.shape[-1] != 4:
         raise ValueError("P and q must have matching (...,4) shapes")
-    return 0.5 * P + q, 0.5 * P - q
+    return 0.5 * (P + q), 0.5 * (P - q)
 
 
 def jacobian_abs_8d():
@@ -70,7 +70,7 @@ def residuals(p1, p2, m):
         "p1_shell": dot(p1, p1)-m*m,
         "p2_shell": dot(p2, p2)-m*m,
         "P_dot_q": dot(P, q),
-        "combined_casimir": dot(P, P)+4*dot(q, q)-4*m*m,
+        "combined_casimir": dot(P, P)+dot(q, q)-4*m*m,
     }
 
 
@@ -97,7 +97,7 @@ def audit(m=1., M=3., velocity=(.2, -.1, .15)):
     rr = residuals(a, b, m)
     P, q = to_total_relative(a, b)
     return {
-        "convention": "metric (+---); P=p1+p2; q=(p1-p2)/2",
+        "convention": "metric (+---); P=p1+p2; q=p1-p2",
         "jacobian_abs_8d": jacobian_abs_8d(),
         "max_abs_residuals": {k: float(np.max(np.abs(v))) for k,v in rr.items()},
         "P2_mean": float(np.mean(dot(P,P))),
