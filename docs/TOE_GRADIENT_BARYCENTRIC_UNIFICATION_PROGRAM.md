@@ -303,3 +303,11 @@ Il qutrit locale non va confuso con la decomposizione a tre quark \(3\otimes3\ot
 **Stato delle evidenze:** algebra dello stato \(|\Phi_3\rangle\) PROVED; risultati di diagonalizzazione e entanglement NUMERICALLY VERIFIED per ogni taglia finita eseguita; accoppiamento del settore al complesso Q6/PRISM, alle due foglie PSU, ai vierbein e alle correnti spinoriali OPEN. Per l'integrazione successiva occorrono un embedding esplicito dei siti nella rete e un termine d'interazione tensoriale/gauge-covariante, non una semplice identificazione per analogia.
 
 Test mirato: `PYTHONPATH=. python -m pytest tests/test_qutrit_aperiodic.py -q`. Audit: `PYTHONPATH=. python examples/qutrit_aperiodic_audit.py`.
+
+## 19. Embedding qutrit aperiodico nel complesso Q6 con covarianza SU(3)
+
+Il modulo `src/qutrit_q6_coupling.py` colloca i qutrit sui primi vertici del cammino Gray binario riflesso `v_k = k XOR (k >> 1)`. Vertici consecutivi differiscono in un bit e sono quindi adiacenti nel grafo Q6. I legami sono modulati dalla parola di Fibonacci; ogni arco attivo porta un trasportatore SU(3), con legge locale `U_(v<-u) -> g_v U_(v<-u) g_u†`. Lo scambio trasportato `P_U=(U† tensor U)P` produce un Hamiltoniano covariante `H[U^g]=G H[U] G†`.
+
+Sono inclusi test su: embedding nel Q6, hermiticità, validazione SU(3), residuo di covarianza gauge e spettro di Schmidt del vettore fondamentale selezionato. Il settore usa un cammino finito (taglie dense limitate); non diagonalizza il prodotto completo di 64 qutrit, non implementa ancora l'azione di Yang–Mills dinamica e non è una simulazione QCD. L'accoppiamento al PSU twin, ai vierbein 188D, alla geometria baricentrica e al trasporto spinoriale rimane OPEN e richiede nuovi termini d'azione espliciti.
+
+Test mirato: `PYTHONPATH=. python -m pytest tests/test_qutrit_q6_coupling.py -q`. Specifica: `docs/QUTRIT_Q6_GAUGE_COVARIANT_EMBEDDING.md`.
