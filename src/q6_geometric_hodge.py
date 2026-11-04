@@ -52,7 +52,7 @@ def build_unit_cube_complex(dimension: int = 6) -> CubicalComplex:
         for column, cell in enumerate(cells_by_degree[k]):
             active_axes = [axis for axis, value in enumerate(cell) if value == -1]
             for position, axis in enumerate(active_axes):
-                sign = -1 if position % 2 == 0 else 1
+                sign = 1 if position % 2 == 0 else -1
                 for endpoint, coefficient in ((0, -sign), (1, sign)):
                     face = list(cell)
                     face[axis] = endpoint
