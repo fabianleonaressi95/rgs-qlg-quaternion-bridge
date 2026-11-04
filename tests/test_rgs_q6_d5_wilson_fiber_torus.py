@@ -51,3 +51,16 @@ def test_invalid_lattice_rank_rejected():
     import pytest
     with pytest.raises(ValueError):
         smith_torus_parameterization(sp.Matrix([[1,0],[2,0]]))
+
+
+def test_real_q6_uses_intrinsic_68d_sobol_coordinates():
+    from src.rgs_q6_d5_wilson_fiber_torus import q6_d5_wilson_annihilator_torus_integral
+    report = q6_d5_wilson_annihilator_torus_integral(
+        beta_time=0.5, power=4, scrambles=2, seed=17
+    )
+    assert report["exact_identity"]["kernel_rank"] == 124
+    assert report["exact_identity"]["continuous_torus_dimension"] == 68
+    assert report["exact_identity"]["finite_component_count"] == "1"
+    assert report["numerical_qmc"]["qmc_dimension"] == 68
+    assert report["numerical_qmc"]["samples_per_scramble"] == 16
+    assert math.isfinite(report["numerical_qmc"]["log_absolute_estimate"])
