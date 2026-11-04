@@ -45,7 +45,7 @@ jobs:
 
       - name: Compile all Python modules
         run: |
-          python -m compileall -q src tests examples
+          python -m compileall -q src tests examples scripts
 
       - name: Run quaternion algebra tests
         run: |
@@ -93,7 +93,7 @@ jobs:
       - name: Run integrated Möbius / Q6 / 2I / Clifford / RGS-PSU audit
         run: |
           PYTHONPATH=. python scripts/rgs_psu_integrated_audit.py
-          PYTHONPATH=. python -m pytest tests/test_integrated_mobius_psu_audit.py tests/test_mobius_complex.py tests/test_mobius_gauge_audit.py tests/test_mobius_representations.py tests/test_binary_icosahedral.py tests/test_representations_2i.py tests/test_clifford_qlg.py tests/test_q6_complex.py -v
+          PYTHONPATH=. python -m pytest tests/test_integrated_mobius_psu_audit.py tests/test_mobius_complex.py tests/test_mobius_gauge_audit.py tests/test_mobius_representations.py tests/test_binary_icosahedral.py tests/test_representations_2i.py tests/test_clifford_qlg.py tests/test_q6_complex.py tests/test_discrete_cartan_geometry.py -v
 
       - name: Upload reproducible integrated audit and Q6 incidence bundle
         uses: actions/upload-artifact@v4
