@@ -16,6 +16,7 @@ from src.rgs_multiscale import (
 )
 from src.binary_icosahedral import binary_icosahedral_elements
 from src.clifford_qlg import clifford_grade_action_audit
+from scripts.rgs_psu_integrated_audit import json_safe
 
 
 def test_mobius_is_six_face_subcomplex_not_the_full_q6_240_face_complex():
@@ -95,3 +96,16 @@ def test_clifford_grade_action_preserves_grades_under_2i_spin_rotations():
     report = clifford_grade_action_audit()
     assert report["passed"] is True
     assert report["max_grade_leakage"] < 3e-9
+
+
+def test_integrated_audit_json_safe_preserves_complex_components():
+    payload = {"matrix": np.array([[1 + 2j, 3 - 4j]], dtype=complex),
+               "nested": [np.complex128(5 + 6j), np.float64(2.5)]}
+    safe = json_safe(payload)
+    import json
+    encoded = json.dumps(safe, allow_nan=False)
+    decoded = json.loads(encoded)
+    assert decoded["matrix"][0][0] == {"real": 1.0, "imag": 2.0}
+    assert decoded["matrix"][0][1] == {"real": 3.0, "imag": -4.0}
+    assert decoded["nested"][0] == {"real": 5.0, "imag": 6.0}
+    assert decoded["nested"][1] == 2.5
