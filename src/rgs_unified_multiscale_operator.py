@@ -72,7 +72,7 @@ def clock_operator() -> np.ndarray:
     for x in range(4):
         for bit in range(2):
             a2[x, x ^ (1 << bit)] = 1.0
-    return np.kron(a2, np.eye(16))
+    return np.kron(np.eye(16), a2)
 
 
 def _digest(a: np.ndarray) -> str:
