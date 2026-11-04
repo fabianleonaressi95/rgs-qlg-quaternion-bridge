@@ -198,3 +198,5 @@ The sectors may couple through one action only after the variables, gauge symmet
     python -m pytest tests/test_integrated_mobius_psu_audit.py tests/test_mobius_complex.py tests/test_mobius_gauge_audit.py tests/test_mobius_representations.py tests/test_binary_icosahedral.py tests/test_representations_2i.py tests/test_clifford_qlg.py tests/test_q6_complex.py -v
 
 The JSON report includes seeds, tolerances, source and data hashes, residuals, operator inventories and explicit continuum non-claims. CI uploads the JSON and canonical Q6 NPZ/manifest as a workflow artifact.
+
+The integrated JSON writer converts complex representation entries to explicit `{real, imag}` pairs; no phase or imaginary component is discarded.
