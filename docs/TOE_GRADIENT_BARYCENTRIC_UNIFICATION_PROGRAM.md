@@ -281,7 +281,7 @@ Servono: campi e simmetrie espliciti; azione dimensionalmente coerente; equazion
 Fino al soddisfacimento di questi requisiti, la denominazione corretta è **programma TOE RGS–PSU–PRISM–QLG**.
 
 
-## 17. Prima implementazione computazionale (PR #66)
+## 17. Prima implementazione computazionale (PR #67)
 
 Sono stati aggiunti, senza sostituire i moduli variazionali Q6 esistenti:
 
