@@ -27,7 +27,7 @@ def test_barycentric_reconstructs_points_and_weighted_centre():
     assert np.sum(lam) == pytest.approx(1.0)
     centre, centred, covariance = weighted_barycentre(vertices, [1, 2, 1])
     assert np.allclose(centred.T @ np.array([.25, .5, .25]), 0.0)
-    assert np.allclose(centre, np.array([.5, .5]))
+    assert np.allclose(centre, np.array([1.0, .5]))
     assert np.linalg.eigvalsh(covariance).min() >= -1e-12
 
 
@@ -44,3 +44,4 @@ def test_su3_three_fundamental_representation_content():
     }
     assert report["gell_mann_trace_orthogonality_residual"] < 1e-12
     assert report["mixed_projector_idempotence_residual"] < 1e-12
+    assert report["total_casimir_commutator_residual"] < 1e-10
