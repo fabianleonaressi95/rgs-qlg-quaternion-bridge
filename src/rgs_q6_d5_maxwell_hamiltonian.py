@@ -2,7 +2,7 @@ from __future__ import annotations
 import math
 import numpy as np
 from src.rgs_q6_d5_phase_space import build_q6_d5_phase_space_sector, d5_type_iv_contains
-from src.rgs_q6_cochain_complex import build_q6_cochain_complex
+from src.rgs_q6_equivariant_cochains import build_q6_cochain_complex
 
 
 def maxwell_mode_parameters(beta=1.0, eigenvalue=12.0):
