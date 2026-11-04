@@ -88,20 +88,33 @@ def q6_d5_wilson_annihilator_torus_integral(
     free_dim = snf["torus_dimension"]
     log_i0 = beta + math.log(float(i0e(beta)))
     log_scale = ambient * (beta-log_i0)
+    # Only Smith factors d_i>1 need discrete sampling coordinates. When the
+    # lattice is primitive (all d_i=1), H_L is a connected T^68 and the
+    # Sobol rule must run in exactly 68 dimensions, not waste 124 coordinates
+    # on deterministic zeros.
+    nontrivial = [i for i, value in enumerate(snf["invariants"]) if value > 1]
+    qmc_dimension = len(nontrivial) + free_dim
     means = []
+    per_scramble = []
     for j in range(scrambles):
-        sampler = qmc.Sobol(d=ambient, scramble=True, seed=seed+j)
+        sampler = qmc.Sobol(d=qmc_dimension, scramble=True, seed=seed+j)
         u = sampler.random_base2(power)
-        discrete = np.floor(u[:, :rank] * d[None, :]).astype(np.int64)
-        z = np.empty((u.shape[0], ambient), dtype=np.float64)
-        z[:, :rank] = 2.0*math.pi*discrete/d[None, :]
-        z[:, rank:] = 2.0*math.pi*u[:, rank:]
+        z = np.zeros((u.shape[0], ambient), dtype=np.float64)
+        if nontrivial:
+            discrete_u = u[:, :len(nontrivial)]
+            for col, smith_index in enumerate(nontrivial):
+                dj = int(d[smith_index])
+                discrete = np.floor(discrete_u[:, col] * dj).astype(np.int64)
+                z[:, smith_index] = 2.0*math.pi*discrete/dj
+        z[:, rank:] = 2.0*math.pi*u[:, len(nontrivial):]
         x = np.remainder(z @ v.T, 2.0*math.pi)
         log_amp = beta*np.sum(np.cos(x), axis=1)-log_scale
         amp = np.exp(np.minimum(log_amp, 0.0))
         phase = x @ n0
         vals = amp*(np.cos(phase)-1j*np.sin(phase))
-        means.append(np.mean(vals))
+        scramble_mean = complex(np.mean(vals))
+        means.append(scramble_mean)
+        per_scramble.append([scramble_mean.real, scramble_mean.imag])
     means = np.asarray(means, dtype=np.complex128)
     mean = complex(np.mean(means))
     re_se = float(np.std(means.real, ddof=1)/math.sqrt(scrambles))
@@ -122,6 +135,7 @@ def q6_d5_wilson_annihilator_torus_integral(
             "smith_invariants": [str(x) for x in snf["invariants"]],
             "finite_component_count": str(math.prod(snf["invariants"])),
             "right_transform_max_abs_entry": max_v,
+            "smith_nontrivial_indices": nontrivial,
             "normalization": "uniform over all finite components and normalized Haar on T^68",
         },
         "numerical_qmc": {
