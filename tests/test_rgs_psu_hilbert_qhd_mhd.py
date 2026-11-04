@@ -105,3 +105,32 @@ def test_fluxon_charge_is_not_declared_quantized_with_nontrivial_background_holo
     links = np.full(32, 0.03)
     report = fluxon_topological_charge(theta, links)
     assert not report["quantized"]
+
+
+def test_qball_frequency_window_matches_scalar_potential_minimum():
+    from src.rgs_psu_hilbert_qhd_mhd import qball_frequency_window
+    window = qball_frequency_window(mass_scale=1.0, quartic=1.0, sextic=0.5)
+    assert window["stable_vacuum"]
+    assert window["nonempty_frequency_window"]
+    assert np.isclose(window["omega_min_squared"], 0.5)
+    assert window["omega_min"] < 0.8 < window["omega_max"]
+
+    unstable = qball_frequency_window(mass_scale=1.0, quartic=2.0, sextic=0.5)
+    assert not unstable["stable_vacuum"]
+    assert not unstable["nonempty_frequency_window"]
+
+
+def test_qball_gaussian_trial_has_finite_noether_charge_energy_and_residual():
+    from src.rgs_psu_hilbert_qhd_mhd import qball_gaussian_trial
+    r = np.linspace(0.0, 15.0, 1201)
+    report = qball_gaussian_trial(
+        r, amplitude_scale=0.35, width=2.0, frequency=0.8,
+        mass_scale=1.0, quartic=1.0, sextic=0.5,
+    )
+    assert report["energy"] > 0.0
+    assert report["noether_charge"] > 0.0
+    assert np.isfinite(report["energy_per_charge"])
+    assert np.isfinite(report["radial_eom_residual_l2"])
+    assert np.isfinite(report["radial_eom_residual_max"])
+    assert report["ansatz"] == "Gaussian variational trial only"
+    assert not report["profile_is_stationary_solution"]
