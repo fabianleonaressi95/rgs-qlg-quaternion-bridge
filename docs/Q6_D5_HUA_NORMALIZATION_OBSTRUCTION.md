@@ -73,3 +73,63 @@ src/rgs_q6_d5_hua_normalization.py.
   asymptotic.
 - Open: deriving a physically justified cutoff/quotient/weight from the
   compact Wilson transfer operator, and any resulting Wyler/alpha formula.
+
+
+## Derived cutoff asymptotic (no fitted regulator)
+
+The Hua Mellin transform admits an exact probabilistic factorization. If
+independent random variables have laws
+
+    X_1 ~ Beta(1,1), X_2 ~ Beta(2,1), X_3 ~ Beta(3,1),
+    X_4 ~ Beta(4,1), X_5 ~ Beta(5/2,1),
+
+then their product X=X_1 X_2 X_3 X_4 X_5 has Mellin transform
+
+    E[X^s] = product_j a_j/(a_j+s)
+           = 60/[(s+1)(s+2)(s+3)(s+4)(s+5/2)]
+           = I(s)/I(0).
+
+Because X and the generic norm N under normalized Euclidean volume both
+take values in [0,1], equality of all nonnegative integer moments implies
+equality of their distributions (Hausdorff moment determinacy).
+
+Put Y=X_2 X_3 X_4 X_5, so X=X_1 Y and X_1 is uniform on [0,1].
+Conditioning on Y gives the density
+
+    f_X(t) = E[Y^-1 1_{Y>t}],  0<t<1.
+
+Monotone convergence and independence give
+
+    lim_{t downarrow 0} f_X(t)
+      = E[Y^-1]
+      = product_{a in {2,3,4,5/2}} a/(a-1)
+      = 20/3.
+
+Consequently, for the norm cutoff 0<delta<1, define the dimensionless
+truncated Bergman integral relative to normalized Euclidean volume by
+
+    Z_5(delta) = E[N^-5 1_{N>=delta}]
+               = integral_delta^1 t^-5 f_X(t) dt.
+
+The boundary-density limit implies the sharp leading divergence
+
+    lim_{delta downarrow 0} delta^4 Z_5(delta) = (20/3)/4 = 5/3,
+
+or
+
+    Z_5(delta) ~ (5/3) delta^-4.
+
+This coefficient is derived from the Hua law; it is not fitted. The code
+exposes the leading term as an asymptotic approximation only, not as an
+exact finite-delta integral.
+
+### Interpretation and limits
+
+- The cutoff N>=delta gives a mathematically explicit family of finite
+  integrals and its divergence rate.
+- It does not select a physical value of delta.
+- It does not show that the Q6 transfer operator induces this norm cutoff.
+- It does not identify the compact Wilson Haar measure with the D5
+  Bergman measure; those remain different measures on different spaces.
+- A physical regulator must still be derived from a specified discrete
+  transfer kernel or pushforward, not chosen to match alpha.
