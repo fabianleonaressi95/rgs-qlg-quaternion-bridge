@@ -106,3 +106,8 @@ identification of a Wilson-derived radial density with the D5 generic-norm
 density still requires a constructed spatial/canonical sector and a
 derived pushforward measure. No equality between \(\beta_t\), a lattice
 spacing, and the Hua cutoff \(\epsilon\) is asserted.
+
+
+## Special-function reference
+
+For integer m>=0, the defining series for the modified Bessel function is given by NIST DLMF §10.25.2: https://dlmf.nist.gov/10.25. The termwise factorial comparison used here follows directly from that series; the subsequent multinomial and lattice-point estimates are elementary. The resulting majorant is a rigorous bound for the complete fibre, not a numerical evaluation of its mass.
