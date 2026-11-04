@@ -136,7 +136,7 @@ def qball_stationary_bvp(
             measure * residual**2, audit_radius
         ))),
         "radial_eom_residual_max": float(np.max(np.abs(residual))),
-        "origin_regular_boundary_residual": float(abs(first[1, 0])),
+        "origin_regular_boundary_residual": float(abs(values[1, 0])),
         "outer_dirichlet_residual": float(abs(f[-1])),
         "profile_min": float(np.min(f)),
         "profile_max": float(np.max(f)),
