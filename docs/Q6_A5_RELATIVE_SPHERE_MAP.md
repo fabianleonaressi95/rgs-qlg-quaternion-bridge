@@ -20,8 +20,10 @@ subset of the relative-direction sphere.
 
 The computed image has 32 distinct unit directions, each with multiplicity
 two among the 64 Q6 vertices. The 32-point image is antipodal (16 antipodal
-pairs). All 64 signed sums are nonzero and occur on four radial shells
-before normalization.
+pairs). More specifically, it is the union of the 12 vertices of the
+icosahedron and the 20 face-centre directions of that same icosahedron
+(the vertices of the dual dodecahedron). All 64 signed sums are nonzero
+and occur on four radial shells before normalization.
 
 With equal weights on the 32 distinct directions, the moment tensors through
 degree five agree with the uniform sphere moments:
@@ -106,3 +108,31 @@ dimension two. This supports the expectation that the undefined locus is
 lower-dimensional for generic q, but does not classify exceptional q or
 prove a global measure statement. The test records this generic rank and
 kernel dimension.
+
+
+## Nonlinear bridge from the five-mode D5 tangent sector
+
+The five-dimensional coexact Hodge eigenspace V5 is an irreducible A5
+representation. Its exterior square has dimension ten and contains a
+three-dimensional summand equivalent to the geometric icosahedral rotation
+representation. The new module computes the intertwiner
+
+    T : Lambda^2(V5) -> R^3
+
+by solving all 60 finite-group intertwining equations simultaneously. The
+nullspace is one-dimensional (overall sign/scale ambiguity); T is normalized
+so that T T^T=I_3. For canonical cotangent coordinates q,p in R^5, form
+
+    w_ij = q_i p_j - q_j p_i,  i<j
+    v_rel = T w,  n_rel = v_rel/||v_rel||  (when v_rel != 0).
+
+This map is A5-equivariant and invariant under the oscillator SO(2) phase
+rotation of (q,p). For generic fixed q, the linear map p -> T(q wedge p)
+has rank three; at q=(1,2,3,4,5), the zero fibre in p has dimension two.
+Exceptional q and the full singular locus remain to be classified.
+
+This closes the representation-theoretic gap between the 5D A5 mode sector
+and the geometric 3D direction representation. It does not yet prove that
+the pushforward of canonical Liouville measure is the standard S2 measure,
+nor that the 32-point Q6 5-design is the image of a natural discrete measure
+on the cotangent sector. The measure comparison remains open.
