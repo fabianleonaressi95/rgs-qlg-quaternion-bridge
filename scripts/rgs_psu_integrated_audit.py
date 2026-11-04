@@ -365,6 +365,7 @@ def main() -> int:
     root = args.repo_root.resolve()
     output = args.output if args.output.is_absolute() else root / args.output
     report = json_safe(build_integrated_audit(root))
+    report = build_integrated_audit(root)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, sort_keys=True) + chr(10), encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
