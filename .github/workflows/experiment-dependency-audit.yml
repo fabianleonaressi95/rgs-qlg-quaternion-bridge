@@ -1,19 +1,13 @@
 name: Experiment dependency graph
 
 on:
-  pull_request:
-    paths:
-      - "experiments/**"
-      - "tests/**"
-      - "tools/audit_experiment_dependencies.py"
-      - ".github/workflows/experiment-dependency-audit.yml"
-      - "docs/EXPERIMENT_FAMILY_DEPENDENCY_AUDIT.md"
   push:
     branches: [main]
     paths:
       - "experiments/**"
       - "tools/audit_experiment_dependencies.py"
       - ".github/workflows/experiment-dependency-audit.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
