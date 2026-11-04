@@ -23,10 +23,15 @@ def _finite_array(value, shape, name):
 def _oriented_tetrad(tetrad):
     e = _finite_array(tetrad, (4, 4), "tetrad")
     det = float(np.linalg.det(e))
-    if det <= 0.0:
-        raise ValueError("tetrad must be invertible and positively oriented")
     if abs(det) < 1e-14:
         raise ValueError("tetrad is singular or numerically degenerate")
+    if det <= 0.0:
+        raise ValueError("tetrad must be positively oriented (det(e)>0)")
+    # det(e)>0 alone does not select a time orientation in 3+1 dimensions:
+    # -I has determinant +1 but reverses the chosen future-directed time leg.
+    # Fix the chart's time orientation by requiring e^0{}_0 > 0.
+    if e[0, 0] <= 0.0:
+        raise ValueError("tetrad violates the declared future-directed time orientation")
     return e, det, np.linalg.inv(e)
 
 
