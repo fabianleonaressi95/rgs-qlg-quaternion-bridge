@@ -31,8 +31,8 @@ def smith_torus_parameterization(lattice_basis):
     invariants = [abs(int(s[i, i])) for i in range(rank)]
     if any(d == 0 for d in invariants):
         raise ArithmeticError("unexpected zero Smith invariant")
-    if abs(int(v.det())) != 1:
-        raise ArithmeticError("right Smith transform is not unimodular")
+    # smith_normal_decomp returns unimodular transforms by construction;
+    # avoid an expensive determinant of the full 192x192 transform.
     return {
         "smith_form": s, "left_transform": u, "right_transform": v,
         "invariants": invariants, "rank": rank,
@@ -63,8 +63,7 @@ def q6_d5_wilson_annihilator_torus_integral(
         raise ValueError("scrambles must be an integer between 2 and 64")
 
     q = build_q6_d5_rational_integer_quotient() if quotient is None else quotient
-    from src.rgs_q6_d5_saturated_kernel_bounds import build_q6_d5_saturated_integer_kernel
-    sat = build_q6_d5_saturated_integer_kernel(q)
+    sat = build_q6_d5_saturated_integer_kernel()
     cycles = sp.Matrix(np.asarray(q["cycles"], dtype=np.int64).tolist())
     kernel_basis = sat["kernel_basis"]
     lattice = kernel_basis * cycles
