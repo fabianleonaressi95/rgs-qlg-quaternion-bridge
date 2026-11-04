@@ -40,7 +40,7 @@ For an edge-flux vector \(n\in\mathbb Z^{192}\), put
 
 The fundamental-cycle matrix \(C\in\mathbb Z^{129\times192}\) has full
 row rank. Select 129 independent columns, forming an invertible integer
-minor \(A\). Write \(M=\|A^{-1}\|_\infty\), an exactly computed rational
+minor \(A\). Write \(M=\|A^{-1}\|_1\), an exactly computed rational
 number. For \(n=(c+k)C\), the selected edge coordinates obey
 \((c+k)=n_P A^{-1}\), hence
 
