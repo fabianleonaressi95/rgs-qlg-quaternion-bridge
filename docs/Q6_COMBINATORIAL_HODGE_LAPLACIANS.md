@@ -32,11 +32,12 @@ The implementation returns symmetric representatives in orthonormalized cochain 
 \widehat\Delta_0=H_0^{-1/2}d_0^TH_1d_0H_0^{-1/2},
 \]
 \[
-\widehat\Delta_1=H_1^{-1/2}
-(d_0H_0d_0^T+d_1^TH_2d_1)H_1^{-1/2},
+\widehat\Delta_1=
+H_1^{1/2}d_0H_0^{-1}d_0^TH_1^{1/2}
++H_1^{-1/2}d_1^TH_2d_1H_1^{-1/2},
 \]
 \[
-\widehat\Delta_2=H_2^{-1/2}d_1H_1d_1^TH_2^{-1/2}.
+\widehat\Delta_2=H_2^{1/2}d_1H_1^{-1}d_1^TH_2^{1/2}.
 \]
 Each is a Gram sum and is therefore positive semidefinite in exact arithmetic.
 
