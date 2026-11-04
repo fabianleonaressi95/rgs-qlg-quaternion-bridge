@@ -184,7 +184,7 @@ def parallel_tempering(
         raise ValueError("temperatures must be strictly increasing")
     if sweeps <= burn_in or burn_in < 0 or measure_every < 1:
         raise ValueError("require sweeps > burn_in >= 0 and measure_every >= 1")
-    n_meas = (sweeps - burn_in) // measure_every
+    n_meas = (sweeps - burn_in - 1) // measure_every + 1
     if n_meas < 2:
         raise ValueError("at least two measurements are required")
     root = np.random.SeedSequence(seed)
