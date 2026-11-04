@@ -279,3 +279,16 @@ Questi sono punti di partenza da ispezionare, non prova che tutti i settori sian
 Servono: campi e simmetrie espliciti; azione dimensionalmente coerente; equazioni derivate per variazione; identità di Noether e vincoli consistenti; recupero dei limiti fisici noti; limite continuo dimostrato; predizioni quantitative falsificabili.
 
 Fino al soddisfacimento di questi requisiti, la denominazione corretta è **programma TOE RGS–PSU–PRISM–QLG**.
+
+
+## 17. Prima implementazione computazionale (PR #66)
+
+Sono stati aggiunti, senza sostituire i moduli variazionali Q6 esistenti:
+
+- `src/barycentric_geometry.py`: coordinate baricentriche affini, gradienti P1, baricentro pesato, tensore di dispersione, volume del simplesso, matrice di massa consistente e stiffness di Dirichlet.
+- `src/su3_flavour.py`: generatori di Gell-Mann normalizzati come (T_a=\lambda_a/2), rappresentazione su (3\otimes3\otimes3), proiettori di permutazione per i settori totalmente simmetrico/antisimmetrico/misto e spettro del Casimir totale.
+- `tests/test_toe_geometric_su3_core.py`: test di ricostruzione affine, partizione dell'unità, somma dei gradienti nulla, positività delle matrici FEM, rigetto di simplessi degeneri e dimensioni SU(3).
+
+La decomposizione verificata a livello di dimensione e Casimir è (10\oplus16\oplus1), dove il settore misto di dimensione 16 corrisponde a due copie equivalenti dell'ottetto: (10\oplus8\oplus8\oplus1). Questo è un audit di rappresentazione finito-dimensionale, non una simulazione QCD né una derivazione dello spettro adronico.
+
+Comando di test mirato: `python -m pytest tests/test_toe_geometric_su3_core.py -q`. L'esito CI deve essere controllato prima di promuovere questi moduli a baseline.
