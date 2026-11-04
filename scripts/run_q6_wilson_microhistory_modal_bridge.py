@@ -18,7 +18,7 @@ def main() -> None:
     )
     out = Path("reports/q6_wilson_microhistory_modal_bridge.json")
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(report, indent=2, allow_nan=False) + "\\n", encoding="utf-8")
+    out.write_text(json.dumps(report, indent=2, allow_nan=False), encoding="utf-8")
     print(json.dumps(report, indent=2, allow_nan=False))
     if not report["checks_passed"]:
         raise SystemExit("Q6 Wilson microhistory/modal bridge audit failed")
