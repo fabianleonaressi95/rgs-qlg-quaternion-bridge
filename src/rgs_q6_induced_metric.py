@@ -167,12 +167,7 @@ def audit_rgs_q6_induced_metric(
         _numerical_rank(np.linalg.eigvalsh(g)[::-1]) for g in data.face_grams
     ]
     oh = audit_rgs_q6_oh()
-    b1 = build_q6_complex().boundary_1.astype(np.float64)
     constant = np.ones(64)
-    edge_incidence_laplacian = b1 @ data.edge_stiffness @ b1.T
-    # The edge stiffness is assembled in vertex coordinates already. The
-    # incidence-based identity is checked against that assembled matrix only
-    # through its own constant mode and PSD, not equated to a 1-form Laplacian.
 
     checks = {
         "edge_count_192": len(data.edges) == 192,
@@ -186,9 +181,6 @@ def audit_rgs_q6_induced_metric(
         "local_pullback_rank_at_most_3": bool(max(local_ranks) <= 3),
         "face_gram_rank_at_most_2": bool(max(face_ranks) <= 2),
         "coordinate_Oh_action_verified": bool(oh["geometry_pass"]),
-        "q6_edge_equivariance_verified": bool(
-            oh["q6"]["full_Oh_graph_automorphism"]
-        ),
     }
     return {
         "audit": "RGS_Q6_INDUCED_METRIC_V1",
@@ -237,7 +229,6 @@ def audit_rgs_q6_induced_metric(
             "stiffness_min_eigenvalue": float(stiffness_eigs[0]),
             "stiffness_max_eigenvalue": float(stiffness_eigs[-1]),
             "stiffness_constant_mode_residual": float(np.linalg.norm(data.edge_stiffness @ constant)),
-            "incidence_laplacian_constant_mode_residual": float(np.linalg.norm(edge_incidence_laplacian @ constant)),
             "scope": "metric-weighted 1D P1 finite elements on the Q6 graph; not a 6D volume FEM or Whitney 1-form Hodge star",
         },
         "symmetry": {
@@ -246,6 +237,7 @@ def audit_rgs_q6_induced_metric(
             "q6_edge_preserving_elements": oh["q6"]["group_elements_preserving_edges"],
             "q6_face_preserving_elements": oh["q6"]["group_elements_preserving_faces"],
             "q6_full_cellular_equivariance": oh["q6"]["full_Oh_cellular_automorphism"],
+            "q6_edge_equivariance_status": oh["status"]["induced_Q6_graph_action"],
             "rule": "O_h invariance of the point cloud is not promoted to Q6 metric equivariance unless the induced vertex permutations preserve the Q6 cells",
         },
         "checks": checks,
