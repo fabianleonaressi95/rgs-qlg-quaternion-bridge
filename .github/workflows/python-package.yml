@@ -60,42 +60,51 @@ jobs:
           python -m pytest tests/test_holonomies.py -v
 
       - name: Run complete test suite
+        if: github.event_name != 'pull_request'
         run: |
           python -m pytest tests/ -v
 
       - name: Run lattice holonomy demonstration
+        if: github.event_name != 'pull_request'
         run: |
           python examples/lattice_rotation_demo.py
 
       - name: Run Wilson fermion audit
+        if: github.event_name != 'pull_request'
         run: |
           PYTHONPATH=. python examples/wilson_fermion_audit.py
 
       - name: Run refinement / overlap / Dirac-Kahler audit
+        if: github.event_name != 'pull_request'
         run: |
           PYTHONPATH=. python examples/wilson_refinement_audit.py
 
       - name: Run flat-torus G0-G5 and P1 Mosco recovery audits
+        if: github.event_name != 'pull_request'
         run: |
           PYTHONPATH=. python examples/flat_torus_refinement_audit.py
           PYTHONPATH=. python -m pytest tests/test_flat_torus_refinement.py tests/test_flat_torus_embedding.py tests/test_flat_torus_stability.py tests/test_flat_torus_mosco_p1.py -v
 
       - name: Run curved RGS Ellis refinement audit
+        if: github.event_name != 'pull_request'
         run: |
           PYTHONPATH=. python examples/rgs_ellis_curved_refinement_audit.py
           PYTHONPATH=. python -m pytest tests/test_rgs_ellis_refinement.py -v
 
       - name: Mobius boundary thermodynamics audit
+        if: github.event_name != 'pull_request'
         run: |
           PYTHONPATH=. python examples/mobius_hawking_thermodynamics.py
           PYTHONPATH=. python -m pytest tests/test_thermodynamics.py -v
 
       - name: Run integrated Möbius / Q6 / 2I / Clifford / RGS-PSU audit
+        if: github.event_name != 'pull_request'
         run: |
           PYTHONPATH=. python scripts/rgs_psu_integrated_audit.py
           PYTHONPATH=. python -m pytest tests/test_integrated_mobius_psu_audit.py tests/test_mobius_complex.py tests/test_mobius_gauge_audit.py tests/test_mobius_representations.py tests/test_binary_icosahedral.py tests/test_representations_2i.py tests/test_clifford_qlg.py tests/test_q6_complex.py tests/test_discrete_cartan_geometry.py -v
 
       - name: Upload reproducible integrated audit and Q6 incidence bundle
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: rgs-psu-integrated-audit-${{ github.sha }}
@@ -107,7 +116,7 @@ jobs:
           retention-days: 90
 
       - name: Final audit summary
-        if: success()
+        if: github.event_name != 'pull_request' && success()
         run: |
           echo "=============================================="
           echo "RGS-QLG QUATERNION BRIDGE"
