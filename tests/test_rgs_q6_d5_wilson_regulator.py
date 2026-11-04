@@ -32,8 +32,15 @@ def test_q6_d5_projection_obstruction_audit():
     assert result["five_mode_projection"]["rank"] == 5
     assert result["five_mode_projection"]["kernel_dimension"] == 124
     assert result["five_mode_projection"]["real_linear_kernel_dimension"] == 124
-    assert result["five_mode_projection"]["integer_lattice_injectivity"] == "not established by this audit"
-    assert result["five_mode_projection"]["integer_projection_collisions_checked"] is False
+    assert result["five_mode_projection"]["integer_kernel_rank_exact"] == 124
+    assert result["five_mode_projection"]["integer_projection_collision_existence_proved"] is True
+    assert result["five_mode_projection"]["wilson_weight_factorization_through_five_modes"] is False
+    theorem = result["integer_lattice_theorem"]
+    assert theorem["projector_is_rational"] is True
+    assert theorem["projector_rank"] == 5
+    assert theorem["integer_kernel_rank"] == 124
+    assert theorem["nonzero_invisible_integer_flux_exists"] is True
+    assert theorem["invisible_flux_transfer_weight_strictly_below_vacuum"] is True
     assert result["transfer"]["total_states"] == 259
 
 
