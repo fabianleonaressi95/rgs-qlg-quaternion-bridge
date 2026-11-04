@@ -195,3 +195,19 @@ This is a finite lattice quantum-spin construction, not yet dynamical Yang–Mil
 ## Q6 weighted combinatorial Hodge Laplacians
 
 `src/q6_hodge_laplacian.py` constructs positive weighted Hodge Laplacians on 0-, 1- and 2-cochains of the canonical 64/192/240 Q6 square complex. The finite audit checks positive semidefiniteness and harmonic dimensions `(1, 0, 111)`, matching the cellular Betti numbers. See [the mathematical specification](docs/Q6_COMBINATORIAL_HODGE_LAPLACIANS.md), `tests/test_q6_hodge_laplacian.py` and `examples/q6_hodge_laplacian_audit.py`. The weights are explicit cochain inner products, not a metric-derived dual-cell construction or a physical continuum model.
+
+
+## Q6 hypercube law, Green–Kubo and supergolden scaling
+
+The integrated finite bridge is implemented in
+src/q6_hypercube_gk_supergolden.py, with tests, a reproducible example and
+the mathematical evidence ledger in
+[Q6_HYPERCUBE_GREEN_KUBO_SUPERGOLDEN.md](docs/Q6_HYPERCUBE_GREEN_KUBO_SUPERGOLDEN.md).
+It combines the 240-plaquette cosine identity, the full-cube closed-2-cochain
+projector, finite OU Green–Kubo integrals, the shear-stress derivative and
+the exact supergolden geometric-series theorem. Physical PSU viscosity,
+continuum Yang–Mills convergence and universal supergolden spectral scaling
+remain open and are not asserted by the finite tests.
+
+Run:
+PYTHONPATH=. python -m pytest tests/test_q6_hypercube_gk_supergolden.py -q
