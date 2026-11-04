@@ -160,7 +160,7 @@ def audit_fourth_moment_maxwell_bridge(tolerance: float = 1e-9) -> dict:
             "64_site_fourth_moment": "NUMERICALLY_VERIFIED_BY_EXISTING_AUDIT",
             "R_to_STF_response": "EXACT_TENSOR_CONSTRUCTION",
             "Maxwell_constitutive_law": "CANDIDATE",
-            "Q6_A5_to_Oh_STF_intertwiner": "OPEN",
+            "Q6_A4_restricted_intertwiner_matrix": "OPEN",
             "Wilson_derived_order_parameter_measure": "OPEN",
             "scalar_Maxwell_normalization_and_alpha": "NOT_DERIVED",
         },
