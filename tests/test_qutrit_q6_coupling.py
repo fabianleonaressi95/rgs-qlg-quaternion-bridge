@@ -9,8 +9,21 @@ from src.qutrit_q6_coupling import (
 )
 
 
-def _diagonal_su3(a, b):
-    return np.diag([np.exp(1j*a), np.exp(1j*b), np.exp(-1j*(a+b))])
+def _su3_matrix(a, b, phase):
+    r12 = np.array([
+        [np.cos(a), np.sin(a), 0.0],
+        [-np.sin(a), np.cos(a), 0.0],
+        [0.0, 0.0, 1.0],
+    ], dtype=complex)
+    r23 = np.array([
+        [1.0, 0.0, 0.0],
+        [0.0, np.cos(b), np.sin(b)],
+        [0.0, -np.sin(b), np.cos(b)],
+    ], dtype=complex)
+    diagonal = np.diag([
+        np.exp(1j*phase), np.exp(-0.5j*phase), np.exp(-0.5j*phase)
+    ])
+    return r12 @ diagonal @ r23
 
 
 def test_gray_path_is_embedded_in_q6_and_fibonacci_modulated():
@@ -26,9 +39,14 @@ def test_gray_path_is_embedded_in_q6_and_fibonacci_modulated():
 def test_qutrit_q6_local_su3_gauge_covariance():
     chain = build_q6_qutrit_chain(4, j_a=1.0, j_b=0.37)
     gauge = {
-        v: _diagonal_su3(0.07*(i+1), -0.11*(i+1))
+        v: _su3_matrix(0.13*(i+1), -0.09*(i+1), 0.17*(i+1))
         for i, v in enumerate(chain.site_vertices)
     }
+    links = {
+        edge: _su3_matrix(0.08*(i+1), 0.05*(i+1), -0.12*(i+1))
+        for i, edge in enumerate(chain.links)
+    }
+    chain = build_q6_qutrit_chain(4, j_a=1.0, j_b=0.37, links=links)
     residual = q6_qutrit_gauge_covariance_residual(chain, gauge)
     assert residual < 2e-10
 
