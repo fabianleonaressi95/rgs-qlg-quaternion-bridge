@@ -1,8 +1,0 @@
-{
-  "space_dimension": 188,
-  "complement_dimension": 124,
-  "min_spectral_gap": 0.9999999999999005,
-  "is_spectrum_simple": true,
-  "polynomial_link_error": 1.5944456700192514e-12,
-  "intrinsic_su2_verified": true
-}
