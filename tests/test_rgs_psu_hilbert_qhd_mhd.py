@@ -50,6 +50,9 @@ def test_integrated_periodic_benchmark_residuals():
     assert report["monopole"]["quantized_within_tolerance"]
     assert report["fluxon"]["quantized"]
     assert report["fluxon"]["nearest_integer_fluxon_number"] == 1
+    assert report["qball"]["frequency_window"]["nonempty_frequency_window"]
+    assert report["qball"]["trial_noether_charge"] > 0.0
+    assert not report["qball"]["trial_is_stationary_solution"]
     assert report["qhd"]["continuity_mass_residual"] < 1e-10
     assert report["mhd"]["induction_mass_residual"] < 1e-10
 
