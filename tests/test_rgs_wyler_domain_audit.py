@@ -34,7 +34,8 @@ def test_euclidean_radius_scaling_is_dimensionally_consistent():
 
 def test_codata_matching_radius_is_not_misreported_as_prediction():
     report = audit_wyler_scaling()
-    assert 0.5e-6 < report["inverse_relative_difference_ppm"] < 0.8e-6
+    # The report field is already expressed in parts per million.
+    assert 0.5 < report["inverse_relative_difference_ppm"] < 0.8
     assert abs(report["radius_required_to_fit_codata"] - 1.0) < 1e-5
     assert report["fit_is_independent_prediction"] is False
 
