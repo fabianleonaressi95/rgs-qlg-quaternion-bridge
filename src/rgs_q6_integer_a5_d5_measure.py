@@ -37,13 +37,15 @@ def d5_type_iv_norm_polynomial(z):
     value = np.asarray(z, dtype=complex)
     if value.shape != (5,) or not np.all(np.isfinite(value)):
         raise ValueError("z must be a finite complex vector of shape (5,)")
-    return float(1.0 - 2.0 * np.vdot(value, value).real + abs(np.dot(value, value)) ** 2)
+    quadratic_modulus = abs(np.dot(value, value))
+    norm = float(1.0 - 2.0 * np.vdot(value, value).real + quadratic_modulus ** 2)
+    if quadratic_modulus >= 1.0 or norm <= 0.0:
+        raise ValueError("z is outside the type-IV_5 domain")
+    return norm
 
 
 def d5_bergman_volume_density(z):
     norm = d5_type_iv_norm_polynomial(z)
-    if norm <= 0:
-        raise ValueError("z is outside the type-IV_5 domain")
     return float(10.0 ** 5 / norm ** 6)
 
 
