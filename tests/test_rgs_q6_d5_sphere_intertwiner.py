@@ -54,3 +54,13 @@ def test_collinear_cotangent_pair_has_zero_projected_direction_or_is_rejected_cl
     result = relative_direction_from_cotangent(q, p, report["intertwiner"])
     assert result["norm"] < 1e-12
     assert result["direction"] is None
+
+
+def test_direction_map_is_defined_for_generic_q_and_has_codimension_three_zero_fibre():
+    report = build_q6_d5_relative_direction_intertwiner()
+    q = np.arange(1., 6.)
+    matrix = relative_direction_linear_map_in_p(q, report["intertwiner"])
+    assert matrix.shape == (3, 5)
+    assert np.linalg.matrix_rank(matrix, tol=1e-8) == 3
+    # For this generic q, the zero set in p is a two-dimensional linear kernel.
+    assert 5 - np.linalg.matrix_rank(matrix, tol=1e-8) == 2
