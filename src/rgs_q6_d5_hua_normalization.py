@@ -12,7 +12,7 @@ def hua_polynomial_type_iv5(s: float) -> float:
 
 
 def hua_integral_ratio_type_iv5(s: float) -> float:
-    """Integral of N^s against normalized invariant Euclidean measure.
+    """Integral of N^s against normalized Euclidean measure.
 
     The normalized Hua identity is I(s)/I(0)=chi(0)/chi(s), valid for
     real s>-1. The returned ratio is not defined outside this convergence
