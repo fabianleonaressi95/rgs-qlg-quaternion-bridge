@@ -44,6 +44,33 @@ TOLERANCES = {
     "discrete_differential": 1e-12,
 }
 
+def _json_default(value: Any) -> Any:
+    """Serialize NumPy values and complex amplitudes without discarding phase."""
+    if isinstance(value, (complex, np.complexfloating)):
+        return {"real": float(value.real), "imag": float(value.imag)}
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, np.generic):
+        return value.item()
+    raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
+
+
+
+
+def json_safe(value: Any) -> Any:
+    """Convert NumPy and complex scalars/arrays to strict JSON-compatible values."""
+    if isinstance(value, complex):
+        return {"real": float(value.real), "imag": float(value.imag)}
+    if isinstance(value, np.generic):
+        return json_safe(value.item())
+    if isinstance(value, np.ndarray):
+        return json_safe(value.tolist())
+    if isinstance(value, dict):
+        return {str(key): json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_safe(item) for item in value]
+    return value
+
 
 
 def json_safe(value: Any) -> Any:
@@ -367,7 +394,7 @@ def main() -> int:
     report = json_safe(build_integrated_audit(root))
     report = build_integrated_audit(root)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2, sort_keys=True) + chr(10), encoding="utf-8")
+    output.write_text(json.dumps(report, indent=2, sort_keys=True, default=_json_default) + chr(10), encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
     print(f"INTEGRATED_AUDIT_JSON={output}")
     return 0
