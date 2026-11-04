@@ -105,7 +105,6 @@ jobs:
           name: q6-wilson-microhistory-modal-bridge
           path: reports/q6_wilson_microhistory_modal_bridge.json
       - name: Run exact Q6-D5 Wilson annihilator-torus audit
-        run: python scripts/run_q6_d5_wilson_annihilator_torus.py --beta-time 2 --power 12 --scrambles 8
         if: github.event_name != 'pull_request'
         run: python scripts/run_q6_d5_wilson_annihilator_torus.py --beta-time 2 --power 8 --scrambles 4
 
