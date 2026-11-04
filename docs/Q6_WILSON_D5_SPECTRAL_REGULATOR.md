@@ -38,31 +38,44 @@ The five-mode momentum projection is
 c\mapsto cCB.
 \]
 
-The audit verifies \(\operatorname{rank}(CB)=5\), hence the real-linear
-extension has \(\dim\ker\Pi_5=129-5=124\). This proves that there is no
-inverse linear map on all of \(\mathbb R^{129}\). It does **not**, by
-dimension counting alone, prove that the restriction
-\(\Pi_5|_{\mathbb Z^{129}}\) is non-injective: a real-linear map with a
-nontrivial real kernel can still be injective on an integer lattice when
-its coefficients have suitable arithmetic independence.
+The five-mode subspace has an exact rational spectral projector. With
+\(L_1=D_1^TD_1\), its projector is
+\[
+P_{12}=\frac{L_1(L_1-2I)(L_1-4I)(L_1-6I)(L_1-8I)(L_1-10I)}{46080}.
+\]
+The exact Q6 coexact spectrum gives \(\operatorname{rank}P_{12}=5\).
+Because \(L_1\) and the fundamental-cycle matrix \(C\) are integer,
+\(CP_{12}\) is rational. The cycle space contains the selected eigenspace,
+so the map \(c\mapsto cCP_{12}\) has rank five. Clearing denominators and
+applying the integer-kernel theorem gives
+\[
+\operatorname{rank}_{\mathbb Z}
+\ker(\,c\in\mathbb Z^{129}\mapsto cCP_{12}\,)=124.
+\]
+This is an exact arithmetic statement, not an inference from real
+dimension counting.
 
-Accordingly, the current audit establishes a 124-dimensional real kernel,
-but does not establish an integer collision, nor prove that the Wilson
-weight fails to factor through the five projected coordinates on the
-integer cycle lattice. Those are separate arithmetic/functional questions.
-The finite-\(\beta_t\) weight is a product over all 192 edge-flux
-components, and the repository currently supplies no proved factorization
-through the five-mode coordinates and no global map to the D5 generic norm.
-Thus no unique \(\epsilon\) is derived.
+In particular, there is a nonzero integer Gauss-law flux \(n=cC\) with
+\(nP_{12}=0\). It has exactly the same five-mode projection as the vacuum,
+but its finite-\(\beta_t\) Wilson transfer weight is strictly smaller:
+\[
+\lambda_n=\prod_e\frac{I_{|n_e|}(\beta_t)}{I_0(\beta_t)}
+<1=\lambda_0,\qquad \beta_t>0.
+\]
+Thus the full Wilson weight does **not** factor through the five D5
+coordinates. This proves a genuine integer-lattice obstruction.
 
-The precise obstruction currently proved is the absence of a real-linear
-inverse/continuous linear reconstruction from the five modes to arbitrary
-real cycle coordinates. The stronger discrete obstruction requires either
-an explicit pair of distinct integer fluxes with identical projection but
-different Wilson weights, or a theorem excluding a suitable factorization.
-Neither is claimed here. A full action-preserving quotient or a
-well-defined global map to the D5 chart is still missing.
+It still does not produce a scalar D5 Hua cutoff. Rather, it proves that
+the full Wilson transfer spectrum cannot be represented by the existing
+five coordinates alone. An effective D5 measure remains possible only
+after specifying what happens along each 124-dimensional integer fibre:
+for example, a conditional measure, a fibre sum/trace of the transfer
+operator, or an action-derived quotient. The resulting pushforward is
+additional structure, not an identification of \(\tau\) with
+\(\varepsilon\).
 
+The full proof is recorded in
+docs/Q6_INTEGER_LATTICE_D5_WILSON_OBSTRUCTION.md.
 ## Correct separation of the two regulators
 
 - **Wilson spectral cutoff:** \(\lambda_n\geq\tau\), exactly defined at
@@ -89,12 +102,15 @@ Tests:
     pytest -q tests/test_rgs_q6_d5_wilson_regulator.py
 
 **Exact:** finite-beta transfer eigenvalues and their spectral threshold;
-integer Gauss law; cycle rank 129.
+integer Gauss law; cycle rank 129; rational rank-five spectral projector;
+integer kernel rank 124; existence of invisible integer fluxes with Wilson
+weight different from vacuum; failure of transfer-weight factorization
+through the five D5 coordinates.
 
-**Numerically verified:** rank-five five-mode projection and its
-124-dimensional kernel; finite-shell spectral selection.
+**Numerically verified:** orthonormal five-mode frame and finite-shell
+spectral selection.
 
-**Open:** an equivariant, action-preserving global quotient/map that retains
-the discarded flux information; only after that construction can one ask
-whether a Wilson spectral threshold induces a D5 generic-norm cutoff.
+**Open:** explicit short integer kernel generators; a canonical fibre
+measure/action and induced effective D5 density; an action-derived global
+quotient and physical continuum scaling.
 No 3+1D reduction, physical scale, or fine-structure constant is claimed.
