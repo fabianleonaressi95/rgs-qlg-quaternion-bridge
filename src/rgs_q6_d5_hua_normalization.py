@@ -33,7 +33,7 @@ def d5_hua_wilson_normalization_report(s_values=None) -> dict:
     # chi_5(s) = (s+1)(s+2)(s+3)(s+4)(s+5/2), chi_5(0)=60.
     # At s=-1+eps, chi_5(s)=9 eps + O(eps^2), hence I(s)~20/(3 eps).
     residue = 60. / (1. * 2. * 3. * 1.5)
-    eps = 1e-5
+    eps = 1e-7
     near_boundary = hua_integral_ratio_type_iv5(-1. + eps)
     asymptotic = residue / eps
     checks = {
@@ -44,7 +44,7 @@ def d5_hua_wilson_normalization_report(s_values=None) -> dict:
         ),
         "normalized_integral_at_zero_is_one": math.isclose(hua_integral_ratio_type_iv5(0.), 1.),
         "positive_integrals_above_threshold": all(v > 0 and math.isfinite(v) for v in ratios.values()),
-        "boundary_residue_asymptotic": math.isclose(near_boundary / asymptotic, 1., rel_tol=2e-5),
+        "boundary_residue_asymptotic": math.isclose(near_boundary / asymptotic, 1., rel_tol=1e-6),
         "bergman_exponent_outside_convergence": -5. <= -1.,
     }
     return {
