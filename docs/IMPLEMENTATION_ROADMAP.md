@@ -148,7 +148,7 @@ The existing workflow already runs \`python -m compileall -q src tests examples\
 - [x] Check Lorentz antisymmetry, tetrad postulate and vanishing torsion on flat and spherical-coordinate Minkowski benchmarks.
 - [x] Convert the spin connection to the Dirac representation and construct coordinate and orthonormal covariant derivatives.
 - [x] Feed the orthonormal derivative into the action-derived EC–Dirac kinetic Euler operator in a bridge test.
-- [ ] Derive consistent coframe first derivatives on the curved RGS refinement family; the local routine does not infer derivatives from the 64-site point cloud.
+- [x] Derive and test the exact analytic coframe first jet and torsion-free LC connection for the smooth Ellis-RGS continuum chart sampled over the angular refinement.\n- [ ] Define a gauge-consistent interpolation of the 64 site-dependent covariance coframes onto the refined tetrahedra and differentiate that interpolant; the analytic Ellis chart is not that site-frame interpolation.
 - [ ] Construct the teleparallel inertial spin connection separately and verify the TEGR boundary identity.
 - [ ] Add internal U(1), SU(2) and SU(3) connections as separate representation-valued terms.
 - [ ] Derive the full common action, tetrad/connection equations, Noether identities and total stress conservation.
