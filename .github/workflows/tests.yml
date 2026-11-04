@@ -11,12 +11,14 @@ permissions:
   contents: read
 
 concurrency:
-  group: python-tests-${{ github.ref }}
-  cancel-in-progress: true
+  group: python-tests-${{ github.workflow }}-${{ github.ref }}
+  # Preserve full-suite verification when newer commits arrive.
+  cancel-in-progress: false
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
