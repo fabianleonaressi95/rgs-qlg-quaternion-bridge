@@ -96,6 +96,10 @@ Claims are classified as:
 
 In particular, finite Q6 or 2I computations do not automatically prove continuum quantum field theory, general relativity, Einstein–Cartan dynamics, antimatter phenomenology or cosmological claims.
 
+## TOE research program: gradients, barycentres and unified mechanics
+
+The [RGS–PSU–PRISM–QLG TOE research program](docs/TOE_GRADIENT_BARYCENTRIC_UNIFICATION_PROGRAM.md) consolidates the gradient/barycentre principle, Q6 and PRISM cochain structures, vierbein and teleparallel geometry, spinor and gauge currents, SU(3) flavour octets/decuplet, QCD, MHD, De Aquino source audit, and controlled limits of classical, relativistic, quantum and statistical mechanics. It is a research roadmap, not a claim that a complete TOE has been established. Evidence labels and proof gates are explicit in the document.
+
 ## Collaboration
 
 Independent mathematical review, alternative implementations, code review and reproducibility audits are welcome. The most useful contributions are precise, testable and accompanied by explicit conventions.
