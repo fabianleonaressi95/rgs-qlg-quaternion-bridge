@@ -148,6 +148,7 @@ def q6_d5_wilson_annihilator_torus_integral(
             },
             "log_scale_removed": log_scale,
             "scaled_complex_mean": [mean.real, mean.imag],
+            "per_scramble_scaled_complex_means": per_scramble,
             "scaled_real_standard_error": re_se,
             "scaled_imag_standard_error": im_se,
             "log_absolute_estimate": log_abs, "real_estimate": real_est,
