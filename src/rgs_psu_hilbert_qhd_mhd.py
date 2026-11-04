@@ -119,7 +119,7 @@ def u1_covariant_difference(psi, links):
     u = np.asarray(links, dtype=complex)
     if z.ndim != 1 or u.shape != z.shape or np.any(np.abs(np.abs(u) - 1.0) > 1e-10):
         raise ValueError("psi and unit-modulus links must be matching 1-D arrays")
-    return np.roll(u, -1) * np.roll(z, -1) - z
+    return u * np.roll(z, -1) - z
 
 
 def u1_gauge_transform(psi, links, phases):
