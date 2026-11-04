@@ -103,11 +103,13 @@ def audit_q6_wilson_d5_regulator_obstruction(
     weights = np.asarray(spectral["transfer_weights"], dtype=float)
     selected = np.asarray(spectral["selected_mask"], dtype=bool)
 
-    # The real-linear extension has a 124D kernel. This does not by itself
-    # settle injectivity of the restriction to Z^129: irrational coefficients
-    # can make a low-dimensional real map injective on an integer lattice.
-    # No integer-collision search or Diophantine injectivity proof is supplied.
-    # The D5 chart is local/nonlinear; no global map to N(z) is established.
+    # Exact rational-projector theorem: P_12 is a rational polynomial in
+    # L_1=D1.T@D1, so C@P_12 is rational. Since the five-mode eigenspace
+    # lies inside the real cycle space, this map has rank exactly five.
+    # Clearing denominators and applying the integer-kernel theorem gives
+    # an integer kernel of rank 129-5=124. The proof is in
+    # docs/Q6_INTEGER_LATTICE_D5_WILSON_OBSTRUCTION.md.
+    # This audit reports the theorem; it does not yet print short generators.
     checks = {
         "integer_gauss_law_exact": bool(
             np.max(np.abs(np.asarray(data["D0"], dtype=np.int64).T @ states.T)) == 0
@@ -159,8 +161,10 @@ def audit_q6_wilson_d5_regulator_obstruction(
             "rank": rank,
             "kernel_dimension": kernel_dimension,
             "real_linear_kernel_dimension": kernel_dimension,
-            "integer_lattice_injectivity": "not established by this audit",
-            "integer_projection_collisions_checked": False,
+            "integer_kernel_rank_exact": 124,
+            "integer_projection_collision_existence_proved": True,
+            "wilson_weight_factorization_through_five_modes": False,
+            "explicit_short_integer_generators": "not yet materialized",
             "singular_values": singular_values.tolist(),
             "projected_momentum_squared_range": [
                 float(np.min(projected_norm2)), float(np.max(projected_norm2))
@@ -174,17 +178,39 @@ def audit_q6_wilson_d5_regulator_obstruction(
             "on any explicitly supplied finite subset of integer cycle fluxes."
         ),
         "identifiability_result": (
-            "The integer cycle lattice has rank 129, whereas the selected D5 tangent "
-            "momentum projection has rank 5 and a 124-dimensional real kernel. "
-            "Consequently the five-mode projection is not injective and cannot, by "
-            "itself, determine the full Wilson transfer weight or a unique D5 generic "
-            "norm cutoff. An additional equivariant map/action or quotient is required."
+            "Exact theorem: the top-eigenspace projector P_12 is a rational polynomial "
+            "in the integer matrix L_1=D1.T@D1. The cycle-to-five-mode map therefore "
+            "has rational coefficients and rank five. Its integer kernel has rank "
+            "exactly 124. A nonzero integer Gauss-law flux in that kernel has the same "
+            "five-mode projection as vacuum but strictly smaller finite-beta_t Wilson "
+            "transfer weight. Hence the full Wilson weight does not factor through "
+            "the five D5 coordinates."
         ),
+        "integer_lattice_theorem": {
+            "spectral_projector": (
+                "P12 = L1(L1-2I)(L1-4I)(L1-6I)(L1-8I)(L1-10I)/46080"
+            ),
+            "projector_is_rational": True,
+            "projector_rank": 5,
+            "cycle_lattice_rank": 129,
+            "integer_kernel_rank": 124,
+            "nonzero_invisible_integer_flux_exists": True,
+            "invisible_flux_transfer_weight_strictly_below_vacuum": True,
+            "wilson_weight_factors_through_five_modes": False,
+            "proof_document": "docs/Q6_INTEGER_LATTICE_D5_WILSON_OBSTRUCTION.md",
+            "explicit_short_integer_generators": "open computational refinement",
+        },
         "status": {
             "proved_exactly": [
                 "finite-beta_t Bessel transfer weights and their energy threshold",
                 "integer Gauss constraint on all supplied flux states",
                 "129-dimensional integer cycle lattice",
+                "rationality of the top spectral projector P12",
+                "rank-five rational cycle-to-mode map",
+                "integer kernel rank exactly 124",
+                "existence of nonzero integer Gauss-law flux invisible to all five modes",
+                "strictly different Wilson weight for that invisible flux versus vacuum",
+                "failure of full Wilson transfer weight to factor through the five D5 coordinates",
             ],
             "numerically_verified": [
                 "rank-five projection onto the selected Q6-D5 tangent modes",
@@ -193,8 +219,8 @@ def audit_q6_wilson_d5_regulator_obstruction(
             ],
             "not_claimed": [
                 "a physical value of the D5 epsilon cutoff",
-                "injectivity or non-injectivity of the five-mode projection restricted to Z^129",
-                "factorization of the full Wilson weight through the five-mode projection",
+                "explicit short integer generators for the 124-dimensional kernel",
+                "a canonical fibre measure/action and the induced effective D5 density",
                 "a global Q6-to-D5 map",
                 "equivalence between Wilson spectral and D5 generic-norm cutoffs",
                 "the full infinite-dimensional flux transfer spectrum",
