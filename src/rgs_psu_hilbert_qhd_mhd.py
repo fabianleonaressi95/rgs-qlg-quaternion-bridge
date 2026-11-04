@@ -204,3 +204,75 @@ def audit_hilbert_cantor_qhd_gauge_mhd() -> dict:
                 "lorentz_force_finite": bool(np.all(np.isfinite(mhd["lorentz_force"])))},
         "scope": "finite periodic benchmark; no continuum RGS field-equation theorem claimed"
     }
+
+
+def fluxon_gauge_invariant_differences(phases, link_phases=None) -> np.ndarray:
+    """Compact gauge-invariant phase drop on each periodic link.
+
+    With U_{i<-i+1}=exp(i a_i), the invariant phase is
+    theta[i+1]-theta[i]+a_i.  Under theta_i -> theta_i+chi_i and
+    a_i -> a_i+chi_i-chi_{i+1}, it is unchanged modulo 2 pi.
+    """
+    theta = np.asarray(phases, dtype=float)
+    if theta.ndim != 1 or theta.size < 3 or not np.all(np.isfinite(theta)):
+        raise ValueError("phases must be a finite 1-D array of length >= 3")
+    a = np.zeros_like(theta) if link_phases is None else np.asarray(link_phases, dtype=float)
+    if a.shape != theta.shape or not np.all(np.isfinite(a)):
+        raise ValueError("link_phases must be finite and match phases")
+    raw = np.roll(theta, -1) - theta + a
+    return np.angle(np.exp(1j * raw))
+
+
+def fluxon_topological_charge(phases, link_phases=None, atol: float = 1e-10) -> dict:
+    """Audit integer fluxon winding on a periodic 1-D compact U(1) lattice.
+
+    Quantization is asserted only when the total background link holonomy is
+    trivial (equivalently total link phase is 0 modulo 2 pi).
+    """
+    delta = fluxon_gauge_invariant_differences(phases, link_phases)
+    a = np.zeros_like(delta) if link_phases is None else np.asarray(link_phases, dtype=float)
+    total_link_phase = float(np.sum(a))
+    holonomy_residual = float(abs(np.exp(1j * total_link_phase) - 1.0))
+    winding = float(np.sum(delta) / (2.0 * np.pi))
+    nearest = int(np.rint(winding))
+    quantized = holonomy_residual <= atol and abs(winding - nearest) <= atol
+    return {
+        "gauge_invariant_phase_drops": delta.tolist(),
+        "total_covariant_phase": float(np.sum(delta)),
+        "fluxon_number": winding,
+        "nearest_integer_fluxon_number": nearest,
+        "total_link_holonomy_residual": holonomy_residual,
+        "quantized": bool(quantized),
+        "quantization_residual": float(abs(winding - nearest)),
+    }
+
+
+def sine_gordon_fluxon_profile(x, center: float = 0.0,
+                               josephson_length: float = 1.0) -> dict:
+    """Analytic unit-kink solution of lambda_J^2 phi_xx = sin(phi).
+
+    Its phase changes by 2 pi, and B=(Phi0/2pi) d(phi)/dx integrates to Phi0.
+    """
+    xx = np.asarray(x, dtype=float)
+    lam = float(josephson_length)
+    if xx.ndim != 1 or xx.size < 3 or not np.all(np.isfinite(xx)):
+        raise ValueError("x must be a finite 1-D grid with at least 3 points")
+    if not np.isfinite(center) or not np.isfinite(lam) or lam <= 0:
+        raise ValueError("center must be finite and Josephson length positive")
+    y = (xx - center) / lam
+    phase = 4.0 * np.arctan(np.exp(np.clip(y, -350.0, 350.0)))
+    derivative = 2.0 / lam / np.cosh(np.clip(y, -350.0, 350.0))
+    return {"x": xx, "phase": phase, "phase_gradient": derivative,
+            "normalized_magnetic_field": derivative / (2.0 * np.pi),
+            "phase_jump": float(phase[-1] - phase[0])}
+
+
+def sine_gordon_static_residual(phase, dx: float,
+                                josephson_length: float = 1.0) -> np.ndarray:
+    """Centered finite-difference residual lambda_J^2 phi_xx - sin(phi)."""
+    phi = np.asarray(phase, dtype=float)
+    lam = float(josephson_length)
+    if phi.ndim != 1 or phi.size < 3 or dx <= 0 or lam <= 0:
+        raise ValueError("phase must be 1-D (n>=3), dx and Josephson length positive")
+    d2 = (phi[2:] - 2.0 * phi[1:-1] + phi[:-2]) / dx**2
+    return lam**2 * d2 - np.sin(phi[1:-1])
