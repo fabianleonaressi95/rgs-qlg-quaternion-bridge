@@ -100,6 +100,15 @@ In particular, finite Q6 or 2I computations do not automatically prove continuum
 
 The [RGS–PSU–PRISM–QLG TOE research program](docs/TOE_GRADIENT_BARYCENTRIC_UNIFICATION_PROGRAM.md) consolidates the gradient/barycentre principle, Q6 and PRISM cochain structures, vierbein and teleparallel geometry, spinor and gauge currents, SU(3) flavour octets/decuplet, QCD, MHD, De Aquino source audit, and controlled limits of classical, relativistic, quantum and statistical mechanics. It is a research roadmap, not a claim that a complete TOE has been established. Evidence labels and proof gates are explicit in the document.
 
+## TOE computational core (barycentric geometry + SU(3) flavour)
+
+The TOE programme now has two reusable numerical modules:
+- `src/barycentric_geometry.py`: affine simplex barycentric coordinates, weighted barycentres/covariance, P1 mass and Dirichlet stiffness matrices, and invariant audit.
+- `src/su3_flavour.py`: Gell-Mann generators and a three-fundamental SU(3) flavour audit using permutation projectors and total quadratic Casimir. It verifies the 10 + 8 + 8 + 1 dimension content without claiming QCD dynamics.
+- `tests/test_toe_geometric_su3_core.py`: tests affine reconstruction, degenerate-simplex rejection, FEM matrix properties, barycentre identities and SU(3) representation dimensions.
+
+Run: `python -m pytest tests/test_toe_geometric_su3_core.py -q`.
+
 ## Collaboration
 
 Independent mathematical review, alternative implementations, code review and reproducibility audits are welcome. The most useful contributions are precise, testable and accompanied by explicit conventions.
