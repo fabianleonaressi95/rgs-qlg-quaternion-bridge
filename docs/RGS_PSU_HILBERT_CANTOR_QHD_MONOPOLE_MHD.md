@@ -104,3 +104,43 @@ independent dynamical link variables.
   nonzero monopole Chern class on the actual RGS/Q6 complex with patch data;
   full 3-D MHD/HVBK; coupled QHD–Yang–Mills equations; TEGR/YM/QHD/MHD
   continuum limit; Mosco convergence of the coupled system.
+
+
+## 7. Fluxons: compact phase winding and sine-Gordon solitons
+
+Here *fluxons* means quantized magnetic-flux kinks of a compact U(1)
+phase field, as in the long-junction sine-Gordon limit. On a periodic
+link lattice, with $U_{i\\leftarrow i+1}=e^{ia_i}$ and
+$\\psi_i=e^{i\\theta_i}$, define the gauge-invariant compact phase drop
+
+\\[
+\\delta_i=\\operatorname{Arg}
+\\exp\\{i(\\theta_{i+1}-\\theta_i+a_i)\\}.
+\\]
+
+It is invariant under $\\theta_i\\mapsto\\theta_i+\\chi_i$ and
+$a_i\\mapsto a_i+\\chi_i-\\chi_{i+1}$. The fluxon winding audit sums
+$\\sum_i\\delta_i/(2\\pi)$ and declares it quantized only when the
+background link holonomy is trivial. A nontrivial background holonomy
+changes the global sector; the code deliberately refuses to label a
+noninteger result as an integer fluxon number.
+
+In the continuum long-junction limit the static phase obeys
+
+\\[
+\\lambda_J^2\\,\\partial_x^2\\theta=\\sin\\theta,
+\\qquad
+\\theta_K(x)=4\\arctan e^{(x-X)/\\lambda_J}.
+\\]
+
+The normalized magnetic profile is
+$B/\\Phi_0=(2\\pi)^{-1}\\partial_x\\theta_K$ and its integral is one
+flux quantum $\\Phi_0$. The implementation supplies the analytic kink,
+its magnetic profile, a finite-difference sine-Gordon residual, and
+gauge-invariant winding tests.
+
+This is a controlled U(1)/Josephson sine-Gordon sector. It is not yet a
+derivation of flux tubes in SU(3) QCD, electroweak strings, RGS torsion
+defects, or a three-dimensional Abrikosov vortex lattice. Those require
+their own gauge group, energy functional, boundary conditions, and
+topological classification.
