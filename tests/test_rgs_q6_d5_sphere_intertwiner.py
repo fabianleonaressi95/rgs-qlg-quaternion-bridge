@@ -3,6 +3,7 @@ import numpy as np
 from src.rgs_q6_d5_sphere_intertwiner import (
     build_q6_d5_relative_direction_intertwiner,
     relative_direction_from_cotangent,
+    relative_direction_linear_map_in_p,
 )
 
 
