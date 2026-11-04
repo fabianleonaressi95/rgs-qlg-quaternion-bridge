@@ -9,6 +9,9 @@ from src.rgs_q6_clifford_module import (
 def test_full_q6_cube_has_all_cell_dimensions_and_boundary_squared_zero():
     c = build_full_q6_cubical_complex()
     assert c["cell_counts"] == (64, 192, 240, 160, 60, 12, 1)
+    # The global cochain differential is degree-raising and has the
+    # expected rectangular block orientation (C^k -> C^(k+1)).
+    assert c["d"].shape == (sum(c["cell_counts"]), sum(c["cell_counts"]))
     for k in range(1, 6):
         assert np.array_equal(
             c["coboundaries"][k+1] @ c["coboundaries"][k],
