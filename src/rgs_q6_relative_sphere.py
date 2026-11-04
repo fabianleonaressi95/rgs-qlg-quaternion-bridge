@@ -111,9 +111,11 @@ def build_q6_a5_relative_sphere_map() -> dict:
     moments = {}
     moment_residuals = {}
     for order in range(1, 7):
+        letters = "abcdef"
+        subscripts = ",".join("n" + letters[j] for j in range(order))
         tensor = np.einsum(
-            *sum(([unique] for _ in range(order)), []),
-            [list(range(order)) + [order]],
+            subscripts + "->" + letters[:order],
+            *([unique] * order),
             optimize=True,
         ) / len(unique)
         reference = _sphere_moment_reference(order)
