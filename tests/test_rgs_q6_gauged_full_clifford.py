@@ -39,3 +39,28 @@ def test_gauged_full_clifford_transport_audit():
     assert report["gauge_covariance_max_abs_residual"] < 1e-10
     assert report["flat_connection_D_squared_max_abs"] < 1e-12
     assert report["curved_connection_D_squared_max_abs"] > 1e-8
+
+
+def test_covariant_nilpotency_is_equivalent_to_trivial_q6_plaquette_holonomy():
+    """On the contractible 6-cube, D_U^2=0 iff every elementary square is flat."""
+    from src.rgs_q6_equivariant_cochains import build_q6_cochain_complex
+    from src.rgs_q6_su2_connection import plaquette_holonomies
+
+    graph = build_q6_cochain_complex()
+    cube = build_full_q6_cubical_complex()
+    gauge = random_su2_matrices(64, seed=991)
+    pure_gauge = np.empty((192, 2, 2), dtype=complex)
+    for e, (a, b, _direction) in enumerate(graph["edges"]):
+        pure_gauge[e] = gauge[a] @ gauge[b].conj().T
+
+    holonomies = plaquette_holonomies(pure_gauge, graph)
+    identity = np.eye(2, dtype=complex)
+    assert np.max(np.abs(holonomies - identity), initial=0.0) < 1e-12
+    d_flat = covariant_full_cubical_differential(pure_gauge, cube=cube, graph=graph)
+    assert (d_flat @ d_flat).nnz == 0
+
+    curved = random_su2_matrices(192, seed=992)
+    curved_holonomies = plaquette_holonomies(curved, graph)
+    curved_d = covariant_full_cubical_differential(curved, cube=cube, graph=graph)
+    assert np.max(np.abs(curved_holonomies - identity), initial=0.0) > 1e-8
+    assert np.max(np.abs((curved_d @ curved_d).data), initial=0.0) > 1e-8
