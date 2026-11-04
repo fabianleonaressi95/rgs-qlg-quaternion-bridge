@@ -228,3 +228,24 @@ Run:
 PYTHONPATH=. python -m pytest tests/test_rgs_q6_induced_metric.py -q
 PYTHONPATH=. python -m src.rgs_q6_induced_metric --output results/rgs_q6_induced_metric
 ```
+
+## Golden 6D→3D cut-and-project (RGS–PSU–Q6)
+
+The [cut-and-project construction](docs/RGS_PSU_GOLDEN_CUT_AND_PROJECT.md)
+implements the recovered golden icosahedral 3+3 split of Z^6 using
+phi and its algebraic conjugate phi*=-1/phi. The canonical acceptance
+window is the projection of the centred 6-cube, audited as a 32-vertex,
+30-facet rhombic triacontahedron. It generates finite-radius patches of
+the corresponding model set and projects the 64 Q6 states into physical
+and internal coordinates.
+
+The same module includes the previously specified torsion-coupled internal
+time-axis estimator (cross-covariance SVD, 5,000-row permutation null,
+2,000-row bootstrap by default). It requires a separately derived 64xm
+torsion trace; the archived edge coframe is not silently treated as torsion.
+
+Run:
+```bash
+PYTHONPATH=. python -m pytest tests/test_rgs_psu_cut_project.py -q
+PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_project --physical-radius 2.5
+```
