@@ -74,6 +74,43 @@ def residuals(p1, p2, m):
     }
 
 
+def jacobian_abs_6d_spatial():
+    """Absolute determinant for (p1_vec,p2_vec)->(P_vec,q_vec)."""
+    block = np.block([[np.eye(3), np.eye(3)],
+                      [np.eye(3), -np.eye(3)]])
+    return float(abs(np.linalg.det(block)))
+
+
+def constrained_shell_measure_factors():
+    """Factors from d4p1 d4p2 and the two equal-mass shell deltas.
+
+    For P=p1+p2, q=p1-p2:
+      d8p = (1/16) d4P d4q
+      f1=(P²+q²-4m²+2P.q)/4
+      f2=(P²+q²-4m²-2P.q)/4
+    Hence delta(f1) delta(f2) = 4 delta(A) delta(B), and
+    the net constrained-measure prefactor is 1/4.
+    """
+    return {
+        "momentum_change_jacobian_inverse": 1.0 / jacobian_abs_8d(),
+        "shell_delta_jacobian": 4.0,
+        "net_prefactor": 1.0 / 4.0,
+    }
+
+
+def cm_reduced_raw_measure_dOmega(M, m):
+    """CM density before the conventional (2 pi)^-2 phase-space factor."""
+    if M < 2*m or M <= 0:
+        raise ValueError("Require M >= 2m and M > 0")
+    k = math.sqrt(max(0., M*M/4-m*m))
+    return k/(4*M)
+
+
+def cm_reduced_raw_measure_integrated(M, m):
+    """Integral of the raw constrained shell measure over S^2."""
+    return 4*math.pi*cm_reduced_raw_measure_dOmega(M, m)
+
+
 def phase_space_density_dOmega(M, m):
     if M < 2*m or M <= 0:
         raise ValueError("Require M >= 2m and M > 0")
@@ -99,6 +136,10 @@ def audit(m=1., M=3., velocity=(.2, -.1, .15)):
     return {
         "convention": "metric (+---); P=p1+p2; q=p1-p2",
         "jacobian_abs_8d": jacobian_abs_8d(),
+        "jacobian_abs_6d_spatial": jacobian_abs_6d_spatial(),
+        "constrained_shell_measure_factors": constrained_shell_measure_factors(),
+        "cm_raw_measure_dOmega": cm_reduced_raw_measure_dOmega(M,m),
+        "cm_raw_measure_integrated": cm_reduced_raw_measure_integrated(M,m),
         "max_abs_residuals": {k: float(np.max(np.abs(v))) for k,v in rr.items()},
         "P2_mean": float(np.mean(dot(P,P))),
         "q2_mean": float(np.mean(dot(q,q))),

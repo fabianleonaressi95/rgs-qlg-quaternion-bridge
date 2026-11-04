@@ -22,8 +22,13 @@ For equal mass shells p1^2=p2^2=m^2, direct algebra gives
     P^2 + q^2 = 4 m^2
 
 The absolute Jacobian of (p1,p2) -> (P,q) is exactly 16 in eight
-unconstrained real momentum coordinates for these conventions. Factors of
-two quoted with other definitions of P and q cannot be transferred unchanged.
+unconstrained real momentum coordinates. Restricting only to spatial
+components gives a 6D determinant of 8. Neither raw coordinate determinant
+is 2. On the fixed-invariant-mass 5D submanifold, however, an induced
+Jacobian must be computed from an explicitly specified chart and induced
+metric; it cannot be inferred by simply reusing either ambient determinant.
+Factors of two quoted for that reduced measure therefore require their own
+derivation.
 
 At fixed P^2=M^2, in the centre-of-momentum frame,
 
@@ -35,6 +40,55 @@ coordinates on the positive mass hyperboloid and two relative-direction
 coordinates on S^2. This is a five-dimensional kinematic manifold. Any
 additional circle quotient or little-group restriction must be specified
 separately; it does not follow from the mass-shell constraints alone.
+
+## Constrained-measure reduction (new exact audit)
+
+The full 8D Jacobian is not itself the Jacobian of the *constrained*
+mass-shell measure. Define
+
+    A = P^2 + q^2 - 4 m^2,   B = P.q
+    f1 = p1^2-m^2 = (A+2B)/4
+    f2 = p2^2-m^2 = (A-2B)/4.
+
+The determinant of the map (A,B) -> (f1,f2) has absolute value 1/4.
+Consequently,
+
+    d^4p1 d^4p2 = (1/16) d^4P d^4q
+    delta(f1) delta(f2) = 4 delta(A) delta(B)
+
+and therefore
+
+    d^4p1 d^4p2 delta(f1) delta(f2)
+      = (1/4) d^4P d^4q delta(A) delta(B).
+
+For fixed external P, the momentum-conservation delta function removes
+the d^4P integral. In the CM frame P=(M,0), the remaining constraints give
+
+    delta(P.q) = delta(M q0) = delta(q0)/M
+    |q_vec| = 2k,  k=sqrt(M^2/4-m^2).
+
+Thus the raw constrained measure is
+
+    (1/4) d^4q delta(M^2+q^2-4m^2) delta(M q0)
+      = [k/(4M)] dOmega,
+
+and after angular integration it is pi*k/M. Multiplication by the standard
+overall factor (2pi)^-2 gives
+
+    dPhi2/dOmega = k/(16 pi^2 M),
+    Phi2 = k/(4 pi M),
+
+as expected. This gives a direct, independently testable bridge between
+the 8D coordinate Jacobian, the two on-shell delta distributions and the
+usual Lorentz-invariant phase space.
+
+**Important comparison with Smilga:** the calculation above establishes
+the net factor 1/4 for this explicitly stated eight-dimensional delta-shell
+measure and normalization. It does not yet identify Smilga's factor 2 in
+his reduced integration formula. The two factors refer to different stages
+unless the intervening reduction, state normalization, angular quotient and
+delta-function conventions are shown to coincide. That reconciliation
+remains open; no compensating factor is inserted by hand.
 
 With the standard Lorentz-invariant phase-space convention,
 
