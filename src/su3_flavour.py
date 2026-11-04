@@ -10,7 +10,6 @@ import numpy as np
 
 def gell_mann_matrices() -> tuple[np.ndarray, ...]:
     """Return Hermitian Gell-Mann matrices with Tr(lambda_a lambda_b)=2 delta_ab."""
-    z = 0j
     return tuple(np.asarray(m, dtype=complex) for m in (
         [[0, 1, 0], [1, 0, 0], [0, 0, 0]],
         [[0, -1j, 0], [1j, 0, 0], [0, 0, 0]],
@@ -67,13 +66,6 @@ def su3_three_fundamental_audit() -> dict:
         str(value): int(np.count_nonzero(np.isclose(evals, value, atol=1e-10)))
         for value in (0.0, 3.0, 6.0)
     }
-    commutator_residual = max(
-        float(np.linalg.norm(a @ b - b @ a - 1j * sum(
-            # [lambda_a/2,lambda_b/2] = i f_abc lambda_c/2;
-            # this residual is reported only through Hermiticity/Casimir below.
-            (0.0 * c for c in generators), np.zeros((3, 3), complex)
-        ))) for a, b in ()
-    ) if False else 0.0
     return {
         "dimension_total": 27,
         "gell_mann_trace_orthogonality_residual": float(max(
@@ -82,6 +74,10 @@ def su3_three_fundamental_audit() -> dict:
         )),
         "generator_hermiticity_residual": float(max(
             np.linalg.norm(a - a.conj().T) for a in generators
+        )),
+        "total_casimir_commutator_residual": float(max(
+            np.linalg.norm(casimir @ t - t @ casimir)
+            for t in total_generators
         )),
         "total_casimir_eigenvalue_multiplicities": casimir_multiplicities,
         "permutation_projector_ranks": ranks,
