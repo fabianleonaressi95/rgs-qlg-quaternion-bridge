@@ -91,7 +91,7 @@ def multifractal_partition_spectrum(
             "tau_or_information_dimension": float(slope),
             "fit_rmse": residual,
             "generalized_dimension": (
-                float(slope / (q - 1.0)) if q != 1.0 else float(slope)
+                float(slope / (q - 1.0)) if q != 1.0 else float(-slope)
             ),
         }
     return {
