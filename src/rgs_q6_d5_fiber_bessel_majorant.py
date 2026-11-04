@@ -48,9 +48,9 @@ def q6_d5_fiber_bessel_majorant(beta_time: float, representative=None, quotient=
 
     Let C be the 129x192 integral cycle matrix and choose an invertible
     129x129 column minor A. For n=(c+k)C and k in Z^129,
-       ||k||_infty <= ||A^-1||_infty N + ||c||_infty.
+       ||k||_infty <= ||A^-1||_1 N + ||c||_infty.
     Hence the number of fiber points with flux norm N is no greater than
-       (2 floor(M N + ||c||_infty)+1)^129.
+       (2(M N + ||c||_infty)+1)^129.
     Summing this box bound gives an explicit convergent majorant.
     """
     beta = float(beta_time)
