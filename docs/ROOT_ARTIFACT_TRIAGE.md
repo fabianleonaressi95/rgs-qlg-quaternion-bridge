@@ -1,43 +1,51 @@
 # Root artifact triage
 
-Snapshot: `main` tree `68c4e671ca19f6aad12d756b16f8373bbc9644b0` (2026-11-04).
+Initial inventory snapshot: `main` tree `68c4e671ca19f6aad12d756b16f8373bbc9644b0` (2026-11-04).
+Relocation branch: `chore/root-json-report-relocation-2026-11-04`.
 
-## Decision
+## Applied relocation
 
-The 70 root-level files were inventoried. The project essentials remain at root: `README.md`, `CONTRIBUTING.md`, `requirements.txt` and `license`. The remaining root-level JSON files are legacy audit outputs, numerical reports, manifests or data sidecars.
+The root initially contained 70 files, including legacy JSON reports. **57 JSON artifacts (approximately 3.42 MB) have now been relocated** to domain-specific folders under `reports/` and `data/`, preserving original Git blob SHAs and contents. The relocation is staged in PR #105 and is not yet merged.
 
-They are **not moved in this pass**. Existing Markdown, scripts and external notebook references may depend on their current paths. Moving them before a reference audit would create broken links and make provenance harder to follow. This document makes the root contents navigable and establishes safe destinations for the next relocation pass.
+Current branch root files:
+- `README.md`
+- `CONTRIBUTING.md`
+- `requirements.txt`
+- `license`
+- `PROVENANCE_STATUS.json`
+- `RGS_PSU_FILE_INVENTORY.json`
 
-## Recommended destinations
+See [reports index](../reports/INDEX.md) and [repository map](REPOSITORY_MAP.md).
 
-| Filename family / file | Destination for a future reference-audited move |
+## Destination families
+
+| Family | Destination |
 |---|---|
-| `188D_*`, `J_*`, `testB_Oh_*`, `RGS_PSU_basis_resolution.json`, `RGS_PSU_SPINORIAL_LIFT_REPORT.json` | `reports/rgs_188d/` |
+| `188D_*`, `J_*`, `testB_Oh_*`, PSU basis/spinorial lift | `reports/rgs_188d/` |
 | `64B_*` | `reports/rgs_188d/oh64/` |
-| `K0_*` | `reports/spectral/` |
-| `DNS_CONSERVATION_AUDIT*.json` | `reports/dns/` |
-| `RGS_PSU_MASTER_REPORT.json`, `rgs_psu_*.json`, `rgs_q6_susy_mobius_report.json` | `reports/rgs_psu/` |
-| `su2_b*.json` | `reports/q6_su2/` |
-| `audit_*.json`, `*_audit.json`, `*_summary.json`, `report.json`, `quantic_report.json`, `results*.json`, `validation_metrics.json` | `reports/imported_root/` or the owning domain report folder after provenance review |
-| `manifest*.json` | `data/manifests/` |
-| `stations_omm.json` | `data/astronomy_forecasting/` |
-| `model_parameters.json`, `map_derivation_report.json`, `rnr_qvsm_collapse_audit_template.json` | `data/manifests/` or domain-specific configuration folders after content inspection |
+| `K0_*`, Hodge/Killing audits | `reports/spectral/` |
+| DNS conservation variants | `reports/dns/` |
+| RGS–PSU master/unified/Green–Kubo/Q6 reports | `reports/rgs_psu/` |
+| SU2 beta/L8 | `reports/q6_su2/` |
+| generic/imported audit reports | `reports/imported_root/` |
+| manifests, model/map parameters | `data/manifests/` |
+| OMM station metadata | `data/astronomy_forecasting/` |
+| barycentric gradient | `reports/discrete_geometry/` |
 
-## Duplicate and version findings
+## Duplicate and variant policy
 
-- `testB_Oh_constrained_report.json` and `testB_Oh_constrained_report (1).json` have the same Git blob SHA `6fce2715e2f99c1553b57d203cf02982a30c0189`: they are byte-identical. Both names are retained for now to avoid breaking references.
-- `rgs_psu_green_kubo_geometry_audit.json` and `rgs_psu_green_kubo_geometry_audit (1).json` have different blob SHAs and sizes. They are not duplicates and must not be collapsed without a content/provenance comparison.
-- `manifest.json`, `manifest (1).json` and `manifest (2).json` have different blob SHAs. Suffixes are not evidence of duplicate content or chronological precedence.
-- Similar filenames elsewhere in `data/` may describe different arrays. Use SHA-256, shape, dtype, units, semantic role and generating script before aliasing or deduplication.
+- `testB_Oh_constrained_report.json` and `testB_Oh_constrained_report (1).json` share blob SHA `6fce2715e2f99c1553b57d203cf02982a30c0189`. Both paths are retained.
+- Green–Kubo report variants have different blob SHAs and sizes; they remain separate.
+- `manifest.json`, `manifest (1).json`, and `manifest (2).json` have different blob SHAs; no precedence is inferred from suffixes.
+- No semantic deduplication was performed.
 
-## Known provenance caution
+## Provenance warning
 
-`PROVENANCE_STATUS.json` explicitly marks several 188D arrays (including `K0.npy`, `Kinv.npy`, `J_A.npy`, `J_B.npy`, `J.npy` and `P_G.npy`) as UNVERIFIED. They must not be promoted to certified inputs merely because they are present in the repository. See [the provenance record](../PROVENANCE_STATUS.json) and [the upload triage](UPLOAD_BATCH_2026-11-04_ORGANIZATION_AND_TRIAGE.md).
+`PROVENANCE_STATUS.json` marks several 188D arrays (including `K0.npy`, `Kinv.npy`, `J_A.npy`, `J_B.npy`, `J.npy` and `P_G.npy`) as UNVERIFIED. Presence in the repository or a passing test does not certify provenance or physical validity.
 
-## Follow-up required before physical relocation
+## Validation still required before merge
 
-- Search all tracked source, test, example, workflow and Markdown references to each proposed path.
-- Inspect JSON schemas and provenance to assign ambiguous files to a domain.
-- Compare the two Green–Kubo reports and manifest variants semantically.
-- Decide whether the byte-identical `testB_Oh` alias is still needed by external consumers.
-- Move only after the path migration map and compatibility policy are prepared.
+- Run and inspect Python tests and Full Audit on the relocated tree.
+- Search for scripts/notebooks with hard-coded former root paths; GitHub code search may not index all branches or files.
+- Repair path references only when destination is unambiguous.
+- Keep imported reports labeled as imported/generated outputs, not established physical results.
