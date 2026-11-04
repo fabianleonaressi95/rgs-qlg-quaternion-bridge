@@ -1,0 +1,10 @@
+section,key,value
+spectral,rho,0.9733724850703352
+spectral,nonnormal_comm_norm,2.2456342618619116
+transient,max_norm,1.4143281548092925
+transient,max_norm_n,1
+tensorial,OSR,3
+entanglement,SR_v1_example,2
+entanglement,tan_theta_max,0.9954611490730415
+entanglement,theta_max_deg,44.8696759625783
+entanglement,distance_from_max_deg,0.13032403742170118

@@ -1,0 +1,17 @@
+check,pass
+status_OK,True
+E0_finite,True
+E1_finite,True
+DeltaE_finite,True
+DeltaE_positive,True
+RMS_finite,True
+RMS_positive,True
+STD_finite,True
+STD_nonnegative,True
+action_finite,True
+energy_reconstruction_finite,True
+transfer_ratio_finite,True
+physical_det_error_finite,True
+physical_det_error_small,True
+projective_formula_error_finite,True
+projective_formula_error_small,True
