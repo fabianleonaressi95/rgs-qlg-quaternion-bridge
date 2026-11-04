@@ -37,7 +37,7 @@ def test_q6_spatial_wilson_potential_is_gauge_invariant():
     rng = np.random.default_rng(20261104)
     links = rng.normal(size=192)
     gauge = rng.normal(size=64)
-    moved = links + data["D0"].T @ gauge
+    moved = links + data["D0"] @ gauge
     assert q6_u1_spatial_wilson_potential(links, 0.8, data) == pytest.approx(
         q6_u1_spatial_wilson_potential(moved, 0.8, data), abs=1e-10
     )
