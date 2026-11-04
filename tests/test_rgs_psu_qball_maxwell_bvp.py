@@ -36,9 +36,11 @@ def test_gauged_qball_solves_scalar_and_maxwell_equations_and_gauss_law():
     assert report["scalar_eom_residual_max"] < 2e-4
     assert report["maxwell_eom_residual_max"] < 2e-5
     assert report["gauss_law_residual"] < 2e-5
+    assert report["electric_charge"] < 0.0
+    assert abs(report["gauss_flux_charge"] - report["electric_charge"]) < 2e-5
     assert report["energy"] > 0.0
     assert report["noether_particle_charge"] > 0.0
-    assert report["electric_charge"] > 0.0
+    assert report["electric_charge"] < 0.0
     assert report["maxwell_electric_energy"] > 0.0
     assert np.all(np.isfinite(report["local_frequency"]))
     assert not report["vierbein_backreaction_included"]
