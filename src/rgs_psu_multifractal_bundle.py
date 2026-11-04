@@ -80,12 +80,13 @@ def face_holonomies(connection: DiscreteBundleConnection) -> np.ndarray:
     """Compute oriented Q3 face holonomies, based at each first vertex."""
     result = []
     for a, b, c, d in connection.base_faces:
-        # Rightmost factor acts first: a -> b -> c -> d -> a.
+        # Keys (u,v) store U_{v<-u}.  For the path a -> b -> c -> d -> a,
+        # the rightmost factor acts first and the final transport is U_{a<-d}.
         hol = (
-            connection.transports[(int(a), int(d))]
-            @ connection.transports[(int(d), int(c))]
-            @ connection.transports[(int(c), int(b))]
-            @ connection.transports[(int(b), int(a))]
+            connection.transports[(int(d), int(a))]
+            @ connection.transports[(int(c), int(d))]
+            @ connection.transports[(int(b), int(c))]
+            @ connection.transports[(int(a), int(b))]
         )
         result.append(hol)
     return np.asarray(result)
