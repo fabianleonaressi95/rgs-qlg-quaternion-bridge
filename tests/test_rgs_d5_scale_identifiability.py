@@ -8,21 +8,24 @@ from src.rgs_d5_scale_identifiability import (
 from src.rgs_ellis_refinement import load_rgs_seed_data
 
 
-def test_archived_rgs_coframe_has_the_expected_scale_covariance():
+def test_fixed_kernel_length_breaks_naive_scale_covariance():
     x = load_rgs_seed_data().coordinates
     c, e = local_covariance_coframe(x)
     s = 1.7
     cs, es = local_covariance_coframe(s*x)
-    assert np.allclose(cs, s*s*c, rtol=2e-12, atol=2e-12)
-    assert np.allclose(es, s*e, rtol=2e-12, atol=2e-12)
+    # ell2 is a squared length. Holding it fixed while scaling X changes
+    # exp(-|delta X|^2/ell2), so neither naive homogeneity law is valid.
+    assert not np.allclose(cs, s*s*c, rtol=2e-12, atol=2e-12)
+    assert not np.allclose(es, s*e, rtol=2e-12, atol=2e-12)
 
 
 def test_coframe_is_invariant_when_all_length_scales_are_scaled_together():
     x = load_rgs_seed_data().coordinates
-    _, e = local_covariance_coframe(x)
+    c, e = local_covariance_coframe(x)
     s = 1.7
-    _, es = local_covariance_coframe(s*x, ell2=s*s*7.035514834154695,
-                                    c0=s*s*43.96495130838031)
+    cs, es = local_covariance_coframe(s*x, ell2=s*s*7.035514834154695,
+                                     c0=s*s*43.96495130838031)
+    assert np.allclose(cs, c, rtol=2e-12, atol=2e-12)
     assert np.allclose(es, e, rtol=2e-12, atol=2e-12)
 
 
