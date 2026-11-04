@@ -63,6 +63,8 @@ These identities provide exact finite-dimensional reference tests. They do not, 
 
 - src/ — mathematical and computational implementations.
 - tests/ — unit and structural tests.
+- [experiments/README.md](experiments/README.md) — navigation, 311-file experiment inventory, exact-duplicate checks and safe variant-management rules.
+- [experiments/EXPERIMENTS_CATALOG.json](experiments/EXPERIMENTS_CATALOG.json) — machine-readable catalog with path, size and Git blob SHA.
 - docs/RGS_PSU_GAUGE_CLIFFORD_QLG_RESEARCH_PROPOSAL.md — research direction.
 - docs/IMPLEMENTATION_ROADMAP.md — implementation roadmap.
 - docs/STEM_INTEROPERABILITY_PROFILE.md — proposed interoperability profile.
