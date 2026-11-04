@@ -56,7 +56,7 @@ corresponding box:
 \[
 \#\{k\in K_{\mathbb Z}:\|(c+k)C\|_1=N\}
 \leq
-\left(2\lfloor MN+\|c\|_\infty\rfloor+1\right)^{129}.
+\left(2(MN+\|c\|_\infty)+1\right)^{129}.
 \]
 
 The kernel restriction can only reduce this count. Combining the two
@@ -65,7 +65,7 @@ inequalities yields the convergent series
 \[
 W_{\rm eff}([c])\leq
 \sum_{N=0}^{\infty}
-\left(2\lfloor MN+\|c\|_\infty\rfloor+1\right)^{129}
+\left(2(MN+\|c\|_\infty)+1\right)^{129}
 \frac{(96\beta_t)^N}{N!}.
 \]
 
