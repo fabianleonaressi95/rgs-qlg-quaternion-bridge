@@ -133,3 +133,59 @@ exact finite-delta integral.
   Bergman measure; those remain different measures on different spaces.
 - A physical regulator must still be derived from a specified discrete
   transfer kernel or pushforward, not chosen to match alpha.
+
+
+## Exact finite-cutoff normalization
+
+The leading law from the previous section can be strengthened to an exact
+finite-delta formula. Let
+
+    N = U * Y,
+    U ~ Beta(1,1),
+    Y = X_2 X_3 X_4 X_5,
+    X_a ~ Beta(a,1), a in {2, 5/2, 3, 4},
+
+with all five variables independent. Set S=-log(Y) and L=log(1/delta).
+Then S is hypoexponential with rates lambda=(2,5/2,3,4) and density
+
+    f_S(s) = 60 exp(-2s) - 160 exp(-5s/2)
+             + 120 exp(-3s) - 20 exp(-4s),  s>=0.
+
+Define the truncated exponential moments
+
+    M_k(L) = E[exp(k S) 1_{S<=L}]
+           = sum_j c_j [1-exp(-(lambda_j-k)L)]/(lambda_j-k),
+
+where (lambda_j,c_j) are (2,60), (5/2,-160), (3,120), (4,-20).
+None of the denominators vanish for k=1 or k=5. Conditioning on Y and
+integrating the uniform variable U exactly yields
+
+    Z_5(delta)
+      = E[N^-5 1_{N>=delta}]
+      = 1/4 [delta^-4 M_1(L) - M_5(L)].
+
+This is an exact finite sum of exponentials for every 0<delta<1, not an
+asymptotic approximation. It is positive and finite for each such delta.
+The normalized cutoff measure relative to normalized Euclidean reference
+volume is
+
+    dmu_delta = Z_5(delta)^-1 N(z)^-5 1_{N(z)>=delta} dnu_E(z).
+
+Using the established Q6-D5 local-chart pullback, its chart density is
+proportional to
+
+    Z_5(delta)^-1 N(Phi(q,p))^-5 1_{N(Phi(q,p))>=delta} dmu_L(q,p),
+
+with the same constant Jacobian convention as the #145 chart identity.
+
+The API d5_bergman_cutoff_normalization_type_iv5(delta) evaluates the exact
+finite-cutoff constant. d5_bergman_cutoff_normalized_density_type_iv5
+returns the normalized scalar density with respect to the Euclidean reference
+measure. The leading-term API from #148 remains explicitly separate.
+
+### Scope
+
+This is an exact normalization for the chosen mathematical norm cutoff.
+It does not derive delta from the Q6 transfer matrix, identify the cutoff
+measure with compact Wilson Haar measure, or establish a physical probability
+law. The cutoff is not fitted to alpha.
