@@ -82,6 +82,8 @@ def q6_d5_wilson_annihilator_torus_integral(
     if max_v > 2**52:
         raise ArithmeticError("Smith transform exceeds exact float integer range; QMC parameterization unsafe")
     v = np.asarray(v_exact.tolist(), dtype=np.float64)
+    if max(snf["invariants"]) > 2**52:
+        raise ArithmeticError("Smith invariant exceeds exact float sampling range")
     d = np.asarray(snf["invariants"], dtype=np.int64)
     rank, ambient = snf["rank"], snf["ambient_dimension"]
     free_dim = snf["torus_dimension"]
