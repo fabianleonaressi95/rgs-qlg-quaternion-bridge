@@ -47,3 +47,18 @@ def test_zero_derivative_and_zero_spinor_give_zero_local_residual():
     )
     assert np.allclose(result["residual"], 0.0)
     assert result["on_shell"] is True
+
+
+def test_kinetic_euler_operator_is_linear_in_covariant_derivative():
+    rng = np.random.default_rng(20261104)
+    left = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    right = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    a, b = 0.3 - 0.2j, -0.7 + 0.1j
+    combined = dirac_kinetic_euler_operator(a * left + b * right)
+    separate_left = dirac_kinetic_euler_operator(left)
+    separate_right = dirac_kinetic_euler_operator(right)
+    expected = (
+        a * separate_left["kinetic_euler_operator"]
+        + b * separate_right["kinetic_euler_operator"]
+    )
+    assert np.allclose(combined["kinetic_euler_operator"], expected)
