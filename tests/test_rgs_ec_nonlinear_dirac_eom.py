@@ -25,7 +25,7 @@ def test_contact_sources_match_independent_barpsi_finite_difference():
     minus = contact_lagrangian_from_independent_bilinears(
         bar - h * delta_bar, psi, kappa
     )
-    fd = (plus - minus) / (2 * h)
+    fd = float(np.real((plus - minus) / (2 * h)))
     analytic = np.dot(delta_bar, result["dL_dbarpsi"])
     assert fd == pytest.approx(float(np.real(analytic)), rel=2e-7, abs=2e-9)
 
