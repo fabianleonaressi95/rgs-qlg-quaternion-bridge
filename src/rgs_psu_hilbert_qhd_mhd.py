@@ -278,3 +278,110 @@ def sine_gordon_static_residual(phase, dx: float,
         raise ValueError("phase must be 1-D (n>=3), dx and Josephson length positive")
     d2 = (phi[2:] - 2.0 * phi[1:-1] + phi[:-2]) / dx**2
     return lam**2 * d2 - np.sin(phi[1:-1])
+
+
+def qball_potential_amplitude(amplitude, mass_scale: float = 1.0,
+                              quartic: float = 1.0,
+                              sextic: float = 0.2):
+    """V(f)=m^2 f^2-lambda f^4+g f^6 for a complex scalar Phi=f exp(i omega t)."""
+    f = np.asarray(amplitude, dtype=float)
+    m, lam, g = float(mass_scale), float(quartic), float(sextic)
+    if m <= 0 or lam < 0 or g <= 0 or not np.all(np.isfinite(f)):
+        raise ValueError("mass_scale,sextic must be positive; quartic nonnegative")
+    return m**2 * f**2 - lam * f**4 + g * f**6
+
+
+def qball_potential_derivative(amplitude, mass_scale: float = 1.0,
+                               quartic: float = 1.0,
+                               sextic: float = 0.2):
+    f = np.asarray(amplitude, dtype=float)
+    m, lam, g = float(mass_scale), float(quartic), float(sextic)
+    if m <= 0 or lam < 0 or g <= 0 or not np.all(np.isfinite(f)):
+        raise ValueError("mass_scale,sextic must be positive; quartic nonnegative")
+    return 2.0 * m**2 * f - 4.0 * lam * f**3 + 6.0 * g * f**5
+
+
+def qball_radial_residual(radius, amplitude, frequency: float,
+                          mass_scale: float = 1.0, quartic: float = 1.0,
+                          sextic: float = 0.2) -> np.ndarray:
+    """Residual of f''+2f'/r = (1/2)V'(f)-omega^2 f in 3 spatial dimensions."""
+    r = np.asarray(radius, dtype=float)
+    f = np.asarray(amplitude, dtype=float)
+    if (r.ndim != 1 or f.shape != r.shape or r.size < 5
+            or not np.all(np.isfinite(r)) or not np.all(np.isfinite(f))
+            or r[0] < 0 or np.any(np.diff(r) <= 0) or frequency <= 0):
+        raise ValueError("radius/amplitude must be finite increasing 1-D arrays; frequency positive")
+    fp = np.gradient(f, r, edge_order=2)
+    fpp = np.gradient(fp, r, edge_order=2)
+    radial_laplacian = fpp.copy()
+    radial_laplacian[1:] += 2.0 * fp[1:] / r[1:]
+    if r[0] == 0.0:
+        radial_laplacian[0] = 3.0 * fpp[0]
+    else:
+        radial_laplacian[0] += 2.0 * fp[0] / r[0]
+    rhs = 0.5 * qball_potential_derivative(
+        f, mass_scale=mass_scale, quartic=quartic, sextic=sextic
+    ) - float(frequency)**2 * f
+    return radial_laplacian - rhs
+
+
+def qball_energy_charge(radius, amplitude, frequency: float,
+                        mass_scale: float = 1.0, quartic: float = 1.0,
+                        sextic: float = 0.2) -> dict:
+    """3-D radial energy and Noether charge for an ungauged Q-ball ansatz."""
+    r = np.asarray(radius, dtype=float)
+    f = np.asarray(amplitude, dtype=float)
+    if (r.ndim != 1 or f.shape != r.shape or r.size < 5
+            or r[0] < 0 or np.any(np.diff(r) <= 0)
+            or not np.all(np.isfinite(r)) or not np.all(np.isfinite(f))
+            or frequency <= 0):
+        raise ValueError("invalid radial profile or frequency")
+    fp = np.gradient(f, r, edge_order=2)
+    V = qball_potential_amplitude(
+        f, mass_scale=mass_scale, quartic=quartic, sextic=sextic
+    )
+    density_energy = frequency**2 * f**2 + fp**2 + V
+    density_charge = 2.0 * frequency * f**2
+    measure = 4.0 * np.pi * r**2
+    energy = float(np.trapezoid(measure * density_energy, r))
+    charge = float(np.trapezoid(measure * density_charge, r))
+    return {
+        "energy": energy,
+        "noether_charge": charge,
+        "energy_per_charge": energy / charge if charge > 0 else float("inf"),
+        "frequency": float(frequency),
+        "mass_threshold": float(mass_scale),
+        "below_free_particle_threshold": bool(charge > 0 and energy / charge < mass_scale),
+        "profile_is_stationary_solution": False,
+        "interpretation": "Energy/charge is a variational diagnostic; stability requires a converged stationary profile and a perturbation analysis."
+    }
+
+
+def qball_gaussian_trial(radius, amplitude_scale: float = 0.5,
+                         width: float = 2.0, frequency: float = 0.8,
+                         mass_scale: float = 1.0, quartic: float = 1.0,
+                         sextic: float = 0.2) -> dict:
+    """Reproducible Gaussian trial profile; not a claim of an exact Q-ball solution."""
+    r = np.asarray(radius, dtype=float)
+    if r.ndim != 1 or r.size < 5 or r[0] < 0 or np.any(np.diff(r) <= 0):
+        raise ValueError("radius must be an increasing 1-D grid")
+    if amplitude_scale <= 0 or width <= 0:
+        raise ValueError("amplitude_scale and width must be positive")
+    f = float(amplitude_scale) * np.exp(-(r / float(width))**2)
+    result = qball_energy_charge(
+        r, f, frequency, mass_scale=mass_scale,
+        quartic=quartic, sextic=sextic
+    )
+    residual = qball_radial_residual(
+        r, f, frequency, mass_scale=mass_scale,
+        quartic=quartic, sextic=sextic
+    )
+    result.update({
+        "radius": r,
+        "amplitude": f,
+        "radial_eom_residual_l2": float(np.sqrt(np.trapezoid(4.0 * np.pi * r**2 * residual**2, r))),
+        "radial_eom_residual_max": float(np.max(np.abs(residual))),
+        "profile_is_stationary_solution": False,
+        "ansatz": "Gaussian variational trial only"
+    })
+    return result
