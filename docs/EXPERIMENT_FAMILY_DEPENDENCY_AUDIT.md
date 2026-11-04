@@ -36,15 +36,15 @@ Interpretation: exact content equivalence is established at the byte level; scie
 
 ### 4. `peierls/peierls45.py`
 
-Static inspection shows this script invokes names that are not defined or imported in the file:
+The original script invoked three names without defining or importing them. The adjacent peierls46.py contains matching implementations with compatible signatures; the driver now imports those functions explicitly.
 
 - `generate_amorphous_lattice`
 - `build_hamiltonian`
 - `find_local_optimal_gap`
 
-The script calls `scan_magnetic_phase_diagram()` under `__main__`, so direct execution will fail with `NameError` unless those functions are injected externally (not a normal Python execution model). The comments say to include previously validated functions, but those functions are absent from this file.
+The driver now resolves the helpers from peierls46.py. Focused tests check helper resolution, a small seeded lattice, Hamiltonian Hermiticity, and gap-index bounds. The default 1024-site phase scan is intentionally not run in CI because it performs repeated dense diagonalizations.
 
-Classification: **execution-incomplete / external dependency unresolved**. This is not evidence that the physical model or result is invalid; it means the artifact is not self-contained as committed. Recommended action: recover the exact referenced implementation from history/adjacent files, add explicit imports or a local module, then add a smoke test before calling it runnable.
+Classification: **dependency link restored; small numerical smoke tests added**. This establishes importability and basic matrix invariants, not physical validity of the Chern-number interpretation or the full-size phase diagram.
 
 ### 5. `microtubule_pipeline/mvp_middleware47.py`
 
@@ -88,3 +88,13 @@ Before source relocation, perform a complete local checkout scan over:
 - **Confirmed:** exact blob equality; observed imports/definitions/call sites in inspected source; filename/docstring mismatch.
 - **Static concern:** missing helper functions in standalone file; side-effecting pipeline; ambiguous numbering.
 - **Not assessed:** scientific validity, full runtime, data provenance for all experiments, whether all external references exist.
+
+
+## Follow-up implementation
+
+- peierls45.py imports the three matching helpers from peierls46.py rather than duplicating or inventing code.
+- tests/test_peierls45_dependencies.py adds bounded smoke tests for helper resolution, seeded lattice generation, Hamiltonian Hermiticity, and gap selection.
+- tools/audit_experiment_dependencies.py builds a repository-wide static graph from Python AST imports and literal file/path mentions, records parse errors and exact duplicate groups, and writes JSON.
+- The experiment-dependency-audit workflow runs the graph builder on relevant pull requests and uploads the JSON as a workflow artifact.
+
+The graph is static evidence only. Dynamic imports, constructed paths, references outside the checkout, and runtime data dependencies remain subject to manual review.

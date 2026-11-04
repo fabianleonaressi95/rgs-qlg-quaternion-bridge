@@ -1,0 +1,36 @@
+name: Experiment dependency graph
+
+on:
+  pull_request:
+    paths:
+      - "experiments/**"
+      - "tests/**"
+      - "tools/audit_experiment_dependencies.py"
+      - ".github/workflows/experiment-dependency-audit.yml"
+      - "docs/EXPERIMENT_FAMILY_DEPENDENCY_AUDIT.md"
+  push:
+    branches: [main]
+    paths:
+      - "experiments/**"
+      - "tools/audit_experiment_dependencies.py"
+      - ".github/workflows/experiment-dependency-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build static experiment dependency graph
+        run: python tools/audit_experiment_dependencies.py --output experiment_dependency_graph.json
+      - name: Upload dependency graph
+        uses: actions/upload-artifact@v4
+        with:
+          name: experiment-dependency-graph
+          path: experiment_dependency_graph.json
+          if-no-files-found: error
