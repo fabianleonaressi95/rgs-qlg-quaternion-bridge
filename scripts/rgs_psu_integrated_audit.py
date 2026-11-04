@@ -19,10 +19,13 @@ from src.clifford_qlg import (
     clifford_grade_action_audit, clifford_relation_audit,
     spinor_group_action_audit, spinor_steerable_kernel_audit,
 )
-from src.discrete_differential import audit_discrete_differential_operators\nfrom src.discrete_cartan_geometry import (\n    audit_cartan_faces, audit_metric_compatibility,\n    build_metric_compatible_connection, edge_coframes_from_embedding,\n)
+from src.discrete_differential import audit_discrete_differential_operators
+from src.discrete_cartan_geometry import (\n    audit_cartan_faces, audit_metric_compatibility,\n    build_metric_compatible_connection, edge_coframes_from_embedding,\n)
 from src.mobius_complex import audit_mobius_complex, build_mobius_complex
 from src.mobius_gauge_audit import audit_mobius_gauge_covariance, build_random_mobius_lattice
-from src.mobius_representations import (\n    audit_local_frame_representations, audit_reflection_transition_representation,\n)
+from src.mobius_representations import (
+    audit_local_frame_representations, audit_reflection_transition_representation,
+)
 from src.q6_complex import audit_q6_complex, build_q6_complex, export_q6_incidence_bundle
 from src.q6_prism_map import audit_q6_prism_map
 from src.rgs_multiscale import equidistribution_moment_audit
@@ -222,7 +225,7 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
     source_paths = (
         "src/mobius_complex.py", "src/mobius_gauge_audit.py",
         "src/mobius_representations.py", "src/q6_complex.py",
-        "src/q6_prism_map.py", "src/discrete_differential.py",
+        "src/q6_prism_map.py", "src/discrete_differential.py", "src/discrete_cartan_geometry.py",
         "src/binary_icosahedral.py", "src/representations_2i.py",
         "src/clifford_qlg.py", "src/rgs_multiscale.py",
         "data/q6/README.md",
@@ -244,7 +247,8 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
                 "sha256_array_canonical": sha256_array(arr),
             }
 
-    q6_bundle_path = root / "results" / "artifacts" / "Q6_canonical_incidence_v1.npz"\n    q6_bundle_export = export_q6_incidence_bundle(str(q6_bundle_path))\n    q6_bundle_export["path"] = q6_bundle_path.relative_to(root).as_posix()\n    q6_bundle_manifest = q6_bundle_path.with_suffix(".manifest.json")\n    q6_bundle_manifest.parent.mkdir(parents=True, exist_ok=True)\n    q6_bundle_manifest.write_text(json.dumps(q6_bundle_export, indent=2, sort_keys=True) + "\\n", encoding="utf-8")\n\n    discrete_cartan = {"status": "64B_coordinate_seed_not_available"}\n    x_path = root / "data" / "rgs_188d" / "X_Oh_reconstructed.npy"\n    if x_path.exists():\n        x_oh = np.load(x_path, allow_pickle=False)\n        if x_oh.shape == (64, 3):\n            radial = np.linalg.norm(x_oh, axis=1)\n            local_coordinates = np.column_stack((x_oh, radial))\n            metrics = {\n                v: np.eye(4) + 0.01 * np.outer(local_coordinates[v], local_coordinates[v])\n                for v in q6.vertices\n            }\n            edge_theta = edge_coframes_from_embedding(\n                x_oh, q6.edges, append_radial_difference=True\n            )\n            edge_connection = build_metric_compatible_connection(metrics, q6.edges)\n            metric_report = audit_metric_compatibility(metrics, edge_connection, q6.edges)\n            cartan_report = audit_cartan_faces(q6.faces, edge_theta, edge_connection)\n            orthonormal_frame_residual = 0.0\n            frames = {v: np.linalg.cholesky(metrics[v]).T for v in q6.vertices}\n            for u, v in q6.edges:\n                omega = frames[v] @ edge_connection[(u, v)] @ np.linalg.inv(frames[u])\n                orthonormal_frame_residual = max(\n                    orthonormal_frame_residual,\n                    float(np.linalg.norm(omega.T @ omega - np.eye(4), ord="fro")),\n                )\n            discrete_cartan = {\n                "status": "coordinate_seed_induced_spd_metric_diagnostic",\n                "coordinate_seed_sha256": sha256_file(x_path),\n                "metric_compatibility": metric_report,\n                "cartan_faces": cartan_report,\n                "orthonormal_frame_transport_max_residual": orthonormal_frame_residual,\n                "metric_construction": "G_v = I + 0.01 y_v y_v^T, y_v=(X_v, ||X_v||); diagnostic metric, not an asserted recovered physical vierbein",\n            }\n\n    discrete_mobius = audit_discrete_differential_operators(
+    q6_bundle_path = root / "results" / "artifacts" / "Q6_canonical_incidence_v1.npz"
+    q6_bundle_export = export_q6_incidence_bundle(str(q6_bundle_path))\n    q6_bundle_export["path"] = q6_bundle_path.relative_to(root).as_posix()\n    q6_bundle_manifest = q6_bundle_path.with_suffix(".manifest.json")\n    q6_bundle_manifest.parent.mkdir(parents=True, exist_ok=True)\n    q6_bundle_manifest.write_text(json.dumps(q6_bundle_export, indent=2, sort_keys=True) + "\\n", encoding="utf-8")\n\n    discrete_cartan = {"status": "64B_coordinate_seed_not_available"}\n    x_path = root / "data" / "rgs_188d" / "X_Oh_reconstructed.npy"\n    if x_path.exists():\n        x_oh = np.load(x_path, allow_pickle=False)\n        if x_oh.shape == (64, 3):\n            radial = np.linalg.norm(x_oh, axis=1)\n            local_coordinates = np.column_stack((x_oh, radial))\n            metrics = {\n                v: np.eye(4) + 0.01 * np.outer(local_coordinates[v], local_coordinates[v])\n                for v in q6.vertices\n            }\n            edge_theta = edge_coframes_from_embedding(\n                x_oh, q6.edges, append_radial_difference=True\n            )\n            edge_connection = build_metric_compatible_connection(metrics, q6.edges)\n            metric_report = audit_metric_compatibility(metrics, edge_connection, q6.edges)\n            cartan_report = audit_cartan_faces(q6.faces, edge_theta, edge_connection)\n            orthonormal_frame_residual = 0.0\n            frames = {v: np.linalg.cholesky(metrics[v]).T for v in q6.vertices}\n            for u, v in q6.edges:\n                omega = frames[v] @ edge_connection[(u, v)] @ np.linalg.inv(frames[u])\n                orthonormal_frame_residual = max(\n                    orthonormal_frame_residual,\n                    float(np.linalg.norm(omega.T @ omega - np.eye(4), ord="fro")),\n                )\n            discrete_cartan = {\n                "status": "coordinate_seed_induced_spd_metric_diagnostic",\n                "coordinate_seed_sha256": sha256_file(x_path),\n                "metric_compatibility": metric_report,\n                "cartan_faces": cartan_report,\n                "orthonormal_frame_transport_max_residual": orthonormal_frame_residual,\n                "metric_construction": "G_v = I + 0.01 y_v y_v^T, y_v=(X_v, ||X_v||); diagnostic metric, not an asserted recovered physical vierbein",\n            }\n\n    discrete_mobius = audit_discrete_differential_operators(
         mobius.boundary_1, mobius.boundary_2,
         atol=TOLERANCES["discrete_differential"],
     )
@@ -262,7 +266,8 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
         "mobius": audit_mobius_complex(),
         "mobius_vs_q6": mobius_q6,
         "q6": audit_q6_complex(),
-        "local_frame_representations": audit_local_frame_representations(),\n        "reflection_frame_transitions": audit_reflection_transition_representation(),
+        "local_frame_representations": audit_local_frame_representations(),
+        "reflection_frame_transitions": audit_reflection_transition_representation(),
         "randomized_gauge_covariance": gauge,
         "binary_icosahedral_2i": group,
         "2i_representations": reps,
@@ -272,10 +277,12 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
         "spinor_group_action": spin,
         "steerable_kernels": kernels,
         "discrete_differential_mobius": discrete_mobius,
-        "discrete_differential_q6": discrete_q6,\n        "discrete_cartan_geometry": discrete_cartan,
+        "discrete_differential_q6": discrete_q6,
+        "discrete_cartan_geometry": discrete_cartan,
         "q6_to_prism_map": audit_q6_prism_map(),
         "finite_2i_haar_moment_diagnostic": moment,
-        "q6_source_arrays": q6_arrays,\n        "q6_canonical_bundle_export": q6_bundle_export,
+        "q6_source_arrays": q6_arrays,
+        "q6_canonical_bundle_export": q6_bundle_export,
         "rgs_188d_operator_and_t2u_inventory": _matrix_inventory(root),
         "continuum_convergence": {
             "equidistribution": "finite 2I moments reported; a nested refinement sequence is required for weak convergence",
