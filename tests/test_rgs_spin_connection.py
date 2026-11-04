@@ -63,3 +63,27 @@ def test_spin_connection_rejects_singular_coframe():
 def test_spinor_derivative_rejects_wrong_shapes():
     with pytest.raises(ValueError):
         dirac_covariant_derivative(np.zeros((4, 3)), np.ones(4), np.zeros((4, 4, 4)))
+
+
+def test_frame_derivative_feeds_existing_ec_dirac_euler_operator():
+    from src.rgs_ec_dirac_kinetic_eom import dirac_kinetic_euler_operator
+
+    omega = np.zeros((4, 4, 4))
+    omega[0, 1, 2] = 0.15
+    omega[1, 0, 2] = -0.15
+    spin_connection = spinor_connection_from_lorentz_connection(omega)
+    psi = np.array([0.4 + 0.1j, -0.2j, 0.7, 0.3 - 0.2j])
+    partial = np.arange(16, dtype=float).reshape(4, 4).astype(complex) / 20.0
+    coordinate = dirac_covariant_derivative(partial, psi, spin_connection)
+    inverse = np.diag([1.0, 0.8, 1.2, 0.9])
+    frame = orthonormal_dirac_derivative(coordinate, inverse)
+
+    result = dirac_kinetic_euler_operator(frame)
+    expected = -sum(
+        __import__("src.rgs_ec_algebraic_torsion", fromlist=["dirac_gamma_matrices_minus_plus"])
+        .dirac_gamma_matrices_minus_plus()[a] @ frame[:, a]
+        for a in range(4)
+    )
+    assert frame.shape == (4, 4)
+    assert np.allclose(result["kinetic_euler_operator"], expected)
+    assert result["mass_term_included"] is False
