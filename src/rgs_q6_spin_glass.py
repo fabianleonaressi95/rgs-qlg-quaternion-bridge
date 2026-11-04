@@ -44,8 +44,14 @@ class Q6SpinGlass:
         e = np.asarray(self.edges)
         f = np.asarray(self.faces)
         j = np.asarray(self.couplings, dtype=float)
-        if e.shape != (192, 2) or f.shape != (240, 4) or j.shape != (192,):
-            raise ValueError("Q6 requires edges (192,2), faces (240,4), bonds (192,)")
+        if e.ndim != 2 or e.shape[1] != 2 or f.ndim != 2 or f.shape[1] != 4:
+            raise ValueError("edges and square faces must have shapes (M,2) and (P,4)")
+        if j.shape != (len(e),) or self.n_vertices < 1:
+            raise ValueError("one coupling per edge and a positive vertex count are required")
+        if len(e) and (np.min(e) < 0 or np.max(e) >= self.n_vertices):
+            raise ValueError("edge endpoint outside vertex range")
+        if len(f) and (np.min(f) < 0 or np.max(f) >= self.n_vertices):
+            raise ValueError("face vertex outside vertex range")
         if not np.all(np.isfinite(j)):
             raise ValueError("couplings must be finite")
 
@@ -127,21 +133,28 @@ def _one_parallel_tempering_ladder(
 ) -> tuple[np.ndarray, np.ndarray]:
     n_t, n = len(temperatures), model.n_vertices
     beta = 1.0 / temperatures
+    neighbours = [[] for _ in range(n)]
+    for (u, v), coupling in zip(model.edges, model.couplings):
+        neighbours[int(u)].append((int(v), float(coupling)))
+        neighbours[int(v)].append((int(u), float(coupling)))
     spins = rng.choice(np.array([-1, 1], dtype=np.int8), size=(n_t, n))
     energies = np.array([model.energy(s) for s in spins], dtype=float)
-    n_meas = (sweeps - burn_in) // measure_every
+    n_meas = (sweeps - burn_in - 1) // measure_every + 1
     energy_samples = np.empty((n_t, n_meas), dtype=float)
     spin_samples = np.empty((n_t, n_meas, n), dtype=np.int8)
     measurement = 0
     for sweep in range(sweeps):
         for t in range(n_t):
+            s = spins[t]
+            fields = model.local_fields(s)
             for site in rng.permutation(n):
-                s = spins[t]
-                field = model.local_fields(s)[site]
-                delta = 2.0 * s[site] * field
+                old_spin = int(s[site])
+                delta = 2.0 * old_spin * fields[site]
                 if delta <= 0.0 or rng.random() < np.exp(-beta[t] * delta):
-                    s[site] *= -1
+                    s[site] = -old_spin
                     energies[t] += delta
+                    for neighbour, coupling in neighbours[site]:
+                        fields[neighbour] -= 2.0 * old_spin * coupling
         parity = sweep % 2
         for t in range(parity, n_t - 1, 2):
             log_accept = (beta[t] - beta[t + 1]) * (energies[t] - energies[t + 1])
