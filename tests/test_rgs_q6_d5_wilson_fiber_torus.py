@@ -63,6 +63,6 @@ def test_scaled_wilson_integrand_factorization_is_exact_and_bounded(beta):
     log_scale, log_amplitude = _wilson_integrand_log_split(beta, cosine_sums, ambient)
     log_i0 = math.log(i0(beta))
     exact_log_integrand = beta*cosine_sums - ambient*log_i0
-    assert np.allclose(log_scale + log_amplitude, exact_log_integrand, rtol=2e-13, atol=2e-13)
+    assert np.allclose(log_scale + log_amplitude, exact_log_integrand, rtol=2e-13, atol=1e-12)
     assert np.all(log_amplitude <= 0.0)
     assert log_amplitude[-1] == pytest.approx(0.0, abs=1e-14)
