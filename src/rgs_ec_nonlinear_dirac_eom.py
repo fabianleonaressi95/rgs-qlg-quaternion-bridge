@@ -118,8 +118,8 @@ def contact_lagrangian_from_independent_bilinears(bar_spinor, spinor, kappa):
     gamma5 = gamma5_matrix()
     eta = minkowski_metric()
     current = np.array([1j * bar @ gamma5 @ g @ psi for g in gamma])
-    return float(effective_four_fermion_coefficient(float(kappa))
-                 * (current @ eta @ current))
+    return (effective_four_fermion_coefficient(float(kappa))
+            * (current @ eta @ current))
 
 
 def spinor_current_consistency(spinor, *, tolerance=1e-10):
