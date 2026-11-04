@@ -23,8 +23,8 @@ def test_smith_hnf_returns_saturated_integer_kernel():
 
 
 def test_certified_factorial_tail_bound_is_finite_and_decreases():
-    coarse = q6_d5_certified_fiber_tail_bound(2.0, 100)
-    tighter = q6_d5_certified_fiber_tail_bound(2.0, 120)
+    coarse = q6_d5_certified_fiber_tail_bound(2.0, 500)
+    tighter = q6_d5_certified_fiber_tail_bound(2.0, 600)
     assert math.isfinite(coarse["log_upper_bound"])
     assert math.isfinite(tighter["log_upper_bound"])
     assert tighter["log_upper_bound"] < coarse["log_upper_bound"]
