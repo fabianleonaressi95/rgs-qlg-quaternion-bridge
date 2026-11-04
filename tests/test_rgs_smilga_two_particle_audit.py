@@ -56,3 +56,29 @@ def test_two_body_phase_space_normalization():
 def test_wyler_numeric_is_separate_from_phase_space_claim():
     assert math.isclose(wyler_alpha_inverse(),137.0360824481643,rel_tol=2e-14)
     assert "open" in audit()
+
+
+
+def test_fixed_mass_shell_chart_has_five_independent_coordinates():
+    from src.rgs_smilga_two_particle_audit import (
+        fixed_mass_shell_chart, shell_chart_jacobian,
+        factorized_invariant_shell_density_d3P_dOmega,
+    )
+    Pvec = np.array([0.4, -0.2, 0.3])
+    M, m, theta, phi = 3.0, 1.0, 1.1, 0.7
+    p1, p2 = fixed_mass_shell_chart(Pvec, theta, phi, M, m)
+    P, q = to_total_relative(p1, p2)
+    assert np.allclose(dot(P, P), M*M, atol=2e-12)
+    assert np.allclose(dot(p1, p1), m*m, atol=2e-12)
+    assert np.allclose(dot(p2, p2), m*m, atol=2e-12)
+    assert np.allclose(P[1:], Pvec, atol=2e-12)
+    assert abs(dot(P, q)) < 2e-12
+    J = shell_chart_jacobian(Pvec, theta, phi, M, m)
+    assert J.shape == (6, 5)
+    assert np.linalg.matrix_rank(J, tol=1e-7) == 5
+    gram = J.T @ J
+    assert np.linalg.eigvalsh(gram)[0] > 0
+    density = factorized_invariant_shell_density_d3P_dOmega(Pvec, M, m)
+    E = math.sqrt(M*M + Pvec @ Pvec)
+    k = math.sqrt(M*M/4-m*m)
+    assert math.isclose(density, k/(32*math.pi**3*M*E), rel_tol=1e-14)
