@@ -81,3 +81,58 @@ def test_directional_derivatives_against_independent_central_difference(sector):
         errors.append(abs(numeric-analytic))
     assert min(errors) < 2e-6, (sector,analytic,errors)
     assert errors[-1] < 2e-5, (sector,analytic,errors)
+
+
+
+def test_full_gradients_match_full_action_directional_difference():
+    from src.unified_discrete_gradients import (
+        su2_left_perturbation, unified_q6_gradients,
+    )
+
+    rng, q6, fields, links = _state(seed=71)
+    couplings = ActionCouplings(0.7, 0.9, 0.8, 0.35, 0.12)
+    gradients = unified_q6_gradients(fields, links, couplings, q6)
+
+    de = 0.015 * rng.normal(size=fields.coframe.shape)
+    dp = 0.025 * (rng.normal(size=fields.psi_plus.shape)
+                  + 1j * rng.normal(size=fields.psi_plus.shape))
+    dm = 0.025 * (rng.normal(size=fields.psi_minus.shape)
+                  + 1j * rng.normal(size=fields.psi_minus.shape))
+    dx = 0.02 * rng.normal(size=(len(q6.edges), 3))
+
+    analytic = (
+        np.sum(gradients["coframe"] * de)
+        + 2.0 * np.real(np.vdot(gradients["psi_plus"], dp))
+        + 2.0 * np.real(np.vdot(gradients["psi_minus"], dm))
+        + np.sum(gradients["links"] * dx)
+    )
+
+    def shifted(sign, eps):
+        shifted_fields = UnifiedQ6Fields(
+            fields.coframe + sign * eps * de,
+            fields.psi_plus + sign * eps * dp,
+            fields.psi_minus + sign * eps * dm,
+        )
+        shifted_links = SU2Lattice(q6.vertices)
+        for edge_id, (u, v) in enumerate(q6.edges):
+            shifted_links.add_link(
+                u, v,
+                su2_left_perturbation(
+                    links.link(u, v), dx[edge_id], sign * eps
+                ),
+            )
+        return unified_q6_action(shifted_fields, shifted_links, couplings, q6)
+
+    errors = []
+    for eps in (2e-4, 7e-5, 2e-5):
+        numeric = (shifted(+1.0, eps) - shifted(-1.0, eps)) / (2.0 * eps)
+        errors.append(abs(numeric - analytic))
+    # At small epsilon the centred difference reaches the floating-point
+    # roundoff floor; require a tight best error and a bounded full sweep,
+    # not monotone improvement at every step size.
+    assert min(errors) < 3e-6 * max(1.0, abs(analytic)), (analytic, errors)
+    assert max(errors) < 2e-7 * max(1.0, abs(analytic)), (analytic, errors)
+    assert gradients["coframe"].shape == (64, 4, 4)
+    assert gradients["psi_plus"].shape == gradients["psi_minus"].shape == (64, 2)
+    assert gradients["links"].shape == (192, 3)
+    assert gradients["link_edges"] == q6.edges

@@ -140,3 +140,146 @@ def directional_action_derivative(
 
     out["total"] = float(sum(out.values()))
     return {key: float(value) for key, value in out.items()}
+
+
+# ---------------------------------------------------------------------------
+# Full gradients (as opposed to the directional-derivative API above).
+# ---------------------------------------------------------------------------
+_PAULI = (
+    np.array([[0, 1], [1, 0]], dtype=complex),
+    np.array([[0, -1j], [1j, 0]], dtype=complex),
+    np.array([[1, 0], [0, -1]], dtype=complex),
+)
+_SU2_LEFT_BASIS = tuple(1j * sigma for sigma in _PAULI)
+
+
+def unified_q6_gradients(
+    fields: UnifiedQ6Fields,
+    links: SU2Lattice,
+    couplings: ActionCouplings = ActionCouplings(),
+    complex_: Q6Complex | None = None,
+) -> dict:
+    """Return full gradients for coframes, PSU sheets and all Q6 SU(2) links.
+
+    Complex gradients obey delta S = 2 Re(g^dagger delta psi).
+    Link entries are derivatives in the left-trivialised basis i*sigma_a:
+    U(t) = exp(t*i*sigma_a) U. The link array follows q6.edges order.
+    """
+    q6 = build_q6_complex() if complex_ is None else complex_
+    f = fields.validated(len(q6.vertices))
+    if set(links.edges()) != set(q6.edges):
+        raise ValueError("SU2Lattice edges must coincide exactly with Q6 edges")
+
+    volume = np.abs(np.linalg.det(f.coframe))
+    density = np.sum(np.abs(f.psi_plus) ** 2, axis=1) + np.sum(
+        np.abs(f.psi_minus) ** 2, axis=1
+    )
+    twin = f.psi_plus - f.psi_minus
+    grad_e = np.zeros_like(f.coframe)
+    grad_plus = np.zeros_like(f.psi_plus)
+    grad_minus = np.zeros_like(f.psi_minus)
+
+    alpha = (
+        0.5 * couplings.twin_coupling * np.sum(np.abs(twin) ** 2, axis=1)
+        + 0.25 * couplings.quartic_coupling * density**2
+    )
+
+    edge_cache = {}
+    for u, v in q6.edges:
+        U = links.link(u, v)
+        dp = f.psi_plus[v] - U @ f.psi_plus[u]
+        dm = f.psi_minus[v] - U @ f.psi_minus[u]
+        w = float(np.sqrt(volume[u] * volume[v]))
+        D = float(np.vdot(dp, dp).real + np.vdot(dm, dm).real)
+        edge_cache[(u, v)] = (U, dp, dm, w)
+
+        de = f.coframe[u] - f.coframe[v]
+        grad_e[u] += couplings.coframe_stiffness * de
+        grad_e[v] -= couplings.coframe_stiffness * de
+        alpha[u] += 0.25 * couplings.matter_hopping * w * D / volume[u]
+        alpha[v] += 0.25 * couplings.matter_hopping * w * D / volume[v]
+
+        factor = 0.5 * couplings.matter_hopping * w
+        grad_plus[u] -= factor * (U.conj().T @ dp)
+        grad_plus[v] += factor * dp
+        grad_minus[u] -= factor * (U.conj().T @ dm)
+        grad_minus[v] += factor * dm
+
+    for v in q6.vertices:
+        grad_e[v] += alpha[v] * volume[v] * np.linalg.inv(f.coframe[v]).T
+
+    grad_plus += 0.5 * couplings.twin_coupling * volume[:, None] * twin
+    grad_minus -= 0.5 * couplings.twin_coupling * volume[:, None] * twin
+    grad_plus += (
+        0.5 * couplings.quartic_coupling
+        * volume[:, None] * density[:, None] * f.psi_plus
+    )
+    grad_minus += (
+        0.5 * couplings.quartic_coupling
+        * volume[:, None] * density[:, None] * f.psi_minus
+    )
+
+    # The ordered face holonomy is L_3 L_2 L_1 L_0, matching SU2Lattice.
+    # Differentiate each occurrence; inverse occurrences use d(U^dagger)=-U^dagger X.
+    grad_links = np.zeros((len(q6.edges), 3), dtype=float)
+    for edge_id, (u, v) in enumerate(q6.edges):
+        U, dp, dm, w = edge_cache[(u, v)]
+        q_plus = U @ f.psi_plus[u]
+        q_minus = U @ f.psi_minus[u]
+        for axis, X in enumerate(_SU2_LEFT_BASIS):
+            value = -couplings.matter_hopping * w * float(np.real(
+                np.vdot(dp, X @ q_plus) + np.vdot(dm, X @ q_minus)
+            ))
+            if couplings.gauge_beta:
+                for face in q6.faces:
+                    path = (face[0], face[1], face[2], face[3], face[0])
+                    factors = [
+                        links.link(a, b) for a, b in zip(path[:-1], path[1:])
+                    ]
+                    for j, (a, b) in enumerate(zip(path[:-1], path[1:])):
+                        if (min(a, b), max(a, b)) != (u, v):
+                            continue
+                        d_factor = (
+                            X @ U if (a, b) == (u, v)
+                            else -U.conj().T @ X
+                        )
+                        left = np.eye(2, dtype=complex)
+                        for k in range(3, j, -1):
+                            left = left @ factors[k]
+                        right = np.eye(2, dtype=complex)
+                        for k in range(j - 1, -1, -1):
+                            right = right @ factors[k]
+                        d_holonomy = left @ d_factor @ right
+                        value += -0.5 * couplings.gauge_beta * float(
+                            np.trace(d_holonomy).real
+                        )
+            grad_links[edge_id, axis] = value
+
+    return {
+        "coframe": grad_e,
+        "psi_plus": grad_plus,
+        "psi_minus": grad_minus,
+        "links": grad_links,
+        "link_edges": q6.edges,
+    }
+
+
+def su2_left_perturbation(
+    U: np.ndarray, coordinates: np.ndarray, step: float
+) -> np.ndarray:
+    """Apply exp(step * sum_a coordinates[a] i*sigma_a) on the left."""
+    x = np.asarray(coordinates, dtype=float)
+    if x.shape != (3,) or not np.all(np.isfinite(x)):
+        raise ValueError("SU(2) tangent coordinates must be a finite 3-vector")
+    generator = sum(
+        (x[a] * _SU2_LEFT_BASIS[a] for a in range(3)),
+        np.zeros((2, 2), dtype=complex),
+    )
+    radius = float(np.linalg.norm(x))
+    if radius == 0.0 or step == 0.0:
+        return U.copy()
+    exponential = (
+        np.cos(step * radius) * np.eye(2, dtype=complex)
+        + np.sin(step * radius) / radius * generator
+    )
+    return exponential @ U
