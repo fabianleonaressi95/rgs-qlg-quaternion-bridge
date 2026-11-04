@@ -19,7 +19,12 @@ from src.rgs_q6_d5_integer_fiber_quotient import (
 
 
 def _pivot_minor_inverse_norm(cycles: np.ndarray):
-    """Return exact ||A^-1||_infinity for a nonsingular 129-column minor A."""
+    """Return exact ||A^-1||_1 for a nonsingular 129-column minor A.
+
+    Coefficients are row vectors: k = n_P A^-1. The induced matrix
+    1-norm (maximum absolute column sum) therefore controls ||k||_infinity
+    by ||n_P||_infinity.
+    """
     c = sp.Matrix(np.asarray(cycles, dtype=np.int64).tolist())
     if c.rows != 129 or c.rank() != 129:
         raise ArithmeticError("cycle coefficient matrix must have exact row rank 129")
@@ -28,9 +33,9 @@ def _pivot_minor_inverse_norm(cycles: np.ndarray):
         raise ArithmeticError("could not select 129 independent edge columns")
     a = c[:, list(pivots)]
     inv = a.inv()
-    row_sums = [sum(abs(inv[i, j]) for j in range(129)) for i in range(129)]
-    norm_inf = max(row_sums)
-    return norm_inf, tuple(int(i) for i in pivots)
+    column_sums = [sum(abs(inv[i, j]) for i in range(129)) for j in range(129)]
+    norm_one = max(column_sums)
+    return norm_one, tuple(int(i) for i in pivots)
 
 
 def q6_d5_fiber_bessel_majorant(beta_time: float, representative=None, quotient=None):
@@ -94,7 +99,7 @@ def q6_d5_fiber_bessel_majorant(beta_time: float, representative=None, quotient=
         "kernel_rank": 124,
         "edge_count": 192,
         "pivot_columns": list(pivot_columns),
-        "exact_inverse_infinity_norm": str(M),
+        "exact_inverse_one_norm": str(M),
         "representative_infinity_norm": c_norm,
         "bessel_product_bound": "(96*beta_time)^N/N!, N=||flux||_1",
         "coefficient_box_count_bound": "(2*(M*N+||c||_infinity)+1)^129",
