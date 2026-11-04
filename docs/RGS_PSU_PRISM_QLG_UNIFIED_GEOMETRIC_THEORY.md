@@ -390,3 +390,26 @@ I documenti specialistici mantengono i dettagli e gli output. Questo documento n
 La formulazione unificata da perseguire è una teoria discreta geometrica con coframe, connessione interna, spinori e doppio foglio, governata da una singola azione. Q6 e PRISM forniscono le strutture combinatorie; RGS fornisce la geometria; quaternioni, (2I) e Clifford organizzano le simmetrie; QLG descrive il trasporto; PSU–Anti-Twin/QAT costituisce il settore quantistico candidato. La gravità, i campi gauge e la materia potranno dirsi unificati soltanto quando emergeranno dalle stesse equazioni e sarà dimostrato il limite continuo.
 
 **Stato finale del documento:** architettura teorica proposta, con nuclei matematici finiti e numerici identificati; azione comune, limite continuo curvo e interpretazione fisica ancora da dimostrare.
+
+
+## 15. Compatibility register and local spin connection
+
+The implementation-level dependency register is maintained in
+`docs/PHYSICS_ARCHITECTURE_COMPATIBILITY.md` and
+`src/rgs_physics_architecture.py`. It checks the common metric, Clifford
+representation, gamma5 convention and Q6 chain complex, while preserving
+separate status labels for RGS, Q6/PRISM, 2I, EC, TEGR, U(1), SU(2), SU(3),
+QLG, QAT and continuum mechanics.
+
+A local torsion-free Levi-Civita spin-connection kernel is now specified in
+`src/rgs_spin_connection.py`. Given a coframe first jet, it computes the
+Christoffel symbols, Lorentz spin connection, spinor connection and
+orthonormal Dirac derivative. Its tests include a nontrivial spherical
+coordinate frame in flat Minkowski spacetime.
+
+This is an important local bridge, but not yet the RGS spin connection:
+coframe derivatives on the curved RGS refinement must still be constructed.
+The teleparallel inertial connection is a separate problem, and the
+Einstein–Cartan connection remains an independent field before its algebraic
+torsion equation is imposed. Internal gauge connections are also separate
+from the Lorentz spin connection.
