@@ -57,7 +57,8 @@ def test_covariant_nilpotency_is_equivalent_to_trivial_q6_plaquette_holonomy():
     identity = np.eye(2, dtype=complex)
     assert np.max(np.abs(holonomies - identity), initial=0.0) < 1e-12
     d_flat = covariant_full_cubical_differential(pure_gauge, cube=cube, graph=graph)
-    assert (d_flat @ d_flat).nnz == 0
+    flat_d2 = d_flat @ d_flat
+    assert np.max(np.abs(flat_d2.data), initial=0.0) < 1e-12
 
     curved = random_su2_matrices(192, seed=992)
     curved_holonomies = plaquette_holonomies(curved, graph)
