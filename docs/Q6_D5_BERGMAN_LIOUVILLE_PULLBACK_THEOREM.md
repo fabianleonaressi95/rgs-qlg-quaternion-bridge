@@ -155,3 +155,10 @@ Run:
     pytest -q tests/test_rgs_q6_d5_liouville_measure.py
 
 The tests check the Bergman determinant, the pullback density, the origin normalization, the Maxwell Hamiltonian identity, and the exact Hua cutoff-volume factor.
+
+
+## External mathematical sources
+
+The Cartan type-IV realization, generic norm and Bergman-kernel exponent are standard; see C. De Fabritiis, *Differential geometry of Cartan domains of type four* (1990), https://www.bdim.eu/item?id=RLIN_1990_9_1_2_131_0, and G. Roos & W. Yin, *New classes of domains with explicit Bergman kernel*, arXiv:math/0301322, https://arxiv.org/abs/math/0301322. The general Hua integral and its polynomial are covered by Roos–Yin, Proposition 2.1 and Theorem 2.3.
+
+The determinant normalization, Maxwell chart Jacobian and exact pullback cancellation are derived explicitly in this note. They are not claims quoted from those sources. The theorem remains a local chart identity on the D5 preimage, not a global pushforward theorem for the full Wilson quotient.

@@ -1,8 +1,9 @@
+import pytest
 import math
 import numpy as np
 import sympy as sp
 from scipy.special import i0
-from src.rgs_q6_d5_wilson_fiber_torus import smith_torus_parameterization
+from src.rgs_q6_d5_wilson_fiber_torus import smith_torus_parameterization, _wilson_integrand_log_split
 
 
 def _integrate_toy_annihilator(data, beta, character):
@@ -15,10 +16,12 @@ def _integrate_toy_annihilator(data, beta, character):
             2.0*math.pi*u,
         ))
         x = z @ v.T
-        amplitude = np.exp(beta*np.sum(np.cos(x), axis=1))/(i0(beta)**2)
+        log_scale, _ = _wilson_integrand_log_split(beta, 0.0, 2)
+        log_amplitude = beta*(np.sum(np.cos(x), axis=1)-2)
+        amplitude = np.exp(log_amplitude)
         phase = x @ np.asarray(character, dtype=float)
         values.append(np.mean(amplitude*np.exp(-1j*phase)))
-    return np.mean(values)
+    return math.exp(log_scale)*np.mean(values)
 
 
 def test_smith_parameterization_tracks_disconnected_annihilator():
@@ -51,3 +54,15 @@ def test_invalid_lattice_rank_rejected():
     import pytest
     with pytest.raises(ValueError):
         smith_torus_parameterization(sp.Matrix([[1,0],[2,0]]))
+
+
+@pytest.mark.parametrize("beta", [0.1, 1.25, 2.0, 20.0])
+def test_scaled_wilson_integrand_factorization_is_exact_and_bounded(beta):
+    ambient = 192
+    cosine_sums = np.array([-ambient, -17.5, 0.0, ambient], dtype=float)
+    log_scale, log_amplitude = _wilson_integrand_log_split(beta, cosine_sums, ambient)
+    log_i0 = math.log(i0(beta))
+    exact_log_integrand = beta*cosine_sums - ambient*log_i0
+    assert np.allclose(log_scale + log_amplitude, exact_log_integrand, rtol=2e-13, atol=1e-12)
+    assert np.all(log_amplitude <= 0.0)
+    assert log_amplitude[-1] == pytest.approx(0.0, abs=1e-14)

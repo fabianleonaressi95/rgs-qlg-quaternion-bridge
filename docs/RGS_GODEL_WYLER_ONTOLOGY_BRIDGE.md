@@ -202,3 +202,14 @@ volume formula.
 - R. Gilmore, "Scaling of Wyler's Expression for \(\alpha\)",
   *Physical Review Letters* 28 (1972), 462,
   https://doi.org/10.1103/PhysRevLett.28.462
+
+
+## Primary literature and distinction of Gödel results
+
+For Gödel's modal ontological argument, see the historical reconstruction by Kanckos and Lethen (2019), *The Development of Gödel's Ontological Proof*, Review of Symbolic Logic: https://www.cambridge.org/core/journals/review-of-symbolic-logic/article/development-of-godels-ontological-proof/728D16FEF40BA2054055E378C879F369, and Benzmüller and Scott (2025), *Notes on Gödel's and Scott's variants of the ontological argument*, https://doi.org/10.1007/s00605-025-02078-x. For the modal frame semantics, see Blackburn, de Rijke and Venema, *Modal Logic* (Cambridge, 2001).
+
+Gödel's 1931 incompleteness paper is a separate result: *Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I*, https://doi.org/10.1007/BF01700692. It must not be conflated with the later ontological argument.
+
+For the geometric expression and its radius issue, see Wyler (1969), C. R. Acad. Sci. Paris 269A, 743–745; Robertson (1971), https://doi.org/10.1103/PhysRevLett.27.1545; and Gilmore (1972), https://doi.org/10.1103/PhysRevLett.28.462. These are historical/theoretical sources for the expression and normalization debate, not a validation of the proposed RGS-to-alpha derivation.
+
+The present note remains a research bridge: no cited source proves the arrows from local admissibility to a D5 invariant measure, or from that measure to a renormalized physical gauge coupling.
