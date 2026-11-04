@@ -34,10 +34,14 @@ It preserves the normalized surface measure on \(S^9\). Equivariance of
 \[
 F(\rho_gq,\rho_gp)=R_gF(q,p),\qquad R_g\in SO(3).
 \]
-Thus, wherever the normalized map is defined, its pushforward is
-\(A_5\)-invariant. If the zero locus \(F^{-1}(0)\cap S^9\) has surface
-measure zero, this defines an \(A_5\)-invariant probability measure
-\(\nu\) on \(S^2\).
+The map is not identically zero: the implementation records a witness
+\(q=(1,2,3,4,5)\) for which \(p\mapsto T(q\wedge p)\) has rank three.
+At least one component of \(F\) is therefore a nonzero polynomial. Its
+zero set has Lebesgue measure zero in \(\mathbb R^{10}\), and by homogeneity
+its intersection with \(S^9\) has surface measure zero. The normalized
+pushforward is consequently a well-defined \(A_5\)-invariant probability
+measure \(\nu\) on \(S^2\) (the map may be assigned arbitrarily on that
+null set).
 
 The dimension of the fixed subspace of degree-\(\ell\) spherical
 harmonics is the character average
@@ -86,8 +90,9 @@ multiplicities through degree six.
 proper-rotation character of the geometric action, and the existing wedge
 intertwiner residual.
 
-**Conditional theorem:** the normalized S9 pushforward has uniform S2
-moments through degree five if its zero locus has S9 measure zero.
+**Proved theorem:** the nonzero-polynomial witness makes the zero locus
+surface-null; the normalized S9 pushforward therefore has uniform S2
+moments through degree five.
 
-**Open:** global zero-locus classification and comparison of the continuous
+**Open:** finer geometry of the zero locus and comparison of the continuous
 and finite degree-six coefficients.
