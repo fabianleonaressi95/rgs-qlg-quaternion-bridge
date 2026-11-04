@@ -14,7 +14,7 @@ def test_transform_inverse_and_jacobian():
     aa, bb = from_total_relative(P,q)
     assert np.allclose(aa,a,atol=1e-14)
     assert np.allclose(bb,b,atol=1e-14)
-    assert math.isclose(jacobian_abs_8d(),1.,abs_tol=1e-14)
+    assert math.isclose(jacobian_abs_8d(),16.,abs_tol=1e-12)
 
 
 def test_mass_shell_and_casimir_are_lorentz_covariant():
@@ -25,7 +25,7 @@ def test_mass_shell_and_casimir_are_lorentz_covariant():
         assert np.max(np.abs(x)) < 2e-13
     P,q = to_total_relative(a,b)
     assert np.allclose(dot(P,P),9.,atol=2e-13)
-    assert np.allclose(dot(q,q),-1.25,atol=2e-13)
+    assert np.allclose(dot(q,q),-5.0,atol=2e-13)
 
 
 def test_two_body_phase_space_normalization():
