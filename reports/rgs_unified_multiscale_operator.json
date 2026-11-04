@@ -10,8 +10,8 @@
     "index": "(scale*2 + sheet)*64 + q6_state"
   },
   "input_hashes": {
-    "generator_sha256": "TO_BE_FILLED_BY_EXECUTABLE_AUDIT",
-    "conductance_sha256": "TO_BE_FILLED_BY_EXECUTABLE_AUDIT"
+    "generator_sha256": "b7756ecce2c208a8ce8e50cf4f8f2bc9cbe31ddeccea21349f151f9e15aa44ce",
+    "conductance_sha256": "11781891f76672afcb16a2c613042ed97e43d3dbd5eac731fedcbeeaa189275f"
   },
   "residuals": {
     "max_row_sum_abs": 2.220446049250313e-16,
