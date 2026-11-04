@@ -47,3 +47,16 @@ def test_incidence_matrices_are_integer_valued():
     q6 = build_q6_complex()
     assert np.issubdtype(q6.boundary_1.dtype, np.integer)
     assert np.issubdtype(q6.boundary_2.dtype, np.integer)
+def test_canonical_q6_bundle_export_preserves_source_defined_ordering(tmp_path):
+    from src.q6_complex import export_q6_incidence_bundle
+    output = tmp_path / "Q6_canonical.npz"
+    report = export_q6_incidence_bundle(str(output))
+    with np.load(output, allow_pickle=False) as bundle:
+        assert bundle["vertices"].shape == (64,)
+        assert bundle["edges"].shape == (192, 2)
+        assert bundle["faces"].shape == (240, 4)
+        assert bundle["B1"].shape == (64, 192)
+        assert bundle["B2"].shape == (192, 240)
+        assert np.count_nonzero(bundle["B1"] @ bundle["B2"]) == 0
+    assert len(report["sha256"]) == 64
+    assert report["historical_npz_byte_compatibility"] == "not asserted"

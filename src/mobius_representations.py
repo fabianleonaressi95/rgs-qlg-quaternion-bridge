@@ -156,3 +156,41 @@ def audit_local_frame_representations() -> dict[str, object]:
         ),
         "orientation_obstruction_detected": holonomy == -1,
     }
+
+def reflection_transition_matrix(
+    sign: int, dimension: int = 4, reflected_axis: int = 0
+) -> np.ndarray:
+    """Choose an explicit O(d) frame transition for the orientation sign.
+
+    sign=-1 is represented by a single coordinate reflection. This is an
+    O(d) transition matrix only; no Pin lift or fermionic reflection action
+    is defined by this function.
+    """
+    if sign not in (-1, 1):
+        raise ValueError("A frame transition sign must be +1 or -1.")
+    if dimension < 2 or not 0 <= reflected_axis < dimension:
+        raise ValueError("Invalid reflection dimension or axis.")
+    result = np.eye(dimension)
+    if sign == -1:
+        result[reflected_axis, reflected_axis] = -1.0
+    return result
+
+
+def audit_reflection_transition_representation(
+    dimension: int = 4, reflected_axis: int = 0
+) -> dict[str, object]:
+    """Check O(d) determinant, involution and Z2 composition laws."""
+    identity = reflection_transition_matrix(1, dimension, reflected_axis)
+    reflection = reflection_transition_matrix(-1, dimension, reflected_axis)
+    return {
+        "audit": "MOBIUS_ORTHOGONAL_REFLECTION_TRANSITIONS",
+        "dimension": dimension,
+        "det_identity": float(np.linalg.det(identity)),
+        "det_reflection": float(np.linalg.det(reflection)),
+        "reflection_involution_fro": float(np.linalg.norm(reflection @ reflection - identity)),
+        "reflection_orthogonality_fro": float(np.linalg.norm(reflection.T @ reflection - identity)),
+        "is_Od_transition": bool(np.linalg.det(reflection) < 0 and
+                                 np.allclose(reflection.T @ reflection, identity)),
+        "pin_lift_defined": False,
+        "scope": "explicit O(d) frame transition only; no Pin structure inferred",
+    }

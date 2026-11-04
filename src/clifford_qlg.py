@@ -206,3 +206,47 @@ def spinor_steerable_kernel_audit(rtol: float = 1e-10) -> dict[str, object]:
         "interpretation": "Dirac spinor restricted to Spin(3) is two equivalent SU(2) doublets; its commutant is Mat_2(C).",
         "passed": dimension == 4 and residual <= 2e-9,
     }
+
+def clifford_grade_action_audit(tol: float = 3e-9) -> dict[str, object]:
+    """Check that the 2I spatial spin action preserves Clifford grades 0..4.
+
+    This is the adjoint action S B S^{-1} on the matrix Clifford algebra.
+    It tests the spatial Spin(3) subgroup only; it does not implement Pin
+    reflections or the orientation-reversing Möbius frame transitions.
+    """
+    labels, _ = clifford_blade_basis()
+    elements = binary_icosahedral_elements()
+    maximum_leakage = 0.0
+    maximum_reconstruction = 0.0
+    per_grade = {grade: 0.0 for grade in range(5)}
+    for q in elements:
+        spin = spinor_lift_2i(q)
+        inverse = spin.conj().T
+        for indices in labels:
+            grade = len(indices)
+            blade = I4.copy()
+            for index in indices:
+                blade = blade @ gamma_matrices()[index]
+            transformed = spin @ blade @ inverse
+            parts = clifford_grade_projections(transformed)
+            leakage = max(
+                (float(np.linalg.norm(value, ord="fro"))
+                 for other_grade, value in parts.items() if other_grade != grade),
+                default=0.0,
+            )
+            reconstruction = float(np.linalg.norm(
+                sum(parts.values()) - transformed, ord="fro"
+            ))
+            per_grade[grade] = max(per_grade[grade], leakage)
+            maximum_leakage = max(maximum_leakage, leakage)
+            maximum_reconstruction = max(maximum_reconstruction, reconstruction)
+    return {
+        "audit": "2I_CLIFFORD_GRADE_ACTION",
+        "group_order": len(elements),
+        "grades_checked": [0, 1, 2, 3, 4],
+        "max_grade_leakage": maximum_leakage,
+        "max_grade_reconstruction_residual": maximum_reconstruction,
+        "per_grade_max_leakage": {str(k): v for k, v in per_grade.items()},
+        "passed": maximum_leakage <= tol and maximum_reconstruction <= tol,
+        "scope": "spatial Spin(3) adjoint action; no reflection/Pin lift",
+    }
