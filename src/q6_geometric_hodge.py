@@ -72,7 +72,7 @@ def cubical_whitney_mass_matrices(complex_: CubicalComplex) -> tuple[np.ndarray,
     Distinct I are pointwise orthogonal. In each fixed coordinate,
     integral(lambda_a lambda_b) is 1/3 if a=b and 1/6 otherwise.
     """
-    dimension = len(complex_.cells[0])
+    dimension = len(complex_.cells[0][0])
     one_dimensional_mass = np.array([[1.0 / 3.0, 1.0 / 6.0],
                                      [1.0 / 6.0, 1.0 / 3.0]])
     masses = []
