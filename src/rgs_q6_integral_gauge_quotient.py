@@ -77,7 +77,7 @@ def build_q6_integral_gauge_quotient_splitting(data=None) -> dict:
     q_pivot = q_h[pivot_rows, :]
     d_pivot = d0[pivot_rows, :]
     x_g = q_pivot.inv() * d_pivot
-    if any(entry.q != 1 for entry in x_g):
+    if any(sp.denom(entry) != 1 for entry in x_g):
         raise ArithmeticError("gauge generators are not integral in H coordinates")
     x_g = sp.Matrix(x_g)
     if q_h * x_g != d0:
