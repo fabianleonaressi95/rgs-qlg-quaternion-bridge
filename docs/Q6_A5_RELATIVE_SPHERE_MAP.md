@@ -97,3 +97,12 @@ the 3D geometric direction representation. It does not yet prove that the
 pushforward of the canonical Liouville measure is the standard S2 measure,
 nor that the 32-point Q6 5-design is the image of a natural discrete measure
 on the cotangent sector. The measure comparison remains the next proof gate.
+
+
+For fixed q, the projected direction is linear in p:
+v_rel=M(q)p, with M(q) a 3x5 matrix. At the generic probe
+q=(1,2,3,4,5), the numerical rank is three, so the zero fibre in p has
+dimension two. This supports the expectation that the undefined locus is
+lower-dimensional for generic q, but does not classify exceptional q or
+prove a global measure statement. The test records this generic rank and
+kernel dimension.
