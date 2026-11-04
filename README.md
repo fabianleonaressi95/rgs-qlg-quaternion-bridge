@@ -249,3 +249,12 @@ Run:
 PYTHONPATH=. python -m pytest tests/test_rgs_psu_cut_project.py -q
 PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_project --physical-radius 2.5
 ```
+
+## Repository navigation
+
+- [Repository map and file-placement rules](docs/REPOSITORY_MAP.md)
+- [Root artifact inventory and safe relocation plan](docs/ROOT_ARTIFACT_TRIAGE.md)
+- [Implementation roadmap](docs/IMPLEMENTATION_ROADMAP.md)
+- [Physics architecture and compatibility boundaries](docs/PHYSICS_ARCHITECTURE_COMPATIBILITY.md)
+
+The root artifact triage records duplicate blob identities and provenance cautions. Legacy root reports are not moved until code, documentation and external-path references have been checked.
