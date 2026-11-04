@@ -40,6 +40,18 @@ def d5_hua_cutoff_normalizer(epsilon: float) -> float:
     )
 
 
+
+def d5_hua_cutoff_probability_density(t, epsilon: float):
+    """Normalized density of N under the Bergman measure with N>=epsilon."""
+    values = np.asarray(t, dtype=float)
+    base = d5_hua_generic_norm_density(values)
+    normalizer = d5_hua_cutoff_normalizer(epsilon)
+    weighted = np.where(values >= epsilon, base * values**-5, 0.) / normalizer
+    if np.ndim(t) == 0:
+        return float(weighted)
+    return weighted
+
+
 def d5_hua_cutoff_report(epsilon_values=None) -> dict:
     """Audit the exact truncated Bergman normalizer and its divergence."""
     if epsilon_values is None:
