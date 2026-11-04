@@ -130,3 +130,40 @@ These are standard kinematic results, not a derivation of alpha.
 Run pytest on tests/test_rgs_smilga_two_particle_audit.py and call
 src.rgs_smilga_two_particle_audit.audit() for a JSON-serializable report.
 Passing finite tests verifies only the exact identities listed above.
+
+
+## Explicit five-coordinate chart (new)
+
+For fixed invariant mass M>2m, introduce
+
+    P^mu = (sqrt(M^2+|P_vec|^2), P_vec)
+    n(theta,phi) = (sin(theta)cos(phi), sin(theta)sin(phi), cos(theta))
+    k = sqrt(M^2/4-m^2)
+
+and centre-of-momentum momenta
+
+    p1* = (M/2, k n),  p2* = (M/2, -k n).
+
+Apply the unique rotation-free boost with velocity
+
+    v = P_vec / sqrt(M^2+|P_vec|^2)
+
+to both momenta. This defines a five-coordinate chart
+(P_x,P_y,P_z,theta,phi) -> (p1_vec,p2_vec) in R^6. It satisfies
+p1^2=p2^2=m^2, P^2=M^2, P.q=0, and P_vec=p1_vec+p2_vec.
+For M>2m and 0<theta<pi the chart Jacobian has rank five; the poles are
+only the usual spherical-coordinate singularities. The implementation tests
+this rank numerically by a central-difference Jacobian. This constructs the
+kinematic five-manifold, not a D5 Lie-ball coordinate map and not a Q6 map.
+
+The natural factorized invariant measure is
+
+    [d^3P/(2 E_P)] dPhi_2,
+    dPhi_2/dOmega = k/(16 pi^2 M),
+
+so its density with respect to d^3P dOmega is
+
+    k/(32 pi^3 M E_P),  E_P=sqrt(M^2+|P_vec|^2).
+
+This is a kinematic measure identity. It does not establish that the Q6
+coframe measure or Smilga's proposed projection weight equals it.
