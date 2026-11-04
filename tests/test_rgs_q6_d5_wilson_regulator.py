@@ -22,6 +22,8 @@ def test_exact_transfer_spectral_cutoff_equivalence():
     )
     assert np.all(result["transfer_weights"] > 0.0)
     assert np.all(result["transfer_weights"] <= 1.0 + 1e-12)
+    assert result["cutoff_equivalence_residual"] < 1e-12
+    assert result["selection_mismatch_count"] == 0
 
 
 def test_q6_d5_projection_obstruction_audit():
