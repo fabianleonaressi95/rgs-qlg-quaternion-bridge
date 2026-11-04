@@ -177,7 +177,8 @@ def build_q6_a5_relative_sphere_map() -> dict:
         "all_64_states_used": len(directions) == 64,
         "32_distinct_sphere_directions": len(unique) == 32,
         "uniform_two_to_one_fibres": bool(np.all(multiplicities == 2)),
-        "antipodal_16_pair_structure": antipodal_pairs == 16,\n        "icosahedron_plus_dual_dodecahedron": icosa_count == 12 and dual_count == 20 and union_residual < 1e-8,
+        "antipodal_16_pair_structure": antipodal_pairs == 16,
+        "icosahedron_plus_dual_dodecahedron": icosa_count == 12 and dual_count == 20 and union_residual < 1e-8,
         "A5_raw_map_equivariant": raw_residual < 1e-9,
         "A5_sphere_map_equivariant": direction_residual < 1e-9,
         "second_moment_isotropic": moment_residuals["2"] < 1e-10,
@@ -198,7 +199,10 @@ def build_q6_a5_relative_sphere_map() -> dict:
         "unique_directions": unique,
         "fibre_multiplicities": multiplicities,
         "unique_direction_count": int(len(unique)),
-        "antipodal_pair_count": int(antipodal_pairs),\n        "icosahedron_vertex_direction_count": icosa_count,\n        "dual_dodecahedron_vertex_direction_count": dual_count,\n        "icosahedron_dual_union_match_residual": union_residual,
+        "antipodal_pair_count": int(antipodal_pairs),
+        "icosahedron_vertex_direction_count": icosa_count,
+        "dual_dodecahedron_vertex_direction_count": dual_count,
+        "icosahedron_dual_union_match_residual": union_residual,
         "radial_shells": {
             str(float(value)): int(np.count_nonzero(np.isclose(radii, value, atol=1e-9)))
             for value in np.unique(np.round(radii, 10))
