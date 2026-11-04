@@ -92,7 +92,22 @@ def _matrix_inventory(root: Path) -> dict[str, Any]:
                 "sha256_array_canonical": sha256_array(array),
             }
             if array.ndim == 2 and array.shape == (188, 188):
-                matrices[path.name] = np.asarray(array, dtype=float)
+                matrix = np.asarray(array, dtype=float)
+                matrices[path.name] = matrix
+                singular_values = np.linalg.svd(matrix, compute_uv=False)
+                rank_tolerance = (
+                    max(matrix.shape) * np.finfo(float).eps
+                    * (float(singular_values[0]) if singular_values.size else 1.0)
+                )
+                numerical_rank = int(np.count_nonzero(singular_values > rank_tolerance))
+                symmetry_norm = float(np.linalg.norm(matrix - matrix.T, ord="fro"))
+                records[path.name].update({
+                    "numerical_rank_svd": numerical_rank,
+                    "numerical_nullity_svd": int(matrix.shape[0] - numerical_rank),
+                    "largest_singular_value": float(singular_values[0]),
+                    "smallest_singular_value": float(singular_values[-1]),
+                    "symmetry_residual_fro": symmetry_norm,
+                })
         except Exception as exc:
             records[path.name] = {"load_error": f"{type(exc).__name__}: {exc}",
                                   "sha256_file": sha256_file(path)}
@@ -122,13 +137,34 @@ def _matrix_inventory(root: Path) -> dict[str, Any]:
     for left, right in pairs:
         if left in records and right in records:
             if left in matrices and right in matrices:
-                product = matrices[left] @ matrices[right]
+                a, b = matrices[left], matrices[right]
+                ab, ba = a @ b, b @ a
+                norm_a = max(float(np.linalg.norm(a, ord="fro")), 1e-300)
+                norm_b = max(float(np.linalg.norm(b, ord="fro")), 1e-300)
+                mp_residuals = {
+                    "A_B_A_vs_A_relative": float(np.linalg.norm(a @ b @ a - a, ord="fro") / norm_a),
+                    "B_A_B_vs_B_relative": float(np.linalg.norm(b @ a @ b - b, ord="fro") / norm_b),
+                    "A_B_symmetry_fro": float(np.linalg.norm(ab - ab.T, ord="fro")),
+                    "B_A_symmetry_fro": float(np.linalg.norm(ba - ba.T, ord="fro")),
+                }
+                mp_max = max(mp_residuals.values())
                 inverse_checks[f"{left} @ {right}"] = {
                     "identity_residual_fro": float(np.linalg.norm(
-                        product - np.eye(product.shape[0]), ord="fro")),
+                        ab - np.eye(ab.shape[0]), ord="fro")),
                     "reverse_identity_residual_fro": float(np.linalg.norm(
-                        matrices[right] @ matrices[left] - np.eye(product.shape[0]),
-                        ord="fro")),
+                        ba - np.eye(ba.shape[0]), ord="fro")),
+                    "A_B_idempotence_fro": float(np.linalg.norm(ab @ ab - ab, ord="fro")),
+                    "B_A_idempotence_fro": float(np.linalg.norm(ba @ ba - ba, ord="fro")),
+                    "A_B_numerical_rank": int(np.linalg.matrix_rank(ab)),
+                    "B_A_numerical_rank": int(np.linalg.matrix_rank(ba)),
+                    "A_B_trace": float(np.trace(ab)),
+                    "moore_penrose_residuals": mp_residuals,
+                    "moore_penrose_pair_verified": bool(mp_max <= 1e-8),
+                    "classification": (
+                        "mutual_Moore_Penrose_pseudoinverse_pair"
+                        if mp_max <= 1e-8
+                        else "not_verified_as_inverse_or_Moore_Penrose_pair"
+                    ),
                 }
             else:
                 inverse_checks[f"{left} @ {right}"] = {
