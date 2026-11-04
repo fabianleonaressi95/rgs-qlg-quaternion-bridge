@@ -46,8 +46,8 @@ def _edge_fem_matrices(
     edges: np.ndarray, lengths: np.ndarray, n_vertices: int = 64
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Return incidence, P1 stiffness and consistent P1 mass on weighted edges."""
-    if edges.shape != (192, 3) or lengths.shape != (192,):
-        raise ValueError("expected 192 Q6 edges and one positive length per edge")
+    if edges.ndim != 2 or edges.shape[1] != 3 or lengths.shape != (len(edges),):
+        raise ValueError("expected an (n_edges,3) Q6 edge array and one length per edge")
     if np.any(~np.isfinite(lengths)) or np.any(lengths <= 0.0):
         raise ValueError("edge lengths must be finite and strictly positive")
     incidence = np.zeros((n_vertices, len(edges)), dtype=np.float64)
