@@ -68,3 +68,8 @@ identity and a finite-size ground-state Schmidt audit.
 
 Run:
 `PYTHONPATH=. python -m pytest tests/test_qutrit_q6_coupling.py -q`
+
+
+## Reproducibility note
+
+The regression suite includes non-diagonal SU(3) site transformations and non-identity SU(3) edge links. The independently checked algebraic covariance residual for one four-site test instance is approximately `5.4e-15`; this spot check supplements, but does not replace, the repository CI run for the current PR head.
