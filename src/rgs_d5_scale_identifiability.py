@@ -12,6 +12,7 @@ from src.rgs_ellis_refinement import load_rgs_seed_data
 ELL2 = 7.035514834154695
 C0 = 43.96495130838031
 D5_REAL_DIMENSION = 10
+SMILGA_TWO_BODY_SHELL_DIMENSION = 5
 
 
 def local_covariance_coframe(
@@ -113,6 +114,10 @@ def audit_rgs_d5_scale_identifiability(scale: float = 1.7) -> dict:
             "real_tangent_dimension": D5_REAL_DIMENSION,
             "positive_definite_pullback_possible_from_current_q6_to_r3_map": False,
             "minimum_missing_rank": D5_REAL_DIMENSION - 3,
+            "smilga_two_body_kinematic_slice_dimension": SMILGA_TWO_BODY_SHELL_DIMENSION,
+            "smilga_slice_decomposition": "3 total-momentum coordinates + 2 relative-direction coordinates (S^2)",
+            "positive_definite_pullback_possible_from_current_q6_r3_map_to_smilga_slice": False,
+            "minimum_missing_rank_to_smilga_slice": SMILGA_TWO_BODY_SHELL_DIMENSION - 3,
         },
         "checks": {
             "fixed_kernel_length_breaks_naive_covariance_scaling": bool(
@@ -129,9 +134,10 @@ def audit_rgs_d5_scale_identifiability(scale: float = 1.7) -> dict:
             ),
             "q6_jacobian_rank_at_most_three": bool(max(ranks) <= 3),
             "q6_gram_rank_at_most_three": bool(max(gram_ranks) <= 3),
-            "rank_gap_to_d5_is_seven": D5_REAL_DIMENSION - 3 == 7,
+            "rank_gap_to_full_d5_is_seven": D5_REAL_DIMENSION - 3 == 7,
+            "rank_gap_to_smilga_two_body_slice_is_two": SMILGA_TWO_BODY_SHELL_DIMENSION - 3 == 2,
         },
-        "verdict": "NO_GO_FOR_DIRECT_D5_PULLBACK_FROM_CURRENT_R3_SEED; SCALE_NOT_PHYSICALLY_IDENTIFIED_UNLESS_ell2_AND_c0_HAVE_INDEPENDENT_UNIT_CALIBRATION",
+        "verdict": "NO_GO_FOR_DIRECT_FULL_D5_OR_SMILGA_5D_SLICE_PULLBACK_FROM_CURRENT_R3_SEED; ADD_TWO_RELATIVE_DIRECTION_MODES_FOR_THE_SMILGA_SLICE; SCALE_NOT_PHYSICALLY_IDENTIFIED_UNLESS_ell2_AND_c0_HAVE_INDEPENDENT_UNIT_CALIBRATION",
     }
 
 
