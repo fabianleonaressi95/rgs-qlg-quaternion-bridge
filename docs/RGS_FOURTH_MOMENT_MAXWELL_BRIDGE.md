@@ -110,22 +110,44 @@ T\rho_{Q6}(h)=\rho_{STF}(h)T,\qquad h\in\mathcal G_{A_4},
 \]
 and fix the independent normalization/sign on the 2- and 3-dimensional irreducible blocks. This is the concrete next algebraic construction; it replaces the invalid full-group identification with a valid common-subgroup bridge.
 
-## 6. Evidence status
+## 6. Representation type: the Dyson check
 
-- **Exact representation-theory consequence:** both five-dimensional sectors restrict to the same (A_4) representation (2\oplus3); hence a nonzero (A_4)-intertwiner exists.
-- **Open computational construction:** extract the actual (A_4) generator matrices from the Q6 five-mode basis and the RGS (E_g\oplus T_{2g}) basis, solve the intertwiner equations exactly/algebraically, and verify residuals.
-- **Exact tensor obstruction:** the direct (RFF) contraction vanishes by index symmetry; (R:Q) is STF.
-- **Numerically audited:** the actual 64-site seed, its fourth-moment decomposition, (O_h) invariance, and the induced constitutive matrices for the documented test (Q).
-- **Candidate:** the (Q)-dependent electric/magnetic constitutive matrices as an RGS material response.
-- **Open:** derive (Q) from the coframe/PSU–Anti-Twin geometry; derive the (Q)-measure from the complete nonlinear Wilson fibre; prove the continuum limit; determine the scalar Maxwell normalization and only then compare with Wyler.
+The common-subgroup statement is a statement about real representations, not evidence that either five-dimensional sector is quaternionic.
 
+Over the real numbers,
+`1' + 1''` is the real two-dimensional irreducible representation of the tetrahedral group (the two complex one-dimensional characters are exchanged by conjugation). The three-dimensional block is of real type. Consequently the real commutant of the restricted five-dimensional representation is
+[
+\operatorname{End}_{A_4}(V_5)\simeq\mathbb C\oplus\mathbb R.
+]
+For orthogonal intertwiners this leaves a phase on the two-plane and a sign on the three-dimensional block, once compatible invariant inner products and bases are fixed.
 
-- **Exact:** the direct (RFF) contraction vanishes by index symmetry; (R:Q) is STF; the positivity bounds above are sufficient and sharp for the chosen (Q); simultaneous-frame covariance follows from tensor transformation.
-- **Numerically audited:** the actual 64-site seed, its fourth-moment decomposition, (O_h) invariance, and the induced constitutive matrices for the documented test (Q).
-- **Candidate:** the (Q)-dependent electric/magnetic constitutive matrices as an RGS material response.
-- **Open:** derive (Q) from the coframe/PSU–Anti-Twin geometry; construct an equivariant Q6 (A_5\to\operatorname{Sym}_0(3)) map if that is the intended identification; derive the (Q)-measure from the complete nonlinear Wilson fibre; prove the continuum limit; determine the scalar Maxwell normalization and only then compare with Wyler.
+Dyson's Threefold Way classifies irreducible symmetry types by the real, complex, and quaternionic division algebras. It does **not** make this representation quaternionic. A quaternionic structure requires an antiunitary operator (J) commuting with the group action and satisfying (J^2=-I). No such (J) is established here. In particular, the real five-dimensional irreducible representation of (A_5) is of real type. A possible quaternionic structure on a doubled PSU–Anti-Twin space is a separate construction and remains open.
 
-## 6. Reproduction and references
+## 7. Hermann's bundle-geometric formulation
+
+Let (P\to M) be a principal (G)-bundle and (\rho:G\to GL(V)) a representation. Its associated vector bundle is (E=P\times_\rho V). A principal connection (\omega) induces
+[
+\nabla=d+\rho_*(\omega),\qquad
+\Omega=d\omega+\tfrac12[\omega,\omega].
+]
+An (A_4)-intertwiner (T:V_{Q6}\to V_{RGS}) induces a bundle map between the associated bundles when the reductions and transition functions use the same (A_4) action. It is connection-preserving only if the two induced connections satisfy
+[
+\nabla_{RGS}\circ\Phi=\Phi\circ\nabla_{Q6}.
+]
+This is an additional compatibility equation; representation equivalence alone does not imply it. The construction follows the gauge-bundle/Cartan–Ehresmann framework treated by Robert Hermann.
+
+Thus the concrete next computation is: choose and document common (A_4) generators; extract their matrices on the five Q6 retained modes and on (E_g\oplus T_{2g}\); solve (T\rho_Q(h)=\rho_R(h)T) for generators; normalize the two blocks; then test connection compatibility and curvature intertwining. Do not label the map quaternionic unless the antiunitary (J) test above is passed.
+
+## 8. Evidence status
+
+- **Exact tensor identity:** for fully symmetric (R) and antisymmetric (F), (R_{ijkl}F_{ij}F_{kl}=0).
+- **Exact representation-theory consequence:** the two five-dimensional real sectors restrict to the same (A_4) type (2\oplus3); an (A_4)-intertwiner exists, but is not canonical.
+- **Exact Dyson classification consequence:** the real commutant is (\mathbb C\oplus\mathbb R); no quaternionic structure follows.
+- **Numerically audited:** the 64-site seed decomposition, (O_h) covariance and constitutive positivity in the documented test.
+- **Candidate:** the (Q)-dependent electric/magnetic constitutive matrices.
+- **Open:** compute the actual intertwiner matrices; derive (Q) from the coframe/PSU–Anti-Twin geometry; derive the (Q)-measure from the complete nonlinear Wilson fibre; establish connection compatibility and the continuum limit; determine scalar Maxwell normalization and only then compare with Wyler.
+
+## 9. Reproduction and references
 
 \`\`\`bash
 PYTHONPATH=. python -m pytest tests/test_rgs_fourth_moment_maxwell_bridge.py -q
