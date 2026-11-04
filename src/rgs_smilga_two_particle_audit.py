@@ -74,6 +74,13 @@ def residuals(p1, p2, m):
     }
 
 
+def jacobian_abs_6d_spatial():
+    """Absolute determinant for (p1_vec,p2_vec)->(P_vec,q_vec)."""
+    block = np.block([[np.eye(3), np.eye(3)],
+                      [np.eye(3), -np.eye(3)]])
+    return float(abs(np.linalg.det(block)))
+
+
 def constrained_shell_measure_factors():
     """Factors from d4p1 d4p2 and the two equal-mass shell deltas.
 
@@ -129,6 +136,7 @@ def audit(m=1., M=3., velocity=(.2, -.1, .15)):
     return {
         "convention": "metric (+---); P=p1+p2; q=p1-p2",
         "jacobian_abs_8d": jacobian_abs_8d(),
+        "jacobian_abs_6d_spatial": jacobian_abs_6d_spatial(),
         "constrained_shell_measure_factors": constrained_shell_measure_factors(),
         "cm_raw_measure_dOmega": cm_reduced_raw_measure_dOmega(M,m),
         "cm_raw_measure_integrated": cm_reduced_raw_measure_integrated(M,m),
