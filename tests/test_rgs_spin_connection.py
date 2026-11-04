@@ -66,6 +66,7 @@ def test_spinor_derivative_rejects_wrong_shapes():
 
 
 def test_frame_derivative_feeds_existing_ec_dirac_euler_operator():
+    from src.rgs_ec_algebraic_torsion import dirac_gamma_matrices_minus_plus
     from src.rgs_ec_dirac_kinetic_eom import dirac_kinetic_euler_operator
 
     omega = np.zeros((4, 4, 4))
@@ -79,11 +80,8 @@ def test_frame_derivative_feeds_existing_ec_dirac_euler_operator():
     frame = orthonormal_dirac_derivative(coordinate, inverse)
 
     result = dirac_kinetic_euler_operator(frame)
-    expected = -sum(
-        __import__("src.rgs_ec_algebraic_torsion", fromlist=["dirac_gamma_matrices_minus_plus"])
-        .dirac_gamma_matrices_minus_plus()[a] @ frame[:, a]
-        for a in range(4)
-    )
+    gamma = dirac_gamma_matrices_minus_plus()
+    expected = -sum(gamma[a] @ frame[:, a] for a in range(4))
     assert frame.shape == (4, 4)
     assert np.allclose(result["kinetic_euler_operator"], expected)
     assert result["mass_term_included"] is False
