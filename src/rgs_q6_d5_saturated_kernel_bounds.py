@@ -86,7 +86,8 @@ def q6_d5_certified_fiber_tail_bound(beta_time: float, min_edge_l1: int,
     m = max(terms)
     log_total = m + math.log(sum(math.exp(x-m) for x in terms))
     return {
-        "upper_bound": math.exp(log_total) if log_total < 709 else math.inf,
+        "upper_bound": (math.exp(log_total) if -745.0 < log_total < 709.0 else None),
+        "upper_bound_status": ("finite" if -745.0 < log_total < 709.0 else ("underflow_in_float" if log_total <= -745.0 else "overflow_in_float")),
         "log_upper_bound": log_total,
         "first_shell": s0,
         "geometric_start_shell": s,
