@@ -200,3 +200,11 @@ The sectors may couple through one action only after the variables, gauge symmet
 The JSON report includes seeds, tolerances, source and data hashes, residuals, operator inventories and explicit continuum non-claims. CI uploads the JSON and canonical Q6 NPZ/manifest as a workflow artifact.
 
 The integrated JSON writer converts complex representation entries to explicit `{real, imag}` pairs; no phase or imaginary component is discarded.
+
+### 188D operator identity classification
+
+The operator inventory now records SVD numerical rank/nullity and symmetry residual for each 188x188 array. For the candidate pairs (K0,K0_inv), (K0 (1),Kinv), and (K_tangent_rebuilt,Kinv_rebuilt), it reports both identity products and the four Moore–Penrose conditions:
+[
+ABA=A,quad BAB=B,quad (AB)^T=AB,quad (BA)^T=BA.
+]
+This distinguishes an ordinary inverse from a pseudoinverse (where AB and BA are orthogonal projectors) and from an unrelated or incorrectly paired matrix. A product residual of sqrt(3) against the identity can be consistent with a rank-185 projector if the three-dimensional kernel is independently confirmed; it is not by itself proof of that interpretation. The integrated JSON records the rank, projector idempotence, trace and all four residuals before assigning a classification.
