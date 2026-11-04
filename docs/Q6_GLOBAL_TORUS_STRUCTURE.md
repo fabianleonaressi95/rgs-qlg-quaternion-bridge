@@ -233,14 +233,22 @@ For
 \[
 H_5(q,p)=\frac12\bigl(\beta\lambda\,|q|^2+
 \beta^{-1}|p|^2\bigr),\qquad
-\omega_0=\sqrt{\beta\lambda},
+\Omega_H=\sqrt{\lambda},
 \]
-the normalized complex chart already audited in the repository is
+the PR #145 chart uses the positive scale \(\kappa_{145}=\sqrt{\beta\lambda}\):
 \[
-\Phi(q,p)=z=\frac{\sqrt{\omega_0}\,q+
-i\,p/\sqrt{\omega_0}}{\sqrt{20}}.
+\Phi_{145}(q,p)=z=\frac{\sqrt{\kappa_{145}}\,q+
+i\,p/\sqrt{\kappa_{145}}}{\sqrt{20}}.
 \]
-It is a real-linear isomorphism from \(\mathbb R^{10}\) to \(\mathbb C^5\). Its relevant domain is
+This is a valid real-linear volume chart, and its Jacobian is independent of the positive scale. However, for the Hamiltonian written above it is not the oscillator action-angle chart at general \(\beta\). The flow-adapted canonical scale is instead
+\[
+\kappa_H=\beta\sqrt{\lambda},
+\qquad
+\Phi_H(q,p)=\frac{\sqrt{\kappa_H}\,q+
+i\,p/\sqrt{\kappa_H}}{\sqrt{20}}.
+\]
+Indeed Hamilton's equations give \(\dot q=\beta^{-1}p\), \(\dot p=-\beta\lambda q\), so
+\(\Phi_H(t)=e^{-i\Omega_Ht}\Phi_H(0)\). The two scales agree when \(\beta=1\), or can be reconciled by an explicit canonical rescaling of \(q,p\). Both charts have the same real Jacobian \(20^{-5}\), so the exact volume pullback law below holds for either scale. Its relevant domain is
 \[
 \Omega_5=\Phi^{-1}(D_5),\qquad
 D_5=\{z:N(z)>0,\ |z^Tz|<1\},
@@ -276,20 +284,18 @@ For the Bergman pullback density \(\rho_B=N^{-5}\), this becomes
 \]
 The equivalence holds wherever \(N>0\). Thus the Bergman-weighted measure is not invariant under every Hamiltonian: it is invariant exactly when the Hamiltonian flow preserves the generic norm.
 
-For the isotropic fivefold oscillator above, Hamilton's equations give
+For the isotropic fivefold oscillator above, the flow-adapted chart \(\Phi_H\) gives
 \[
-q(t)=q(0)\cos(\omega_0t)+
-\frac{p(0)}{\beta\omega_0}\sin(\omega_0t),
+q(t)=q(0)\cos(\Omega_Ht)+
+\frac{p(0)}{\beta\Omega_H}\sin(\Omega_Ht),
 \]
 \[
-p(t)=p(0)\cos(\omega_0t)-
-\beta\omega_0q(0)\sin(\omega_0t),
+p(t)=p(0)\cos(\Omega_Ht)-
+\beta\Omega_Hq(0)\sin(\Omega_Ht),
+\qquad \Omega_H=\sqrt\lambda,
 \]
-and the chosen complex coordinate obeys
-\[
-z(t)=e^{-i\omega_0t}z(0).
-\]
-Both \(z^\dagger z\) and \(|z^Tz|\) are invariant under this common phase rotation. Hence \(N(z(t))=N(z(0))\), and
+and therefore \(z_H(t)=e^{-i\Omega_Ht}z_H(0)\). Both
+\(z_H^\dagger z_H\) and \(|z_H^Tz_H|\) are invariant under this common phase rotation. Hence \(N(z_H(t))=N(z_H(0))\), and
 \[
 \boxed{\varphi_t^*(N^{-5}d\mu_L)=N^{-5}d\mu_L.}
 \]
