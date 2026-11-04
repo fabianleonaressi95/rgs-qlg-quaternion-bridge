@@ -152,16 +152,20 @@ def audit_spinor_kirchhoff(seed: int = 20261104,
 
     continuity = rho_dot - B1 @ J
     continuity_g = rho_dot_g - B1 @ J_g
+    Gblock = np.zeros((128, 128), dtype=complex)
+    for vertex in range(64):
+        Gblock[2*vertex:2*vertex+2, 2*vertex:2*vertex+2] = gauge[vertex]
+    norm_before = np.sum(np.abs(psi)**2, axis=1)
+    norm_after = np.sum(np.abs(psi_g)**2, axis=1)
     residuals = {
-        "spinor_gauge_covariance_max": float(np.max(np.abs(psi_g - gauge_transform_spinors(psi, gauge)))),
+        "spinor_density_gauge_invariance_max": float(np.max(np.abs(norm_after-norm_before))),
         "edge_current_gauge_invariance_max": float(np.max(np.abs(J_g-J))),
         "open_path_covariance_max": max(open_residuals, default=0.0),
         "closed_loop_conjugation_max": max(loop_residuals, default=0.0),
         "kirchhoff_continuity_max": float(np.max(np.abs(continuity))),
         "gauge_transformed_continuity_max": float(np.max(np.abs(continuity_g))),
         "hamiltonian_hermiticity_max": float(np.linalg.norm(H-dagger(H), ord="fro")),
-        "gauge_laplacian_intertwining_max": float(np.linalg.norm(H_g @ np.kron(np.eye(64), np.eye(2)) -
-             H_g, ord="fro")) if False else 0.0,
+        "gauge_laplacian_intertwining_max": float(np.linalg.norm(H_g-Gblock@H@dagger(Gblock), ord="fro")),
     }
     hashes = {
         "edges_sha256": _hash_array(edges),
