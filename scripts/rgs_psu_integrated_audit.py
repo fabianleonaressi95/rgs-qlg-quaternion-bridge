@@ -45,6 +45,22 @@ TOLERANCES = {
 }
 
 
+
+def json_safe(value: Any) -> Any:
+    """Convert NumPy and complex scalars/arrays to strict JSON-compatible values."""
+    if isinstance(value, complex):
+        return {"real": float(value.real), "imag": float(value.imag)}
+    if isinstance(value, np.generic):
+        return json_safe(value.item())
+    if isinstance(value, np.ndarray):
+        return json_safe(value.tolist())
+    if isinstance(value, dict):
+        return {str(key): json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_safe(item) for item in value]
+    return value
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as stream:
@@ -348,7 +364,7 @@ def main() -> int:
     args = parser.parse_args()
     root = args.repo_root.resolve()
     output = args.output if args.output.is_absolute() else root / args.output
-    report = build_integrated_audit(root)
+    report = json_safe(build_integrated_audit(root))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, sort_keys=True) + chr(10), encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
