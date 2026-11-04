@@ -117,3 +117,5 @@ For the teleparallel connection require \\(R^{ab}(\\omega)=0\\); the Levi-Civita
 - **Open:** experimental-data fit; physical derivation of the encoding; nested refinement; measured-GH/Mosco proofs; HVBK/NS derivation; continuum Yang–Mills/TEGR/Dirac limits; common coupled action.
 
 The purpose is not to make all sectors look alike. It is to define maps and observables that could fail, quantify residuals, and only then claim unification.
+
+A further bridge is the geometry of superfluid vortex tangles: Kivotides, Barenghi & Samuels, *Phys. Rev. Lett.* 87, 155301 (2001), [10.1103/PhysRevLett.87.155301](https://doi.org/10.1103/PhysRevLett.87.155301), report a fractal dimension greater than one for simulated superfluid vortex tangles. This supports investigating scale-dependent geometry in quantum turbulence, but it does not show that the giant single-vortex core is itself a Cantor set or that its fractal dimension matches the Q6/PSU spectrum.
