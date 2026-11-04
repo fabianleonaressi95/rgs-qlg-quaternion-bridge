@@ -51,3 +51,13 @@ jobs:
           name: q6-d5-hua-cutoff-normalization
           path: reports/q6_d5_hua_cutoff_normalization.json
           if-no-files-found: error
+
+      - name: Run Q6 Wilson-D5 spectral regulator audit
+        run: python scripts/run_q6_wilson_d5_regulator.py
+
+      - name: Upload Q6 Wilson-D5 spectral regulator audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: q6-wilson-d5-spectral-regulator
+          path: reports/q6_wilson_d5_regulator.json
+          if-no-files-found: error
