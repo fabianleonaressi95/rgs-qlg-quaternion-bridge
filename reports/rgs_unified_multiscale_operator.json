@@ -1,0 +1,48 @@
+{
+  "audit": "RGS_UNIFIED_MULTISCALE_OPERATOR_V1",
+  "classification": "finite discrete operator audit; not a continuum unified theory",
+  "model": {
+    "state_space": "Q6 x K2(Anti-Twin sheet) x P3(scale bookkeeping)",
+    "state_count": 384,
+    "undirected_edges": 1600,
+    "drive_amplitude": 0.2,
+    "square_cycle": [0, 1, 3, 2, 0],
+    "index": "(scale*2 + sheet)*64 + q6_state"
+  },
+  "input_hashes": {
+    "generator_sha256": "TO_BE_FILLED_BY_EXECUTABLE_AUDIT",
+    "conductance_sha256": "TO_BE_FILLED_BY_EXECUTABLE_AUDIT"
+  },
+  "residuals": {
+    "max_row_sum_abs": 2.220446049250313e-16,
+    "uniform_stationarity_max_abs": 4.336808689942018e-18,
+    "minimum_offdiagonal_rate": 0.0,
+    "relative_clock_commutator_frobenius": 0.0,
+    "symmetric_part_max_eigenvalue": -7.327471962526033e-15
+  },
+  "thermodynamics": {
+    "reversible_control_entropy_production_nats_per_model_time": 0.0,
+    "driven_entropy_production_nats_per_model_time": 0.010136627702704109,
+    "interpretation": "stationary Markov path entropy production; cycle affinity is externally prescribed"
+  },
+  "checks": {
+    "state_count_64x2x3": true,
+    "product_edges": true,
+    "uniform_stationary": true,
+    "generator_row_sums": true,
+    "nonnegative_transition_rates": true,
+    "clock_generator_commutes": true,
+    "dissipative_symmetric_part": true,
+    "reversible_control_zero_entropy": true,
+    "driven_entropy_positive": true
+  },
+  "pass": true,
+  "scope_limits": [
+    "P3 is a bookkeeping scale factor, not an RG flow.",
+    "K2 is a two-sheet graph factor, not a proof of Mobius non-orientability or Pin structure.",
+    "The clock commutator is an exact compatibility property of the selected finite operator, not proper time.",
+    "The antisymmetric cycle current is imposed, not derived from PSU or a gravitational action.",
+    "No continuum vierbein, torsion, Einstein equation, or black-hole entropy law is derived."
+  ],
+  "reproduction": "python -m src.rgs_unified_multiscale_operator --output reports/rgs_unified_multiscale_operator.json"
+}
