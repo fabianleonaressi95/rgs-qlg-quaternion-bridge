@@ -96,3 +96,48 @@ def audit_q6_complex() -> dict[str, int | float | bool]:
         "boundary_squared_max_abs": int(np.max(np.abs(residual))),
         "boundary_squared_exact_zero": bool(np.count_nonzero(residual) == 0),
     }
+
+def export_q6_incidence_bundle(path: str) -> dict[str, object]:
+    """Export the source-defined canonical Q6 incidence ordering as NPZ + hash.
+
+    This schema is explicit and reproducible, but is not asserted byte-compatible
+    with the separately recovered historical NPZ unless an array-by-array
+    ordering comparison is performed.
+    """
+    import hashlib
+    import json
+    from pathlib import Path
+
+    complex_ = build_q6_complex()
+    output = Path(path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    metadata = {
+        "schema": "RGS_Q6_CANONICAL_INCIDENCE_V1",
+        "vertex_order": "integer labels 0..63; six-bit big-endian",
+        "edge_order": "lexicographically sorted (u,v), u<v",
+        "face_order": "axis pairs a<b, then base vertex ascending; cyclic boundary v,va,vab,vb",
+        "boundary_convention": "B1:C1->C0, B2:C2->C1; B1@B2=0",
+        "historical_npz_byte_compatibility": "not asserted",
+    }
+    np.savez_compressed(
+        output,
+        vertices=np.asarray(complex_.vertices, dtype=np.int16),
+        edges=np.asarray(complex_.edges, dtype=np.int16),
+        faces=np.asarray(complex_.faces, dtype=np.int16),
+        B1=np.asarray(complex_.boundary_1, dtype=np.int8),
+        B2=np.asarray(complex_.boundary_2, dtype=np.int8),
+        metadata_json=np.asarray(json.dumps(metadata, sort_keys=True)),
+    )
+    digest = hashlib.sha256(output.read_bytes()).hexdigest()
+    return {
+        **metadata,
+        "path": str(output),
+        "sha256": digest,
+        "shapes": {
+            "vertices": [64],
+            "edges": [192, 2],
+            "faces": [240, 4],
+            "B1": [64, 192],
+            "B2": [192, 240],
+        },
+    }
