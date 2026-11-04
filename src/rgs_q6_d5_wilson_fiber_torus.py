@@ -104,7 +104,7 @@ def q6_d5_wilson_annihilator_torus_integral(
         z[:, :rank] = 2.0*math.pi*discrete/d[None, :]
         z[:, rank:] = 2.0*math.pi*u[:, rank:]
         x = np.remainder(z @ v.T, 2.0*math.pi)
-        _, log_amp = _wilson_integrand_log_split(beta, np.sum(np.cos(x), axis=1), ambient)
+        log_amp = beta*(np.sum(np.cos(x), axis=1)-ambient)
         amp = np.exp(np.minimum(log_amp, 0.0))
         phase = x @ n0
         vals = amp*(np.cos(phase)-1j*np.sin(phase))
