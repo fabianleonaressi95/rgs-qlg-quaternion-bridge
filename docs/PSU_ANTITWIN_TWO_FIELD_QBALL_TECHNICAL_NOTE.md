@@ -49,7 +49,7 @@ The sign is convention-dependent: changing the sign in D_mu changes the assigned
 
 For Phi=f(r) exp(i omega t), A=A_0(r)dt, Omega=omega-qA_0, one has j_N^0=2 Omega f^2 and
 [
-A_0''+\frac2rA_0'=+2q\Omega f^2.
+A_0''+\frac2rA_0'=-2q\Omega f^2.
 ]
 The outward electric flux is Q_flux=-4 pi R^2 A_0'(R)=+q Q_N, where Q_N=4 pi integral_0^R 2 Omega f^2 r^2 dr.
 
@@ -62,7 +62,7 @@ Choose Phi_+=Phi_-=f(r)exp(i omega t)/sqrt(2). Then I=f^2, J=0, and the relative
 f''+\frac2r f'=(m_{\rm eff}^2-\Omega^2)f-2\lambda f^3+3gf^5,
 ]
 [
-A_0''+\frac2rA_0'=+2q\Omega f^2,\qquad \Omega=\omega-qA_0.
+A_0''+\frac2rA_0'=-2q\Omega f^2,\qquad \Omega=\omega-qA_0.
 ]
 Regularity requires f'(0)=A_0'(0)=0. At a finite outer radius use f(Rmax) approximately zero and A_0(Rmax)=0; the latter fixes residual constant-gauge freedom. Convergence in Rmax is mandatory.
 
