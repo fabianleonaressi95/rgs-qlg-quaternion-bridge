@@ -2,8 +2,10 @@
 
 The compact Wilson transfer operator supplies an exact cutoff in its own
 integer-flux spectrum. This module deliberately does not rename that cutoff
-as a D5 generic-norm cutoff: the map from the rank-129 integer cycle lattice
-to the five selected D5 tangent momenta has a 124-dimensional real kernel.
+as a D5 generic-norm cutoff: the real-linear extension from the rank-129
+cycle-coordinate space to the five selected D5 tangent momenta has a
+124-dimensional real kernel. Injectivity on the integer lattice is a
+separate arithmetic question and is not inferred from this dimension count.
 """
 from __future__ import annotations
 
@@ -101,9 +103,11 @@ def audit_q6_wilson_d5_regulator_obstruction(
     weights = np.asarray(spectral["transfer_weights"], dtype=float)
     selected = np.asarray(spectral["selected_mask"], dtype=bool)
 
-    # The transfer threshold is independent of the D5 generic norm. The
-    # selected chart in the prior work is local and nonlinear; no global map
-    # sends these 129 integer coefficients to N(z) in the existing theory.
+    # The real-linear extension has a 124D kernel. This does not by itself
+    # settle injectivity of the restriction to Z^129: irrational coefficients
+    # can make a low-dimensional real map injective on an integer lattice.
+    # No integer-collision search or Diophantine injectivity proof is supplied.
+    # The D5 chart is local/nonlinear; no global map to N(z) is established.
     checks = {
         "integer_gauss_law_exact": bool(
             np.max(np.abs(np.asarray(data["D0"], dtype=np.int64).T @ states.T)) == 0
@@ -153,7 +157,9 @@ def audit_q6_wilson_d5_regulator_obstruction(
             "source_dimension": 129,
             "target_dimension": 5,
             "rank": rank,
-            "kernel_dimension": kernel_dimension,
+            "real_linear_kernel_dimension": kernel_dimension,
+            "integer_lattice_injectivity": "not established by this audit",
+            "integer_projection_collisions_checked": False,
             "singular_values": singular_values.tolist(),
             "projected_momentum_squared_range": [
                 float(np.min(projected_norm2)), float(np.max(projected_norm2))
@@ -181,11 +187,13 @@ def audit_q6_wilson_d5_regulator_obstruction(
             ],
             "numerically_verified": [
                 "rank-five projection onto the selected Q6-D5 tangent modes",
-                "124-dimensional kernel of that real linear projection",
+                "124-dimensional kernel of the real-linear extension",
                 "spectral selection on the 259-state Galerkin shell",
             ],
             "not_claimed": [
                 "a physical value of the D5 epsilon cutoff",
+                "injectivity or non-injectivity of the five-mode projection restricted to Z^129",
+                "factorization of the full Wilson weight through the five-mode projection",
                 "a global Q6-to-D5 map",
                 "equivalence between Wilson spectral and D5 generic-norm cutoffs",
                 "the full infinite-dimensional flux transfer spectrum",
