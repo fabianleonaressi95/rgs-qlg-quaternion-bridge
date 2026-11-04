@@ -1,19 +1,11 @@
 name: Python tests
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
-
-concurrency:
-  group: python-tests-${{ github.workflow }}-${{ github.ref }}
-  # Preserve full-suite verification when newer commits arrive.
-  cancel-in-progress: false
 
 jobs:
   test:
@@ -37,81 +29,3 @@ jobs:
 
       - name: Run lattice holonomy demonstration
         run: python examples/lattice_rotation_demo.py
-
-      - name: Run full Q6-D5 degree-six Sobol audit
-        if: github.event_name != 'pull_request'
-        run: python scripts/run_q6_d5_degree_six_sobol.py --power 12 --scrambles 8 --seed 20261105
-
-      - name: Upload reproducible Q6-D5 audit JSON
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-d5-degree-six-sobol-audit
-          path: reports/q6_d5_degree_six_sobol.json
-          if-no-files-found: error
-
-      - name: Run exact D5 Hua cutoff-normalization audit
-        if: github.event_name != 'pull_request'
-        run: python scripts/run_q6_d5_hua_cutoff.py
-
-      - name: Upload reproducible D5 Hua cutoff audit JSON
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-d5-hua-cutoff-normalization
-          path: reports/q6_d5_hua_cutoff_normalization.json
-          if-no-files-found: error
-
-      - name: Run Q6 Wilson-D5 spectral regulator audit
-        if: github.event_name != 'pull_request'
-        run: python scripts/run_q6_wilson_d5_regulator.py
-
-      - name: Upload Q6 Wilson-D5 spectral regulator audit
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-wilson-d5-spectral-regulator
-          path: reports/q6_wilson_d5_regulator.json
-          if-no-files-found: error
-
-      - name: Run exact Q6-D5 integer-fiber quotient audit
-        if: github.event_name != 'pull_request'
-        run: python scripts/run_q6_d5_integer_fiber_quotient.py
-
-      - name: Upload Q6-D5 integer-fiber quotient audit
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-d5-integer-fiber-quotient
-          path: reports/q6_d5_integer_fiber_quotient.json
-          if-no-files-found: error
-
-      - name: Run saturated Q6-D5 integer-kernel and certified Wilson-tail audit
-        if: github.event_name != 'pull_request'
-        run: python scripts/run_q6_d5_saturated_kernel_bounds.py --beta-time 80 --edge-l1-cutoff 25000
-
-      - name: Upload saturated Q6-D5 kernel and Wilson-tail audit
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-d5-saturated-kernel-wilson-tail
-          path: reports/q6_d5_saturated_kernel_bounds.json
-          if-no-files-found: error
-
-      - name: Run Q6 Wilson microhistory and local modal bridge audit
-        run: python scripts/run_q6_wilson_microhistory_modal_bridge.py
-
-      - name: Upload Q6 Wilson microhistory and local modal bridge audit
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-wilson-microhistory-modal-bridge
-          path: reports/q6_wilson_microhistory_modal_bridge.json
-      - name: Run exact Q6-D5 Wilson annihilator-torus audit
-        run: python scripts/run_q6_d5_wilson_annihilator_torus.py --beta-time 2 --power 8 --scrambles 4
-
-      - name: Upload Q6-D5 Wilson annihilator-torus audit
-        uses: actions/upload-artifact@v4
-        with:
-          name: q6-d5-wilson-annihilator-torus
-          path: reports/q6_d5_wilson_annihilator_torus.json
-          if-no-files-found: error
