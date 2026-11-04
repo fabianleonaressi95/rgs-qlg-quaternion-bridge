@@ -49,3 +49,34 @@ def test_cutoff_bergman_divergence_has_exact_leading_coefficient():
     assert d5_bergman_cutoff_leading_term_type_iv5(1e-2) == pytest.approx((5./3.)*1e8)
     with pytest.raises(ValueError):
         d5_bergman_cutoff_leading_term_type_iv5(0.)
+
+
+def test_exact_finite_cutoff_bergman_normalization():
+    from src.rgs_q6_d5_hua_normalization import (
+        d5_hua_hypoexponential_coefficients,
+        d5_hua_truncated_exponential_moment,
+        d5_bergman_cutoff_normalization_type_iv5,
+        d5_bergman_cutoff_normalized_density_type_iv5,
+        d5_bergman_cutoff_normalization_report_type_iv5,
+    )
+    coefficients = d5_hua_hypoexponential_coefficients()
+    assert [rate for rate, _ in coefficients] == pytest.approx([2., 2.5, 3., 4.])
+    assert [coefficient for _, coefficient in coefficients] == pytest.approx(
+        [60., -160., 120., -20.]
+    )
+    assert d5_hua_truncated_exponential_moment(1., 0.) == pytest.approx(0.)
+    z_half = d5_bergman_cutoff_normalization_type_iv5(0.5)
+    z_tenth = d5_bergman_cutoff_normalization_type_iv5(0.1)
+    z_hundredth = d5_bergman_cutoff_normalization_type_iv5(0.01)
+    assert 0. < z_half < z_tenth < z_hundredth
+    assert d5_bergman_cutoff_normalized_density_type_iv5(0.5, 0.6) == 0.
+    assert d5_bergman_cutoff_normalized_density_type_iv5(0.8, 0.6) > 0.
+    report = d5_bergman_cutoff_normalization_report_type_iv5()
+    assert report["all_checks_passed"]
+
+
+@pytest.mark.parametrize("delta", [0., -0.1, 1., 1.1, float("nan"), float("inf")])
+def test_exact_cutoff_normalization_rejects_invalid_cutoff(delta):
+    from src.rgs_q6_d5_hua_normalization import d5_bergman_cutoff_normalization_type_iv5
+    with pytest.raises(ValueError):
+        d5_bergman_cutoff_normalization_type_iv5(delta)
