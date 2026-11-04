@@ -137,3 +137,5 @@ def test_qball_gaussian_trial_has_finite_noether_charge_energy_and_residual():
     assert np.isfinite(report["radial_eom_residual_max"])
     assert report["ansatz"] == "Gaussian variational trial only"
     assert not report["profile_is_stationary_solution"]
+    assert report["qhd"]["continuity_mass_residual"] < 1e-10
+    assert report["mhd"]["induction_mass_residual"] < 1e-10

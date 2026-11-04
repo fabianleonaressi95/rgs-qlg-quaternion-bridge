@@ -201,6 +201,8 @@ def audit_hilbert_cantor_qhd_gauge_mhd() -> dict:
     )
     return {
         "schema": "RGS_PSU_HILBERT_CANTOR_QHD_FLUXON_QBALL_MHD_V3",
+    return {
+        "schema": "RGS_PSU_HILBERT_CANTOR_QHD_MONOPOLE_MHD_V1",
         "q6_hilbert": {k: table[k] for k in ("vertices", "hilbert_order", "hilbert_grid_side", "hilbert_bijection")},
         "cantor": {"finite_prefix": True, "uniform_6_bit_cylinder_mass": 1.0 / 64.0},
         "qhd": {"continuity_mass_residual": float(abs(np.sum(qhd["drho_dt"]))),
