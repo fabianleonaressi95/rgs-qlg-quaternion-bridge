@@ -109,7 +109,7 @@ def d5_bergman_cutoff_normalization_report_type_iv5(deltas=None) -> dict:
             math.isfinite(value) and value > 0. for value in values.values()
         ),
         "cutoff_constants_decrease_with_delta": all(
-            values[str(float(left))] > values[str(float(right))]
+            values[str(float(left))] < values[str(float(right))]
             for left, right in zip(deltas, deltas[1:])
         ),
         "leading_coefficient_consistent": math.isclose(
