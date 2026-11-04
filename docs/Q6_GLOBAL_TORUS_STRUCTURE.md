@@ -65,7 +65,7 @@ This is an exact connectedness and dimension result.
 
 The gauge subgroup in link-angle space is
 \[
-G=\operatorname{im}(D_0^T:\mathbb T^{64}\to\mathbb T^{192}),
+G=\operatorname{im}(D_0:\mathbb T^{64}\to\mathbb T^{192}),
 \]
 with the constant vertex phase in its kernel, hence \(\dim G=63\). Every cycle pairs trivially with a gradient:
 \[
