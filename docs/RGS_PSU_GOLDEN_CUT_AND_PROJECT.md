@@ -76,8 +76,22 @@ patch satisfies
 The implementation enumerates the resulting integer box and then applies
 both exact geometric cuts. The regular-model-set hypotheses are: compact
 window with nonempty interior, boundary of measure zero, and the irrational
-3+3 embedding (no nonzero lattice vector lying in either projection kernel).
-The numerical finite audit does not replace a proof of all dynamical
+3+3 embedding. Here the absence of integer vectors in either projection
+kernel follows directly from the golden irrationality. For example,
+\(A(\\phi)n=0\), with \(n\\in\\mathbb Z^6\), separates into integer and
+\(\\phi\)-coefficients:
+\[
+n_2-n_3=0,\quad n_4+n_5=0,\quad
+n_0-n_1=0,\quad n_2+n_3=0,\quad
+n_4-n_5=0,\quad n_0+n_1=0,
+\]
+which forces \(n=0\). The same argument applies to \(A(\\phi^\\star)\),
+since \(\\phi^\\star\) is also irrational and satisfies
+\((\\phi^\\star)^2=\\phi^\\star+1\). Thus both projections are injective
+on the lattice. Moreover, the internal projection of \(\\mathbb Z^6\) is
+dense: a nontrivial annihilating character would give a nonzero integer
+vector in \(E_\\perp\), contradicting the same kernel argument. The
+numerical finite audit does not replace a proof of all dynamical
 diffraction consequences.
 
 ## 4. Applying the cut to the 64 Q6 states
