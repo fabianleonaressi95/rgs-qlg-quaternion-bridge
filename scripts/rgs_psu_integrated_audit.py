@@ -20,7 +20,10 @@ from src.clifford_qlg import (
     spinor_group_action_audit, spinor_steerable_kernel_audit,
 )
 from src.discrete_differential import audit_discrete_differential_operators
-from src.discrete_cartan_geometry import (\n    audit_cartan_faces, audit_metric_compatibility,\n    build_metric_compatible_connection, edge_coframes_from_embedding,\n)
+from src.discrete_cartan_geometry import (
+    audit_cartan_faces, audit_metric_compatibility,
+    build_metric_compatible_connection, edge_coframes_from_embedding,
+)
 from src.mobius_complex import audit_mobius_complex, build_mobius_complex
 from src.mobius_gauge_audit import audit_mobius_gauge_covariance, build_random_mobius_lattice
 from src.mobius_representations import (
@@ -248,7 +251,48 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
             }
 
     q6_bundle_path = root / "results" / "artifacts" / "Q6_canonical_incidence_v1.npz"
-    q6_bundle_export = export_q6_incidence_bundle(str(q6_bundle_path))\n    q6_bundle_export["path"] = q6_bundle_path.relative_to(root).as_posix()\n    q6_bundle_manifest = q6_bundle_path.with_suffix(".manifest.json")\n    q6_bundle_manifest.parent.mkdir(parents=True, exist_ok=True)\n    q6_bundle_manifest.write_text(json.dumps(q6_bundle_export, indent=2, sort_keys=True) + "\\n", encoding="utf-8")\n\n    discrete_cartan = {"status": "64B_coordinate_seed_not_available"}\n    x_path = root / "data" / "rgs_188d" / "X_Oh_reconstructed.npy"\n    if x_path.exists():\n        x_oh = np.load(x_path, allow_pickle=False)\n        if x_oh.shape == (64, 3):\n            radial = np.linalg.norm(x_oh, axis=1)\n            local_coordinates = np.column_stack((x_oh, radial))\n            metrics = {\n                v: np.eye(4) + 0.01 * np.outer(local_coordinates[v], local_coordinates[v])\n                for v in q6.vertices\n            }\n            edge_theta = edge_coframes_from_embedding(\n                x_oh, q6.edges, append_radial_difference=True\n            )\n            edge_connection = build_metric_compatible_connection(metrics, q6.edges)\n            metric_report = audit_metric_compatibility(metrics, edge_connection, q6.edges)\n            cartan_report = audit_cartan_faces(q6.faces, edge_theta, edge_connection)\n            orthonormal_frame_residual = 0.0\n            frames = {v: np.linalg.cholesky(metrics[v]).T for v in q6.vertices}\n            for u, v in q6.edges:\n                omega = frames[v] @ edge_connection[(u, v)] @ np.linalg.inv(frames[u])\n                orthonormal_frame_residual = max(\n                    orthonormal_frame_residual,\n                    float(np.linalg.norm(omega.T @ omega - np.eye(4), ord="fro")),\n                )\n            discrete_cartan = {\n                "status": "coordinate_seed_induced_spd_metric_diagnostic",\n                "coordinate_seed_sha256": sha256_file(x_path),\n                "metric_compatibility": metric_report,\n                "cartan_faces": cartan_report,\n                "orthonormal_frame_transport_max_residual": orthonormal_frame_residual,\n                "metric_construction": "G_v = I + 0.01 y_v y_v^T, y_v=(X_v, ||X_v||); diagnostic metric, not an asserted recovered physical vierbein",\n            }\n\n    discrete_mobius = audit_discrete_differential_operators(
+    q6_bundle_export = export_q6_incidence_bundle(str(q6_bundle_path))
+    q6_bundle_export["path"] = q6_bundle_path.relative_to(root).as_posix()
+    q6_bundle_manifest = q6_bundle_path.with_suffix(".manifest.json")
+    q6_bundle_manifest.parent.mkdir(parents=True, exist_ok=True)
+    q6_bundle_manifest.write_text(json.dumps(q6_bundle_export, indent=2, sort_keys=True) + "\
+", encoding="utf-8")
+
+    discrete_cartan = {"status": "64B_coordinate_seed_not_available"}
+    x_path = root / "data" / "rgs_188d" / "X_Oh_reconstructed.npy"
+    if x_path.exists():
+        x_oh = np.load(x_path, allow_pickle=False)
+        if x_oh.shape == (64, 3):
+            radial = np.linalg.norm(x_oh, axis=1)
+            local_coordinates = np.column_stack((x_oh, radial))
+            metrics = {
+                v: np.eye(4) + 0.01 * np.outer(local_coordinates[v], local_coordinates[v])
+                for v in q6.vertices
+            }
+            edge_theta = edge_coframes_from_embedding(
+                x_oh, q6.edges, append_radial_difference=True
+            )
+            edge_connection = build_metric_compatible_connection(metrics, q6.edges)
+            metric_report = audit_metric_compatibility(metrics, edge_connection, q6.edges)
+            cartan_report = audit_cartan_faces(q6.faces, edge_theta, edge_connection)
+            orthonormal_frame_residual = 0.0
+            frames = {v: np.linalg.cholesky(metrics[v]).T for v in q6.vertices}
+            for u, v in q6.edges:
+                omega = frames[v] @ edge_connection[(u, v)] @ np.linalg.inv(frames[u])
+                orthonormal_frame_residual = max(
+                    orthonormal_frame_residual,
+                    float(np.linalg.norm(omega.T @ omega - np.eye(4), ord="fro")),
+                )
+            discrete_cartan = {
+                "status": "coordinate_seed_induced_spd_metric_diagnostic",
+                "coordinate_seed_sha256": sha256_file(x_path),
+                "metric_compatibility": metric_report,
+                "cartan_faces": cartan_report,
+                "orthonormal_frame_transport_max_residual": orthonormal_frame_residual,
+                "metric_construction": "G_v = I + 0.01 y_v y_v^T, y_v=(X_v, ||X_v||); diagnostic metric, not an asserted recovered physical vierbein",
+            }
+
+    discrete_mobius = audit_discrete_differential_operators(
         mobius.boundary_1, mobius.boundary_2,
         atol=TOLERANCES["discrete_differential"],
     )
@@ -307,7 +351,7 @@ def main() -> int:
     output = args.output if args.output.is_absolute() else root / args.output
     report = build_integrated_audit(root)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.write_text(json.dumps(report, indent=2, sort_keys=True) + chr(10), encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
     print(f"INTEGRATED_AUDIT_JSON={output}")
     return 0
