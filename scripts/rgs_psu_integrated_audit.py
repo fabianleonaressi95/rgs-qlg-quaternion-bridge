@@ -255,8 +255,7 @@ def build_integrated_audit(root: Path) -> dict[str, Any]:
     q6_bundle_export["path"] = q6_bundle_path.relative_to(root).as_posix()
     q6_bundle_manifest = q6_bundle_path.with_suffix(".manifest.json")
     q6_bundle_manifest.parent.mkdir(parents=True, exist_ok=True)
-    q6_bundle_manifest.write_text(json.dumps(q6_bundle_export, indent=2, sort_keys=True) + "\
-", encoding="utf-8")
+    q6_bundle_manifest.write_text(json.dumps(q6_bundle_export, indent=2, sort_keys=True) + chr(10), encoding="utf-8")
 
     discrete_cartan = {"status": "64B_coordinate_seed_not_available"}
     x_path = root / "data" / "rgs_188d" / "X_Oh_reconstructed.npy"
