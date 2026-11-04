@@ -303,3 +303,12 @@ Il qutrit locale non va confuso con la decomposizione a tre quark \(3\otimes3\ot
 **Stato delle evidenze:** algebra dello stato \(|\Phi_3\rangle\) PROVED; risultati di diagonalizzazione e entanglement NUMERICALLY VERIFIED per ogni taglia finita eseguita; accoppiamento del settore al complesso Q6/PRISM, alle due foglie PSU, ai vierbein e alle correnti spinoriali OPEN. Per l'integrazione successiva occorrono un embedding esplicito dei siti nella rete e un termine d'interazione tensoriale/gauge-covariante, non una semplice identificazione per analogia.
 
 Test mirato: `PYTHONPATH=. python -m pytest tests/test_qutrit_aperiodic.py -q`. Audit: `PYTHONPATH=. python examples/qutrit_aperiodic_audit.py`.
+
+
+## 19. Embedding qutrit aperiodico in Q6 con covarianza SU(3)
+
+Il modulo src/qutrit_q6_coupling.py colloca i qutrit sui vertici consecutivi del cammino Gray v_k=k XOR (k >> 1), verificando che ogni passo sia un arco effettivo di Q6. La parola di Fibonacci modula gli scambi; ogni arco attivo porta un link SU(3) con legge U_(v<-u) -> g_v U g_u†. Il termine di scambio trasportato è costruito in modo da soddisfare H[U^g]=G H[U] G†.
+
+Sono inclusi test di embedding, hermiticità, validazione dei link SU(3), covarianza locale con trasformazioni non diagonali e diagnostica spettrale/Schmidt su catene finite. L'esatta diagonalizzazione è limitata a cammini piccoli: non viene diagonalizzato il prodotto completo di 64 qutrit. Questo settore non è ancora un'azione Yang–Mills dinamica né una simulazione QCD. SU(3)_F e SU(3)_C restano distinti; l'accoppiamento a PSU–Anti-Twin, vierbein 188D e correnti spinoriali resta OPEN finché non siano definiti intertwiners e termini d'interazione espliciti.
+
+Test: PYTHONPATH=. python -m pytest tests/test_qutrit_q6_coupling.py -q. Audit: PYTHONPATH=. python examples/qutrit_q6_gauge_audit.py.
