@@ -27,7 +27,7 @@ def from_total_relative(P, q):
 
 def jacobian_abs_8d():
     block = np.block([[np.eye(4), np.eye(4)],
-                      [0.5*np.eye(4), -0.5*np.eye(4)]])
+                      [np.eye(4), -np.eye(4)]])
     return float(abs(np.linalg.det(block)))
 
 
