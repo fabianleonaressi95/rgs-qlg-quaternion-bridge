@@ -15,6 +15,8 @@
 
 The word “toroid” in the PSU–Anti-Twin geometric picture may additionally mean an embedded toroidal surface/handlebody or a two-sheeted configuration. That is a geometric ansatz and must not be identified with any of the compact abelian groups above without an explicit map.
 
+**Literature and repository audit:** see [Q6–D5 literature and repository evidence map](Q6_D5_LITERATURE_AND_REPOSITORY_EVIDENCE_MAP.md) for external references, the internal proof-file map and open obligations.
+
 ## 2. Q6 integer topology
 
 For the six-dimensional cubical Q6 complex:
@@ -534,3 +536,8 @@ The microhistory identity \(|S_s\cdot h|/s!=1/\prod_e|n_e|!\) is an exact orbit-
 **Exact:** Q6 incidence ranks; top coexact five-mode eigenspace and A5 character; saturated rank-124 kernel and rank-five free quotient; SNF annihilator \(\mathbb T^{68}\); exact Bessel character/fibre identity and factorial tail bound; Maxwell Legendre transform under \(\beta=g^{-2}\); Bergman volume pullback; isotropic weighted Liouville invariance; Hua Mellin law and finite cutoff.
 
 **Open:** deterministic integral splitting aligned to the A5 frame; full spacetime Wilson marginal; Wilson-to-D5 Radon–Nikodym theorem; physical derivation of \(\varepsilon\); tight continuum limit; coupled U(1)–Spin–vierbein Anti-Twin construction; physical 3+1 reduction; alpha derivation; formal Gödel/modal theorem.
+
+
+## Literature anchors for the torus and Hodge statements
+
+The algebraic Hodge framework for incidence matrices and cohomology is treated in Lim, *Hodge Laplacians on Graphs*, SIAM Review 62 (2020), https://doi.org/10.1137/18M1223101. The integer normal-form and invariant-factor statements are standard Smith/Hermite theory; see https://flintlib.org/doc/algorithms/linear-algebra/hermite-smith.html. These references support the general machinery; the concrete Q6 matrices, the rank-124 saturated kernel, the unit Smith factors and the inclusion of the 63-dimensional gauge torus are checked by the repository's exact arithmetic.
