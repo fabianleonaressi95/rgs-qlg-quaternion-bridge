@@ -13,6 +13,7 @@ import numpy as np
 
 from src.rgs_q6_d5_sphere_intertwiner import (
     build_q6_d5_relative_direction_intertwiner,
+    relative_direction_linear_map_in_p,
 )
 
 
@@ -106,6 +107,9 @@ def build_q6_d5_a5_angular_measure_audit(max_degree: int = 12) -> dict:
         for matrix in rotations
     )
     intertwining_residual = float(bridge["intertwining_residual"])
+    witness_q = np.arange(1.0, 6.0)
+    witness_matrix = relative_direction_linear_map_in_p(witness_q, T)
+    witness_rank = int(np.linalg.matrix_rank(witness_matrix, tol=1e-9))
 
     multiplicities = a5_invariant_harmonic_spectrum(max_degree)
     low_degree_zero = multiplicities[1:6] == [0, 0, 0, 0, 0]
@@ -118,6 +122,7 @@ def build_q6_d5_a5_angular_measure_audit(max_degree: int = 12) -> dict:
             and determinant_residual < 2e-8
         ),
         "wedge_intertwiner_equivariant": intertwining_residual < 2e-8,
+        "nonzero_polynomial_map_witness": witness_rank > 0,
         "no_invariant_harmonics_degrees_1_to_5": low_degree_zero,
         "first_invariant_harmonic_degree_6_is_unique": first_nontrivial_degree_six,
         "source_bridge_checks_passed": bool(bridge["all_checks_passed"]),
@@ -135,13 +140,18 @@ def build_q6_d5_a5_angular_measure_audit(max_degree: int = 12) -> dict:
         "geometric_SO3_orthogonality_residual": geometric_orthogonal_residual,
         "geometric_determinant_residual": determinant_residual,
         "wedge_intertwining_residual": intertwining_residual,
+        "zero_locus_witness_q": witness_q,
+        "zero_locus_witness_matrix_rank": witness_rank,
+        "zero_locus_has_surface_measure_zero": bool(witness_rank > 0),
         "checks": checks,
         "all_checks_passed": bool(all(checks.values())),
         "theorem": (
-            "If the zero set of T(q wedge p) has S9 measure zero, the "
-            "normalized pushforward is A5-invariant. Since the A5-fixed "
-            "subspace of degree-l spherical harmonics vanishes for 1<=l<=5, "
-            "its angular moments through degree five equal those of uniform S2."
+            "The map T(q wedge p) is a nonzero polynomial map (the recorded "
+            "rank witness proves nontriviality), so its common zero locus has "
+            "S9 surface measure zero. Its normalized pushforward is therefore "
+            "an A5-invariant probability measure. Since the A5-fixed subspace "
+            "of degree-l spherical harmonics vanishes for 1<=l<=5, its angular "
+            "moments through degree five equal those of uniform S2."
         ),
         "proved_by_finite_group_character": [
             "A5-invariant harmonic multiplicities are zero for degrees 1 through 5",
@@ -150,7 +160,6 @@ def build_q6_d5_a5_angular_measure_audit(max_degree: int = 12) -> dict:
         ],
         "conditional_or_open": [
             "a complete global classification of the zero locus T(q wedge p)=0",
-            "an explicit proof that this zero locus has S9 measure zero",
             "the degree-six coefficient of the continuous pushforward measure",
             "equality of the continuous pushforward measure with the 32-point Q6 measure",
             "a measure-preserving global embedding into the D5 Lie ball",
