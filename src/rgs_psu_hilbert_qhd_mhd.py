@@ -193,8 +193,14 @@ def audit_hilbert_cantor_qhd_gauge_mhd() -> dict:
     expected = np.exp(1j * phases) * d0
     monopole = monopole_chern_number(np.full(4, 2.0 * np.pi / 4.0))
     fluxon = fluxon_topological_charge(2.0 * np.pi * x)
+    qball_window = qball_frequency_window(mass_scale=1.0, quartic=1.0, sextic=0.5)
+    qball_trial = qball_gaussian_trial(
+        np.linspace(0.0, 12.0, 481), amplitude_scale=0.35,
+        width=2.0, frequency=0.8, mass_scale=1.0,
+        quartic=1.0, sextic=0.5
+    )
     return {
-        "schema": "RGS_PSU_HILBERT_CANTOR_QHD_FLUXON_MHD_V2",
+        "schema": "RGS_PSU_HILBERT_CANTOR_QHD_FLUXON_QBALL_MHD_V3",
         "q6_hilbert": {k: table[k] for k in ("vertices", "hilbert_order", "hilbert_grid_side", "hilbert_bijection")},
         "cantor": {"finite_prefix": True, "uniform_6_bit_cylinder_mass": 1.0 / 64.0},
         "qhd": {"continuity_mass_residual": float(abs(np.sum(qhd["drho_dt"]))),
@@ -202,6 +208,11 @@ def audit_hilbert_cantor_qhd_gauge_mhd() -> dict:
         "u1_gauge": {"covariance_residual": float(np.linalg.norm(d1 - expected))},
         "monopole": monopole,
         "fluxon": fluxon,
+        "qball": {"frequency_window": qball_window,
+                  "trial_noether_charge": qball_trial["noether_charge"],
+                  "trial_energy": qball_trial["energy"],
+                  "trial_radial_eom_residual_l2": qball_trial["radial_eom_residual_l2"],
+                  "trial_is_stationary_solution": False},
         "mhd": {"induction_mass_residual": float(abs(np.sum(mhd["dmagnetic_dt"]))),
                 "lorentz_force_finite": bool(np.all(np.isfinite(mhd["lorentz_force"])))},
         "scope": "finite periodic benchmark; no continuum RGS field-equation theorem claimed"
