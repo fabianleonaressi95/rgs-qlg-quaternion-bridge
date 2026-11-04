@@ -31,6 +31,9 @@ def test_q6_d5_projection_obstruction_audit():
     assert result["all_checks_passed"], result["checks"]
     assert result["five_mode_projection"]["rank"] == 5
     assert result["five_mode_projection"]["kernel_dimension"] == 124
+    assert result["five_mode_projection"]["real_linear_kernel_dimension"] == 124
+    assert result["five_mode_projection"]["integer_lattice_injectivity"] == "not established by this audit"
+    assert result["five_mode_projection"]["integer_projection_collisions_checked"] is False
     assert result["transfer"]["total_states"] == 259
 
 
