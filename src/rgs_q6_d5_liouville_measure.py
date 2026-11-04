@@ -49,8 +49,6 @@ def q6_d5_bergman_liouville_report(q=None, p=None, beta=1., eigenvalue=12.):
     detg = float(np.linalg.det(g).real)
     expected = 10.**5 / n**5
     jac = 20.**-5
-    # With dVol_B=(i g_ij dz_i wedge dbar(z_j))^5/5!,
-    # dVol_B=2^5 det(g) d^10(Re z, Im z).
     pullback = float(2.**5 * detg * jac)
     predicted = float(n**-5)
     g0 = d5_bergman_metric(np.zeros(5, dtype=complex))
@@ -69,10 +67,8 @@ def q6_d5_bergman_liouville_report(q=None, p=None, beta=1., eigenvalue=12.):
     }
     return {
         "audit": "Q6_D5_BERGMAN_LIOUVILLE_PULLBACK_LAW",
-        "frequency": omega,
-        "generic_norm": n,
-        "metric_determinant": detg,
-        "expected_metric_determinant": expected,
+        "frequency": omega, "generic_norm": n,
+        "metric_determinant": detg, "expected_metric_determinant": expected,
         "real_chart_jacobian": jac,
         "bergman_volume_pullback_density": pullback,
         "predicted_density": predicted,
@@ -80,7 +76,26 @@ def q6_d5_bergman_liouville_report(q=None, p=None, beta=1., eigenvalue=12.):
         "origin_metric": g0,
         "Maxwell_Hamiltonian": hamiltonian,
         "chart_Hamiltonian": chart_energy,
-        "checks": checks,
-        "all_checks_passed": bool(all(checks.values())),
+        "checks": checks, "all_checks_passed": bool(all(checks.values())),
         "scope": "Exact volume identity for this explicit linear chart on the D5 preimage in the Q6 five-mode tangent phase space; not a global map of the full Q6 quotient.",
+    }
+
+
+def d5_bergman_cutoff_volume(epsilon: float) -> dict:
+    """Exact Bergman volume of N>=epsilon, expressed in Q6 Liouville units."""
+    from src.rgs_q6_d5_hua_cutoff import d5_hua_cutoff_normalizer
+    if not math.isfinite(epsilon) or not 0. < epsilon < 1.:
+        raise ValueError("epsilon must be finite and lie strictly between 0 and 1")
+    euclidean_volume = math.pi**5 / 1920.
+    hua_normalizer = d5_hua_cutoff_normalizer(float(epsilon))
+    prefactor = 20.**5 * euclidean_volume
+    return {
+        "epsilon": float(epsilon),
+        "normalized_Euclidean_Hua_factor": hua_normalizer,
+        "Liouville_Bergman_volume": prefactor * hua_normalizer,
+        "exact_prefactor": prefactor,
+        "asymptotic_leading_coefficient": prefactor * (5. / 3.),
+        "asymptotic": "Vol_B(N>=epsilon) ~ (25000*pi^5/9)*epsilon^(-4)",
+        "finite_for_positive_cutoff": True,
+        "diverges_as_epsilon_to_zero": True,
     }
