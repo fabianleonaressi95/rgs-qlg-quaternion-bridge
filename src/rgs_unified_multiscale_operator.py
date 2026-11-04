@@ -122,7 +122,7 @@ def unified_operator_audit(drive: float = DRIVE) -> dict[str, Any]:
                 rev_sigma += (rev[i, j] - rev[j, i]) * np.log(rev[i, j] / rev[j, i]) / n
     checks = {
         "state_count_64x2x3": n == 384,
-        "product_edges": undirected_edges == 64 * 6 * 2 * 3 + 64 * 3 + 64 * 2 * 2,
+        "product_edges": undirected_edges == 192 * 2 * 3 + 64 * 3 + 64 * 2 * 2,
         "uniform_stationary": stationarity < ATOL,
         "generator_row_sums": row_res < ATOL,
         "nonnegative_transition_rates": min_rate >= -ATOL,
