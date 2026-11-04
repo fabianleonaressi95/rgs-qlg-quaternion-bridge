@@ -1,34 +1,31 @@
-# Exact annihilator-torus formula for the Q6-D5 Wilson fiber marginal
+# Q6-D5 Wilson fiber marginal on the annihilator torus
 
-Let C be the integral cycle matrix (129 x 192), K_Z the saturated rank-124
-integer kernel in cycle coordinates, and B_K a full integral row basis for
-K_Z. Its image in edge-flux coordinates is the rank-124 row lattice
-L = B_K C subset Z^192.
+Let C be the integral cycle matrix (129 x 192), and let B be a saturated
+integer basis for the rank-124 kernel in cycle coordinates. The edge-flux
+fiber lattice is L = B C in Z^192. For beta > 0, set
 
-For beta>0 define
-f(x) = product_e exp(beta cos(x_e))/I_0(beta), x in T^192.
-Its Fourier coefficients are
-fhat(n) = product_e I_|n_e|(beta)/I_0(beta) = w(n).
+    f(x) = product_e exp(beta cos(x_e)) / I_0(beta),  x in T^192.
 
-Let H_L be the annihilator subgroup
-H_L = {x in T^192 : ell dot x = 0 mod 2pi for all ell in L}.
-Character orthogonality on this compact subgroup gives the exact identity
-W_eff([c]) = integral_{H_L} f(x) exp(-i(cC).x) dmu_Haar(x).
-Indeed, the integral of exp(i(n-cC).x) is one exactly when n-cC belongs
-to L, and zero otherwise. Since f has an absolutely convergent Fourier
-series, termwise integration is justified. This is the complete fiber sum.
+Its Fourier coefficients are the Wilson weights
+w(n) = product_e I_|n_e|(beta) / I_0(beta). The annihilator
 
-The annihilator has dimension 192-124=68. It need not be connected.
-If U L V = S is a Smith decomposition with V unimodular and nonzero
-diagonal invariants d_1,...,d_124, write x=V z. Then
-z_i=2pi*j_i/d_i for i<124, j_i=0,...,d_i-1, while the last 68
-coordinates are free torus variables. Haar measure is the uniform average
-over all finite components and normalized Haar measure on T^68.
+    H_L = {x in T^192 : ell dot x = 0 mod 2 pi for every ell in L}
 
-The implementation computes this parameterization exactly using Smith
-normal form. Its optional scrambled-Sobol evaluation is explicitly a QMC
-estimate, not a certified interval. The exact Fourier identity is proved;
-numerical certification and a Wilson-to-Hua measure identification remain
-open. The representation is not a five-dimensional integral: that tempting
-reduction would incorrectly identify w(cC) with the Fourier coefficients
-of a composed product-cosine function.
+therefore gives the exact identity
+
+    W_eff([c]) = integral_H_L f(x) exp(-i (c C) dot x) d Haar(x).
+
+This follows from character orthogonality; absolute convergence of the
+Fourier series justifies termwise integration.
+
+For a Smith decomposition U L V = S, with nonzero diagonal entries d_i,
+the coordinates x = V z satisfy z_i = 2 pi j_i/d_i for the constrained
+coordinates and are free on the remaining 68 coordinates. The finite
+component count is product_i d_i. On the Q6 lattice all 124 factors are
+one, so H_L is connected and isomorphic to T^68.
+
+The implementation samples only the genuinely free torus coordinates and
+any nontrivial finite Smith coordinates. The small scrambled-Sobol run is
+a reproducible diagnostic, not a rigorous error interval. A validated
+numerical enclosure, a derived pushforward to the D5 Hua measure, and a
+physical 3+1D or fine-structure-constant prediction remain open.
