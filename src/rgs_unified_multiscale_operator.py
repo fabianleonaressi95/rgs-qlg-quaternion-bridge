@@ -170,3 +170,17 @@ def write_report(path: str = "reports/rgs_unified_multiscale_operator.json") -> 
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     Path(path).write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Run the unified RGS multiscale operator audit")
+    parser.add_argument("--output", default="reports/rgs_unified_multiscale_operator.json")
+    args = parser.parse_args()
+    result = write_report(args.output)
+    print(json.dumps({"pass": result["pass"], "output": args.output,
+                      "checks": result["checks"],
+                      "residuals": result["residuals"],
+                      "thermodynamics": result["thermodynamics"]}, indent=2))
+    if not result["pass"]:
+        raise SystemExit(1)
