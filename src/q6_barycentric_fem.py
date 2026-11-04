@@ -88,10 +88,12 @@ def q6_edge_gradients(
     fem: Q6BarycentricFEM,
     nodal_values: np.ndarray,
 ) -> np.ndarray:
-    """Return constant ambient gradients on edges for scalar or vector nodal data.
+    """Return edgewise tangential projections of gradients.
 
     Scalar input (64,) returns (192,d); vector-valued input (64,k) returns
-    (192,k,d). Gradients are tangent to the corresponding embedded edge.
+    (192,k,d). On each one-dimensional edge this is the directional derivative
+    represented as an ambient tangent vector. It is not a reconstruction of a
+    single full ambient gradient from the entire graph.
     """
     values = np.asarray(nodal_values, dtype=float)
     n, d = fem.coordinates.shape
