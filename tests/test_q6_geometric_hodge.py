@@ -23,7 +23,16 @@ def test_full_six_cube_cell_counts_and_betti_numbers():
 def test_full_cube_one_skeleton_matches_canonical_q6_edge_orientation():
     q6 = build_q6_complex()
     cube = build_unit_cube_complex(6)
-    assert np.array_equal(cube.boundary[1], q6.boundary_1)
+    edge_index = {edge: i for i, edge in enumerate(q6.edges)}
+    for column, cell in enumerate(cube.cells[1]):
+        axis = cell.index(-1)
+        lower_bits = [0 if value == -1 else value for value in cell]
+        upper_bits = lower_bits.copy()
+        upper_bits[axis] = 1
+        lower = int("".join(map(str, lower_bits)), 2)
+        upper = int("".join(map(str, upper_bits)), 2)
+        old_column = edge_index[(lower, upper)]
+        assert np.array_equal(cube.boundary[1][:, column], q6.boundary_1[:, old_column])
 
 def test_boundary_squared_vanishes_exactly_in_all_degrees():
     complex_ = build_unit_cube_complex(6)
