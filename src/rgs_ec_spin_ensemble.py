@@ -96,14 +96,23 @@ def spatial_isotropy_residual(second_moment, mean_current=None):
     mean = np.zeros(4) if mean_current is None else np.asarray(mean_current, dtype=float)
     if mean.shape != (4,) or not np.all(np.isfinite(mean)):
         raise ValueError("mean_current must be a finite 4-vector")
+    # M^{ab}=<J^a J^b> contains both connected fluctuations and the
+    # coherent mean: Cov^{ab}=M^{ab}-<J^a><J^b>.  Keep the two
+    # time-space diagnostics distinct; FLRW isotropy below is tested against
+    # the full second moment and the mean spatial polarization separately.
+    covariance = m - np.outer(mean, mean)
+    covariance = 0.5 * (covariance + covariance.T)
+    time_space_covariance_norm = float(np.linalg.norm(covariance[0, 1:]))
+    time_space_second_moment_norm = float(np.linalg.norm(m[0, 1:]))
     return {
         "spatial_second_moment_isotropic_amplitude": q,
         "spatial_isotropy_residual": float(np.linalg.norm(spatial-target)/scale),
-        "time_space_second_moment_norm": float(np.linalg.norm(m[0, 1:])),
+        "time_space_covariance_norm": time_space_covariance_norm,
+        "time_space_second_moment_norm": time_space_second_moment_norm,
         "mean_spatial_polarization_norm": float(np.linalg.norm(mean[1:])),
         "flrw_isotropy_residual": float(np.sqrt(
             (np.linalg.norm(spatial-target)/scale)**2
-            + np.linalg.norm(m[0, 1:])**2 / max(np.linalg.norm(m), 1.0)**2
+            + time_space_second_moment_norm**2 / max(np.linalg.norm(m), 1.0)**2
             + np.linalg.norm(mean[1:])**2 / max(np.linalg.norm(mean), 1.0)**2
         )),
     }
