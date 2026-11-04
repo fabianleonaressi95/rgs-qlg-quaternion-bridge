@@ -19,6 +19,12 @@ def test_full_six_cube_cell_counts_and_betti_numbers():
     assert report["pass"]
 
 
+
+def test_full_cube_one_skeleton_matches_canonical_q6_edge_orientation():
+    q6 = build_q6_complex()
+    cube = build_unit_cube_complex(6)
+    assert np.array_equal(cube.boundary[1], q6.boundary_1)
+
 def test_boundary_squared_vanishes_exactly_in_all_degrees():
     complex_ = build_unit_cube_complex(6)
     for k in range(2, 7):
