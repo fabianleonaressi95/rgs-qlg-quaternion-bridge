@@ -20,7 +20,10 @@ from scipy.linalg import eigh
 # CONFIGURATION & PATHS
 # ============================================================
 
-OUTDIR = "/home/fabianleo/Scaricati/QIP_QC_EMD25156"
+OUTDIR = os.environ.get(
+    "RGS_QIP_OUTDIR",
+    os.path.join(os.path.expanduser("~"), "Scaricati", "QIP_QC_EMD25156"),
+)
 FIGDIR = os.path.join(OUTDIR, "figures")
 RESIDUAL_FILE = os.path.join(OUTDIR, "QIP_QC_EMD25156_residual_bench.npz")
 

@@ -12,7 +12,10 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-OUTDIR = "/home/fabianleo/Scaricati/QIP_QC_EMD25156"
+OUTDIR = os.environ.get(
+    "RGS_QIP_OUTDIR",
+    os.path.join(os.path.expanduser("~"), "Scaricati", "QIP_QC_EMD25156"),
+)
 FIGDIR = os.path.join(OUTDIR, "figures")
 TB_RESULTS_FILE = os.path.join(OUTDIR, "QIP_QC_PHASE2_TB_results.npz")
 
