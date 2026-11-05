@@ -31,6 +31,11 @@ from pyfaidx import Fasta
 import pysam
 import zipfile
 import json
+import sys
+
+# Allow direct execution from this experiment's directory.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from shared_io import download_to_path, decompress_gzip_to_path, extract_zip_safely
 
 logging.basicConfig(
     level=logging.INFO,
@@ -49,29 +54,24 @@ HDF5_OUT = Path("ecoli_ma_wgs_integrated.h5")
 # -----------------------------------------------------------------------------
 
 def download_file(url, dest_path, chunk_size=8192):
-    """Scarica un file da URL a dest_path."""
+    """Scarica in streaming e pubblica solo dopo il completamento."""
     log.info(f"Downloading {url} -> {dest_path}")
-    resp = requests.get(url, stream=True)
-    resp.raise_for_status()
-    with open(dest_path, "wb") as f:
-        for chunk in resp.iter_content(chunk_size=chunk_size):
-            if chunk:
-                f.write(chunk)
-    log.info(f"Downloaded {dest_path}")
+    digest = download_to_path(url, dest_path, timeout=120.0, chunk_size=chunk_size)
+    log.info(f"Downloaded {dest_path} (sha256={digest})")
+    return digest
 
 def download_and_unzip(url, dest_dir, expected_exts=(".vcf", ".csv", ".txt", ".xlsx")):
     """Scarica uno zip, lo estrae in dest_dir e restituisce liste di file."""
+    dest_dir = Path(dest_dir)
+    dest_dir.mkdir(parents=True, exist_ok=True)
     zip_path = dest_dir / "tmp.zip"
-    download_file(url, zip_path)
-    files = []
-    with zipfile.ZipFile(zip_path, "r") as z:
-        for name in z.namelist():
-            if name.endswith(expected_exts):
-                z.extract(name, dest_dir)
-                files.append(dest_dir / name)
-    zip_path.unlink()
-    log.info(f"Extracted {len(files)} files in {dest_dir}")
-    return files
+    try:
+        download_file(url, zip_path)
+        files = extract_zip_safely(zip_path, dest_dir, expected_suffixes=expected_exts)
+        log.info(f"Extracted {len(files)} files in {dest_dir}")
+        return files
+    finally:
+        zip_path.unlink(missing_ok=True)
 
 # -----------------------------------------------------------------------------
 # Genoma di riferimento (via efetch NCBI)
@@ -88,13 +88,7 @@ def fetch_reference_genome():
     dest_path = GENOME_FASTA
     log.info(f"Downloading reference genome via efetch: {url}")
     
-    resp = requests.get(url, stream=True)
-    resp.raise_for_status()
-    
-    with open(dest_path, "wb") as f:
-        for chunk in resp.iter_content(chunk_size=8192):
-            if chunk:
-                f.write(chunk)
+    download_to_path(url, dest_path, timeout=120.0)
     
     log.info(f"Reference genome ready: {GENOME_FASTA}")
     return str(GENOME_FASTA)
