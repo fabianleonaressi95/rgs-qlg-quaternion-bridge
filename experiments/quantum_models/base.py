@@ -1,7 +1,9 @@
 import numpy as np, pandas as pd, json, itertools
+from dataset_io import resolve_dataset_path
 from scipy.spatial.distance import cdist
 rng = np.random.default_rng(42)
-d = pd.read_csv('codon_train.csv')
+DATA_PATH = resolve_dataset_path(__file__)
+d = pd.read_csv(DATA_PATH)
 kingdom = d.Kingdom.values
 cod = [c.replace('U','T') for c in d.columns[1:]]
 X = d.iloc[:,1:].values.astype(float); X = X/X.sum(1,keepdims=True)
