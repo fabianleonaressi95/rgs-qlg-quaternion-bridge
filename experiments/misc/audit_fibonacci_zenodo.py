@@ -28,6 +28,11 @@ import numpy as np
 import pandas as pd
 import requests
 
+# Shared atomic downloader validates expected size before replacing cached files.
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from shared_io import download_to_path
+
 RECORD_ID = "19068308"
 API_URL = f"https://zenodo.org/api/records/{RECORD_ID}"
 ROOT = Path("fibonacci_zenodo_audit")
@@ -64,19 +69,7 @@ def download_file(entry: dict) -> Path:
     if not url:
         url = f"https://zenodo.org/records/{RECORD_ID}/files/{quote(entry['key'])}?download=1"
     print(f"[DOWNLOAD] {name} <- {url}")
-    with requests.get(url, stream=True, timeout=(30, 180)) as r:
-        r.raise_for_status()
-        tmp = target.with_suffix(target.suffix + ".part")
-        with tmp.open("wb") as f:
-            for chunk in r.iter_content(1024 * 1024):
-                if chunk:
-                    f.write(chunk)
-        tmp.replace(target)
-    if expected_size is not None and target.stat().st_size != expected_size:
-        raise RuntimeError(
-            f"Dimensione non corrispondente per {name}: "
-            f"{target.stat().st_size} != {expected_size}"
-        )
+    download_to_path(url, target, timeout=180.0, expected_size=expected_size)
     return target
 
 def inspect_mat(path: Path):
