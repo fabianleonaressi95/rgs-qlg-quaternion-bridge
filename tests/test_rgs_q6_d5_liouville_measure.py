@@ -1,9 +1,14 @@
 import math
 import numpy as np
 import pytest
+
 from src.rgs_q6_d5_liouville_measure import (
-    d5_bergman_metric, d5_generic_norm, d5_bergman_cutoff_volume,
-    q6_d5_bergman_liouville_report, q6_maxwell_to_d5_chart, q6_d5_liouville_flow_report,
+    d5_bergman_metric,
+    d5_generic_norm,
+    d5_bergman_cutoff_volume,
+    q6_d5_bergman_liouville_report,
+    q6_maxwell_to_d5_chart,
+    q6_d5_liouville_flow_report,
 )
 
 
@@ -53,17 +58,17 @@ def test_invalid_inputs_rejected():
 
 @pytest.mark.parametrize("beta,eigenvalue", [(.2,12.), (1.,12.), (3.7,8.), (11.,4.)])
 def test_maxwell_flow_is_common_phase_and_preserves_bergman_liouville_weight(beta,eigenvalue):
-    r=q6_d5_liouville_flow_report(beta=beta,eigenvalue=eigenvalue,time=.231)
+    r = q6_d5_liouville_flow_report(beta=beta, eigenvalue=eigenvalue, time=.231)
     assert r["all_checks_passed"], r["checks"]
-    assert r["generic_norm_initial"] == pytest.approx(r["generic_norm_final"],rel=2e-12)
-    assert r["bergman_density_initial"] == pytest.approx(r["bergman_density_final"],rel=2e-11)
+    assert r["generic_norm_initial"] == pytest.approx(r["generic_norm_final"], rel=2e-12)
+    assert r["bergman_density_initial"] == pytest.approx(r["bergman_density_final"], rel=2e-11)
 
 
 def test_chart_uses_maxwell_canonical_reciprocal_scale():
-    beta,lam=3.7,8.
-    q=np.array([.07,-.03,.02,.01,-.04])
-    p=np.array([-.02,.05,.01,-.06,.03])
-    z=q6_maxwell_to_d5_chart(q,p,beta,lam)
-    kappa=beta*np.sqrt(lam)
-    expected=(np.sqrt(kappa)*q+1j*p/np.sqrt(kappa))/np.sqrt(20.)
-    assert np.allclose(z,expected,rtol=0,atol=1e-14)
+    beta, lam = 3.7, 8.
+    q = np.array([.07,-.03,.02,.01,-.04])
+    p = np.array([-.02,.05,.01,-.06,.03])
+    z = q6_maxwell_to_d5_chart(q, p, beta, lam)
+    kappa = beta*np.sqrt(lam)
+    expected = (np.sqrt(kappa)*q + 1j*p/np.sqrt(kappa))/np.sqrt(20.)
+    assert np.allclose(z, expected, rtol=0, atol=1e-14)
