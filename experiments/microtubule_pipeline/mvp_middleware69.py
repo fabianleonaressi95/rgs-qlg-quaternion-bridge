@@ -14,7 +14,10 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-OUTDIR = "/home/fabianleo/Scaricati/QIP_QC_EMD25156"
+OUTDIR = os.environ.get(
+    "RGS_QIP_OUTDIR",
+    os.path.join(os.path.expanduser("~"), "Scaricati", "QIP_QC_EMD25156"),
+)
 FIGDIR = os.path.join(OUTDIR, "figures")
 os.makedirs(FIGDIR, exist_ok=True)
 
