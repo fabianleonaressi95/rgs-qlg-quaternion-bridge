@@ -11,6 +11,7 @@ import os
 import gzip
 import urllib.request
 import numpy as np
+from pipeline_io import download_to_path as _download_to_path
 import matplotlib
 
 matplotlib.use("Agg")
@@ -63,17 +64,34 @@ def is_valid_gzip(filename):
         return False
 
 def download_file(url, filename):
+    """Download atomically with a finite timeout and optional pinned SHA-256."""
+    checksum_name = (
+        "RGS_QIP_MAP_SHA256"
+        if os.path.basename(filename).startswith("emd_25156")
+        else "RGS_QIP_PDB_SHA256"
+    )
+    expected_sha256 = os.environ.get(checksum_name)
+
     if os.path.exists(filename):
         if filename.endswith(".gz") and not is_valid_gzip(filename):
-            print(f"[WARNING] File corrotto/incompleto rilevato ({filename}). Rimozione...")
+            print(f"[WARNING] File gzip corrotto ({filename}). Rimozione...")
             os.remove(filename)
         else:
-            print("[OK] Existing:", filename)
+            print(f"[OK] File esistente: {filename}")
+            if expected_sha256 is None:
+                print(f"[WARN] {checksum_name} non impostato: integrità crittografica non verificata.")
             return
 
-    print("[DOWNLOAD]", url)
-    urllib.request.urlretrieve(url, filename)
-    print("[OK]", filename)
+    if expected_sha256 is None:
+        print(f"[WARN] {checksum_name} non impostato: il download sarà verificato per formato, non contro un digest atteso.")
+    print(f"[DOWNLOAD] {url}")
+    digest = _download_to_path(
+        url,
+        filename,
+        timeout=120.0,
+        expected_sha256=expected_sha256,
+    )
+    print(f"[OK] {filename} (SHA-256 {digest})")
 
 def download_dataset():
     print("=" * 80)
