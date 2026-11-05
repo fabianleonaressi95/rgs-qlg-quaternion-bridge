@@ -1,4 +1,7 @@
-import base as _base
+try:
+    from . import base as _base
+except ImportError:  # direct execution: python experiments/quantum_models/koopman2.py
+    import base as _base
 
 # Import shared model definitions without executing source text.
 np = _base.np
