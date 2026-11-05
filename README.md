@@ -61,6 +61,7 @@ These identities provide exact finite-dimensional reference tests. They do not, 
 
 ## Repository map
 
+- [T031 Rumin–2I equivariance bridge](docs/T031_RUMIN_2I_EQUIVARIANCE_BRIDGE.md) — conventions, left deck/right Hopf actions, twist convention and evidence boundary.
 - [Q6–D5 literature and repository evidence map](docs/Q6_D5_LITERATURE_AND_REPOSITORY_EVIDENCE_MAP.md) — external sources, internal proof files, repository inventory and open proof obligations.
 - [Research priorities and collaboration map](docs/RESEARCH_PRIORITIES_AND_COLLABORATION_MAP.md) — ordered open problems, targeted researchers, public contacts and external software benchmarks.
 
