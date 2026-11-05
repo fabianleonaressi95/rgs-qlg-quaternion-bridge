@@ -29,6 +29,11 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+# Shared atomic writer; supports both package and direct-script execution.
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from shared_io import atomic_write_bytes
+
 
 USER_AGENT = (
     "QVSM-RNR-reproducibility-audit/1.0 "
@@ -311,7 +316,7 @@ def request_url(session, url):
 
 def save_response_content(response, destination):
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes(response.content)
+    atomic_write_bytes(response.content, destination)
 
     return {
         "path": str(destination),
@@ -711,7 +716,7 @@ def main():
                 )
 
                 if response.status_code == 200:
-                    pmc_file.write_bytes(response.content)
+                    atomic_write_bytes(response.content, pmc_file)
 
                     download_rows.append({
                         "source_id": source["source_id"],
@@ -779,7 +784,7 @@ def main():
             )
 
             if response.status_code == 200:
-                acs_html_file.write_bytes(response.content)
+                atomic_write_bytes(response.content, acs_html_file)
 
                 download_rows.append({
                     "source_id": source["source_id"],
