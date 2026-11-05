@@ -1,5 +1,18 @@
-import numpy as np, json
-exec(open('base.py').read())
+import base as _base
+
+# Import shared model definitions without executing source text.
+np = _base.np
+json = _base.json
+cdist = _base.cdist
+rng = _base.rng
+Psi = _base.Psi
+names = _base.names
+GC3 = _base.GC3
+tr = _base.tr
+te = _base.te
+X = _base.X
+kingdom = _base.kingdom
+fit = _base.fit
 k=10; lam=1e-3
 mu=Psi[tr].mean(0); sd=Psi[tr].std(0)+1e-12; Z=(Psi-mu)/sd; cd=slice(0,64)
 def knn_graph(ids):
