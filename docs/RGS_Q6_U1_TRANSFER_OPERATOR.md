@@ -123,3 +123,10 @@ Still open:
 3. a physically justified three-dimensional spatial subcomplex before any
    3+1D claim;
 4. the continuum and renormalization analysis of the 6+1D model.
+
+
+## Literature and asymptotic scope
+
+The exact character expansion follows from the NIST DLMF generating function §10.35.1–10.35.2 (https://dlmf.nist.gov/10.35). The Wilson-to-Hamiltonian transfer-matrix construction is standard; see Kogut and Susskind (1975), https://doi.org/10.1103/PhysRevD.11.395, Kogut (1979), https://doi.org/10.1103/RevModPhys.51.659, and Creutz (1977), https://doi.org/10.1103/PhysRevD.15.1128. Modified-Bessel large-argument and large-order expansions are catalogued in DLMF §§10.40–10.41.
+
+The approximation I_n(beta)/I_0(beta) ≈ exp(-n^2/(2 beta)) is used only in the stated fixed-flux, large-beta regime (or a separately justified scaling regime). It is not a uniform estimate over the full integer cycle lattice and does not prove convergence of the full transfer operator.

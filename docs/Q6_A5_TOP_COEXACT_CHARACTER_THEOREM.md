@@ -137,3 +137,8 @@ the D5 bounded symmetric domain; an equality of compact Wilson and
 noncompact D5 Hilbert spaces; a measure-preserving map or its Jacobian;
 a physical 3+1-dimensional continuum limit; a microscopic determination of
 the gauge coupling/charge normalization; or a derivation of alpha.
+
+
+## Representation-theory reference
+
+The character inner product and irreducibility criterion used here are standard finite-group representation theory; see J.-P. Serre, *Linear Representations of Finite Groups*, Graduate Texts in Mathematics 42, Springer (1977). The Q6-specific A5 action, exact spectral projector and character traces are constructed and audited in this repository. The external reference supplies the representation-theory criterion, not the Q6 matrices or their trace values.
