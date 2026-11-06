@@ -100,6 +100,8 @@ The [recovered RGS/Q6 embedded-graph baseline](docs/RGS_Q6_WILSON_EMBEDDED_GRAPH
 
 The [Ellis-RGS Levi-Civita spin connection](docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md) now constructs edgewise SU(2) links by integrating the exact ambient parallel-transport equation on the isometrically embedded Ellis hypersurface. This is a geometric finite-mesh connection; uniform refinement estimates and spinorial Mosco/resolvent convergence remain OPEN. Run `PYTHONPATH=. python -m pytest tests/test_ellis_spin_connection.py -q`.
 
+The [intrinsic Ellis-RGS spinorial Wilson-Dirac operator](docs/ELLIS_RGS_INTRINSIC_SPIN_DIRAC.md) assembles the naive spatial Dirac block and positive Wilson graph term from local tangent Clifford directions, intrinsic Ellis edge lengths, lumped P1 vertex volumes and the Levi-Civita SU(2) links. Its finite-mesh audits include gamma5 hermiticity and local spin-frame gauge covariance; curved refinement convergence and doubler control remain OPEN. Run `PYTHONPATH=. python -m pytest tests/test_ellis_rgs_spin_dirac.py -q`.
+
 ### Geometric field structures
 - Lattice holonomies and gauge covariance.
 - Discrete vierbein and connection constructions.
