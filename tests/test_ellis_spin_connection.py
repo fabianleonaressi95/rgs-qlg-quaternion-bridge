@@ -80,3 +80,34 @@ def test_antipodal_edge_is_rejected_as_ambiguous():
     q = _point(0.0, [-1., 0., 0.], r0)
     with pytest.raises(ValueError, match="antipodal"):
         ellis_edge_spin_link(p, q, r0)
+
+
+
+def test_ellis_spin_holonomy_detects_nonzero_curvature_at_throat():
+    r0 = 0.8292
+    eps = 0.12
+    directions = [
+        np.array([1., 0., 0.]),
+        np.array([np.cos(eps), np.sin(eps), 0.]),
+        np.array([np.cos(eps), 0., np.sin(eps)]),
+    ]
+    points = [_point(0.0, n, r0) for n in directions]
+    u01, _ = ellis_edge_spin_link(points[0], points[1], r0, steps=96)
+    u12, _ = ellis_edge_spin_link(points[1], points[2], r0, steps=96)
+    u20, _ = ellis_edge_spin_link(points[2], points[0], r0, steps=96)
+    holonomy = u20 @ u12 @ u01
+    distance_from_identity = float(np.linalg.norm(holonomy-np.eye(2), ord="fro"))
+    assert distance_from_identity > 1e-5
+    assert np.linalg.norm(holonomy.conj().T@holonomy-np.eye(2)) < 1e-10
+
+
+def test_rk4_edge_transport_converges_under_step_refinement():
+    r0 = 0.8292
+    p = _point(-0.3, [1., 0., 0.], r0)
+    q = _point(0.45, [0.7, 0.5, np.sqrt(0.26)], r0)
+    u16, _ = ellis_edge_spin_link(p, q, r0, steps=16)
+    u32, _ = ellis_edge_spin_link(p, q, r0, steps=32)
+    u64, _ = ellis_edge_spin_link(p, q, r0, steps=64)
+    e16 = np.linalg.norm(u16-u64, ord="fro")
+    e32 = np.linalg.norm(u32-u64, ord="fro")
+    assert e32 < e16
