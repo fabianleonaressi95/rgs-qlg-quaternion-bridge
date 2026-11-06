@@ -32,3 +32,14 @@ The assembler uses the actual embedded R4 hypersurface, local tangent frames, in
 Tests cover gamma5 hermiticity, positivity of the Wilson graph term, local SU(2) frame-gauge covariance and rejection of incomplete link data. These are finite-dimensional algebraic checks.
 
 Open: prove uniform shape regularity and measure equivalence, derive the consistency order of the path/integrator scheme, establish discrete Poincare/Rellich compactness, construct recovery sequences and prove Mosco/strong-resolvent convergence. The finite graph Wilson term has not yet been shown to remove all curved-lattice doublers.
+
+
+## Refinement-family geometric gate
+
+The separate multi-level audit is:
+
+\`\`\`bash
+PYTHONPATH=. python examples/run_ellis_mesh_shape_regularity_audit.py --levels 0 1 2 --radial-base 8
+\`\`\`
+
+It reports the maximum Gram condition number, minimum Gram eigenvalue, maximum chord diameter, exact Ellis volume error, and observed halving orders. This is numerical evidence on three levels, not a proof of uniform shape regularity. The level-0 Wilson-Dirac baseline uses radial_base=2 and is deliberately not used as evidence for shape regularity; its poor condition indicator is reported separately.
