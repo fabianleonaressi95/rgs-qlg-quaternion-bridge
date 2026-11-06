@@ -19,8 +19,11 @@ The Wilson graph term uses diagonal weights r/(2 ell_ij), off-diagonal blocks -r
 - src/ellis_rgs_spin_dirac.py
 - tests/test_ellis_rgs_spin_dirac.py
 
-Run:
+Run focused tests:
 PYTHONPATH=. python -m pytest tests/test_ellis_rgs_spin_dirac.py -q
+
+Run the complete level-0 refinement graph:
+PYTHONPATH=. python examples/run_ellis_rgs_spin_wilson_dirac_audit.py --level 0 --radial-base 2 --steps 12 --output ellis-spin-wilson-audit.json
 
 The assembler uses the actual embedded R4 hypersurface, local tangent frames, intrinsic path lengths and geometrically integrated SU(2) links. It does not reinterpret the archived 64x3 edge coframe as an Ellis vierbein.
 
