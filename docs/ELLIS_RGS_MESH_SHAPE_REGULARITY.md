@@ -86,7 +86,7 @@ The finite-level eigenvalue bounds are diagnostics. A uniform bound over every r
 
 On the reference tetrahedron \(\widehat K\), the affine P1 consistent mass matrix has eigenvalues in the ratio \([1/5,1]\) relative to the vertex-lumped mass matrix. Suppose the exact curved element Jacobian \(J_K(\xi)\) and the chordal element volume \(V_K^{\rm ch}\) satisfy the level-independent bounds
 \[
-0<c_J V_K^{\rm ch}\leq J_K(\xi)\leq C_J V_K^{\rm ch}
+0<c_J\leq \frac{J_K(\xi)}{6V_K^{\rm ch}}\leq C_J
 \quad\text{for all }\xi\in\widehat K.
 \]
 Then, for every local P1 function,
