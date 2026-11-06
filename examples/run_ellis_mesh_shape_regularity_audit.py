@@ -24,7 +24,11 @@ def run(levels=(0,1,2), radial_base=8, r0=0.8292):
     checks={
         "diameter_strictly_decreases":all(a["h_max_chord"]>b["h_max_chord"] for a,b in zip(rows,rows[1:])),
         "volume_error_strictly_decreases":all(a["volume_relative_error"]>b["volume_relative_error"] for a,b in zip(rows,rows[1:])),
-        "shape_condition_bounded":max(r["element_condition_max"] for r in rows)<100.0,
+        "shape_condition_bounded_on_tested_levels":max(r["element_condition_max"] for r in rows)<100.0,
+        "angular_triangle_quality_positive":min(r["angular_triangle_quality_min"] for r in rows)>0.0,
+        "angular_triangle_edge_ratio_positive":min(r["angular_triangle_edge_ratio_min"] for r in rows)>0.0,
+        "radial_angular_scale_ratio_positive":min(r["radial_step_over_angular_h_max"] for r in rows)>0.0,
+        "tetra_normalized_volume_positive":min(r["tetra_normalized_volume_min"] for r in rows)>0.0,
         "gram_minimum_positive":min(r["element_gram_min_eigenvalue"] for r in rows)>0.0,
         "embedding_identity_small":max(r["embedding_identity_max_residual"] for r in rows)<1e-13,
     }
