@@ -1,0 +1,65 @@
+name: Wilson periodic and curved-Q6 audit
+
+on:
+  push:
+    branches:
+      - audit/wilson-periodic-curved-spectral-2026-11-06
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "src/wilson_periodic_symbol.py"
+      - "src/curved_wilson_spectral_audit.py"
+      - "src/rgs_ellis_refinement.py"
+      - "src/ellis_spin_connection.py"
+      - "src/ellis_rgs_spin_dirac.py"
+      - "src/rgs_ellis_refinement.py"
+      - "examples/run_ellis_rgs_spin_wilson_dirac_audit.py"
+      - "examples/run_ellis_mesh_shape_regularity_audit.py"
+      - "examples/run_ellis_lumped_mass_equivalence_audit.py"
+      - "examples/run_ellis_neumann_poincare_audit.py"
+      - "docs/ELLIS_RGS_MESH_SHAPE_REGULARITY.md"
+      - "tests/test_rgs_ellis_refinement.py"
+      - "tests/test_wilson_periodic_symbol.py"
+      - "tests/test_curved_wilson_spectral_audit.py"
+      - "tests/test_ellis_spin_connection.py"
+      - "tests/test_ellis_rgs_spin_dirac.py"
+      - "examples/rgs_q6_wilson_spectral_baseline.py"
+      - "examples/run_ellis_rgs_spin_wilson_dirac_audit.py"
+      - "scripts/run_wilson_periodic_symbol_audit.py"
+      - "docs/WILSON_PERIODIC_VS_CURVED_Q6_SPECTRAL_AUDIT.md"
+      - "docs/CURVED_Q6_WILSON_FINITE_SPECTRAL_AUDIT.md"
+      - "docs/RGS_Q6_WILSON_EMBEDDED_GRAPH_BASELINE.md"
+      - "docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md"
+      - "docs/ELLIS_RGS_INTRINSIC_SPIN_DIRAC.md"
+      - ".github/workflows/wilson-periodic-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  periodic-symbol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install numpy pytest scipy
+      - name: Compile new audit module
+        run: python -m py_compile src/wilson_periodic_symbol.py src/rgs_ellis_refinement.py scripts/run_wilson_periodic_symbol_audit.py examples/run_ellis_rgs_spin_wilson_dirac_audit.py examples/run_ellis_mesh_shape_regularity_audit.py examples/run_ellis_lumped_mass_equivalence_audit.py examples/run_ellis_neumann_poincare_audit.py
+      - name: Run focused tests
+        run: PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py tests/test_curved_wilson_spectral_audit.py tests/test_ellis_spin_connection.py tests/test_ellis_rgs_spin_dirac.py tests/test_rgs_ellis_refinement.py -q
+      - name: Generate periodic report
+        run: python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --wilson-r 1 --alpha 0 --output /tmp/wilson-periodic-symbol-audit.json
+      - name: Run recovered RGS/Q6 finite baseline
+        run: PYTHONPATH=. python examples/rgs_q6_wilson_spectral_baseline.py --output /tmp/rgs-q6-wilson-spectral-baseline.json
+      - name: Run full Ellis-RGS intrinsic spin-Wilson baseline
+        run: PYTHONPATH=. python examples/run_ellis_rgs_spin_wilson_dirac_audit.py --level 0 --radial-base 2 --steps 12 --output /tmp/ellis-rgs-spin-wilson-audit.json
+      - name: Run multi-level Ellis shape-regularity audit
+        run: PYTHONPATH=. python examples/run_ellis_mesh_shape_regularity_audit.py --levels 0 1 2 --radial-base 8 --output /tmp/ellis-mesh-shape-regularity.json
+      - name: Run Ellis common-L2 lumped mass equivalence audit
+        run: PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4 --output /tmp/ellis-lumped-mass-equivalence.json
+      - name: Run Ellis Neumann Poincare spectral audit
+        run: PYTHONPATH=. python examples/run_ellis_neumann_poincare_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4 --output /tmp/ellis-neumann-poincare.json
