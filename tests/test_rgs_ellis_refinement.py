@@ -139,3 +139,15 @@ def test_curved_g4_embedding_rejects_invalid_nodal_or_barycentric_data():
     with pytest.raises(ValueError):
         embedding.evaluate_on_element(0, [-0.1, 0.4, 0.3, 0.4])
 
+
+
+def test_curved_lumped_mass_is_spectrally_comparable_to_common_l2_mass():
+    from src.rgs_ellis_refinement import audit_ellis_lumped_mass_equivalence
+
+    mesh = build_ellis_rgs_refinement(0, r0=0.8292, radial_base=4)
+    report = audit_ellis_lumped_mass_equivalence(mesh, quadrature_order=4)
+    assert report["positive_mass"]
+    assert 0.0 < report["generalized_mass_eigenvalue_min"]
+    assert report["generalized_mass_eigenvalue_max"] < 2.0
+    assert report["curved_mass_volume_relative_error"] < 0.1
+    assert report["lumped_measure_volume_relative_error"] < 0.2
