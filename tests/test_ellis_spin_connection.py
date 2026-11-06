@@ -53,14 +53,11 @@ def test_spin_link_is_unitary_and_lift_matches_so3_rotation():
     p = _point(0.1, [1., 0., 0.], r0)
     q = _point(0.2, [0.9, 0.3, 0.2], r0)
     link, audit = ellis_edge_spin_link(p, q, r0, steps=64)
-    # The scalar-first lift used by the repository must reproduce the frame map.
-    # Recover its quaternion from the defining SU(2) entries.
-    w = float(np.real(np.trace(link))/2)
-    x = float(np.imag(link[0, 1]-link[1, 0])/2)
-    y = float(np.real(link[1, 0]-link[0, 1])/2)
-    z = float(np.imag(link[1, 1]-link[0, 0])/2)
-    qspin = np.array([w, x, y, z])
-    assert np.linalg.norm(quaternion_to_so3(qspin).T@quaternion_to_so3(qspin)-np.eye(3)) < 1e-10
+    # The scalar-first lift must reproduce the endpoint frame rotation.
+    assert np.allclose(
+        quaternion_to_so3(np.asarray(audit["spin_quaternion"])),
+        np.asarray(audit["so3_rotation"]), atol=2e-10
+    )
     assert audit["so3_orthogonality_residual"] < 1e-10
     assert audit["spin_unitarity_residual"] < 1e-10
 
