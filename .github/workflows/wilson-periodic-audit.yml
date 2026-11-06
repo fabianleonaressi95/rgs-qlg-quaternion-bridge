@@ -16,7 +16,9 @@ on:
       - "src/rgs_ellis_refinement.py"
       - "docs/ELLIS_RGS_MESH_SHAPE_REGULARITY.md"
       - "examples/run_ellis_rgs_spin_wilson_dirac_audit.py"
-      - "examples/run_ellis_mesh_shape_regularity_audit.py"
+      - "examples/run_ellis_mesh_shape_regularity_audit.py examples/run_ellis_lumped_mass_equivalence_audit.py"
+      - "examples/run_ellis_lumped_mass_equivalence_audit.py"
+      - "tests/test_rgs_ellis_refinement.py"
       - "tests/test_wilson_periodic_symbol.py"
       - "tests/test_curved_wilson_spectral_audit.py"
       - "tests/test_ellis_spin_connection.py"
@@ -56,3 +58,5 @@ jobs:
         run: PYTHONPATH=. python examples/run_ellis_rgs_spin_wilson_dirac_audit.py --level 0 --radial-base 2 --steps 12 --output /tmp/ellis-rgs-spin-wilson-audit.json
       - name: Run multi-level Ellis shape-regularity audit
         run: PYTHONPATH=. python examples/run_ellis_mesh_shape_regularity_audit.py --levels 0 1 2 --radial-base 8 --output /tmp/ellis-mesh-shape-regularity.json
+      - name: Run Ellis common-L2 lumped mass equivalence audit
+        run: PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4 --output /tmp/ellis-lumped-mass-equivalence.json
