@@ -103,6 +103,12 @@ def assemble_ellis_spin_wilson_dirac(
         ni /= np.linalg.norm(ni); nj /= np.linalg.norm(nj)
         ci = sum(ni[a]*gs[a+1] for a in range(3))
         cj = sum(nj[a]*gs[a+1] for a in range(3))
+        Gi = np.block([[gauges[i],np.zeros((2,2))],
+                       [np.zeros((2,2)),gauges[i]]])
+        Gj = np.block([[gauges[j],np.zeros((2,2))],
+                       [np.zeros((2,2)),gauges[j]]])
+        ci = Gi@ci@Gi.conj().T
+        cj = Gj@cj@Gj.conj().T
         si,sj=slice(4*i,4*i+4),slice(4*j,4*j+4)
         block=0.5j/length*(cj@S+S@ci)
         raw_d[sj,si]+=block
