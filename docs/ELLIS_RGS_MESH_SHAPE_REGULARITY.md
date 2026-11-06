@@ -80,3 +80,21 @@ PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels
 \`\`\`
 
 The finite-level eigenvalue bounds are diagnostics. A uniform bound over every refinement level still requires analytic control of the element Jacobian ratios and quadrature error.
+
+
+### Conditional local proof of mass equivalence
+
+On the reference tetrahedron \(\widehat K\), the affine P1 consistent mass matrix has eigenvalues in the ratio \([1/5,1]\) relative to the vertex-lumped mass matrix. Suppose the exact curved element Jacobian \(J_K(\xi)\) and the chordal element volume \(V_K^{\rm ch}\) satisfy the level-independent bounds
+\[
+0<c_J V_K^{\rm ch}\leq J_K(\xi)\leq C_J V_K^{\rm ch}
+\quad\text{for all }\xi\in\widehat K.
+\]
+Then, for every local P1 function,
+\[
+\frac{c_J}{5}\,m_{K,\rm lump}(v,v)
+\leq m_{K,\rm curved}(v,v)
+\leq C_J\,m_{K,\rm lump}(v,v).
+\]
+Summing over elements gives global spectral equivalence with the same constants. Thus the analytic issue is reduced to a uniform element-Jacobian/chordal-volume comparison; the finite eigenvalue computation is a diagnostic of that comparison, not its proof.
+
+For levels 0 and 1 with radial_base=8, the computed generalized mass eigenvalue intervals are respectively [0.22510, 1.10338] and [0.22115, 1.02534]. The exact curved mass volume errors at quadrature order 4 are \(1.54\times10^{-6}\) and \(2.53\times10^{-8}\). The chordal lumped volume errors remain larger (8.849% and 2.334%), as expected for the piecewise-linear geometric measure. Uniformity over all levels is still OPEN.
