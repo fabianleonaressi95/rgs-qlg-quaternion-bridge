@@ -98,3 +98,14 @@ Then, for every local P1 function,
 Summing over elements gives global spectral equivalence with the same constants. Thus the analytic issue is reduced to a uniform element-Jacobian/chordal-volume comparison; the finite eigenvalue computation is a diagnostic of that comparison, not its proof.
 
 For levels 0 and 1 with radial_base=8, the computed generalized mass eigenvalue intervals are respectively [0.22510, 1.10338] and [0.22115, 1.02534]. The exact curved mass volume errors at quadrature order 4 are \(1.54\times10^{-6}\) and \(2.53\times10^{-8}\). The chordal lumped volume errors remain larger (8.849% and 2.334%), as expected for the piecewise-linear geometric measure. Uniformity over all levels is still OPEN.
+
+
+## Finite-level Neumann Poincare spectral audit
+
+The common-L2 curved stiffness and mass matrices also support a finite-level Neumann spectral-gap check:
+
+\`\`\`bash
+PYTHONPATH=. python examples/run_ellis_neumann_poincare_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4
+\`\`\`
+
+The constant function is the exact null mode of the Neumann Dirichlet form. The script computes the lowest generalized eigenvalues \(K_hx=\lambda M_hx\), checks the constant-mode residual and mass orthonormality, and reports \(\lambda_{1,h}\) and \(1/\lambda_{1,h}\). A positive gap on two finite levels is not a proof of a uniform discrete Poincare inequality or Rellich compactness; spectral convergence remains OPEN.
