@@ -11,13 +11,16 @@ on:
       - "src/wilson_periodic_symbol.py"
       - "src/curved_wilson_spectral_audit.py"
       - "src/rgs_ellis_refinement.py"
+      - "src/ellis_spin_connection.py"
       - "tests/test_wilson_periodic_symbol.py"
       - "tests/test_curved_wilson_spectral_audit.py"
+      - "tests/test_ellis_spin_connection.py"
       - "examples/rgs_q6_wilson_spectral_baseline.py"
       - "scripts/run_wilson_periodic_symbol_audit.py"
       - "docs/WILSON_PERIODIC_VS_CURVED_Q6_SPECTRAL_AUDIT.md"
       - "docs/CURVED_Q6_WILSON_FINITE_SPECTRAL_AUDIT.md"
       - "docs/RGS_Q6_WILSON_EMBEDDED_GRAPH_BASELINE.md"
+      - "docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md"
       - ".github/workflows/wilson-periodic-audit.yml"
 
 permissions:
@@ -36,7 +39,7 @@ jobs:
       - name: Compile new audit module
         run: python -m py_compile src/wilson_periodic_symbol.py scripts/run_wilson_periodic_symbol_audit.py
       - name: Run focused tests
-        run: PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py tests/test_curved_wilson_spectral_audit.py -q
+        run: PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py tests/test_curved_wilson_spectral_audit.py tests/test_ellis_spin_connection.py -q
       - name: Generate periodic report
         run: python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --wilson-r 1 --alpha 0 --output /tmp/wilson-periodic-symbol-audit.json
       - name: Run recovered RGS/Q6 finite baseline
