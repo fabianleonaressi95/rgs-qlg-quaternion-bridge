@@ -11,12 +11,12 @@ This audit separates (i) a translation-invariant periodic lattice, where a Brill
 
 Use the Euclidean Wilson symbol in dimension d:
 ```
-D_E,a(p) = i (2/a) sum_mu gamma_mu sin(p_mu a)
+D_E,a(p) = i (1/a) sum_mu gamma_mu sin(p_mu a)
            + (r(a)/a) sum_mu (1-cos(p_mu a)) I.
 ```
 For Hermitian Euclidean Clifford matrices,
 ```
-sigma_a(p)^2 = 4/a^2 sum_mu sin^2(p_mu a)
+sigma_a(p)^2 = 1/a^2 sum_mu sin^2(p_mu a)
              + r(a)^2/a^2 [sum_mu (1-cos(p_mu a))]^2.
 ```
 At a Brillouin corner with exactly k components equal to pi/a, the naive kinetic term vanishes and the Wilson mass is m_W(k)=2 k r(a)/a. There are binomial(d,k) such corners. In d=3, the eight naive zeros split into one physical corner k=0 and seven nonphysical corners k=1,2,3. For r(a)>0, all seven have nonzero Wilson mass.
