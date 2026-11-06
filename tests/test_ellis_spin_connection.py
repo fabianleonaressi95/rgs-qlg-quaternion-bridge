@@ -51,7 +51,9 @@ def test_spin_link_is_unitary_and_lift_matches_so3_rotation():
     from src.discrete_dirac import _rotation_to_quaternion
     r0 = 0.8292
     p = _point(0.1, [1., 0., 0.], r0)
-    q = _point(0.2, [0.9, 0.3, 0.2], r0)
+    n1 = np.array([0.9, 0.3, 0.2])
+    n1 /= np.linalg.norm(n1)
+    q = _point(0.2, n1, r0)
     link, audit = ellis_edge_spin_link(p, q, r0, steps=64)
     # The scalar-first lift must reproduce the endpoint frame rotation.
     assert np.allclose(
