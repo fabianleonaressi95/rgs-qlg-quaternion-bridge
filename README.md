@@ -104,7 +104,7 @@ The [intrinsic Ellis-RGS spinorial Wilson-Dirac operator](docs/ELLIS_RGS_INTRINS
 
 
 A separate [multi-level mesh shape-regularity audit](examples/run_ellis_mesh_shape_regularity_audit.py) reports Gram conditioning, minimum Gram eigenvalues, chord diameters and Ellis volume convergence for levels 0–2. It is numerical evidence only, not a proof of uniform shape regularity. Run `PYTHONPATH=. python examples/run_ellis_mesh_shape_regularity_audit.py --levels 0 1 2 --radial-base 8`.
-The conditional geometric criterion and remaining proof obligations are documented in [ELLIS_RGS_MESH_SHAPE_REGULARITY.md](docs/ELLIS_RGS_MESH_SHAPE_REGULARITY.md). The same audit document describes the sparse comparison between the curved common-L2 P1 mass and the Wilson operator's lumped vertex measure; run `PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4`.
+The conditional geometric criterion and remaining proof obligations are documented in [ELLIS_RGS_MESH_SHAPE_REGULARITY.md](docs/ELLIS_RGS_MESH_SHAPE_REGULARITY.md). The same audit document describes the sparse comparison between the curved common-L2 P1 mass and the Wilson operator's lumped vertex measure; run `PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4`. The finite-level Neumann Poincare gap check is available as `PYTHONPATH=. python examples/run_ellis_neumann_poincare_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4`.
 ### Geometric field structures
 - Lattice holonomies and gauge covariance.
 - Discrete vierbein and connection constructions.
