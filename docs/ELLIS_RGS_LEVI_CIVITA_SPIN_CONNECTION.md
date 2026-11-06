@@ -10,7 +10,9 @@ with exact isometric embedding
 `F(u,n)=(R(u)n,r_0\,\operatorname{arsinh}(u/r_0))\in\mathbb R^4`.
 
 Its unit normal is
-`N(u,n)=(r_0 n/R,-u/R)`.
+`N(u,n)=(r_0 n/R,-u/R)`. The warped-product sectional curvatures are
+`K_radial=-r_0^2/R^4` and `K_tangential=+r_0^2/R^4`; at the throat they are
+`-1/r_0^2` and `+1/r_0^2`, respectively.
 For a tangent vector `V`, Levi-Civita parallel transport along a curve in the hypersurface is characterized by vanishing tangential component of its ambient derivative. Differentiating `<V,N>=0` gives the exact ODE
 `V'=-<V,N'>N`.
 
@@ -38,13 +40,13 @@ Run:
 PYTHONPATH=. python -m pytest tests/test_ellis_spin_connection.py -q
 ```
 
-Tests cover frame orthonormality/tangency, exact radial transport, edge reversal, SU(2) unitarity, and link construction on the actual Ellis refinement chain.
+Tests cover frame orthonormality/tangency, exact radial transport, edge reversal, SU(2) lift consistency, nontrivial throat holonomy, RK4 step refinement, and link construction on the actual Ellis refinement chain.
 
 ## 4. What is and is not established
 
 The construction gives a well-defined finite-edge SU(2) parallel transporter for the stated smooth Ellis metric and the stated edge-path convention. It is geometrically derived, unlike the previous polar coframe comparison.
 
-It does **not** yet prove:
+The nonzero triangular holonomy test is a finite numerical detection of the known nonzero sectional curvature, not a convergence-rate theorem for plaquette holonomies.\n\nIt does **not** yet prove:
 - convergence of the edge transport to the continuum connection uniformly over all refinement edges;
 - gauge-independent curvature estimates or plaquette holonomy convergence;
 - a spinorial Dirac operator consistent with this connection;
