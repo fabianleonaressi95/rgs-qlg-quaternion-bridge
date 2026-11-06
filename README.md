@@ -81,6 +81,21 @@ PYTHONPATH=. python -m pytest tests/test_rgs_ellis_refinement.py -v
 - Wilson-kernel and overlap-operator experiments.
 - Spectral residuals, multiplicities and symmetry checks.
 
+### Wilson spectral audit: periodic reference and curved finite graphs
+
+The Wilson audit is split into two explicitly different settings:
+
+- [Periodic versus curved-Q6 spectral audit](docs/WILSON_PERIODIC_VS_CURVED_Q6_SPECTRAL_AUDIT.md) derives the standard Euclidean Wilson Fourier symbol, enumerates Brillouin-corner masses and records the scaling window for the stated periodic model.
+- [Finite curved-Q6 Wilson spectral audit](docs/CURVED_Q6_WILSON_FINITE_SPECTRAL_AUDIT.md) reports finite-graph Wilson-kernel eigenvalues, low-spectrum multiplicities, Euclidean Wilson–Dirac singular values and gamma5-Hermiticity residuals.
+
+Run the focused tests:
+```bash
+PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py tests/test_curved_wilson_spectral_audit.py -q
+python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --wilson-r 1 --alpha 0
+```
+
+The periodic Brillouin-corner count is not transferred to the curved graph. The finite curved audit does not establish a refinement-uniform gap, curved Mosco convergence, or strong-resolvent convergence; these remain OPEN.
+
 ### Geometric field structures
 - Lattice holonomies and gauge covariance.
 - Discrete vierbein and connection constructions.
