@@ -693,8 +693,40 @@ def audit_ellis_rgs_refinement(
             mesh.radial_coordinates**2 + r0**2
         )
         zprime = r0 / np.sqrt(mesh.radial_coordinates**2 + r0**2)
+        angular_edges = sorted({
+            tuple(sorted((int(a), int(b))))
+            for tri in mesh.angular_faces
+            for a, b in combinations(map(int, tri), 2)
+        })
+        angular_edge_lengths = np.asarray([
+            np.arccos(np.clip(
+                np.dot(mesh.angular_directions[a], mesh.angular_directions[b]),
+                -1.0, 1.0
+            ))
+            for a, b in angular_edges
+        ])
+        angular_face_areas = np.asarray([
+            2.0 * np.arctan2(
+                abs(float(np.dot(
+                    mesh.angular_directions[int(a)],
+                    np.cross(mesh.angular_directions[int(b)],
+                             mesh.angular_directions[int(c)])
+                ))),
+                1.0 + float(np.dot(mesh.angular_directions[int(a)], mesh.angular_directions[int(b)]))
+                  + float(np.dot(mesh.angular_directions[int(b)], mesh.angular_directions[int(c)]))
+                  + float(np.dot(mesh.angular_directions[int(c)], mesh.angular_directions[int(a)]))
+            )
+            for a, b, c in mesh.angular_faces
+        ])
         reports.append({
             "level": mesh.level,
+            "angular_edge_min": float(np.min(angular_edge_lengths)),
+            "angular_edge_max": float(np.max(angular_edge_lengths)),
+            "angular_face_area_min": float(np.min(angular_face_areas)),
+            "angular_face_area_max": float(np.max(angular_face_areas)),
+            "angular_shape_proxy_min_area_over_h2": float(
+                np.min(angular_face_areas) / np.max(angular_edge_lengths)**2
+            ),
             "vertices": int(mesh.vertices_r4.shape[0]),
             "angular_vertices": int(mesh.angular_directions.shape[0]),
             "angular_faces": int(mesh.angular_faces.shape[0]),
