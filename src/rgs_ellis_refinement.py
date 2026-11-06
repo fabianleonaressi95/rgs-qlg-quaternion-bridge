@@ -771,6 +771,33 @@ def audit_ellis_rgs_refinement(
             )
             for a, b, c in mesh.angular_faces
         ])
+        face_edge_lengths = np.asarray([
+            [
+                np.arccos(np.clip(np.dot(mesh.angular_directions[int(a)], mesh.angular_directions[int(b)]), -1.0, 1.0)),
+                np.arccos(np.clip(np.dot(mesh.angular_directions[int(b)], mesh.angular_directions[int(c)]), -1.0, 1.0)),
+                np.arccos(np.clip(np.dot(mesh.angular_directions[int(c)], mesh.angular_directions[int(a)]), -1.0, 1.0)),
+            ]
+            for a, b, c in mesh.angular_faces
+        ])
+        face_edge_min = np.min(face_edge_lengths, axis=1)
+        face_edge_max = np.max(face_edge_lengths, axis=1)
+        # Scale-free spherical triangle quality; equals one for an
+        # equilateral Euclidean triangle and is stable for small faces.
+        angular_quality = (
+            4.0 * np.sqrt(3.0) * angular_face_areas
+            / np.sum(face_edge_lengths**2, axis=1)
+        )
+        radial_step = float(np.max(np.diff(mesh.radial_coordinates)))
+        tet_edge_pairs = np.asarray(list(combinations(range(4), 2)), dtype=np.int64)
+        tet_points = mesh.vertices_r4[mesh.tetrahedra]
+        tet_edges = np.linalg.norm(
+            tet_points[:, tet_edge_pairs[:, 0], :]
+            - tet_points[:, tet_edge_pairs[:, 1], :], axis=2
+        )
+        tet_diameters = np.max(tet_edges, axis=1)
+        normalized_tet_volumes = (
+            6.0 * mesh.element_volumes / tet_diameters**3
+        )
         reports.append({
             "level": mesh.level,
             "angular_edge_min": float(np.min(angular_edge_lengths)),
@@ -780,6 +807,10 @@ def audit_ellis_rgs_refinement(
             "angular_shape_proxy_min_area_over_h2": float(
                 np.min(angular_face_areas) / np.max(angular_edge_lengths)**2
             ),
+            "angular_triangle_quality_min": float(np.min(angular_quality)),
+            "angular_triangle_edge_ratio_min": float(np.min(face_edge_min / face_edge_max)),
+            "radial_step_over_angular_h_max": float(radial_step / np.max(angular_edge_lengths)),
+            "radial_step_over_angular_h_min": float(radial_step / np.min(angular_edge_lengths)),
             "vertices": int(mesh.vertices_r4.shape[0]),
             "angular_vertices": int(mesh.angular_directions.shape[0]),
             "angular_faces": int(mesh.angular_faces.shape[0]),
@@ -788,6 +819,10 @@ def audit_ellis_rgs_refinement(
             "h_max_chord": mesh.max_element_diameter,
             "element_condition_max": float(np.max(mesh.element_condition)),
             "element_condition_min": float(np.min(mesh.element_condition)),
+            "element_singular_ratio_min": float(
+                np.min(1.0 / np.sqrt(mesh.element_condition))
+            ),
+            "tetra_normalized_volume_min": float(np.min(normalized_tet_volumes)),
             "element_gram_min_eigenvalue": float(
                 np.min(np.linalg.eigvalsh(mesh.element_gram)[:, 0])
             ),
