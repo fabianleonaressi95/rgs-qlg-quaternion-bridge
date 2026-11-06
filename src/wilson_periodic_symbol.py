@@ -15,7 +15,7 @@ def wilson_symbol_singular_value_squared(momentum, spacing: float, r: float = 1.
     if not math.isfinite(r) or r < 0:
         raise ValueError("r must be finite and non-negative")
     pa = p * a
-    kinetic = 4.0 / a**2 * float(np.sum(np.sin(pa)**2))
+    kinetic = 1.0 / a**2 * float(np.sum(np.sin(pa)**2))
     wilson = r**2 / a**2 * float(np.sum(1.0 - np.cos(pa)))**2
     return kinetic + wilson
 
