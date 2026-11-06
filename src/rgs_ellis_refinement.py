@@ -19,7 +19,8 @@ import hashlib
 from typing import Any
 
 import numpy as np
-from scipy.sparse import coo_matrix, csr_matrix
+from scipy.sparse import coo_matrix, csr_matrix, diags
+from scipy.sparse.linalg import eigsh
 from scipy.spatial import ConvexHull
 
 
@@ -633,6 +634,58 @@ def assemble_ellis_common_l2_operators(
         shape=(n_vertices, n_vertices),
     ).tocsr()
     return mass, stiffness
+
+
+def audit_ellis_lumped_mass_equivalence(
+    mesh: EllisRGSRefinement, quadrature_order: int = 4
+) -> dict[str, Any]:
+    """Compare exact curved P1 mass with the chordal lumped vertex measure.
+
+    The spectrum of D_lump^{-1/2} M_curved D_lump^{-1/2} gives finite-mesh
+    equivalence constants without forming a dense global mass matrix.
+    """
+    mass, _ = assemble_ellis_common_l2_operators(
+        mesh, quadrature_order=quadrature_order
+    )
+    lumped = np.zeros(mesh.vertices_r4.shape[0], dtype=float)
+    np.add.at(
+        lumped,
+        mesh.tetrahedra.ravel(),
+        np.repeat(mesh.element_volumes / 4.0, 4),
+    )
+    if np.any(lumped <= 0.0) or np.any(~np.isfinite(lumped)):
+        raise RuntimeError("invalid chordal lumped vertex measure")
+    invsqrt = 1.0 / np.sqrt(lumped)
+    scaled = diags(invsqrt) @ mass @ diags(invsqrt)
+    scaled = ((scaled + scaled.T) * 0.5).tocsr()
+    if scaled.shape[0] <= 2:
+        eigenvalues = np.linalg.eigvalsh(scaled.toarray())
+        lower, upper = float(eigenvalues[0]), float(eigenvalues[-1])
+    else:
+        lower = float(eigsh(scaled, k=1, which="SA", return_eigenvectors=False)[0])
+        upper = float(eigsh(scaled, k=1, which="LA", return_eigenvectors=False)[0])
+    exact_volume = 4.0 * np.pi * (
+        2.0 * mesh.half_width**3 / 3.0 + 2.0 * mesh.r0**2 * mesh.half_width
+    )
+    return {
+        "gate": "CURVED_ELLIS_LUMPED_VS_COMMON_L2_MASS",
+        "vertices": int(lumped.size),
+        "tetrahedra": int(mesh.tetrahedra.shape[0]),
+        "quadrature_order_per_duffy_axis": int(quadrature_order),
+        "generalized_mass_eigenvalue_min": lower,
+        "generalized_mass_eigenvalue_max": upper,
+        "lumped_measure_total": float(np.sum(lumped)),
+        "curved_mass_total": float(np.sum(mass)),
+        "exact_ellis_volume": float(exact_volume),
+        "curved_mass_volume_relative_error": float(
+            abs(float(np.sum(mass)) - exact_volume) / exact_volume
+        ),
+        "lumped_measure_volume_relative_error": float(
+            abs(float(np.sum(lumped)) - exact_volume) / exact_volume
+        ),
+        "positive_mass": bool(lower > 0.0),
+        "scope": "finite-level spectral equivalence audit; uniform-in-level constants remain to be proved",
+    }
 
 
 def audit_ellis_g4_common_l2(
