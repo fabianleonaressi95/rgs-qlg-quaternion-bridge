@@ -96,6 +96,8 @@ python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --w
 
 The periodic Brillouin-corner count is not transferred to the curved graph. The finite curved audit does not establish a refinement-uniform gap, curved Mosco convergence, or strong-resolvent convergence; these remain OPEN.
 
+The [recovered RGS/Q6 embedded-graph baseline](docs/RGS_Q6_WILSON_EMBEDDED_GRAPH_BASELINE.md) applies the finite spectral audit to the hash-checked 64-coordinate/192-edge seed with explicitly declared identity local frames and identity spin links. It isolates nonuniform embedded edge lengths only; it is not a curved tetrad or continuum spin-connection result. Run `PYTHONPATH=. python examples/rgs_q6_wilson_spectral_baseline.py`.
+
 ### Geometric field structures
 - Lattice holonomies and gauge covariance.
 - Discrete vierbein and connection constructions.
