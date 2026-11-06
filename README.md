@@ -98,6 +98,8 @@ The periodic Brillouin-corner count is not transferred to the curved graph. The 
 
 The [recovered RGS/Q6 embedded-graph baseline](docs/RGS_Q6_WILSON_EMBEDDED_GRAPH_BASELINE.md) applies the finite spectral audit to the hash-checked 64-coordinate/192-edge seed with explicitly declared identity local frames and identity spin links. It isolates nonuniform embedded edge lengths only; it is not a curved tetrad or continuum spin-connection result. Run `PYTHONPATH=. python examples/rgs_q6_wilson_spectral_baseline.py`.
 
+The [Ellis-RGS Levi-Civita spin connection](docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md) now constructs edgewise SU(2) links by integrating the exact ambient parallel-transport equation on the isometrically embedded Ellis hypersurface. This is a geometric finite-mesh connection; uniform refinement estimates and spinorial Mosco/resolvent convergence remain OPEN. Run `PYTHONPATH=. python -m pytest tests/test_ellis_spin_connection.py -q`.
+
 ### Geometric field structures
 - Lattice holonomies and gauge covariance.
 - Discrete vierbein and connection constructions.
