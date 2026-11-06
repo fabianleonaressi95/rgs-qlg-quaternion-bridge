@@ -109,3 +109,6 @@ PYTHONPATH=. python examples/run_ellis_neumann_poincare_audit.py --levels 0 1 --
 \`\`\`
 
 The constant function is the exact null mode of the Neumann Dirichlet form. The script computes the lowest generalized eigenvalues \(K_hx=\lambda M_hx\), checks the constant-mode residual and mass orthonormality, and reports \(\lambda_{1,h}\) and \(1/\lambda_{1,h}\). A positive gap on two finite levels is not a proof of a uniform discrete Poincare inequality or Rellich compactness; spectral convergence remains OPEN.
+
+
+The level-0 and level-1 audit reports first positive generalized Neumann eigenvalues \(0.1275708\) and \(0.1237701\), hence discrete Poincare constants \(7.8388\) and \(8.0795\). The constant-mode stiffness residuals are below \(3\times10^{-14}\). This supports finite-level stability of the mean-zero Poincare estimate; it does not establish a level-independent bound or compactness.
