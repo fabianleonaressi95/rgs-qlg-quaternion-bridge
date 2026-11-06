@@ -143,6 +143,8 @@ def ellis_edge_spin_link(point_i, point_j, r0: float, steps: int = 32):
         "so3_determinant_residual": det_res,
         "spin_unitarity_residual": float(np.linalg.norm(
             link.conj().T@link-np.eye(2), ord="fro")),
+        "spin_quaternion": uquat.tolist(),
+        "so3_rotation": rotation.tolist(),
         "transport_equation": "V'=-<V,N'>N",
         "path": "affine u and shortest great-circle n",
     }
