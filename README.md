@@ -6,6 +6,61 @@ This repository is part of the RGS–PSU–QLG research programme. It develops e
 
 > **Evidence policy:** mathematical identities, numerical verification, candidate constructions and open physical hypotheses are reported separately. Passing a finite numerical test does not establish a continuum limit or a physical theory.
 
+
+## Current open problem for independent mathematical review
+
+**One focused problem is being put forward for external scrutiny: establish (or identify an obstruction to) Mosco convergence of the curved Ellis–RGS P1 energies on the refinement family already specified in this repository.** This is a concrete scalar geometric problem. It is not a request to validate the whole RGS–PSU–QLG programme.
+
+### Problem statement
+
+Fix the compact manifold with boundary
+`M_L=[-L,L]\times S^2`, with `L=3r_0`, `r_0=0.8292`, and Riemannian metric
+`g=du^2+(u^2+r_0^2)d\Omega^2`.
+For each refinement level `h\to0`, let `K_h` be the nested angular-radial tetrahedral mesh generated from the recovered RGS 64B seed (56 distinct spherical directions, 108 initial angular faces; angular faces are subdivided fourfold and radial intervals are bisected at each level).
+
+The common Hilbert space and reconstruction are
+`H=L^2(M_L,d\mu_g)`, `d\mu_g=(u^2+r_0^2)\,du\,d\Omega`, and the explicitly defined continuous P1 map `J_h:V_h\to H^1(M_L)\subset H`. The discrete mass and stiffness forms are assembled from the curved element metric induced by the exact Ellis embedding, not from fitted cube-sphere weights.
+
+The target quadratic form is
+`q(u)=\int_{M_L}|\nabla_g u|_g^2\,d\mu_g`, with form domain `H^1(M_L)` (the natural Neumann form; any alternative boundary condition must be stated explicitly). Let `q_h` be the corresponding curved P1 stiffness form on `V_h`, extended to `H` through `J_h` by assigning `+\infty` outside `J_h(V_h)`.
+
+**Question.** Do `q_h` Mosco-converge to `q` in the common space `H` as `h\to0`? If so, prove both:
+
+- **Liminf:** whenever `J_hu_h\rightharpoonup u` weakly in `H`, `q(u)\le\liminf_{h\to0}q_h(u_h)`.
+- **Recovery:** for every `u\in H^1(M_L)`, construct `u_h\in V_h` with `J_hu_h\to u` strongly in `H` and `\limsup_{h\to0}q_h(u_h)\le q(u)`.
+
+A valid answer may instead identify a counterexample or a missing hypothesis that prevents this statement.
+
+### What is already available
+
+- **G1:** a reproducible nested curved geometric refinement family, with the recovered seed, exact Ellis embedding and finite-level geometric audits.
+- **G4:** an explicit common-`L^2` reconstruction `J_h` and curved-metric P1 mass/stiffness integrals on the same finite domain.
+- **Flat benchmark:** a separate Mosco proof for a regular periodic flat P1 family. It is methodological precedent only; it does not prove the curved statement.
+
+### What remains open
+
+The central missing step is a uniform all-level analysis: shape regularity of the curved element maps and their inverses, uniform metric/Jacobian bounds, coercivity and compactness in the common `L^2) space, followed by the liminf and recovery arguments. Finite-level numerical audits and convergence plots are not substitutes for these estimates.
+
+This question concerns a **Riemannian scalar Dirichlet form**. It does not assert Mosco convergence for a Lorentzian metric, nor convergence of tetrads, teleparallel field equations, spinors, Dirac/overlap operators, Yang–Mills theory or QCD. Those are separate problems and are not part of this review request.
+
+### Minimal entry points and reproducibility
+
+- [Curved refinement G1](docs/RGS_ELLIS_CURVED_REFINEMENT_G1.md)
+- [Common-`L^2` embedding G4](docs/RGS_ELLIS_CURVED_G4_COMMON_L2.md)
+- [Open proof programme G5–G6](docs/RGS_MOSCO_CURVED_REFINEMENT_PROGRAM.md)
+- [Flat periodic P1 Mosco theorem](docs/FLAT_TORUS_G6_P1_MOSCO_PROOF.md) — comparison benchmark, not the curved result.
+
+Run the curved finite-level audit and tests:
+
+```bash
+PYTHONPATH=. python examples/rgs_ellis_curved_refinement_audit.py
+PYTHONPATH=. python -m pytest tests/test_rgs_ellis_refinement.py -v
+```
+
+**Requested contribution:** a mathematically precise proof strategy, a counterexample, or a reference theorem whose hypotheses can be checked against this exact mesh family and these exact forms. Please identify the assumptions used; do not infer a continuum theorem from the finite audits.
+
+---
+
 ## Research scope
 
 ### Quaternionic and group geometry
