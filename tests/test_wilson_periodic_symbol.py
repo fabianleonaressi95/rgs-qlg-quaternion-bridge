@@ -20,7 +20,7 @@ def test_corner_shell_multiplicities_are_binomial():
 def test_fixed_momentum_symbol_has_continuum_kinetic_limit():
     p = np.array([0.7, -0.3, 0.2])
     values = [wilson_symbol_singular_value_squared(p, a, 1.0) for a in (0.2, 0.1, 0.05, 0.025)]
-    target = 4.0 * float(np.dot(p, p))
+    target = float(np.dot(p, p))
     assert abs(values[-1] - target) < abs(values[0] - target)
 
 @pytest.mark.parametrize("alpha", [-0.5, 0.0, 0.7])
