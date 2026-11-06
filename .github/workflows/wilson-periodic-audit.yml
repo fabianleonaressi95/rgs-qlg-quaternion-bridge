@@ -1,0 +1,35 @@
+name: Wilson periodic and curved-Q6 audit
+
+on:
+  push:
+    branches:
+      - audit/wilson-periodic-curved-spectral-2026-11-06
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "src/wilson_periodic_symbol.py"
+      - "tests/test_wilson_periodic_symbol.py"
+      - "scripts/run_wilson_periodic_symbol_audit.py"
+      - "docs/WILSON_PERIODIC_VS_CURVED_Q6_SPECTRAL_AUDIT.md"
+      - ".github/workflows/wilson-periodic-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  periodic-symbol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install numpy pytest
+      - name: Compile new audit module
+        run: python -m py_compile src/wilson_periodic_symbol.py scripts/run_wilson_periodic_symbol_audit.py
+      - name: Run focused tests
+        run: PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py -q
+      - name: Generate periodic report
+        run: python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --wilson-r 1 --alpha 0 --output /tmp/wilson-periodic-symbol-audit.json
