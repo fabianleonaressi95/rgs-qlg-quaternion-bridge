@@ -39,7 +39,7 @@ A valid answer may instead identify a counterexample or a missing hypothesis tha
 
 ### What remains open
 
-The central missing step is a uniform all-level analysis: shape regularity of the curved element maps and their inverses, uniform metric/Jacobian bounds, coercivity and compactness in the common `L^2) space, followed by the liminf and recovery arguments. Finite-level numerical audits and convergence plots are not substitutes for these estimates.
+The central missing step is a uniform all-level analysis: shape regularity of the curved element maps and their inverses, uniform metric/Jacobian bounds, coercivity and compactness in the common `L^2` space, followed by the liminf and recovery arguments. Finite-level numerical audits and convergence plots are not substitutes for these estimates.
 
 This question concerns a **Riemannian scalar Dirichlet form**. It does not assert Mosco convergence for a Lorentzian metric, nor convergence of tetrads, teleparallel field equations, spinors, Dirac/overlap operators, Yang–Mills theory or QCD. Those are separate problems and are not part of this review request.
 
