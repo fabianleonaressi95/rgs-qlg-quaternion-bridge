@@ -9,9 +9,12 @@ on:
       - main
     paths:
       - "src/wilson_periodic_symbol.py"
+      - "src/curved_wilson_spectral_audit.py"
       - "tests/test_wilson_periodic_symbol.py"
+      - "tests/test_curved_wilson_spectral_audit.py"
       - "scripts/run_wilson_periodic_symbol_audit.py"
       - "docs/WILSON_PERIODIC_VS_CURVED_Q6_SPECTRAL_AUDIT.md"
+      - "docs/CURVED_Q6_WILSON_FINITE_SPECTRAL_AUDIT.md"
       - ".github/workflows/wilson-periodic-audit.yml"
 
 permissions:
@@ -30,6 +33,6 @@ jobs:
       - name: Compile new audit module
         run: python -m py_compile src/wilson_periodic_symbol.py scripts/run_wilson_periodic_symbol_audit.py
       - name: Run focused tests
-        run: PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py -q
+        run: PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py tests/test_curved_wilson_spectral_audit.py -q
       - name: Generate periodic report
         run: python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --wilson-r 1 --alpha 0 --output /tmp/wilson-periodic-symbol-audit.json
