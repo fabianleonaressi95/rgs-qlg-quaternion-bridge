@@ -64,3 +64,19 @@ The current level-0/1/2 experiment has maximum tetrahedral Gram condition number
 - Then prove a uniform discrete Poincare/Rellich estimate and construct recovery sequences for the curved energy.
 
 Only after these steps is it appropriate to claim a uniform geometric hypothesis for the spinorial Mosco argument.
+
+
+## Common Hilbert-space mass comparison
+
+The helper \`audit_ellis_lumped_mass_equivalence\` assembles the curved-metric P1 mass matrix and compares it with the diagonal vertex measure used by the spin-Wilson operator. It computes the extreme eigenvalues of
+\[
+D_{\rm lump}^{-1/2}M_{\rm curved}D_{\rm lump}^{-1/2}
+\]
+using sparse extremal-eigenvalue routines, avoiding dense global matrices.
+
+Run:
+\`\`\`bash
+PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4
+\`\`\`
+
+The finite-level eigenvalue bounds are diagnostics. A uniform bound over every refinement level still requires analytic control of the element Jacobian ratios and quadrature error.
