@@ -319,3 +319,15 @@ PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_proj
 - [Physics architecture and compatibility boundaries](docs/PHYSICS_ARCHITECTURE_COMPATIBILITY.md)
 
 The root artifact triage records duplicate blob identities and provenance cautions. Legacy root reports are not moved until code, documentation and external-path references have been checked.
+
+## Relationship to the central THEOREM research repository
+
+This repository is the implementation- and experiment-oriented QLG/quaternionic component of the broader **RGS–PSU–PRISM–Q6** research programme. Its constructions, scripts, numerical audits and open mathematical questions are connected to the programme's central theorem and research index:
+
+- **[THEOREM — RGS–PSU–PRISM–Q6 Mathematical Research Programme](https://github.com/fabianleonaressi95/theorem)** — central repository for theorem records, mathematical assumptions and proofs, reproducible audits, model definitions, bibliography, and the programme-wide register of open problems.
+- [Central THEOREM README](https://github.com/fabianleonaressi95/theorem/blob/main/README.md) — overview of the research strands, theorem register, evidence policy and current priorities.
+- [QLG–Dirac Lorentz-chirality result (T049D)](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T049D-lorentz-chiral-qlg-embedding.md) — Lorentz-covariant Weyl embeddings and the fact that Lorentz covariance alone does not select a chirality sign, when this record is available on the central repository's default branch.
+
+The two repositories have complementary roles: **this repository develops and audits concrete quaternionic, Q6 and QLG constructions; the theorem repository organizes the corresponding mathematical statements, proof obligations, evidence levels and cross-project results.** A computational result in this repository should therefore be cited with its implementation path and commit, while any associated theorem-level claim should point to the relevant record in the central repository.
+
+The central repository does not automatically certify every experiment or physical interpretation in this codebase. Each connection remains subject to the assumptions, proof status and limitations stated in the corresponding record.
