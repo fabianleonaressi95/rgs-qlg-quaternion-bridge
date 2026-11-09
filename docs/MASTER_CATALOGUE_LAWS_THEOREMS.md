@@ -290,6 +290,22 @@ richiede struttura Pin e olonomia/bordo specificati.
 I valori BVP/Hessiana/WKB registrati sono risultati numerici di un modello ridotto. Interpretare la gola come recupero della simmetria Lorentziana fra i due fogli è un'ipotesi fisica.
 **Stato:** MODELLO RIDOTTO STUDIATO NUMERICAMENTE / IPOTESI FISICA APERTA.
 
+### H4.1. Recupero dei parametri del raccordo \(r_* ,R_0,r_1,r_2\)
+
+Sono registrati storicamente (traccia del 20-10-2026) i valori
+\[
+r_*=0.990707,\quad R_0=2.717814,\quad
+r_1=1.089778,\quad r_2=1.981414.
+\]
+I numeri soddisfano, alla precisione riportata, \(r_1\simeq1.1r_*\) e \(r_2=2r_*\). Queste sono compatibilità numeriche, non definizioni originarie dimostrate. La derivazione della legge di raccordo, il significato di \(R_1\) maiuscolo e la dimostrazione che i quattro parametri risolvano il BVP RGS–PSU non sono stati recuperati.
+
+Per il benchmark Ellis separato \(R(\ell)=\sqrt{R_0^2+\ell^2}\), si dimostrano esattamente \(R'(0)=0\), \(R''(0)=1/R_0\), \(b(R)=R_0^2/R\), \(b'(R_0)=-1\) e \(M_{MS}(\ell)=R_0^2/[2G\sqrt{R_0^2+\ell^2}]\), con limite asintotico nullo. Queste identità non dimostrano che tale benchmark sia la soluzione delle equazioni RGS–PSU.
+
+Il codice corrente RGS_PSU_closure.py documenta invece tre background distinti (raggi di gola 2.31, 0.8292 e 2) e contiene placeholder nella chiusura dinamica; la famiglia Ellis–RGS G1 usa \(r_0=0.8292\). Non si devono fondere questi background con il valore storico \(R_0=2.717814\).
+
+**Stato:** PARAMETRI STORICI RECUPERATI / COMPATIBILITÀ ELLIS DIMOSTRATA / DERIVAZIONE RGS–PSU E \(R_1\) APERTE. Vedi [audit di recupero e benchmark](RGS_PSU_WORMHOLE_PARAMETER_RECOVERY_AUDIT.md).
+
+
 ## H5. Raffinamento Cantoriano/multifrattale generato dagli esagrammi Q6
 La proposta centrale è che il codice esagrammatico a sei bit generi una gerarchia indefinitamente raffinabile, di tipo Cantoriano/multifrattale.
 **Stato:** CONGETTURA DI RICERCA. Servono mappa di raffinamento, spazi o misure annidate, oggetto limite, dimensione/spettro e prova di convergenza e non banalità. La combinatoria Q6 finita non dimostra da sola una costruzione Cantoriana infinita.
