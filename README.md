@@ -156,6 +156,10 @@ These identities provide exact finite-dimensional reference tests. They do not, 
 The precise modules and callable functions used for a benchmark must always be identified by repository commit SHA and recorded in its provenance manifest.
 
 
+### RGS–PSU wormhole parameter recovery
+
+- [Wormhole parameter provenance and Ellis benchmark audit](docs/RGS_PSU_WORMHOLE_PARAMETER_RECOVERY_AUDIT.md) — records the historical values \(r_*,R_0,r_1,r_2\), the exact Ellis benchmark identities, the distinct repository backgrounds, and the unresolved uppercase \(R_1\). It does not claim the original RGS–PSU BVP derivation has been recovered.
+
 ### Kathara–Q6 chain-map gate
 
 - [Kathara–Q6 gate C: line incidence, equivariance and exact obstructions](docs/KATHARA_Q6_GATE_C_LINE_INCIDENCE.md) — exact 15-line/21-edge incidence, the left/right reflection action, chain-map constraints and the bipartite obstruction to a one-edge-per-edge embedding. The nontrivial path-valued map remains open.
