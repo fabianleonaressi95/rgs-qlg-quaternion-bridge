@@ -149,6 +149,31 @@ def build_q6_dyadic_refinement() -> Q6DyadicRefinement:
     )
 
 
+
+def _edge_axis(edge: tuple[tuple[int, ...], tuple[int, ...]]) -> int:
+    """Return the unique coordinate direction of an axis-parallel edge."""
+    u, v = edge
+    return next(j for j in range(6) if u[j] != v[j])
+
+
+def q6_axis_direction_transfer(refinement: Q6DyadicRefinement | None = None) -> np.ndarray:
+    """Return the averaged 6x6 parent-axis to child-axis count matrix.
+
+    Each coarse Q6 direction contains 32 edges. The matrix entry (i,j)
+    is the number of child edges in direction i per parent edge in
+    direction j. For this axis-preserving midpoint subdivision it is 2 I_6.
+    """
+    coarse = build_q6_complex()
+    fine = refinement or build_q6_dyadic_refinement()
+    counts = np.zeros((6, 6), dtype=np.int64)
+    for parent_id, (u, v) in enumerate(coarse.edges):
+        parent_axis = next(j for j in range(6)
+                           if _bits(u)[j] != _bits(v)[j])
+        for child_id in np.flatnonzero(fine.S1[:, parent_id]):
+            child_axis = _edge_axis(fine.edges[int(child_id)])
+            counts[child_axis, parent_axis] += abs(int(fine.S1[child_id, parent_id]))
+    return counts // 32
+
 def audit_q6_dyadic_refinement() -> dict:
     """Return exact counts, map shapes, chain residuals and subdivision sums."""
     coarse = build_q6_complex()
@@ -164,6 +189,7 @@ def audit_q6_dyadic_refinement() -> dict:
         "chain_map_S2_residual_max_abs": int(np.max(np.abs(r2))),
         "all_parent_edges_have_two_children": bool(np.all(np.sum(np.abs(fine.S1), axis=0) == 2)),
         "all_parent_faces_have_four_children": bool(np.all(np.sum(np.abs(fine.S2), axis=0) == 4)),
+        "axis_direction_transfer": q6_axis_direction_transfer(fine).tolist(),
         "all_exact": bool(
             np.count_nonzero(r1) == 0 and np.count_nonzero(r2) == 0
             and np.count_nonzero(fine.boundary_1 @ fine.boundary_2) == 0
