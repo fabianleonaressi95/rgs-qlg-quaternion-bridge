@@ -78,6 +78,13 @@ so each stage multiplies the radius by exactly \(\sqrt2\), while rotating clockw
 
 This is a genuine three-center geometric relation extracted from the stated overlay constraints. It does not yet determine the coordinates of all remaining Kathara centers: their exact positions require the complete line/center diagram and its incidence convention.
 
+The three vectors also obey the exact second-order relation
+\[
+p_{12}-2p_9+2p_6=0,
+\]
+or \(p_{n+2}=2p_{n+1}-2p_n\) along this three-point orbit. Its characteristic polynomial is \(\lambda^2-2\lambda+2\), not the supergolden cubic. The three-center spiral orbit alone therefore cannot be the desired tribonacci refinement.
+
+
 ## 4. Gaussian lattice consequence
 
 For \((x,y)\in\mathbb Z^2\),
