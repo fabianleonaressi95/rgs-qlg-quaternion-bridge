@@ -344,6 +344,22 @@ PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_proj
 
 The root artifact triage records duplicate blob identities and provenance cautions. Legacy root reports are not moved until code, documentation and external-path references have been checked.
 
+## Kathara / Krystal Spiral square geometry
+
+The source-described 45° clockwise rotation and sqrt(2) expansion are now formalized as the exact integer similarity T = [[1,1],[-1,1]]. The center-9 / center-12 / center-6 overlay constraints determine p9 = T p6 and T^2 p6 = p12. This is a conditional Euclidean theorem about the stated source geometry, not a physical claim and not a tribonacci derivation.
+
+- [Square-geometry specification](docs/KATHARA_KRYSTAL_SPIRAL_SQUARE_GEOMETRY.md)
+- src/kathara_square_similarity.py
+- tests/test_kathara_square_similarity.py
+- examples/kathara_square_similarity_audit.py
+- [Central theorem T057](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T057-kathara-square-similarity-center-overlay.md)
+
+Run:
+```bash
+PYTHONPATH=. python -m pytest tests/test_kathara_square_similarity.py -q
+PYTHONPATH=. python examples/kathara_square_similarity_audit.py
+```
+
 ## Exact dyadic subdivision of the Q6 2-skeleton
 
 The canonical oriented Q6 square complex now has an explicit midpoint-subdivision benchmark:
