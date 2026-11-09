@@ -159,6 +159,7 @@ The precise modules and callable functions used for a benchmark must always be i
 ### Kathara–Q6 chain-map gate
 
 - [Kathara–Q6 gate C: line incidence, equivariance and exact obstructions](docs/KATHARA_Q6_GATE_C_LINE_INCIDENCE.md) — exact 15-line/21-edge incidence, the left/right reflection action, chain-map constraints and the bipartite obstruction to a one-edge-per-edge embedding. The nontrivial path-valued map remains open.
+- [Integer Kathara–Q6 chain lift and filling ambiguity](docs/KATHARA_15_LINE_Q6_CHAIN_LIFT.md) — proves the rank-111 (H_2) ambiguity of the Q6 2-skeleton and separates existence of path-chain fillings from canonical selection.
 
 ## RGS–STEM interoperability
 
