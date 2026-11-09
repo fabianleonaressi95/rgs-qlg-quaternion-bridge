@@ -356,6 +356,8 @@ The published Level-1 Kathara diagram is transcribed as 15 named primary lines o
 - [Central theorem T058](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T058-kathara-15-line-planar-face-audit.md)
 - [Cellular chain complex and Hodge audit](src/kathara_cellular_complex.py)
 - [Cellular-complex tests](tests/test_kathara_cellular_complex.py)
+- [Cellular-complex audit documentation](docs/KATHARA_CELLULAR_COMPLEX_AUDIT.md)
+- examples/kathara_cellular_complex_audit.py — JSON exporter for B1, B2 and the three Hodge matrices
 - [Central theorem T059](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T059-kathara-cellular-chain-hodge-audit.md)
 
 Run:
