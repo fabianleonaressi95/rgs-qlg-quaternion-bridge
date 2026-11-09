@@ -54,6 +54,8 @@ B'_1S_1=S_0B_1,qquad B'_2S_2=S_1B_2.
 ]
 It is a real geometric subdivision of the standard cubical 2-skeleton, but it preserves coordinate-axis labels. It does not identify Kathara cells, and it does not provide a map from refined chains to the three trigram Walsh modes.
 
+The midpoint reference rule also has a directly computed direction-count transfer \(D=2I_6\). Thus, if the three trigram lines are provisionally assigned to three coordinate axes, the induced count matrix is \(2I_3\), not \(M_T\). This conclusion concerns axis-direction counts only; it does not identify those counts with Walsh modes. See T055 for the exact corollary.
+
 ## 4. Required next input for a genuine Krist-All derivation
 
 A geometric derivation still needs source-controlled data specifying:
