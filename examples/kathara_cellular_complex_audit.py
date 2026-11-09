@@ -33,7 +33,7 @@ def main():
     }
     path = Path(args.output)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2) + "\\n", encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: payload[k] for k in (
         "status", "dimensions_C0_C1_C2", "B1B2_zero", "rank_B1",
         "rank_B2", "Betti_b0_b1_b2", "Euler_characteristic")}, indent=2))
