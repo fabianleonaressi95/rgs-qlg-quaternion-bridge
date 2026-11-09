@@ -10,11 +10,11 @@ The *Dance for Life, Love, Freedom* manual, “Structure of the Kathara Level-1 
 
 ## 2. Vertex coordinates
 
-Use the planar integer embedding consistent with the displayed symmetric grid. Coordinates are in arbitrary units; the vertical central column has length 8 and the 6–7 separation has length 2, so the 2:1 proportion holds:
+Use the planar integer embedding consistent with the displayed symmetric grid. Coordinates are in arbitrary units; the vertical central column has length 8 and the 6–7 separation has length 4, so the stated 2:1 proportion holds:
 \[
 \begin{array}{c|rrrrrrrrrrrr}
 v&1&2&3&4&5&6&7&8&9&10&11&12\\\hline
-x&0&0&-1&1&0&-1&1&0&-1&1&0&0\\
+x&0&0&-2&2&0&-2&2&0&-2&2&0&0\\
 y&0&1&2&2&3&4&4&5&6&6&7&8
 \end{array}
 \]
