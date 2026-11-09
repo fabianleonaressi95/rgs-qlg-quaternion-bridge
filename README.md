@@ -344,6 +344,22 @@ PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_proj
 
 The root artifact triage records duplicate blob identities and provenance cautions. Legacy root reports are not moved until code, documentation and external-path references have been checked.
 
+## Exact dyadic subdivision of the Q6 2-skeleton
+
+The canonical oriented Q6 square complex now has an explicit midpoint-subdivision benchmark:
+- [Mathematical specification](docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md)
+- `src/q6_dyadic_refinement.py`: constructs the 496-vertex / 1344-edge / 960-square refined 2-skeleton and integer subdivision maps S0, S1, S2.
+- `tests/test_q6_dyadic_refinement.py`: exact chain-map and cell-count tests.
+- `examples/q6_dyadic_refinement_audit.py`: reproducible JSON audit.
+
+The defining identities are B1' S1 = S0 B1 and B2' S2 = S1 B2. This is a genuine orientation-preserving cubical refinement of the existing Q6 2-skeleton. It is a **reference benchmark only**: it is not identified with Kathara/Krist-All and does not derive the tribonacci transfer matrix. The central mathematical record is [T055 in THEOREM](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T055-q6-dyadic-subdivision-chain-map.md).
+
+Run:
+```bash
+PYTHONPATH=. python -m pytest tests/test_q6_dyadic_refinement.py -q
+PYTHONPATH=. python examples/q6_dyadic_refinement_audit.py
+```
+
 ## Relationship to the central THEOREM research repository
 
 This repository is the implementation- and experiment-oriented QLG/quaternionic component of the broader **RGS–PSU–PRISM–Q6** research programme. Its constructions, scripts, numerical audits and open mathematical questions are connected to the programme's central theorem and research index:
