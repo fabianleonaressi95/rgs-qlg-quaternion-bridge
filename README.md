@@ -354,6 +354,9 @@ The published Level-1 Kathara diagram is transcribed as 15 named primary lines o
 - examples/kathara_15_line_graph_audit.py
 - [Source comparison of all three supplied pages](docs/THREE_SOURCE_COMPARATIVE_AUDIT_KATHARA_BAGUA.md)
 - [Central theorem T058](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T058-kathara-15-line-planar-face-audit.md)
+- [Cellular chain complex and Hodge audit](src/kathara_cellular_complex.py)
+- [Cellular-complex tests](tests/test_kathara_cellular_complex.py)
+- [Central theorem T059](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T059-kathara-cellular-chain-hodge-audit.md)
 
 Run:
 ```bash
