@@ -170,6 +170,7 @@ Ponendo AzurA nell'origine, \(p_6=(-w/2,0)\), \(p_7=(w/2,0)\), e usando la propo
 \[
 p_9=Tp_6=(-w/2,w/2).
 \]
+I tre vettori \(p_6,p_9,p_{12}\) soddisfano inoltre \(p_{12}-2p_9+2p_6=0\), cioè una ricorrenza di ordine 2 con polinomio \(\lambda^2-2\lambda+2\), non il cubico supergolden.
 **Stato:** TEOREMA EUCLIDEO ESATTO CONDIZIONALE alle proporzioni e alle sovrapposizioni dichiarate nella fonte. Determina il sottoinsieme di centri 1, 6, 7, 9, 12, non tutte le 15 linee né tutte le coordinate dei 12 centri. Non deriva la matrice tribonacci. Si veda [T057](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T057-kathara-square-similarity-center-overlay.md) e la [ricostruzione implementata](KATHARA_KRYSTAL_SPIRAL_SQUARE_GEOMETRY.md).
 
 ## C3. Invarianti PRISM riportati
