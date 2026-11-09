@@ -148,7 +148,7 @@ M_T=P A_\psi P^{-1},qquad
 P=\begin{pmatrix}0&1&0\\0&0&1\\1&0&0\end{pmatrix}.
 ]
 Entrambe hanno polinomio caratteristico (x^3-x^2-1).
-**Stato:** IDENTITÀ ALGEBRICA ESATTA. La coniugazione cambia l'ordinamento dei tre stati; non fornisce un intertwiner geometrico tra il modello Phase 21, i trigrammi e le celle Krist-All. Si veda [crosswalk](TRIGRAM_KRISTALL_SUPERGOLDEN_CROSSWALK.md).
+**Stato:** IDENTITÀ ALGEBRICA ESATTA. La coniugazione cambia l'ordinamento dei tre stati; non fornisce un intertwiner geometrico tra il modello Phase 21, i trigrammi e le celle Krist-All. Si vedano il [crosswalk](TRIGRAM_KRISTALL_SUPERGOLDEN_CROSSWALK.md) e il [teorema centrale T056](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T056-phase21-trigram-supergolden-permutation-conjugacy.md).
 
 ## C2b. Suddivisione dyadica orientata del 2-scheletro Q6 (T055)
 
