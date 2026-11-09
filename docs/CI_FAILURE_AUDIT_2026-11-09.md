@@ -58,6 +58,8 @@ A missing foundational theorem-level record for the implementation's quaternion/
 
 T063 proves the scalar-first unit-quaternion isomorphism with SU(2), the conjugation homomorphism onto SO(3), its kernel \(\{\pm1\}\), and the two-lift property. It formalizes standard mathematics and the implementation conventions; it does not claim a new physical spin law or QLG continuum theorem.
 
+A second missing theorem record was added as **T064** for the finite SU(2) lattice layer: path transport transforms by endpoint gauge factors, closed holonomy by conjugation, and the Wilson trace is gauge invariant and real with normalized value in [-1,1]. It formalizes `src/holonomies.py` and `tests/test_holonomies.py`; it is not a continuum Yang–Mills theorem.
+
 ## 5. Remaining verification
 
 - The corrected source files and theorem records have been fetched back from GitHub and checked for the intended text.
