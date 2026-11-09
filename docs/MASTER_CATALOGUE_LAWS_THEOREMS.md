@@ -132,6 +132,32 @@ K^3=K^2+I.
 La ricerca riporta 11.725 classi Krist-All.
 **Stato:** IDENTITÀ ALGEBRICA FINITA RIPORTATA / NUMERICAMENTE VERIFICATA nel contesto degli audit precedenti. Per chiamarla teorema occorrono definizione completa di K, campo dei coefficienti, costruzione riproducibile e verifica indipendente in aritmetica esatta.
 
+## C2a. Equivalenza per permutazione delle matrici supergolden
+
+La matrice usata nel modello simbolico Phase 21,
+[
+A_\psi=\begin{pmatrix}1&0&1\\1&0&0\\0&1&0\end{pmatrix},
+]
+e la matrice obiettivo del trasferimento sui tre canali trigrammatici,
+[
+M_T=\begin{pmatrix}0&0&1\\1&0&0\\0&1&1\end{pmatrix},
+]
+sono coniugate per permutazione:
+[
+M_T=P A_\psi P^{-1},qquad
+P=\begin{pmatrix}0&1&0\\0&0&1\\1&0&0\end{pmatrix}.
+]
+Entrambe hanno polinomio caratteristico (x^3-x^2-1).
+**Stato:** IDENTITÀ ALGEBRICA ESATTA. La coniugazione cambia l'ordinamento dei tre stati; non fornisce un intertwiner geometrico tra il modello Phase 21, i trigrammi e le celle Krist-All. Si veda [crosswalk](TRIGRAM_KRISTALL_SUPERGOLDEN_CROSSWALK.md).
+
+## C2b. Suddivisione dyadica orientata del 2-scheletro Q6 (T055)
+
+La suddivisione standard per punti medi del 2-scheletro cubico Q6 costruisce mappe intere (S_0,S_1,S_2) con conteggi raffinati ((496,1344,960)) e identità esatte
+[
+B'_1S_1=S_0B_1,qquad B'_2S_2=S_1B_2,qquad B'_1B'_2=0.
+]
+**Stato:** TEOREMA FINITO PROVATO; audit implementativo nel repository [RGS–QLG Quaternion Bridge](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/blob/main/docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md). È una suddivisione cubica di riferimento, non una costruzione Kathara/Krist-All e non deriva (M_T).
+
 ## C3. Invarianti PRISM riportati
 108 cicli di lunghezza 640; numeri di Betti Hodge riportati \(b_1=5,b_2=10\); gap spettrale \(0.009630546656\); \(\omega\simeq0.098135\).
 **Stato:** VERIFICHE NUMERICHE DIPENDENTI DALLA COSTRUZIONE. Non sono leggi universali: servono operatore, condizioni al contorno e normalizzazione.
