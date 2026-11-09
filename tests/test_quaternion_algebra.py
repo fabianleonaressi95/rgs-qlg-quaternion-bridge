@@ -10,7 +10,6 @@ from src.quaternions import (
     quaternion_conjugate,
     quaternion_dot,
     quaternion_inverse,
-    quaternion_dot,
     same_rotation,
 )
 
