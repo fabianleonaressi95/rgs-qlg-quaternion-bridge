@@ -127,3 +127,116 @@ Finché queste formule non sono disponibili, il risultato corretto è un **audit
 - `docs/MASTER_CATALOGUE_LAWS_THEOREMS.md`, sezione H4
 
 **Commit di riferimento consultato per il codice e i documenti:** `1c9e7007a33d193060a67002f296760d18ef8140`. Il presente audit non dichiara di aver eseguito test numerici o di aver recuperato il notebook sorgente originario.
+
+
+## 8. Recupero della derivazione analitica del 20 ottobre 2026
+
+La ricerca nella cronologia della discussione del 20-10-2026 ha recuperato il nucleo analitico che non era presente nei file GitHub consultati. La formulazione riportata è
+\[
+\phi(r)=\alpha r^2+\gamma\log(r/\ell),\qquad
+R(r)=r e^{\phi(r)},\qquad
+A(r)=4\pi r^2e^{2\phi(r)}=4\pi R(r)^2.
+\]
+Il benchmark registrato è
+\[
+\alpha=1,\qquad \gamma=-2.963,\qquad \ell=1.
+\]
+
+### 8.1 Punto stazionario dell'area
+
+Poiché
+\[
+\log A=\log(4\pi)+2\log r+2\phi(r),
+\]
+si ha
+\[
+\frac{A'}{A}=\frac{2(1+\gamma)}r+4\alpha r.
+\]
+La condizione \(A'(r_*)=0\) fornisce
+\[
+r_*^2=-\frac{1+\gamma}{2\alpha}.
+\]
+Con i parametri del benchmark:
+\[
+r_* = \sqrt{0.9815}=0.990706818387761
+\simeq 0.990707.
+\]
+Questo è il punto di minimo dell'area di base: infatti
+\[
+(\log A)''(r_*)=-\frac{2(1+\gamma)}{r_*^2}+4\alpha
+=8\alpha>0,
+\]
+e quindi \(A''(r_*)=8\alpha A(r_*)>0\).
+
+### 8.2 Raggio areale e audit numerico
+
+Il raggio areale non è la coordinata \(r_*\), ma
+\[
+R_0:=R(r_*)=r_*\exp\!\left(\alpha r_*^2+
+\gamma\log(r_*/\ell)\right).
+\]
+Sostituendo \((\alpha,\gamma,\ell)=(1,-2.963,1)\):
+\[
+R_0=2.7178138074210314\simeq2.717814.
+\]
+Di conseguenza
+\[
+A(r_*)=4\pi R_0^2=92.8216459798357
+\simeq92.8216,
+\]
+\[
+A''(r_*)=8A(r_*)=742.5731678386855
+\simeq742.58.
+\]
+Questi numeri ricostruiscono simultaneamente il valore storico di \(r_*\), il raggio areale \(R_0\), il minimo \(A\) e la curvatura locale \(A''\). La relazione è una derivazione analitica esatta per l'ansatz dichiarato, con differenze soltanto da arrotondamento nei valori riportati.
+
+### 8.3 Raccordo quintico e significato di r1, r2
+
+La cronologia del 20-10-2026 chiarisce che \(r_1\) e \(r_2\) sono i bordi della fascia di transizione della funzione cutoff, non il punto del minimo originario dell'area:
+\[
+\chi(r)=
+\begin{cases}
+1,&r\le r_1,\\
+1-10s^3+15s^4-6s^5,&r_1<r<r_2,\\
+0,&r\ge r_2,
+\end{cases}
+\qquad s=\frac{r-r_1}{r_2-r_1}.
+\]
+La funzione soddisfa \(\chi(r_1)=1\), \(\chi(r_2)=0\) e
+\[
+\chi'(r_1)=\chi'(r_2)=
+\chi''(r_1)=\chi''(r_2)=0,
+\]
+perciò l'incollaggio con i tratti costanti è \(C^2\). I parametri storici sono
+\[
+r_1=1.089778\simeq1.1r_*,
+\qquad r_2=1.981414\simeq2r_*.
+\]
+Le uguaglianze con \(1.1r_*\) e \(2r_*\) valgono alla precisione di arrotondamento dei dati. La funzione cutoff è quindi ricostruita; non si deve confondere il suo supporto di transizione con la posizione del minimo di \(A(r)\).
+
+La cronologia menziona anche un minimo secondario di transizione a \(r=1.881250\), con valore riportato \(A=46.2725\). Questo valore appartiene al profilo/oggetto di transizione e non coincide con la funzione di area di base \(A(r)=4\pi r^2e^{2\phi(r)}\) qui sopra; la definizione completa del profilo modificato che lo genera non è stata recuperata e resta da specificare.
+
+### 8.4 Coordinata propria e cautela geometrica
+
+La discussione storica distingue la coordinata di costruzione \(r\) dalla coordinata propria \(l\), usando la forma
+\[
+ds^2=-e^{2\Phi(l)}dt^2+dl^2+R(l)^2d\Omega^2,
+\qquad R(0)=R_0,\quad R'(0)=0,\quad R''(0)>0.
+\]
+È inoltre riportata la relazione di coordinata propria Morris–Thorne
+\[
+dl=\frac{dr}{\sqrt{1-b(r)/r}}.
+\]
+La trasformazione esatta che collega questo \(l\) alla parametrizzazione conformale \(R(r)=re^{\phi(r)}\), e la funzione \(b(r)\) corrispondente, non sono esplicitate nella traccia recuperata. Non si deve quindi assumere automaticamente che il punto stazionario di \(A(r)\) e la condizione \(b(r_*)=r_*\) siano la stessa condizione geometrica senza derivare tale mappa.
+
+### 8.5 Simbolo maiuscolo R1
+
+La ricerca della discussione non ha restituito una definizione indipendente o un valore per \(R_1\) maiuscolo. Rimane quindi distinto da \(r_1=1.089778\), che è il bordo interno del cutoff. Non si assegna a \(R_1\) il valore \(R(r_1)\) senza una convenzione esplicita che lo definisca.
+
+## 9. Provenienza documentale recuperata
+
+- La derivazione analitica e i valori del 20-10-2026 sono stati recuperati dalla cronologia della conversazione: formule per \(\phi,R,A\), benchmark \((1,-2.963,1)\), minimo \(r_*\), raggio areale \(R_0\), audit \(A,A''\) e cutoff quintico.
+- Nella Libreria è stato trovato `FORMULAZIONE.pdf` (70 pagine, caricato il 26-10-2026), che contiene una formulazione teleparallela Percorso A e background distinti \(R(0)\simeq2.3105\) e \(R(0)\simeq0.8292\). Non contiene i quattro parametri del 20 ottobre e non è la fonte della derivazione qui ricostruita.
+- Non è stata individuata una copia `FORMULAZIONE.odt` nella Libreria. Il PDF trovato non deve essere usato per sostituire o confondere il benchmark \(R_0=2.717814\).
+
+**Stato aggiornato:** DERIVAZIONE ANALITICA DEL MINIMO DI AREA RECUPERATA E RICOSTRUITA; CUT-OFF QUINTICO RECUPERATO; MAPPATURA ALLA COORDINATA PROPRIA E DEFINIZIONE DI \(R_1\) ANCORA APERTE.
