@@ -1,7 +1,11 @@
 import numpy as np
 
 from src.q6_complex import build_q6_complex
-from src.q6_dyadic_refinement import (\n    build_q6_dyadic_refinement, audit_q6_dyadic_refinement,\n    q6_axis_direction_transfer,\n)
+from src.q6_dyadic_refinement import (
+    build_q6_dyadic_refinement,
+    audit_q6_dyadic_refinement,
+    q6_axis_direction_transfer,
+)
 
 
 def test_q6_dyadic_refinement_cell_counts_and_map_shapes():
