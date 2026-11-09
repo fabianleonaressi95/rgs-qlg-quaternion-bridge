@@ -344,6 +344,18 @@ PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_proj
 
 The root artifact triage records duplicate blob identities and provenance cautions. Legacy root reports are not moved until code, documentation and external-path references have been checked.
 
+## RGS-derived canonical-selection gate for Kathara–Q3
+
+The local A/B path-length tie is not a global no-go theorem. The new
+[repository-level RGS canonical-selection audit](docs/KATHARA_RGS_CANONICAL_SELECTION_AUDIT.md)
+connects the recovered hash-checked 64-point seed, its induced O_h action,
+the A14 188D tangent projector, the Q6 Galerkin compression, and the
+five-dimensional A5 coexact spectral sector with its Lambda^2-to-R3
+intertwiner. It records the exact missing ingredient: an incidence-preserving
+Kathara-to-Q6 (and then Q6-to-spectral-sector) lift. Until that map exists,
+an RGS variational energy on the A/B chain maps is undefined, so neither
+canonical uniqueness nor a global impossibility claim is justified.
+
 ## Kathara 12-center / 15-line graph and source comparison
 
 The published Level-1 Kathara diagram is transcribed as 15 named primary lines on 12 centers. Expanding the three vertical polylines gives 21 elementary edges. The chosen straight-line embedding is planar and has 10 bounded faces plus one exterior face; Euler's formula is checked exactly.
