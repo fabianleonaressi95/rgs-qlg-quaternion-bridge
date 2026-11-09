@@ -66,6 +66,7 @@ def audit_kathara_square_similarity(width: float = 1.0) -> KatharaSquareAudit:
         "stage1_center9_to_center12_max_abs": float(np.max(np.abs(T @ p9 - p12))),
         "stage2_center6_to_center12_max_abs": float(np.max(np.abs(T2 @ p6 - p12))),
         "center9_equals_T_center6_max_abs": float(np.max(np.abs(p9 - T @ p6))),
+        "three_center_second_order_recurrence_max_abs": float(np.max(np.abs(centers["12"] - 2*centers["9"] + 2*centers["6"]))),
         "central_column_ratio_residual": float(
             abs(np.linalg.norm(centers["12"] - centers["1"]) / np.linalg.norm(centers["7"] - centers["6"]) - 2.0)
         ),
