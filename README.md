@@ -348,6 +348,7 @@ The root artifact triage records duplicate blob identities and provenance cautio
 
 The canonical oriented Q6 square complex now has an explicit midpoint-subdivision benchmark:
 - [Mathematical specification](docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md)
+- [Trigram–Krist-All–supergolden crosswalk](docs/TRIGRAM_KRISTALL_SUPERGOLDEN_CROSSWALK.md) — exact permutation conjugacy with the existing Phase 21 transfer matrix; no geometric intertwiner is claimed.
 - `src/q6_dyadic_refinement.py`: constructs the 496-vertex / 1344-edge / 960-square refined 2-skeleton and integer subdivision maps S0, S1, S2.
 - `tests/test_q6_dyadic_refinement.py`: exact chain-map and cell-count tests.
 - `examples/q6_dyadic_refinement_audit.py`: reproducible JSON audit.
