@@ -159,6 +159,19 @@ B'_1S_1=S_0B_1,\qquad B'_2S_2=S_1B_2,\qquad B'_1B'_2=0.
 La matrice dei conteggi per direzione degli spigoli è inoltre \(D=2I_6\); su tre assi scelti induce \(2I_3\), non \(M_T\), e non va confusa con la compressione Walsh.
 **Stato:** TEOREMA FINITO PROVATO; audit implementativo nel repository [RGS–QLG Quaternion Bridge](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/blob/main/docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md). È una suddivisione cubica di riferimento, non una costruzione Kathara/Krist-All e non deriva \(M_T\).
 
+## C2c. Similarità quadrata Kathara e vincolo di sovrapposizione dei centri (T057)
+
+Formalizzando il ciclo descritto per la Krystal Spiral, la trasformazione di stadio è
+\[
+T=\sqrt2R_{-\pi/4}=\begin{pmatrix}1&1\\-1&1\end{pmatrix},
+\qquad T^TT=2I,\qquad T^2=2R_{-\pi/2}.
+\]
+Ponendo AzurA nell'origine, \(p_6=(-w/2,0)\), \(p_7=(w/2,0)\), e usando la proporzione 2:1 per il segmento centrale 1–12, \(p_{12}=(0,w)\). Le due condizioni di sovrapposizione \(Tp_9=p_{12}\), \(T^2p_6=p_{12}\) implicano esattamente
+\[
+p_9=Tp_6=(-w/2,w/2).
+\]
+**Stato:** TEOREMA EUCLIDEO ESATTO CONDIZIONALE alle proporzioni e alle sovrapposizioni dichiarate nella fonte. Determina il sottoinsieme di centri 1, 6, 7, 9, 12, non tutte le 15 linee né tutte le coordinate dei 12 centri. Non deriva la matrice tribonacci. Si veda [T057](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T057-kathara-square-similarity-center-overlay.md) e la [ricostruzione implementata](KATHARA_KRYSTAL_SPIRAL_SQUARE_GEOMETRY.md).
+
 ## C3. Invarianti PRISM riportati
 108 cicli di lunghezza 640; numeri di Betti Hodge riportati \(b_1=5,b_2=10\); gap spettrale \(0.009630546656\); \(\omega\simeq0.098135\).
 **Stato:** VERIFICHE NUMERICHE DIPENDENTI DALLA COSTRUZIONE. Non sono leggi universali: servono operatore, condizioni al contorno e normalizzazione.
