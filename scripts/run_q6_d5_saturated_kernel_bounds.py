@@ -20,7 +20,7 @@ def main() -> None:
     report = audit_q6_d5_saturated_kernel_and_tail(args.beta_time, args.edge_l1_cutoff)
     report["execution"] = {"command": "python scripts/run_q6_d5_saturated_kernel_bounds.py", "beta_time": args.beta_time, "edge_l1_cutoff": args.edge_l1_cutoff}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\\n"
+    payload = json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n"
     args.output.write_text(payload, encoding="utf-8")
     print(payload, end="")
     if not report["all_checks_passed"]:
