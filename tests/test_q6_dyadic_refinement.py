@@ -1,7 +1,7 @@
 import numpy as np
 
 from src.q6_complex import build_q6_complex
-from src.q6_dyadic_refinement import build_q6_dyadic_refinement, audit_q6_dyadic_refinement
+from src.q6_dyadic_refinement import (\n    build_q6_dyadic_refinement, audit_q6_dyadic_refinement,\n    q6_axis_direction_transfer,\n)
 
 
 def test_q6_dyadic_refinement_cell_counts_and_map_shapes():
@@ -36,3 +36,8 @@ def test_audit_reports_zero_chain_map_residuals():
     assert report["all_exact"]
     assert report["chain_map_S1_residual_max_abs"] == 0
     assert report["chain_map_S2_residual_max_abs"] == 0
+
+
+def test_midpoint_subdivision_preserves_each_axis_direction():
+    transfer = q6_axis_direction_transfer()
+    assert np.array_equal(transfer, 2 * np.eye(6, dtype=np.int64))
