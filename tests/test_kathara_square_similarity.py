@@ -19,6 +19,8 @@ def test_reported_center_overlays_determine_center9():
     assert np.allclose(a.transform @ a.centers["9"], a.centers["12"])
     assert np.allclose(a.transform_squared @ a.centers["6"], a.centers["12"])
     assert np.allclose(a.centers["9"], a.transform @ a.centers["6"])
+    assert np.allclose(a.centers["12"] - 2*a.centers["9"] + 2*a.centers["6"], [0.0, 0.0])
+    assert a.residuals["three_center_second_order_recurrence_max_abs"] < 1e-14
     assert a.residuals["central_column_ratio_residual"] < 1e-14
     assert a.residuals["stage_scale_ratio_6_to_9"] == pytest.approx(np.sqrt(2))
     assert a.residuals["stage_scale_ratio_9_to_12"] == pytest.approx(np.sqrt(2))
