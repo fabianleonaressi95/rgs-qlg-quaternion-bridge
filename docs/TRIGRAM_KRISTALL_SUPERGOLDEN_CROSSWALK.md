@@ -40,6 +40,8 @@ and 11,725 Krist-All classes, but explicitly marks the claim as a reported finit
 
 If a concrete finite matrix (K) satisfies this identity, its minimal polynomial divides (x^3-x^2-1). This fact alone does not imply that (K) is similar to either 3x3 matrix above: dimension, minimal polynomial, rational canonical form and multiplicities of invariant factors must be supplied. Nor does it construct a parent-to-child map for the Q6 or Kathara cells.
 
+The source audit is specific: in \`docs/imported/MONOGRAPH_FINAL_PROOF_CORRECTED.md\`, §10.1 describes \(K\) only as a propagation operator on \(\mathcal H_{\rm PRISM}\); it does not provide a basis, matrix entries, incidence formula or reproducible constructor. §10.2 reports a floating-point residual for \(K^3-K^2-I\), but the underlying \(K\) is not reconstructed there. The separate script \`experiments/rgs_psu_core/RGS_PSU_Spectral_Gap_Verification.py\` defines the 3x3 matrix \(A_\psi\) explicitly, but it does not identify that matrix with the PRISM operator \(K\). This agrees with the caution in section C2 of the master catalogue.
+
 ## 3. What the new Q6 subdivision contributes
 
 The midpoint benchmark in [Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md](Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md) constructs explicit oriented maps
