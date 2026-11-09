@@ -50,13 +50,13 @@ The construction also satisfies (B'_1B'_2=0). The map column sums are respective
 
 ## 4. Direction-count transfer
 
-The coarse Q6 has 32 edges in each of its six coordinate directions. Aggregate the columns of (S_1) by the parent edge direction and its rows by the child edge direction, and divide each parent-direction count by 32. The resulting direction-count transfer is
-[
-oxed{D_{ij}=2\delta_{ij},qquad D=2I_6.}
-]
-Indeed, every parent edge has exactly two children, both parallel to that same coordinate axis. Hence, if three ordered trigram lines were identified with any three fixed coordinate axes, this particular midpoint rule would induce (2I_3) on direction counts, not the tribonacci matrix.
+The coarse Q6 has 32 edges in each of its six coordinate directions. Aggregate the columns of \(S_1\) by the parent edge direction and its rows by the child edge direction, and divide each parent-direction count by 32. The resulting direction-count transfer is
+\[
+\boxed{D_{ij}=2\delta_{ij},\qquad D=2I_6.}
+\]
+Indeed, every parent edge has exactly two children, both parallel to that same coordinate axis. Hence, if three ordered trigram lines were identified with any three fixed coordinate axes, this particular midpoint rule would induce \(2I_3\) on direction counts, not the tribonacci matrix.
 
-This is a statement about **oriented edge-direction counts**, not the Walsh-character compression (E^T\mathcal R E). A geometric identification between those two representations would itself have to be defined and proved.
+This is a statement about **oriented edge-direction counts**, not the Walsh-character compression \(E^T\mathcal R E\). A geometric identification between those two representations would itself have to be defined and proved.
 
 ## 5. What this does and does not establish
 
@@ -69,7 +69,7 @@ M_\psi=\begin{pmatrix}0&0&1\\1&0&0\\0&1&1\end{pmatrix}.
 
 Therefore this benchmark is a control construction: it proves what ordinary cubical midpoint refinement does, and prevents it from being mistaken for the sought Krist-All rule.
 
-## 5. Reproduction
+## 6. Reproduction
 
 ```bash
 PYTHONPATH=. python -m pytest tests/test_q6_dyadic_refinement.py -q
