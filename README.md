@@ -214,6 +214,10 @@ For the broader research overview, see the [research profile](docs/GITHUB_PROFIL
 
 See the repository license file. If no license file is present, reuse permissions should not be inferred from this README.
 
+## CI failure audit
+
+- [2026-11-09 CI failure and theorem-coverage audit](docs/CI_FAILURE_AUDIT_2026-11-09.md) — records the compileall root cause, corrected escaped-newline defects, workflow trigger separation, T055 coverage and the new T063 theorem. It distinguishes failed steps from steps skipped because compilation stopped the job.
+
 ## Master catalogue of laws and theorems
 
 The consolidated [RGS–PSU–PRISM–QLG Master Catalogue](docs/MASTER_CATALOGUE_LAWS_THEOREMS.md) records mathematical theorems, exact finite identities, numerical results, model definitions, conjectures and open physical hypotheses with explicit evidence labels. It is versioned and deliberately does not present unproved physical interpretations as established laws.
