@@ -357,10 +357,12 @@ The local A/B path-length tie is not a global no-go theorem. The new
 connects the recovered hash-checked 64-point seed, its induced O_h action,
 the A14 188D tangent projector, the Q6 Galerkin compression, and the
 five-dimensional A5 coexact spectral sector with its Lambda^2-to-R3
-intertwiner. It records the exact missing ingredient: an incidence-preserving
-Kathara-to-Q6 (and then Q6-to-spectral-sector) lift. Until that map exists,
-an RGS variational energy on the A/B chain maps is undefined, so neither
-canonical uniqueness nor a global impossibility claim is justified.
+intertwiner. Gate C now has an explicit integral chain-map candidate
+[documented here](docs/KATHARA_Q6_CHAIN_MAP_GATE_C.md) and implemented in
+`src/kathara_q6_chain_map.py`. The candidate is injective on the 12 vertices
+but collapses all ten source 2-cells; it is therefore not a cellular embedding
+and is not RGS-canonical. A nondegenerate, equivariant lift is still missing,
+so an RGS variational energy selecting A/B remains undefined.
 
 ## Kathara 12-center / 15-line graph and source comparison
 
