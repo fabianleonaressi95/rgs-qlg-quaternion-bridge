@@ -344,6 +344,23 @@ PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_proj
 
 The root artifact triage records duplicate blob identities and provenance cautions. Legacy root reports are not moved until code, documentation and external-path references have been checked.
 
+## Kathara 12-center / 15-line graph and source comparison
+
+The published Level-1 Kathara diagram is transcribed as 15 named primary lines on 12 centers. Expanding the three vertical polylines gives 21 elementary edges. The chosen straight-line embedding is planar and has 10 bounded faces plus one exterior face; Euler's formula is checked exactly.
+
+- [Graph and face audit](docs/KATHARA_15_LINE_GRAPH_FACE_AUDIT.md)
+- src/kathara_15_line_graph.py
+- tests/test_kathara_15_line_graph.py
+- examples/kathara_15_line_graph_audit.py
+- [Source comparison of all three supplied pages](docs/THREE_SOURCE_COMPARATIVE_AUDIT_KATHARA_BAGUA.md)
+- [Central theorem T058](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T058-kathara-15-line-planar-face-audit.md)
+
+Run:
+```bash
+PYTHONPATH=. python -m pytest tests/test_kathara_15_line_graph.py -q
+PYTHONPATH=. python examples/kathara_15_line_graph_audit.py
+```
+
 ## Kathara / Krystal Spiral square geometry
 
 The source-described 45° clockwise rotation and sqrt(2) expansion are now formalized as the exact integer similarity T = [[1,1],[-1,1]]. The center-9 / center-12 / center-6 overlay constraints determine p9 = T p6 and T^2 p6 = p12. This is a conditional Euclidean theorem about the stated source geometry, not a physical claim and not a tribonacci derivation.
