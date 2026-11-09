@@ -430,3 +430,32 @@ Swingle motiva l'organizzazione multiscala dell'informazione; Faulkner–Lewkowy
 Il confronto con Van Raamsdonk–Vilar López (2026) riguarda la costruzione dei saddles euclidei, il gluing di tubi AdS, le condizioni al bordo e la dominanza nell'integrale di cammino. L'identificazione con il throat PSU–Anti-Twin e con i wormhole EMS precedenti resta aperta.
 
 **Stato:** CONFRONTO TEORICO DA SVILUPPARE; equivalenza fisica non stabilita.
+
+
+### H4.2. Derivazione analitica del minimo di area e cutoff quintico (20-10-2026)
+
+La cronologia del 20-10-2026 recupera
+\[
+\phi(r)=\alpha r^2+\gamma\log(r/\ell),\quad
+R(r)=re^{\phi(r)},\quad A(r)=4\pi r^2e^{2\phi(r)}=4\pi R(r)^2,
+\]
+con benchmark \((\alpha,\gamma,\ell)=(1,-2.963,1)\). Dalla relazione
+\[
+\frac{A'}A=\frac{2(1+\gamma)}r+4\alpha r
+\]
+segue
+\[
+r_*^2=-\frac{1+\gamma}{2\alpha},\quad
+r_*=0.9907068184,\quad R(r_*)=R_0=2.7178138074.
+\]
+Al punto stazionario \((\log A)''=8\alpha\), dunque
+\[
+A(r_*)=4\pi R_0^2=92.821646,\quad A''(r_*)=8\alpha A(r_*)=742.573168.
+\]
+I valori coincidono con quelli storici \(r_*=0.990707\), \(R_0=2.717814\), \(A=92.8216\), \(A''=742.58\) entro l'arrotondamento.
+
+I raggi \(r_1=1.089778\simeq1.1r_*\) e \(r_2=1.981414\simeq2r_*\) delimitano il cutoff quintico \(\chi=1\) per \(r\le r_1\), \(\chi=0\) per \(r\ge r_2\), con interpolante \(1-10s^3+15s^4-6s^5\), \(s=(r-r_1)/(r_2-r_1)\). Il raccordo è \(C^2\). Questi sono bordi della fascia di transizione, non il minimo originale di \(A\).
+
+La mappa esatta dalla coordinata \(r\) alla coordinata propria \(l\), la funzione di forma \(b(r)\) e il significato/valore di \(R_1\) maiuscolo restano aperti. Il minimo secondario di transizione riportato \((r,A)=(1.881250,46.2725)\) necessita della definizione esplicita del profilo modificato che lo produce.
+
+**Stato:** DERIVAZIONE ANALITICA RECUPERATA PER L'ANSATZ DI AREA; CUTOFF \(C^2\) RICOSTRUITO; MAPPATURA ALLA COORDINATA PROPRIA E \(R_1\) APERTI. Vedi [audit completo](RGS_PSU_WORMHOLE_PARAMETER_RECOVERY_AUDIT.md).
