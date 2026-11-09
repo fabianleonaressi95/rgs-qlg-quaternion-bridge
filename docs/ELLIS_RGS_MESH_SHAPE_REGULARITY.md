@@ -55,6 +55,26 @@ PYTHONPATH=. python examples/run_ellis_mesh_shape_regularity_audit.py --levels 0
 
 The current level-0/1/2 experiment has maximum tetrahedral Gram condition numbers 60.11, 57.22 and 59.61, respectively. The exact Ellis volume error decreases from 8.849% to 2.334% to 0.592%, with observed error-halving orders 1.923 and 1.980. These values are numerical evidence only.
 
+## Additional scale-free shape diagnostics
+
+The refinement audit now reports per-level diagnostics that are more local than the global
+`min(face area)/max(edge)^2` proxy:
+
+- minimum spherical-face quality
+  `4 sqrt(3) area / (l_1^2+l_2^2+l_3^2)`;
+- minimum ratio of shortest to longest edge within each spherical face;
+- radial step divided by the maximum and minimum angular edge lengths;
+- minimum tetrahedral singular-value ratio
+  `1/sqrt(cond(Gram))`;
+- minimum normalized tetrahedral volume `6 Vol(K)/diam(K)^3`.
+
+The spherical quality is scale-free and equals one for an equilateral Euclidean
+triangle; the tetrahedral quantities are scale-free as well. These measurements
+help expose anisotropic or collapsing elements that a single maximum Gram
+condition number can hide. The script's checks are deliberately limited to
+positivity and finite-level boundedness on the tested meshes. They do **not**
+promote a finite set of observations into a level-independent theorem.
+
 ## 4. Next proof obligations
 
 - Prove the normalized-midpoint spherical subdivision has a uniform shape bound, starting from the recovered 56-direction/108-face seed.

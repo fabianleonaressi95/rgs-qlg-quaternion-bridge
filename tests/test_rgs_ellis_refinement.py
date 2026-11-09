@@ -82,6 +82,13 @@ def test_curved_rgs_refinement_converges_in_volume_and_diameter():
     assert errors[-1] < 0.01
     assert diameters[0] > diameters[1] > diameters[2]
     assert max(conditions) < 100.0
+    for row in rows:
+        assert 0.0 < row["angular_triangle_quality_min"] <= 1.1
+        assert 0.0 < row["angular_triangle_edge_ratio_min"] <= 1.0
+        assert row["radial_step_over_angular_h_max"] > 0.0
+        assert row["radial_step_over_angular_h_min"] >= row["radial_step_over_angular_h_max"]
+        assert row["element_singular_ratio_min"] > 0.0
+        assert row["tetra_normalized_volume_min"] > 0.0
     assert report["seed"]["q6_coframe_reconstruction_residual"] == 0.0
     assert report["seed"]["q6_coframe_unit_norm_residual"] < 1e-14
     assert report["scope"]["Mosco_status"].startswith("OPEN")
