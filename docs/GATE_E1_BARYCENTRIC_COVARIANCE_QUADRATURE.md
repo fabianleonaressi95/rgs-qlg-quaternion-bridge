@@ -1,6 +1,6 @@
 # Gate E.1 — Barycentric–covariance quadrature on a planar triangle
 
-**Status: PROVED (local cell theorem); NUMERICALLY VERIFIED (implementation tests).**
+**Status: PROVED (local cell theorem); implementation tests added, CI execution pending.**
 
 This gate records a local Euclidean statement only. It does not assert that the
 Q6 2-skeleton is a closed embedded surface, that the recovered RGS coordinates
