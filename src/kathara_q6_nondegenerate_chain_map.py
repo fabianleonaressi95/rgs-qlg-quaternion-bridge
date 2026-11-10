@@ -1,8 +1,10 @@
 """Non-degenerate integral face lift for the existing Kathara -> Q6 vertex chart.
 
 Each source edge is sent to a shortest Q6 path. Each source face boundary is
-filled by exact cubical square swaps. RGS metric canonicality and compatible
-Ellis/SU(2) transport are separate gates and are not claimed here.
+filled by exact cubical square swaps. The fixed axis order is a declared
+combinatorial convention selected by an exact finite rank audit; it is not
+claimed to be RGS-canonical. Compatible Ellis/SU(2) transport is a separate
+open gate.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -11,6 +13,12 @@ from src.kathara_cellular_complex import audit_kathara_cellular_complex
 from src.kathara_q6_chain_map import kathara_vertex_to_q6_label
 from src.q6_complex import build_q6_complex
 from src.rgs_ellis_refinement import load_rgs_seed_data
+
+
+# Fixed target-axis order. This is a declared path convention, not the
+# canonical numerical axis order and not a metric-derived RGS selection.
+AXIS_ORDER = (1, 2, 0, 3, 4, 5)
+_AXIS_POSITION = {axis: i for i, axis in enumerate(AXIS_ORDER)}
 
 
 @dataclass(frozen=True)
@@ -34,17 +42,16 @@ def _axis_mask(axis: int) -> int:
 
 
 def _path_axes(start: int, end: int) -> list[int]:
-    """Canonical shortest path axes, ordered increasingly."""
+    """Canonical shortest path axes in the declared AXIS_ORDER."""
     diff = start ^ end
-    return [axis for axis in range(6) if diff & _axis_mask(axis)]
+    return [axis for axis in AXIS_ORDER if diff & _axis_mask(axis)]
 
 
 def _oriented_edge_path_axes(u: int, v: int, labels: tuple[int, ...]) -> list[int]:
-    """Path word for the directed source edge u->v, matching R1's orientation.
+    """Path word for directed source edge u->v, matching R1's orientation.
 
-    R1 stores columns for the canonical source edge (min(u,v), max(u,v)).
-    Traversing that edge backwards must reverse the entire path word, not
-    recompute an increasing-axis path from the reversed endpoints.
+    R1 stores columns for canonical source edges (min(u,v), max(u,v)).
+    Traversing such an edge backwards reverses the entire path word.
     """
     lo, hi = sorted((u, v))
     axes = _path_axes(labels[lo - 1], labels[hi - 1])
@@ -107,11 +114,11 @@ def _fill_closed_axis_word(start: int, word: list[int], target,
         current = start
         for pos in range(len(word) - 1):
             a, b = word[pos], word[pos + 1]
-            if a > b:
+            if _AXIS_POSITION[a] > _AXIS_POSITION[b]:
                 difference = _path_difference(
                     current, a, b, edge_index, len(target.edges)
                 )
-                low, high = b, a
+                low, high = sorted((a, b))
                 base = current & ~_axis_mask(low) & ~_axis_mask(high)
                 square = (
                     base, base ^ _axis_mask(low),
@@ -195,6 +202,6 @@ def audit_nondegenerate_kathara_q6_chain_map() -> NondegenerateKatharaQ6Audit:
     return NondegenerateKatharaQ6Audit(
         labels, R0, R1, R2, identity0, identity1, rank_mod,
         tuple(boundary_l1), tuple(fill_l1), coordinates, min(lengths),
-        "INTEGRAL NON-DEGENERATE CHAIN MAP; RGS coordinate attachment checked; "
+        "INTEGRAL NON-DEGENERATE CHAIN MAP; fixed rank-selected axis convention; "
         "RGS-equivariant canonicality and compatible SU(2) transport remain open."
     )
