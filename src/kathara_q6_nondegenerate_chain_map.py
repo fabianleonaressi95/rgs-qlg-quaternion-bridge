@@ -34,8 +34,21 @@ def _axis_mask(axis: int) -> int:
 
 
 def _path_axes(start: int, end: int) -> list[int]:
+    """Canonical shortest path axes, ordered increasingly."""
     diff = start ^ end
     return [axis for axis in range(6) if diff & _axis_mask(axis)]
+
+
+def _oriented_edge_path_axes(u: int, v: int, labels: tuple[int, ...]) -> list[int]:
+    """Path word for the directed source edge u->v, matching R1's orientation.
+
+    R1 stores columns for the canonical source edge (min(u,v), max(u,v)).
+    Traversing that edge backwards must reverse the entire path word, not
+    recompute an increasing-axis path from the reversed endpoints.
+    """
+    lo, hi = sorted((u, v))
+    axes = _path_axes(labels[lo - 1], labels[hi - 1])
+    return axes if (u, v) == (lo, hi) else list(reversed(axes))
 
 
 def _add_path(chain: np.ndarray, start: int, axes: list[int],
@@ -152,7 +165,7 @@ def audit_nondegenerate_kathara_q6_chain_map() -> NondegenerateKatharaQ6Audit:
     for face_id, face in enumerate(source.faces):
         word = []
         for u, v in zip(face, face[1:] + face[:1]):
-            word.extend(_path_axes(labels[u-1], labels[v-1]))
+            word.extend(_oriented_edge_path_axes(u, v, labels))
         fill, _ = _fill_closed_axis_word(
             labels[face[0]-1], word, target, qedge_index, qface_index
         )
