@@ -1,5 +1,18 @@
 import numpy as np
-from src.kathara_q6_nondegenerate_chain_map import audit_nondegenerate_kathara_q6_chain_map
+from src.kathara_q6_nondegenerate_chain_map import (
+    _oriented_edge_path_axes,
+    audit_nondegenerate_kathara_q6_chain_map,
+)
+
+
+def test_reverse_source_edge_reverses_the_whole_q6_path_word():
+    # Labels for Kathara vertices 1, 2, 3 under the declared coordinate chart.
+    labels = (16, 17, 2)
+    forward = _oriented_edge_path_axes(1, 3, labels)
+    backward = _oriented_edge_path_axes(3, 1, labels)
+    assert forward == [1, 4]
+    assert backward == [4, 1]
+    assert backward == list(reversed(forward))
 
 
 def test_nondegenerate_kathara_q6_chain_identities():
