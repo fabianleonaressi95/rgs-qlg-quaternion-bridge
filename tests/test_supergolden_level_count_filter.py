@@ -10,8 +10,8 @@ def test_exact_vector_recurrence_passes():
         {"n":0,"A":1,"B":0,"C":0,"total":1},
         {"n":1,"A":1,"B":1,"C":0,"total":2},
         {"n":2,"A":2,"B":1,"C":1,"total":4},
-        {"n":3,"A":3,"B":2,"C":1,"total":6},
-        {"n":4,"A":4,"B":3,"C":2,"total":9},
+        {"n":3,"A":3,"B":1,"C":1,"total":5},
+        {"n":4,"A":4,"B":2,"C":1,"total":7},
     ]
     result = analyse(rows)
     assert result["stage1_exact_recurrence_gate_passed"]
