@@ -459,3 +459,6 @@ The central landing page has now been updated on `main` (README revision: [45841
 The new [Gate D construction](docs/KATHARA_Q6_NONDEGENERATE_GATE_D.md) replaces root-routed vertex-potential edge chains with shortest axis-ordered Q6 paths and fills every Kathara face by exact cubical square swaps. It constructs an integral chain map with a full-column-rank 240×10 face map. The RGS seed coordinates are attached through the existing hash-verifying loader. RGS metric canonicality and a justified Ellis/SU(2) lift remain open.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_kathara_q6_nondegenerate_chain_map.py -q`.
+## Gate E.1 — barycentric–covariance quadrature
+
+The local planar-triangle quadrature theorem is implemented in `src/barycentric_triangle_quadrature.py`, tested in `tests/test_barycentric_triangle_quadrature.py`, and specified in [the Gate E.1 record](docs/GATE_E1_BARYCENTRIC_COVARIANCE_QUADRATURE.md). It reuses the exact Q6 barycentric FEM results only as a separate combinatorial/gradient reference: the 6D Q6 vertex covariance is not identified with a triangle-cell covariance. The companion theorem-level statement is [T068](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T068-barycentric-covariance-quadrature-law.md). Gate E.2 (geometric maps, closed surface incidence and refinement compatibility) remains open.
