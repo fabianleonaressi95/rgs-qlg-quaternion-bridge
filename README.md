@@ -452,3 +452,10 @@ The central repository does not automatically certify every experiment or physic
 
 The central landing page has now been updated on `main` (README revision: [45841e0](https://github.com/fabianleonaressi95/theorem/commit/45841e0)). The update provides the programme-wide English overview and synchronizes the theorem/result index through T049D, including the QLG–Dirac chirality distinction, alongside the Einstein–Cartan, Mosco-convergence and cellular-dynamics research strands. Start with the [updated central README](https://github.com/fabianleonaressi95/theorem/blob/main/README.md) for the current programme map; use this repository for the implementation-level material and its reproducible audits.
 
+
+
+## Kathara–Q6 Gate D: non-degenerate face lift
+
+The new [Gate D construction](docs/KATHARA_Q6_NONDEGENERATE_GATE_D.md) replaces root-routed vertex-potential edge chains with shortest axis-ordered Q6 paths and fills every Kathara face by exact cubical square swaps. It constructs an integral chain map with a full-column-rank 240×10 face map. The RGS seed coordinates are attached through the existing hash-verifying loader. RGS metric canonicality and a justified Ellis/SU(2) lift remain open.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_kathara_q6_nondegenerate_chain_map.py -q`.
