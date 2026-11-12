@@ -27,17 +27,20 @@ def boundary_flux(
 ) -> dict[Vertex, Burgers]:
     """Compute ∂₁c as a vertex -> Burgers-vector map."""
     totals: dict[Vertex, list[int]] = defaultdict(list)
+    dimension: int | None = None
     for edge in edges:
         if not edge.burgers:
             raise ValueError("Burgers vectors must have at least one component.")
+        if dimension is None:
+            dimension = len(edge.burgers)
+        elif len(edge.burgers) != dimension:
+            raise ValueError("All Burgers vectors must have the same dimension.")
         if edge.tail == edge.head:
             raise ValueError("Self-loop edges are not admissible in this local rule.")
         if edge.tail not in totals:
             totals[edge.tail] = [0] * len(edge.burgers)
         if edge.head not in totals:
             totals[edge.head] = [0] * len(edge.burgers)
-        if len(totals[edge.tail]) != len(edge.burgers) or len(totals[edge.head]) != len(edge.burgers):
-            raise ValueError("All Burgers vectors must have the same dimension.")
         for i, value in enumerate(edge.burgers):
             totals[edge.tail][i] -= value
             totals[edge.head][i] += value
