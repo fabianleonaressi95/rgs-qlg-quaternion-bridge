@@ -24,7 +24,7 @@ hence \(T=-T\), so \(T=0\). Therefore
 \]
 This is an exact central-character obstruction, not a numerical near miss.
 
-## Minimal tensor twist
+## Explicit tensor twist
 
 On \(S\otimes W\), use the tensor-product action
 \[
