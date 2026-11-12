@@ -42,3 +42,12 @@ def test_canonical_embedding_has_correct_shape_and_rank():
 def test_exterior_action_rejects_non_signed_permutations():
     with pytest.raises(ValueError):
         exterior_signed_permutation_matrix(np.zeros((6, 6), dtype=int))
+
+
+def test_exterior_action_respects_signed_permutation_composition():
+    signed = icosahedral_signed_axis_representation()["signed_permutations"]
+    for i, j in [(0, 1), (3, 11), (7, 23), (19, 41), (52, 59)]:
+        left = exterior_signed_permutation_matrix(signed[i])
+        right = exterior_signed_permutation_matrix(signed[j])
+        composed = exterior_signed_permutation_matrix(signed[i] @ signed[j])
+        assert np.allclose(left @ right, composed, atol=1e-14)
