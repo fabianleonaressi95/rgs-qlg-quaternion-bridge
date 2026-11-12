@@ -1,71 +1,64 @@
 # Q6–2I intertwiner compatibility
 
-## Result
+## Exact representation-theoretic result
 
-The icosahedral signed-axis action on the six Q6 coordinate directions is an
-\(A_5\)-representation. Pull it back along
+The signed-axis action of the proper icosahedral group \(A_5\) on the six Q6
+directions induces an action on
+\[
+W=\Lambda^*(\mathbb C^6),\qquad \dim_{\mathbb C}W=64.
+\]
+Pull it back along the abstract quotient
 \[
 2I\longrightarrow 2I/\{\pm1\}\cong A_5.
 \]
-The central element \(-1\in2I\) therefore acts trivially on the six-dimensional
-Q6 direction space and on its induced exterior module
-\(\Lambda^*(\mathbb C^6)\), of dimension 64.
+The central element \(-1\in2I\) then acts trivially on \(W\). In contrast, the
+fundamental doublet \(S=\mathbb C^2\) has \(\rho_S(-1)=-I_2\).
 
-By contrast, the defining fundamental representation has
-\[
-\rho_{\mathbf2}(-1)=-I_2.
-\]
-For an intertwiner \(T:\mathbf2\to\Lambda^*(\mathbb C^6)\), equivariance at
-the central element would require
+For an intertwiner \(T:S\to W\), equivariance at \(-1\) gives
 \[
 T(-I_2)=I_{64}T,
 \]
-so \(T=-T\), hence \(T=0\). Thus the untwisted Hom space is exactly zero.
-This is a representation-theoretic obstruction, not a numerical near miss.
-
-## Minimal central-character twist
-
-Define the tensor-product representation
+hence \(T=-T\), so \(T=0\). Therefore
 \[
-\rho_{\mathrm{tw}}(q)=
-\rho_{\mathbf2}(q)\otimes\rho_{\Lambda^*}(q)
-\quad\text{on}\quad
-\mathbb C^2\otimes\Lambda^*(\mathbb C^6).
+\operatorname{Hom}_{2I}(S,W)=0.
 \]
-Its dimension is 128 and its central character is now nontrivial. Since the
-degree-zero vacuum \(1\in\Lambda^0(\mathbb C^6)\) is fixed by every induced
-exterior action, the map
+This is an exact central-character obstruction, not a numerical near miss.
+
+## Minimal tensor twist
+
+On \(S\otimes W\), use the tensor-product action
 \[
-J:\mathbb C^2\longrightarrow
-\mathbb C^2\otimes\Lambda^*(\mathbb C^6),
-\qquad J(v)=v\otimes1
+\rho_{\mathrm{tw}}(g)=\rho_S(g)\otimes\rho_W(g).
 \]
-is a nonzero \(2I\)-equivariant injection. This proves that the twist removes
-the central-character obstruction and supplies an explicit intertwiner.
+The degree-zero vacuum \(1\in\Lambda^0(\mathbb C^6)\) is fixed by every
+induced exterior action. Thus
+\[
+J:S\to S\otimes W,\qquad J(v)=v\otimes1
+\]
+is an explicit injective intertwiner. This proves the twist removes the
+central-character obstruction algebraically.
 
-It does **not** prove that this tensor factor is physically or geometrically
-required. It is the minimal algebraic repair, with the degree-zero sector
-providing a canonical embedding.
+It does **not** prove that the added fundamental factor is geometrically or
+physically required.
 
-## Implementation and tests
+## Finite implementation audit
 
 Implementation: src/q6_2i_intertwiners.py
 Tests: tests/test_q6_2i_intertwiners.py
 
-The audit matches each quaternion's SO(3) rotation to the 60 signed-axis
-actions, induces the exterior action on all 64 basis states, checks the
-central actions, and checks the explicit twisted intertwiner against all 120
-elements of \(2I\).
+The code induces the signed-permutation action on all 64 exterior basis states,
+checks all 60 A5 signed-axis actions and all 120 fundamental 2I matrices, and
+checks the tensor-product embedding using the invariant vacuum. It deliberately
+does not match individual quaternion matrices to individual signed-axis
+matrices: an explicit isomorphism between those two A5 matrix presentations
+has not been constructed.
 
-Reproduction command:
+Reproduction:
 PYTHONPATH=. python -m pytest tests/test_q6_2i_intertwiners.py tests/test_representations_2i.py tests/test_rgs_icosahedral_q6_intertwiner.py -q
 
 ## Separation from Pin+
 
-The preceding Pin+(4) construction lifts the specified Möbius orientation
-transition graph. The present result concerns the pullback of the proper
-icosahedral \(A_5\) action to \(2I\). No homomorphism identifying these two
-actions, no common bundle transition atlas, and no Pin-to-\(2I\) coupling has
-been constructed. The central-character calculation tells us exactly why the
-untwisted Q6 exterior module cannot carry the fundamental doublet as a
-subrepresentation.
+The Pin+(4) construction lifts the specified Möbius orientation-transition
+graph. This result concerns the pullback of the proper icosahedral A5 action
+to 2I. No common bundle atlas, Pin-to-2I homomorphism, torsion law or QLG
+interaction is asserted.
