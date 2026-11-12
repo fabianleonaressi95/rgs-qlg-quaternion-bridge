@@ -46,3 +46,11 @@ def test_junction_dimension_mismatch_is_rejected():
 def test_boundary_flux_rejects_self_loops():
     with pytest.raises(ValueError, match="Self-loop"):
         boundary_flux((OrientedBurgersEdge("a", "a", (1, 0)),))
+
+def test_boundary_flux_rejects_dimension_mismatch_on_disjoint_edges():
+    edges = (
+        OrientedBurgersEdge("a", "b", (1, 0)),
+        OrientedBurgersEdge("c", "d", (1,)),
+    )
+    with pytest.raises(ValueError, match="dimension"):
+        boundary_flux(edges)
