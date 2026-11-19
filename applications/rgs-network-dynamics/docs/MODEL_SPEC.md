@@ -1,77 +1,97 @@
-# Mathematical specification — RGS Network Dynamics v0.1
+# Mathematical specification — RGS Network Dynamics
 
-## 1. Scope
+## 1. Scope and status
 
-A finite synthetic model of knowledge-state propagation on alternative organizational graphs. It is a baseline for software and mathematical review, not a validated theory of human learning or organizational performance.
+This application contains two related but distinct synthetic model components:
 
-## 2. Graphs
+1. **v0.1 comparative graph baseline:** equal-budget graph generation and a fixed-profile knowledge-state update.
+2. **v0.2 research utilities:** competence coverage/concentration, an exploratory diffusion-decay-input update, and task-based resilience under agent removal.
 
-Let (V=\{1,\ldots,n\}) be agents and (E\subseteq\{\{i,j\}:i\ne j\}\) be undirected, loop-free links. The adjacency matrix (A\in\{0,1\}^{n\times n}) is symmetric with zero diagonal.
+They are software and modelling baselines, not validated theories of human learning or organizational performance.
 
-Three graph-generation rules are compared at equal (n) and equal (|E|):
+## 2. Comparative graphs
 
-1. **Hierarchical:** a deterministic binary-tree spanning backbone, followed by additional edges preferentially connecting nodes at similar tree depths.
-2. **Matrix:** edges ranked by complementarity of synthetic skill profiles, with seeded tie-breaking noise.
-3. **Practices-like:** edges ranked by overlap of synthetic skill profiles, with seeded tie-breaking noise.
+Let (V=\{1,\ldots,n\}) be agents and (E\subseteq\{\{i,j\}:i\ne j\}) be undirected, loop-free links. The adjacency matrix (A\in\{0,1\}^{n\times n}) is symmetric with zero diagonal.
 
-These are operational toy definitions. They are not a reconstruction of Sun Microsystems' internal organization or Giovanni Vota's historical implementation.
+Three stylized graph-generation rules are compared at equal (n) and equal (|E|):
 
-## 3. State space
+1. **Hierarchical:** binary-tree spanning backbone plus links preferentially connecting nodes at similar tree depths.
+2. **Matrix:** edges ranked by complementarity of synthetic skill profiles.
+3. **Practices-like:** edges ranked by overlap of synthetic skill profiles.
 
-For (s) skills, let (K_t\in[0,1]^{n\times s}) be the normalized knowledge-state matrix. Let (S\in\{0,1\}^{n\times s}) be a synthetic target profile, with each agent assigned two or three initial skills. The initial state is a seeded random fraction of (S).
+These are operational toy definitions, not reconstructions of any actual organization.
 
-Define the row-stochastic neighbor-mixing matrix (P) by
+## 3. v0.1 knowledge-state update
 
-[
-P_{ij}=\begin{cases}
-A_{ij}/d_i,&d_i>0,\\
-1,&d_i=0\text{ and }j=i,\\
-0,&\text{otherwise}.
-\end{cases}
-]
+For (s) skills, let (K_t\in[0,1]^{n\times s}) be the agent-by-skill knowledge state and (S\in\{0,1\}^{n\times s}) the synthetic target profile.
 
-The update is
+For row-stochastic neighbor-mixing matrix (P), the baseline update is
 
 [
-K_{t+1}=\Pi_{[0,1]}\left[K_t+\eta(PK_t-K_t)+\rho(S-K_t)\right],
+K_{t+1}=\Pi_{[0,1]}\left[K_t+\eta(PK_t-K_t)+\rho(S-K_t)\right].
 ]
 
-where (Pi_{[0,1]}) clips entries to the unit interval, (0\le\eta,\rho\le1), and (eta,\rho) are declared model parameters.
+Here (eta) controls neighbor mixing and (ho) relaxation toward a fixed synthetic profile. This is a modelling convention, not an empirically established learning law.
 
-The first increment represents neighbor mixing; the second represents relaxation toward the fixed synthetic profile. This is a modelling convention, not an empirically established learning law.
+## 4. v0.2 exploratory knowledge update
 
-## 4. Observables
+The separate utility in `src/knowledge_dynamics.py` implements
 
-- Mean knowledge: mean of all entries of (K_T).
-- Threshold coverage: fraction of entries of (K_T) strictly greater than 0.60.
-- Within-skill dispersion: mean, over skills, of the standard deviation across agents.
-- Connectivity: number of connected components of (A).
-- Robustness: for uniformly random deletion of 20% of vertices, the expected fraction of retained vertices in the largest connected component, estimated by 80 seeded repetitions.
+[
+X_{t+1}=\Pi_{[0,1]}\left[X_t+\eta(P_KX_t-X_t)-\delta X_t+U_t\right],
+]
 
-No scalar composite score is defined. The metrics are not interchangeable and should not be assigned subjective weights after seeing the results.
+where (P_K) is row-stochastic, (delta\in[0,1]) is a decay parameter and (U_t) is an external learning input. It is intentionally not conflated with the v0.1 relaxation-to-profile term. Parameters require empirical estimation or transparent sensitivity analysis.
 
-## 5. Reproducibility
+## 5. Competence distribution
 
-The default seed is 20261119. The code writes JSON and CSV outputs with the run parameters represented by the CLI invocation. Generated output files should be committed only with the command, environment, software versions and commit SHA recorded.
+Let (C\in[0,1]^{n\times m}) be an assessed proficiency matrix. For threshold (	au),
 
-## 6. Limitations and open questions
+[
+N_k(\tau)=\sum_i\mathbf 1(C_{ik}\geq\tau).
+]
 
-- Graph-generation rules are stylized and encode assumptions about each organizational archetype.
-- The model does not represent tasks, deadlines, incentives, emotional states, communication costs or output quality.
+For (s_k=\sum_i C_{ik}>0), define (D_{ik}=C_{ik}/s_k) and
+
+[
+H_k=\sum_iD_{ik}^2.
+]
+
+(H_k) is a Herfindahl-style concentration indicator. It is undefined for an uncovered skill. (1/H_k) is an effective-number interpretation, not proof of practical substitutability.
+
+## 6. Task-based resilience
+
+A task is represented by a nonempty set of required skills. It is feasible if every required skill is available above threshold from at least one available agent.
+
+For a collection of tasks, (F(C,\mathcal T,\tau)) is the fraction feasible. After removing agents (R), report
+
+[
+F_{\mathrm{after}}=F(C_{V\setminus R},\mathcal T,\tau).
+]
+
+If baseline coverage is positive, the retention ratio is (F_{\mathrm{after}}/F_{\mathrm{before}}). If baseline coverage is zero, the ratio is undefined and represented as NaN. Test random removal, high-centrality removal and removal of agents uniquely covering critical skills as separate scenarios.
+
+This measure is task capability, not merely graph connectivity. It still assumes competence is transferable to the task and must be validated against operational records.
+
+## 7. Existing graph metrics
+
+The original prototype reports mean knowledge state, threshold coverage, within-skill dispersion, connected components, mean degree and largest-component retention after random vertex removal. Lower dispersion is not automatically better; graph connectivity is not equivalent to business continuity or output quality.
+
+## 8. Reproducibility and limitations
+
 - Synthetic profiles are not employee data.
-- The robustness statistic measures graph connectivity only, not business continuity.
-- Lower knowledge dispersion is not necessarily desirable.
-- No empirical superiority claim follows from a simulation under these assumptions.
-- No RGS geometric embedding is implemented in v0.1.
+- Graph-generation rules encode assumptions about organizational archetypes.
+- The models omit incentives, deadlines, task dependencies, emotional states, communication costs and quality outcomes.
+- No composite score is defined.
+- No empirical superiority claim follows from simulation.
+- No RGS geometric embedding is implemented.
 
-## 7. RGS research gate
+A future RGS embedding must be explicitly defined and compared with standard graph baselines under prespecified preservation criteria, such as graph distances, Laplacian spectra, symmetry actions and perturbation robustness.
 
-A later RGS embedding must be defined as an explicit map from graph vertices or graph features into a specified RGS space. It must then be tested against standard baselines for stated preservation properties, for example graph distances, Laplacian spectra, symmetry actions or perturbation robustness. No such advantage is assumed in this version.
+## 9. Evidence labels
 
-## 8. Evidence labels
-
-- **MODEL DEFINITION:** equations and graph-generation rules specified here.
+- **MODEL DEFINITION:** equations and graph rules specified.
 - **CODE TEST:** finite software invariants checked by the test suite.
-- **SYNTHETIC NUMERICAL RESULT:** output of a reproducible run on generated data.
+- **SYNTHETIC NUMERICAL RESULT:** reproducible output on generated data.
 - **OPEN EMPIRICAL HYPOTHESIS:** claims about real organizations and Practices.
-- **OPEN COMPUTATIONAL HYPOTHESIS:** claims about advantages of an RGS representation.
+- **OPEN COMPUTATIONAL HYPOTHESIS:** claims about RGS representation advantages.
