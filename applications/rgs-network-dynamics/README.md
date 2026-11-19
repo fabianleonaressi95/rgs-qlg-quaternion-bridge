@@ -1,67 +1,66 @@
-# RGS Network Dynamics — prototype v0.1
+# RGS Network Dynamics — synthetic prototype v0.2
 
-A small, reproducible Python baseline for comparing three **synthetic** organizational network topologies: hierarchical, matrix / cross-functional, and Practices-like competence clusters.
+An isolated research application for comparing organizational network structures, competence distribution, knowledge transfer and task-based resilience.
 
-This prototype tests graph construction, knowledge-state diffusion and structural robustness. It does **not** establish that one organizational model is superior, reproduce Sun Microsystems' historical results, validate the empirical effectiveness of Practices, or prove that RGS geometry improves network modelling.
+**Evidence boundary:** all current executable experiments use synthetic data. The code does not reconstruct Sun Microsystems Italia, validate Giovanni Vota's Practices empirically, establish that self-management is superior, or demonstrate an advantage of RGS embeddings.
 
-## Model
+## Research documents
 
-There are 30 agents and 8 skills. The same synthetic skill profiles and initial knowledge matrix are used across the three architectures. Each architecture has 45 undirected edges.
+- [Research protocol](docs/RESEARCH_PROTOCOL.md) — research question, hypotheses H1–H7, comparative cases, mixed-method design, evidence grading and validation gates.
+- [Data dictionary](docs/DATA_DICTIONARY.md) — schemas for agents, skills, relations, decisions and outcomes.
+- [Source register](bibliography/SOURCE_REGISTER.md) — bibliography quality and evidence limitations.
+- [BibTeX bibliography](bibliography/references.bib).
+- [Mathematical specification](docs/MODEL_SPEC.md) — v0.1 synthetic graph model.
+- [Implementation status](docs/IMPLEMENTATION_STATUS.md).
 
-For each time step:
+## Current computational components
 
-```text
-K[t+1] = clip(K[t] + eta * (P @ K[t] - K[t]) + rho * (S - K[t]), 0, 1)
-```
+- `src/network_dynamics.py`: synthetic hierarchical, matrix and Practices-like graphs; bounded knowledge-state diffusion; connectivity metrics; random vertex-removal graph robustness.
+- `src/competence_model.py`: thresholded skill coverage, Herfindahl-style competence concentration and effective-agent count.
+- `src/knowledge_dynamics.py`: explicit bounded diffusion/decay/external-input update for exploratory longitudinal models.
+- `src/resilience.py`: task-based capability coverage under agent unavailability and ordering by uniquely covered skills.
+- `tests/`: finite software checks for graph invariants and research metrics.
 
-Here `K` is the agent-by-skill knowledge matrix, `P` is a row-stochastic neighbor-mixing matrix, `S` is the fixed synthetic skill-profile matrix, `eta` controls neighbor diffusion and `rho` controls relaxation toward the profile. This is a modelling choice, not an established law of organizational behaviour.
+The original graph-connectivity robustness metric and the new task-based competence resilience metric answer different questions. They must not be reported as interchangeable.
 
-## Metrics
-
-- skill coverage: fraction of agent-skill entries above 0.60;
-- mean knowledge state;
-- within-skill dispersion across agents;
-- number of connected components and mean degree;
-- robustness: mean fraction of retained nodes in the largest connected component after random removal of 20% of nodes.
-
-Metrics are interpreted separately. Lower dispersion is not automatically better, and graph connectivity is not equivalent to organizational performance.
-
-## Run
+## Install and test
 
 From the repository root:
 
 ```bash
 python -m pip install -r applications/rgs-network-dynamics/requirements.txt
-python applications/rgs-network-dynamics/src/network_dynamics.py --seed 20261119 --output applications/rgs-network-dynamics/results
-```
-
-The command writes `summary.json` and `summary.csv` into the output directory and prints the CSV table. Results are generated locally and are not committed as pre-verified data.
-
-## Test
-
-```bash
 python -m pip install pytest
 python -m pytest applications/rgs-network-dynamics/tests -q
 ```
 
-## Next research gates
+## Run the synthetic baseline
 
-1. Sensitivity analysis over diffusion, learning, thresholds and graph-generation rules.
-2. Add standard graph baselines: Erdős–Rényi, small-world and degree-preserving rewiring.
-3. Separate knowledge diffusion from task allocation, decision latency and output quality.
-4. Pre-register metrics and objective weights before empirical comparison.
-5. Test RGS embeddings against standard graph embeddings using explicit preservation criteria: graph distances, Laplacian spectra, symmetries and robustness.
-6. Validate against real organizational data only under an agreed protocol, consent and appropriate anonymization.
+```bash
+python applications/rgs-network-dynamics/src/network_dynamics.py \
+  --seed 20261119 \
+  --output applications/rgs-network-dynamics/results
+```
+
+The command writes JSON and CSV summaries locally. Do not commit generated output as verified evidence unless the command, environment, dependency versions and commit SHA are recorded.
+
+## Research priorities
+
+1. Recover independent historical documentation for Practices / Sun Microsystems Italia.
+2. Obtain comparable team-level data for Buurtzorg, Morning Star and FAVI.
+3. Add standard graph baselines and preregister sensitivity ranges.
+4. Separate decision autonomy, knowledge transfer, task allocation, decision latency and output quality.
+5. Validate the task-based resilience measures against real operational tasks.
+6. Only then define an explicit RGS embedding and compare it against standard graph methods using prespecified distance, spectral, symmetry and robustness criteria.
 
 ## Evidence classification
 
 | Item | Status |
 |---|---|
-| Graph and update-rule definitions | MODEL DEFINITION |
-| Code-level invariants | TESTED only when the test suite passes |
-| Numerical output | SYNTHETIC COMPUTATION; generate locally |
-| Practices performance advantage | OPEN EMPIRICAL HYPOTHESIS |
-| RGS geometric advantage | OPEN MATHEMATICAL / COMPUTATIONAL HYPOTHESIS |
-| Commercial demand | NOT ASSESSED |
+| Model definitions and source code | SPECIFIED |
+| Software invariants | TESTS WRITTEN; execution status must be checked |
+| Generated numerical outputs | SYNTHETIC ONLY |
+| Practices rollout and profit claims | UNVERIFIED TESTIMONIAL CLAIMS |
+| Comparative organizational effects | OPEN EMPIRICAL HYPOTHESES |
+| RGS-specific modelling advantage | OPEN COMPUTATIONAL HYPOTHESIS |
 
-No claim of empirical validation or startup readiness is made by this prototype.
+No empirical validation, causal conclusion or commercial-readiness claim is made.
