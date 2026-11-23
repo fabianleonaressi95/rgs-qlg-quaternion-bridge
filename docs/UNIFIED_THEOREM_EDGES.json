@@ -4017,7 +4017,7 @@
     },
     {
       "from": "THM:T063-quaternion-su2-so3-double-cover",
-      "to": "DOC:Q6_2I_INTERTWINER_COMPATIBILITY",
+      "to": "DOC:Q6_2I_INTERTWINER",
       "relation": "representation-input",
       "status": "reviewed-crosswalk",
       "caveat": "Quaternion/SU(2) convention; the central-character obstruction is a separate representation result."
@@ -4073,7 +4073,7 @@
     },
     {
       "from": "APP:Pellis01",
-      "to": "DOC:Q6_2I_INTERTWINER_COMPATIBILITY",
+      "to": "DOC:Q6_2I_INTERTWINER",
       "relation": "representation-input",
       "status": "reviewed-crosswalk",
       "caveat": "2I representation theory informs the quotient sector; does not prove scalar spectral multiplicities."
