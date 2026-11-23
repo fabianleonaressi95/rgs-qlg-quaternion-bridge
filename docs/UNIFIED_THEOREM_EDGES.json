@@ -11,7 +11,9 @@
     "verified_or_reviewed_direct_edges": 54,
     "classification_edges": 236,
     "hub_to_companion_edges": 30,
-    "note": "All theorem files are nodes. Each receives a provisional thematic-index edge based on its filename; that edge is not a proof dependency. Direct edges are explicitly typed and carry caveats."
+    "note": "All theorem files are nodes. Each receives a provisional thematic-index edge based on its filename; that edge is not a proof dependency. Direct edges are explicitly typed and carry caveats.",
+    "total_nodes": 289,
+    "total_edges": 320
   },
   "nodes": [
     {
