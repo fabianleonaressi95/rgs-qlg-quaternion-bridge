@@ -2057,6 +2057,69 @@
       "kind": "application-dossier",
       "repository": "fabianleonaressi95/theorem",
       "path": "docs/rgs_defect_benchmark/README.md"
+    },
+    {
+      "id": "DOC:Q6_DYADIC_SUBDIVISION",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md",
+      "title": "Q6 midpoint subdivision"
+    },
+    {
+      "id": "DOC:KATHARA_GATE_C",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/KATHARA_Q6_CHAIN_MAP_GATE_C.md",
+      "title": "Kathara–Q6 Gate C"
+    },
+    {
+      "id": "DOC:KATHARA_GATE_D",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/KATHARA_Q6_NONDEGENERATE_GATE_D.md",
+      "title": "Kathara–Q6 Gate D"
+    },
+    {
+      "id": "DOC:Q6_2I_INTERTWINER",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_2I_INTERTWINER_COMPATIBILITY.md",
+      "title": "Q6–2I central-character compatibility"
+    },
+    {
+      "id": "DOC:ELLIS_SPIN_CONNECTION",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md",
+      "title": "Ellis–RGS Levi-Civita SU(2) transport"
+    },
+    {
+      "id": "DOC:ANALYTIC_GRADIENT_GATE",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_ANALYTIC_GRADIENTS_AND_SPIN_CONNECTION_GATE.md",
+      "title": "Analytic gradient / spin-connection gate"
+    },
+    {
+      "id": "DOC:RGS_EC_TORSION",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_EC_ALGEBRAIC_AXIAL_TORSION_BENCHMARK.md",
+      "title": "Einstein–Cartan axial torsion benchmark"
+    },
+    {
+      "id": "DOC:VESICA_JITTERBUG",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "docs/VESICA_STAR_DAVID_JITTERBUG_PHASE_BRIDGE.md",
+      "title": "Vesica–hexagram–Jitterbug phase bridge"
+    },
+    {
+      "id": "DOC:UNIFIED_RGS_PRISM_QLG",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_PSU_PRISM_QLG_UNIFIED_GEOMETRIC_THEORY.md",
+      "title": "RGS–PSU–PRISM–QLG programme architecture"
     }
   ],
   "edges": [
