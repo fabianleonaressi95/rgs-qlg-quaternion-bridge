@@ -138,7 +138,7 @@ Its graph Laplacian has exact eigenvalues
 
 These identities provide exact finite-dimensional reference tests. They do not, by themselves, establish a continuum geometric limit.
 
-- **[Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md)** — 24 explicit typed arrows to theorem records in `fabianleonaressi95/theorem`; machine-readable [edge registry](docs/UNIFIED_THEOREM_EDGES.json).
+- **[Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md)** — 320 typed edges across all 236 theorem records and 14 companion catalogue entries to theorem records in `fabianleonaressi95/theorem`; machine-readable [edge registry](docs/UNIFIED_THEOREM_EDGES.json).
 
 ## Repository map
 
