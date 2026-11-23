@@ -1,0 +1,4369 @@
+{
+  "schema": "unified-two-repository-theorem-graph/v2",
+  "repositories": [
+    "fabianleonaressi95/theorem",
+    "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+  ],
+  "coverage": {
+    "theorem_markdown_records": 236,
+    "companion_catalogue_entries": 14,
+    "topic_hubs": 8,
+    "verified_or_reviewed_direct_edges": 54,
+    "classification_edges": 236,
+    "hub_to_companion_edges": 30,
+    "note": "All theorem files are nodes. Each receives a provisional thematic-index edge based on its filename; that edge is not a proof dependency. Direct edges are explicitly typed and carry caveats.",
+    "total_nodes": 289,
+    "total_edges": 320
+  },
+  "nodes": [
+    {
+      "id": "THM:001-fixed-lattice-temporal-wilson-limit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/001-fixed-lattice-temporal-wilson-limit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:B1-B3-bernoulli-rgs-hodge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/B1-B3-bernoulli-rgs-hodge.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:C60_CF_ACTUAL_JUMP_MEASURE_DECOMPOSITION_OPEN_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_ACTUAL_JUMP_MEASURE_DECOMPOSITION_OPEN_2026-11-23.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_DETERMINING_SEQUENCE_M0_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_DETERMINING_SEQUENCE_M0_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_EXTENSIONS_STUDY_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_EXTENSIONS_STUDY_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_EXTENSIONS_VARIABLE_M_ANISOTROPIC_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_EXTENSIONS_VARIABLE_M_ANISOTROPIC_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_EXTENSIONS_VARIABLE_M_ANISOTROPIC_AUDIT_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_EXTENSIONS_VARIABLE_M_ANISOTROPIC_AUDIT_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_FINITE_JUMP_GRAPH_GEOMETRY_2026-11-22",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_FINITE_JUMP_GRAPH_GEOMETRY_2026-11-22.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_GENERAL_ISOTROPIC_RECOVERY_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_GENERAL_ISOTROPIC_RECOVERY_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_GEOMETRY_A_TERMINAL_TRACE_AND_STRIP_SEPARATION_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_GEOMETRY_A_TERMINAL_TRACE_AND_STRIP_SEPARATION_2026-11-23.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_GTILDE_OPTIMIZATION_NUMERICAL_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_GTILDE_OPTIMIZATION_NUMERICAL_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_LOCALIZATION_LEMMA_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_LOCALIZATION_LEMMA_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_MINIMALITY_CONVEX_BULK_NORM_JUMP_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_MINIMALITY_CONVEX_BULK_NORM_JUMP_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_NONZERO_BULK_DISARRANGEMENT_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_NONZERO_BULK_DISARRANGEMENT_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_NUCLEAR_NORM_CELL_AND_BULK_OPTIMIZATION_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_NUCLEAR_NORM_CELL_AND_BULK_OPTIMIZATION_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_NUCLEAR_NORM_CELL_PROBLEM_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_NUCLEAR_NORM_CELL_PROBLEM_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_PARTITION_RECOVERY_AND_CELL_FORMULA_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_PARTITION_RECOVERY_AND_CELL_FORMULA_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_POLYHEDRAL_AFFINE_THEOREM_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_POLYHEDRAL_AFFINE_THEOREM_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_POLYHEDRAL_CFI_TRANSFER_AUDIT_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_POLYHEDRAL_CFI_TRANSFER_AUDIT_2026-11-23.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_POLYHEDRAL_GENERAL_RECOVERY_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_POLYHEDRAL_GENERAL_RECOVERY_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_QUADRATIC_JUMP_GENERAL_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_QUADRATIC_JUMP_GENERAL_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_QUADRATIC_JUMP_RELAXATION_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_QUADRATIC_JUMP_RELAXATION_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_QUADRATIC_RECOVERY_DIAGONAL_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_QUADRATIC_RECOVERY_DIAGONAL_2026-11-23.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_SBV_DENSITY_ATTEMPT_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_SBV_DENSITY_ATTEMPT_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_SBV_ISOTROPIC_THEOREM_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_SBV_ISOTROPIC_THEOREM_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_SKELETON_INTERIOR_LAMINATE_ESTIMATE_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_SKELETON_INTERIOR_LAMINATE_ESTIMATE_2026-11-23.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_SPLITTING_LEMMA_FRAMEWORK_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_SPLITTING_LEMMA_FRAMEWORK_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_VARIABLE_GRADIENT_RECOVERY_PROOF_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_VARIABLE_GRADIENT_RECOVERY_PROOF_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_CF_VARIABLE_M_ANALYTICAL_RECOVERY_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_CF_VARIABLE_M_ANALYTICAL_RECOVERY_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:C60_SURFACE_STRUCTURED_DEFORMATION_2026-11-21",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/C60_SURFACE_STRUCTURED_DEFORMATION_2026-11-21.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:EQC-1-ternary-hexagram-qutrit-register",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-1-ternary-hexagram-qutrit-register.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:EQC-2-instruction-algebra-compiler",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-2-instruction-algebra-compiler.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:EQC-3-hexagram-geometry-gates",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-3-hexagram-geometry-gates.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:EQC-3-rgs-native-symmetry-gates",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-3-rgs-native-symmetry-gates.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:EQC-4-hamming-automorphism-clifford",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-4-hamming-automorphism-clifford.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:EQC-MQM1-anisotropic-stabilizer",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-MQM1-anisotropic-stabilizer.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:KRYSTALLO_SUPERGOLDEN_FINE_STRUCTURE_BRIDGE_AUDIT_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/KRYSTALLO_SUPERGOLDEN_FINE_STRUCTURE_BRIDGE_AUDIT_2026-11-23.md",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:M1-q6-holder-gauge-strong-resolvent",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/M1-q6-holder-gauge-strong-resolvent.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:M2-minkowski-q6-one-axis-reflection",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/M2-minkowski-q6-one-axis-reflection.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:M3-minkowski-q6-d4-cell-orbit-closure",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/M3-minkowski-q6-d4-cell-orbit-closure.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:MQM-Q6-symmetry-stabilizer",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM-Q6-symmetry-stabilizer.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:MQM-multidimensional-structure",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM-multidimensional-structure.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:MQM1-discriminant-analysis",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM1-discriminant-analysis.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:MQM1-local-determinant-coupling",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM1-local-determinant-coupling.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:MQM1-local-psu-scalar-field",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM1-local-psu-scalar-field.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:MQM1-q6-quantum-geometry-backreaction",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM1-q6-quantum-geometry-backreaction.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:MQM1-rgs-metric-reference",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM1-rgs-metric-reference.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:Q6_FACE_COCHAINS_HODGE_GREEN_KUBO_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/Q6_FACE_COCHAINS_HODGE_GREEN_KUBO_2026-11-23.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:Q6_GREEN_KUBO_KRYSTALLO_SCALE_BRIDGE_2026-11-23",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/Q6_GREEN_KUBO_KRYSTALLO_SCALE_BRIDGE_2026-11-23.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:S001-silver-ratio-square-corner-tangency",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S001-silver-ratio-square-corner-tangency.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:S002-square-pentagon-supergolden-synthesis",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S002-square-pentagon-supergolden-synthesis.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:S003-dirichlet-log-partition-gradient-cumulants",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S003-dirichlet-log-partition-gradient-cumulants.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:S004-rgs-seed-fourth-moment-anisotropy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S004-rgs-seed-fourth-moment-anisotropy.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:S005-fourth-jump-moment-graph-laplacian-consistency",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S005-fourth-jump-moment-graph-laplacian-consistency.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:S006-fourth-moment-so3-connection-current",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S006-fourth-moment-so3-connection-current.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:S007-fourth-moment-maxwell-and-a4-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S007-fourth-moment-maxwell-and-a4-bridge.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:S008-fourth-moment-coframe-variation",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S008-fourth-moment-coframe-variation.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:S009-three-phase-ferraris-coframe-tetrad-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S009-three-phase-ferraris-coframe-tetrad-bridge.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:S009-weber-dedekind-eta-supergolden-class-invariant",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S009-weber-dedekind-eta-supergolden-class-invariant.md",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:S010-dirichlet-eta-lambert-series-quadratic-zeta",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S010-dirichlet-eta-lambert-series-quadratic-zeta.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:S010-kathara-quaternionic-rgs-triplet-response",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S010-kathara-quaternionic-rgs-triplet-response.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:S011-fdt-density-cone-riemann-cartan-kathara-maxwell",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S011-fdt-density-cone-riemann-cartan-kathara-maxwell.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:S011-ikeda-binary-tetrahedral-spectrum",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S011-ikeda-binary-tetrahedral-spectrum.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:S012-ikeda-cyclic-binary-polyhedral-spectra",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S012-ikeda-cyclic-binary-polyhedral-spectra.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:S013-general-spherical-space-form-molien-diagonal-actions",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/S013-general-spherical-space-form-molien-diagonal-actions.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T001-liouville-theorem",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T001-liouville-theorem.md",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "THM:T002-d5-bergman-volume-density",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T002-d5-bergman-volume-density.md",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "THM:T003-wilson-atomic-marginal-no-go",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T003-wilson-atomic-marginal-no-go.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T004-riemann-sums-bergman-weak-limit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T004-riemann-sums-bergman-weak-limit.md",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "THM:T005-q6-wilson-fiber-marginal-support",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T005-q6-wilson-fiber-marginal-support.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T006-q6-wilson-five-torus-quotient",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T006-q6-wilson-five-torus-quotient.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T007-q6-gauge-average-fourier-marginal",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T007-q6-gauge-average-fourier-marginal.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T008-wilson-to-bergman-weak-convergence-criterion",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T008-wilson-to-bergman-weak-convergence-criterion.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T009-effective-wilson-fiber-quadratic-form",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T009-effective-wilson-fiber-quadratic-form.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T010-para-kahler-liouville-psu",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T010-para-kahler-liouville-psu.md",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "THM:T010-rumin-spectrum-poincare-sphere",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T010-rumin-spectrum-poincare-sphere.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T011-para-kahler-liouville-psu",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T011-para-kahler-liouville-psu.md",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "THM:T012-su3-baryon-octet-decuplet",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T012-su3-baryon-octet-decuplet.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T013-q6-gauge-invariant-baryon-operators",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T013-q6-gauge-invariant-baryon-operators.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T014-q6-graph-dirac-gauge-covariance",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T014-q6-graph-dirac-gauge-covariance.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T015-q6-clifford-free-spectrum",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T015-q6-clifford-free-spectrum.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T016-nielsen-ninomiya-q6-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T016-nielsen-ninomiya-q6-audit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T017-q6-dirac-refinement",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T017-q6-dirac-refinement.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T019-q6-free-strong-resolvent",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T019-q6-free-strong-resolvent.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T020-gauge-covariant-q6-strong-resolvent",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T020-gauge-covariant-q6-strong-resolvent.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T021-critical-sobolev-gauge-trace-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T021-critical-sobolev-gauge-trace-audit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T021-rumin-analytic-torsion-2I",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T021-rumin-analytic-torsion-2I.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T022-eventual-hurwitz-rumin-2I",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T022-eventual-hurwitz-rumin-2I.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T023-gamma-reflection-rumin-2I",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T023-gamma-reflection-rumin-2I.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T024-reynolds-intertwiners-rumin-2I",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T024-reynolds-intertwiners-rumin-2I.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T024-rumin-kitaoka-operator-matching-3d",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T024-rumin-kitaoka-operator-matching-3d.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T025-rumin-middle-degree-blocks",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T025-rumin-middle-degree-blocks.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T026-mckay-e8-2i-multiplicities",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T026-mckay-e8-2i-multiplicities.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T027-mckay-molien-rumin-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T027-mckay-molien-rumin-bridge.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T028-nine-twist-torsion-closure",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T028-nine-twist-torsion-closure.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T029-rumin-gram-matrices-2i",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T029-rumin-gram-matrices-2i.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T030-rumin-explicit-central-differential",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T030-rumin-explicit-central-differential.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T030-rumin-polar-factorization",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T030-rumin-polar-factorization.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T031-rumin-2i-equivariance",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T031-rumin-2i-equivariance.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T032-2i-irrep-molien-projectors",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T032-2i-irrep-molien-projectors.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T032-rumin-fixed-harmonic-matrix",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T032-rumin-fixed-harmonic-matrix.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T033-2i-exact-matrix-units",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T033-2i-exact-matrix-units.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T033-equivariant-rumin-torsion-synthesis",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T033-equivariant-rumin-torsion-synthesis.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T034-exact-2i-character-table",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T034-exact-2i-character-table.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T034-explicit-2i-representations",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T034-explicit-2i-representations.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T035-exact-binary-icosahedral-model",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T035-exact-binary-icosahedral-model.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T036-explicit-2i-irreducible-models",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T036-explicit-2i-irreducible-models.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T037-harmonic-multiplicity-spaces",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T037-harmonic-multiplicity-spaces.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T038-rumin-reduced-differential",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T038-rumin-reduced-differential.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T039-rumin-boundary-2i-sectors",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T039-rumin-boundary-2i-sectors.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T040-boundary-barnes-zeta",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T040-boundary-barnes-zeta.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T041-boundary-barnes-determinant",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T041-boundary-barnes-determinant.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T042-full-rumin-torsion-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T042-full-rumin-torsion-audit.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T043-twisted-2i-rumin-torsion",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T043-twisted-2i-rumin-torsion.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T044-exact-twisted-gamma-reduction",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T044-exact-twisted-gamma-reduction.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T045-exact-2i-representation-certificate",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T045-exact-2i-representation-certificate.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T045-individual-rumin-zeta-poles",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T045-individual-rumin-zeta-poles.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T046-hadamard-finite-part-determinants",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T046-hadamard-finite-part-determinants.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T047-ec-weyssenhoff-spin-scaling",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T047-ec-weyssenhoff-spin-scaling.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T048-rgs-prism-mosco-changing-spaces",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T048-rgs-prism-mosco-changing-spaces.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T049-ellis-rgs-radial-icosphere-discretization",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T049-ellis-rgs-radial-icosphere-discretization.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T049-microscopic-spin-correlation-invariant",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T049-microscopic-spin-correlation-invariant.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T049A-q6-prism-spin-correlator",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T049A-q6-prism-spin-correlator.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T049B-rgs-ec-q6-prism-axial-current",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T049B-rgs-ec-q6-prism-axial-current.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T049C-qlg-dirac-intertwiner-classification",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T049C-qlg-dirac-intertwiner-classification.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T049D-lorentz-chiral-qlg-embedding",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T049D-lorentz-chiral-qlg-embedding.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T050-geometric-spin-chain-bounds",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T050-geometric-spin-chain-bounds.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T051-crank-nicolson-unitarity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T051-crank-nicolson-unitarity.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T052-scalar-torsion-variation",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T052-scalar-torsion-variation.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T053-exterior-square-projector-lemma",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T053-exterior-square-projector-lemma.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T054-static-radial-klein-gordon",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T054-static-radial-klein-gordon.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T055-q6-dyadic-subdivision-chain-map",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T055-q6-dyadic-subdivision-chain-map.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T056-phase21-trigram-supergolden-permutation-conjugacy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T056-phase21-trigram-supergolden-permutation-conjugacy.md",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:T057-kathara-square-similarity-center-overlay",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T057-kathara-square-similarity-center-overlay.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T058-kathara-15-line-planar-face-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T058-kathara-15-line-planar-face-audit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T059-kathara-cellular-chain-hodge-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T059-kathara-cellular-chain-hodge-audit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T060-kathara-q3-chain-map",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T060-kathara-q3-chain-map.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T061-kathara-q3-chain-homotopy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T061-kathara-q3-chain-homotopy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T062-kathara-q6-integral-chain-map",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T062-kathara-q6-integral-chain-map.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T063-quaternion-su2-so3-double-cover",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T063-quaternion-su2-so3-double-cover.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T064-finite-su2-lattice-holonomy-gauge-covariance",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T064-finite-su2-lattice-holonomy-gauge-covariance.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T065-cubical-subdivision-chain-map-and-naturality",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T065-cubical-subdivision-chain-map-and-naturality.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T066-herasymov-parity-affine-shared-face-conformity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T066-herasymov-parity-affine-shared-face-conformity.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T067-stokes-commuting-cubical-face-integral-interpolation",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T067-stokes-commuting-cubical-face-integral-interpolation.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T068-barycentric-covariance-quadrature-law",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T068-barycentric-covariance-quadrature-law.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T069-q6-antipodal-walsh-covariance",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T069-q6-antipodal-walsh-covariance.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T070-dirichlet-barycentric-phase-moments",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T070-dirichlet-barycentric-phase-moments.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T071-q6-cubical-topological-synchronization-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T071-q6-cubical-topological-synchronization-audit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T072-q6-mobius-phase-flat-connection",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T072-q6-mobius-phase-flat-connection.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T073-unified-football-shell-rgs-prism-limit-program",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T073-unified-football-shell-rgs-prism-limit-program.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T074-icosahedral-shell-binary-lift-hopf-seifert-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T074-icosahedral-shell-binary-lift-hopf-seifert-bridge.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T075-seam-aware-ellipsoidal-ovaloid-reduction",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T075-seam-aware-ellipsoidal-ovaloid-reduction.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T076-constitutive-mechanics-fatigue-hysteresis-football-seams",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T076-constitutive-mechanics-fatigue-hysteresis-football-seams.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T077-bernoulli-gradient-barycentre-gauge-fluid-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T077-bernoulli-gradient-barycentre-gauge-fluid-bridge.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T078-phase-theta-zeta-barycentric-spectral-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T078-phase-theta-zeta-barycentric-spectral-bridge.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T079-morandotti-surface-gradient-barycentre-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T079-morandotti-surface-gradient-barycentre-bridge.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T080-exact-discrete-stokes-qball-structured-gradient",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T080-exact-discrete-stokes-qball-structured-gradient.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T081-morandotti-gamma-euler-barycentric-energy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T081-morandotti-gamma-euler-barycentric-energy.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T082-morandotti-second-order-first-variation-dirichlet-anisotropy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T082-morandotti-second-order-first-variation-dirichlet-anisotropy.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T083-supergolden-digamma-zeta-gamma-identity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T083-supergolden-digamma-zeta-gamma-identity.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T084-supergolden-digamma-odd-zeta-accelerated-formula",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T084-supergolden-digamma-odd-zeta-accelerated-formula.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T085-supergolden-weber-hurwitz-digamma-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T085-supergolden-weber-hurwitz-digamma-bridge.md",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:T086-discrete-structured-deformation-hodge-seam-energy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T086-discrete-structured-deformation-hodge-seam-energy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T087-covariant-discrete-hodge-curvature-seams",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T087-covariant-discrete-hodge-curvature-seams.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T088-qball-panel-frames-holonomy-anisotropy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T088-qball-panel-frames-holonomy-anisotropy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T089-gauge-fluid-bernoulli-variational-coupling",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T089-gauge-fluid-bernoulli-variational-coupling.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T090-whitney-gauge-fluid-discretization",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T090-whitney-gauge-fluid-discretization.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T091-frank-burgers-tensorial-anisotropy-composition-law",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T091-frank-burgers-tensorial-anisotropy-composition-law.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T092-local-two-circle-frank-burgers-holonomy-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T092-local-two-circle-frank-burgers-holonomy-bridge.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T093-conforming-global-assembly-cartan-holonomy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T093-conforming-global-assembly-cartan-holonomy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T094-se2-holonomy-morandotti-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T094-se2-holonomy-morandotti-audit.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T096-airy-strain-holonomy-nonidentifiability",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T096-airy-strain-holonomy-nonidentifiability.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T097-barycentric-kinematic-frank-burgers-law",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T097-barycentric-kinematic-frank-burgers-law.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T098-two-circle-positive-gradient-negative-barycentre-duality",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T098-two-circle-positive-gradient-negative-barycentre-duality.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T099-bicircular-annular-deformation-reconstruction",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T099-bicircular-annular-deformation-reconstruction.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T099-nonaffine-vesica-parameter-koopman-bridge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T099-nonaffine-vesica-parameter-koopman-bridge.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:T099-shao-yong-q6-kirchhoff-network",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T099-shao-yong-q6-kirchhoff-network.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T100-hypercube-moire-green-kubo-defects",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T100-hypercube-moire-green-kubo-defects.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T101-trigram-angular-phases-q6-plaquette-holonomy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T101-trigram-angular-phases-q6-plaquette-holonomy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T102-cubical-supersymmetry-heat-kernel-sakharov",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T102-cubical-supersymmetry-heat-kernel-sakharov.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T103-q6-z2-magnetic-holonomy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T103-q6-z2-magnetic-holonomy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T104-q6-cycle-cocycle-holonomy-law",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T104-q6-cycle-cocycle-holonomy-law.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T105-hexagram-charge-moire-circuit-law",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T105-hexagram-charge-moire-circuit-law.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:T106-born-measure-q6-fdt-frank-burgers",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T106-born-measure-q6-fdt-frank-burgers.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T107-q6-gray-torus-gibbs-fdt-defect-test",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T107-q6-gray-torus-gibbs-fdt-defect-test.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T108-boolean-influences-q6-laplacian-cohomology",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T108-boolean-influences-q6-laplacian-cohomology.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T109-qn-dimension-uniform-influence-gap",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T109-qn-dimension-uniform-influence-gap.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T110-xy-torus-vortex-kthny-bkt",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T110-xy-torus-vortex-kthny-bkt.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T111-gp-zero-vortex-refinement",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T111-gp-zero-vortex-refinement.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T112-golden-ratio-kthny-defect-geometry",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T112-golden-ratio-kthny-defect-geometry.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T113-quasicrystal-phonon-phason-gravitational-mass",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113-quasicrystal-phonon-phason-gravitational-mass.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T113A-metric-action-phonon-phason-mode-sensitivity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113A-metric-action-phonon-phason-mode-sensitivity.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T113B-ekn-acoustic-gravitational-mass-control",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113B-ekn-acoustic-gravitational-mass-control.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T113C-icosahedral-phonon-phason-elasticity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113C-icosahedral-phonon-phason-elasticity.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T113D-q6-rgs-phonon-internal-mode",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113D-q6-rgs-phonon-internal-mode.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T113E-q6-rgs-t2u-triplet-stability",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113E-q6-rgs-t2u-triplet-stability.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T113F-q6-graph-elastic-stabilization",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113F-q6-graph-elastic-stabilization.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T113G-cut-project-symmetry-rank-two-isotropy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113G-cut-project-symmetry-rank-two-isotropy.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T114-q6-gauge-covariant-cubical-dirac-kaehler",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T114-q6-gauge-covariant-cubical-dirac-kaehler.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T115-rgs-curved-clifford-coframe-identity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T115-rgs-curved-clifford-coframe-identity.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T116-nondegenerate-kathara-q6-integral-chain-map",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T116-nondegenerate-kathara-q6-integral-chain-map.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T117-six-square-mobius-subcomplex-of-q6",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T117-six-square-mobius-subcomplex-of-q6.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T118-su2-path-transport-wilson-holonomy",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T118-su2-path-transport-wilson-holonomy.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T119-binary-icosahedral-group-and-selected-representations",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T119-binary-icosahedral-group-and-selected-representations.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T120-mobius-orientation-cocycle-and-independent-su2-fibre",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T120-mobius-orientation-cocycle-and-independent-su2-fibre.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T121-icosahedral-a5-action-on-q6-clifford-module",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T121-icosahedral-a5-action-on-q6-clifford-module.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T122-pin-plus-mobius-clifford-transport",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T122-pin-plus-mobius-clifford-transport.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T123-q6-2i-central-character-intertwiner",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T123-q6-2i-central-character-intertwiner.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T124-frank-read-source-line-tension-atomistic-core",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T124-frank-read-source-line-tension-atomistic-core.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T125-q6-prism-burgers-chain-frank-read-variational-interface",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T125-q6-prism-burgers-chain-frank-read-variational-interface.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T126-exact-burgers-conserving-local-reconnection",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T126-exact-burgers-conserving-local-reconnection.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T127-variational-energy-acceptance-topology-events",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T127-variational-energy-acceptance-topology-events.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T128-purcell-swimmer-q6-geometric-control",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T128-purcell-swimmer-q6-geometric-control.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T129-a5-equivariance-obstruction-and-calibrated-q6-purcell-map",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T129-a5-equivariance-obstruction-and-calibrated-q6-purcell-map.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T129-q6-cut-project-purcell-shape-map",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T129-q6-cut-project-purcell-shape-map.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T130-q6-discrete-gradients-barycentres-resistance",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T130-q6-discrete-gradients-barycentres-resistance.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T131-q6-phonon-phason-green-kubo-transport",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T131-q6-phonon-phason-green-kubo-transport.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T132-coupled-phonon-phason-ou-green-kubo",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T132-coupled-phonon-phason-ou-green-kubo.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T133-morandotti-finite-dimensional-kkt-existence-uniqueness",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T133-morandotti-finite-dimensional-kkt-existence-uniqueness.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T134-exact-integration-certification-gap",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T134-exact-integration-certification-gap.md",
+      "topic_hub": "H-OTHER"
+    },
+    {
+      "id": "THM:T134-morandotti-c0-ipdg-conditional-coercivity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T134-morandotti-c0-ipdg-conditional-coercivity.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T135-morandotti-bernstein-neumann-certified-rational-integration",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T135-morandotti-bernstein-neumann-certified-rational-integration.md",
+      "topic_hub": "H-MOR"
+    },
+    {
+      "id": "THM:T136-tetrahedral-volume-moment-reconstruction-ricci-q6",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T136-tetrahedral-volume-moment-reconstruction-ricci-q6.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T137-q6-real-weighted-hodge-green-resolvent",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T137-q6-real-weighted-hodge-green-resolvent.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T137-vesica-piscis-two-circle-hexagon-pi-sqrt3",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T137-vesica-piscis-two-circle-hexagon-pi-sqrt3.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:T138-c6-exact-two-sheet-spin3-decomposition",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T138-c6-exact-two-sheet-spin3-decomposition.md",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "THM:T139-supergolden-icosahedron-convex-hull-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T139-supergolden-icosahedron-convex-hull-audit.md",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:T140-icosahedron-q6-incidence-lift",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T140-icosahedron-q6-incidence-lift.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T141-antipodal-icosahedron-q6-lift",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T141-antipodal-icosahedron-q6-lift.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T142-vesica-antipodal-six-state-mixing",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T142-vesica-antipodal-six-state-mixing.md",
+      "topic_hub": "H-VESICA"
+    },
+    {
+      "id": "THM:T143-vesica-q6-isometric-antipodal-embedding",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T143-vesica-q6-isometric-antipodal-embedding.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T143A-antipodal-equivariance-minimal-so3-su2-connection",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T143A-antipodal-equivariance-minimal-so3-su2-connection.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T143C-clifford-symmetry-fibre-operator",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T143C-clifford-symmetry-fibre-operator.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:T143D-antitwin-isospectrality-normal-operator",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T143D-antitwin-isospectrality-normal-operator.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:mckay_affine_e8_binary_icosahedral",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/spectral/mckay_affine_e8_binary_icosahedral.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:poincare_s3_2i_multiplicities",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/spectral/poincare_s3_2i_multiplicities.md",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "CAT:Q6-CX-001",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Q6 cellular complex and incidence",
+      "status": [
+        "EXACT_FINITE",
+        "PROVEN"
+      ],
+      "scope": "canonical 6-cube 2-skeleton",
+      "sources": [
+        "src/q6_complex.py",
+        "tests/test_q6_complex.py"
+      ]
+    },
+    {
+      "id": "CAT:Q6-SP-002",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Hypercube Laplacian spectrum",
+      "status": [
+        "PROVEN"
+      ],
+      "scope": "canonical graph Q6",
+      "sources": [
+        "src/q6_complex.py"
+      ]
+    },
+    {
+      "id": "CAT:RGS-GEO-003",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Curved Clifford field from coframe",
+      "status": [
+        "PROVEN",
+        "NUMERIC"
+      ],
+      "scope": "each site with invertible coframe and consistent signature",
+      "sources": [
+        "docs/WEILER_PHASE6_THEOREM_MAP.md",
+        "results/json/rgs_q6_phase6_reference_audit.json"
+      ]
+    },
+    {
+      "id": "CAT:RGS-SPIN-004",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Polar SO(3)-to-SU(2) edge lift",
+      "status": [
+        "CANDIDATE",
+        "NUMERIC"
+      ],
+      "scope": "archived finite RGS-Q6 data",
+      "sources": [
+        "results/json/rgs_q6_phase6_reference_audit.json"
+      ]
+    },
+    {
+      "id": "CAT:RGS-DIRAC-005",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Spatial discrete Dirac operator",
+      "status": [
+        "MODEL",
+        "NUMERIC"
+      ],
+      "scope": "256-dimensional archived finite operator",
+      "sources": [
+        "results/json/rgs_q6_phase6_reference_audit.json"
+      ]
+    },
+    {
+      "id": "CAT:RGS-WILSON-006",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Covariant Wilson graph Laplacian",
+      "status": [
+        "PROVEN",
+        "NUMERIC"
+      ],
+      "scope": "unitary links and nonnegative edge weights",
+      "sources": [
+        "docs/CHIRAL_WILSON_AUDIT.md",
+        "results/json/rgs_q6_wilson_audit.json"
+      ]
+    },
+    {
+      "id": "CAT:RGS-WILSON-007",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Euclidean Wilson convention correction",
+      "status": [
+        "EXACT_FINITE",
+        "PROVEN"
+      ],
+      "scope": "specified periodic symbol and operator convention",
+      "sources": [
+        "docs/WEILER_PHASE6_THEOREM_MAP.md",
+        "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md"
+      ]
+    },
+    {
+      "id": "CAT:WILSON-SCALE-008",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Wilson scaling window",
+      "status": [
+        "PROVEN"
+      ],
+      "scope": "regular periodic Fourier lattice symbol",
+      "sources": [
+        "src/wilson_refinement.py",
+        "examples/wilson_refinement_audit.py",
+        "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md"
+      ]
+    },
+    {
+      "id": "CAT:MOSCO-TORUS-009",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Flat periodic-torus Mosco prototype",
+      "status": [
+        "PROVEN"
+      ],
+      "scope": "flat periodic torus and explicitly stated common-Hilbert/Fourier assumptions",
+      "sources": [
+        "docs/MOSCO_PROTOTYPE_REGULAR_TORUS.md",
+        "src/mosco_torus.py",
+        "tests/test_mosco_torus.py"
+      ]
+    },
+    {
+      "id": "CAT:DK-Q6-010",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Combinatorial Dirac-Kahler operator",
+      "status": [
+        "PROVEN",
+        "EXACT_FINITE"
+      ],
+      "scope": "unweighted Q6 2-skeleton cochains",
+      "sources": [
+        "src/dirac_kahler.py",
+        "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md"
+      ]
+    },
+    {
+      "id": "CAT:OVERLAP-GW-011",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Finite overlap Ginsparg-Wilson identity",
+      "status": [
+        "PROVEN",
+        "NUMERIC"
+      ],
+      "scope": "finite gamma5-Hermitian kernel with nonzero Hermitian-kernel gap",
+      "sources": [
+        "src/overlap_dirac.py",
+        "results/json/rgs_q6_phase10_index_spectral_flow.json"
+      ]
+    },
+    {
+      "id": "CAT:OVERLAP-LOC-012",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Finite overlap locality diagnostics",
+      "status": [
+        "NUMERIC",
+        "OPEN"
+      ],
+      "scope": "one archived Q6 matrix and sampled rho values",
+      "sources": [
+        "results/json/rgs_q6_phase10_index_spectral_flow.json"
+      ]
+    },
+    {
+      "id": "CAT:THERM-MOB-013",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Finite Mobius spectral thermodynamics",
+      "status": [
+        "NUMERIC",
+        "MODEL"
+      ],
+      "scope": "specified finite 24-level-per-sector spectrum",
+      "sources": [
+        "docs/MOBIUS_HAWKING_THERMODYNAMICS.md",
+        "src/thermodynamics.py"
+      ]
+    },
+    {
+      "id": "CAT:WEILER-EQV-014",
+      "kind": "catalogue-entry",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "title": "Geometric equivariance constraints",
+      "status": [
+        "PROVEN",
+        "OPEN"
+      ],
+      "scope": "standard equivariant-map theorems plus partial Q6 implementation",
+      "sources": [
+        "docs/WEILER_PHASE6_THEOREM_MAP.md"
+      ]
+    },
+    {
+      "id": "DOC:Q6_CX",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/KATHARA_Q6_CHAIN_MAP_GATE_C.md",
+      "title": "Q6/Kathara cellular-chain companion"
+    },
+    {
+      "id": "DOC:Q6_SP",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_COMBINATORIAL_HODGE_LAPLACIANS.md",
+      "title": "Q6 finite spectral/Hodge structure"
+    },
+    {
+      "id": "DOC:RGS_GEO",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/WEILER_PHASE6_THEOREM_MAP.md",
+      "title": "coframe-induced Clifford field"
+    },
+    {
+      "id": "DOC:RGS_SPIN",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md",
+      "title": "finite SU(2) spin transport"
+    },
+    {
+      "id": "DOC:RGS_DIRAC",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/ELLIS_RGS_INTRINSIC_SPIN_DIRAC.md",
+      "title": "intrinsic spinorial Dirac operator"
+    },
+    {
+      "id": "DOC:RGS_WILSON",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/CHIRAL_WILSON_AUDIT.md",
+      "title": "gauge-covariant Wilson operator"
+    },
+    {
+      "id": "DOC:WILSON_SCALE",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md",
+      "title": "Wilson scaling and overlap conventions"
+    },
+    {
+      "id": "DOC:MOSCO_TORUS",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/MOSCO_PROTOTYPE_REGULAR_TORUS.md",
+      "title": "flat Mosco theorem"
+    },
+    {
+      "id": "DOC:MOSCO_CURVED",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_MOSCO_CURVED_REFINEMENT_PROGRAM.md",
+      "title": "curved Mosco open programme"
+    },
+    {
+      "id": "DOC:DK_Q6",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md",
+      "title": "Dirac–Kähler operator"
+    },
+    {
+      "id": "DOC:OVERLAP_GW",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/WILSON_REFINEMENT_OVERLAP_DIRAC_KAHLER.md",
+      "title": "finite overlap/Ginsparg–Wilson"
+    },
+    {
+      "id": "DOC:OVERLAP_LOC",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_MOSCO_CURVED_REFINEMENT_PROGRAM.md",
+      "title": "locality/convergence open obligations"
+    },
+    {
+      "id": "DOC:THERM_MOB",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/MOBIUS_HAWKING_THERMODYNAMICS.md",
+      "title": "finite Möbius spectral thermodynamics"
+    },
+    {
+      "id": "DOC:Q6_BARYCENTRIC",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_BARYCENTRIC_P1_FEM.md",
+      "title": "Q6 barycentric P1 finite elements"
+    },
+    {
+      "id": "DOC:D5_BERGMAN",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_D5_BERGMAN_LIOUVILLE_PULLBACK_THEOREM.md",
+      "title": "D5 Bergman–Liouville pullback"
+    },
+    {
+      "id": "DOC:UNIFIED_GEOMETRY",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_PSU_PRISM_QLG_UNIFIED_GEOMETRIC_THEORY.md",
+      "title": "programme architecture; not a theorem"
+    },
+    {
+      "id": "H-SPECTRAL",
+      "kind": "thematic-hub",
+      "title": "Spectral theory · Rumin · 2I · Poincaré"
+    },
+    {
+      "id": "H-Q6",
+      "kind": "thematic-hub",
+      "title": "Q6 · chains · Hodge · Dirac · gauge"
+    },
+    {
+      "id": "H-RGS",
+      "kind": "thematic-hub",
+      "title": "RGS · coframes · spin · Mosco · geometry"
+    },
+    {
+      "id": "H-MOR",
+      "kind": "thematic-hub",
+      "title": "Morandotti · structured deformation · gradients · defects"
+    },
+    {
+      "id": "H-VESICA",
+      "kind": "thematic-hub",
+      "title": "Vesica · hexagram · pentagon · Jitterbug"
+    },
+    {
+      "id": "H-PRISM",
+      "kind": "thematic-hub",
+      "title": "PRISM · Krist-All · supergolden · phases"
+    },
+    {
+      "id": "H-D5",
+      "kind": "thematic-hub",
+      "title": "D5 · Liouville · Bergman · Wilson · special functions"
+    },
+    {
+      "id": "H-OTHER",
+      "kind": "thematic-hub",
+      "title": "Other / independent roots requiring explicit crosswalk"
+    },
+    {
+      "id": "APP:Pellis01",
+      "kind": "application-dossier",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "collaborations/pellis/01_exact_scalar_spectrum_poincare_sphere.md"
+    },
+    {
+      "id": "APP:Pellis02",
+      "kind": "application-dossier",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "collaborations/pellis/02_prism_kathara_kristall_multidimensional.md"
+    },
+    {
+      "id": "APP:Pellis03",
+      "kind": "application-dossier",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "collaborations/pellis/03_geometric_self_adjoint_operators.md"
+    },
+    {
+      "id": "APP:Pellis04",
+      "kind": "application-dossier",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "collaborations/pellis/04_pellis_functions_golden_spheres_resonance.md"
+    },
+    {
+      "id": "APP:MorandottiBrief",
+      "kind": "application-dossier",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "docs/MORANDOTTI_BRIEFING_2026-11-11.md"
+    },
+    {
+      "id": "APP:MorandottiDefect",
+      "kind": "application-dossier",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "docs/rgs_defect_benchmark/README.md"
+    },
+    {
+      "id": "DOC:Q6_DYADIC_SUBDIVISION",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md",
+      "title": "Q6 midpoint subdivision"
+    },
+    {
+      "id": "DOC:KATHARA_GATE_C",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/KATHARA_Q6_CHAIN_MAP_GATE_C.md",
+      "title": "Kathara–Q6 Gate C"
+    },
+    {
+      "id": "DOC:KATHARA_GATE_D",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/KATHARA_Q6_NONDEGENERATE_GATE_D.md",
+      "title": "Kathara–Q6 Gate D"
+    },
+    {
+      "id": "DOC:Q6_2I_INTERTWINER",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_2I_INTERTWINER_COMPATIBILITY.md",
+      "title": "Q6–2I central-character compatibility"
+    },
+    {
+      "id": "DOC:ELLIS_SPIN_CONNECTION",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md",
+      "title": "Ellis–RGS Levi-Civita SU(2) transport"
+    },
+    {
+      "id": "DOC:ANALYTIC_GRADIENT_GATE",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/Q6_ANALYTIC_GRADIENTS_AND_SPIN_CONNECTION_GATE.md",
+      "title": "Analytic gradient / spin-connection gate"
+    },
+    {
+      "id": "DOC:RGS_EC_TORSION",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_EC_ALGEBRAIC_AXIAL_TORSION_BENCHMARK.md",
+      "title": "Einstein–Cartan axial torsion benchmark"
+    },
+    {
+      "id": "DOC:VESICA_JITTERBUG",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "docs/VESICA_STAR_DAVID_JITTERBUG_PHASE_BRIDGE.md",
+      "title": "Vesica–hexagram–Jitterbug phase bridge"
+    },
+    {
+      "id": "DOC:UNIFIED_RGS_PRISM_QLG",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/RGS_PSU_PRISM_QLG_UNIFIED_GEOMETRIC_THEORY.md",
+      "title": "RGS–PSU–PRISM–QLG programme architecture"
+    }
+  ],
+  "edges": [
+    {
+      "from": "THM:001-fixed-lattice-temporal-wilson-limit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:B1-B3-bernoulli-rgs-hodge",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_ACTUAL_JUMP_MEASURE_DECOMPOSITION_OPEN_2026-11-23",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_DETERMINING_SEQUENCE_M0_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_EXTENSIONS_STUDY_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_EXTENSIONS_VARIABLE_M_ANISOTROPIC_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_EXTENSIONS_VARIABLE_M_ANISOTROPIC_AUDIT_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_FINITE_JUMP_GRAPH_GEOMETRY_2026-11-22",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_GENERAL_ISOTROPIC_RECOVERY_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_GEOMETRY_A_TERMINAL_TRACE_AND_STRIP_SEPARATION_2026-11-23",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_GTILDE_OPTIMIZATION_NUMERICAL_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_LOCALIZATION_LEMMA_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_MINIMALITY_CONVEX_BULK_NORM_JUMP_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_NONZERO_BULK_DISARRANGEMENT_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_NUCLEAR_NORM_CELL_AND_BULK_OPTIMIZATION_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_NUCLEAR_NORM_CELL_PROBLEM_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_PARTITION_RECOVERY_AND_CELL_FORMULA_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_POLYHEDRAL_AFFINE_THEOREM_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_POLYHEDRAL_CFI_TRANSFER_AUDIT_2026-11-23",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_POLYHEDRAL_GENERAL_RECOVERY_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_QUADRATIC_JUMP_GENERAL_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_QUADRATIC_JUMP_RELAXATION_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_QUADRATIC_RECOVERY_DIAGONAL_2026-11-23",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_SBV_DENSITY_ATTEMPT_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_SBV_ISOTROPIC_THEOREM_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_SKELETON_INTERIOR_LAMINATE_ESTIMATE_2026-11-23",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_SPLITTING_LEMMA_FRAMEWORK_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_VARIABLE_GRADIENT_RECOVERY_PROOF_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_CF_VARIABLE_M_ANALYTICAL_RECOVERY_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:C60_SURFACE_STRUCTURED_DEFORMATION_2026-11-21",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-1-ternary-hexagram-qutrit-register",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-2-instruction-algebra-compiler",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-3-hexagram-geometry-gates",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-3-rgs-native-symmetry-gates",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-4-hamming-automorphism-clifford",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-MQM1-anisotropic-stabilizer",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:KRYSTALLO_SUPERGOLDEN_FINE_STRUCTURE_BRIDGE_AUDIT_2026-11-23",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:M1-q6-holder-gauge-strong-resolvent",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:M2-minkowski-q6-one-axis-reflection",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:M3-minkowski-q6-d4-cell-orbit-closure",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM-Q6-symmetry-stabilizer",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM-multidimensional-structure",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM1-discriminant-analysis",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM1-local-determinant-coupling",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM1-local-psu-scalar-field",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM1-q6-quantum-geometry-backreaction",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM1-rgs-metric-reference",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:Q6_FACE_COCHAINS_HODGE_GREEN_KUBO_2026-11-23",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:Q6_GREEN_KUBO_KRYSTALLO_SCALE_BRIDGE_2026-11-23",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S001-silver-ratio-square-corner-tangency",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S002-square-pentagon-supergolden-synthesis",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S003-dirichlet-log-partition-gradient-cumulants",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S004-rgs-seed-fourth-moment-anisotropy",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S005-fourth-jump-moment-graph-laplacian-consistency",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S006-fourth-moment-so3-connection-current",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S007-fourth-moment-maxwell-and-a4-bridge",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S008-fourth-moment-coframe-variation",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S009-three-phase-ferraris-coframe-tetrad-bridge",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S009-weber-dedekind-eta-supergolden-class-invariant",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S010-dirichlet-eta-lambert-series-quadratic-zeta",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S010-kathara-quaternionic-rgs-triplet-response",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S011-fdt-density-cone-riemann-cartan-kathara-maxwell",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S011-ikeda-binary-tetrahedral-spectrum",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S012-ikeda-cyclic-binary-polyhedral-spectra",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:S013-general-spherical-space-form-molien-diagonal-actions",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T001-liouville-theorem",
+      "to": "H-D5",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T002-d5-bergman-volume-density",
+      "to": "H-D5",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T003-wilson-atomic-marginal-no-go",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T004-riemann-sums-bergman-weak-limit",
+      "to": "H-D5",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T005-q6-wilson-fiber-marginal-support",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T006-q6-wilson-five-torus-quotient",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T007-q6-gauge-average-fourier-marginal",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T008-wilson-to-bergman-weak-convergence-criterion",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T009-effective-wilson-fiber-quadratic-form",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T010-para-kahler-liouville-psu",
+      "to": "H-D5",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T010-rumin-spectrum-poincare-sphere",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T011-para-kahler-liouville-psu",
+      "to": "H-D5",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T012-su3-baryon-octet-decuplet",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T013-q6-gauge-invariant-baryon-operators",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T014-q6-graph-dirac-gauge-covariance",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T015-q6-clifford-free-spectrum",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T016-nielsen-ninomiya-q6-audit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T017-q6-dirac-refinement",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T019-q6-free-strong-resolvent",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T020-gauge-covariant-q6-strong-resolvent",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T021-critical-sobolev-gauge-trace-audit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T021-rumin-analytic-torsion-2I",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T022-eventual-hurwitz-rumin-2I",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T023-gamma-reflection-rumin-2I",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T024-reynolds-intertwiners-rumin-2I",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T024-rumin-kitaoka-operator-matching-3d",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T025-rumin-middle-degree-blocks",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T026-mckay-e8-2i-multiplicities",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T027-mckay-molien-rumin-bridge",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T028-nine-twist-torsion-closure",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T029-rumin-gram-matrices-2i",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T030-rumin-explicit-central-differential",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T030-rumin-polar-factorization",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T031-rumin-2i-equivariance",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T032-2i-irrep-molien-projectors",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T032-rumin-fixed-harmonic-matrix",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T033-2i-exact-matrix-units",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T033-equivariant-rumin-torsion-synthesis",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T034-exact-2i-character-table",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T034-explicit-2i-representations",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T035-exact-binary-icosahedral-model",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T036-explicit-2i-irreducible-models",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T037-harmonic-multiplicity-spaces",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T038-rumin-reduced-differential",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T039-rumin-boundary-2i-sectors",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T040-boundary-barnes-zeta",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T041-boundary-barnes-determinant",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T042-full-rumin-torsion-audit",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T043-twisted-2i-rumin-torsion",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T044-exact-twisted-gamma-reduction",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T045-exact-2i-representation-certificate",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T045-individual-rumin-zeta-poles",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T046-hadamard-finite-part-determinants",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T047-ec-weyssenhoff-spin-scaling",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T048-rgs-prism-mosco-changing-spaces",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T049-ellis-rgs-radial-icosphere-discretization",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T049-microscopic-spin-correlation-invariant",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T049A-q6-prism-spin-correlator",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T049B-rgs-ec-q6-prism-axial-current",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T049C-qlg-dirac-intertwiner-classification",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T049D-lorentz-chiral-qlg-embedding",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T050-geometric-spin-chain-bounds",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T051-crank-nicolson-unitarity",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T052-scalar-torsion-variation",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T053-exterior-square-projector-lemma",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T054-static-radial-klein-gordon",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T055-q6-dyadic-subdivision-chain-map",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T056-phase21-trigram-supergolden-permutation-conjugacy",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T057-kathara-square-similarity-center-overlay",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T058-kathara-15-line-planar-face-audit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T059-kathara-cellular-chain-hodge-audit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T060-kathara-q3-chain-map",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T061-kathara-q3-chain-homotopy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T062-kathara-q6-integral-chain-map",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T063-quaternion-su2-so3-double-cover",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T064-finite-su2-lattice-holonomy-gauge-covariance",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T065-cubical-subdivision-chain-map-and-naturality",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T066-herasymov-parity-affine-shared-face-conformity",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T067-stokes-commuting-cubical-face-integral-interpolation",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T068-barycentric-covariance-quadrature-law",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T069-q6-antipodal-walsh-covariance",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T070-dirichlet-barycentric-phase-moments",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T071-q6-cubical-topological-synchronization-audit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T072-q6-mobius-phase-flat-connection",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T073-unified-football-shell-rgs-prism-limit-program",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T074-icosahedral-shell-binary-lift-hopf-seifert-bridge",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T075-seam-aware-ellipsoidal-ovaloid-reduction",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T076-constitutive-mechanics-fatigue-hysteresis-football-seams",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T077-bernoulli-gradient-barycentre-gauge-fluid-bridge",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T078-phase-theta-zeta-barycentric-spectral-bridge",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T079-morandotti-surface-gradient-barycentre-bridge",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T080-exact-discrete-stokes-qball-structured-gradient",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T081-morandotti-gamma-euler-barycentric-energy",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T082-morandotti-second-order-first-variation-dirichlet-anisotropy",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T083-supergolden-digamma-zeta-gamma-identity",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T084-supergolden-digamma-odd-zeta-accelerated-formula",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T085-supergolden-weber-hurwitz-digamma-bridge",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T086-discrete-structured-deformation-hodge-seam-energy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T087-covariant-discrete-hodge-curvature-seams",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T088-qball-panel-frames-holonomy-anisotropy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T089-gauge-fluid-bernoulli-variational-coupling",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T090-whitney-gauge-fluid-discretization",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T091-frank-burgers-tensorial-anisotropy-composition-law",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T092-local-two-circle-frank-burgers-holonomy-bridge",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T093-conforming-global-assembly-cartan-holonomy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T094-se2-holonomy-morandotti-audit",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T096-airy-strain-holonomy-nonidentifiability",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T097-barycentric-kinematic-frank-burgers-law",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T098-two-circle-positive-gradient-negative-barycentre-duality",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T099-bicircular-annular-deformation-reconstruction",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T099-nonaffine-vesica-parameter-koopman-bridge",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T099-shao-yong-q6-kirchhoff-network",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T100-hypercube-moire-green-kubo-defects",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T101-trigram-angular-phases-q6-plaquette-holonomy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T102-cubical-supersymmetry-heat-kernel-sakharov",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T103-q6-z2-magnetic-holonomy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T104-q6-cycle-cocycle-holonomy-law",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T105-hexagram-charge-moire-circuit-law",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T106-born-measure-q6-fdt-frank-burgers",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T107-q6-gray-torus-gibbs-fdt-defect-test",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T108-boolean-influences-q6-laplacian-cohomology",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T109-qn-dimension-uniform-influence-gap",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T110-xy-torus-vortex-kthny-bkt",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T111-gp-zero-vortex-refinement",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T112-golden-ratio-kthny-defect-geometry",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113-quasicrystal-phonon-phason-gravitational-mass",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113A-metric-action-phonon-phason-mode-sensitivity",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113B-ekn-acoustic-gravitational-mass-control",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113C-icosahedral-phonon-phason-elasticity",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113D-q6-rgs-phonon-internal-mode",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113E-q6-rgs-t2u-triplet-stability",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113F-q6-graph-elastic-stabilization",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113G-cut-project-symmetry-rank-two-isotropy",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T114-q6-gauge-covariant-cubical-dirac-kaehler",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T115-rgs-curved-clifford-coframe-identity",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T116-nondegenerate-kathara-q6-integral-chain-map",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T117-six-square-mobius-subcomplex-of-q6",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T118-su2-path-transport-wilson-holonomy",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T119-binary-icosahedral-group-and-selected-representations",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T120-mobius-orientation-cocycle-and-independent-su2-fibre",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T121-icosahedral-a5-action-on-q6-clifford-module",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T122-pin-plus-mobius-clifford-transport",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T123-q6-2i-central-character-intertwiner",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T124-frank-read-source-line-tension-atomistic-core",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T125-q6-prism-burgers-chain-frank-read-variational-interface",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T126-exact-burgers-conserving-local-reconnection",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T127-variational-energy-acceptance-topology-events",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T128-purcell-swimmer-q6-geometric-control",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T129-a5-equivariance-obstruction-and-calibrated-q6-purcell-map",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T129-q6-cut-project-purcell-shape-map",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T130-q6-discrete-gradients-barycentres-resistance",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T131-q6-phonon-phason-green-kubo-transport",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T132-coupled-phonon-phason-ou-green-kubo",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T133-morandotti-finite-dimensional-kkt-existence-uniqueness",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T134-exact-integration-certification-gap",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T134-morandotti-c0-ipdg-conditional-coercivity",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T135-morandotti-bernstein-neumann-certified-rational-integration",
+      "to": "H-MOR",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T136-tetrahedral-volume-moment-reconstruction-ricci-q6",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T137-q6-real-weighted-hodge-green-resolvent",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T137-vesica-piscis-two-circle-hexagon-pi-sqrt3",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T138-c6-exact-two-sheet-spin3-decomposition",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T139-supergolden-icosahedron-convex-hull-audit",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T140-icosahedron-q6-incidence-lift",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T141-antipodal-icosahedron-q6-lift",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T142-vesica-antipodal-six-state-mixing",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T143-vesica-q6-isometric-antipodal-embedding",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T143A-antipodal-equivariance-minimal-so3-su2-connection",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T143C-clifford-symmetry-fibre-operator",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T143D-antitwin-isospectrality-normal-operator",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:mckay_affine_e8_binary_icosahedral",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:poincare_s3_2i_multiplicities",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is based on theorem filename only; this is an index edge, not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "H-SPECTRAL",
+      "to": "DOC:Q6_2I_INTERTWINER",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-SPECTRAL",
+      "to": "DOC:D5_BERGMAN",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-SPECTRAL",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:Q6_CX",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:Q6_SP",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:RGS_DIRAC",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:RGS_WILSON",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:DK_Q6",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:OVERLAP_GW",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-Q6",
+      "to": "DOC:OVERLAP_LOC",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-RGS",
+      "to": "DOC:RGS_GEO",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-RGS",
+      "to": "DOC:RGS_SPIN",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-RGS",
+      "to": "DOC:RGS_DIRAC",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-RGS",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-RGS",
+      "to": "DOC:MOSCO_TORUS",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-RGS",
+      "to": "DOC:UNIFIED_GEOMETRY",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-MOR",
+      "to": "DOC:Q6_BARYCENTRIC",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-MOR",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-MOR",
+      "to": "DOC:MOSCO_TORUS",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-MOR",
+      "to": "DOC:UNIFIED_GEOMETRY",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-VESICA",
+      "to": "DOC:Q6_BARYCENTRIC",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-VESICA",
+      "to": "DOC:UNIFIED_GEOMETRY",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-PRISM",
+      "to": "DOC:Q6_CX",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-PRISM",
+      "to": "DOC:Q6_SP",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-PRISM",
+      "to": "DOC:UNIFIED_GEOMETRY",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-PRISM",
+      "to": "DOC:D5_BERGMAN",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-D5",
+      "to": "DOC:D5_BERGMAN",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-D5",
+      "to": "DOC:RGS_WILSON",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-D5",
+      "to": "DOC:WILSON_SCALE",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "H-OTHER",
+      "to": "DOC:UNIFIED_GEOMETRY",
+      "relation": "cross-repository-topic-bridge",
+      "status": "review-required",
+      "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
+    },
+    {
+      "from": "THM:T055-q6-dyadic-subdivision-chain-map",
+      "to": "DOC:Q6_DYADIC_SUBDIVISION",
+      "relation": "companion-implementation",
+      "status": "reviewed-crosswalk",
+      "caveat": "Exact midpoint subdivision and commuting boundary identities; historical array permutation remains separate."
+    },
+    {
+      "from": "THM:T060-kathara-q3-chain-map",
+      "to": "THM:T062-kathara-q6-integral-chain-map",
+      "relation": "refines-target",
+      "status": "reviewed-crosswalk",
+      "caveat": "Q3 and Q6 chain maps are distinct constructions."
+    },
+    {
+      "from": "THM:T062-kathara-q6-integral-chain-map",
+      "to": "DOC:KATHARA_GATE_C",
+      "relation": "companion-implementation",
+      "status": "reviewed-crosswalk",
+      "caveat": "Same explicit root-path map; all source 2-cells collapse because R2=0."
+    },
+    {
+      "from": "DOC:KATHARA_GATE_C",
+      "to": "DOC:KATHARA_GATE_D",
+      "relation": "candidate-successor",
+      "status": "reviewed-crosswalk",
+      "caveat": "Canonicality and nondegenerate cellular lift remain open."
+    },
+    {
+      "from": "THM:T063-quaternion-su2-so3-double-cover",
+      "to": "DOC:Q6_2I_INTERTWINER",
+      "relation": "representation-input",
+      "status": "reviewed-crosswalk",
+      "caveat": "Quaternion/SU(2) convention; the central-character obstruction is a separate representation result."
+    },
+    {
+      "from": "THM:T063-quaternion-su2-so3-double-cover",
+      "to": "DOC:ELLIS_SPIN_CONNECTION",
+      "relation": "spin-lift-prerequisite",
+      "status": "reviewed-crosswalk",
+      "caveat": "Double-cover theorem does not itself prove curved spin transport."
+    },
+    {
+      "from": "THM:T068-barycentric-covariance-quadrature-law",
+      "to": "DOC:Q6_BARYCENTRIC",
+      "relation": "shared-barycentric-input",
+      "status": "reviewed-crosswalk",
+      "caveat": "Triangle covariance/quadrature and Q6 edge FEM are distinct constructions."
+    },
+    {
+      "from": "THM:T079-morandotti-surface-gradient-barycentre-bridge",
+      "to": "DOC:ANALYTIC_GRADIENT_GATE",
+      "relation": "analytic-interface",
+      "status": "reviewed-crosswalk",
+      "caveat": "Surface gradient and spin-connection compatibility remain separate obligations."
+    },
+    {
+      "from": "THM:T079-morandotti-surface-gradient-barycentre-bridge",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "continuum-obligation",
+      "status": "reviewed-crosswalk",
+      "caveat": "Candidate shell transfer is not a Mosco theorem."
+    },
+    {
+      "from": "THM:T091-frank-burgers-tensorial-anisotropy-composition-law",
+      "to": "DOC:RGS_EC_TORSION",
+      "relation": "comparison-only",
+      "status": "reviewed-crosswalk",
+      "caveat": "Discrete stress-jump tensor is not a torsion law or constitutive identity."
+    },
+    {
+      "from": "THM:T098-two-circle-positive-gradient-negative-barycentre-duality",
+      "to": "DOC:VESICA_JITTERBUG",
+      "relation": "geometric-generator",
+      "status": "reviewed-crosswalk",
+      "caveat": "Two-circle opposite-triangle geometry feeds the Vesica crosswalk."
+    },
+    {
+      "from": "THM:T099-nonaffine-vesica-parameter-koopman-bridge",
+      "to": "DOC:VESICA_JITTERBUG",
+      "relation": "phase-parameter-interface",
+      "status": "reviewed-crosswalk",
+      "caveat": "Do not identify Vesica parameter with Jitterbug angles."
+    },
+    {
+      "from": "APP:Pellis01",
+      "to": "DOC:Q6_2I_INTERTWINER",
+      "relation": "representation-input",
+      "status": "reviewed-crosswalk",
+      "caveat": "2I representation theory informs the quotient sector; does not prove scalar spectral multiplicities."
+    },
+    {
+      "from": "APP:Pellis02",
+      "to": "DOC:UNIFIED_RGS_PRISM_QLG",
+      "relation": "programme-alignment",
+      "status": "reviewed-crosswalk",
+      "caveat": "Shared architecture; sector maps remain distinct."
+    },
+    {
+      "from": "APP:Pellis02",
+      "to": "DOC:KATHARA_GATE_C",
+      "relation": "chain-level-audit",
+      "status": "reviewed-crosswalk",
+      "caveat": "Explicit chain map is degenerate and noncanonical."
+    },
+    {
+      "from": "APP:Pellis03",
+      "to": "DOC:RGS_DIRAC",
+      "relation": "operator-realization",
+      "status": "reviewed-crosswalk",
+      "caveat": "Finite operator is distinct from convergence and domain proof."
+    },
+    {
+      "from": "APP:Pellis03",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "analytic-gate",
+      "status": "reviewed-crosswalk",
+      "caveat": "Scalar Mosco does not imply spinorial convergence."
+    },
+    {
+      "from": "APP:Pellis04",
+      "to": "DOC:D5_BERGMAN",
+      "relation": "analytic-comparison",
+      "status": "reviewed-crosswalk",
+      "caveat": "Invariant-measure theorem is distinct from resonance claims."
+    },
+    {
+      "from": "APP:MorandottiBrief",
+      "to": "DOC:VESICA_JITTERBUG",
+      "relation": "geometric-source",
+      "status": "reviewed-crosswalk",
+      "caveat": "Vesica/two-circle construction; cinematic map remains an open gate."
+    },
+    {
+      "from": "APP:MorandottiBrief",
+      "to": "DOC:Q6_BARYCENTRIC",
+      "relation": "discretization-interface",
+      "status": "reviewed-crosswalk",
+      "caveat": "Barycentric moments and edge FEM remain distinct objects."
+    },
+    {
+      "from": "APP:MorandottiDefect",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "refinement-gate",
+      "status": "reviewed-crosswalk",
+      "caveat": "Finite/flat checks do not prove curved Mosco."
+    },
+    {
+      "from": "DOC:Q6_BARYCENTRIC",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "possible-input-not-implication",
+      "status": "reviewed-crosswalk",
+      "caveat": "Finite edge FEM is not the curved refinement family."
+    },
+    {
+      "from": "DOC:Q6_DYADIC_SUBDIVISION",
+      "to": "DOC:MOSCO_CURVED",
+      "relation": "possible-input-not-implication",
+      "status": "reviewed-crosswalk",
+      "caveat": "Subdivision identity alone gives no shape regularity or Mosco convergence."
+    },
+    {
+      "from": "DOC:UNIFIED_RGS_PRISM_QLG",
+      "to": "DOC:RGS_DIRAC",
+      "relation": "architecture-to-sector",
+      "status": "reviewed-crosswalk",
+      "caveat": "No single derived action is asserted."
+    },
+    {
+      "from": "CAT:Q6-CX-001",
+      "to": "THM:T055-q6-dyadic-subdivision-chain-map",
+      "relation": "exact-structure-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Q6 incidence/cell counts and the midpoint subdivision theorem share the canonical Q6 complex."
+    },
+    {
+      "from": "CAT:Q6-CX-001",
+      "to": "THM:T062-kathara-q6-integral-chain-map",
+      "relation": "exact-structure-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "T062 targets the canonical Q6 2-skeleton; its Kathara source map is degenerate."
+    },
+    {
+      "from": "CAT:Q6-SP-002",
+      "to": "THM:T015-q6-clifford-free-spectrum",
+      "relation": "spectral-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Q6 free Clifford spectrum; check the exact operator conventions in both records."
+    },
+    {
+      "from": "CAT:Q6-SP-002",
+      "to": "THM:T069-q6-antipodal-walsh-covariance",
+      "relation": "spectral-symmetry-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Antipodal Walsh covariance uses the same Q6 spectral carrier."
+    },
+    {
+      "from": "CAT:RGS-GEO-003",
+      "to": "THM:T115-rgs-curved-clifford-coframe-identity",
+      "relation": "coframe-Clifford-identity",
+      "status": "reviewed-crosswalk",
+      "caveat": "Curved Clifford relation from invertible coframe."
+    },
+    {
+      "from": "CAT:RGS-SPIN-004",
+      "to": "THM:T063-quaternion-su2-so3-double-cover",
+      "relation": "representation-convention",
+      "status": "reviewed-crosswalk",
+      "caveat": "SU(2) double-cover conventions; edge lift remains candidate."
+    },
+    {
+      "from": "CAT:RGS-SPIN-004",
+      "to": "THM:T118-su2-path-transport-wilson-holonomy",
+      "relation": "transport-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Path transport and Wilson holonomy; global lift/holonomy consistency remains open."
+    },
+    {
+      "from": "CAT:RGS-DIRAC-005",
+      "to": "THM:T014-q6-graph-dirac-gauge-covariance",
+      "relation": "operator-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Q6 graph Dirac gauge covariance."
+    },
+    {
+      "from": "CAT:RGS-DIRAC-005",
+      "to": "THM:T114-q6-gauge-covariant-cubical-dirac-kaehler",
+      "relation": "operator-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Gauge-covariant cubical Dirac–Kähler operator is a distinct discrete sector."
+    },
+    {
+      "from": "CAT:RGS-WILSON-006",
+      "to": "THM:T020-gauge-covariant-q6-strong-resolvent",
+      "relation": "gauge-covariant-resolvent",
+      "status": "reviewed-crosswalk",
+      "caveat": "Strong-resolvent result is the analytic counterpart; verify hypotheses separately."
+    },
+    {
+      "from": "CAT:WILSON-SCALE-008",
+      "to": "THM:T017-q6-dirac-refinement",
+      "relation": "refinement-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Q6 Dirac refinement and periodic Wilson scaling window; no transfer without matched scaling."
+    },
+    {
+      "from": "CAT:MOSCO-TORUS-009",
+      "to": "THM:T048-rgs-prism-mosco-changing-spaces",
+      "relation": "Mosco-method-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Flat periodic prototype versus changing-space RGS–PRISM programme; hypotheses differ."
+    },
+    {
+      "from": "CAT:DK-Q6-010",
+      "to": "THM:T114-q6-gauge-covariant-cubical-dirac-kaehler",
+      "relation": "Dirac-Kaehler-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Same Q6 cochain Dirac–Kähler sector."
+    },
+    {
+      "from": "CAT:OVERLAP-GW-011",
+      "to": "THM:T016-nielsen-ninomiya-q6-audit",
+      "relation": "overlap-doubling-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Overlap/Ginsparg–Wilson and Nielsen–Ninomiya audit; statements are not interchangeable."
+    },
+    {
+      "from": "CAT:OVERLAP-LOC-012",
+      "to": "THM:T019-q6-free-strong-resolvent",
+      "relation": "resolvent-locality-open-gate",
+      "status": "reviewed-crosswalk",
+      "caveat": "Strong resolvent and uniform locality are distinct; locality remains open."
+    },
+    {
+      "from": "CAT:THERM-MOB-013",
+      "to": "THM:T072-q6-mobius-phase-flat-connection",
+      "relation": "Möbius-phase-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Finite Möbius phase/thermodynamic model; physical temperature interpretation remains open."
+    },
+    {
+      "from": "CAT:WEILER-EQV-014",
+      "to": "THM:T121-icosahedral-a5-action-on-q6-clifford-module",
+      "relation": "equivariance-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "A5 action on Q6 Clifford module."
+    },
+    {
+      "from": "CAT:WEILER-EQV-014",
+      "to": "THM:T123-q6-2i-central-character-intertwiner",
+      "relation": "central-character-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "2I central-character intertwiner obstruction."
+    },
+    {
+      "from": "DOC:D5_BERGMAN",
+      "to": "THM:T002-d5-bergman-volume-density",
+      "relation": "Bergman-volume-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "D5 Bergman volume density theorem."
+    },
+    {
+      "from": "DOC:D5_BERGMAN",
+      "to": "THM:T008-wilson-to-bergman-weak-convergence-criterion",
+      "relation": "weak-limit-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Wilson-to-Bergman weak convergence criterion."
+    },
+    {
+      "from": "DOC:Q6_BARYCENTRIC",
+      "to": "THM:T068-barycentric-covariance-quadrature-law",
+      "relation": "barycentric-moment-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Triangle covariance theorem and Q6 P1 edge FEM remain distinct."
+    },
+    {
+      "from": "DOC:Q6_BARYCENTRIC",
+      "to": "THM:T130-q6-discrete-gradients-barycentres-resistance",
+      "relation": "discrete-gradient-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Q6 discrete gradients/barycentres/resistance."
+    },
+    {
+      "from": "DOC:MOSCO_CURVED",
+      "to": "THM:T049-ellis-rgs-radial-icosphere-discretization",
+      "relation": "curved-refinement-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Ellis radial icosphere discretization; convergence theorem remains separate."
+    },
+    {
+      "from": "DOC:MOSCO_CURVED",
+      "to": "THM:T073-unified-football-shell-rgs-prism-limit-program",
+      "relation": "shell-limit-programme",
+      "status": "reviewed-crosswalk",
+      "caveat": "Unified football-shell RGS–PRISM limit programme; open analytic gates."
+    },
+    {
+      "from": "DOC:MOSCO_CURVED",
+      "to": "THM:T086-discrete-structured-deformation-hodge-seam-energy",
+      "relation": "structured-deformation-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Discrete structured-deformation Hodge seam energy."
+    },
+    {
+      "from": "DOC:MOSCO_CURVED",
+      "to": "THM:T090-whitney-gauge-fluid-discretization",
+      "relation": "Whitney-discretization-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Whitney gauge-fluid discretization; continuum convergence not inferred."
+    },
+    {
+      "from": "DOC:Q6_2I_INTERTWINER",
+      "to": "THM:T021-rumin-analytic-torsion-2I",
+      "relation": "2I-Rumin-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Rumin analytic torsion on S3/2I."
+    },
+    {
+      "from": "DOC:Q6_2I_INTERTWINER",
+      "to": "THM:T027-mckay-molien-rumin-bridge",
+      "relation": "McKay-Molien-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Representation multiplicities and Rumin bridge."
+    },
+    {
+      "from": "DOC:Q6_2I_INTERTWINER",
+      "to": "THM:T034-exact-2i-character-table",
+      "relation": "character-table-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Exact 2I character table."
+    },
+    {
+      "from": "DOC:Q6_2I_INTERTWINER",
+      "to": "THM:T043-twisted-2i-rumin-torsion",
+      "relation": "twisted-torsion-crosswalk",
+      "status": "reviewed-crosswalk",
+      "caveat": "Twisted 2I Rumin torsion."
+    }
+  ]
+}
