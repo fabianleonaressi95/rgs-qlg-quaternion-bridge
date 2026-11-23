@@ -1,0 +1,255 @@
+{
+  "schema": "unified-theorem-edge-registry/v1",
+  "repositories": [
+    "fabianleonaressi95/theorem",
+    "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+  ],
+  "nodes": [
+    {
+      "id": "T055",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T060",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T062",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T063",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T068",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T079",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T091",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T098",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "T099",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "Pellis01",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "Pellis02",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "Pellis03",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "Pellis04",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "MorandottiBrief",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "MorandottiDefect",
+      "repository": "fabianleonaressi95/theorem"
+    },
+    {
+      "id": "Q6DyadicSubdivision",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "KatharaGateC",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "KatharaGateD",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "Q6_2I",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "Q6BarycentricP1",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "Q6AnalyticGradientGate",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "CurvedMosco",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "D5BergmanLiouville",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "UnifiedRGSPSUPRISMQLG",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    },
+    {
+      "id": "EllisSpinDirac",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge"
+    }
+  ],
+  "edges": [
+    {
+      "from": "T055",
+      "to": "Q6DyadicSubdivision",
+      "relation": "implements",
+      "caveat": "exact finite subdivision; array-order transfer separate"
+    },
+    {
+      "from": "T060",
+      "to": "T062",
+      "relation": "refines-target",
+      "caveat": "Q3 and Q6 chain maps are distinct constructions"
+    },
+    {
+      "from": "T062",
+      "to": "KatharaGateC",
+      "relation": "companion-implementation",
+      "caveat": "same root-path map; R2=0 collapses all 2-cells"
+    },
+    {
+      "from": "KatharaGateC",
+      "to": "KatharaGateD",
+      "relation": "candidate-successor",
+      "caveat": "nondegenerate and canonical lift remains open"
+    },
+    {
+      "from": "T063",
+      "to": "Q6_2I",
+      "relation": "representation-input",
+      "caveat": "central character result does not identify geometric bundles"
+    },
+    {
+      "from": "T063",
+      "to": "EllisSpinDirac",
+      "relation": "spin-lift-prerequisite",
+      "caveat": "double-cover theorem alone does not prove curved spin connection"
+    },
+    {
+      "from": "T068",
+      "to": "Q6BarycentricP1",
+      "relation": "shared-barycentric-input",
+      "caveat": "triangle covariance and Q6 edge FEM are distinct"
+    },
+    {
+      "from": "T079",
+      "to": "Q6AnalyticGradientGate",
+      "relation": "analytic-interface",
+      "caveat": "surface gradient / spin connection compatibility open"
+    },
+    {
+      "from": "T079",
+      "to": "CurvedMosco",
+      "relation": "continuum-obligation",
+      "caveat": "candidate shell transfer is not a Mosco theorem"
+    },
+    {
+      "from": "T091",
+      "to": "EllisSpinDirac",
+      "relation": "comparison-only",
+      "caveat": "stress-jump tensor is not a torsion law"
+    },
+    {
+      "from": "T098",
+      "to": "MorandottiBrief",
+      "relation": "geometric-generator",
+      "caveat": "two-circle opposite-triangle geometry"
+    },
+    {
+      "from": "T099",
+      "to": "MorandottiBrief",
+      "relation": "phase-parameter-interface",
+      "caveat": "do not identify Vesica parameter with Jitterbug angles"
+    },
+    {
+      "from": "Pellis01",
+      "to": "Q6_2I",
+      "relation": "representation-input",
+      "caveat": "does not prove scalar spectral multiplicities"
+    },
+    {
+      "from": "Pellis02",
+      "to": "UnifiedRGSPSUPRISMQLG",
+      "relation": "programme-alignment",
+      "caveat": "shared architecture; sector maps remain distinct"
+    },
+    {
+      "from": "Pellis02",
+      "to": "KatharaGateC",
+      "relation": "chain-level-audit",
+      "caveat": "explicit chain map is degenerate and noncanonical"
+    },
+    {
+      "from": "Pellis03",
+      "to": "EllisSpinDirac",
+      "relation": "operator-realization",
+      "caveat": "finite operator distinct from convergence and domain proof"
+    },
+    {
+      "from": "Pellis03",
+      "to": "CurvedMosco",
+      "relation": "analytic-gate",
+      "caveat": "scalar Mosco does not imply spinorial convergence"
+    },
+    {
+      "from": "Pellis04",
+      "to": "D5BergmanLiouville",
+      "relation": "analytic-comparison",
+      "caveat": "measure theorem distinct from resonance claims"
+    },
+    {
+      "from": "MorandottiBrief",
+      "to": "T098",
+      "relation": "geometric-source",
+      "caveat": "Vesica/two-circle construction"
+    },
+    {
+      "from": "MorandottiBrief",
+      "to": "Q6BarycentricP1",
+      "relation": "discretization-interface",
+      "caveat": "barycentric moments and edge FEM remain distinct"
+    },
+    {
+      "from": "MorandottiDefect",
+      "to": "CurvedMosco",
+      "relation": "refinement-gate",
+      "caveat": "finite/flat checks do not prove curved Mosco"
+    },
+    {
+      "from": "Q6BarycentricP1",
+      "to": "CurvedMosco",
+      "relation": "possible-input-not-implication",
+      "caveat": "finite edge FEM is not curved refinement family"
+    },
+    {
+      "from": "Q6DyadicSubdivision",
+      "to": "CurvedMosco",
+      "relation": "possible-input-not-implication",
+      "caveat": "subdivision identity alone gives no shape regularity or Mosco convergence"
+    },
+    {
+      "from": "UnifiedRGSPSUPRISMQLG",
+      "to": "EllisSpinDirac",
+      "relation": "architecture-to-sector",
+      "caveat": "no single derived action asserted"
+    }
+  ]
+}
