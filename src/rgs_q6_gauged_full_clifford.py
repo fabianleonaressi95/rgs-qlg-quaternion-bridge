@@ -94,7 +94,7 @@ def cell_gauge_representation(gauge, cube=None):
     cube = build_full_q6_cubical_complex() if cube is None else cube
     g = np.asarray(gauge, dtype=complex)
     validate_su2_field(g, 64)
-    blocks = [g[int(base)] for base, _dirs in cube["cells"]]
+    blocks = [sparse.coo_matrix(g[int(base)]) for base, _dirs in cube["cells"]]
     return sparse.block_diag(blocks, format="csr", dtype=complex)
 
 
