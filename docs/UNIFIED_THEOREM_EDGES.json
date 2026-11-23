@@ -3779,7 +3779,7 @@
     },
     {
       "from": "H-SPECTRAL",
-      "to": "DOC:Q6_2I",
+      "to": "DOC:Q6_2I_INTERTWINER",
       "relation": "cross-repository-topic-bridge",
       "status": "review-required",
       "caveat": "Thematic bridge to the companion programme; not an implication or proof dependency without a theorem-specific argument."
@@ -3989,7 +3989,7 @@
     },
     {
       "from": "THM:T055-q6-dyadic-subdivision-chain-map",
-      "to": "DOC:Q6_DYADIC_SUBDIVISION_CHAIN_MAP",
+      "to": "DOC:Q6_DYADIC_SUBDIVISION",
       "relation": "companion-implementation",
       "status": "reviewed-crosswalk",
       "caveat": "Exact midpoint subdivision and commuting boundary identities; historical array permutation remains separate."
@@ -4003,14 +4003,14 @@
     },
     {
       "from": "THM:T062-kathara-q6-integral-chain-map",
-      "to": "DOC:KATHARA_Q6_CHAIN_MAP_GATE_C",
+      "to": "DOC:KATHARA_GATE_C",
       "relation": "companion-implementation",
       "status": "reviewed-crosswalk",
       "caveat": "Same explicit root-path map; all source 2-cells collapse because R2=0."
     },
     {
-      "from": "DOC:KATHARA_Q6_CHAIN_MAP_GATE_C",
-      "to": "DOC:KATHARA_Q6_NONDEGENERATE_GATE_D",
+      "from": "DOC:KATHARA_GATE_C",
+      "to": "DOC:KATHARA_GATE_D",
       "relation": "candidate-successor",
       "status": "reviewed-crosswalk",
       "caveat": "Canonicality and nondegenerate cellular lift remain open."
@@ -4024,49 +4024,49 @@
     },
     {
       "from": "THM:T063-quaternion-su2-so3-double-cover",
-      "to": "DOC:ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION",
+      "to": "DOC:ELLIS_SPIN_CONNECTION",
       "relation": "spin-lift-prerequisite",
       "status": "reviewed-crosswalk",
       "caveat": "Double-cover theorem does not itself prove curved spin transport."
     },
     {
       "from": "THM:T068-barycentric-covariance-quadrature-law",
-      "to": "DOC:Q6_BARYCENTRIC_P1_FEM",
+      "to": "DOC:Q6_BARYCENTRIC",
       "relation": "shared-barycentric-input",
       "status": "reviewed-crosswalk",
       "caveat": "Triangle covariance/quadrature and Q6 edge FEM are distinct constructions."
     },
     {
       "from": "THM:T079-morandotti-surface-gradient-barycentre-bridge",
-      "to": "DOC:Q6_ANALYTIC_GRADIENTS_AND_SPIN_CONNECTION_GATE",
+      "to": "DOC:ANALYTIC_GRADIENT_GATE",
       "relation": "analytic-interface",
       "status": "reviewed-crosswalk",
       "caveat": "Surface gradient and spin-connection compatibility remain separate obligations."
     },
     {
       "from": "THM:T079-morandotti-surface-gradient-barycentre-bridge",
-      "to": "DOC:RGS_MOSCO_CURVED_REFINEMENT_PROGRAM",
+      "to": "DOC:MOSCO_CURVED",
       "relation": "continuum-obligation",
       "status": "reviewed-crosswalk",
       "caveat": "Candidate shell transfer is not a Mosco theorem."
     },
     {
       "from": "THM:T091-frank-burgers-tensorial-anisotropy-composition-law",
-      "to": "DOC:RGS_EC_ALGEBRAIC_AXIAL_TORSION_BENCHMARK",
+      "to": "DOC:RGS_EC_TORSION",
       "relation": "comparison-only",
       "status": "reviewed-crosswalk",
       "caveat": "Discrete stress-jump tensor is not a torsion law or constitutive identity."
     },
     {
       "from": "THM:T098-two-circle-positive-gradient-negative-barycentre-duality",
-      "to": "DOC:VESICA_STAR_DAVID_JITTERBUG_PHASE_BRIDGE",
+      "to": "DOC:VESICA_JITTERBUG",
       "relation": "geometric-generator",
       "status": "reviewed-crosswalk",
       "caveat": "Two-circle opposite-triangle geometry feeds the Vesica crosswalk."
     },
     {
       "from": "THM:T099-nonaffine-vesica-parameter-koopman-bridge",
-      "to": "DOC:VESICA_STAR_DAVID_JITTERBUG_PHASE_BRIDGE",
+      "to": "DOC:VESICA_JITTERBUG",
       "relation": "phase-parameter-interface",
       "status": "reviewed-crosswalk",
       "caveat": "Do not identify Vesica parameter with Jitterbug angles."
@@ -4080,77 +4080,77 @@
     },
     {
       "from": "APP:Pellis02",
-      "to": "DOC:RGS_PSU_PRISM_QLG_UNIFIED_GEOMETRIC_THEORY",
+      "to": "DOC:UNIFIED_RGS_PRISM_QLG",
       "relation": "programme-alignment",
       "status": "reviewed-crosswalk",
       "caveat": "Shared architecture; sector maps remain distinct."
     },
     {
       "from": "APP:Pellis02",
-      "to": "DOC:KATHARA_Q6_CHAIN_MAP_GATE_C",
+      "to": "DOC:KATHARA_GATE_C",
       "relation": "chain-level-audit",
       "status": "reviewed-crosswalk",
       "caveat": "Explicit chain map is degenerate and noncanonical."
     },
     {
       "from": "APP:Pellis03",
-      "to": "DOC:ELLIS_RGS_INTRINSIC_SPIN_DIRAC",
+      "to": "DOC:RGS_DIRAC",
       "relation": "operator-realization",
       "status": "reviewed-crosswalk",
       "caveat": "Finite operator is distinct from convergence and domain proof."
     },
     {
       "from": "APP:Pellis03",
-      "to": "DOC:RGS_MOSCO_CURVED_REFINEMENT_PROGRAM",
+      "to": "DOC:MOSCO_CURVED",
       "relation": "analytic-gate",
       "status": "reviewed-crosswalk",
       "caveat": "Scalar Mosco does not imply spinorial convergence."
     },
     {
       "from": "APP:Pellis04",
-      "to": "DOC:Q6_D5_BERGMAN_LIOUVILLE_PULLBACK_THEOREM",
+      "to": "DOC:D5_BERGMAN",
       "relation": "analytic-comparison",
       "status": "reviewed-crosswalk",
       "caveat": "Invariant-measure theorem is distinct from resonance claims."
     },
     {
       "from": "APP:MorandottiBrief",
-      "to": "DOC:VESICA_STAR_DAVID_JITTERBUG_PHASE_BRIDGE",
+      "to": "DOC:VESICA_JITTERBUG",
       "relation": "geometric-source",
       "status": "reviewed-crosswalk",
       "caveat": "Vesica/two-circle construction; cinematic map remains an open gate."
     },
     {
       "from": "APP:MorandottiBrief",
-      "to": "DOC:Q6_BARYCENTRIC_P1_FEM",
+      "to": "DOC:Q6_BARYCENTRIC",
       "relation": "discretization-interface",
       "status": "reviewed-crosswalk",
       "caveat": "Barycentric moments and edge FEM remain distinct objects."
     },
     {
       "from": "APP:MorandottiDefect",
-      "to": "DOC:RGS_MOSCO_CURVED_REFINEMENT_PROGRAM",
+      "to": "DOC:MOSCO_CURVED",
       "relation": "refinement-gate",
       "status": "reviewed-crosswalk",
       "caveat": "Finite/flat checks do not prove curved Mosco."
     },
     {
-      "from": "DOC:Q6_BARYCENTRIC_P1_FEM",
-      "to": "DOC:RGS_MOSCO_CURVED_REFINEMENT_PROGRAM",
+      "from": "DOC:Q6_BARYCENTRIC",
+      "to": "DOC:MOSCO_CURVED",
       "relation": "possible-input-not-implication",
       "status": "reviewed-crosswalk",
       "caveat": "Finite edge FEM is not the curved refinement family."
     },
     {
-      "from": "DOC:Q6_DYADIC_SUBDIVISION_CHAIN_MAP",
-      "to": "DOC:RGS_MOSCO_CURVED_REFINEMENT_PROGRAM",
+      "from": "DOC:Q6_DYADIC_SUBDIVISION",
+      "to": "DOC:MOSCO_CURVED",
       "relation": "possible-input-not-implication",
       "status": "reviewed-crosswalk",
       "caveat": "Subdivision identity alone gives no shape regularity or Mosco convergence."
     },
     {
-      "from": "DOC:RGS_PSU_PRISM_QLG_UNIFIED_GEOMETRIC_THEORY",
-      "to": "DOC:ELLIS_RGS_INTRINSIC_SPIN_DIRAC",
+      "from": "DOC:UNIFIED_RGS_PRISM_QLG",
+      "to": "DOC:RGS_DIRAC",
       "relation": "architecture-to-sector",
       "status": "reviewed-crosswalk",
       "caveat": "No single derived action is asserted."
@@ -4338,28 +4338,28 @@
       "caveat": "Whitney gauge-fluid discretization; continuum convergence not inferred."
     },
     {
-      "from": "DOC:Q6_2I",
+      "from": "DOC:Q6_2I_INTERTWINER",
       "to": "THM:T021-rumin-analytic-torsion-2I",
       "relation": "2I-Rumin-crosswalk",
       "status": "reviewed-crosswalk",
       "caveat": "Rumin analytic torsion on S3/2I."
     },
     {
-      "from": "DOC:Q6_2I",
+      "from": "DOC:Q6_2I_INTERTWINER",
       "to": "THM:T027-mckay-molien-rumin-bridge",
       "relation": "McKay-Molien-crosswalk",
       "status": "reviewed-crosswalk",
       "caveat": "Representation multiplicities and Rumin bridge."
     },
     {
-      "from": "DOC:Q6_2I",
+      "from": "DOC:Q6_2I_INTERTWINER",
       "to": "THM:T034-exact-2i-character-table",
       "relation": "character-table-crosswalk",
       "status": "reviewed-crosswalk",
       "caveat": "Exact 2I character table."
     },
     {
-      "from": "DOC:Q6_2I",
+      "from": "DOC:Q6_2I_INTERTWINER",
       "to": "THM:T043-twisted-2i-rumin-torsion",
       "relation": "twisted-torsion-crosswalk",
       "status": "reviewed-crosswalk",
