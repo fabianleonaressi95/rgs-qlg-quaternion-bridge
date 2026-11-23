@@ -131,7 +131,8 @@ def audit_q6_2i_intertwiner_compatibility(tol: float = 2e-8) -> dict[str, object
             "map": "v -> v tensor 1 in C^2 tensor Lambda^0(C^6)",
             "matrix_shape": list(t.shape),
             "nonzero": bool(np.linalg.norm(t) > 0),
-            "max_product_action_equivariance_residual": twisted_residual,
+            "max_group_equivariance_residual": twisted_residual,
+            "max_product_action_equivariance_residual": twisted_residual,  # compatibility alias
             "Q6_vacuum_invariance_residual": q6_vacuum_residual,
             "status": "explicit_equivariant_embedding",
         },
