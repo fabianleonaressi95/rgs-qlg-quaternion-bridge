@@ -468,3 +468,13 @@ Run: `PYTHONPATH=. python -m pytest tests/test_kathara_q6_nondegenerate_chain_ma
 ## Gate E.1 — barycentric–covariance quadrature
 
 The local planar-triangle quadrature theorem is implemented in `src/barycentric_triangle_quadrature.py`, tested in `tests/test_barycentric_triangle_quadrature.py`, and specified in [the Gate E.1 record](docs/GATE_E1_BARYCENTRIC_COVARIANCE_QUADRATURE.md). It reuses the exact Q6 barycentric FEM results only as a separate combinatorial/gradient reference: the 6D Q6 vertex covariance is not identified with a triangle-cell covariance. The companion theorem-level statement is [T068](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T068-barycentric-covariance-quadrature-law.md). Gate E.2 (geometric maps, closed surface incidence and refinement compatibility) remains open.
+
+
+## Interconnection-network topology research
+
+The [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTERCONNECTION_NETWORKS_Q3_Q6_OMEGA_BENES.md) records the Berkeley CS258 topology lectures, foundational Clos/Beneš literature, and the Q3/Q6 hypercube connection. Its bibliography is maintained in [interconnection_networks.bib](docs/research/interconnection_networks.bib). The historical Omega/Beneš 8×8 counts have now been independently reproduced under an explicit shuffle-normalized topology convention; see the exhaustive audit below.
+
+
+## Exhaustive Omega-8 / Beneš-8 routing audit
+
+The recovered historical 8×8 routing counts have now been independently reimplemented under an explicit shuffle-normalized switch-stage convention. See the [exhaustive audit](docs/research/OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md), [enumerator](src/interconnection_networks_8x8.py), [tests](tests/test_interconnection_networks_8x8.py), and [audit runner](examples/interconnection_networks_8x8_audit.py). The model reaches 4,096 distinct permutations for Omega-8 and all 40,320 permutations for Beneš-8; bit reversal is blocked by Omega-8 and routed by Beneš-8. These are finite combinatorial results for the declared topology, not a Q6/Green–Kubo physical equivalence.
