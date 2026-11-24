@@ -41,7 +41,7 @@ def test_metric_wilson_stress_matches_action_finite_difference():
     links = random_links()
     exact = metric_wilson_shear_response(links, 2.75, beta=1.3, coordinates=x)
     numeric = metric_wilson_shear_finite_difference(
-        links, 2.75, beta=1.3, coordinates=x, step=1e-6,
+        links, 2.75, beta=1.3, coordinates=x, step=1e-4,
     )
     assert np.isclose(exact["Pi_xy"], numeric, rtol=3e-6, atol=3e-7)
 
