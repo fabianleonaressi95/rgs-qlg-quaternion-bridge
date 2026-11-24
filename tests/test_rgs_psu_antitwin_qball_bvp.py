@@ -46,9 +46,8 @@ def test_two_field_gauged_branch_solves_both_scalar_equations_and_gauss_law():
     assert report["electric_charge"] > 0.0
     assert report["energy"] > 0.0
     assert report["maxwell_electric_energy"] > 0.0
-    assert report["relative_amplitude_curvature_min"] == pytest.approx(
-        np.min(report["relative_amplitude_curvature_min"]), abs=0.0
-    )
+    assert np.isfinite(report["common_amplitude_curvature_min"])
+    assert np.isfinite(report["relative_amplitude_curvature_min"])
     assert not report["full_linear_stability_established"]
     assert not report["vierbein_backreaction_included"]
 
