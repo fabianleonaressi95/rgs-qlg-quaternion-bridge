@@ -71,10 +71,20 @@ def finite_a5_audit(modulus: int = 3) -> dict:
     assert all(any(x % modulus for x in r) for r in roots)
 
     root_action_checks = 0
+    faithful_action_checks = 0
+    identity = tuple(range(6))
+    root_classes = {tuple(x % modulus for x in r) for r in roots}
     for sigma in permutations(range(6)):
         image = {tuple(x % modulus for x in act_permutation(r, sigma)) for r in roots}
-        assert image == {tuple(x % modulus for x in r) for r in roots}
+        assert image == root_classes
         root_action_checks += len(roots)
+        if sigma != identity:
+            assert any(
+                tuple(x % modulus for x in act_permutation(r, sigma))
+                != tuple(x % modulus for x in r)
+                for r in roots
+            )
+            faithful_action_checks += 1
 
     vertices = list(product(range(modulus), repeat=5))
     degree_checks = 0
@@ -95,6 +105,7 @@ def finite_a5_audit(modulus: int = 3) -> dict:
         "group_action": "faithful S6 by graph automorphisms; includes A6",
         "S6_order": 720,
         "root_action_checks": root_action_checks,
+        "nonidentity_permutations_detected": faithful_action_checks,
         "vertex_degree_checks": degree_checks,
         "connectedness": "proved: simple roots generate A5/mA5",
         "status": "exact finite combinatorial audit",
