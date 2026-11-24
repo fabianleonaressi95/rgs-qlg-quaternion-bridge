@@ -142,11 +142,11 @@ The theorem-side copy of this graph is maintained at [the theorem repository gra
 
 ## 5. Full-coverage inventory and interpretation
 
-The machine-readable edge registry now contains **289 nodes and 320 directed edges**:
+The machine-readable edge registry now contains **292 nodes and 323 directed edges**:
 
 - 239 theorem-record nodes from `theorem/theorems/`;
 - 14 catalogue-entry nodes from the companion `results/catalogue/laws_theorems_registry.json`;
 - 8 thematic hubs, plus application-dossier and companion-document nodes;
 - 239 provisional theorem-to-hub classification arrows, 30 hub-to-companion links, and 54 direct typed crosswalk arrows.
 
-The 236 classification arrows ensure that every theorem file is present in the common graph, but they are **indexing arrows inferred from filenames**, not mathematical proof dependencies. Only direct arrows whose relation and caveat are explicitly recorded may be treated as reviewed crosswalks. The remaining theorem bodies must be audited to replace provisional topic edges with precise dependency, implementation, comparison or independent-root classifications.
+The 239 classification arrows ensure that every theorem file in the 24-November-2026 primary-repository snapshot is present in the common graph, but they are **indexing arrows inferred from filenames**, not mathematical proof dependencies. Only direct arrows whose relation and caveat are explicitly recorded may be treated as reviewed crosswalks. The remaining theorem bodies must be audited to replace provisional topic edges with precise dependency, implementation, comparison or independent-root classifications.
