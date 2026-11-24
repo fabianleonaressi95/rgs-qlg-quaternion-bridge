@@ -54,3 +54,10 @@ def test_audit_records_prism_degree_obstruction():
     assert result["omega"]["q6_demand_matchings"] == 4096
     assert result["benes"]["q6_demand_matchings"] == 40320
     assert result["prism_c64_factor"]["graph_isomorphism"] is False
+
+def test_iching_word_order_is_preserved_in_binary_labels():
+    # The displayed trigram is bottom-to-top; standard binary conversion
+    # makes its rightmost character the least-significant coordinate.
+    assert trigram_to_int("100") == 4
+    assert trigram_to_int("011") == 3
+    assert sum(a != b for a, b in zip("100", "011")) == 3
