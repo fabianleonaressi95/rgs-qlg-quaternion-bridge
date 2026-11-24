@@ -486,3 +486,5 @@ The recovered historical 8×8 routing counts have now been independently reimple
 The action uses fixed reference face areas and inverse current face areas. Because the recovered seed does not supply circumcentric dual measures, this is a conditional finite face-Hodge model, not a complete DEC Hodge star or continuum Yang–Mills action. It remains distinct from `unified_discrete_action.py` until the dual measure and scaling are derived.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q6_metric_wilson_response.py -q`.
+
+The same module now also includes a metric-derived two-sheet graph matter sector, `S_m=(kappa/2) sum_e ||D_e psi||^2/L_e`, using the exact inverse-length stiffness coefficient of the existing 1D P1 edge FEM. Its shear derivative is analytically computed and finite-difference tested. This is a covariant graph Dirichlet energy, not a Dirac action; continuum stress normalization remains open.
