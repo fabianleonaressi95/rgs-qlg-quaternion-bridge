@@ -18,7 +18,7 @@
       4096
     ],
     "routable_permutations": 4096,
-    "total_permutations": 40320,
+    "all_permutations": 40320,
     "routable_fraction": "32/315"
   },
   "benes": {
@@ -41,7 +41,7 @@
       40320
     ],
     "routable_permutations": 40320,
-    "total_permutations": 40320,
+    "all_permutations": 40320,
     "routable_fraction": "1"
   },
   "bit_reversal": {
@@ -85,8 +85,6 @@
     ]
   },
   "verification": {
-    "tests": "8 passed",
-    "test_command": "PYTHONPATH=. python -m pytest tests/test_interconnection_networks_8x8.py -q",
     "enumeration": "all 40,320 target permutations checked for Beneš-8; 4,096 distinct Omega-8 permutations enumerated",
     "status": "NUMERICALLY VERIFIED"
   },
