@@ -113,3 +113,49 @@ The spectrum does not establish:
 PYTHONPATH=. python -m pytest tests/test_gec6_a5_spectral.py -q
 PYTHONPATH=. python examples/gec6_a5_spectral_audit.py
 \`\`\`
+
+
+## 8. General modulus and the asymptotic gap
+
+For every integer m>=3, the normalized Laplacian character eigenvalue is
+\\[
+\\mu_m(k)=\\frac1{15}\\sum_{0\\le i<j\\le5}
+\\left(1-\\cos\\left(\\frac{2\\pi\\langle k,r_{ij}\\rangle}{m}\\right)\\right),
+\\qquad k\\in(\\mathbb Z/m\\mathbb Z)^5.
+\\]
+The normalized gap is gamma_m=min_{k!=0} mu_m(k). The implementation enumerates all m^5 characters, so the finite values below are exhaustive for each listed modulus. Cosines are evaluated numerically; unlike the m=3 table, these decimal values are not claimed to be exact integer spectra.
+
+### Finite-modulus gap audit
+
+| m | Vertices | Normalized gap | m^2 gap |
+|---:|---:|---:|---:|
+| 3 | 243 | 0.500000000000 | 4.500000000000 |
+| 4 | 1,024 | 0.333333333333 | 5.333333333333 |
+| 5 | 3,125 | 0.230327668542 | 5.758191713542 |
+| 6 | 7,776 | 0.166666666667 | 6.000000000000 |
+| 7 | 16,807 | 0.125503399380 | 6.149666569641 |
+| 8 | 32,768 | 0.097631072938 | 6.248388668020 |
+| 9 | 59,049 | 0.077985185628 | 6.316800035787 |
+| 10 | 100,000 | 0.063661001875 | 6.366100187502 |
+
+The sequence m^2 gamma_m approaches 2 pi^2/3 = 6.579736267393... .
+
+### Proof of the asymptotic constant
+
+In simple-root coordinates, the positive roots r_ij satisfy
+\\[
+Q=\\sum_{i<j}r_{ij}r_{ij}^{T}=
+\\begin{pmatrix}
+5&4&3&2&1\\\\4&8&6&4&2\\\\3&6&9&6&3\\\\2&4&6&8&4\\\\1&2&3&4&5
+\\end{pmatrix}.
+\\]
+The minimum of k^TQk over nonzero integer k is 5, attained for example at k=(1,0,0,0,0). For a fixed nonzero integer k, Taylor expansion gives
+\\[
+\\mu_m(k)=\\frac{2\\pi^2}{15m^2}k^TQk+O(m^{-4}).
+\\]
+Choosing a shortest vector gives the upper bound. Conversely, any sequence of minimizing characters with m^2 mu_m bounded must approach the trivial character in each simple-root coordinate (the five simple roots occur among the generators); centered representatives then admit the same Taylor expansion, and the nonzero integer quadratic form is at least 5. Therefore
+\\[
+\\boxed{\\lim_{m\\to\\infty}m^2\\gamma_m=\\frac{2\\pi^2}{15}\\,5=\\frac{2\\pi^2}{3}.}
+\\]
+
+This is a vanishing-gap family, not an expander family. The result concerns only the normalized graph Laplacian of the A5-root Cayley quotients; it adds no spectral or physical equivalence with Q6 or the original PRISM product.
