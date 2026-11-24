@@ -511,3 +511,12 @@ Implementation/tests/audit: `src/q6_prism_path_valued_homology.py`, `tests/test_
 The [exterior-square construction](docs/research/Q6_PRISM_EXTERIOR_SQUARE_EQUIVARIANT_MAP.md) resolves the representation obstruction by enriching the target with a 15-torus indexed by unordered pairs of Q6 coordinates. The induced map is the natural surjection from the Q6 graph cycle lattice (rank 129) onto \\(\\Lambda^2\\mathbb Z^6\\) (rank 15), and is equivariant under the full coordinate permutation group S6. The original PRISM periodic summand \\(\\mathbb Z^5\\) remains present but is not hit by this equivariant map.
 
 Implementation/tests/audit: `src/q6_prism_exterior_square_map.py`, `tests/test_q6_prism_exterior_square_map.py`, `examples/q6_prism_exterior_square_audit.py`, `results/q6_prism_exterior_square_audit.json`. The source is the Q6 graph, not the filled cubical complex; physical interpretation of the added 15 cycle directions remains open.
+
+## GEC-6: A5-root periodic model with faithful S6 symmetry
+
+The [GEC-6 A5-root Cayley torus](docs/research/GEC6_A5_ROOT_CAYLEY_PERIODIC_MODEL.md) constructs a compact flat five-torus from the A5 root lattice and finite periodic quotients
+\`A5/mA5 ≅ (Z/mZ)^5\`. The 30 roots \`e_i-e_j\` define a connected 30-regular Cayley graph; coordinate permutations act faithfully by graph automorphisms, so the action includes A6. For \`m=3\`, the exact finite model has 243 vertices and 3,645 undirected edges.
+
+Implementation/tests/audit: \`src/gec6_a5_root_cayley_torus.py\`, \`tests/test_gec6_a5_root_cayley_torus.py\`, \`examples/gec6_a5_root_cayley_audit.py\`, \`results/gec6_a5_root_cayley_audit.json\`.
+
+This is a new A5-root periodic model, not the original Cartesian PRISM graph. Its symmetry realization does not establish graph isomorphism, spectral equivalence, dynamical equivalence or a physical identification with the 69,120-vertex degree-10 PRISM product. The Q6 source remains its graph cycle lattice, not the filled cubical complex.
