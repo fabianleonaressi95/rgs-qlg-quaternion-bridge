@@ -66,3 +66,12 @@ The audit writes \`results/interconnection_networks_8x8_audit.json\`.
 - A routing witness is returned for every permutation reachable in the network.
 - This is a finite combinatorial result. It does not establish an equivalence between Q6 and a Beneš/Omega switching fabric, nor a Green–Kubo transport theorem, nor a physical implementation performance claim.
 - The bridge to Q3/Q6 requires an explicit state/routing map and separate preservation tests.
+
+
+## 6. Committed audit output
+
+The recorded machine-readable result is available at
+[results/interconnection_networks_8x8_audit.json](../../results/interconnection_networks_8x8_audit.json).
+It includes stage-by-stage reachable counts, switch totals, the bit-reversal check,
+and example Beneš switch-setting witnesses. The committed test suite was executed
+locally: **8 passed**.
