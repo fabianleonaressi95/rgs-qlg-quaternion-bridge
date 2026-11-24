@@ -83,3 +83,28 @@ def test_metric_p1_matter_stress_matches_action_finite_difference():
         fields, links, 2.75, coupling=0.73, coordinates=x, step=1e-6,
     )
     assert np.isclose(exact["Pi_xy"], numeric, rtol=3e-6, atol=3e-7)
+
+
+def test_combined_candidate_stress_is_sum_of_gauge_and_matter_sectors():
+    from src.unified_discrete_action import UnifiedQ6Fields
+    from src.q6_metric_wilson_response import (
+        q6_candidate_total_shear_response,
+        metric_wilson_shear_response,
+        metric_edge_matter_shear_response,
+    )
+    rng = np.random.default_rng(91826)
+    fields = UnifiedQ6Fields(
+        np.broadcast_to(np.eye(4), (64,4,4)).copy(),
+        rng.normal(size=(64,2)) + 1j*rng.normal(size=(64,2)),
+        rng.normal(size=(64,2)) + 1j*rng.normal(size=(64,2)),
+    )
+    x = np.asarray(load_rgs_seed_data().coordinates)
+    links = random_links(91827)
+    total = q6_candidate_total_shear_response(
+        fields, links, 2.5, beta=0.9, matter_coupling=0.6, coordinates=x,
+    )
+    gauge = metric_wilson_shear_response(links, 2.5, beta=0.9, coordinates=x)
+    matter = metric_edge_matter_shear_response(
+        fields, links, 2.5, coupling=0.6, coordinates=x,
+    )
+    assert np.isclose(total["Pi_total"], gauge["Pi_xy"] + matter["Pi_xy"])
