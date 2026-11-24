@@ -1,6 +1,6 @@
 # Unified theorem dependency graph — cross-repository arrows
 
-This file records **directed, typed edges** between specific mathematical records in the two repositories. The machine-readable registry contains all 236 Markdown theorem records from `theorem`, all 14 entries in the companion catalogue, 8 thematic hubs, application dossiers and companion-document nodes. Each theorem has a provisional filename-based thematic-index arrow; this is explicitly not a proof dependency. The 54 direct crosswalk arrows are separately typed and caveated. An arrow is never an unqualified implication: its relation type and evidential force are stated explicitly. Original theorem identifiers and source files remain canonical.
+This file records **directed, typed edges** between specific mathematical records in the two repositories. The machine-readable registry contains all 239 Markdown theorem records from `theorem`, all 14 entries in the companion catalogue, 8 thematic hubs, application dossiers and companion-document nodes. Each theorem has a provisional filename-based thematic-index arrow; this is explicitly not a proof dependency. The 54 direct crosswalk arrows are separately typed and caveated. An arrow is never an unqualified implication: its relation type and evidential force are stated explicitly. Original theorem identifiers and source files remain canonical.
 
 ## 1. Graph
 
@@ -92,6 +92,11 @@ flowchart TD
 | Q6_DYADIC_SUBDIVISION_CHAIN_MAP | RGS_MOSCO_CURVED_REFINEMENT_PROGRAM | possible refinement input | Commuting subdivision alone does not give shape regularity or Mosco convergence |
 | Unified geometry | Ellis spin Dirac | architecture-to-sector link | Proposed architecture only; no single derived action asserted |
 
+### TSMR records added in the 24 November 2026 inventory reconciliation
+- [TSMR-C-I — I Ching trigram/hexagram coding and golden Q6 lift](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/TSMR-C-I_iching_golden_q6_lift.md) — provisional Q6 thematic node.
+- [TSMR-C — Cumulative morphodynamics and singular dynamical conjugacy](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/TSMR-C_cumulative_morphodynamics.md) — provisional PRISM/symbolic-dynamics thematic node.
+- [TSMR-F — Morphological recursion and multifractal spectrum](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/TSMR-F_multifractal_morphological_equation.md) — provisional PRISM/symbolic-dynamics thematic node.
+
 ## 3. Canonical source links
 
 ### theorem repository
@@ -139,9 +144,9 @@ The theorem-side copy of this graph is maintained at [the theorem repository gra
 
 The machine-readable edge registry now contains **289 nodes and 320 directed edges**:
 
-- 236 theorem-record nodes from `theorem/theorems/`;
+- 239 theorem-record nodes from `theorem/theorems/`;
 - 14 catalogue-entry nodes from the companion `results/catalogue/laws_theorems_registry.json`;
 - 8 thematic hubs, plus application-dossier and companion-document nodes;
-- 236 provisional theorem-to-hub classification arrows, 30 hub-to-companion links, and 54 direct typed crosswalk arrows.
+- 239 provisional theorem-to-hub classification arrows, 30 hub-to-companion links, and 54 direct typed crosswalk arrows.
 
 The 236 classification arrows ensure that every theorem file is present in the common graph, but they are **indexing arrows inferred from filenames**, not mathematical proof dependencies. Only direct arrows whose relation and caveat are explicitly recorded may be treated as reviewed crosswalks. The remaining theorem bodies must be audited to replace provisional topic edges with precise dependency, implementation, comparison or independent-root classifications.
