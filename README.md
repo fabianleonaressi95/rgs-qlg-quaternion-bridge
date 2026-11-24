@@ -504,3 +504,10 @@ Code/tests/audit: `src/q6_prism_periodic_obstruction.py`, `tests/test_q6_prism_p
 The [path-valued homology note](docs/research/Q6_PRISM_PATH_VALUED_HOMOLOGY.md) constructs a continuous map from the Q6 **graph** (not its filled cubical complex) to the PRISM 1-skeleton by sending five fundamental-cycle chords to the five periodic factor loops and all other source edges to constant paths. Its induced map on periodic first homology is the surjection `Z^129 -> Z^5` represented by `[I_5 | 0]`. This is a basis-dependent existence construction, not a canonical geometric or dynamical correspondence. It cannot extend over all 240 filled Q6 plaquettes.
 
 Implementation/tests/audit: `src/q6_prism_path_valued_homology.py`, `tests/test_q6_prism_path_valued_homology.py`, `examples/q6_prism_path_valued_homology_audit.py`, `results/q6_prism_path_valued_homology_audit.json`.
+
+
+## A6-equivariant Q6 exterior-square cycle map
+
+The [exterior-square construction](docs/research/Q6_PRISM_EXTERIOR_SQUARE_EQUIVARIANT_MAP.md) resolves the representation obstruction by enriching the target with a 15-torus indexed by unordered pairs of Q6 coordinates. The induced map is the natural surjection from the Q6 graph cycle lattice (rank 129) onto \\(\\Lambda^2\\mathbb Z^6\\) (rank 15), and is equivariant under the full coordinate permutation group S6. The original PRISM periodic summand \\(\\mathbb Z^5\\) remains present but is not hit by this equivariant map.
+
+Implementation/tests/audit: `src/q6_prism_exterior_square_map.py`, `tests/test_q6_prism_exterior_square_map.py`, `examples/q6_prism_exterior_square_audit.py`, `results/q6_prism_exterior_square_audit.json`. The source is the Q6 graph, not the filled cubical complex; physical interpretation of the added 15 cycle directions remains open.
