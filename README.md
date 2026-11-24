@@ -503,3 +503,11 @@ a metric-dependent gauge/Hodge term, followed by an equilibrium dynamics,
 are still required before a Green–Kubo viscosity can be claimed.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q6_action_stress.py -q`.
+
+A separate geometric inverse-square edge convention is also audited:
+`w_e=|d_e|^{-2}` gives the exact shear derivative
+`w'_e(0)=-2 d_{e,x} d_{e,y}/|d_e|^4`; for a declared
+`H_link=sum_e w_e E_e` this yields
+`Pi_xy^Q6=-(1/V) sum_e w'_e E_e`. This conditional edge-energy response
+is kept distinct from the plaquette-only Wilson action unless the edge
+energies are explicitly derived from it.
