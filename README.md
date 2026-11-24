@@ -478,3 +478,28 @@ The [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTE
 ## Exhaustive Omega-8 / Beneš-8 routing audit
 
 The recovered historical 8×8 routing counts have now been independently reimplemented under an explicit shuffle-normalized switch-stage convention. See the [exhaustive audit](docs/research/OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md), [enumerator](src/interconnection_networks_8x8.py), [tests](tests/test_interconnection_networks_8x8.py), and [audit runner](examples/interconnection_networks_8x8_audit.py). The model reaches 4,096 distinct permutations for Omega-8 and all 40,320 permutations for Beneš-8; bit reversal is blocked by Omega-8 and routed by Beneš-8. These are finite combinatorial results for the declared topology, not a Q6/Green–Kubo physical equivalence.
+
+
+## Q6 action-derived shear response and Green–Kubo gate
+
+The finite Euclidean Q6 action now has an explicit coframe-shear response
+observable, computed from the existing analytic action gradient:
+
+- `src/q6_action_stress.py` — defines the symmetric shear generator,
+  strained coframe, analytic \\( -V^{-1} dS/d\\gamma \\) response and an
+  independent central-difference evaluator.
+- `tests/test_q6_action_stress.py` — compares analytic and finite-difference
+  derivatives and checks the sectors that are metric-independent under the
+  declared strain.
+- [Mathematical scope and evidence ledger](docs/Q6_ACTION_DERIVED_SHEAR_RESPONSE.md).
+
+Important result: in the current action, the Wilson term depends only on
+link holonomies, while hopping/twin/quartic terms depend on coframe volume
+only. For a symmetric traceless shear their first variations vanish. The
+remaining response comes from the fixed-frame coframe-difference regularizer.
+Thus this is an exact derivative of the implemented finite action, but not
+(yet) the full microscopic shear stress. Metric-dependent edge kinetics and
+a metric-dependent gauge/Hodge term, followed by an equilibrium dynamics,
+are still required before a Green–Kubo viscosity can be claimed.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q6_action_stress.py -q`.
