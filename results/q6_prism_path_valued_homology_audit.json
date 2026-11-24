@@ -1,0 +1,24 @@
+{
+  "source_graph": "Q6 1-skeleton only",
+  "target": "1-skeleton of C64 x C6 x C6 x C6 x C5",
+  "source_vertices": 64,
+  "source_edges": 192,
+  "spanning_tree_edges": 63,
+  "fundamental_chords": 129,
+  "source_graph_cycle_rank": 129,
+  "target_periodic_H1_rank": 5,
+  "induced_map_matrix": "[I_5 | 0_(5x124)]",
+  "induced_map_rank": 5,
+  "induced_map_is_surjective": true,
+  "target_factor_loop_lengths": [
+    64,
+    6,
+    6,
+    6,
+    5
+  ],
+  "total_target_steps_on_selected_edges": 87,
+  "all_other_source_edges_map_to_constant_paths": true,
+  "extends_over_all_240_Q6_plaquettes": false,
+  "interpretation": "basis-dependent path-valued graph map; existence proof only, not a canonical geometric or dynamical correspondence"
+}

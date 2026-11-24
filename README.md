@@ -508,6 +508,20 @@ The [periodic-winding obstruction note](docs/research/Q6_PRISM_PERIODIC_WINDING_
 
 Code/tests/audit: `src/q6_prism_periodic_obstruction.py`, `tests/test_q6_prism_periodic_obstruction.py`, `examples/q6_prism_periodic_obstruction_audit.py`, `results/q6_prism_periodic_obstruction_audit.json`. A path-valued map with globally consistent winding remains open; subdividing edges is necessary to escape the four-step bound, but is not sufficient by itself.
 
+
+## Path-valued Q6–PRISM homology realization
+
+The [path-valued homology note](docs/research/Q6_PRISM_PATH_VALUED_HOMOLOGY.md) constructs a continuous map from the Q6 **graph** (not its filled cubical complex) to the PRISM 1-skeleton by sending five fundamental-cycle chords to the five periodic factor loops and all other source edges to constant paths. Its induced map on periodic first homology is the surjection `Z^129 -> Z^5` represented by `[I_5 | 0]`. This is a basis-dependent existence construction, not a canonical geometric or dynamical correspondence. It cannot extend over all 240 filled Q6 plaquettes.
+
+Implementation/tests/audit: `src/q6_prism_path_valued_homology.py`, `tests/test_q6_prism_path_valued_homology.py`, `examples/q6_prism_path_valued_homology_audit.py`, `results/q6_prism_path_valued_homology_audit.json`.
+
+
+## Q6–PRISM symmetry obstruction
+
+The [symmetry-obstruction note](docs/research/Q6_PRISM_SYMMETRY_OBSTRUCTION.md) proves a no-go result for the path-valued graph setting: if the source action contains the even coordinate-permutation group A6 and the target action is induced by automorphisms of the existing PRISM product, then the induced map on periodic H1 must be zero. The target H1 symmetry image has order at most 192, forcing every A6 action on it to be trivial; the Q6 graph cycle module has no A6-invariant linear functional. Thus the path-valued surjection from Z^129 to Z^5 necessarily breaks this full coordinate symmetry.
+
+Implementation/tests/audit: `src/q6_prism_symmetry_obstruction.py`, `tests/test_q6_prism_symmetry_obstruction.py`, `examples/q6_prism_symmetry_obstruction_audit.py`, `results/q6_prism_symmetry_obstruction_audit.json`. This is a graph-theoretic representation obstruction, not a physical or dynamical claim.
+
 ## Q6 action-derived shear response and Green–Kubo gate
 
 The finite Euclidean Q6 action now has an explicit coframe-shear response
