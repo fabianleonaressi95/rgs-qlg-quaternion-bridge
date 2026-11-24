@@ -7,6 +7,10 @@ This repository is part of the RGS–PSU–QLG research programme. It develops e
 > **Evidence policy:** mathematical identities, numerical verification, candidate constructions and open physical hypotheses are reported separately. Passing a finite numerical test does not establish a continuum limit or a physical theory.
 
 
+## Unified programme index
+
+The canonical 27-chapter crosswalk and preservation register is maintained in the primary repository: [UNIFIED_PROGRAM_27_CHAPTER_CROSSWALK_2026-11-24.md](https://github.com/fabianleonaressi95/theorem/blob/main/research/UNIFIED_PROGRAM_27_CHAPTER_CROSSWALK_2026-11-24.md). The shared two-repository theorem graph is synchronized with the 239-record inventory; thematic-index edges remain provisional and are not proof dependencies.
+
 ## Current open problem for independent mathematical review
 
 **One focused problem is being put forward for external scrutiny: establish (or identify an obstruction to) Mosco convergence of the curved Ellis–RGS P1 energies on the refinement family already specified in this repository.** This is a concrete scalar geometric problem. It is not a request to validate the whole RGS–PSU–QLG programme.
