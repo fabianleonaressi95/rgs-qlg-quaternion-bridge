@@ -3,7 +3,7 @@
 **Research recovery record**  
 **Recovered session:** 2026-11-16  
 **Repository:** `rgs-qlg-quaternion-bridge`  
-**Status:** bibliography recovered; historical finite-network results recorded; independent rerun of the Omega/Beneš enumeration remains pending.
+**Status:** bibliography recovered; Omega/Beneš finite-network counts independently reproduced under the explicit convention in [the exhaustive audit](OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md).
 
 ## 1. Starting point: David E. Culler
 
@@ -112,7 +112,7 @@ m_k=\binom 6k,\qquad k=0,\ldots,6.
 \]
 This is a finite graph identity, not a statement about the performance of a physical interconnection network.
 
-## 5. Recovered Omega and Beneš 8×8 experiment
+## 5. Historical Omega and Beneš 8×8 experiment
 
 The 2026-11-16 research session recorded the following architecture counts:
 
@@ -131,9 +131,9 @@ The session also recorded exhaustive permutation-enumeration outputs:
 | Bit-reversal permutation on Omega | Not routable | Historical test result |
 | Bit-reversal permutation on Beneš | Routable | Historical test result |
 
-**Evidence status:** these are recovered session results, not newly executed tests in this commit. The exact historical Python files and raw logs have not yet been located in this repository. The enumeration must be independently reimplemented or recovered, then rerun with explicit switch numbering, interstage permutation, route-setting algorithm and conflict semantics before these counts are promoted to reproducible repository evidence.
+**Evidence status:** the figures above were first recorded in the 2026-11-16 session. They have now been independently reproduced by the committed enumerator under the explicit shuffle-normalized stage convention documented in [the exhaustive audit](OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md). The test suite reports 8 passing tests, including exhaustive membership checks for all 40,320 Beneš target permutations. The original historical script/log has not been recovered; the new implementation is an independent reproduction, not a claim to have recovered that exact source.
 
-In particular, do not infer that every 8×8 Omega convention has exactly the same routable-permutation count without fixing its wiring convention. The Omega count is topology- and convention-dependent.
+The Omega count remains convention-dependent: the stage wiring and wire relabelling must be fixed before comparing counts across sources or implementations.
 
 ## 6. Connection to the existing Q6–Green–Kubo–supergolden dossier
 
