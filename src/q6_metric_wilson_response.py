@@ -158,3 +158,102 @@ def metric_wilson_shear_finite_difference(
     plus = metric_weighted_plaquette_action((np.eye(3) + step*h) @ x.T .T, links, beta, ref)["action"]
     minus = metric_weighted_plaquette_action((np.eye(3) - step*h) @ x.T .T, links, beta, ref)["action"]
     return float(-(plus - minus) / (2.0 * step * reference_volume))
+
+
+def metric_edge_matter_action(
+    coordinates: np.ndarray,
+    fields,
+    links: SU2Lattice,
+    coupling: float = 1.0,
+) -> float:
+    """P1 graph Dirichlet matter action: kappa/2 sum_e ||D_e psi||^2/L_e.
+
+    The inverse edge length is the exact 1D affine-P1 stiffness coefficient
+    already used by the repository's RGS-Q6 induced-metric FEM. Both PSU
+    sheets are included. This is a graph scalar-gradient action, not a Dirac
+    action; fields are expected to expose psi_plus and psi_minus arrays.
+    """
+    x = np.asarray(coordinates, dtype=float)
+    if x.shape != (64, 3) or not np.all(np.isfinite(x)):
+        raise ValueError("coordinates must be finite with shape (64,3)")
+    if not np.isfinite(coupling) or coupling < 0:
+        raise ValueError("coupling must be finite and non-negative")
+    q6 = build_q6_complex()
+    plus = np.asarray(fields.psi_plus, dtype=complex)
+    minus = np.asarray(fields.psi_minus, dtype=complex)
+    if plus.shape != (64, 2) or minus.shape != (64, 2):
+        raise ValueError("both matter sheets must have shape (64,2)")
+    total = 0.0
+    for u, v in q6.edges:
+        length = float(np.linalg.norm(x[v] - x[u]))
+        if length <= 1e-13:
+            raise ValueError("zero-length embedded Q6 edge")
+        U = links.link(int(u), int(v))
+        dp = plus[v] - U @ plus[u]
+        dm = minus[v] - U @ minus[u]
+        total += (float(np.vdot(dp, dp).real) + float(np.vdot(dm, dm).real)) / length
+    return 0.5 * float(coupling) * total
+
+
+def metric_edge_matter_shear_response(
+    fields,
+    links: SU2Lattice,
+    reference_volume: float,
+    coupling: float = 1.0,
+    axis_x: int = 0,
+    axis_y: int = 1,
+    coordinates: np.ndarray | None = None,
+) -> dict[str, float]:
+    """Exact -V^-1 shear derivative of the P1 inverse-edge-length action."""
+    if not np.isfinite(reference_volume) or reference_volume <= 0:
+        raise ValueError("reference_volume must be finite and positive")
+    x = np.asarray(load_rgs_seed_data().coordinates if coordinates is None else coordinates, float)
+    if x.shape != (64, 3) or not np.all(np.isfinite(x)):
+        raise ValueError("coordinates must be finite with shape (64,3)")
+    if not np.isfinite(coupling) or coupling < 0:
+        raise ValueError("coupling must be finite and non-negative")
+    h = shear_generator_3d(axis_x, axis_y)
+    q6 = build_q6_complex()
+    plus = np.asarray(fields.psi_plus, dtype=complex)
+    minus = np.asarray(fields.psi_minus, dtype=complex)
+    if plus.shape != (64, 2) or minus.shape != (64, 2):
+        raise ValueError("both matter sheets must have shape (64,2)")
+    dS = 0.0
+    for u, v in q6.edges:
+        d = x[v] - x[u]
+        length2 = float(d @ d)
+        if length2 <= 1e-26:
+            raise ValueError("zero-length embedded Q6 edge")
+        U = links.link(int(u), int(v))
+        dp = plus[v] - U @ plus[u]
+        dm = minus[v] - U @ minus[u]
+        energy = float(np.vdot(dp, dp).real + np.vdot(dm, dm).real)
+        dlog_length = float(d @ h @ d) / length2
+        dS -= 0.5 * float(coupling) * energy / np.sqrt(length2) * dlog_length
+    return {
+        "d_action_dgamma": float(dS),
+        "Pi_xy": float(-dS / reference_volume),
+        "reference_volume": float(reference_volume),
+        "status": "exact derivative of the 1D P1 graph Dirichlet matter action",
+        "physical_status": "conditional graph scalar-gradient sector; continuum matter interpretation remains open",
+    }
+
+
+def metric_edge_matter_shear_finite_difference(
+    fields,
+    links: SU2Lattice,
+    reference_volume: float,
+    coupling: float = 1.0,
+    axis_x: int = 0,
+    axis_y: int = 1,
+    step: float = 1e-6,
+    coordinates: np.ndarray | None = None,
+) -> float:
+    """Central-difference audit with the link and matter fields held fixed."""
+    if not np.isfinite(step) or step <= 0:
+        raise ValueError("step must be finite and positive")
+    x = np.asarray(load_rgs_seed_data().coordinates if coordinates is None else coordinates, float)
+    h = shear_generator_3d(axis_x, axis_y)
+    plus = metric_edge_matter_action((np.eye(3)+step*h) @ x.T .T, fields, links, coupling)
+    minus = metric_edge_matter_action((np.eye(3)-step*h) @ x.T .T, fields, links, coupling)
+    return float(-(plus-minus)/(2.0*step*reference_volume))
