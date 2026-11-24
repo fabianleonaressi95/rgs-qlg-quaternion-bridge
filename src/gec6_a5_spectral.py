@@ -125,6 +125,54 @@ def audit() -> dict:
     }
 
 
+def normalized_fourier_eigenvalue(character: tuple[int, ...], modulus: int) -> float:
+    """Normalized-Laplacian eigenvalue from the 15 positive A5 roots."""
+    if modulus < 3:
+        raise ValueError("modulus must be at least 3")
+    if len(character) != 5 or any(not 0 <= x < modulus for x in character):
+        raise ValueError("character must lie in (Z/modulus Z)^5")
+    return sum(
+        1.0 - cos(2.0 * pi * (sum(a * b for a, b in zip(character, root)) % modulus) / modulus)
+        for root in positive_root_steps()
+    ) / 15.0
+
+
+def normalized_spectral_gap(modulus: int) -> float:
+    """Exhaustively compute the normalized gap over all m^5 characters."""
+    if modulus < 3:
+        raise ValueError("modulus must be at least 3")
+    zero = (0, 0, 0, 0, 0)
+    return min(
+        normalized_fourier_eigenvalue(k, modulus)
+        for k in product(range(modulus), repeat=5)
+        if k != zero
+    )
+
+
+def gap_scaling_audit(max_modulus: int = 10) -> dict:
+    """Exhaustively compute normalized gaps and m^2-scaled values."""
+    if max_modulus < 3:
+        raise ValueError("max_modulus must be at least 3")
+    rows = []
+    for modulus in range(3, max_modulus + 1):
+        gap = normalized_spectral_gap(modulus)
+        rows.append({
+            "modulus": modulus,
+            "vertices": modulus ** 5,
+            "normalized_gap": gap,
+            "m2_times_gap": modulus * modulus * gap,
+        })
+    return {
+        "graph_family": "Cay((Z/mZ)^5, A5 roots)",
+        "degree": 30,
+        "enumeration": "all m^5 characters; 15 positive roots; floating-point cosine evaluation",
+        "rows": rows,
+        "asymptotic_constant": 2.0 * pi * pi / 3.0,
+        "asymptotic_statement": "m^2 times the normalized gap converges to 2*pi^2/3",
+        "status": "exhaustive finite-modulus numerical audit; asymptotic constant proved separately",
+    }
+
+
 if __name__ == "__main__":
     import json
     print(json.dumps(audit(), indent=2, sort_keys=True))
