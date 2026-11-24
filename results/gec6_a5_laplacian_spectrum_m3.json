@@ -38,7 +38,7 @@
   "normalized_comparison": {
     "GEC6_m3": 0.5,
     "Q6": 0.3333333333333333,
-    "PRISM_C64xC6xC6xC5": 0.0009630546655606143
+    "PRISM_C64xC6^3xC5": 0.0009630546655606143
   },
   "prism_unnormalized_gap": 0.009630546655606143,
   "caveat": "Finite m=3 comparison only. For fixed root generators, normalized spectral gap of the family tends to zero on order m^-2; no graph, dynamics, or physical equivalence is claimed.",
