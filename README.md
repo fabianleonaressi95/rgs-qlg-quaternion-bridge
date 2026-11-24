@@ -474,3 +474,12 @@ The [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTE
 ## Exhaustive Omega-8 / Beneš-8 routing audit
 
 The recovered historical 8×8 routing counts have now been independently reimplemented under an explicit shuffle-normalized switch-stage convention. See the [exhaustive audit](docs/research/OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md), [enumerator](src/interconnection_networks_8x8.py), [tests](tests/test_interconnection_networks_8x8.py), and [audit runner](examples/interconnection_networks_8x8_audit.py). The model reaches 4,096 distinct permutations for Omega-8 and all 40,320 permutations for Beneš-8; bit reversal is blocked by Omega-8 and routed by Beneš-8. These are finite combinatorial results for the declared topology, not a Q6/Green–Kubo physical equivalence.
+
+
+## Exact Q3–Q6–Omega/Beneš bridge and PRISM boundary
+
+The [Q3–Q6–Omega/Beneš–PRISM bridge](docs/research/Q3_Q6_OMEGA_BENES_PRISM_BRIDGE.md) fixes the I Ching trigram convention (three bits, bottom-to-top), identifies each Q3 coordinate matching with one 2×2 switch stage, and encodes each Q6 vertex as an ordered input/output trigram demand. Eight such demands form a permutation matrix exactly when they use every input and output once. The implementation, tests and audit are in `src/q3_q6_network_bridge.py`, `tests/test_q3_q6_network_bridge.py`, and `results/q3_q6_network_prism_audit.json`.
+
+The PRISM (C_{64}) factor admits a 64-label correspondence only; it is not graph-isomorphic to Q6 (degree 2 versus degree 6). No edge-preserving Q6-to-PRISM map or physical/dynamical equivalence is claimed.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q3_q6_network_bridge.py tests/test_interconnection_networks_8x8.py -q`.
