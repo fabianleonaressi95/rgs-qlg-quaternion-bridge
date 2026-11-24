@@ -532,3 +532,28 @@ Run:
 PYTHONPATH=. python -m pytest tests/test_gec6_a5_spectral.py -q
 PYTHONPATH=. python examples/gec6_a5_spectral_audit.py
 \`\`\`
+
+
+## GEC-6: general-modulus spectral gap
+
+The m=3 exact Fourier spectrum is supplemented by exhaustive character-sum gap audits for m=3,...,10. For each quotient, all m^5 characters are evaluated using the 15 positive A5 roots. The normalized gap is
+\\[
+\\gamma_m=\\frac1{15}\\min_{k\\ne0}\\sum_{0\\le i<j\\le5}
+\\left(1-\\cos\\frac{2\\pi\\langle k,r_{ij}\\rangle}{m}\\right).
+\\]
+The finite-modulus values are numerical evaluations of the exact Fourier formula, not exact algebraic-number claims.
+
+In simple-root coordinates, the quadratic form Q=sum(r_ij r_ij^T) has matrix
+\\[
+\\begin{pmatrix}
+5&4&3&2&1\\\\4&8&6&4&2\\\\3&6&9&6&3\\\\2&4&6&8&4\\\\1&2&3&4&5
+\\end{pmatrix},
+\\qquad \\min_{k\\in\\mathbb Z^5\\setminus\\{0\\}}k^TQk=5.
+\\]
+Taylor expansion at the trivial character and the shortest-vector bound give the asymptotic theorem
+\\[
+\\boxed{\\lim_{m\\to\\infty}m^2\\gamma_m=\\frac{2\\pi^2}{3}.}
+\\]
+Thus the normalized gap vanishes quadratically; this family is not an expander family. No spectral, dynamical or physical equivalence with Q6 or the original Cartesian PRISM is implied.
+
+Implementation: src/gec6_a5_spectral.py; tests: tests/test_gec6_a5_spectral.py; exhaustive finite audit: results/gec6_a5_gap_scaling_m3_m10.json.
