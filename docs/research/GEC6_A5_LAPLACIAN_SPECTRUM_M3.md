@@ -84,7 +84,7 @@ For the Cartesian PRISM product, the Laplacian spectrum is the sum of the five c
 \]
 The degree is 10, giving the normalized gap shown in the table.
 
-The finite GEC-6 quotient is therefore a much stronger expander at \(m=3\) than the long-cycle PRISM product, and has a normalized gap larger than Q6's. This is a statement about these finite graphs only.
+The finite GEC-6 quotient has a normalized gap larger than both Q6 and the PRISM product at this particular modulus. This is a comparison of three finite graphs, not a claim that the family is an expander family.
 
 ## 5. Important limit and interpretation
 
