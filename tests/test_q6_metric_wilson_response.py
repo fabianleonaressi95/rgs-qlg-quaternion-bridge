@@ -29,7 +29,7 @@ def test_face_area_log_derivative_matches_finite_difference():
     x = np.asarray(load_rgs_seed_data().coordinates)
     h = shear_generator_3d(0, 1)
     exact = face_area_log_shear_derivative(x, h)
-    eps = 1e-6
+    eps = 1e-4
     ap = face_parallelogram_areas(((np.eye(3)+eps*h) @ x.T).T)
     am = face_parallelogram_areas(((np.eye(3)-eps*h) @ x.T).T)
     numeric = (np.log(ap)-np.log(am))/(2*eps)
@@ -41,7 +41,7 @@ def test_metric_wilson_stress_matches_action_finite_difference():
     links = random_links()
     exact = metric_wilson_shear_response(links, 2.75, beta=1.3, coordinates=x)
     numeric = metric_wilson_shear_finite_difference(
-        links, 2.75, beta=1.3, coordinates=x, step=1e-6,
+        links, 2.75, beta=1.3, coordinates=x, step=1e-4,
     )
     assert np.isclose(exact["Pi_xy"], numeric, rtol=3e-6, atol=3e-7)
 
