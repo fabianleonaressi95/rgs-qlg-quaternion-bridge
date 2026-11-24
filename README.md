@@ -551,3 +551,13 @@ In simple-root coordinates, \(Q=\sum(r_{ij}r_{ij}^T)\) has the matrix recorded i
 Thus the normalized gap vanishes quadratically; this family is not an expander family. No spectral, dynamical or physical equivalence with Q6 or the original Cartesian PRISM is implied.
 
 Implementation: src/gec6_a5_spectral.py; tests: tests/test_gec6_a5_spectral.py; exhaustive finite audit: results/gec6_a5_gap_scaling_m3_m10.json.
+
+
+## GEC-6 continuum A5 spectrum and De Aquino threshold
+
+The [continuum A5 torus spectral result and De Aquino bridge](docs/research/GEC6_A5_CONTINUUM_TORUS_SPECTRUM_AND_DEAQUINO_BRIDGE.md) computes the exact dual-lattice spectrum of the flat torus V/A5. The shortest nonzero dual quadratic value is 5, giving first Laplacian eigenvalue 10*pi^2/3 with multiplicity 12. It also identifies the precise scaling relation between the finite Cayley gap and the continuum first eigenvalue: lim(m^2 gamma_m) = lambda_1(T_A5)/5 = 2*pi^2/3.
+
+The De Aquino formula m_g/m_i0 = 3 - 2*sqrt(1+xi^2) has zero threshold xi^2=5/4. Matching this with the A5 shortest value 5 requires the proposed normalization xi_k^2=(k^T Q k)/4. This is explicitly a CANDIDATE NORMALIZATION only: the physical momentum map, the factor 1/4, and an operator intertwiner remain OPEN. The separate artificial A6/Dirac grid experiment is not evidence of such an identification.
+
+Implementation/tests/result: src/gec6_a5_continuum_torus.py, tests/test_gec6_a5_continuum_torus.py, results/gec6_a5_continuum_spectrum.json.
+Run: PYTHONPATH=. python -m pytest tests/test_gec6_a5_continuum_torus.py -q
