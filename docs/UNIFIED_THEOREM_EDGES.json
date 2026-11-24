@@ -5,15 +5,15 @@
     "fabianleonaressi95/rgs-qlg-quaternion-bridge"
   ],
   "coverage": {
-    "theorem_markdown_records": 236,
+    "theorem_markdown_records": 239,
     "companion_catalogue_entries": 14,
     "topic_hubs": 8,
     "verified_or_reviewed_direct_edges": 54,
-    "classification_edges": 236,
+    "classification_edges": 239,
     "hub_to_companion_edges": 30,
-    "note": "All theorem files are nodes. Each receives a provisional thematic-index edge based on its filename; that edge is not a proof dependency. Direct edges are explicitly typed and carry caveats.",
-    "total_nodes": 289,
-    "total_edges": 320
+    "note": "All 239 theorem files in the 24-November-2026 tree snapshot are nodes. Each has a provisional thematic-index edge; that edge is not a proof dependency. Direct edges are explicitly typed and carry caveats. Three TSMR records were added in the 24-November reconciliation.",
+    "total_nodes": 292,
+    "total_edges": 323
   },
   "nodes": [
     {
@@ -2122,6 +2122,27 @@
       "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
       "path": "docs/RGS_PSU_PRISM_QLG_UNIFIED_GEOMETRIC_THEORY.md",
       "title": "RGS–PSU–PRISM–QLG programme architecture"
+    },
+    {
+      "id": "THM:TSMR-C-I_iching_golden_q6_lift",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/TSMR-C-I_iching_golden_q6_lift.md",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "THM:TSMR-C_cumulative_morphodynamics",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/TSMR-C_cumulative_morphodynamics.md",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:TSMR-F_multifractal_morphological_equation",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/TSMR-F_multifractal_morphological_equation.md",
+      "topic_hub": "H-PRISM"
     }
   ],
   "edges": [
@@ -4364,6 +4385,27 @@
       "relation": "twisted-torsion-crosswalk",
       "status": "reviewed-crosswalk",
       "caveat": "Twisted 2I Rumin torsion."
+    },
+    {
+      "from": "THM:TSMR-C-I_iching_golden_q6_lift",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is provisional. This is a thematic index edge, not a proof dependency; inspect the full record and its assumptions before adding direct mathematical edges."
+    },
+    {
+      "from": "THM:TSMR-C_cumulative_morphodynamics",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is provisional. This is a thematic index edge, not a proof dependency; inspect the full record and its assumptions before adding direct mathematical edges."
+    },
+    {
+      "from": "THM:TSMR-F_multifractal_morphological_equation",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Topic assignment is provisional. This is a thematic index edge, not a proof dependency; inspect the full record and its assumptions before adding direct mathematical edges."
     }
   ]
 }
