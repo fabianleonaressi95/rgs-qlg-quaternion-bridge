@@ -107,3 +107,8 @@ PYTHONPATH=. python -m src.gec6_a5_continuum_torus
 ~~~
 
 Tests cover the exact quadratic form, finite shortest-vector enumeration and bookkeeping of the proposed threshold. They do not establish the physical bridge.
+
+
+## Revision note: physical normalization developed separately
+
+The earlier formula xi_k^2=(k^T Q k)/4 in this document is only a formal arithmetic match of the shortest-lattice value 5 to De Aquino's threshold 5/4. It is not a physical momentum map and must not be used as one. The dimensionally explicit pentagonal-frame analysis, including the prior balanced variational ansatz, the momentum scale p0, the conditional A5 Compton-length calibration, and the S6 symmetry obstruction, is now documented in [De Aquino–pentagon–A5 momentum normalization](DEAQUINO_PENTAGON_A5_MOMENTUM_NORMALIZATION.md). That newer dossier supersedes the naive matching as the project's current bridge proposal; the physical identification remains open.
