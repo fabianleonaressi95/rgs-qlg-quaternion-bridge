@@ -67,3 +67,18 @@ def test_bad_reference_volume_is_rejected():
             pass
         else:
             raise AssertionError("invalid reference volume must fail")
+
+
+def test_inverse_square_edge_weight_derivative_matches_finite_difference():
+    from src.q6_action_stress import inverse_square_edge_weight_shear_derivative
+    rng = np.random.default_rng(192240)
+    d = rng.normal(size=(17, 3))
+    analytic = inverse_square_edge_weight_shear_derivative(d)
+    h = symmetric_shear_generator(axis_a=0, axis_b=1, dimension=3)
+    eps = 1e-6
+    transform_plus = np.eye(3) + eps * h
+    transform_minus = np.eye(3) - eps * h
+    w_plus = 1.0 / np.sum((d @ transform_plus.T) ** 2, axis=1)
+    w_minus = 1.0 / np.sum((d @ transform_minus.T) ** 2, axis=1)
+    numeric = (w_plus - w_minus) / (2.0 * eps)
+    assert np.allclose(analytic, numeric, rtol=2e-6, atol=2e-7)
