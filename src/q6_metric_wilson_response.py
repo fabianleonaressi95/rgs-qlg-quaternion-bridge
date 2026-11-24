@@ -257,3 +257,35 @@ def metric_edge_matter_shear_finite_difference(
     plus = metric_edge_matter_action((np.eye(3)+step*h) @ x.T .T, fields, links, coupling)
     minus = metric_edge_matter_action((np.eye(3)-step*h) @ x.T .T, fields, links, coupling)
     return float(-(plus-minus)/(2.0*step*reference_volume))
+
+
+def q6_candidate_total_shear_response(
+    fields,
+    links: SU2Lattice,
+    reference_volume: float,
+    beta: float = 1.0,
+    matter_coupling: float = 1.0,
+    axis_x: int = 0,
+    axis_y: int = 1,
+    coordinates: np.ndarray | None = None,
+) -> dict[str, object]:
+    """Sum the declared conditional gauge-face and P1 matter shear sectors."""
+    gauge = metric_wilson_shear_response(
+        links, reference_volume, beta, axis_x, axis_y, coordinates,
+    )
+    matter = metric_edge_matter_shear_response(
+        fields, links, reference_volume, matter_coupling,
+        axis_x, axis_y, coordinates,
+    )
+    return {
+        "Pi_gauge": float(gauge["Pi_xy"]),
+        "Pi_matter": float(matter["Pi_xy"]),
+        "Pi_total": float(gauge["Pi_xy"]) + float(matter["Pi_xy"]),
+        "action_gauge": float(gauge["action"]),
+        "action_matter": float(metric_edge_matter_action(
+            np.asarray(load_rgs_seed_data().coordinates if coordinates is None else coordinates, float),
+            fields, links, matter_coupling,
+        )),
+        "status": "sum of two exactly differentiated finite candidate sectors",
+        "physical_status": "not yet a continuum-normalized stress; dual measure and equilibrium dynamics remain open",
+    }
