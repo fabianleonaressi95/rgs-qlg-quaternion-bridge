@@ -12,7 +12,7 @@ A stage acts on one address-bit dimension \(d\in\{0,1,2\}\). The four switches p
 
 Switch IDs are formed by packing the two wire bits other than \(d\), from low to high. The stage is therefore a product of four disjoint 2×2 switches.
 
-The network is described in **shuffle-normalized coordinates**: relabelling wires after each perfect-shuffle interstage permutation turns the Omega stages into the dimension sequence below. This convention is fixed in code and avoids an implicit/ambiguous wiring diagram.
+The network is described in **shuffle-normalized coordinates**. Fix the perfect-shuffle convention on a 3-bit label by \(P(b_2b_1b_0)=b_0b_2b_1\) (right cyclic rotation). Relabelling each interstage wire by the inverse accumulated shuffle brings the physical adjacent-switch stages into the dimension sequence below. If the inverse perfect-shuffle convention is used instead, the coordinate sequence is reversed; it is an isomorphic relabelling, but the convention must not be left implicit. The implementation works in this normalized coordinate frame.
 
 - Omega-8: dimensions \((0,1,2)\), 3 stages, 12 switches.
 - Beneš-8: dimensions \((0,1,2,1,0)\), 5 stages, 20 switches.
