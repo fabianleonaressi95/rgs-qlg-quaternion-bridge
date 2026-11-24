@@ -209,7 +209,7 @@ def integrated_stress_correlation(
         raise ValueError("algorithmic_step must be finite and positive")
     corr = stress_autocorrelation(values, max_lag)
     lags = np.arange(corr.size, dtype=float) * algorithmic_step
-    integral = float(np.trapz(corr, dx=algorithmic_step))
+    integral = float(algorithmic_step * (0.5 * corr[0] + np.sum(corr[1:-1]) + 0.5 * corr[-1]))
     return {
         "correlation": corr,
         "lags_algorithmic": lags,
