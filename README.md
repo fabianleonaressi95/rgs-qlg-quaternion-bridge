@@ -487,3 +487,10 @@ The [Q3–Q6–Omega/Beneš–PRISM bridge](docs/research/Q3_Q6_OMEGA_BENES_PRIS
 The PRISM (C_{64}) factor admits a 64-label correspondence only; it is not graph-isomorphic to Q6 (degree 2 versus degree 6). No edge-preserving Q6-to-PRISM map or physical/dynamical equivalence is claimed.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q3_q6_network_bridge.py tests/test_interconnection_networks_8x8.py -q`.
+
+
+## Q6–PRISM embedding obstruction (proved)
+
+The [Q6–PRISM embedding obstruction](docs/research/Q6_PRISM_EMBEDDING_OBSTRUCTION.md) proves that Q6 cannot embed injectively and edge-preservingly into the existing five-factor product `C64 □ C6^3 □ C5`: every pair of incident Q6 directions spans a square, and its image must use two distinct Cartesian factor directions, forcing six distinct factors. The theorem is sharp: a six-factor cycle product contains an induced Q6 as its binary corner subgraph. A parity-collapse homomorphism into the existing product is recorded only as a non-injective baseline, not as a geometric bridge.
+
+Implementation and tests: `src/q6_prism_embedding_obstruction.py`, `tests/test_q6_prism_embedding_obstruction.py`; reproducible audit: `examples/q6_prism_embedding_audit.py` and `results/q6_prism_embedding_audit.json`. This is a graph-theoretic result; no physical or transport equivalence is claimed.
