@@ -1,0 +1,46 @@
+{
+  "graph": "Cay((Z/3Z)^5, A5 roots)",
+  "vertices": 243,
+  "degree": 30,
+  "edges": 3645,
+  "laplacian_spectrum": [
+    {
+      "eigenvalue": 0,
+      "multiplicity": 1
+    },
+    {
+      "eigenvalue": 15,
+      "multiplicity": 12
+    },
+    {
+      "eigenvalue": 24,
+      "multiplicity": 30
+    },
+    {
+      "eigenvalue": 27,
+      "multiplicity": 50
+    },
+    {
+      "eigenvalue": 33,
+      "multiplicity": 120
+    },
+    {
+      "eigenvalue": 36,
+      "multiplicity": 30
+    }
+  ],
+  "spectrum_sum_multiplicities": 243,
+  "spectral_gap": 15,
+  "normalized_spectral_gap": 0.5,
+  "fourier_method": "exact character sum over all 3^5 characters; lambda_L(k)=45-3a(k), where a(k) counts zero-phase positive-root pairs",
+  "matrix_check": "independent numpy eigvalsh of full 243x243 symmetric integer Laplacian; eigenvalues within 3.8e-14 of integers",
+  "fourier_equals_matrix": true,
+  "normalized_comparison": {
+    "GEC6_m3": 0.5,
+    "Q6": 0.3333333333333333,
+    "PRISM_C64xC6xC6xC5": 0.0009630546655606143
+  },
+  "prism_unnormalized_gap": 0.009630546655606143,
+  "caveat": "Finite m=3 comparison only. For fixed root generators, normalized spectral gap of the family tends to zero on order m^-2; no graph, dynamics, or physical equivalence is claimed.",
+  "status": "exact Fourier multiplicities with independent numerical matrix confirmation"
+}
