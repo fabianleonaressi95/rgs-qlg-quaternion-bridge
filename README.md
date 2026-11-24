@@ -487,7 +487,6 @@ The [Q3–Q6–Omega/Beneš–PRISM bridge](docs/research/Q3_Q6_OMEGA_BENES_PRIS
 The PRISM (C_{64}) factor admits a 64-label correspondence only; it is not graph-isomorphic to Q6 (degree 2 versus degree 6). No edge-preserving Q6-to-PRISM map or physical/dynamical equivalence is claimed.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q3_q6_network_bridge.py tests/test_interconnection_networks_8x8.py -q`.
-<<<<<<< HEAD
 
 
 ## Q6–PRISM embedding obstruction (proved)
@@ -495,8 +494,13 @@ Run: `PYTHONPATH=. python -m pytest tests/test_q3_q6_network_bridge.py tests/tes
 The [Q6–PRISM embedding obstruction](docs/research/Q6_PRISM_EMBEDDING_OBSTRUCTION.md) proves that Q6 cannot embed injectively and edge-preservingly into the existing five-factor product `C64 □ C6^3 □ C5`: every pair of incident Q6 directions spans a square, and its image must use two distinct Cartesian factor directions, forcing six distinct factors. The theorem is sharp: a six-factor cycle product contains an induced Q6 as its binary corner subgraph. A parity-collapse homomorphism into the existing product is recorded only as a non-injective baseline, not as a geometric bridge.
 
 Implementation and tests: `src/q6_prism_embedding_obstruction.py`, `tests/test_q6_prism_embedding_obstruction.py`; reproducible audit: `examples/q6_prism_embedding_audit.py` and `results/q6_prism_embedding_audit.json`. This is a graph-theoretic result; no physical or transport equivalence is claimed.
-=======
->>>>>>> origin/main
+
+## Explicit Q6–PRISM cubical chain map
+
+The [Q6–PRISM cubical chain-map note](docs/research/Q6_PRISM_CUBICAL_CHAIN_MAP.md) gives an integral chain map from cubical Q6 onto the binary-corner Q5 subcomplex of the existing five-factor PRISM product. On vertices it folds `(v0,...,v5)` to `(v0 XOR v5,v1,...,v4)`, identifying two Q6 directions while retaining five independent directions. Cells containing both folded directions map to zero, with orientation signs specified explicitly. The identity `∂F = F∂` is checked exactly on all 729 source cells.
+
+Implementation/tests: `src/q6_prism_chain_map.py`, `tests/test_q6_prism_chain_map.py`; audit runner/result: `examples/q6_prism_chain_map_audit.py`, `results/q6_prism_chain_map_audit.json`. The image is a contractible corner subcomplex, not the full PRISM torus; this does not establish a homotopy equivalence, spectral correspondence, or transport theorem.
+
 ## Q6 action-derived shear response and Green–Kubo gate
 
 The finite Euclidean Q6 action now has an explicit coframe-shear response
