@@ -1,0 +1,98 @@
+{
+  "audit": "Omega-8 and Benes-8 exhaustive distinct-permutation enumeration",
+  "model": "8 wires labelled 0..7; 2x2 switches act on one address-bit dimension; shuffle-normalized coordinates",
+  "switch_setting": "0 preserves the selected bit; 1 flips it; each stage has four independent switches encoded by a 4-bit mask",
+  "omega": {
+    "stage_dimensions": [
+      0,
+      1,
+      2
+    ],
+    "stages": 3,
+    "switches_per_stage": 4,
+    "total_switches": 12,
+    "distinct_permutations_by_stage": [
+      1,
+      16,
+      256,
+      4096
+    ],
+    "routable_permutations": 4096,
+    "total_permutations": 40320,
+    "routable_fraction": "32/315"
+  },
+  "benes": {
+    "stage_dimensions": [
+      0,
+      1,
+      2,
+      1,
+      0
+    ],
+    "stages": 5,
+    "switches_per_stage": 4,
+    "total_switches": 20,
+    "distinct_permutations_by_stage": [
+      1,
+      16,
+      256,
+      4096,
+      9216,
+      40320
+    ],
+    "routable_permutations": 40320,
+    "total_permutations": 40320,
+    "routable_fraction": "1"
+  },
+  "bit_reversal": {
+    "permutation": [
+      0,
+      4,
+      2,
+      6,
+      1,
+      5,
+      3,
+      7
+    ],
+    "omega_routable": false,
+    "benes_routable": true,
+    "benes_stage_settings": [
+      3,
+      0,
+      5,
+      0,
+      3
+    ]
+  },
+  "witness_example": {
+    "permutation": [
+      7,
+      0,
+      5,
+      2,
+      1,
+      6,
+      3,
+      4
+    ],
+    "benes_stage_settings": [
+      0,
+      0,
+      5,
+      12,
+      15
+    ]
+  },
+  "verification": {
+    "tests": "8 passed",
+    "test_command": "PYTHONPATH=. python -m pytest tests/test_interconnection_networks_8x8.py -q",
+    "enumeration": "all 40,320 target permutations checked for Beneš-8; 4,096 distinct Omega-8 permutations enumerated",
+    "status": "NUMERICALLY VERIFIED"
+  },
+  "limitations": [
+    "Finite combinatorial network model only.",
+    "No Q6-to-switching-fabric equivalence or Green-Kubo physical theorem is established.",
+    "Topology convention and stage coordinate relabelling are specified in the accompanying research record."
+  ]
+}
