@@ -37,6 +37,19 @@ def test_s6_action_is_faithful_on_root_set():
             assert images != roots
 
 
+def test_s6_action_remains_faithful_modulo_three():
+    roots = root_steps()
+    identity = tuple(range(6))
+    for sigma in permutations(range(6)):
+        if sigma == identity:
+            continue
+        assert any(
+            tuple(x % 3 for x in act_permutation(r, sigma))
+            != tuple(x % 3 for x in r)
+            for r in roots
+        )
+
+
 def test_finite_quotient_is_simple_30_regular():
     m = 3
     for v in product(range(m), repeat=5):
@@ -51,6 +64,7 @@ def test_finite_quotient_audit_counts():
     assert result["vertex_count"] == 243
     assert result["undirected_edge_count"] == 3645
     assert result["root_action_checks"] == 21600
+    assert result["nonidentity_permutations_detected"] == 719
     assert result["vertex_degree_checks"] == 243
 
 
