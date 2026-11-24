@@ -511,3 +511,12 @@ A separate geometric inverse-square edge convention is also audited:
 `Pi_xy^Q6=-(1/V) sum_e w'_e E_e`. This conditional edge-energy response
 is kept distinct from the plaquette-only Wilson action unless the edge
 energies are explicitly derived from it.
+## Metric-dependent Q6 plaquette response (conditional face-Hodge model)
+
+`src/q6_metric_wilson_response.py` derives the shear response of a separately declared face-area-weighted plaquette action from the hash-recovered RGS embedding. It uses the actual 64-point coordinates and canonical Q6 faces; no arbitrary Q6-to-R3 assignment or edge weights are introduced. The face-area derivative follows Jacobi's formula and is tested against central differences.
+
+The action uses fixed reference face areas and inverse current face areas. Because the recovered seed does not supply circumcentric dual measures, this is a conditional finite face-Hodge model, not a complete DEC Hodge star or continuum Yang–Mills action. It remains distinct from `unified_discrete_action.py` until the dual measure and scaling are derived.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q6_metric_wilson_response.py -q`.
+
+The same module now also includes a metric-derived two-sheet graph matter sector, `S_m=(kappa/2) sum_e ||D_e psi||^2/L_e`, using the exact inverse-length stiffness coefficient of the existing 1D P1 edge FEM. Its shear derivative is analytically computed and finite-difference tested. This is a covariant graph Dirichlet energy, not a Dirac action; continuum stress normalization remains open.
