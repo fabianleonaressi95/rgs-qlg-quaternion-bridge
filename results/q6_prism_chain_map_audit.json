@@ -1,0 +1,21 @@
+{
+  "source": "cubical Q6",
+  "target": "binary-corner cubical Q5 inside C64 x C6 x C6 x C6 x C5",
+  "vertex_map": "(v0,v1,v2,v3,v4,v5) -> (v0 XOR v5,v1,v2,v3,v4)",
+  "source_cell_count": 729,
+  "target_cell_count": 243,
+  "source_vertices": 64,
+  "target_vertices_reached": 32,
+  "vertex_map_fiber_sizes": "all 2",
+  "source_edges": 192,
+  "target_edges_reached": 80,
+  "source_cells_collapsed": "cells containing both directions 0 and 5",
+  "chain_map_identity_checked_on_all_cells": true,
+  "chain_map_failures": 0,
+  "surjective_on_target_cells": true,
+  "induced_homology": {
+    "H0": "isomorphism",
+    "higher_degrees": "zero for both contractible cubes"
+  },
+  "scope": "integral cubical chain map into a contractible PRISM corner; not full torus homology or transport"
+}
