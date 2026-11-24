@@ -469,3 +469,8 @@ The local planar-triangle quadrature theorem is implemented in `src/barycentric_
 ## Interconnection-network topology research
 
 The recovered [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTERCONNECTION_NETWORKS_Q3_Q6_OMEGA_BENES.md) records the Berkeley CS258 topology lectures, foundational Clos/Beneš literature, the Q3/Q6 hypercube connection, and the historical Omega/Beneš 8×8 enumeration results. Its bibliography is maintained in [interconnection_networks.bib](docs/research/interconnection_networks.bib). Historical Omega/Beneš counts are explicitly marked RECOVERED / NOT RERUN; no reproducibility claim is made until the original wiring convention and routing algorithms are independently reimplemented and tested.
+
+
+## Exhaustive Omega-8 / Beneš-8 routing audit
+
+The recovered historical 8×8 routing counts have now been independently reimplemented under an explicit shuffle-normalized switch-stage convention. See the [exhaustive audit](docs/research/OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md), [enumerator](src/interconnection_networks_8x8.py), [tests](tests/test_interconnection_networks_8x8.py), and [audit runner](examples/interconnection_networks_8x8_audit.py). The model reaches 4,096 distinct permutations for Omega-8 and all 40,320 permutations for Beneš-8; bit reversal is blocked by Omega-8 and routed by Beneš-8. These are finite combinatorial results for the declared topology, not a Q6/Green–Kubo physical equivalence.
