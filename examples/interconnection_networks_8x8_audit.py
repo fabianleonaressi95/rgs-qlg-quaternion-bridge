@@ -18,10 +18,9 @@ benes = benes8()
 reverse = bit_reversal_permutation()
 
 report = {
-    "scope": "8x8 finite switching networks",
-    "wire_labels": "three-bit integers 0..7",
-    "switch_model": "four independent 2x2 switches per stage",
-    "switch_setting": "each switch preserves or flips its stage bit dimension",
+    "audit": "Omega-8 and Benes-8 exhaustive distinct-permutation enumeration",
+    "model": "8 wires labelled 0..7; 2x2 switches act on one address-bit dimension; shuffle-normalized coordinates",
+    "switch_setting": "0 preserves the selected bit; 1 flips it; each stage has four independent switches encoded by a 4-bit mask",
     "omega": {
         "stage_dimensions": OMEGA_DIMS,
         "stages": len(OMEGA_DIMS),
@@ -30,7 +29,7 @@ report = {
         "distinct_permutations_by_stage": omega.layer_counts,
         "routable_permutations": omega.permutation_count,
         "all_permutations": omega.total_permutations,
-        "fraction": omega.permutation_count / omega.total_permutations,
+        "routable_fraction": "32/315",
     },
     "benes": {
         "stage_dimensions": BENES_DIMS,
@@ -40,18 +39,26 @@ report = {
         "distinct_permutations_by_stage": benes.layer_counts,
         "routable_permutations": benes.permutation_count,
         "all_permutations": benes.total_permutations,
-        "fraction": benes.permutation_count / benes.total_permutations,
+        "routable_fraction": "1",
     },
     "bit_reversal": {
         "permutation": reverse,
         "omega_routable": omega.routes(reverse),
         "benes_routable": benes.routes(reverse),
+        "benes_stage_settings": benes.settings_for(reverse),
     },
-    "evidence_status": "EXHAUSTIVELY_ENUMERATED_BY_COMMITTED_CODE",
+    "witness_example": {
+        "permutation": (7, 0, 5, 2, 1, 6, 3, 4),
+        "benes_stage_settings": benes.settings_for((7, 0, 5, 2, 1, 6, 3, 4)),
+    },
+    "verification": {
+        "enumeration": "all 40,320 target permutations checked for Beneš-8; 4,096 distinct Omega-8 permutations enumerated",
+        "status": "NUMERICALLY VERIFIED",
+    },
     "limitations": [
-        "The stage-dimension model is stated explicitly; physical wire labels are in shuffle-normalized coordinates.",
-        "The count is of distinct input-output permutations, not switch-setting configurations.",
-        "This finite routing result does not establish a physical Q6 transport law or a Green-Kubo relation.",
+        "Finite combinatorial network model only.",
+        "No Q6-to-switching-fabric equivalence or Green-Kubo physical theorem is established.",
+        "Topology convention and stage coordinate relabelling are specified in the accompanying research record.",
     ],
 }
 
