@@ -109,3 +109,19 @@ Independent residuals from the collocation interpolant were about \(4.4\times10^
 **Numerically testable in this implementation:** finite-radius symmetric branch, scalar and Maxwell residuals, Gauss law, \(q\to0\) recovery of the mass-shifted global Q-ball, and the \(\alpha\)-dependence of the relative curvature.
 
 **Still open:** asymmetric stationary branches; full constrained fluctuation spectrum and stability; radial-domain and mesh convergence study; Maxwell magnetic sector; Q-ball/fluxon interaction; common vierbein/TEGR backreaction; radion dimensional reduction and stabilization; coupling to the Q6/T080/T088 discretizations through an action-preserving field/chain map.
+
+
+## 6. Preliminary branch scan \(Q(\omega),E(\omega)\)
+
+A local six-point continuation scan with the same fixed model parameters and central amplitudes \(F(0)=0.62,\ldots,0.67\) gives:
+
+| \(\omega\) | \(Q_N\) | \(E\) | \(dQ/d\omega\), finite difference |
+|---:|---:|---:|---:|
+| 0.902341 | 66.98573 | 64.98545 | −55.15 |
+| 0.904210 | 66.91354 | 64.92025 | −22.11 |
+| 0.906010 | 66.90239 | 64.91017 | +10.84 |
+| 0.907746 | 66.94970 | 64.95308 | +44.88 |
+| 0.909420 | 67.05331 | 65.04723 | +80.19 |
+| 0.911036 | 67.21146 | 65.19119 | +115.53 |
+
+The coarse finite-difference data indicate a local minimum of \(Q(\omega)\) near \(\omega\simeq0.905\)–\(0.906\), i.e. a **candidate branch turning point**. This is not a stability theorem. A finer continuation, domain/mesh convergence and the full charge-constrained scalar–phase–Maxwell fluctuation operator are required before using the turning point as a stability criterion. The reproducible sweep is encoded in scripts/audit_psu_antitwin_qball_branch.py; the table above is the local development run, not a CI artifact.
