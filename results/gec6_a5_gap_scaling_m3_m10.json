@@ -1,0 +1,96 @@
+{
+  "graph_family": "Cay((Z/mZ)^5, A5 roots)",
+  "degree": 30,
+  "method": "Exhaustive enumeration of all m^5 characters; normalized eigenvalue = (1/15) sum over 15 positive roots of (1-cos(2*pi*<k,r>/m)).",
+  "rows": [
+    {
+      "modulus": 3,
+      "vertices": 243,
+      "normalized_gap": 0.5,
+      "m2_times_gap": 4.5
+    },
+    {
+      "modulus": 4,
+      "vertices": 1024,
+      "normalized_gap": 0.33333333333333326,
+      "m2_times_gap": 5.333333333333332
+    },
+    {
+      "modulus": 5,
+      "vertices": 3125,
+      "normalized_gap": 0.23032766854168418,
+      "m2_times_gap": 5.758191713542105
+    },
+    {
+      "modulus": 6,
+      "vertices": 7776,
+      "normalized_gap": 0.16666666666666663,
+      "m2_times_gap": 5.999999999999998
+    },
+    {
+      "modulus": 7,
+      "vertices": 16807,
+      "normalized_gap": 0.12550339938042213,
+      "m2_times_gap": 6.149666569640685
+    },
+    {
+      "modulus": 8,
+      "vertices": 32768,
+      "normalized_gap": 0.09763107293781749,
+      "m2_times_gap": 6.248388668020319
+    },
+    {
+      "modulus": 9,
+      "vertices": 59049,
+      "normalized_gap": 0.07798518562700733,
+      "m2_times_gap": 6.316800035787594
+    },
+    {
+      "modulus": 10,
+      "vertices": 100000,
+      "normalized_gap": 0.06366100187501751,
+      "m2_times_gap": 6.36610018750175
+    }
+  ],
+  "quadratic_form": [
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      4,
+      8,
+      6,
+      4,
+      2
+    ],
+    [
+      3,
+      6,
+      9,
+      6,
+      3
+    ],
+    [
+      2,
+      4,
+      6,
+      8,
+      4
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "minimum_nonzero_integer_value": 5,
+  "asymptotic_constant": "2*pi^2/3 = 6.579736267392906",
+  "status": "Finite rows: exhaustive numerical Fourier evaluation. Limit: proved by Taylor expansion and shortest-vector bound.",
+  "caveat": "No graph, dynamics, or physical equivalence with Q6 or Cartesian PRISM is asserted."
+}

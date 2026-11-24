@@ -1,0 +1,16 @@
+{
+  "model": "finite A5-root Cayley torus",
+  "modulus": 3,
+  "vertex_count": 243,
+  "root_directions": 30,
+  "degree": 30,
+  "undirected_edge_count": 3645,
+  "group_action": "faithful S6 by graph automorphisms; includes A6",
+  "S6_order": 720,
+  "root_action_checks": 21600,
+  "nonidentity_permutations_detected": 719,
+  "vertex_degree_checks": 243,
+  "connectedness": "proved: simple roots generate A5/3A5",
+  "comparison": "not isomorphic to the original 69120-vertex degree-10 Cartesian PRISM graph",
+  "status": "exact algebraic model; audit runner and tests committed; GitHub CI not yet asserted"
+}
