@@ -156,7 +156,7 @@ def metric_wilson_shear_finite_difference(
     h = shear_generator_3d(axis_x, axis_y)
     ref = face_parallelogram_areas(x)
     plus = metric_weighted_plaquette_action(((np.eye(3) + step*h) @ x.T).T, links, beta, ref)["action"]
-    minus = metric_weighted_plaquette_action((np.eye(3) - step*h) @ x.T .T, links, beta, ref)["action"]
+    minus = metric_weighted_plaquette_action(((np.eye(3) - step*h) @ x.T).T, links, beta, ref)["action"]
     return float(-(plus - minus) / (2.0 * step * reference_volume))
 
 
@@ -254,7 +254,7 @@ def metric_edge_matter_shear_finite_difference(
         raise ValueError("step must be finite and positive")
     x = np.asarray(load_rgs_seed_data().coordinates if coordinates is None else coordinates, float)
     h = shear_generator_3d(axis_x, axis_y)
-    plus = metric_edge_matter_action((np.eye(3)+step*h) @ x.T .T, fields, links, coupling)
+    plus = metric_edge_matter_action(((np.eye(3) + step*h) @ x.T).T, fields, links, coupling)
     minus = metric_edge_matter_action(((np.eye(3) - step*h) @ x.T).T, fields, links, coupling)
     return float(-(plus-minus)/(2.0*step*reference_volume))
 
