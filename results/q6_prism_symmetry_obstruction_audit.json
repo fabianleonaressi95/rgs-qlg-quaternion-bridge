@@ -1,0 +1,23 @@
+{
+  "source": "Q6 graph 1-skeleton; integral cycle lattice rank 129",
+  "source_symmetry_subgroup": "A6, even permutations of the six cube coordinates",
+  "source_symmetry_group_order": 360,
+  "target": "C64 □ C6 □ C6 □ C6 □ C5",
+  "target_H1": "Z^5",
+  "target_H1_automorphism_image_order_upper_bound": 192,
+  "A6_action_on_target_H1_forced_trivial": true,
+  "A6_edge_orbits": [0, 1, 2, 3, 4, 5],
+  "invariant_cycle_boundary_matrix": [
+    [-6, 0, 0, 0, 0, 0],
+    [1, -5, 0, 0, 0, 0],
+    [0, 2, -4, 0, 0, 0],
+    [0, 0, 3, -3, 0, 0],
+    [0, 0, 0, 4, -2, 0],
+    [0, 0, 0, 0, 5, -1],
+    [0, 0, 0, 0, 0, 6]
+  ],
+  "A6_invariant_source_cycle_space_dimension": 0,
+  "equivariant_induced_H1_map": "zero",
+  "equivariant_surjection_to_Z5": false,
+  "scope": "equivariance under A6 and target graph automorphisms; graph-only source"
+}
