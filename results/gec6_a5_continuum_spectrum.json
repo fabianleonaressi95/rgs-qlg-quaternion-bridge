@@ -1,0 +1,40 @@
+{
+  "space": "T_A5=V/A5, V={x in R^6: sum_i x_i=0}",
+  "dimension": 5,
+  "dual_lattice": "A5*",
+  "Q": [[5,4,3,2,1],[4,8,6,4,2],[3,6,9,6,3],[2,4,6,8,4],[1,2,3,4,5]],
+  "eigenvalue_formula": "lambda(k)=(2*pi^2/3) k^T Q k",
+  "shortest_nonzero_quadratic_value": 5,
+  "first_eigenvalue": "10*pi^2/3",
+  "first_eigenvalue_numeric": 32.89868133696453,
+  "first_eigenvalue_multiplicity": 12,
+  "shortest_dual_vectors": [
+    [-1,0,0,0,0],[-1,1,0,0,0],[0,-1,1,0,0],
+    [0,0,-1,1,0],[0,0,0,-1,1],[0,0,0,0,-1],
+    [1,0,0,0,0],[1,-1,0,0,0],[0,1,-1,0,0],
+    [0,0,1,-1,0],[0,0,0,1,-1],[0,0,0,0,1]
+  ],
+  "certificate": {
+    "Q_minus_3_over_2_I_positive_definite": true,
+    "leading_principal_minors": ["7/2","27/4","81/8","189/16","243/32"],
+    "finite_search_set": "{-1,0,1}^5",
+    "candidate_count": 243,
+    "minimum": 5,
+    "multiplicity": 12
+  },
+  "de_aquino": {
+    "formula": "m_g/m_i0 = 3 - 2*sqrt(1+xi^2)",
+    "zero_threshold": "xi^2=5/4",
+    "A5_shortest_value": 5,
+    "candidate_normalization": "xi_k^2=(k^TQk)/4",
+    "status": "CONJECTURAL NORMALIZATION ONLY; physical momentum map and operator intertwiner remain OPEN"
+  },
+  "discrete_continuum_limit": "lim m^2 gamma_m = (1/5) lambda_1(T_A5) = 2*pi^2/3",
+  "evidence_status": {
+    "continuum_spectrum": "PROVED",
+    "shortest_vector_multiplicity": "PROVED_BY_EXACT_FINITE_CERTIFICATE",
+    "graph_gap_limit": "PROVED",
+    "de_aquino_zero": "ALGEBRAIC_CONSEQUENCE_OF_STATED_FORMULA",
+    "physical_bridge": "OPEN"
+  }
+}
