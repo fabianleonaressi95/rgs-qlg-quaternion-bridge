@@ -1,0 +1,38 @@
+{
+  "bit_convention": "three-bit trigram, bottom-to-top; Q6=lower||upper",
+  "q3": {
+    "vertices": 8,
+    "edges": 12,
+    "degree": 3,
+    "switch_pairs_per_coordinate": [
+      [[0,1],[2,3],[4,5],[6,7]],
+      [[0,2],[1,3],[4,6],[5,7]],
+      [[0,4],[1,5],[2,6],[3,7]]
+    ]
+  },
+  "q6": {
+    "vertices": 64,
+    "meaning": "ordered input/output trigram demand",
+    "permutation_matrix_ones": 8
+  },
+  "omega": {
+    "network": "Omega-8",
+    "routable_permutations": 4096,
+    "q6_demand_matchings": 4096,
+    "bijection_verified": true
+  },
+  "benes": {
+    "network": "Benes-8",
+    "routable_permutations": 40320,
+    "q6_demand_matchings": 40320,
+    "bijection_verified": true
+  },
+  "prism_c64_factor": {
+    "label_bijection": "Q6 indices 0..63 may label C64 positions 0..63",
+    "graph_isomorphism": false,
+    "obstruction": "Q6 has degree 6; cycle C64 has degree 2",
+    "status": "coordinate relabelling only; no edge-preserving Q6-to-C64 identification"
+  },
+  "scope": "finite combinatorial correspondence; no physical or dynamical equivalence",
+  "provenance": "Derived from exhaustive Omega/Beneš enumeration on the parent branch; rerun the committed example to regenerate."
+}
