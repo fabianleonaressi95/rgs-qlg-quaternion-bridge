@@ -109,3 +109,55 @@ def q6_action_shear_response_finite_difference(
     plus = unified_q6_action(strained_fields(f, h, step), links, couplings, q6)
     minus = unified_q6_action(strained_fields(f, h, -step), links, couplings, q6)
     return float(-(plus - minus) / (2.0 * step * reference_volume))
+
+
+def inverse_square_edge_weight_shear_derivative(
+    edge_vectors: np.ndarray, axis_x: int = 0, axis_y: int = 1
+) -> np.ndarray:
+    """Exact d/dgamma |(I+gamma H)d_e|^-2 at zero for H_xy=H_yx=1/2.
+
+    This recovers w'_e(0)=-2 d_ex d_ey/|d_e|^4. Edge vectors are rows
+    of a nondegenerate (E,dimension) array; zero-length edges are rejected.
+    """
+    d = np.asarray(edge_vectors, dtype=float)
+    if d.ndim != 2 or d.shape[0] < 1 or not np.all(np.isfinite(d)):
+        raise ValueError("edge_vectors must be a finite nonempty 2D array")
+    if axis_x == axis_y or not (0 <= axis_x < d.shape[1] and 0 <= axis_y < d.shape[1]):
+        raise ValueError("shear axes must be distinct valid coordinate indices")
+    norm2 = np.einsum("ei,ei->e", d, d)
+    if np.any(norm2 <= 0.0):
+        raise ValueError("edge vectors must have nonzero length")
+    return -2.0 * d[:, axis_x] * d[:, axis_y] / norm2**2
+
+
+def q6_inverse_square_link_shear_response(
+    edge_vectors: np.ndarray,
+    edge_link_energy: np.ndarray,
+    reference_volume: float,
+    axis_x: int = 0,
+    axis_y: int = 1,
+) -> dict[str, object]:
+    """Response of H_link=sum_e |d_e|^-2 E_e with E_e held fixed.
+
+    This is a separate, conditional geometric link-energy model. It is not
+    the plaquette-only Wilson term in unified_discrete_action.py.
+    """
+    d = np.asarray(edge_vectors, dtype=float)
+    energy = np.asarray(edge_link_energy, dtype=float)
+    if d.ndim != 2 or energy.shape != (d.shape[0],):
+        raise ValueError("one scalar link-energy contribution is required per edge vector")
+    if not np.all(np.isfinite(energy)):
+        raise ValueError("edge_link_energy must be finite")
+    if not np.isfinite(reference_volume) or reference_volume <= 0:
+        raise ValueError("reference_volume must be finite and positive")
+    wprime = inverse_square_edge_weight_shear_derivative(d, axis_x, axis_y)
+    derivative = float(np.dot(wprime, energy))
+    return {
+        "weight_derivative": wprime,
+        "dH_link_dgamma": derivative,
+        "Pi_xy_Q6": float(-derivative / reference_volume),
+        "weight_convention": "w_e=|d_e|^{-2}",
+        "edge_energy_held_fixed": True,
+        "status": "exact conditional derivative for the declared inverse-square weighted edge energy",
+        "physical_status": "candidate until edge energy and equilibrium dynamics are action-derived",
+    }
