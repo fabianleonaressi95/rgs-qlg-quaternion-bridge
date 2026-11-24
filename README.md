@@ -487,3 +487,49 @@ The [Q3–Q6–Omega/Beneš–PRISM bridge](docs/research/Q3_Q6_OMEGA_BENES_PRIS
 The PRISM (C_{64}) factor admits a 64-label correspondence only; it is not graph-isomorphic to Q6 (degree 2 versus degree 6). No edge-preserving Q6-to-PRISM map or physical/dynamical equivalence is claimed.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q3_q6_network_bridge.py tests/test_interconnection_networks_8x8.py -q`.
+## Q6 action-derived shear response and Green–Kubo gate
+
+The finite Euclidean Q6 action now has an explicit coframe-shear response
+observable, computed from the existing analytic action gradient:
+
+- `src/q6_action_stress.py` — defines the symmetric shear generator,
+  strained coframe, analytic \\( -V^{-1} dS/d\\gamma \\) response and an
+  independent central-difference evaluator.
+- `tests/test_q6_action_stress.py` — compares analytic and finite-difference
+  derivatives and checks the sectors that are metric-independent under the
+  declared strain.
+- [Mathematical scope and evidence ledger](docs/Q6_ACTION_DERIVED_SHEAR_RESPONSE.md).
+
+Important result: in the current action, the Wilson term depends only on
+link holonomies, while hopping/twin/quartic terms depend on coframe volume
+only. For a symmetric traceless shear their first variations vanish. The
+remaining response comes from the fixed-frame coframe-difference regularizer.
+Thus this is an exact derivative of the implemented finite action, but not
+(yet) the full microscopic shear stress. Metric-dependent edge kinetics and
+a metric-dependent gauge/Hodge term, followed by an equilibrium dynamics,
+are still required before a Green–Kubo viscosity can be claimed.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q6_action_stress.py -q`.
+
+A separate geometric inverse-square edge convention is also audited:
+`w_e=|d_e|^{-2}` gives the exact shear derivative
+`w'_e(0)=-2 d_{e,x} d_{e,y}/|d_e|^4`; for a declared
+`H_link=sum_e w_e E_e` this yields
+`Pi_xy^Q6=-(1/V) sum_e w'_e E_e`. This conditional edge-energy response
+is kept distinct from the plaquette-only Wilson action unless the edge
+energies are explicitly derived from it.
+## Metric-dependent Q6 plaquette response (conditional face-Hodge model)
+
+`src/q6_metric_wilson_response.py` derives the shear response of a separately declared face-area-weighted plaquette action from the hash-recovered RGS embedding. It uses the actual 64-point coordinates and canonical Q6 faces; no arbitrary Q6-to-R3 assignment or edge weights are introduced. The face-area derivative follows Jacobi's formula and is tested against central differences.
+
+The action uses fixed reference face areas and inverse current face areas. Because the recovered seed does not supply circumcentric dual measures, this is a conditional finite face-Hodge model, not a complete DEC Hodge star or continuum Yang–Mills action. It remains distinct from `unified_discrete_action.py` until the dual measure and scaling are derived.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q6_metric_wilson_response.py -q`.
+
+The same module now also includes a metric-derived two-sheet graph matter sector, `S_m=(kappa/2) sum_e ||D_e psi||^2/L_e`, using the exact inverse-length stiffness coefficient of the existing 1D P1 edge FEM. Its shear derivative is analytically computed and finite-difference tested. This is a covariant graph Dirichlet energy, not a Dirac action; continuum stress normalization remains open.
+
+## Q6 Gibbs stress-correlation benchmark
+
+`src/q6_gibbs_dynamics.py` samples the compact SU(2) links of the conditional metric face-action with a symmetric single-link Metropolis chain, records the gauge shear observable and computes finite normalized stress autocorrelations. This defines a finite Gibbs benchmark and satisfies detailed balance for the declared proposal. Its Monte Carlo index is algorithmic, not physical time: the integrated correlation is not a Green–Kubo viscosity. Matter fields are excluded pending a normalizable mass/constraint prescription.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q6_gibbs_dynamics.py -q`.
