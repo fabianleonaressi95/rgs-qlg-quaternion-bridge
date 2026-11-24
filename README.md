@@ -520,3 +520,15 @@ The [GEC-6 A5-root Cayley torus](docs/research/GEC6_A5_ROOT_CAYLEY_PERIODIC_MODE
 Implementation/tests/audit: \`src/gec6_a5_root_cayley_torus.py\`, \`tests/test_gec6_a5_root_cayley_torus.py\`, \`examples/gec6_a5_root_cayley_audit.py\`, \`results/gec6_a5_root_cayley_audit.json\`.
 
 This is a new A5-root periodic model, not the original Cartesian PRISM graph. Its symmetry realization does not establish graph isomorphism, spectral equivalence, dynamical equivalence or a physical identification with the 69,120-vertex degree-10 PRISM product. The Q6 source remains its graph cycle lattice, not the filled cubical complex.
+
+### GEC-6 finite spectral audit
+
+The [exact m=3 Laplacian spectrum](docs/research/GEC6_A5_LAPLACIAN_SPECTRUM_M3.md) is derived by finite-abelian Fourier analysis and independently checked by diagonalizing the full 243×243 integer Laplacian. The spectrum is \(0^{(1)},15^{(12)},24^{(30)},27^{(50)},33^{(120)},36^{(30)}\), with normalized gap \(1/2\). The comparison with Q6 (normalized gap \(1/3\)) and the Cartesian PRISM (approximately \(0.000963054666\)) is finite-graph only; no dynamical or physical equivalence is asserted.
+
+Implementation/tests/audit: \`src/gec6_a5_spectral.py\`, \`tests/test_gec6_a5_spectral.py\`, \`examples/gec6_a5_spectral_audit.py\`, \`results/gec6_a5_laplacian_spectrum_m3.json\`.
+
+Run:
+\`\`\`bash
+PYTHONPATH=. python -m pytest tests/test_gec6_a5_spectral.py -q
+PYTHONPATH=. python examples/gec6_a5_spectral_audit.py
+\`\`\`
