@@ -1,0 +1,16 @@
+{
+  "source": "Q6 graph 1-skeleton; plaquette boundaries generate its cycle lattice",
+  "source_cycle_rank": 129,
+  "target_enrichment": "15-torus with one C5 factor per unordered coordinate pair",
+  "target_H1_module": "Lambda^2(Z^6)",
+  "target_H1_rank": 15,
+  "added_cycle_factor_count": 15,
+  "all_Q6_square_faces_checked": 240,
+  "square_curvature_equals_coordinate_wedge": true,
+  "surjective_on_added_H1_module": true,
+  "kernel_rank": 114,
+  "S6_equivariance_checks": 10800,
+  "A6_equivariant": true,
+  "original_PRISM_H1_component": "zero; remains as a direct summand Z^5",
+  "scope": "path-valued map on Q6 graph; no extension over all filled plaquettes into the torus target"
+}

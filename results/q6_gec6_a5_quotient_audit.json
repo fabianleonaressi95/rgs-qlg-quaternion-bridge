@@ -1,0 +1,19 @@
+{
+  "name": "GEC-6",
+  "source": "Q6 graph cycle lattice",
+  "source_cycle_rank": 129,
+  "exterior_square_rank": 15,
+  "target": "A5 root lattice in Z^6",
+  "target_rank": 5,
+  "kernel_rank": 124,
+  "square_curl_checks": 240,
+  "S6_root_equivariance_checks": 10800,
+  "S6_order": 720,
+  "pair_directions": 15,
+  "evidence": "exact algebraic construction; audit script and tests added, not yet run in GitHub CI",
+  "limitations": [
+    "source is the Q6 graph, not the filled cubical complex",
+    "A5 is abstractly isomorphic to Z^5 but its S6 action is not thereby realized by graph automorphisms of the original PRISM graph",
+    "physical and dynamical interpretation remains open"
+  ]
+}

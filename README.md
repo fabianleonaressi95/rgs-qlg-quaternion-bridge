@@ -522,6 +522,70 @@ The [symmetry-obstruction note](docs/research/Q6_PRISM_SYMMETRY_OBSTRUCTION.md) 
 
 Implementation/tests/audit: `src/q6_prism_symmetry_obstruction.py`, `tests/test_q6_prism_symmetry_obstruction.py`, `examples/q6_prism_symmetry_obstruction_audit.py`, `results/q6_prism_symmetry_obstruction_audit.json`. This is a graph-theoretic representation obstruction, not a physical or dynamical claim.
 
+
+## A6-equivariant Q6 exterior-square cycle map
+
+The [exterior-square construction](docs/research/Q6_PRISM_EXTERIOR_SQUARE_EQUIVARIANT_MAP.md) resolves the representation obstruction by enriching the target with a 15-torus indexed by unordered pairs of Q6 coordinates. The induced map is the natural surjection from the Q6 graph cycle lattice (rank 129) onto \\(\\Lambda^2\\mathbb Z^6\\) (rank 15), and is equivariant under the full coordinate permutation group S6. The original PRISM periodic summand \\(\\mathbb Z^5\\) remains present but is not hit by this equivariant map.
+
+Implementation/tests/audit: `src/q6_prism_exterior_square_map.py`, `tests/test_q6_prism_exterior_square_map.py`, `examples/q6_prism_exterior_square_audit.py`, `results/q6_prism_exterior_square_audit.json`. The source is the Q6 graph, not the filled cubical complex; physical interpretation of the added 15 cycle directions remains open.
+
+## GEC-6: A5-root periodic model with faithful S6 symmetry
+
+The [GEC-6 A5-root Cayley torus](docs/research/GEC6_A5_ROOT_CAYLEY_PERIODIC_MODEL.md) constructs a compact flat five-torus from the A5 root lattice and finite periodic quotients
+\`A5/mA5 ≅ (Z/mZ)^5\`. The 30 roots \`e_i-e_j\` define a connected 30-regular Cayley graph; coordinate permutations act faithfully by graph automorphisms, so the action includes A6. For \`m=3\`, the exact finite model has 243 vertices and 3,645 undirected edges.
+
+Implementation/tests/audit: \`src/gec6_a5_root_cayley_torus.py\`, \`tests/test_gec6_a5_root_cayley_torus.py\`, \`examples/gec6_a5_root_cayley_audit.py\`, \`results/gec6_a5_root_cayley_audit.json\`.
+
+This is a new A5-root periodic model, not the original Cartesian PRISM graph. Its symmetry realization does not establish graph isomorphism, spectral equivalence, dynamical equivalence or a physical identification with the 69,120-vertex degree-10 PRISM product. The Q6 source remains its graph cycle lattice, not the filled cubical complex.
+
+### GEC-6 finite spectral audit
+
+The [exact m=3 Laplacian spectrum](docs/research/GEC6_A5_LAPLACIAN_SPECTRUM_M3.md) is derived by finite-abelian Fourier analysis and independently checked by diagonalizing the full 243×243 integer Laplacian. The spectrum is \(0^{(1)},15^{(12)},24^{(30)},27^{(50)},33^{(120)},36^{(30)}\), with normalized gap \(1/2\). The comparison with Q6 (normalized gap \(1/3\)) and the Cartesian PRISM (approximately \(0.000963054666\)) is finite-graph only; no dynamical or physical equivalence is asserted.
+
+Implementation/tests/audit: \`src/gec6_a5_spectral.py\`, \`tests/test_gec6_a5_spectral.py\`, \`examples/gec6_a5_spectral_audit.py\`, \`results/gec6_a5_laplacian_spectrum_m3.json\`.
+
+Run:
+\`\`\`bash
+PYTHONPATH=. python -m pytest tests/test_gec6_a5_spectral.py -q
+PYTHONPATH=. python examples/gec6_a5_spectral_audit.py
+\`\`\`
+
+
+
+## GEC-6: general-modulus spectral gap
+
+The m=3 exact Fourier spectrum is supplemented by exhaustive character-sum gap audits for m=3,...,10. For each quotient, all \(m^5\) characters are evaluated using the 15 positive A5 roots. The normalized gap is
+\[
+\gamma_m=\frac1{15}\min_{k\ne0}\sum_{0\le i<j\le5}
+\left(1-\cos\frac{2\pi\langle k,r_{ij}\rangle}{m}\right).
+\]
+The finite-modulus values are numerical evaluations of the exact Fourier formula, not exact algebraic-number claims.
+
+In simple-root coordinates, \(Q=\sum(r_{ij}r_{ij}^T)\) has the matrix recorded in the spectral audit. Its shortest nonzero integer value is 5; an exact finite certificate uses \(Q\succ\frac32I\), reducing any hypothetical vector with value below 5 to the finite set \(\|k\|^2\le3\). Taylor expansion then gives
+\[
+\boxed{\lim_{m\to\infty}m^2\gamma_m=\frac{2\pi^2}{3}.}
+\]
+Thus the normalized gap vanishes quadratically; this family is not an expander family. No spectral, dynamical or physical equivalence with Q6 or the original Cartesian PRISM is implied.
+
+Implementation: src/gec6_a5_spectral.py; tests: tests/test_gec6_a5_spectral.py; exhaustive finite audit: results/gec6_a5_gap_scaling_m3_m10.json.
+
+
+## GEC-6 continuum A5 spectrum and De Aquino threshold
+
+The [continuum A5 torus spectral result and De Aquino bridge](docs/research/GEC6_A5_CONTINUUM_TORUS_SPECTRUM_AND_DEAQUINO_BRIDGE.md) computes the exact dual-lattice spectrum of the flat torus V/A5. The shortest nonzero dual quadratic value is 5, giving first Laplacian eigenvalue 10*pi^2/3 with multiplicity 12. It also identifies the precise scaling relation between the finite Cayley gap and the continuum first eigenvalue: lim(m^2 gamma_m) = lambda_1(T_A5)/5 = 2*pi^2/3.
+
+The De Aquino formula m_g/m_i0 = 3 - 2*sqrt(1+xi^2) has zero threshold xi^2=5/4. Matching this with the A5 shortest value 5 requires the proposed normalization xi_k^2=(k^T Q k)/4. This is explicitly a CANDIDATE NORMALIZATION only: the physical momentum map, the factor 1/4, and an operator intertwiner remain OPEN. The separate artificial A6/Dirac grid experiment is not evidence of such an identification.
+
+Implementation/tests/result: src/gec6_a5_continuum_torus.py, tests/test_gec6_a5_continuum_torus.py, results/gec6_a5_continuum_spectrum.json.
+Run: PYTHONPATH=. python -m pytest tests/test_gec6_a5_continuum_torus.py -q
+
+
+## De Aquino–pentagon–A5 physical momentum normalization (candidate bridge)
+
+The [momentum-normalization dossier](docs/research/DEAQUINO_PENTAGON_A5_MOMENTUM_NORMALIZATION.md) carries forward the earlier De Aquino source convention xi=Delta p/(m_i0 c)=n_r U/(m_i0 c^2), the regular-pentagon tight frame EE^T=(5/2)I_2, and its rank-two projector G5=E^T E=(5/2)P. The previously proposed balanced variational ansatz on unit five-channel amplitudes gives ||Pq||^2=1/2, hence q^T G5 q=5/4; this is proved for that ansatz, not derived from De Aquino dynamics.
+
+The physical conversion is dimensionally explicit: Delta p_pent=p0 ||E q||, so xi_pent=(p0/(m_i0 c))*sqrt(q^T G5 q). At the balanced point the De Aquino threshold requires p0=m_i0 c. Independently, an A5 shortest dual mode on a torus of physical length L reaches the same threshold only at the conditional calibration L=4*pi*lambdaBar_C/sqrt(6). The length and the map from A5 modes to pentagonal channel amplitudes are not fixed by the abstract lattice. A canonical full-S6-equivariant pentagon-plane map is obstructed because a rank-two projector cannot commute with the irreducible standard S6 action on the five-dimensional A5 space. The physical bridge and common action remain OPEN.
+
 ## Q6 action-derived shear response and Green–Kubo gate
 
 The finite Euclidean Q6 action now has an explicit coframe-shear response
