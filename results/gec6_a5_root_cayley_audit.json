@@ -8,6 +8,7 @@
   "group_action": "faithful S6 by graph automorphisms; includes A6",
   "S6_order": 720,
   "root_action_checks": 21600,
+  "nonidentity_permutations_detected": 719,
   "vertex_degree_checks": 243,
   "connectedness": "proved: simple roots generate A5/3A5",
   "comparison": "not isomorphic to the original 69120-vertex degree-10 Cartesian PRISM graph",
