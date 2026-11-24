@@ -1,0 +1,33 @@
+{
+  "existing_prism_cycle_factors": [
+    64,
+    6,
+    6,
+    6,
+    5
+  ],
+  "existing_factor_count": 5,
+  "q6_dimension": 6,
+  "injective_edge_preserving_embedding": false,
+  "obstruction": "Every pair of incident Q6 directions spans a square; in a Cartesian product of cycles of length >=5 every simple 4-cycle is a rectangle using two distinct factors. Thus six incident Q6 edges require six distinct factors.",
+  "minimal_factor_count": 6,
+  "six_factor_extension": [
+    64,
+    6,
+    6,
+    6,
+    6,
+    5
+  ],
+  "six_factor_embedding_is_induced": true,
+  "parity_homomorphism": {
+    "exists": true,
+    "image_vertices": 2,
+    "fiber_sizes": [
+      32,
+      32
+    ],
+    "interpretation": "Valid homomorphism, but collapses all six Q6 directions to one edge."
+  },
+  "scope": "Graph-theoretic result only; no physical or transport equivalence."
+}
