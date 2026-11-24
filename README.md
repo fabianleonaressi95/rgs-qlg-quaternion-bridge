@@ -488,3 +488,9 @@ The action uses fixed reference face areas and inverse current face areas. Becau
 Run: `PYTHONPATH=. python -m pytest tests/test_q6_metric_wilson_response.py -q`.
 
 The same module now also includes a metric-derived two-sheet graph matter sector, `S_m=(kappa/2) sum_e ||D_e psi||^2/L_e`, using the exact inverse-length stiffness coefficient of the existing 1D P1 edge FEM. Its shear derivative is analytically computed and finite-difference tested. This is a covariant graph Dirichlet energy, not a Dirac action; continuum stress normalization remains open.
+
+## Q6 Gibbs stress-correlation benchmark
+
+`src/q6_gibbs_dynamics.py` samples the compact SU(2) links of the conditional metric face-action with a symmetric single-link Metropolis chain, records the gauge shear observable and computes finite normalized stress autocorrelations. This defines a finite Gibbs benchmark and satisfies detailed balance for the declared proposal. Its Monte Carlo index is algorithmic, not physical time: the integrated correlation is not a Green–Kubo viscosity. Matter fields are excluded pending a normalizable mass/constraint prescription.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_q6_gibbs_dynamics.py -q`.
