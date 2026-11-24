@@ -472,7 +472,7 @@ The local planar-triangle quadrature theorem is implemented in `src/barycentric_
 
 ## Interconnection-network topology research
 
-The recovered [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTERCONNECTION_NETWORKS_Q3_Q6_OMEGA_BENES.md) records the Berkeley CS258 topology lectures, foundational Clos/Beneš literature, the Q3/Q6 hypercube connection, and the historical Omega/Beneš 8×8 enumeration results. Its bibliography is maintained in [interconnection_networks.bib](docs/research/interconnection_networks.bib). Historical Omega/Beneš counts are explicitly marked RECOVERED / NOT RERUN; no reproducibility claim is made until the original wiring convention and routing algorithms are independently reimplemented and tested.
+The [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTERCONNECTION_NETWORKS_Q3_Q6_OMEGA_BENES.md) records the Berkeley CS258 topology lectures, foundational Clos/Beneš literature, and the Q3/Q6 hypercube connection. Its bibliography is maintained in [interconnection_networks.bib](docs/research/interconnection_networks.bib). The historical Omega/Beneš 8×8 counts have now been independently reproduced under an explicit shuffle-normalized topology convention; see the exhaustive audit below.
 
 
 ## Exhaustive Omega-8 / Beneš-8 routing audit
