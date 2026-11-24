@@ -483,3 +483,10 @@ The [Q3–Q6–Omega/Beneš–PRISM bridge](docs/research/Q3_Q6_OMEGA_BENES_PRIS
 The PRISM (C_{64}) factor admits a 64-label correspondence only; it is not graph-isomorphic to Q6 (degree 2 versus degree 6). No edge-preserving Q6-to-PRISM map or physical/dynamical equivalence is claimed.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q3_q6_network_bridge.py tests/test_interconnection_networks_8x8.py -q`.
+
+
+## Explicit Q6–PRISM cubical chain map
+
+The [Q6–PRISM cubical chain-map note](docs/research/Q6_PRISM_CUBICAL_CHAIN_MAP.md) gives an integral chain map from cubical Q6 onto the binary-corner Q5 subcomplex of the existing five-factor PRISM product. On vertices it folds `(v0,...,v5)` to `(v0 XOR v5,v1,...,v4)`, identifying two Q6 directions while retaining five independent directions. Cells containing both folded directions map to zero, with orientation signs specified explicitly. The identity `∂F = F∂` is checked exactly on all 729 source cells.
+
+Implementation/tests: `src/q6_prism_chain_map.py`, `tests/test_q6_prism_chain_map.py`; audit runner/result: `examples/q6_prism_chain_map_audit.py`, `results/q6_prism_chain_map_audit.json`. The image is a contractible corner subcomplex, not the full PRISM torus; this does not establish a homotopy equivalence, spectral correspondence, or transport theorem.
