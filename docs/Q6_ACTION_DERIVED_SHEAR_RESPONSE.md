@@ -82,3 +82,31 @@ PYTHONPATH=. python -m pytest tests/test_q6_action_stress.py -q
   when the test suite is run.
 - **OPEN:** physical metric stress, equilibrium dynamics, FDT normalization,
   Green--Kubo viscosity and Stokes limit.
+
+
+## Previously derived inverse-square edge-weight variation
+
+A distinct geometric edge-energy convention used in the earlier Q6 stress
+work is (w_e(\gamma)=|d_e(\gamma)|^{-2}), with
+(d_e(\gamma)=(I+\gamma H)d_e) and
+(H=(E_{xy}+E_{yx})/2). Direct differentiation gives
+[
+\left.\frac{dw_e}{d\gamma}\right|_0
+=-\frac{2d_{e,x}d_{e,y}}{|d_e|^4}.
+]
+If an edge Hamiltonian is explicitly of the form
+(H_{\rm link}(\gamma)=\sum_e w_e(\gamma)E_e), with the edge energies
+(E_e) held fixed under this geometric variation, then
+[
+\Pi_{xy}^{Q6}
+=-\frac1V\left.\frac{dH_{\rm link}}{d\gamma}\right|_0
+=\frac{2}{V}\sum_e
+\frac{d_{e,x}d_{e,y}}{|d_e|^4}E_e.
+]
+The code exposes this exact conditional derivative through
+`inverse_square_edge_weight_shear_derivative` and
+`q6_inverse_square_link_shear_response`. It does **not** silently identify
+this inverse-square weighted edge Hamiltonian with the separate plaquette
+Wilson action in `unified_discrete_action.py`. To combine them, the actual
+(E_e) must be derived from the declared link action and its dependence on
+the strained geometry must be included.
