@@ -72,3 +72,37 @@ The new action is not silently merged into the existing plaquette-only
 Wilson action. It is a separately named conditional metric extension
 that can be promoted only after the dual measure and continuum scaling
 are derived.
+
+
+## Metric-derived matter sector from the existing graph P1 stiffness
+
+The same recovered edge lengths also give a non-arbitrary scalar-gradient
+matter action through the repository's already assembled 1D affine-P1
+stiffness coefficient (1/L_e). For the two PSU sheets,
+[
+S_m[X,\psi_+,\psi_-,U]
+=\frac{\kappa}{2}\sum_{e=(u,v)}
+\frac{
+\|\psi_+(v)-U_{uv}\psi_+(u)\|^2+
+\|\psi_-(v)-U_{uv}\psi_-(u)\|^2
+}{L_e(X)}.
+]
+This is a graph covariant Dirichlet energy, not a Dirac action. With
+(d_e=X_v-X_u), (L_e=|d_e|), and (X(\gamma)=(I+\gamma H)X),
+[
+\frac{\dot L_e}{L_e}
+=\frac{d_e^THd_e}{|d_e|^2}.
+]
+Holding the link and matter variables fixed gives
+[
+\boxed{
+\Pi_{xy}^{m}
+=\frac{\kappa}{2V}\sum_e
+\frac{\|D_e\psi_+\|^2+\|D_e\psi_-\|^2}{L_e}
+\frac{d_e^THd_e}{|d_e|^2}.
+}
+]
+The code provides the analytic response and a central-difference audit.
+This sector is tied directly to the existing P1 edge stiffness and measured
+RGS edge lengths. Its interpretation as a continuum matter stress still
+requires a refinement/normalization argument.
