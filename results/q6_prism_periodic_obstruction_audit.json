@@ -1,0 +1,20 @@
+{
+  "prism_cycle_lengths": [
+    64,
+    6,
+    6,
+    6,
+    5
+  ],
+  "minimum_factor_cycle_length": 5,
+  "q6_vertices": 64,
+  "q6_edges": 192,
+  "q6_square_plaquettes": 240,
+  "q6_graph_cycle_rank": 129,
+  "closed_four_step_target_walk_words": 270,
+  "four_step_closed_walks_with_nonzero_winding": 0,
+  "maximum_possible_absolute_factor_displacement_in_four_steps": 4,
+  "minimum_steps_needed_for_nonzero_winding": 5,
+  "theorem": "every edge-to-edge graph homomorphism Q6 -> PRISM induces zero map from Q6 graph cycle lattice to H1(PRISM)=Z^5",
+  "scope": "periodic homology of full cubical PRISM; distinct from graph cycle space of its 1-skeleton"
+}
