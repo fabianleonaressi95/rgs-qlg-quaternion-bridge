@@ -561,3 +561,10 @@ The De Aquino formula m_g/m_i0 = 3 - 2*sqrt(1+xi^2) has zero threshold xi^2=5/4.
 
 Implementation/tests/result: src/gec6_a5_continuum_torus.py, tests/test_gec6_a5_continuum_torus.py, results/gec6_a5_continuum_spectrum.json.
 Run: PYTHONPATH=. python -m pytest tests/test_gec6_a5_continuum_torus.py -q
+
+
+## De Aquino–pentagon–A5 physical momentum normalization (candidate bridge)
+
+The [momentum-normalization dossier](docs/research/DEAQUINO_PENTAGON_A5_MOMENTUM_NORMALIZATION.md) carries forward the earlier De Aquino source convention xi=Delta p/(m_i0 c)=n_r U/(m_i0 c^2), the regular-pentagon tight frame EE^T=(5/2)I_2, and its rank-two projector G5=E^T E=(5/2)P. The previously proposed balanced variational ansatz on unit five-channel amplitudes gives ||Pq||^2=1/2, hence q^T G5 q=5/4; this is proved for that ansatz, not derived from De Aquino dynamics.
+
+The physical conversion is dimensionally explicit: Delta p_pent=p0 ||E q||, so xi_pent=(p0/(m_i0 c))*sqrt(q^T G5 q). At the balanced point the De Aquino threshold requires p0=m_i0 c. Independently, an A5 shortest dual mode on a torus of physical length L reaches the same threshold only at the conditional calibration L=4*pi*lambdaBar_C/sqrt(6). The length and the map from A5 modes to pentagonal channel amplitudes are not fixed by the abstract lattice. A canonical full-S6-equivariant pentagon-plane map is obstructed because a rank-two projector cannot commute with the irreducible standard S6 action on the five-dimensional A5 space. The physical bridge and common action remain OPEN.
