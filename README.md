@@ -464,3 +464,8 @@ Run: `PYTHONPATH=. python -m pytest tests/test_kathara_q6_nondegenerate_chain_ma
 ## Gate E.1 — barycentric–covariance quadrature
 
 The local planar-triangle quadrature theorem is implemented in `src/barycentric_triangle_quadrature.py`, tested in `tests/test_barycentric_triangle_quadrature.py`, and specified in [the Gate E.1 record](docs/GATE_E1_BARYCENTRIC_COVARIANCE_QUADRATURE.md). It reuses the exact Q6 barycentric FEM results only as a separate combinatorial/gradient reference: the 6D Q6 vertex covariance is not identified with a triangle-cell covariance. The companion theorem-level statement is [T068](https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T068-barycentric-covariance-quadrature-law.md). Gate E.2 (geometric maps, closed surface incidence and refinement compatibility) remains open.
+
+
+## Interconnection-network topology research
+
+The recovered [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTERCONNECTION_NETWORKS_Q3_Q6_OMEGA_BENES.md) records the Berkeley CS258 topology lectures, foundational Clos/Beneš literature, the Q3/Q6 hypercube connection, and the historical Omega/Beneš 8×8 enumeration results. Its bibliography is maintained in [interconnection_networks.bib](docs/research/interconnection_networks.bib). Historical Omega/Beneš counts are explicitly marked RECOVERED / NOT RERUN; no reproducibility claim is made until the original wiring convention and routing algorithms are independently reimplemented and tested.
