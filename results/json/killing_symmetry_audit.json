@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "file_hash": "29b758d56c20ba9eb488d1846d1439c0fc145973762421d03083239ee832bba1",
+    "ell_squared": 7.035514834154695,
+    "c0": 43.96495130838031,
+    "num_vertices": 64
+  },
+  "vierbein_audit": {
+    "vierbein_construction": {
+      "positive_definite_count": 64,
+      "total_matrices": 64,
+      "min_eigenvalue": 0.5917571721378013,
+      "max_condition_number": 3.005758832175708
+    },
+    "metric_identity": {
+      "max_residual": 3.3893637946200144e-15,
+      "tolerance": 1e-12,
+      "identity_holds": true
+    },
+    "vierbein_norms": {
+      "mean": 1.7320323880488675,
+      "std": 0.007987912727177162,
+      "min": 1.7231783339535232,
+      "max": 1.7438462236774361
+    },
+    "vierbein_determinants": {
+      "mean": 0.8568107604685578,
+      "std": 0.07181387607028558,
+      "min": 0.793963083312426,
+      "max": 1.010983011060624
+    },
+    "condition_numbers": {
+      "mean": 1.5820317101482102,
+      "max": 1.7337124421817218
+    },
+    "num_vertices": 64,
+    "ell_squared": 7.035514834154695,
+    "c0": 43.96495130838031
+  },
+  "metric_audit": {
+    "symmetry": {
+      "max_error": 0.0,
+      "mean_error": 0.0,
+      "all_symmetric": 1
+    },
+    "positive_definiteness": {
+      "count": 64,
+      "total": 64,
+      "min_eigenvalue": 0.5917571721378009,
+      "all_positive": 1
+    },
+    "signature": {
+      "positive_counts": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "negative_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_positive": 3,
+      "expected_negative": 0
+    }
+  },
+  "killing_audit": {
+    "num_killing_vectors": 3,
+    "killing_residuals": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance": 1e-08,
+    "algebra_closed": 1,
+    "lie_brackets": [
+      {
+        "indices": [
+          0,
+          1
+        ],
+        "bracket_norm": 0.0
+      },
+      {
+        "indices": [
+          0,
+          2
+        ],
+        "bracket_norm": 0.0
+      },
+      {
+        "indices": [
+          1,
+          2
+        ],
+        "bracket_norm": 0.0
+      }
+    ],
+    "expected_dimension": 6,
+    "dimension_matches_expected": 0
+  },
+  "interpretation": {
+    "num_killing_vectors": 3,
+    "has_full_euclidean_symmetry": 0,
+    "has_partial_symmetry": 1,
+    "has_no_symmetry": 0
+  }
+}

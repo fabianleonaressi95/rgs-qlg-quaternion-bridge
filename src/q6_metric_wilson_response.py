@@ -256,6 +256,8 @@ def metric_edge_matter_shear_finite_difference(
     h = shear_generator_3d(axis_x, axis_y)
     plus = metric_edge_matter_action(((np.eye(3) + step*h) @ x.T).T, fields, links, coupling)
     minus = metric_edge_matter_action(((np.eye(3) - step*h) @ x.T).T, fields, links, coupling)
+    plus = metric_edge_matter_action(((np.eye(3)+step*h) @ x.T).T, fields, links, coupling)
+    minus = metric_edge_matter_action(((np.eye(3)-step*h) @ x.T).T, fields, links, coupling)
     return float(-(plus-minus)/(2.0*step*reference_volume))
 
 

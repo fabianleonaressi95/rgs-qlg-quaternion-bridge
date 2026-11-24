@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "file_hash": "29b758d56c20ba9eb488d1846d1439c0fc145973762421d03083239ee832bba1",
+    "ell_squared": 7.035514834154695,
+    "c0": 43.96495130838031,
+    "num_vertices": 64
+  },
+  "num_killing_vectors": 3,
+  "base_tolerance": 1e-08,
+  "classifications": [
+    {
+      "mode": "\u03be_1",
+      "components_mean": "(1.000, 0.000, 0.000)",
+      "norm": "8.000",
+      "residual": "0.00e+00",
+      "geometric_classification": "Translation along X",
+      "stability": "Stabile (10\u207b\u2078\u201310\u207b\u00b9\u00b2)",
+      "detailed_components": {
+        "mean_x": 1.0,
+        "mean_y": 0.0,
+        "mean_z": 0.0,
+        "norm_x": 8.0,
+        "norm_y": 0.0,
+        "norm_z": 0.0,
+        "total_norm": 8.0,
+        "variance_x": 0.0,
+        "variance_y": 0.0,
+        "variance_z": 0.0,
+        "total_variance": 0.0,
+        "mean_dot_with_r": 0.0,
+        "is_translation_like": true,
+        "is_rotation_like": false
+      }
+    },
+    {
+      "mode": "\u03be_2",
+      "components_mean": "(0.000, 1.000, 0.000)",
+      "norm": "8.000",
+      "residual": "0.00e+00",
+      "geometric_classification": "Translation along Y",
+      "stability": "Stabile (10\u207b\u2078\u201310\u207b\u00b9\u00b2)",
+      "detailed_components": {
+        "mean_x": 0.0,
+        "mean_y": 1.0,
+        "mean_z": 0.0,
+        "norm_x": 0.0,
+        "norm_y": 8.0,
+        "norm_z": 0.0,
+        "total_norm": 8.0,
+        "variance_x": 0.0,
+        "variance_y": 0.0,
+        "variance_z": 0.0,
+        "total_variance": 0.0,
+        "mean_dot_with_r": 0.0,
+        "is_translation_like": true,
+        "is_rotation_like": false
+      }
+    },
+    {
+      "mode": "\u03be_3",
+      "components_mean": "(0.000, 0.000, 1.000)",
+      "norm": "8.000",
+      "residual": "0.00e+00",
+      "geometric_classification": "Translation along Z",
+      "stability": "Stabile (10\u207b\u2078\u201310\u207b\u00b9\u00b2)",
+      "detailed_components": {
+        "mean_x": 0.0,
+        "mean_y": 0.0,
+        "mean_z": 1.0,
+        "norm_x": 0.0,
+        "norm_y": 0.0,
+        "norm_z": 8.0,
+        "total_norm": 8.0,
+        "variance_x": 0.0,
+        "variance_y": 0.0,
+        "variance_z": 0.0,
+        "total_variance": 0.0,
+        "mean_dot_with_r": 0.0,
+        "is_translation_like": true,
+        "is_rotation_like": false
+      }
+    }
+  ],
+  "structure_constants": {
+    "num_killing": 3,
+    "brackets": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "bracket_norm": 0.0,
+        "coefficients": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "is_zero": "True"
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "bracket_norm": 0.0,
+        "coefficients": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "is_zero": "True"
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "bracket_norm": 0.0,
+        "coefficients": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "is_zero": "True"
+      }
+    ],
+    "algebra_closed": true
+  },
+  "tolerance_stability": {
+    "tol_1e-08": 3,
+    "tol_1e-10": 3,
+    "tol_1e-12": 3
+  },
+  "stability_assessment": "STABLE"
+}
