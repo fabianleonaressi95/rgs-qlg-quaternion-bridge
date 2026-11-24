@@ -2,7 +2,7 @@
 
 Bit convention: each trigram is a three-character string in bottom-to-top
 line order. A Q6 word is lower_trigram || upper_trigram; its integer label is
-lower + 8*upper, so the lower trigram occupies bits 0..2 and the upper bits 3..5.
+lower + 8*upper, so the lower trigram occupies integer bits 0..2 and the upper bits 3..5. In each printed bottom-to-top trigram, the rightmost character is the least-significant (bit 0); the leftmost is bit 2.
 
 A Q6 vertex is an input/output demand (source trigram, destination trigram).
 A permutation is a set of eight demands forming a perfect matching of K_8,8.
