@@ -12,7 +12,7 @@ The repository encoding is
 \[
 \operatorname{idx}(h)=\operatorname{int}_2(\ell)+8\operatorname{int}_2(u),
 \]
-so the lower trigram occupies Q6 coordinates 0–2 and the upper trigram coordinates 3–5. No King Wen ordering is imposed.
+so the lower trigram occupies Q6 coordinates 0–2 and the upper trigram coordinates 3–5. Since the printed word is bottom-to-top while ordinary binary notation prints most-significant bit first, coordinate 0 is the rightmost/top line, coordinate 1 the middle line, and coordinate 2 the leftmost/bottom line. No King Wen ordering is imposed.
 
 ## 2. Q3 coordinate matchings are the switch stages
 
