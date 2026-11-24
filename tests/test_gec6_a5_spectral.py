@@ -58,3 +58,22 @@ def test_gap_scaling_audit_approaches_quadratic_limit():
     assert len(rows) == 6
     assert rows[-1]["m2_times_gap"] > rows[0]["m2_times_gap"]
     assert rows[-1]["m2_times_gap"] < 2 * pi * pi / 3
+
+
+def test_a5_quadratic_form_shortest_vector_certificate():
+    from itertools import product
+    qmat = (
+        (5, 4, 3, 2, 1),
+        (4, 8, 6, 4, 2),
+        (3, 6, 9, 6, 3),
+        (2, 4, 6, 8, 4),
+        (1, 2, 3, 4, 5),
+    )
+    candidates = []
+    for k in product((-1, 0, 1), repeat=5):
+        norm2 = sum(x * x for x in k)
+        if 1 <= norm2 <= 3:
+            value = sum(k[i] * qmat[i][j] * k[j] for i in range(5) for j in range(5))
+            candidates.append(value)
+    assert min(candidates) == 5
+    assert sum(value == 5 for value in candidates) > 0
