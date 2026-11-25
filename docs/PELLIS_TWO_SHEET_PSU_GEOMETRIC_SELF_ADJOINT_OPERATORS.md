@@ -8,6 +8,10 @@
 
 This note formalizes the two-sheeted PSU/Anti-Twin construction using only objects present in the recovered Q6/QLG archives. It distinguishes (i) the Q6 graph with an SU(2) fibre connection and its conjugate on the second sheet, (ii) the separate finite-dimensional Twin/Anti-Twin exchange algebra, and (iii) a proposed continuum geometry. The first two admit exact finite formulations and reproducible checks. The archives do not yet provide a canonical equivariant identification between the Q6 64-state space and the 8-dimensional internal Twin/Anti-Twin space, nor do they establish a continuum limit. Neither is assumed.
 
+## Correspondence addressed by this note
+
+In his reply of 16 November 2026, Pellis asked specifically for (i) the mathematical spaces corresponding to the two sheets, (ii) the involution or mapping relating them, and (iii) the metric and measure on the combined configuration. He then asked whether the two-sheeted structure has a natural relationship with the spectral or algebraic constructions in PRISM. His earlier reply of 5 November had separately emphasized the need for a precisely defined Hilbert space, operator domain, self-adjointness conditions, spectral measure, multiplicities and normalization. The operator-domain and continuum-limit sections below develop the mathematical consequences of those requests; they should not be misrepresented as verbatim bullet points from the 16 November email.
+
 ## 1. Base graph and two-sheeted lift
 
 Let
