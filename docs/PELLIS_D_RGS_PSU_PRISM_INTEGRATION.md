@@ -32,7 +32,7 @@ See Pellis A — Exact spectral geometry of \(S^3/2I\).
 
 ### B. Finite two-sheet self-adjoint operators
 
-The Q6 double cover \(Q_6\times\{+,-\}\), its complex-linear sheet involution on a fibre plus its conjugate, and the positive covariant graph form give an exact finite non-negative self-adjoint operator. A separate 16-dimensional Twin/Anti-Twin effective Hamiltonian also has an exact exchange involution and paired spectrum.
+The Q6 double cover \(Q_6\times\{+,-\}\), its complex-linear sheet involution on a fibre plus its conjugate, and the positive covariant graph form give an exact finite non-negative self-adjoint operator. A separate two-field gauged Q-ball action/BVP is documented in the repository, but it is a nonlinear field-theory model and is not being identified here with a finite self-adjoint resonance Hamiltonian.
 
 These are two distinct finite models. Their mutual identification is not assumed. The finite graph operator-theoretic deliverable is closed; the continuum limit and a canonical Q6-to-other-model map remain open.
 
@@ -59,7 +59,7 @@ See Pellis C — Exact \(D_6\) channel intertwiner.
 
 ## 4. The operator-level gate
 
-The representation map does not automatically identify the full Q6 graph Laplacian, the 188-dimensional RGS operator, the 16-dimensional internal throat Hamiltonian, or the physical Pellis resonance operator.
+The representation map does not automatically identify the full Q6 graph Laplacian, the 188-dimensional RGS operator, the separate two-field Q-ball BVP model, or the physical Pellis resonance operator.
 
 In the separate radial matching model, the one-sheet Cauchy transfer is
 \[
