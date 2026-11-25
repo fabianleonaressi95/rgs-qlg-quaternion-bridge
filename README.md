@@ -640,7 +640,7 @@ The four technical notes are now separated by evidential status:
 
 - [A — Exact \(2I\) scalar spectral geometry](docs/PELLIS_A_2I_SPECTRAL_GEOMETRY.md): CLOSED for the scalar Laplacian on \(S^3/2I\), including Molien invariants, allowed degrees and quotient multiplicities. The derivation of Golden Spheres Resonance weights remains open.
 - [B — Two-sheet self-adjoint operators](docs/PELLIS_B_TWO_SHEET_SELF_ADJOINT_OPERATORS.md): CLOSED for the defined finite Q6 fibre model and separate 16D Twin/Anti-Twin Hamiltonian. The canonical cross-model map and continuum limit remain open.
-- [C — Exact \(D_6\) channel intertwiner](docs/PELLIS_C_D6_CHANNEL_INTERTWINER.md): the six-state Fibonacci orbit is explicitly and unitarily factored as two sheets times three modes. This is a proved representation intertwiner; the physical Pellis operator identification remains conditional on a derived three-mode channel space.
+- [C — Exact \(D_6\) channel intertwiner](docs/PELLIS_C_D6_CHANNEL_INTERTWINER.md): the six-state Fibonacci orbit is explicitly and unitarily factored as two sheets times three modes. This is a proved representation intertwiner; a candidate realization by two copies of the spherical l=1 dipole sector is now explicit; the physical Pellis operator identification remains conditional on that sector being selected by GSR.
 - [D — RGS–PSU–PRISM–Pellis integration](docs/PELLIS_D_RGS_PSU_PRISM_INTEGRATION.md): integrated research map and remaining theorem obligations.
 
 The exact intertwiner is implemented in src/fibonacci_d6_channel_intertwiner.py and tested in tests/test_fibonacci_d6_channel_intertwiner.py.
