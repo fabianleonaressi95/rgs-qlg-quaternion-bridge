@@ -40,7 +40,7 @@ def test_fibre_exchange_is_self_adjoint_unitary_involution():
 def test_edge_covariance_on_random_fibre_data():
     rng = np.random.default_rng(20261125)
     for _ in range(25):
-        z = rng.normal(size=4) + 1j * rng.normal(size=4)
+        z = rng.normal(size=2) + 1j * rng.normal(size=2)
         z /= np.linalg.norm(z)
         u = su2_matrix(z[0], z[1])
         source = rng.normal(size=2) + 1j * rng.normal(size=2)
