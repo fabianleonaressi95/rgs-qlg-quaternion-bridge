@@ -189,3 +189,44 @@ Therefore the operator-level Pellis correspondence requires an independent state
 Primary references:
 - Stergios Pellis, *Fine-Structure Constant via the Golden Spheres Resonance*, 11 September 2025, DOI: https://doi.org/10.13140/RG.2.2.35410.00968
 - SSRN record: https://ssrn.com/abstract=5473588
+
+
+## 10. A concrete spherical-mode realization: the dipole sector \(\ell=1\)
+
+There is a natural geometric realization of the three-mode representation if the standing-wave modes on each GSR sphere include the angular dipole sector. Let
+\[
+u_0=\frac{(1,1,1)}{\sqrt3},\qquad
+u_1=\frac{(2,-1,-1)}{\sqrt6},\qquad
+u_2=\frac{(0,1,-1)}{\sqrt2}.
+\]
+The orthogonal change of basis
+\[
+W_3=
+\begin{pmatrix}
+1/\sqrt3&1/\sqrt3&1/\sqrt3\\
+2/\sqrt6&-1/\sqrt6&-1/\sqrt6\\
+0&1/\sqrt2&-1/\sqrt2
+\end{pmatrix}
+\]
+sends the three vertex modes to the invariant axis and the two-dimensional angular plane. It satisfies
+\[
+W_3C_3W_3^T=
+\begin{pmatrix}
+1&0&0\\
+0&-\frac12&-\frac{\sqrt3}{2}\\
+0&\frac{\sqrt3}{2}&-\frac12
+\end{pmatrix},
+\qquad
+W_3F_3W_3^T=\operatorname{diag}(1,1,-1).
+\]
+This is precisely the real \(\ell=1\) spherical-harmonic representation restricted to a \(120^\circ\) rotation about an axis and a reflection through a plane containing that axis: the invariant coordinate corresponds to the zonal dipole, and the remaining two coordinates to the real \(m=\pm1\) pair.
+
+Therefore
+\[
+\Phi_{\rm dipole}=(I_2\otimes W_3)\Phi
+\]
+is an explicit unitary map from the Fibonacci six-orbit to two copies of the \(\ell=1\) angular mode space of a spherical resonator. It is a concrete candidate bridge to the GSR nested-sphere modes.
+
+**Physical condition still to verify:** the GSR source must identify its mode label \(m\) with angular spherical harmonics and must select the \(\ell=1\) sector (or another three-dimensional sector carrying this same \(D_3\) representation). If its mode label is radial, or if the relevant Poincaré-space operator has no such invariant three-dimensional subspace, this identification does not follow. The exact \(D_6\) representation map remains valid independently of that physical choice.
+
+The orthogonal matrix \(W_3\) and the two generator identities are implemented and tested by the companion code.
