@@ -1,223 +1,94 @@
 # RGS–QLG Quaternion Bridge
 
-**Research codebase for quaternionic geometry, discrete lattice structures, spectral operators and reproducible computational validation.**
+**Implementation and reproducibility repository** for the quaternionic, Q6, RGS, lattice-gauge and finite-operator components of the RGS–PSU–QLG programme.
 
-This repository is part of the RGS–PSU–QLG research programme. It develops explicit mathematical constructions and computational tests involving unit quaternions, SU(2)/SO(3), discrete incidence geometry, lattice holonomies, symmetry representations and Dirac-type operators.
+This repository contains source code, focused mathematical specifications, tests and reproducible finite audits. The programme-wide theorem register and cross-project proof architecture are maintained in [THEOREM](https://github.com/fabianleonaressi95/theorem).
 
-> **Evidence policy:** mathematical identities, numerical verification, candidate constructions and open physical hypotheses are reported separately. Passing a finite numerical test does not establish a continuum limit or a physical theory.
+> **Evidence policy:** exact proofs, finite computational verification, conditional constructions, candidates and open physical questions are distinct. A passing finite test does not establish a continuum limit or a physical theory.
 
+## Canonical mathematical suite
 
-## Unified programme index
+The 51-step suite is now formalized in **[Unified Mathematical Suite: Formal Statements, Evidence and Dependencies](docs/UNIFIED_MATHEMATICAL_SUITE_FORMALIZATION.md)**.
 
-The canonical 27-chapter crosswalk and preservation register is maintained in the primary repository: [UNIFIED_PROGRAM_27_CHAPTER_CROSSWALK_2026-11-24.md](https://github.com/fabianleonaressi95/theorem/blob/main/research/UNIFIED_PROGRAM_27_CHAPTER_CROSSWALK_2026-11-24.md). The shared two-repository theorem graph is synchronized with the 239-record inventory; thematic-index edges remain provisional and are not proof dependencies.
+That document is the canonical index for:
+- quaternion and representation foundations;
+- Q6 graph, square complex, homology and Hodge theory;
+- recovered RGS seed, induced geometry and graph FEM;
+- flat and curved Mosco problems;
+- qutrit/SU(3), Q3–Q6 and network constructions;
+- Kathara, Krystal Spiral, barycentric quadrature and cubical refinement;
+- Q6–PRISM obstructions, path-valued maps, \(\Lambda^2\) and GEC-6;
+- A5 spectrum, De Aquino candidate normalization;
+- shear response, Gibbs benchmark and finite OU Green–Kubo;
+- the Pellis two-sheet and \(D_6\) correspondence.
+
+Each record has an evidence label and explicit dependencies. The detailed derivations, implementations, tests and audit outputs remain in their focused files; they are not duplicated here.
 
 ## Current open problem for independent mathematical review
 
-**One focused problem is being put forward for external scrutiny: establish (or identify an obstruction to) Mosco convergence of the curved Ellis–RGS P1 energies on the refinement family already specified in this repository.** This is a concrete scalar geometric problem. It is not a request to validate the whole RGS–PSU–QLG programme.
+**Establish, or identify an obstruction to, Mosco convergence of the curved Ellis–RGS P1 energies on the refinement family specified in this repository.**
 
-### Problem statement
+The problem is deliberately limited to a scalar Riemannian Dirichlet form. It is not a request to validate the entire RGS–PSU–QLG programme.
 
-Fix the compact manifold with boundary
-`M_L=[-L,L]\times S^2`, with `L=3r_0`, `r_0=0.8292`, and Riemannian metric
-`g=du^2+(u^2+r_0^2)d\Omega^2`.
-For each refinement level `h\to0`, let `K_h` be the nested angular-radial tetrahedral mesh generated from the recovered RGS 64B seed (56 distinct spherical directions, 108 initial angular faces; angular faces are subdivided fourfold and radial intervals are bisected at each level).
+- Domain: \(M_L=[-L,L]\times S^2\), with \(L=3r_0\), \(r_0=0.8292\).
+- Metric: \(g=du^2+(u^2+r_0^2)d\Omega^2\).
+- Common Hilbert space: \(H=L^2(M_L,d\mu_g)\), with \(d\mu_g=(u^2+r_0^2)\,du\,d\Omega\).
+- Discrete spaces: nested curved tetrahedral P1 meshes generated from the recovered RGS 64B seed.
+- Target form: \(q(u)=\int_{M_L}|\nabla_g u|_g^2\,d\mu_g\), with domain \(H^1(M_L)\) and natural Neumann boundary condition.
 
-The common Hilbert space and reconstruction are
-`H=L^2(M_L,d\mu_g)`, `d\mu_g=(u^2+r_0^2)\,du\,d\Omega`, and the explicitly defined continuous P1 map `J_h:V_h\to H^1(M_L)\subset H`. The discrete mass and stiffness forms are assembled from the curved element metric induced by the exact Ellis embedding, not from fitted cube-sphere weights.
+For the reconstruction \(J_h:V_h\to H\), prove both the weak liminf inequality and existence of a strong recovery sequence. A valid contribution may instead give a counterexample or identify a missing hypothesis.
 
-The target quadratic form is
-`q(u)=\int_{M_L}|\nabla_g u|_g^2\,d\mu_g`, with form domain `H^1(M_L)` (the natural Neumann form; any alternative boundary condition must be stated explicitly). Let `q_h` be the corresponding curved P1 stiffness form on `V_h`, extended to `H` through `J_h` by assigning `+\infty` outside `J_h(V_h)`.
-
-**Question.** Do `q_h` Mosco-converge to `q` in the common space `H` as `h\to0`? If so, prove both:
-
-- **Liminf:** whenever `J_hu_h\rightharpoonup u` weakly in `H`, `q(u)\le\liminf_{h\to0}q_h(u_h)`.
-- **Recovery:** for every `u\in H^1(M_L)`, construct `u_h\in V_h` with `J_hu_h\to u` strongly in `H` and `\limsup_{h\to0}q_h(u_h)\le q(u)`.
-
-A valid answer may instead identify a counterexample or a missing hypothesis that prevents this statement.
-
-### What is already available
-
-- **G1:** a reproducible nested curved geometric refinement family, with the recovered seed, exact Ellis embedding and finite-level geometric audits.
-- **G4:** an explicit common-`L^2` reconstruction `J_h` and curved-metric P1 mass/stiffness integrals on the same finite domain.
-- **Flat benchmark:** a separate Mosco proof for a regular periodic flat P1 family. It is methodological precedent only; it does not prove the curved statement.
-
-### What remains open
-
-The central missing step is a uniform all-level analysis: shape regularity of the curved element maps and their inverses, uniform metric/Jacobian bounds, coercivity and compactness in the common `L^2` space, followed by the liminf and recovery arguments. Finite-level numerical audits and convergence plots are not substitutes for these estimates.
-
-This question concerns a **Riemannian scalar Dirichlet form**. It does not assert Mosco convergence for a Lorentzian metric, nor convergence of tetrads, teleparallel field equations, spinors, Dirac/overlap operators, Yang–Mills theory or QCD. Those are separate problems and are not part of this review request.
-
-### Minimal entry points and reproducibility
-
+**Available starting points**
 - [Curved refinement G1](docs/RGS_ELLIS_CURVED_REFINEMENT_G1.md)
-- [Common-`L^2` embedding G4](docs/RGS_ELLIS_CURVED_G4_COMMON_L2.md)
+- [Common-\(L^2\) embedding G4](docs/RGS_ELLIS_CURVED_G4_COMMON_L2.md)
 - [Open proof programme G5–G6](docs/RGS_MOSCO_CURVED_REFINEMENT_PROGRAM.md)
-- [Flat periodic P1 Mosco theorem](docs/FLAT_TORUS_G6_P1_MOSCO_PROOF.md) — comparison benchmark, not the curved result.
+- [Flat periodic P1 Mosco theorem](docs/FLAT_TORUS_G6_P1_MOSCO_PROOF.md) — a separate benchmark, not a proof of the curved result.
 
-Run the curved finite-level audit and tests:
-
+Run the curved audit:
 ```bash
 PYTHONPATH=. python examples/rgs_ellis_curved_refinement_audit.py
 PYTHONPATH=. python -m pytest tests/test_rgs_ellis_refinement.py -v
 ```
 
-**Requested contribution:** a mathematically precise proof strategy, a counterexample, or a reference theorem whose hypotheses can be checked against this exact mesh family and these exact forms. Please identify the assumptions used; do not infer a continuum theorem from the finite audits.
+The missing step is uniform all-level control of element maps and inverses, metric/Jacobian bounds, coercivity and compactness, followed by liminf and recovery. Finite-level audits are not substitutes for these estimates. No Lorentzian, spinorial, teleparallel, Yang–Mills or QCD convergence claim is included.
 
----
+## Principal implementation areas
 
-## Research scope
+| Area | Entry point |
+|---|---|
+| Quaternion, SU(2), SO(3), binary icosahedral group | `src/`, [THEOREM records](https://github.com/fabianleonaressi95/theorem/tree/main/theorems) |
+| Q6 graph and square complex | [Q6 formalization](docs/Q6_COMPLEX_FORMALIZATION.md) |
+| Recovered RGS seed and \(O_h\) action | [RGS/Q6 symmetry audit](docs/RGS_Q6_OH_EQUIVARIANCE.md) |
+| Combinatorial Hodge theory | [Q6 Hodge specification](docs/Q6_COMBINATORIAL_HODGE_LAPLACIANS.md) |
+| Curved Ellis geometry and spin connection | [Ellis refinement](docs/RGS_ELLIS_CURVED_REFINEMENT_G1.md), [spin connection](docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md) |
+| Qutrit chain and gauge-covariant Q6 embedding | [Qutrit specification](docs/QUTRIT_Q6_GAUGE_COVARIANT_EMBEDDING.md) |
+| Kathara and Krystal Spiral | [Kathara graph audit](docs/KATHARA_15_LINE_GRAPH_FACE_AUDIT.md), [square geometry](docs/KATHARA_KRYSTAL_SPIRAL_SQUARE_GEOMETRY.md) |
+| Q6 dyadic refinement and barycentric quadrature | [Q6 refinement](docs/Q6_DYADIC_SUBDIVISION_CHAIN_MAP.md), [Gate E.1](docs/GATE_E1_BARYCENTRIC_COVARIANCE_QUADRATURE.md) |
+| Q6–PRISM and GEC-6 | `docs/research/Q6_PRISM_*.md`, `docs/research/GEC6_*.md` |
+| Shear response and Green–Kubo limits | [Q6 action-derived shear](docs/Q6_ACTION_DERIVED_SHEAR_RESPONSE.md), [finite OU/GK record](docs/Q6_HYPERCUBE_GREEN_KUBO_SUPERGOLDEN.md) |
+| Pellis correspondence | [Dossier index](docs/PELLIS_D_RGS_PSU_PRISM_INTEGRATION.md) |
 
-### Quaternionic and group geometry
-- Hamilton quaternion conventions and composition order.
-- SU(2) and its double covering of SO(3).
-- Binary icosahedral group 2I, order 120, and selected representations.
-- Representation intertwiners and symmetry-sector checks.
+## Repository map and provenance
 
-### Discrete geometry
-- Q6: 64 vertices, 192 edges and 240 square faces.
-- Integer incidence operators and chain-complex identities.
-- Möbius-complex test constructions and local-frame conventions.
-- Graph Laplacians, cochain operators and topology.
+- `src/` — mathematical and computational implementations.
+- `tests/` — focused unit, structural and regression tests.
+- `examples/` — reproducible audit runners.
+- `results/` — generated finite audit outputs.
+- `docs/` — mathematical specifications, evidence ledgers and open proof programmes.
+- [Experiment inventory](experiments/README.md) — experiment navigation and safe variant-management rules.
+- [Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md) — typed links to the central theorem records.
+- [Master catalogue](docs/MASTER_CATALOGUE_LAWS_THEOREMS.md) — programme-wide laws, theorems, models and open hypotheses.
+- [Implementation roadmap](docs/IMPLEMENTATION_ROADMAP.md).
 
-### Spectral and spinorial operators
-- Clifford algebra conventions.
-- Discrete Dirac-type and Dirac–Kähler constructions.
-- Wilson-kernel and overlap-operator experiments.
-- Spectral residuals, multiplicities and symmetry checks.
-
-### Wilson spectral audit: periodic reference and curved finite graphs
-
-The Wilson audit is split into two explicitly different settings:
-
-- [Periodic versus curved-Q6 spectral audit](docs/WILSON_PERIODIC_VS_CURVED_Q6_SPECTRAL_AUDIT.md) derives the standard Euclidean Wilson Fourier symbol, enumerates Brillouin-corner masses and records the scaling window for the stated periodic model.
-- [Finite curved-Q6 Wilson spectral audit](docs/CURVED_Q6_WILSON_FINITE_SPECTRAL_AUDIT.md) reports finite-graph Wilson-kernel eigenvalues, low-spectrum multiplicities, Euclidean Wilson–Dirac singular values and gamma5-Hermiticity residuals.
-
-Run the focused tests:
-```bash
-PYTHONPATH=. python -m pytest tests/test_wilson_periodic_symbol.py tests/test_curved_wilson_spectral_audit.py -q
-python scripts/run_wilson_periodic_symbol_audit.py --dimension 3 --spacing 1 --wilson-r 1 --alpha 0
-```
-
-The periodic Brillouin-corner count is not transferred to the curved graph. The finite curved audit does not establish a refinement-uniform gap, curved Mosco convergence, or strong-resolvent convergence; these remain OPEN.
-
-The [recovered RGS/Q6 embedded-graph baseline](docs/RGS_Q6_WILSON_EMBEDDED_GRAPH_BASELINE.md) applies the finite spectral audit to the hash-checked 64-coordinate/192-edge seed with explicitly declared identity local frames and identity spin links. It isolates nonuniform embedded edge lengths only; it is not a curved tetrad or continuum spin-connection result. Run `PYTHONPATH=. python examples/rgs_q6_wilson_spectral_baseline.py`.
-
-The [Ellis-RGS Levi-Civita spin connection](docs/ELLIS_RGS_LEVI_CIVITA_SPIN_CONNECTION.md) now constructs edgewise SU(2) links by integrating the exact ambient parallel-transport equation on the isometrically embedded Ellis hypersurface. This is a geometric finite-mesh connection; uniform refinement estimates and spinorial Mosco/resolvent convergence remain OPEN. Run `PYTHONPATH=. python -m pytest tests/test_ellis_spin_connection.py -q`.
-
-The [intrinsic Ellis-RGS spinorial Wilson-Dirac operator](docs/ELLIS_RGS_INTRINSIC_SPIN_DIRAC.md) assembles the naive spatial Dirac block and positive Wilson graph term from local tangent Clifford directions, intrinsic Ellis edge lengths, lumped P1 vertex volumes and the Levi-Civita SU(2) links. Its finite-mesh audits include gamma5 hermiticity and local spin-frame gauge covariance; curved refinement convergence and doubler control remain OPEN. Run `PYTHONPATH=. python -m pytest tests/test_ellis_rgs_spin_dirac.py -q`; the full level-0 mesh report is generated by `PYTHONPATH=. python examples/run_ellis_rgs_spin_wilson_dirac_audit.py --level 0 --radial-base 2 --steps 12`.
-
-
-A separate [multi-level mesh shape-regularity audit](examples/run_ellis_mesh_shape_regularity_audit.py) reports Gram conditioning, minimum Gram eigenvalues, chord diameters and Ellis volume convergence for levels 0–2. It is numerical evidence only, not a proof of uniform shape regularity. Run `PYTHONPATH=. python examples/run_ellis_mesh_shape_regularity_audit.py --levels 0 1 2 --radial-base 8`.
-The conditional geometric criterion and remaining proof obligations are documented in [ELLIS_RGS_MESH_SHAPE_REGULARITY.md](docs/ELLIS_RGS_MESH_SHAPE_REGULARITY.md). The same audit document describes the sparse comparison between the curved common-L2 P1 mass and the Wilson operator's lumped vertex measure; run `PYTHONPATH=. python examples/run_ellis_lumped_mass_equivalence_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4`. The finite-level Neumann Poincare gap check is available as `PYTHONPATH=. python examples/run_ellis_neumann_poincare_audit.py --levels 0 1 --radial-base 8 --quadrature-order 4`.
-### Geometric field structures
-- Lattice holonomies and gauge covariance.
-- Discrete vierbein and connection constructions.
-- Torsion and teleparallel research directions.
-
-## Mathematical starting point: SU(2) to SO(3)
-
-Unit quaternions form a group isomorphic to SU(2). The standard map
-
-    rho: SU(2) -> SO(3)
-
-is a double covering:
-
-    rho(q) = rho(-q).
-
-Thus q and -q represent the same spatial rotation, while remaining distinct elements of SU(2). This distinction is essential in spinorial calculations and in the treatment of the central element of 2I.
-
-## Q6 reference structure
-
-The six-dimensional hypercube graph has
-
-    |V| = 64, |E| = 192, degree(v) = 6.
-
-With the six-bit vertex convention and the oriented incidence matrices B1 and B2, the chain-complex condition is
-
-    B1 B2 = 0.
-
-Its graph Laplacian has exact eigenvalues
-
-    lambda_j = 2j, multiplicity = binomial(6,j), j = 0,...,6.
-
-These identities provide exact finite-dimensional reference tests. They do not, by themselves, establish a continuum geometric limit.
-
-- **[Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md)** — 320 typed edges across all 236 theorem records and 14 companion catalogue entries to theorem records in `fabianleonaressi95/theorem`; machine-readable [edge registry](docs/UNIFIED_THEOREM_EDGES.json).
-
-## Repository map
-
-- [Q6–D5 literature and repository evidence map](docs/Q6_D5_LITERATURE_AND_REPOSITORY_EVIDENCE_MAP.md) — external sources, internal proof files, repository inventory and open proof obligations.
-- [Research priorities and collaboration map](docs/RESEARCH_PRIORITIES_AND_COLLABORATION_MAP.md) — ordered open problems, targeted researchers, public contacts and external software benchmarks.
-
-- src/ — mathematical and computational implementations.
-- tests/ — unit and structural tests.
-- [experiments/README.md](experiments/README.md) — navigation, 311-file experiment inventory, exact-duplicate checks and safe variant-management rules.
-- [experiments/EXPERIMENTS_CATALOG.json](experiments/EXPERIMENTS_CATALOG.json) — machine-readable catalog with path, size and Git blob SHA.
-- [docs/EXPERIMENT_DEPENDENCY_GRAPH_AUDIT.md](docs/EXPERIMENT_DEPENDENCY_GRAPH_AUDIT.md) — static dependency graph findings, parse blockers and safe consolidation plan.
-- docs/RGS_PSU_GAUGE_CLIFFORD_QLG_RESEARCH_PROPOSAL.md — research direction.
-- docs/IMPLEMENTATION_ROADMAP.md — implementation roadmap.
-- docs/STEM_INTEROPERABILITY_PROFILE.md — proposed interoperability profile.
-- [Issue #3](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/issues/3) — tracked implementation discussion.
-
-The precise modules and callable functions used for a benchmark must always be identified by repository commit SHA and recorded in its provenance manifest.
-
-
-### RGS–PSU wormhole parameter recovery
-
-- [Wormhole parameter provenance and Ellis benchmark audit](docs/RGS_PSU_WORMHOLE_PARAMETER_RECOVERY_AUDIT.md) — records the historical values \(r_*,R_0,r_1,r_2\), the exact Ellis benchmark identities, the distinct repository backgrounds, and the unresolved uppercase \(R_1\). It does not claim the original RGS–PSU BVP derivation has been recovered.
-
-### Kathara–Q6 chain-map gate
-
-- [Kathara–Q6 gate C: line incidence, equivariance and exact obstructions](docs/KATHARA_Q6_GATE_C_LINE_INCIDENCE.md) — exact 15-line/21-edge incidence, the left/right reflection action, chain-map constraints and the bipartite obstruction to a one-edge-per-edge embedding. The nontrivial path-valued map remains open.
-- [Integer Kathara–Q6 chain lift and filling ambiguity](docs/KATHARA_15_LINE_Q6_CHAIN_LIFT.md) — proves the rank-111 (H_2) ambiguity of the Q6 2-skeleton and separates existence of path-chain fillings from canonical selection.
-
-## RGS–STEM interoperability
-
-The [RGS–STEM Interoperability Profile](docs/STEM_INTEROPERABILITY_PROFILE.md) proposes a conservative sidecar-based exchange format for finite algebraic, geometric and spectral data.
-
-It is a proposal for technical discussion, **not an approved Ontos extension or an endorsement by Stem Framework**. The current Ontos stream specification remains unchanged unless its maintainers agree to a formal extension.
-
-## Evidence and reproducibility standards
-
-Every reported result should state:
-
-1. the mathematical object and conventions;
-2. the implementation and exact repository revision;
-3. the test method and expected invariant;
-4. numerical residuals and tolerances, where relevant;
-5. whether verification uses the same code, a separate module or an independent implementation;
-6. limitations and unresolved assumptions.
-
-Claims are classified as:
-
-- **PROVED** — established by a mathematical proof.
-- **NUMERICALLY VERIFIED** — supported by reproducible computation with stated tolerances.
-- **CANDIDATE** — explicitly constructed but not fully established.
-- **OPEN** — requiring further mathematical, numerical or empirical work.
-
-In particular, finite Q6 or 2I computations do not automatically prove continuum quantum field theory, general relativity, Einstein–Cartan dynamics, antimatter phenomenology or cosmological claims.
-
-## TOE research program: gradients, barycentres and unified mechanics
-
-The [RGS–PSU–PRISM–QLG TOE research program](docs/TOE_GRADIENT_BARYCENTRIC_UNIFICATION_PROGRAM.md) consolidates the gradient/barycentre principle, Q6 and PRISM cochain structures, vierbein and teleparallel geometry, spinor and gauge currents, SU(3) flavour octets/decuplet, QCD, MHD, De Aquino source audit, and controlled limits of classical, relativistic, quantum and statistical mechanics. It is a research roadmap, not a claim that a complete TOE has been established. Evidence labels and proof gates are explicit in the document.
-
-## TOE computational core (barycentric geometry + SU(3) flavour)
-
-The TOE programme now has two reusable numerical modules:
-- `src/barycentric_geometry.py`: affine simplex barycentric coordinates, weighted barycentres/covariance, P1 mass and Dirichlet stiffness matrices, and invariant audit.
-- `src/su3_flavour.py`: Gell-Mann generators and a three-fundamental SU(3) flavour audit using permutation projectors and total quadratic Casimir. It verifies the 10 + 8 + 8 + 1 dimension content without claiming QCD dynamics.
-- `tests/test_toe_geometric_su3_core.py`: tests affine reconstruction, degenerate-simplex rejection, FEM matrix properties, barycentre identities and SU(3) representation dimensions.
-
-Run: `python -m pytest tests/test_toe_geometric_su3_core.py -q`.
+For every reported benchmark, identify the exact repository revision, source module, test/audit command, expected invariant, tolerances and limitations. Do not paste raw test logs into this README; retain them as CI artifacts or dedicated audit records.
 
 ## Collaboration
 
-Independent mathematical review, alternative implementations, code review and reproducibility audits are welcome. The most useful contributions are precise, testable and accompanied by explicit conventions.
-
-For the broader research overview, see the [research profile](docs/GITHUB_PROFILE_README.md).
+Independent mathematical review, alternative implementations and reproducibility audits are welcome. The most useful contributions state exact hypotheses, identify the relevant finite or analytic object, and distinguish a proof from a numerical check.
 
 ## License
 
+See the repository license file. If no license file is present, reuse permissions should not be inferred.
 See the repository license file. If no license file is present, reuse permissions should not be inferred from this README.
 
 ## CI failure audit
