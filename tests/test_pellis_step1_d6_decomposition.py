@@ -21,7 +21,9 @@ def test_three_mode_representation_splits_as_trivial_plus_irreducible_doublet():
     assert np.linalg.matrix_rank(p2) == 2
 
     # The two C3 eigenspaces in the plane are exchanged by reflection.
-    assert np.allclose(c3 @ v_plus, omega * v_plus)
-    assert np.allclose(c3 @ v_minus, omega**2 * v_minus)
+    # For this orientation of the cyclic permutation, v_plus has eigenvalue
+    # omega**2 and v_minus has eigenvalue omega.
+    assert np.allclose(c3 @ v_plus, omega**2 * v_plus)
+    assert np.allclose(c3 @ v_minus, omega * v_minus)
     assert np.allclose(f3 @ v_plus, v_minus)
     assert np.allclose(f3 @ v_minus, v_plus)
