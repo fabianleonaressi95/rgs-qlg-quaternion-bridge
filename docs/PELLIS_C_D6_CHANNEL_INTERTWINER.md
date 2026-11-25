@@ -281,3 +281,32 @@ The implementation is \`src/pellis_d6_operator_gate.py\`; tests are in \`tests/t
     PYTHONPATH=. python -m pytest tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q
 
 **Scope:** this closes the finite tensor-lift covariance and its algebraic kernel dimensions. The mode-degeneracy assumption, the physical boundary domain, and the identification of \(M(E)\) with Pellis/GSR remain OPEN.
+
+
+## 13. The full D6 commutant: symmetry does not force a triplet degeneracy
+
+The previous section's lift \(M(E)\otimes I_6\) is D6-covariant, but it is a *special isotropic case*, not the most general D6-covariant radial transfer. On the three-mode factor, the permutation representation decomposes as
+\[
+\mathbb C^3=\mathbb C u\oplus u^\perp,\qquad
+u=(1,1,1)/\sqrt3,
+\]
+where \(\mathbb C u\) is the trivial one-dimensional representation and \(u^\perp\) is the irreducible two-dimensional representation of \(D_3\). The corresponding orthogonal projectors are
+\[
+P_0=uu^*,\qquad P_2=I_3-P_0.
+\]
+By Schur's lemma, the commutant on the mode factor is
+\[
+\operatorname{Comm}(D_3)=\{aP_0+bP_2:a,b\in\mathbb C\}.
+\]
+Within the explicitly sheet-blind ansatz (the same mode operator on both sheets), D6 covariance permits two independent radial Cauchy matrices:
+\[
+\mathbb M(E)=M_\parallel(E)\otimes I_{\rm sheet}\otimes P_0
++M_\perp(E)\otimes I_{\rm sheet}\otimes P_2.
+\]
+This operator commutes with the actual six-channel D6 generators. The equality \(M_\parallel(E)=M_\perp(E)\), which collapses it to \(M(E)\otimes I_6\), is an additional isotropy/degeneracy hypothesis; it does **not** follow from D6 symmetry alone.
+
+Thus the representation-theoretic prediction is, in general, a singlet plus a doublet, not a triplet of identical modes. A physical threefold degeneracy requires an extra symmetry or a dynamical argument forcing equality of the two radial blocks. The new implementation is src/pellis_d6_commutant.py; its tests explicitly exhibit D6-covariant examples with unequal blocks. Run:
+
+    PYTHONPATH=. python -m pytest tests/test_pellis_d6_commutant.py tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q
+
+**Status correction:** the former M(E) tensor I_6 result remains a valid conditional special case. The general D6-covariant family is now the two-block expression above. The physical mode content and any additional degeneracy-producing symmetry remain OPEN.
