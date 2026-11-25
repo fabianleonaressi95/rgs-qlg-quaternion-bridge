@@ -186,3 +186,23 @@ The Poincaré scalar Laplacian result in A is a separate global spectral problem
 The expectation-value issue above is now isolated as theorem T151 in the theorem repository: a diagonal self-adjoint operator fixes its eigenvalues, but a normalized state's modal weights enter as a probability distribution. A target expectation is therefore generally compatible with many states. T151 gives the exact convex-hull statement and identifies the independent state-selection theorem required before GSR weights can be called predictions.
 
 Reference: https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T151-spectral-expectation-weights-state-selection.md
+
+
+## 12. Exact data request needed to close the physical intertwiner
+
+The remaining questions for Pellis are now narrow and testable:
+
+1. In the GSR basis \(\lvert\psi_{n,m}\rangle\), does \(m\) label angular spherical harmonics, radial standing-wave modes, or another mode family? If it includes angular modes, is the \(\ell=1\) triplet present and invariant under the chosen \(D_3\) subgroup?
+2. What is the complete formula for the scalar Pellis operator \(\mathcal P_\varphi\), including the precise meaning and tensor type of \(T(x)\), the Hilbert-space measure, the domain, and boundary conditions?
+3. What is the exact Golden Resonance Operator on the mode basis, and what independent variational or dynamical functional selects its normalized state? What proves uniqueness or controls degeneracy?
+4. Is there an actual two-sheet Hilbert factor in the GSR construction? If so, what is its deck involution, and does it preserve the operator domain?
+5. Does the separate radial transfer \(M_P(E)\) and its neck matching condition belong to the same physical model as Pellis Functions/GSR? If not, the two constructions must remain separate.
+
+A positive answer to (1)–(4) would let us test the explicit map
+\[
+(I_2\otimes W_3)\Phi:
+\mathbb C^6_{\rm Fibonacci}
+\longrightarrow
+\mathbb C^2_{\rm sheet}\otimes\mathcal Y_{\ell=1}(S^2)
+\]
+against the actual operator and its domain. Without those data, the representation intertwiner is exact but the physical operator intertwiner is not yet a theorem.
