@@ -632,3 +632,20 @@ The same module now also includes a metric-derived two-sheet graph matter sector
 `src/q6_gibbs_dynamics.py` samples the compact SU(2) links of the conditional metric face-action with a symmetric single-link Metropolis chain, records the gauge shear observable and computes finite normalized stress autocorrelations. This defines a finite Gibbs benchmark and satisfies detailed balance for the declared proposal. Its Monte Carlo index is algorithmic, not physical time: the integrated correlation is not a Green–Kubo viscosity. Matter fields are excluded pending a normalizable mass/constraint prescription.
 
 Run: `PYTHONPATH=. python -m pytest tests/test_q6_gibbs_dynamics.py -q`.
+
+
+## Pellis correspondence dossier (25 November 2026)
+
+The four technical notes are now separated by evidential status:
+
+- [A — Exact \(2I\) scalar spectral geometry](docs/PELLIS_A_2I_SPECTRAL_GEOMETRY.md): CLOSED for the scalar Laplacian on \(S^3/2I\), including Molien invariants, allowed degrees and quotient multiplicities. The derivation of Golden Spheres Resonance weights remains open.
+- [B — Two-sheet self-adjoint operators](docs/PELLIS_B_TWO_SHEET_SELF_ADJOINT_OPERATORS.md): CLOSED for the defined finite Q6 fibre model and separate 16D Twin/Anti-Twin Hamiltonian. The canonical cross-model map and continuum limit remain open.
+- [C — Exact \(D_6\) channel intertwiner](docs/PELLIS_C_D6_CHANNEL_INTERTWINER.md): the six-state Fibonacci orbit is explicitly and unitarily factored as two sheets times three modes. This is a proved representation intertwiner; the physical Pellis operator identification remains conditional on a derived three-mode channel space.
+- [D — RGS–PSU–PRISM–Pellis integration](docs/PELLIS_D_RGS_PSU_PRISM_INTEGRATION.md): integrated research map and remaining theorem obligations.
+
+The exact intertwiner is implemented in src/fibonacci_d6_channel_intertwiner.py and tested in tests/test_fibonacci_d6_channel_intertwiner.py.
+
+Run:
+    PYTHONPATH=. python -m pytest tests/test_fibonacci_d6_channel_intertwiner.py -q
+
+Important source distinction: the Stergios Pellis correspondence concerns Pellis Functions / Golden Spheres Resonance and its prospective self-adjoint resonance operator. The separate radial \(2\times2\) transfer/neck matching model is not identified with that resonance operator in the correspondence emails. The dossier keeps the two tracks separate until an explicit source-level identification exists.
