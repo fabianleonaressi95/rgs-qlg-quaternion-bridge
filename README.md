@@ -648,4 +648,8 @@ The exact intertwiner is implemented in src/fibonacci_d6_channel_intertwiner.py 
 Run:
     PYTHONPATH=. python -m pytest tests/test_fibonacci_d6_channel_intertwiner.py -q
 
+The SU(2)-equivariant fibre map c = epsilon (epsilon = i sigma_2), its Schur-lemma uniqueness, and the covariant edge-field exchange J_E are formalized in Pellis B. The implementation and focused tests are `src/pellis_su2_fibre.py` and `tests/test_pellis_su2_fibre.py`.
+
+Run: `PYTHONPATH=. python -m pytest tests/test_pellis_su2_fibre.py -q`.
+
 Important source distinction: the Stergios Pellis correspondence concerns Pellis Functions / Golden Spheres Resonance and its prospective self-adjoint resonance operator. The separate radial \(2\times2\) transfer/neck matching model is not identified with that resonance operator in the correspondence emails. The dossier keeps the two tracks separate until an explicit source-level identification exists.
