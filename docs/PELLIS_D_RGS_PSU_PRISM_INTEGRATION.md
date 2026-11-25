@@ -179,3 +179,10 @@ This supplies a concrete candidate map:
 It would realize the two-sheet/three-mode factorization as two copies of the dipole angular modes of a spherical resonator. It becomes a GSR operator intertwiner only if the source model actually uses this angular sector, its radial operator is identical on the three dipole modes, and the sheet-exchange and boundary domains agree. Those conditions are not specified by the current GSR mode notation and remain a direct question for Pellis.
 
 The Poincaré scalar Laplacian result in A is a separate global spectral problem on \(S^3/2I\). Its first positive scalar eigenspace has multiplicity 13, not 3. The \(\ell=1\) triplet above is a local spherical-shell angular representation; it must not be mislabeled as the first scalar eigenspace of \(S^3/2I\).
+
+
+## 11. The formal non-uniqueness theorem
+
+The expectation-value issue above is now isolated as theorem T151 in the theorem repository: a diagonal self-adjoint operator fixes its eigenvalues, but a normalized state's modal weights enter as a probability distribution. A target expectation is therefore generally compatible with many states. T151 gives the exact convex-hull statement and identifies the independent state-selection theorem required before GSR weights can be called predictions.
+
+Reference: https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T151-spectral-expectation-weights-state-selection.md
