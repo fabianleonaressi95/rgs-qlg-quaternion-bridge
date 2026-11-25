@@ -221,3 +221,19 @@ This result closes only the finite algebra of the *assumed* mode-independent ten
 Run:
 
     PYTHONPATH=. python -m pytest tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q
+
+
+## 14. Refinement: the D6 symmetry commutant and the actual degeneracy prediction
+
+The three-mode permutation module is reducible:
+\[
+\mathbb C^3=\mathbf 1\oplus\mathbf 2,
+\]
+with the invariant axis u=(1,1,1)/sqrt(3) and its orthogonal two-plane. Therefore D6 covariance of the six-channel construction permits independent radial blocks on the singlet and doublet:
+\[
+\mathbb M(E)=M_\parallel(E)\otimes I_{\rm sheet}\otimes P_0+
+M_\perp(E)\otimes I_{\rm sheet}\otimes P_2.
+\]
+This is implemented and tested in src/pellis_d6_commutant.py. The former identical-mode lift M(E) tensor I_6 is recovered only when M_parallel=M_perp. Hence D6 symmetry alone does not imply a threefold-degenerate physical spectrum; it permits a 1+2 mode splitting. The additional equality must be derived from a larger symmetry or from the physical radial dynamics.
+
+The decisive Pellis data request is sharpened accordingly: identify whether the proposed three modes form an irreducible triplet under a symmetry larger than D3/D6, or whether the GSR operator distinguishes the zonal dipole from the transverse pair. No physical degeneracy is inferred from the finite orbit representation.
