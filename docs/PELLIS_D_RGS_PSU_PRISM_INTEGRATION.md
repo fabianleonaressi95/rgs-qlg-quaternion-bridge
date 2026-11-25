@@ -164,3 +164,18 @@ This sharpens the status table:
 - D is the integration dossier; the physical identification remains an open research objective.
 
 The relevant primary source is [Pellis, *Fine-Structure Constant via the Golden Spheres Resonance*](https://doi.org/10.13140/RG.2.2.35410.00968), also indexed at [SSRN 5473588](https://ssrn.com/abstract=5473588).
+
+
+## 10. Candidate realization inside the GSR sphere modes
+
+The three-mode factor in document C is not arbitrary: the real \(\ell=1\) angular harmonics on a sphere form a three-dimensional vector representation. Restricted to a \(120^\circ\) rotation and a reflection, this representation is orthogonally equivalent to the three-vertex permutation representation. The explicit orthogonal matrix \(W_3\) is given in document C and audited in code.
+
+This supplies a concrete candidate map:
+\[
+\mathbb C^6_{\rm Fibonacci\ orbit}
+\longrightarrow
+\mathbb C^2_{\rm sheet}\otimes\mathcal Y_{\ell=1}(S^2).
+\]
+It would realize the two-sheet/three-mode factorization as two copies of the dipole angular modes of a spherical resonator. It becomes a GSR operator intertwiner only if the source model actually uses this angular sector, its radial operator is identical on the three dipole modes, and the sheet-exchange and boundary domains agree. Those conditions are not specified by the current GSR mode notation and remain a direct question for Pellis.
+
+The Poincaré scalar Laplacian result in A is a separate global spectral problem on \(S^3/2I\). Its first positive scalar eigenspace has multiplicity 13, not 3. The \(\ell=1\) triplet above is a local spherical-shell angular representation; it must not be mislabeled as the first scalar eigenspace of \(S^3/2I\).
