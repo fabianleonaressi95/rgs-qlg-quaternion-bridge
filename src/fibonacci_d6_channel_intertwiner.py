@@ -86,3 +86,61 @@ def audit_d6_channel_intertwiner(tolerance: float = 1e-12) -> dict[str, float | 
         "max_residual": max(residuals.values()),
         "passed": max(residuals.values()) <= tolerance,
     }
+
+
+def triangle_to_dipole_intertwiner() -> dict[str, np.ndarray]:
+    """Identify the three-point permutation module with the l=1 O(3) module.
+
+    This is a candidate geometric realization of each three-mode sheet as
+    the dipole (l=1) angular sector of a spherical resonator. It does not
+    assert that Pellis's GSR operator selects this sector.
+    """
+    W = np.array([
+        [1 / np.sqrt(3), 1 / np.sqrt(3), 1 / np.sqrt(3)],
+        [2 / np.sqrt(6), -1 / np.sqrt(6), -1 / np.sqrt(6)],
+        [0.0, 1 / np.sqrt(2), -1 / np.sqrt(2)],
+    ], dtype=float)
+    theta = 2 * np.pi / 3
+    rotation = np.array([
+        [1.0, 0.0, 0.0],
+        [0.0, np.cos(theta), -np.sin(theta)],
+        [0.0, np.sin(theta), np.cos(theta)],
+    ])
+    reflection = np.diag([1.0, 1.0, -1.0])
+    c3 = np.array([
+        [0.0, 0.0, 1.0],
+        [1.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0],
+    ])
+    f3 = np.array([
+        [1.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0],
+        [0.0, 1.0, 0.0],
+    ])
+    return {
+        "W3": W,
+        "C3": c3,
+        "F3": f3,
+        "dipole_rotation": rotation,
+        "dipole_reflection": reflection,
+    }
+
+
+def audit_triangle_to_dipole_intertwiner(tolerance: float = 1e-12) -> dict[str, float | bool]:
+    """Audit the real orthogonal equivalence with the spherical l=1 module."""
+    if not np.isfinite(tolerance) or tolerance <= 0:
+        raise ValueError("tolerance must be positive and finite")
+    data = triangle_to_dipole_intertwiner()
+    w = data["W3"]
+    residuals = {
+        "orthogonality": float(np.linalg.norm(w @ w.T - np.eye(3), ord="fro")),
+        "rotation_intertwining": float(np.linalg.norm(
+            w @ data["C3"] @ w.T - data["dipole_rotation"], ord="fro")),
+        "reflection_intertwining": float(np.linalg.norm(
+            w @ data["F3"] @ w.T - data["dipole_reflection"], ord="fro")),
+    }
+    return {
+        **residuals,
+        "max_residual": max(residuals.values()),
+        "passed": max(residuals.values()) <= tolerance,
+    }
