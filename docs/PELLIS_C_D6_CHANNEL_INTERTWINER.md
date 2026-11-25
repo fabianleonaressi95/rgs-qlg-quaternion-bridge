@@ -298,7 +298,7 @@ By Schur's lemma, the commutant on the mode factor is
 \[
 \operatorname{Comm}(D_3)=\{aP_0+bP_2:a,b\in\mathbb C\}.
 \]
-Consequently D6 covariance permits two independent radial Cauchy matrices:
+Within the explicitly sheet-blind ansatz (the same mode operator on both sheets), D6 covariance permits two independent radial Cauchy matrices:
 \[
 \mathbb M(E)=M_\parallel(E)\otimes I_{\rm sheet}\otimes P_0
 +M_\perp(E)\otimes I_{\rm sheet}\otimes P_2.
