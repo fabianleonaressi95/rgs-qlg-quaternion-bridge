@@ -194,13 +194,16 @@ That is a separate nonlinear field-theory/BVP model. It is not the finite Q6 fib
 - the complex-linear sheet involution and orthogonal parity projections;
 - the finite covariant graph form and its non-negative self-adjoint operator;
 - the precise counting measure baseline and the status of geometric vertex measures;
-- the conditional continuum self-adjointness template.
+- the conditional continuum self-adjointness template;
+- the explicit epsilon-matrix SU(2) intertwiner, Schur-lemma uniqueness, and edge-field covariance identity.
 
 **Still open**
 - a canonical map from all 64 Q6 states to any separate internal space;
 - a derived geometric vertex measure and unique constitutive edge weights;
 - a continuum refinement sequence and two-sheeted Mosco/strong-resolvent theorem;
 - identification of this finite graph operator with the Pellis/Golden Resonance operator.
+
+Implementation and focused regression tests are provided in `src/pellis_su2_fibre.py` and `tests/test_pellis_su2_fibre.py`. Run `PYTHONPATH=. python -m pytest tests/test_pellis_su2_fibre.py -q`.
 
 Thus B is closed as a finite operator-theoretic specification, not as a completed continuum physical theory.
 
