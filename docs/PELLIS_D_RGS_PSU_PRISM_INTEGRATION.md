@@ -34,7 +34,7 @@ See Pellis A — Exact spectral geometry of \(S^3/2I\).
 
 The Q6 double cover \(Q_6\times\{+,-\}\), its complex-linear sheet involution on a fibre plus its conjugate, and the positive covariant graph form give an exact finite non-negative self-adjoint operator. A separate 16-dimensional Twin/Anti-Twin effective Hamiltonian also has an exact exchange involution and paired spectrum.
 
-These are two distinct finite models. Their mutual identification is not assumed. The finite operator-theoretic deliverable is closed; the continuum limit and a canonical Q6-to-internal-space map remain open.
+These are two distinct finite models. Their mutual identification is not assumed. The finite graph operator-theoretic deliverable is closed; the continuum limit and a canonical Q6-to-other-model map remain open.
 
 See Pellis B — Geometric self-adjoint operators and the two-sheeted PSU geometry.
 
@@ -158,7 +158,7 @@ Second, the Golden Resonance Operator assigns modal coefficients to the \(\varph
 
 This sharpens the status table:
 - A is closed for the exact scalar spectrum of \(S^3/2I\).
-- B is closed for the finite Q6 and finite Twin/Anti-Twin operator models.
+- B is closed for the finite Q6 scalar and fibre graph operator models.
 - The self-adjointness and unique state selection of Pellis's own Golden Resonance Operator are not closed by A or B.
 - C proves the finite \(D_6\) channel intertwiner, but does not determine the GSR state weights.
 - D is the integration dossier; the physical identification remains an open research objective.
