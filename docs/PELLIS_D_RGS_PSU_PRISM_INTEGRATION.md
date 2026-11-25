@@ -225,7 +225,7 @@ Run:
 
 ## 14. Refinement: the D6 symmetry commutant and the actual degeneracy prediction
 
-The three-mode permutation module is reducible:
+For the explicitly sheet-blind channel ansatz, the three-mode permutation module is reducible:
 \[
 \mathbb C^3=\mathbf 1\oplus\mathbf 2,
 \]
