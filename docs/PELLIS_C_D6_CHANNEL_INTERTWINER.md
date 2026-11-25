@@ -174,3 +174,18 @@ Run:
     PYTHONPATH=. python -m pytest tests/test_fibonacci_d6_channel_intertwiner.py -q
 
 The code audits unitarity, the \(D_6\) relations, and the \(r^2,r^3,s\) factorizations. It does not simulate or assert an unprovided physical Pellis transfer operator.
+
+
+## 9. Critical audit of the published Golden Resonance Operator
+
+The published preprint *Fine-Structure Constant via the Golden Spheres Resonance* (Stergios Pellis, 11 September 2025; DOI 10.13140/RG.2.2.35410.00968; SSRN 5473588) distinguishes a Pellis operator on scalar fields from a Golden Resonance Operator on a hierarchy of sphere modes.
+
+The text describes the scalar Pellis operator using the Laplace–Beltrami operator on the Poincaré dodecahedral space, scalar curvature \(R(x)\), a term \(T(x)\) described as local topological torsion or Chern–Simons-like contribution, and \(\varphi\). However, the operator domain, precise bundle on which \(T\) acts, boundary conditions, and hypotheses guaranteeing self-adjointness must still be made explicit before this expression can be used as a closed self-adjoint spectral problem.
+
+More decisively, the Golden Resonance Operator section introduces mode coefficients \(c_{n,m}\), and the subsequent expectation-value construction states that a convergent \(\varphi\)-series can be represented by choosing the modal weights \(|c_n|^2\) proportional to the desired coefficients and normalizing them. This proves representability, not unique spectral prediction: the target weights have been placed into the state. The paper proposes that a ground collective resonance might select the state by minimizing an energy functional with inter-shell coupling, but the functional, its domain, boundary conditions, and uniqueness/nondegeneracy conditions are not specified in the material examined here.
+
+Therefore the operator-level Pellis correspondence requires an independent state-selection theorem. The D6 channel intertwiner derived above does not supply this missing variational principle and must not be presented as deriving the GSR coefficients.
+
+Primary references:
+- Stergios Pellis, *Fine-Structure Constant via the Golden Spheres Resonance*, 11 September 2025, DOI: https://doi.org/10.13140/RG.2.2.35410.00968
+- SSRN record: https://ssrn.com/abstract=5473588
