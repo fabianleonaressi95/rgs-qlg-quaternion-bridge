@@ -72,36 +72,114 @@ P_\pm=\frac12(I\pm J)
 \]
 give the even and odd fibre-sheet sectors. They have equal dimension.
 
+### 3.1 Explicit SU(2)-equivariant realization and uniqueness
+
+Write the defining representation space as \(V=\mathbb C^2\), and let \(\bar V\) carry the conjugate representation \(\bar\rho(U)=\bar U\). Set
+\[
+\varepsilon=i\sigma_2=
+\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+\]
+For
+\[
+U=\begin{pmatrix}a&b\\-\bar b&\bar a\end{pmatrix}
+\in SU(2),\qquad |a|^2+|b|^2=1,
+\]
+direct multiplication gives
+\[
+\varepsilon U\varepsilon^{-1}
+=\begin{pmatrix}\bar a&\bar b\\-b&a\end{pmatrix}
+=\bar U,\qquad
+\varepsilon U=\bar U\varepsilon.
+\]
+Define the complex-linear map to the conjugate representation by the matrix
+\[
+c:V\longrightarrow\bar V,\qquad c(v)=\varepsilon v
+\]
+in the chosen coordinate conventions. Then
+\[
+c\rho(U)=\bar\rho(U)c.
+\]
+This is the required \(SU(2)\)-equivariance. It is not the set-theoretic map \(v\mapsto\bar v\): that coordinate-conjugation map is antilinear and is not being used as \(c\).
+
+If \(c':V\to\bar V\) is another complex-linear intertwiner, then \(A=c^{-1}c'\) commutes with the irreducible defining representation of \(SU(2)\). Schur's lemma gives \(A=\lambda I\), hence \(c'=\lambda c\). If both intertwiners are unitary, \(|\lambda|=1\), so the ambiguity is a phase.
+
+For the doubled fibre \(V\oplus\bar V\), define
+\[
+J_V(\psi,\bar\chi)
+=\big(c^{-1}\bar\chi,c\psi\big).
+\]
+With the direct-sum Hermitian inner product and unitary \(c\), this satisfies
+\[
+J_V^*=J_V,\qquad J_V^2=I,
+\]
+and the parity projections \(P_\pm=(I\pm J_V)/2\) are orthogonal.
+
 ## 4. Covariant graph form and self-adjoint operator
 
-Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(g,h)\), define
+Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(s(e),t(e))\), define
 \[
-(D_U\Psi)_e=
-\left(\psi_h-U_e\psi_g,\;
-\bar\chi_h-\bar U_e\bar\chi_g\right).
+(D_U\psi)(e)=\psi(t(e))-U_e\psi(s(e)),
+\qquad
+(D_{\bar U}\bar\chi)(e)=\bar\chi(t(e))-\bar U_e\bar\chi(s(e)).
 \]
-The sheet exchange and conjugate fibres induce an exchange \(J_E\) on edge fields, with
+The doubled covariant derivative is the block operator
 \[
-D_UJ=J_ED_U.
+\mathscr D_U=\operatorname{diag}(D_U,D_{\bar U}).
 \]
+The fibre intertwining identity gives the endpoint relation
+\[
+c_{t(e)}U_e=\bar U_ec_{s(e)}.
+\]
+Equivalently,
+\[
+U_ec_{s(e)}^{-1}=c_{t(e)}^{-1}\bar U_e.
+\]
+
+The vertex exchange is
+\[
+(J_V\Psi)(v)=
+\big(c_v^{-1}\bar\chi(v),c_v\psi(v)\big).
+\]
+Define the edge-field exchange explicitly by
+\[
+(J_E\Omega)(e)=
+\big(c_{t(e)}^{-1}\Omega_-(e),c_{t(e)}\Omega_+(e)\big),
+\]
+where \(\Omega=(\Omega_+,\Omega_-)\) is a pair of edge fields in the first and conjugate fibres at the target endpoint. Then the first component satisfies
+\[
+\begin{aligned}
+(\mathscr D_UJ_V\Psi)_+(e)
+&=c_{t(e)}^{-1}\bar\chi(t(e))
+-U_ec_{s(e)}^{-1}\bar\chi(s(e))\\
+&=c_{t(e)}^{-1}
+\big(\bar\chi(t(e))-\bar U_e\bar\chi(s(e))\big)\\
+&=(J_E\mathscr D_U\Psi)_+(e).
+\end{aligned}
+\]
+The second component follows from \(c_{t(e)}U_e=\bar U_ec_{s(e)}\) in the same way. Hence
+\[
+\boxed{\mathscr D_UJ_V=J_E\mathscr D_U.}
+\]
+This is the doubled covariant graph identity; it is the precise meaning of the edge-field exchange relation.
 
 For positive edge coefficients \(\kappa_e>0\), set
 \[
 q_U[\Psi]=\sum_{e\in E}\kappa_e
-\left(\|\psi_h-U_e\psi_g\|^2+
-\|\bar\chi_h-\bar U_e\bar\chi_g\|^2\right).
+\left(\|\psi(t(e))-U_e\psi(s(e))\|^2+
+\|\bar\chi(t(e))-\bar U_e\bar\chi(s(e))\|^2\right).
 \]
 On the finite graph this form is non-negative and defined on the whole finite-dimensional Hilbert space. Its associated operator is
 \[
-L_U=D_U^*WD_U,\qquad W=\operatorname{diag}(\kappa_e I).
+L_U=\mathscr D_U^*W\mathscr D_U,\qquad
+W=\operatorname{diag}(\kappa_e I).
 \]
-Hence
+Hence \(L_U=L_U^*\ge0\). If \(J_E\) is unitary and the edge-weight operator is sheet-compatible, \(J_E^*WJ_E=W\), the derivative intertwining implies
 \[
-L_U=L_U^*\ge0,\qquad [L_U,J]=0.
+\boxed{L_UJ_V=J_VL_U,\qquad [L_U,J_V]=0.}
 \]
-The even and odd sheet sectors reduce \(L_U\).
+The weight compatibility is an explicit hypothesis. It holds for identical positive edge coefficients on the two sheets, but must be checked again if sheet-dependent weights are introduced. The even and odd sheet sectors then reduce \(L_U\).
 
-The baseline vertex measure is counting measure. The recovered embedding supplies edge lengths \(\ell_e=\|X_h-X_g\|\), but a canonical dual-cell vertex volume has not been fixed. No geometric volume measure is silently inserted into the Hilbert inner product. If positive vertex weights are later selected, the adjoint and operator must be recomputed in the weighted Hilbert space.
+The baseline vertex measure is counting measure. The recovered embedding supplies edge lengths \(\ell_e=\|X_{t(e)}-X_{s(e)}\|\), but a canonical dual-cell vertex volume has not been fixed. No geometric volume measure is silently inserted into the Hilbert inner product. If positive vertex weights are later selected, the adjoint and operator must be recomputed in the weighted Hilbert space.
 
 The convention \(\kappa_e=\ell_e^{-1}\) is the one-dimensional P1 edge-stiffness convention. It is a declared graph Dirichlet-energy model, not yet a uniquely derived four-dimensional PSU action.
 
@@ -140,13 +218,16 @@ That is a separate nonlinear field-theory/BVP model. It is not the finite Q6 fib
 - the complex-linear sheet involution and orthogonal parity projections;
 - the finite covariant graph form and its non-negative self-adjoint operator;
 - the precise counting measure baseline and the status of geometric vertex measures;
-- the conditional continuum self-adjointness template.
+- the conditional continuum self-adjointness template;
+- the explicit epsilon-matrix SU(2) intertwiner, Schur-lemma uniqueness, and edge-field covariance identity.
 
 **Still open**
 - a canonical map from all 64 Q6 states to any separate internal space;
 - a derived geometric vertex measure and unique constitutive edge weights;
 - a continuum refinement sequence and two-sheeted Mosco/strong-resolvent theorem;
 - identification of this finite graph operator with the Pellis/Golden Resonance operator.
+
+Implementation and focused regression tests are provided in `src/pellis_su2_fibre.py` and `tests/test_pellis_su2_fibre.py`. Run `PYTHONPATH=. python -m pytest tests/test_pellis_su2_fibre.py -q`.
 
 Thus B is closed as a finite operator-theoretic specification, not as a completed continuum physical theory.
 

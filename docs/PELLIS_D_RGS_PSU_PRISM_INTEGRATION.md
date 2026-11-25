@@ -59,7 +59,7 @@ See Pellis C — Exact \(D_6\) channel intertwiner.
 
 ## 4. The operator-level gate
 
-The representation map does not automatically identify the full Q6 graph Laplacian, the 188-dimensional RGS operator, the separate two-field Q-ball BVP model, or the physical Pellis resonance operator.
+The representation map does not automatically identify the full Q6 graph Laplacian, the 188-dimensional RGS operator, the Q-ball BVP model, or the physical Pellis resonance operator. In particular, the RGS operator acts on its separately constructed 188-dimensional space (with its own inner product, domain and symmetry action); no equality or intertwining with the 64-dimensional Q6 graph Laplacian follows from the six-state orbit representation.
 
 In the separate radial matching model, the one-sheet Cauchy transfer is
 \[
@@ -188,21 +188,36 @@ The expectation-value issue above is now isolated as theorem T151 in the theorem
 Reference: https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T151-spectral-expectation-weights-state-selection.md
 
 
-## 12. Exact data request needed to close the physical intertwiner
+## 12. Five restricted, testable data requests for the physical intertwiner
 
-The remaining questions for Pellis are now narrow and testable:
+The following five questions are deliberately narrower than a general request to explain the GSR model. Each answer must identify mathematical data that can be checked against the proposed finite representation map.
 
-1. In the GSR basis \(\lvert\psi_{n,m}\rangle\), does \(m\) label angular spherical harmonics, radial standing-wave modes, or another mode family? If it includes angular modes, is the \(\ell=1\) triplet present and invariant under the chosen \(D_3\) subgroup?
-2. What is the complete formula for the scalar Pellis operator \(\mathcal P_\varphi\), including the precise meaning and tensor type of \(T(x)\), the Hilbert-space measure, the domain, and boundary conditions?
-3. What is the exact Golden Resonance Operator on the mode basis, and what independent variational or dynamical functional selects its normalized state? What proves uniqueness or controls degeneracy?
-4. Is there an actual two-sheet Hilbert factor in the GSR construction? If so, what is its deck involution, and does it preserve the operator domain?
-5. Does the separate radial transfer \(M_P(E)\) and its neck matching condition belong to the same physical model as Pellis Functions/GSR? If not, the two constructions must remain separate.
+1. **Meaning of the mode label \(m\).** In the stated basis \(\lvert\psi_{n,m}\rangle\), does \(m\) label angular spherical harmonics, radial standing-wave modes, a degeneracy index, or another explicitly defined family? If it is angular, give the map \(m\leftrightarrow(\ell,m_\ell)\), the allowed \(\ell\)-values, and the action of the proposed \(D_3\) subgroup. In particular, is the real \(\ell=1\) triplet present as an invariant three-dimensional subspace?
 
-A positive answer to (1)–(4) would let us test the explicit map
+2. **Complete scalar Pellis operator \(\mathcal P_\varphi\) and the term \(T(x)\).** What is the full formula, including every coefficient and sign, for \(\mathcal P_\varphi\)? Specify the tensor/bundle type, differential order, regularity and domain of \(T(x)\); whether it is a multiplication operator, a differential operator, or a connection term; and the Hilbert-space measure, operator domain and boundary conditions. A verbal description such as “topological torsion” is not enough to define an operator.
+
+3. **Golden Resonance Operator and independent selection principle.** Give the exact Golden Resonance Operator on the \(\lvert\psi_{n,m}\rangle\) basis, including its matrix elements or spectral action. Separately specify the variational/dynamical functional that selects the normalized state and its admissible domain. What existence, uniqueness or non-degeneracy result prevents the modal coefficients from being chosen freely to reproduce a target series?
+
+4. **Origin of the two-sheet factor.** Is the GSR Hilbert space actually of the form \(\mathcal H_+\oplus\mathcal H_-\), or unitarily equivalent to such a decomposition? If yes, define the deck involution, prove that it is unitary/self-adjoint with square \(I\), and state whether it preserves the operator domain and commutes with the operator. If no, the two-sheet multiplicity in the Q6/\(D_6\) construction must remain a representation-theoretic analogy, not a physical factor.
+
+5. **Status of the radial transfer \(M_P(E)\).** Does the radial \(2\times2\) Cauchy transfer and its neck condition belong to the same physical model, Hilbert space and boundary-value problem as Pellis Functions / GSR? Supply the common equation, variables, boundary data and operator domain establishing that identification. If it is a separate radial matching construction, it must remain separate and cannot be used to close the GSR intertwiner.
+
+A positive answer to these requests would allow the candidate map
 \[
 (I_2\otimes W_3)\Phi:
 \mathbb C^6_{\rm Fibonacci}
 \longrightarrow
 \mathbb C^2_{\rm sheet}\otimes\mathcal Y_{\ell=1}(S^2)
 \]
-against the actual operator and its domain. Without those data, the representation intertwiner is exact but the physical operator intertwiner is not yet a theorem.
+to be tested against the actual operator and its domain. Until those data are supplied, the finite \(D_6\) representation intertwiner remains proved, while the physical operator intertwiner remains conditional/open.
+
+
+## 13. Finite D6 covariance test for the lifted radial operator
+
+The conditional channel lift has now been made executable. For an arbitrary finite \(2\times2\) Cauchy matrix \(M(E)\), the declared twelve-dimensional lift \(M(E)\otimes I_6\) commutes exactly with the D6 action on the six-channel factor. The parity boundary matrix \(B(E)=d(E)P_++b(E)P_-\) commutes with both D6 generators; its nontrivial one-branch kernels have dimension three. These statements are verified by the new module \`src/pellis_d6_operator_gate.py\` and tests \`tests/test_pellis_d6_operator_gate.py\`.
+
+This result closes only the finite algebra of the *assumed* mode-independent tensor lift. It does not establish that Pellis's physical radial equation has three degenerate modes, that its boundary domain is the full finite channel space, or that its transfer matrix is the GSR resonance operator. Those remain source-dependent physical questions.
+
+Run:
+
+    PYTHONPATH=. python -m pytest tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q
