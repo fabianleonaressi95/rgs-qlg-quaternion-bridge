@@ -210,3 +210,14 @@ A positive answer to these requests would allow the candidate map
 \mathbb C^2_{\rm sheet}\otimes\mathcal Y_{\ell=1}(S^2)
 \]
 to be tested against the actual operator and its domain. Until those data are supplied, the finite \(D_6\) representation intertwiner remains proved, while the physical operator intertwiner remains conditional/open.
+
+
+## 13. Finite D6 covariance test for the lifted radial operator
+
+The conditional channel lift has now been made executable. For an arbitrary finite \(2\times2\) Cauchy matrix \(M(E)\), the declared twelve-dimensional lift \(M(E)\otimes I_6\) commutes exactly with the D6 action on the six-channel factor. The parity boundary matrix \(B(E)=d(E)P_++b(E)P_-\) commutes with both D6 generators; its nontrivial one-branch kernels have dimension three. These statements are verified by the new module \`src/pellis_d6_operator_gate.py\` and tests \`tests/test_pellis_d6_operator_gate.py\`.
+
+This result closes only the finite algebra of the *assumed* mode-independent tensor lift. It does not establish that Pellis's physical radial equation has three degenerate modes, that its boundary domain is the full finite channel space, or that its transfer matrix is the GSR resonance operator. Those remain source-dependent physical questions.
+
+Run:
+
+    PYTHONPATH=. python -m pytest tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q
