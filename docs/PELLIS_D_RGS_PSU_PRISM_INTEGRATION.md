@@ -146,3 +146,21 @@ For the resonance route, the corresponding tests are:
 The exact finite results establish a mathematically meaningful architecture: \(2I\)-invariant scalar harmonics, finite self-adjoint graph operators, a \(D_6\)-equivariant six-state Q6 orbit, and a two-sheet/three-mode factorization. They do not yet establish that the architecture uniquely determines the Golden Spheres Resonance coefficients or the fine-structure constant.
 
 That distinction is not a weakness of the dossier. It is the criterion that makes the proposed collaboration testable: each map, operator, multiplicity and normalization must be derived independently and then checked.
+
+
+## 9. Critical operator audit of Golden Spheres Resonance
+
+The primary GSR preprint (Stergios Pellis, 11 September 2025; DOI 10.13140/RG.2.2.35410.00968; SSRN 5473588) makes two different operator-level claims which must be audited separately.
+
+First, its scalar Pellis operator is described using the Poincaré-space Laplace–Beltrami operator, scalar curvature, a local topological-torsion/Chern–Simons-like term, and \(\varphi\). To close this as a self-adjoint operator one still needs the exact operator formula, the Hilbert-space measure and bundle, the definition and regularity of the torsion term, the operator domain, and boundary conditions. The finite Q6 graph operator in document B does not fill in these missing data.
+
+Second, the Golden Resonance Operator assigns modal coefficients to the \(\varphi\)-scaled sphere modes. Its expectation-value construction explicitly allows the modal weights to be chosen proportional to the coefficients one wants to reproduce. This makes an arbitrary admissible \(\varphi\)-series representable, but does not derive its coefficients. A proposed ground-state/variational selection is mentioned, but a specified functional and a uniqueness theorem are still required.
+
+This sharpens the status table:
+- A is closed for the exact scalar spectrum of \(S^3/2I\).
+- B is closed for the finite Q6 and finite Twin/Anti-Twin operator models.
+- The self-adjointness and unique state selection of Pellis's own Golden Resonance Operator are not closed by A or B.
+- C proves the finite \(D_6\) channel intertwiner, but does not determine the GSR state weights.
+- D is the integration dossier; the physical identification remains an open research objective.
+
+The relevant primary source is [Pellis, *Fine-Structure Constant via the Golden Spheres Resonance*](https://doi.org/10.13140/RG.2.2.35410.00968), also indexed at [SSRN 5473588](https://ssrn.com/abstract=5473588).
