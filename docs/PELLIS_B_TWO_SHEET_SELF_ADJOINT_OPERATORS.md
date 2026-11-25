@@ -74,78 +74,88 @@ give the even and odd fibre-sheet sectors. They have equal dimension.
 
 ### 3.1 Explicit SU(2)-equivariant realization and uniqueness
 
-Write the defining representation space as \\(V=\\mathbb C^2\\), and let \\(\\bar V\\) carry the conjugate representation \\(\\bar\\rho(U)=\\bar U\\). Set
-\\[
-\\varepsilon=i\\sigma_2=
-\\begin{pmatrix}0&1\\\\-1&0\\end{pmatrix}.
-\\]
+Write the defining representation space as \(V=\mathbb C^2\), and let \(\bar V\) carry the conjugate representation \(\bar\rho(U)=\bar U\). Set
+\[
+\varepsilon=i\sigma_2=
+\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+\]
 For
-\\[
-U=\\begin{pmatrix}a&b\\\\-\\bar b&\\bar a\\end{pmatrix}
-\\in SU(2),
-\\qquad |a|^2+|b|^2=1,
-\\]
+\[
+U=\begin{pmatrix}a&b\\-\bar b&\bar a\end{pmatrix}
+\in SU(2),\qquad |a|^2+|b|^2=1,
+\]
 direct multiplication gives
-\\[
-\\varepsilon U\\varepsilon^{-1}
-=\\begin{pmatrix}\\bar a&\\bar b\\\\-b&a\\end{pmatrix}
-=\\bar U,
-\\qquad
-\\varepsilon U=\\bar U\\varepsilon.
-\\]
+\[
+\varepsilon U\varepsilon^{-1}
+=\begin{pmatrix}\bar a&\bar b\\-b&a\end{pmatrix}
+=\bar U,\qquad
+\varepsilon U=\bar U\varepsilon.
+\]
 Define the complex-linear map to the conjugate representation by the matrix
-\\[
-c:V\\longrightarrow\\bar V,\\qquad c(v)=\\varepsilon v
-\\]
+\[
+c:V\longrightarrow\bar V,\qquad c(v)=\varepsilon v
+\]
 in the chosen coordinate conventions. Then
-\\[
-c\\rho(U)=\\bar\\rho(U)c.
-\\]
-This is the required SU(2)-equivariance. It is not the set-theoretic map (v\\mapsto\\bar v): that coordinate-conjugation map is antilinear and is not being used as (c).
+\[
+c\rho(U)=\bar\rho(U)c.
+\]
+This is the required \(SU(2)\)-equivariance. It is not the set-theoretic map \(v\mapsto\bar v\): that coordinate-conjugation map is antilinear and is not being used as \(c\).
 
-If (c':V\\to\\bar V) is another complex-linear intertwiner, then (A=c^{-1}c') commutes with the irreducible defining representation of (SU(2)). Schur's lemma gives (A=\\lambda I), hence (c'=\\lambda c). If both intertwiners are unitary, \\(|\\lambda|=1\\), so the ambiguity is a phase.
+If \(c':V\to\bar V\) is another complex-linear intertwiner, then \(A=c^{-1}c'\) commutes with the irreducible defining representation of \(SU(2)\). Schur's lemma gives \(A=\lambda I\), hence \(c'=\lambda c\). If both intertwiners are unitary, \(|\lambda|=1\), so the ambiguity is a phase.
 
-For the doubled fibre \\(V\\oplus\\bar V\\), define
-\\[
-J_V(\\psi,\\bar\\chi)
-=\\big(c^{-1}\\bar\\chi,c\\psi\\big).
-\\]
-With the direct-sum Hermitian inner product and unitary (c), this satisfies
-\\[
-J_V^*=J_V,\\qquad J_V^2=I,
-\\]
-and the parity projections \\(P_\\pm=(I\\pm J_V)/2\\) are orthogonal.
+For the doubled fibre \(V\oplus\bar V\), define
+\[
+J_V(\psi,\bar\chi)
+=\big(c^{-1}\bar\chi,c\psi\big).
+\]
+With the direct-sum Hermitian inner product and unitary \(c\), this satisfies
+\[
+J_V^*=J_V,\qquad J_V^2=I,
+\]
+and the parity projections \(P_\pm=(I\pm J_V)/2\) are orthogonal.
 
 ## 4. Covariant graph form and self-adjoint operator
 
-Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(g,h)\), define
+Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(s(e),t(e))\), define the first-sheet covariant difference
 \[
-(D_U\Psi)_e=
-\left(\psi_h-U_e\psi_g,\;
-\bar\chi_h-\bar U_e\bar\chi_g\right).
+(D_U\psi)(e)=\psi(t(e))-U_e\psi(s(e)).
 \]
-The sheet exchange and conjugate fibres induce an exchange \(J_E\) on edge fields, with
+The fibre intertwining identity gives the endpoint relation
 \[
-D_UJ=J_ED_U.
+c_{t(e)}U_e=\bar U_ec_{s(e)}.
 \]
+Define the edge-field exchange \(J_E\) by applying \(c\) at the target fibre to the first-sheet edge difference, and by the inverse identification on the reverse sheet component. Then, term by term,
+\[
+\begin{aligned}
+(D_{\bar U}J_V\psi)(e)
+&=c_{t(e)}\psi(t(e))-\bar U_ec_{s(e)}\psi(s(e))\\
+&=c_{t(e)}\big(\psi(t(e))-U_e\psi(s(e))\big)\\
+&=(J_ED_U\psi)(e).
+\end{aligned}
+\]
+Thus the covariant derivative intertwining relation is
+\[
+\boxed{D_{\bar U}J_V=J_ED_U.}
+\]
+On the doubled two-sheet complex this is written \(D_UJ_V=J_ED_U\), with \(D_U\) denoting the block covariant derivative and \(J_V,J_E\) the corresponding vertex/edge exchanges.
 
 For positive edge coefficients \(\kappa_e>0\), set
 \[
 q_U[\Psi]=\sum_{e\in E}\kappa_e
-\left(\|\psi_h-U_e\psi_g\|^2+
-\|\bar\chi_h-\bar U_e\bar\chi_g\|^2\right).
+\left(\|\psi_{t(e)}-U_e\psi_{s(e)}\|^2+
+\|\bar\chi_{t(e)}-\bar U_e\bar\chi_{s(e)}\|^2\right).
 \]
 On the finite graph this form is non-negative and defined on the whole finite-dimensional Hilbert space. Its associated operator is
 \[
 L_U=D_U^*WD_U,\qquad W=\operatorname{diag}(\kappa_e I).
 \]
-Hence
+Hence \(L_U=L_U^*\ge0\). If \(J_E\) is unitary and the edge-weight operator is sheet-compatible, \(J_E^*WJ_E=W\), the derivative intertwining implies
 \[
-L_U=L_U^*\ge0,\qquad [L_U,J]=0.
+\boxed{L_UJ_V=J_VL_U,\qquad [L_U,J_V]=0.}
 \]
-The even and odd sheet sectors reduce \(L_U\).
+The weight compatibility is an explicit hypothesis. It holds for identical positive edge coefficients on the two sheets, but must be checked again if sheet-dependent weights are introduced. The even and odd sheet sectors then reduce \(L_U\).
 
-The baseline vertex measure is counting measure. The recovered embedding supplies edge lengths \(\ell_e=\|X_h-X_g\|\), but a canonical dual-cell vertex volume has not been fixed. No geometric volume measure is silently inserted into the Hilbert inner product. If positive vertex weights are later selected, the adjoint and operator must be recomputed in the weighted Hilbert space.
+The baseline vertex measure is counting measure. The recovered embedding supplies edge lengths \(\ell_e=\|X_{t(e)}-X_{s(e)}\|\), but a canonical dual-cell vertex volume has not been fixed. No geometric volume measure is silently inserted into the Hilbert inner product. If positive vertex weights are later selected, the adjoint and operator must be recomputed in the weighted Hilbert space.
 
 The convention \(\kappa_e=\ell_e^{-1}\) is the one-dimensional P1 edge-stiffness convention. It is a declared graph Dirichlet-energy model, not yet a uniquely derived four-dimensional PSU action.
 
