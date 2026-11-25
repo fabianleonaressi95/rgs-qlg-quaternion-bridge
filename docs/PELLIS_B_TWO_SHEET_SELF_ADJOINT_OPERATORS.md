@@ -72,6 +72,50 @@ P_\pm=\frac12(I\pm J)
 \]
 give the even and odd fibre-sheet sectors. They have equal dimension.
 
+### 3.1 Explicit SU(2)-equivariant realization and uniqueness
+
+Write the defining representation space as \\(V=\\mathbb C^2\\), and let \\(\\bar V\\) carry the conjugate representation \\(\\bar\\rho(U)=\\bar U\\). Set
+\\[
+\\varepsilon=i\\sigma_2=
+\\begin{pmatrix}0&1\\\\-1&0\\end{pmatrix}.
+\\]
+For
+\\[
+U=\\begin{pmatrix}a&b\\\\-\\bar b&\\bar a\\end{pmatrix}
+\\in SU(2),
+\\qquad |a|^2+|b|^2=1,
+\\]
+direct multiplication gives
+\\[
+\\varepsilon U\\varepsilon^{-1}
+=\\begin{pmatrix}\\bar a&\\bar b\\\\-b&a\\end{pmatrix}
+=\\bar U,
+\\qquad
+\\varepsilon U=\\bar U\\varepsilon.
+\\]
+Define the complex-linear map to the conjugate representation by the matrix
+\\[
+c:V\\longrightarrow\\bar V,\\qquad c(v)=\\varepsilon v
+\\]
+in the chosen coordinate conventions. Then
+\\[
+c\\rho(U)=\\bar\\rho(U)c.
+\\]
+This is the required SU(2)-equivariance. It is not the set-theoretic map (v\\mapsto\\bar v): that coordinate-conjugation map is antilinear and is not being used as (c).
+
+If (c':V\\to\\bar V) is another complex-linear intertwiner, then (A=c^{-1}c') commutes with the irreducible defining representation of (SU(2)). Schur's lemma gives (A=\\lambda I), hence (c'=\\lambda c). If both intertwiners are unitary, \\(|\\lambda|=1\\), so the ambiguity is a phase.
+
+For the doubled fibre \\(V\\oplus\\bar V\\), define
+\\[
+J_V(\\psi,\\bar\\chi)
+=\\big(c^{-1}\\bar\\chi,c\\psi\\big).
+\\]
+With the direct-sum Hermitian inner product and unitary (c), this satisfies
+\\[
+J_V^*=J_V,\\qquad J_V^2=I,
+\\]
+and the parity projections \\(P_\\pm=(I\\pm J_V)/2\\) are orthogonal.
+
 ## 4. Covariant graph form and self-adjoint operator
 
 Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(g,h)\), define
