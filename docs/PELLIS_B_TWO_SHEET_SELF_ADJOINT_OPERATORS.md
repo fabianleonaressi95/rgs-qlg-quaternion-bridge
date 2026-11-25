@@ -116,38 +116,62 @@ and the parity projections \(P_\pm=(I\pm J_V)/2\) are orthogonal.
 
 ## 4. Covariant graph form and self-adjoint operator
 
-Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(s(e),t(e))\), define the first-sheet covariant difference
+Let \(U_e\in SU(2)\) be the first-sheet transport and \(\bar U_e\) its conjugate on the second sheet. For an oriented edge \(e=(s(e),t(e))\), define
 \[
-(D_U\psi)(e)=\psi(t(e))-U_e\psi(s(e)).
+(D_U\psi)(e)=\psi(t(e))-U_e\psi(s(e)),
+\qquad
+(D_{\bar U}\bar\chi)(e)=\bar\chi(t(e))-\bar U_e\bar\chi(s(e)).
+\]
+The doubled covariant derivative is the block operator
+\[
+\mathscr D_U=\operatorname{diag}(D_U,D_{\bar U}).
 \]
 The fibre intertwining identity gives the endpoint relation
 \[
 c_{t(e)}U_e=\bar U_ec_{s(e)}.
 \]
-Define the edge-field exchange \(J_E\) by applying \(c\) at the target fibre to the first-sheet edge difference, and by the inverse identification on the reverse sheet component. Then, term by term,
+Equivalently,
+\[
+U_ec_{s(e)}^{-1}=c_{t(e)}^{-1}\bar U_e.
+\]
+
+The vertex exchange is
+\[
+(J_V\Psi)(v)=
+\big(c_v^{-1}\bar\chi(v),c_v\psi(v)\big).
+\]
+Define the edge-field exchange explicitly by
+\[
+(J_E\Omega)(e)=
+\big(c_{t(e)}^{-1}\Omega_-(e),c_{t(e)}\Omega_+(e)\big),
+\]
+where \(\Omega=(\Omega_+,\Omega_-)\) is a pair of edge fields in the first and conjugate fibres at the target endpoint. Then the first component satisfies
 \[
 \begin{aligned}
-(D_{\bar U}(c\psi))(e)
-&=c_{t(e)}\psi(t(e))-\bar U_ec_{s(e)}\psi(s(e))\\
-&=c_{t(e)}\big(\psi(t(e))-U_e\psi(s(e))\big)\\
-&=(J_ED_U\psi)(e).
+(\mathscr D_UJ_V\Psi)_+(e)
+&=c_{t(e)}^{-1}\bar\chi(t(e))
+-U_ec_{s(e)}^{-1}\bar\chi(s(e))\\
+&=c_{t(e)}^{-1}
+\big(\bar\chi(t(e))-\bar U_e\bar\chi(s(e))\big)\\
+&=(J_E\mathscr D_U\Psi)_+(e).
 \end{aligned}
 \]
-Thus the covariant derivative intertwining relation is
+The second component follows from \(c_{t(e)}U_e=\bar U_ec_{s(e)}\) in the same way. Hence
 \[
-\boxed{D_{\bar U}J_V=J_ED_U.}
+\boxed{\mathscr D_UJ_V=J_E\mathscr D_U.}
 \]
-On the doubled two-sheet complex this is written \(D_UJ_V=J_ED_U\), with \(D_U\) denoting the block covariant derivative and \(J_V,J_E\) the corresponding vertex/edge exchanges.
+This is the doubled covariant graph identity; it is the precise meaning of the edge-field exchange relation.
 
 For positive edge coefficients \(\kappa_e>0\), set
 \[
 q_U[\Psi]=\sum_{e\in E}\kappa_e
-\left(\|\psi_{t(e)}-U_e\psi_{s(e)}\|^2+
-\|\bar\chi_{t(e)}-\bar U_e\bar\chi_{s(e)}\|^2\right).
+\left(\|\psi(t(e))-U_e\psi(s(e))\|^2+
+\|\bar\chi(t(e))-\bar U_e\bar\chi(s(e))\|^2\right).
 \]
 On the finite graph this form is non-negative and defined on the whole finite-dimensional Hilbert space. Its associated operator is
 \[
-L_U=D_U^*WD_U,\qquad W=\operatorname{diag}(\kappa_e I).
+L_U=\mathscr D_U^*W\mathscr D_U,\qquad
+W=\operatorname{diag}(\kappa_e I).
 \]
 Hence \(L_U=L_U^*\ge0\). If \(J_E\) is unitary and the edge-weight operator is sheet-compatible, \(J_E^*WJ_E=W\), the derivative intertwining implies
 \[
