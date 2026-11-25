@@ -57,3 +57,30 @@ def test_triangle_modes_are_equivalent_to_spherical_l1_dipole_modes():
     W = data["W3"]
     assert np.allclose(W @ data["C3"] @ W.T, data["dipole_rotation"])
     assert np.allclose(W @ data["F3"] @ W.T, data["dipole_reflection"])
+
+
+def test_selected_q6_hexagram_orbit_is_not_invariant_under_full_hypercube_laplacian():
+    states = ["000111", "001110", "011100", "111000", "110001", "100011"]
+    vertices = [int(bits, 2) for bits in states]
+    assert len(set(vertices)) == 6
+    distances = [
+        (a ^ b).bit_count()
+        for i, a in enumerate(vertices)
+        for b in vertices[i + 1:]
+    ]
+    assert set(distances) <= {2, 4, 6}
+    assert 1 not in distances
+
+    adjacency = np.zeros((64, 64), dtype=float)
+    for x in range(64):
+        for bit in range(6):
+            adjacency[x, x ^ (1 << bit)] = 1.0
+    projection = np.zeros((64, 64), dtype=float)
+    projection[vertices, vertices] = 1.0
+
+    assert np.allclose(projection @ adjacency @ projection, 0.0)
+    assert np.isclose(np.linalg.norm(adjacency @ projection, ord="fro"), 6.0)
+    assert np.isclose(
+        np.linalg.norm(adjacency @ projection - projection @ adjacency, ord="fro"),
+        6.0 * np.sqrt(2.0),
+    )
