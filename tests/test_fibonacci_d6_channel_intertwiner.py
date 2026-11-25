@@ -41,3 +41,19 @@ def test_sheet_parity_projectors_have_rank_three():
     assert np.linalg.matrix_rank(P_minus) == 3
     assert np.allclose(P_plus @ P_minus, 0)
     assert np.allclose(P_plus + P_minus, np.eye(6))
+
+
+def test_triangle_modes_are_equivalent_to_spherical_l1_dipole_modes():
+    from src.fibonacci_d6_channel_intertwiner import (
+        audit_triangle_to_dipole_intertwiner,
+        triangle_to_dipole_intertwiner,
+    )
+
+    report = audit_triangle_to_dipole_intertwiner()
+    assert report["passed"]
+    assert report["max_residual"] < 1e-12
+
+    data = triangle_to_dipole_intertwiner()
+    W = data["W3"]
+    assert np.allclose(W @ data["C3"] @ W.T, data["dipole_rotation"])
+    assert np.allclose(W @ data["F3"] @ W.T, data["dipole_reflection"])
