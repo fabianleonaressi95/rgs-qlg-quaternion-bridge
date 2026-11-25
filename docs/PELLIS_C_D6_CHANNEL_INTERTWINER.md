@@ -251,3 +251,33 @@ and the exact Frobenius residuals are
 \|[A_{Q_6},P_{\mathcal O}]\|_F=6\sqrt2.
 \]
 Since \(L_{Q_6}=6I-A_{Q_6}\), the same commutator norm holds for the graph Laplacian. Thus the six-state orbit is invariant under the bit-position \(D_6\) action, but it is not a reducing subspace of the full Q6 adjacency or Laplacian. This is an exact obstruction to claiming that the orbit-level intertwiner already intertwines the full Q6 graph operator.
+
+
+## 12. Finite operator-domain audit for the conditional radial lift
+
+The representation intertwiner can now be carried one step further without assuming a physical GSR identification. Let \(M(E)\in\mathbb C^{2\times2}\) be any finite Cauchy transfer matrix. On the declared twelve-dimensional tensor product
+\[
+\mathcal H_{\rm lift}=\mathbb C^2_{\rm Cauchy}\otimes\mathbb C^2_{\rm sheet}\otimes\mathbb C^3_{\rm mode},
+\]
+define the *conditional* lift
+\[
+\widehat M(E)=M(E)\otimes I_6.
+\]
+The finite-dimensional domain is all of \(\mathcal H_{\rm lift}\), so it is invariant under the lifted D6 action. Since the D6 generators act on the channel factor only,
+\[
+[\widehat M(E),I_2\otimes\rho_{D_6}(r)]=
+[\widehat M(E),I_2\otimes\rho_{D_6}(s)]=0
+\]
+identically, for arbitrary entries of \(M(E)\). This is an exact algebraic covariance statement for the tensor-product model; it is not a proof that the physical radial transfer is mode-independent.
+
+On the six-channel factor, let \(S=\rho_{D_6}(r^3)=\sigma_x\otimes I_3\) and \(P_\pm=(I_6\pm S)/2\). The boundary residual
+\[
+B(E)=d(E)P_+ + b(E)P_-
+\]
+commutes with both D6 generators because the half-turn is central in D6. If \(b(E)=0\), \(d(E)\ne0\), its kernel is the three-dimensional antisymmetric sector; if \(d(E)=0\), \(b(E)\ne0\), its kernel is the three-dimensional symmetric sector. If both vanish, the entire six-dimensional channel space is in the kernel. For real \(b,d\), \(B(E)\) is self-adjoint.
+
+The implementation is \`src/pellis_d6_operator_gate.py\`; tests are in \`tests/test_pellis_d6_operator_gate.py\`. Run:
+
+    PYTHONPATH=. python -m pytest tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q
+
+**Scope:** this closes the finite tensor-lift covariance and its algebraic kernel dimensions. The mode-degeneracy assumption, the physical boundary domain, and the identification of \(M(E)\) with Pellis/GSR remain OPEN.
