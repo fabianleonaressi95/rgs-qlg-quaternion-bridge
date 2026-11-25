@@ -192,21 +192,21 @@ Reference: https://github.com/fabianleonaressi95/theorem/blob/main/theorems/T151
 
 The following five questions are deliberately narrower than a general request to explain the GSR model. Each answer must identify mathematical data that can be checked against the proposed finite representation map.
 
-1. **Meaning of the mode label (m).** In the stated basis (lvert\psi_{n,m}\rangle), does (m) label angular spherical harmonics, radial standing-wave modes, a degeneracy index, or another explicitly defined family? If it is angular, give the map (m\leftrightarrow(\ell,m_\ell)), the allowed (ell)-values, and the action of the proposed (D_3\) subgroup. In particular, is the real (ell=1) triplet present as an invariant three-dimensional subspace?
+1. **Meaning of the mode label \(m\).** In the stated basis \(\lvert\psi_{n,m}\rangle\), does \(m\) label angular spherical harmonics, radial standing-wave modes, a degeneracy index, or another explicitly defined family? If it is angular, give the map \(m\leftrightarrow(\ell,m_\ell)\), the allowed \(\ell\)-values, and the action of the proposed \(D_3\) subgroup. In particular, is the real \(\ell=1\) triplet present as an invariant three-dimensional subspace?
 
-2. **Complete scalar Pellis operator (mathcal P_\varphi) and the term (T(x)).** What is the full formula, including every coefficient and sign, for (mathcal P_\varphi)? Specify the tensor/bundle type, differential order, regularity and domain of (T(x)); whether it is multiplication, a differential operator, or a connection term; and the Hilbert-space measure, operator domain and boundary conditions. A verbal description such as “topological torsion” is not enough to define an operator.
+2. **Complete scalar Pellis operator \(\mathcal P_\varphi\) and the term \(T(x)\).** What is the full formula, including every coefficient and sign, for \(\mathcal P_\varphi\)? Specify the tensor/bundle type, differential order, regularity and domain of \(T(x)\); whether it is a multiplication operator, a differential operator, or a connection term; and the Hilbert-space measure, operator domain and boundary conditions. A verbal description such as “topological torsion” is not enough to define an operator.
 
-3. **Golden Resonance Operator and independent selection principle.** Give the operator (GSR) (or its exact named operator) on the (lvert\psi_{n,m}\rangle) basis, including its matrix elements or spectral action. Separately specify the variational/dynamical functional that selects the normalized state and its admissible domain. What existence, uniqueness or non-degeneracy result prevents the modal coefficients from being chosen freely to reproduce a target series?
+3. **Golden Resonance Operator and independent selection principle.** Give the exact Golden Resonance Operator on the \(\lvert\psi_{n,m}\rangle\) basis, including its matrix elements or spectral action. Separately specify the variational/dynamical functional that selects the normalized state and its admissible domain. What existence, uniqueness or non-degeneracy result prevents the modal coefficients from being chosen freely to reproduce a target series?
 
-4. **Origin of the two-sheet factor.** Is the GSR Hilbert space actually of the form (mathcal H_+\oplusmathcal H_-), or unitarily equivalent to such a decomposition? If yes, define the deck involution, prove that it is unitary/self-adjoint with square (I), and state whether it preserves the operator domain and commutes with the operator. If no, the two-sheet multiplicity in the Q6/(D_6) construction must remain a representation-theoretic analogy, not a physical factor.
+4. **Origin of the two-sheet factor.** Is the GSR Hilbert space actually of the form \(\mathcal H_+\oplus\mathcal H_-\), or unitarily equivalent to such a decomposition? If yes, define the deck involution, prove that it is unitary/self-adjoint with square \(I\), and state whether it preserves the operator domain and commutes with the operator. If no, the two-sheet multiplicity in the Q6/\(D_6\) construction must remain a representation-theoretic analogy, not a physical factor.
 
-5. **Status of the radial transfer (M_P(E)).** Does the radial (2\times2) Cauchy transfer and its neck condition belong to the same physical model, Hilbert space and boundary-value problem as Pellis Functions / GSR? Supply the common equation, variables, boundary data and operator domain establishing that identification. If it is a separate radial matching construction, it must remain separate and cannot be used to close the GSR intertwiner.
+5. **Status of the radial transfer \(M_P(E)\).** Does the radial \(2\times2\) Cauchy transfer and its neck condition belong to the same physical model, Hilbert space and boundary-value problem as Pellis Functions / GSR? Supply the common equation, variables, boundary data and operator domain establishing that identification. If it is a separate radial matching construction, it must remain separate and cannot be used to close the GSR intertwiner.
 
 A positive answer to these requests would allow the candidate map
-\\[
-(I_2\\otimes W_3)\\Phi:
-\\mathbb C^6_{\\rm Fibonacci}
-\\longrightarrow
-\\mathbb C^2_{\\rm sheet}\\otimes\\mathcal Y_{\\ell=1}(S^2)
-\\]
-to be tested against the actual operator and its domain. Until those data are supplied, the finite (D_6) representation intertwiner remains proved, while the physical operator intertwiner remains conditional/open.
+\[
+(I_2\otimes W_3)\Phi:
+\mathbb C^6_{\rm Fibonacci}
+\longrightarrow
+\mathbb C^2_{\rm sheet}\otimes\mathcal Y_{\ell=1}(S^2)
+\]
+to be tested against the actual operator and its domain. Until those data are supplied, the finite \(D_6\) representation intertwiner remains proved, while the physical operator intertwiner remains conditional/open.
