@@ -230,3 +230,24 @@ is an explicit unitary map from the Fibonacci six-orbit to two copies of the \(\
 **Physical condition still to verify:** the GSR source must identify its mode label \(m\) with angular spherical harmonics and must select the \(\ell=1\) sector (or another three-dimensional sector carrying this same \(D_3\) representation). If its mode label is radial, or if the relevant Poincaré-space operator has no such invariant three-dimensional subspace, this identification does not follow. The exact \(D_6\) representation map remains valid independently of that physical choice.
 
 The orthogonal matrix \(W_3\) and the two generator identities are implemented and tested by the companion code.
+
+
+## 11. Exact obstruction to restricting the full Q6 Laplacian to the six-state orbit
+
+Write the selected six hexagrams as six-bit strings:
+\[
+000111,\ 001110,\ 011100,\ 111000,\ 110001,\ 100011.
+\]
+Every pair of distinct strings has Hamming distance \(2\), \(4\), or \(6\). Hence the induced subgraph on these six vertices has no edges, while each vertex still has all six hypercube neighbours outside the selected set.
+
+Let \(P_{\mathcal O}\) be the coordinate projection onto their six-dimensional span and \(A_{Q_6}\) the full hypercube adjacency matrix. Then
+\[
+P_{\mathcal O}A_{Q_6}P_{\mathcal O}=0,\qquad
+A_{Q_6}P_{\mathcal O}\ne0,
+\]
+and the exact Frobenius residuals are
+\[
+\|A_{Q_6}P_{\mathcal O}\|_F=6,\qquad
+\|[A_{Q_6},P_{\mathcal O}]\|_F=6\sqrt2.
+\]
+Since \(L_{Q_6}=6I-A_{Q_6}\), the same commutator norm holds for the graph Laplacian. Thus the six-state orbit is invariant under the bit-position \(D_6\) action, but it is not a reducing subspace of the full Q6 adjacency or Laplacian. This is an exact obstruction to claiming that the orbit-level intertwiner already intertwines the full Q6 graph operator.
