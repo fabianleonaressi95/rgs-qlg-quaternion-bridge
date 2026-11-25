@@ -127,7 +127,7 @@ c_{t(e)}U_e=\bar U_ec_{s(e)}.
 Define the edge-field exchange \(J_E\) by applying \(c\) at the target fibre to the first-sheet edge difference, and by the inverse identification on the reverse sheet component. Then, term by term,
 \[
 \begin{aligned}
-(D_{\bar U}J_V\psi)(e)
+(D_{\bar U}(c\psi))(e)
 &=c_{t(e)}\psi(t(e))-\bar U_ec_{s(e)}\psi(s(e))\\
 &=c_{t(e)}\big(\psi(t(e))-U_e\psi(s(e))\big)\\
 &=(J_ED_U\psi)(e).
