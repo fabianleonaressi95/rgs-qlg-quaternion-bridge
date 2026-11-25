@@ -528,6 +528,7 @@ Important source distinction: the Stergios Pellis correspondence concerns Pellis
 
 The conditional radial D6 lift is additionally audited in \`src/pellis_d6_operator_gate.py\`: it verifies covariance of \`M(E) ⊗ I_6\`, the central sheet-parity boundary operator, and the predicted three-dimensional parity kernels. This is a finite tensor-product theorem, not a physical identification with GSR.
 
+ALL DEMONSTRATION CHECKS PASSED
 Run: \`PYTHONPATH=. python -m pytest tests/test_pellis_d6_operator_gate.py tests/test_fibonacci_d6_channel_intertwiner.py -q\`.
 
 
