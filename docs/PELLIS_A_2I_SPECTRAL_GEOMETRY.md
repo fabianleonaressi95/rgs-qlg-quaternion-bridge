@@ -125,3 +125,21 @@ The appearance of \(\varphi\) in icosahedral geometry does not by itself derive 
 The invariant multiplicities can be reproduced from the Molien series or the finite-group character average. The scalar spectrum then follows from \(\lambda_l=l(l+2)\) and \(m_l=(l+1)a_l\). The repository's explicit quaternion implementation of \(2I\) provides a finite computational group audit; the scalar spectral formula above is the representation-theoretic statement.
 
 The separate numerical observation that a recovered RGS connection lies close to \(2I\) is not used in this theorem: proximity of link matrices to a finite subgroup is a numerical candidate, not a proof that the connection has \(2I\) holonomy.
+
+
+## 7. Explicit quaternion implementation and reproduction
+
+The quaternion implementation is part of this repository, not merely an external dependency:
+- implementation: `src/binary_icosahedral.py`;
+- construction and audit specification: `docs/binary-icosahedral-2i.md`;
+- deterministic construction: the 8 coordinate units, 16 half-coordinate points, and 96 even-permutation/sign points of the 600-cell vertex set;
+- multiplication convention: scalar-first Hamilton quaternions (q=(w,x,y,z)), with active rotations on column vectors.
+
+Reproduce the implementation audit with:
+
+```bash
+python -c "from src.binary_icosahedral import audit_binary_icosahedral; print(audit_binary_icosahedral())"
+pytest -q
+```
+
+The finite audit checks all (120^2=14,400) products, inverses, unit norms, and the two-to-one map to 60 rotations. This is an exhaustive floating-point implementation audit of the explicitly generated set, not a proof-assistant certificate. The scalar spectral formula and Molien multiplicities remain the representation-theoretic result; the computational group audit supplies reproducibility, not a new proof of the quotient spectrum.
