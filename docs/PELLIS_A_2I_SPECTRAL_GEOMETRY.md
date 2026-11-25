@@ -133,7 +133,7 @@ The quaternion implementation is part of this repository, not merely an external
 - implementation: `src/binary_icosahedral.py`;
 - construction and audit specification: `docs/binary-icosahedral-2i.md`;
 - deterministic construction: the 8 coordinate units, 16 half-coordinate points, and 96 even-permutation/sign points of the 600-cell vertex set;
-- multiplication convention: scalar-first Hamilton quaternions (q=(w,x,y,z)), with active rotations on column vectors.
+- multiplication convention: scalar-first Hamilton quaternions $q=(w,x,y,z)$, with active rotations on column vectors.
 
 Reproduce the implementation audit with:
 
@@ -142,4 +142,4 @@ python -c "from src.binary_icosahedral import audit_binary_icosahedral; print(au
 pytest -q
 ```
 
-The finite audit checks all (120^2=14,400) products, inverses, unit norms, and the two-to-one map to 60 rotations. This is an exhaustive floating-point implementation audit of the explicitly generated set, not a proof-assistant certificate. The scalar spectral formula and Molien multiplicities remain the representation-theoretic result; the computational group audit supplies reproducibility, not a new proof of the quotient spectrum.
+The finite audit checks all $120^2=14,400$ products, inverses, unit norms, and the two-to-one map to 60 rotations. This is an exhaustive floating-point implementation audit of the explicitly generated set, not a proof-assistant certificate. The scalar spectral formula and Molien multiplicities remain the representation-theoretic result; the computational group audit supplies reproducibility, not a new proof of the quotient spectrum.
