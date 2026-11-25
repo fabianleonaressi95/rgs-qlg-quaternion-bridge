@@ -51,7 +51,7 @@ def test_edge_covariance_on_random_fibre_data():
 def test_doubled_edge_exchange_covariance():
     rng = np.random.default_rng(120)
     for _ in range(25):
-        z = rng.normal(size=4) + 1j * rng.normal(size=4)
+        z = rng.normal(size=2) + 1j * rng.normal(size=2)
         z /= np.linalg.norm(z)
         u = su2_matrix(z[0], z[1])
         vectors = [rng.normal(size=2) + 1j * rng.normal(size=2) for _ in range(4)]
