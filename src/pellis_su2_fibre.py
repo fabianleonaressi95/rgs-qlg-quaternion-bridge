@@ -48,24 +48,12 @@ def doubled_edge_covariance_residual(
 ) -> float:
     """Residual for D_U J_V = J_E D_U on a doubled edge."""
     j = fibre_exchange_matrix()
-    source = np.concatenate((psi_source, chi_source))
-    target = np.concatenate((psi_target, chi_target))
-    d_after_j = j @ (target - np.block([
+    transport = np.block([
         [u, np.zeros((2, 2), dtype=complex)],
         [np.zeros((2, 2), dtype=complex), np.conjugate(u)],
-    ]) @ (j @ source))
-    # Equivalent direct block computation avoids conflating vertex and edge
-    # coordinates and makes the covariance identity independently testable.
-    d = np.block([
-        [np.eye(2, dtype=complex), np.zeros((2, 2), dtype=complex)],
-        [np.zeros((2, 2), dtype=complex), np.eye(2, dtype=complex)],
     ])
-    del d_after_j, d
-    first = EPSILON_INV @ (chi_target - np.conjugate(u) @ chi_source)
-    second = EPSILON @ (psi_target - u @ psi_source)
-    expected = np.concatenate((first, second))
-    actual = j @ np.concatenate((
-        psi_target - u @ psi_source,
-        chi_target - np.conjugate(u) @ chi_source,
-    ))
-    return float(np.linalg.norm(actual - expected))
+    source = np.concatenate((psi_source, chi_source))
+    target = np.concatenate((psi_target, chi_target))
+    lhs = j @ target - transport @ (j @ source)
+    rhs = j @ (target - transport @ source)
+    return float(np.linalg.norm(lhs - rhs))
