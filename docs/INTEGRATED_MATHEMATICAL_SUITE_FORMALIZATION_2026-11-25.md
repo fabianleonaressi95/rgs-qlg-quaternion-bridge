@@ -229,3 +229,7 @@ D6 permits 1⊕2 and therefore two blocks in the sheet-blind commutant. If a lar
 - Pellis: PELLIS_A_2I_SPECTRAL_GEOMETRY.md; PELLIS_B_TWO_SHEET_SELF_ADJOINT_OPERATORS.md; PELLIS_C_D6_CHANNEL_INTERTWINER.md; PELLIS_D_RGS_PSU_PRISM_INTEGRATION.md.
 
 **Maintenance note:** this register formalizes the 51-step scope and its proof obligations. It does not fabricate missing tests, replace specialist proofs, or promote open physical identifications to established results.
+
+## Evidence matrix
+
+The implementation/test/result traceability audit for all 51 records is maintained in [51-step evidence and implementation matrix](51_STEP_EVIDENCE_MATRIX_2026-11-26.md). File presence is not proof; test execution and theorem status must be assessed separately.
