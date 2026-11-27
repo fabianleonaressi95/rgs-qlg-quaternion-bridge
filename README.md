@@ -6,6 +6,10 @@ This repository develops finite mathematical constructions and computational aud
 
 > **Evidence policy:** PROVED, FINITE-EXACT, NUMERICAL, CONDITIONAL, CANDIDATE and OPEN are distinct statuses. A finite test is not a continuum theorem or a physical derivation.
 
+## Record-level theorem dependency reconciliation
+
+- **[Record-level audit](docs/T161_RECORD_LEVEL_DEPENDENCY_RECONCILIATION_2026-11-27.md)** imports 306 uniquely declared theorem dependencies from the primary register as explicitly unreviewed graph edges. It also records 101 ambiguous references, 3 unresolved references, and the four main-tree cards missing from the generated register. These are not promoted to proof dependencies.
+
 ## T161 programme-wide geometric integration
 
 - **[Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md)** and [machine-readable registry v3](docs/UNIFIED_THEOREM_EDGES.json) now include the 284 theorem Markdown records in the primary repository's 27-November main-tree snapshot, the 51 formal suite records S01–S51, and the proposed T161 Q6–golden cut-and-project–rhombic triacontahedron–IVM–Lorentzian spin node. New filename/range classifications are explicitly provisional navigation links, not proof dependencies. T161 is distinct from the existing T150 Fibonacci/two-sheet theorem.
