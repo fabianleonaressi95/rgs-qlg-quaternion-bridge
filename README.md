@@ -355,7 +355,8 @@ PYTHONPATH=. python -m src.rgs_psu_cut_project --output results/rgs_psu_cut_proj
 
 ## Repository navigation
 
-- [Repository map and file-placement rules](docs/REPOSITORY_MAP.md)- [Root artifact inventory and safe relocation plan](docs/ROOT_ARTIFACT_TRIAGE.md)
+- [Repository map and file-placement rules](docs/REPOSITORY_MAP.md)
+- [Root artifact inventory and safe relocation plan](docs/ROOT_ARTIFACT_TRIAGE.md)
 - [Implementation roadmap](docs/IMPLEMENTATION_ROADMAP.md)
 - [Physics architecture and compatibility boundaries](docs/PHYSICS_ARCHITECTURE_COMPATIBILITY.md)
 
