@@ -516,6 +516,12 @@ The [path-valued homology note](docs/research/Q6_PRISM_PATH_VALUED_HOMOLOGY.md) 
 Implementation/tests/audit: `src/q6_prism_path_valued_homology.py`, `tests/test_q6_prism_path_valued_homology.py`, `examples/q6_prism_path_valued_homology_audit.py`, `results/q6_prism_path_valued_homology_audit.json`.
 
 
+## Trigram-block-equivariant Q6–PRISM path map
+
+The [trigram-block-equivariant path map](docs/research/Q6_PRISM_TRIGRAM_EQUIVARIANT_PATH_MAP.md) replaces the arbitrary five-chord assignment with an explicit edge-path rule derived from the lower/upper trigram split. It is equivariant under independent line permutations \(S_3^{lower}\times S_3^{upper}\); the lower \(S_3\) permutes the three equal \(C_6\) factors. Five mixed Q6 square cycles map to a unimodular basis of \(H_1(PRISM;\mathbb Z)=\mathbb Z^5\), proving integral surjectivity from the Q6 graph cycle lattice. The map remains graph-only and does not preserve distances or extend over all 240 filled faces.
+
+Implementation/tests/audit: `src/q6_prism_trigram_equivariant_map.py`, `tests/test_q6_prism_trigram_equivariant_map.py`, `examples/q6_prism_trigram_equivariant_map_audit.py`. See [PR #237](https://github.com/fabianleonaressi95/rgs-qlg-quaternion-bridge/pull/237).
+
 ## Q6–PRISM symmetry obstruction
 
 The [symmetry-obstruction note](docs/research/Q6_PRISM_SYMMETRY_OBSTRUCTION.md) proves a no-go result for the path-valued graph setting: if the source action contains the even coordinate-permutation group A6 and the target action is induced by automorphisms of the existing PRISM product, then the induced map on periodic H1 must be zero. The target H1 symmetry image has order at most 192, forcing every A6 action on it to be trivial; the Q6 graph cycle module has no A6-invariant linear functional. Thus the path-valued surjection from Z^129 to Z^5 necessarily breaks this full coordinate symmetry.

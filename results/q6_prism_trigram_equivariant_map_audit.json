@@ -1,0 +1,29 @@
+{
+  "source": "Q6 graph 1-skeleton with lower/upper trigram bit blocks",
+  "source_vertices": 64,
+  "source_edges": 192,
+  "target": "C64 x C6^3 x C5",
+  "target_H1": "Z^5",
+  "lower_trigram_bits": [0, 1, 2],
+  "upper_trigram_bits": [3, 4, 5],
+  "edge_paths_are_based_loops": true,
+  "nonconstant_source_edge_paths": 84,
+  "total_target_path_steps": 3996,
+  "selected_square_images": [
+    [0, -1, 0, 0, 0],
+    [0, 0, -1, 0, 0],
+    [0, 0, 0, -1, 0],
+    [-1, -1, 0, 0, 0],
+    [0, -1, 0, 0, -1]
+  ],
+  "selected_minor_determinant": 1,
+  "induced_H1_map_is_surjective": true,
+  "equivariance": {
+    "source_group": "S3(lower trigram) x S3(upper trigram)",
+    "source_group_order": 36,
+    "target_action": "S3 permutes the three equal C6 factors; C64 and C5 fixed",
+    "edge_path_equivariance_checks": 6912,
+    "equivariant": true
+  },
+  "scope": "integral graph-homology surjection; no metric, dynamics, or extension over all filled Q6 plaquettes is asserted"
+}
