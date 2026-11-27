@@ -173,3 +173,32 @@ def test_all_five_tetrahedral_facets_of_a_4_simplex():
         assert result["curvature_norm"] < 5e-10
         assert result["torsion_norm"] < 5e-10
         assert result["passed"] == 1.0
+
+
+
+def test_tetrahedron_affine_bianchi_is_local_lorentz_gauge_invariant():
+    links = {
+        (0, 1): lorentz_boost_x(0.17),
+        (0, 2): lorentz_boost_y(-0.23),
+        (0, 3): lorentz_boost_x(-0.11) @ lorentz_boost_y(0.19),
+        (1, 2): lorentz_boost_y(0.31) @ lorentz_boost_x(-0.07),
+        (1, 3): lorentz_boost_x(0.13) @ lorentz_boost_y(-0.29),
+        (2, 3): lorentz_boost_y(0.09) @ lorentz_boost_x(0.21),
+    }
+    rng = np.random.default_rng(20261129)
+    coframes = {edge: rng.normal(size=4) for edge in links}
+    frames = {
+        0: lorentz_boost_x(0.12),
+        1: lorentz_boost_y(-0.18),
+        2: lorentz_boost_x(-0.09) @ lorentz_boost_y(0.07),
+        3: lorentz_boost_y(0.15),
+    }
+
+    original = tetrahedron_boundary_bianchi(links, coframes)
+    links_g, coframes_g = gauge_transform(links, coframes, frames)
+    transformed = tetrahedron_boundary_bianchi(links_g, coframes_g)
+
+    assert original["curvature_norm"] < 2e-10
+    assert original["torsion_norm"] < 2e-10
+    assert transformed["curvature_norm"] < 2e-10
+    assert transformed["torsion_norm"] < 2e-10
