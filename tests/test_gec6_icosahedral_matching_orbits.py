@@ -29,4 +29,5 @@ def test_full_signed_a5_does_not_descend_to_gec6_quotient():
     assert result["block_partition_stabilizer_order"] == 6
     assert result["GEC6_contraction_kernel_preserving_signed_actions"] == 6
     assert result["quotient_preserving_group_equals_block_partition_stabilizer"]
+    assert result["signed_permutation_sign_products"] == [1]
     assert result["diagonal_matching_orbit_under_quotient_preserving_subgroup"] == 2
