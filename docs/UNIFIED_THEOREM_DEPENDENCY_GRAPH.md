@@ -172,3 +172,18 @@ These are programme/topic edges, not implications. The mathematical gates remain
 The registry has schema v3 and now records 284 main-tree theorem records, one proposed T161 branch record, 51 formal-suite records, the previous catalogue/hub/document nodes, and the original 54 reviewed direct crosswalk arrows. All new filename/range-derived classifications are labelled provisional.
 
 Machine-readable source: [UNIFIED_THEOREM_EDGES.json](UNIFIED_THEOREM_EDGES.json). Primary T161 branch: [theorem PR #585](https://github.com/fabianleonaressi95/theorem/pull/585). The primary repository's [T161 programme-wide integration map](https://github.com/fabianleonaressi95/theorem/blob/rgs-q6-antitwin-spacetime-bridge/docs/T161_PROGRAMME_WIDE_INTEGRATION_MAP_2026-11-27.md) preserves the 27-chapter and companion-suite crosswalk.
+
+
+### Direct T129–T161 spine edges (record-level review)
+
+The primary open PR branch contains a linked sequence of five relevant proposal cards in addition to the pre-existing theorem inventory:
+
+- **T129** `T129-q6-cut-project-purcell-shape-map`: exact golden (P_\parallel/P_\perp) frame and centred Q6 carrier; T161 reuses this frame and makes the internal projected cube's six-segment zonotope explicit. The Purcell calibration remains separate.
+- **T146** `T146-q6-ivm-psu-spinorial-lift`: the same 64-state golden carrier and six icosahedral axes; T161 distinguishes 64 projected state images from 32 zonotope extreme vertices and does not claim that these are 64 tetrahedron cells.
+- **T147** `T147-spinorial-rgs-q6-spin6-dirac-antitwin`: finite Spin(6) lift of the golden SO(6) frame; T161 uses this as representation input while keeping the Lorentzian Spin+(1,3) construction open.
+- **T148** `T148-psu-antitwin-chiral-fluid-gauge`: two-sheet right/left lock and fluid modes; T161's time-leg normalization is conditional on future unit-timelike four-velocities, not yet derived from the fluid variables.
+- **T149** `T149-q6-clifford-graph-dirac-spectrum`: exact negative result (D_{Q6}^2=-3I/2) for the bare identity-link graph operator; this blocks any claim that the existing operator already supplies a massless continuum Dirac fermion.
+- **T150** `T150-d6-fibonacci-hexagram-antipodal-two-sheet-correspondence`: comparison-only finite D6 suborbit; it is not an identification of all 64 Q6 points with the triacontahedron or IVM cells.
+- **T161** `T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift`: geometric zonotope and conditional Lorentzian/spinorial synthesis.
+
+The six directed edges to T161 are typed in the JSON registry with their shared object and caveat. The branch proposal nodes are keyed by full filename, so repeated display identifiers T146–T149 in the existing corpus are not overwritten or conflated.
