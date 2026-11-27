@@ -93,3 +93,30 @@
 For every future status change, update this matrix and the formalization register together, and provide: (i) exact commit SHA; (ii) source and test paths; (iii) exact command and output; (iv) input/result hashes; (v) proof or certificate; (vi) tolerance where floating-point arithmetic is used; (vii) explicit scope limitations.
 
 Do not change a status from OPEN/CANDIDATE/CONDITIONAL to PROVED merely because a test passes.
+
+
+## Post-snapshot supplements — PRs #233 and #234 (merged 2026-11-27)
+
+The 51-row table above is preserved as the original 2026-11-26 snapshot. The following merged companion-repository work supplements existing records; it does not create duplicate theorem records or renumber S01–S51.
+
+### S35 — GEC-6 lower/upper trigram decomposition (PR #233)
+
+- Canonical dossier: `docs/research/GEC6_TRIGRAM_BLOCK_DECOMPOSITION.md`.
+- Implementation/test: `src/gec6_trigram_decomposition.py`; `tests/test_gec6_trigram_decomposition.py`.
+- Exact mathematical content: `Λ²(Z⁶)=Λ²L ⊕ (L⊗U) ⊕ Λ²U`, ranks 3+9+3; block symmetry `(S3×S3)⋊C2` of order 72; the mixed block maps onto `A5` with rank-four kernel.
+- Review correction: a general bit translation acts on the oriented pair generator by `(-1)^(t_i+t_j)`. It need not preserve `ker(c)` and does not generally descend to `A5`. The global antipode `t=63` has sign +1 on every pair and therefore acts trivially on the quotient. The dossier and tests retain this distinction.
+- Status: exact algebraic statements under the stated orientation convention; the finite test is an implementation audit, not a substitute for the contraction/kernel proof. I-Ching semantics and physical coupling remain OPEN.
+
+### S11 — deterministic RGS–PSU vierbein/tetrad artifacts (PR #234)
+
+- Generator: `examples/reconstruct_rgs_vierbein_tetrads.py`.
+- Outputs: `results/vierbein_reconstruction/` (six `.npy` arrays plus JSON report and SHA-256 manifest).
+- Test: `tests/test_rgs_vierbein_reconstruction.py`.
+- Report: `results/vierbein_reconstruction/vierbein_reconstruction_report.json`; hashes: `results/vierbein_reconstruction/SHA256SUMS.txt`.
+- The 64 spatial coframes are deterministic reconstructions from the SHA-256-checked seed using `E_i=principal_sqrt(C_i/c0)`. The report's maximum condition number for `E_i` is 1.733712…; its square, 3.00576…, is the corresponding condition number for `C_i/c0`, reconciling the two conventions in the historical status note.
+- The RGS 4D array is only the static lift `diag(1,E_i)`. Ellis and Kerr–Schild arrays are separate analytic benchmark coframes, not solutions of the coupled RGS field equations. The report explicitly leaves TEGR/torsion `NOT_CERTIFIED` pending an inertial spin connection and convention audit.
+- Status: deterministic reconstruction and finite numerical consistency checks; not byte-for-byte recovery of historical arrays, not a dynamical tetrad derivation, and not a TEGR proof.
+
+### CI evidence for PRs #233–#235
+
+No pull-request-triggered workflow runs were returned for the three merge commits checked in this audit. This is recorded as **no CI run evidence retrieved**, not as a test failure or a passing test result. The exact reproduction commands remain in the companion dossiers.
