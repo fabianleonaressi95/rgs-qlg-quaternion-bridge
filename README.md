@@ -142,3 +142,8 @@ This repository contains source code, focused mathematical specifications, tests
 - The archived normalized four-component \((\Delta X,\Delta r)\) feature is **not** the carrier's symmetrized three-component spatial coframe. The audit compares both and separately checks the raw spatial Q6 torsion against the previous A13 report.
 - Reproduce with: PYTHONPATH=. python scripts/audit_rgs_psu_carrier_connection.py; python -m pytest tests/test_rgs_psu_carrier_connection.py -q.
 - Provenance boundary: this is generator-level reconstruction; the original A13 NPZ payload is not bytewise reloaded or compared.
+
+
+## Discrete Cartan implementation specification
+
+- [Discrete Cartan implementation specification](docs/DISCRETE_CARTAN_Q6_PSU_ANTITWIN_IMPLEMENTATION_2026-11-27.md) — finite-complex data model and DCart-01–10 audit matrix for independent Lorentz links and coframes, face curvature holonomy, torsion closure, Bianchi identities and Anti-Twin separation.
