@@ -94,3 +94,29 @@ For conjugate U(1) links use \(U_e^{(-)}=(U_e^{(+)})^*\). These exact finite alg
 - Xue (2010), *Physical Review D* 82, 064039, DOI 10.1103/PhysRevD.82.064039, is a further comparison for 4D simplicial tetrad/connection variables.
 
 **Promotion rule:** code passing DCart-01–06 establishes only implementation consistency for the selected finite complex. A theorem requires proofs of gauge covariance and Bianchi identities; a continuum claim additionally requires a refinement family and uniform consistency/stability estimates.
+
+
+## 8. Exact affine boundary identity on a tetrahedral 3-cell
+
+Package each oriented edge as a Poincare-group element \(G_{vw}=(L_{vw},E_{vw})\) with
+\[
+(H,T)(K,S)=(HK,T+HS),\qquad (H,T)^{-1}=(H^{-1},-H^{-1}T).
+\]
+For the ordered tetrahedron \([0,1,2,3]\), let
+\[
+A=F_{012},\quad B=F_{023},\quad C=F_{031},\quad
+D=G_{01}F_{123}G_{01}^{-1},
+\]
+where each \(F_{ijk}=G_{ij}G_{jk}G_{ki}\) is the affine face holonomy. Then direct cancellation of edge transports gives the exact identity
+\[
+ABC D^{-1}=\mathbf1.
+\]
+Writing each factor as \((H_\bullet,T_\bullet)\), its components are
+\[
+H_AH_BH_CH_D^{-1}=I,\qquad
+T_A+H_AT_B+H_AH_BT_C-T_D=0.
+\]
+The translation identity is the discrete covariant closure relation: curvature transports the torsion/closure vectors before they are compared. It is not the naive sum of four face vectors.
+
+The code implements this as tetrahedron_boundary_bianchi. Tests use noncommuting boosts and generic coframes, then repeat the identity on all five tetrahedral boundary cells of one 4-simplex. These are exact finite algebraic identities with floating-point residual checks. They do **not** prove convergence to \(DR=0\) or \(DT=R\wedge e\), nor do they construct a refinement family.
+
