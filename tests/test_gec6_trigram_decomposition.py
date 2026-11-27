@@ -1,5 +1,6 @@
 from src.gec6_trigram_decomposition import (
-    LOWER, UPPER, audit, block_permutations, pair_sectors, wedge_image
+    LOWER, UPPER, audit, block_permutations, pair_sectors, wedge_image,
+    mixed_pair_orbits_independent, mixed_pair_orbits_diagonal
 )
 
 
@@ -18,6 +19,13 @@ def test_block_wreath_group_has_order_72_and_preserves_sectors():
     for sigma in group:
         assert all(wedge_image(pair, sigma)[1] in internal for pair in lower + upper)
         assert all(wedge_image(pair, sigma)[1] in cross for pair in mixed)
+
+
+def test_mixed_sector_orbits_depend_on_symmetry_choice():
+    # Independent relabelling of lower and upper coordinates is transitive.
+    assert tuple(map(len, mixed_pair_orbits_independent())) == (9,)
+    # A chosen lower/upper coordinate matching reduces symmetry to diagonal S3.
+    assert tuple(map(len, mixed_pair_orbits_diagonal())) == (3, 6)
 
 
 def test_antipodal_audit():
