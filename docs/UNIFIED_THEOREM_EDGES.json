@@ -1,5 +1,5 @@
 {
-  "schema": "unified-two-repository-theorem-graph/v4",
+  "schema": "unified-two-repository-theorem-graph/v5",
   "repositories": [
     "fabianleonaressi95/theorem",
     "fabianleonaressi95/rgs-qlg-quaternion-bridge"
@@ -11,14 +11,17 @@
     "verified_or_reviewed_direct_edges": 54,
     "classification_edges": 338,
     "hub_to_companion_edges": 30,
-    "note": "284 primary main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), all 51 formal suite records, and 306 unique dependency declarations from the primary generated register added as explicitly unreviewed/provisional edges. The register covers only 280 of the 284 main theorem files; four T157–T160 records are absent. A further 101 dependency tokens are ambiguous because of duplicate display IDs, and three do not resolve. Six direct T161 interface edges remain separately reviewed and caveated. The original 54 reviewed direct crosswalk arrows are preserved.",
-    "total_nodes": 393,
-    "total_edges": 734,
+    "note": "284 primary main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), all 51 formal suite records, and 306 unique dependency declarations from the primary generated register added as explicitly unreviewed/provisional edges. The register covers only 280 of the 284 main theorem files; four T157–T160 records are absent. A further 101 dependency tokens are ambiguous because of duplicate display IDs, and three do not resolve. Six direct T161 interface edges remain separately reviewed and caveated. The original 54 reviewed direct crosswalk arrows are preserved. Ten canonical programme-family nodes (Q6, GOLDEN, IVM, CELL, REP, SPACETIME, ANALYSIS, DYNAMICS, ARITH, MORPH) and eight discrete-geometry interface nodes have been added. Family-interface edges are architectural, not proof implications. Sixteen record-to-family interfaces are based on inspected theorem cards and remain non-proof classifications. The detailed bridge and literature baseline are in the primary repository's TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md.",
+    "total_nodes": 411,
+    "total_edges": 780,
     "companion_formal_suite_records": 51,
     "proposed_theorem_records": 5,
     "register_declared_dependencies_added": 306,
     "register_dependency_ambiguities": 101,
-    "register_dependency_unresolved": 3
+    "register_dependency_unresolved": 3,
+    "programme_families": 10,
+    "discrete_geometry_interfaces": 8,
+    "reviewed_record_family_interfaces": 16
   },
   "nodes": [
     {
@@ -3010,6 +3013,132 @@
       "display_id": "T149",
       "title": "Q6 Clifford graph Dirac exact gap",
       "status": "branch proposal"
+    },
+    {
+      "id": "F-Q6",
+      "kind": "programme-family",
+      "title": "Q6 / Kirchhoff / hexagrams",
+      "role": "Finite carrier, incidence and cubical operators",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-GOLDEN",
+      "kind": "programme-family",
+      "title": "Golden cut-and-project / phi",
+      "role": "Orthogonal physical/internal split and acceptance window",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-IVM",
+      "kind": "programme-family",
+      "title": "IVM / FCC / icosahedral geometry",
+      "role": "Spatial directions and symmetry comparison",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-CELL",
+      "kind": "programme-family",
+      "title": "Cellular topology / Anti-Twin / vesica",
+      "role": "Oriented cells, chain maps, involutions and two sheets",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-REP",
+      "kind": "programme-family",
+      "title": "Representations / Clifford / 2I / Rumin",
+      "role": "Representation fibres, spin modules and spectral constraints",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-SPACETIME",
+      "kind": "programme-family",
+      "title": "RGS / PSU / Cartan / Lorentz",
+      "role": "Coframe, metric, independent connection, curvature and torsion",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-ANALYSIS",
+      "kind": "programme-family",
+      "title": "FEEC / Hodge / Mosco / spectrum",
+      "role": "Stability, convergence and continuum control",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-DYNAMICS",
+      "kind": "programme-family",
+      "title": "PRISM / QLG / MHD / synchronization",
+      "role": "Transport, evolution, phase and fluid dynamics",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-ARITH",
+      "kind": "programme-family",
+      "title": "phi, psi, eta, zeta, McKay",
+      "role": "Exact algebraic parameters and spectral coefficients",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "F-MORPH",
+      "kind": "programme-family",
+      "title": "Morfodinamica / structured deformation / defects",
+      "role": "Gradients, barycentres, strain and material response",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-COMPLEX",
+      "kind": "discrete-geometry-interface",
+      "title": "Oriented cellular complex",
+      "role": "Incidence and coboundary; d_h squared equals zero",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-HODGE",
+      "kind": "discrete-geometry-interface",
+      "title": "Metric Hodge structure",
+      "role": "Geometrically derived positive mass/Hodge matrices; adjoints and Laplacians",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-GAUGE",
+      "kind": "discrete-geometry-interface",
+      "title": "Gauge transport",
+      "role": "Edge variables, face holonomies and gauge covariance",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-COFRAME",
+      "kind": "discrete-geometry-interface",
+      "title": "Discrete coframe",
+      "role": "Integrated edge coframes and induced nondegenerate metric",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-CARTAN",
+      "kind": "discrete-geometry-interface",
+      "title": "Independent Cartan connection",
+      "role": "Lorentz holonomy and separate curvature/torsion observables",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-SPIN",
+      "kind": "discrete-geometry-interface",
+      "title": "Spinorial lift",
+      "role": "Spin+(1,3) transition functions, Clifford fibres and chirality",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-ACTION",
+      "kind": "discrete-geometry-interface",
+      "title": "Variational field system",
+      "role": "Discrete action and independent variations of coframe/connection/matter",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DG-LIMIT",
+      "kind": "discrete-geometry-interface",
+      "title": "Refinement and continuum comparison",
+      "role": "Compatible maps, stability, Mosco/strong-resolvent and spectral limits",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
     }
   ],
   "edges": [
@@ -9074,6 +9203,420 @@
       "source_record": "theorems/TSMR-I_singular_cumulative_pentagonal_lift.md",
       "dependency_token": "T131",
       "caveat": "This arrow is declared in the generated register and resolves uniquely by display ID at the 27-Nov-2026 snapshot. It has not been independently checked against both theorem cards and is not a proof edge."
+    },
+    {
+      "from": "F-Q6",
+      "to": "DG-COMPLEX",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-Q6",
+      "to": "DG-HODGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-Q6",
+      "to": "DG-GAUGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-GOLDEN",
+      "to": "DG-HODGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-GOLDEN",
+      "to": "DG-COFRAME",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-GOLDEN",
+      "to": "DG-LIMIT",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-IVM",
+      "to": "DG-COFRAME",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-IVM",
+      "to": "DG-HODGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-CELL",
+      "to": "DG-COMPLEX",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-CELL",
+      "to": "DG-GAUGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-CELL",
+      "to": "DG-ACTION",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-REP",
+      "to": "DG-SPIN",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-REP",
+      "to": "DG-GAUGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-REP",
+      "to": "DG-LIMIT",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-SPACETIME",
+      "to": "DG-COFRAME",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-SPACETIME",
+      "to": "DG-CARTAN",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-SPACETIME",
+      "to": "DG-SPIN",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-SPACETIME",
+      "to": "DG-ACTION",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-ANALYSIS",
+      "to": "DG-COMPLEX",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-ANALYSIS",
+      "to": "DG-HODGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-ANALYSIS",
+      "to": "DG-LIMIT",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-DYNAMICS",
+      "to": "DG-GAUGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-DYNAMICS",
+      "to": "DG-ACTION",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-DYNAMICS",
+      "to": "DG-LIMIT",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-ARITH",
+      "to": "DG-HODGE",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-ARITH",
+      "to": "DG-SPIN",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-ARITH",
+      "to": "DG-LIMIT",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-MORPH",
+      "to": "DG-COFRAME",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-MORPH",
+      "to": "DG-ACTION",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "F-MORPH",
+      "to": "DG-LIMIT",
+      "relation": "family-interface",
+      "status": "architecture-interface-not-proof",
+      "shared_object": "Shared discrete differential-geometric object defined in the ten-family bridge",
+      "caveat": "This edge records the mathematical interface required by the programme; it is not a theorem implication.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T130-q6-discrete-gradients-barycentres-resistance",
+      "to": "F-Q6",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Q6 local stars, discrete gradients and incidence carrier",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T130-q6-discrete-gradients-barycentres-resistance",
+      "to": "F-MORPH",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Weighted gradients, barycentres, moments and positive-dissipation resistance identity under stated hypotheses",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T129-q6-cut-project-purcell-shape-map",
+      "to": "F-GOLDEN",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Exact golden 6D-to-3D plus 3D orthogonal frame; Purcell two-angle calibration remains additional data",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "F-GOLDEN",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Projected centred cube as six-segment zonotope and antipodal Q6 projection",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:branch:T146-q6-ivm-psu-spinorial-lift",
+      "to": "F-IVM",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Finite six-axis icosahedral signed-vector carrier; tetrahedral identification remains open",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "F-IVM",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Explicit separation of cubic O_h IVM and golden icosahedral I_h sectors",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:branch:T148-psu-antitwin-chiral-fluid-gauge",
+      "to": "F-CELL",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Exact two-sheet exchange, conjugate links and conditional chirality lock",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T027-mckay-molien-rumin-bridge",
+      "to": "F-REP",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Exact coefficientwise McKay–Molien multiplicity identity",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T049D-lorentz-chiral-qlg-embedding",
+      "to": "F-REP",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Weyl embeddings and Lorentz representation under declared gamma conventions",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:branch:T147-spinorial-rgs-q6-spin6-dirac-antitwin",
+      "to": "F-REP",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Spin(6) lift distinguished from Spin+(1,3) Lorentz spinors",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T115-rgs-curved-clifford-coframe-identity",
+      "to": "F-SPACETIME",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Pointwise curved Clifford anticommutator for prescribed static coframe; no connection derived",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:branch:T148-psu-antitwin-chiral-fluid-gauge",
+      "to": "F-SPACETIME",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Conditional PSU–Anti-Twin Lorentzian sheet construction; physical timelike-fluid premise open",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "F-SPACETIME",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Conditional Lorentzian algebra; independent Cartan connection and continuum lift open",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T048-rgs-prism-mosco-changing-spaces",
+      "to": "F-ANALYSIS",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Explicit varying-Hilbert-space and Mosco/compactness obligations",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T129-q6-cut-project-purcell-shape-map",
+      "to": "F-DYNAMICS",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "State-dependent SE(2) edge transport for the calibrated Purcell model",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "THM:T027-mckay-molien-rumin-bridge",
+      "to": "F-ARITH",
+      "relation": "record-inspected-family-interface",
+      "status": "reviewed-record-interface-not-proof",
+      "shared_object": "Exact integer representation recurrence and multiplicity coefficients",
+      "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
+      "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
     }
   ]
 }
