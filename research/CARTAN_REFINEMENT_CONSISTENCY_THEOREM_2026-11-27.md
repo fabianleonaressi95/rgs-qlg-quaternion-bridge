@@ -2,7 +2,7 @@
 
 ## Status
 
-**Local consistency result for smooth sampled fields: proved under the hypotheses below.**
+**Status: CONDITIONAL local consistency proposition for smooth sampled fields; the Taylor/Magnus proof is outlined below, while fully expanded coordinate remainder estimates remain to be written before promotion to PROVED.**
 **Convergence of arbitrary discrete fields or of discrete field equations: open.**
 **Physical identification of the Q6/PSU complex with a 4D Lorentzian refinement family: open.**
 
@@ -56,7 +56,7 @@ mathscr T_{f_h}:=2h^{-2}	au_{f_h}.
 ]
 The factor 2 compensates for the parameter-simplex area (1/2); equivalently one may normalize by the actual oriented area and retain the corresponding bivector components.
 
-## 3. Local consistency proposition
+## 3. Local consistency proposition (conditional; proof outline)
 
 **Proposition (smooth-field face consistency).** Under the smoothness and shape-regularity hypotheses above, and with edge data obtained by exact sampling of the same smooth pair ((e,omega)), one has in the base frame
 [
@@ -98,11 +98,12 @@ The implication is a **consistency limit for smooth sampled fields**. It is not 
 
 ## 5. What this result does and does not establish
 
-Established conditionally:
-1. the affine edge variables have the correct local Lorentz gauge covariance;
-2. the face Lorentz logarithm consistently samples curvature;
-3. the face affine translation consistently samples Cartan torsion;
-4. the exact tetrahedral boundary word is compatible with the continuum Cartan Bianchi identities under smooth sampling and refinement.
+Established exactly or conditionally:
+1. the affine edge variables have the stated local Lorentz gauge covariance (finite algebra);
+2. the face Lorentz logarithm and affine translation have the displayed curvature/torsion leading terms under smooth sampling, subject to completing the detailed uniform remainder estimates;
+3. the exact tetrahedral boundary word is a finite identity and is compatible with the continuum Cartan Bianchi identities under smooth sampling/refinement.
+
+The local consistency statement is not promoted to PROVED until the coordinate-level remainder bounds and convention checks are written out in full.
 
 Not established:
 1. existence of a shape-regular 4D Lorentzian refinement family built from the present Q6 incidence data;
