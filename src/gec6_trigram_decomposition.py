@@ -44,16 +44,47 @@ def antipodal_vertex(vertex):
     return vertex ^ 63
 
 
+def _mixed_orbits(group):
+    """Compute mixed-pair orbits from the actual coordinate permutations."""
+    unseen = {(i, j) for i in LOWER for j in UPPER}
+    result = []
+    while unseen:
+        seed = min(unseen)
+        orbit = set()
+        for sigma in group:
+            a, b = sigma[seed[0]], sigma[seed[1]]
+            # The groups passed here preserve the two blocks separately.
+            assert a in LOWER and b in UPPER
+            orbit.add((a, b))
+        result.append(tuple(sorted(orbit)))
+        unseen.difference_update(orbit)
+    return tuple(sorted(result, key=lambda orbit: (len(orbit), orbit)))
+
+
 def mixed_pair_orbits_independent():
-    """Orbits of the 9 mixed pairs under S3(lower) x S3(upper)."""
-    return (tuple((i, j) for i in LOWER for j in UPPER),)
+    """Compute orbits under the full block-preserving S3(lower) x S3(upper)."""
+    group = []
+    for p in permutations(LOWER):
+        for q in permutations(UPPER):
+            sigma = [None] * 6
+            for i, image in zip(LOWER, p):
+                sigma[i] = image
+            for i, image in zip(UPPER, q):
+                sigma[i] = image
+            group.append(tuple(sigma))
+    return _mixed_orbits(group)
 
 
 def mixed_pair_orbits_diagonal():
-    """Orbits under the diagonal S3 after identifying i <-> i+3."""
-    matched = tuple((i, i + 3) for i in LOWER)
-    unmatched = tuple((i, j + 3) for i in LOWER for j in LOWER if i != j)
-    return matched, unmatched
+    """Compute orbits under diagonal S3 after identifying i <-> i+3."""
+    group = []
+    for p in permutations(LOWER):
+        sigma = [None] * 6
+        for i, image in zip(LOWER, p):
+            sigma[i] = image
+            sigma[i + 3] = image + 3
+        group.append(tuple(sigma))
+    return _mixed_orbits(group)
 
 
 def audit():
