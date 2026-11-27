@@ -1,19 +1,20 @@
 {
-  "schema": "unified-two-repository-theorem-graph/v2",
+  "schema": "unified-two-repository-theorem-graph/v3",
   "repositories": [
     "fabianleonaressi95/theorem",
     "fabianleonaressi95/rgs-qlg-quaternion-bridge"
   ],
   "coverage": {
-    "theorem_markdown_records": 239,
+    "theorem_markdown_records": 285,
     "companion_catalogue_entries": 14,
     "topic_hubs": 8,
     "verified_or_reviewed_direct_edges": 54,
-    "classification_edges": 239,
+    "classification_edges": 338,
     "hub_to_companion_edges": 30,
-    "note": "All 239 theorem files in the 24-November-2026 tree snapshot are nodes. Each has a provisional thematic-index edge; that edge is not a proof dependency. Direct edges are explicitly typed and carry caveats. Three TSMR records were added in the 24-November reconciliation.",
-    "total_nodes": 292,
-    "total_edges": 323
+    "note": "Reconciled 27-Nov-2026 live primary tree (284 theorem Markdown records) plus the open-branch T161 proposal and 51 formal suite records. Filename/range-derived topic edges are navigational only, not proof dependencies. Existing reviewed direct crosswalk edges are preserved unchanged.",
+    "total_nodes": 389,
+    "total_edges": 422,
+    "companion_formal_suite_records": 51
   },
   "nodes": [
     {
@@ -2143,6 +2144,828 @@
       "repository": "fabianleonaressi95/theorem",
       "path": "theorems/TSMR-F_multifractal_morphological_equation.md",
       "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "THM:CYM-T001-courant-nodal-domain-bound",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/CYM-T001-courant-nodal-domain-bound.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "CYM-T001-courant-nodal-domain-bound"
+    },
+    {
+      "id": "THM:EQC-RGS-Q6-gate-realization",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-RGS-Q6-gate-realization.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "EQC-RGS-Q6-gate-realization"
+    },
+    {
+      "id": "THM:EQC-RGS-Q6-minimal-gates",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/EQC-RGS-Q6-minimal-gates.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "EQC-RGS-Q6-minimal-gates"
+    },
+    {
+      "id": "THM:FACTOR_HALF_ORIGINS_LIOUVILLE_LITERATURE_2026-11-24",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/FACTOR_HALF_ORIGINS_LIOUVILLE_LITERATURE_2026-11-24.md",
+      "topic_hub": "H-D5",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "FACTOR_HALF_ORIGINS_LIOUVILLE_LITERATURE_2026-11-24"
+    },
+    {
+      "id": "THM:MQ-T002-four-valent-spin-half-intertwiner-dimension",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQ-T002-four-valent-spin-half-intertwiner-dimension.md",
+      "topic_hub": "H-SPECTRAL",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "MQ-T002-four-valent-spin-half-intertwiner-dimension"
+    },
+    {
+      "id": "THM:MQ-T003-invariant-one-link-gluing",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQ-T003-invariant-one-link-gluing.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "MQ-T003-invariant-one-link-gluing"
+    },
+    {
+      "id": "THM:MQ-T005-rgs-tetrahedron-classical-flux-closure",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQ-T005-rgs-tetrahedron-classical-flux-closure.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "MQ-T005-rgs-tetrahedron-classical-flux-closure"
+    },
+    {
+      "id": "THM:MQM2-dynamical-rgs-q6-symmetry",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/MQM2-dynamical-rgs-q6-symmetry.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "MQM2-dynamical-rgs-q6-symmetry"
+    },
+    {
+      "id": "THM:RGS_HALF_SCALE_CARRIER_PROPOSITION_2026-11-24",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/RGS_HALF_SCALE_CARRIER_PROPOSITION_2026-11-24.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "RGS_HALF_SCALE_CARRIER_PROPOSITION_2026-11-24"
+    },
+    {
+      "id": "THM:T-BIANCHI",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T-BIANCHI.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T-BIANCHI"
+    },
+    {
+      "id": "THM:T-DEC-SE3",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T-DEC-SE3.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T-DEC-SE3"
+    },
+    {
+      "id": "THM:T-DEWIT",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T-DEWIT.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T-DEWIT"
+    },
+    {
+      "id": "THM:T-H2-DISLOC",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T-H2-DISLOC.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T-H2-DISLOC"
+    },
+    {
+      "id": "THM:T070-oriented-circumcentric-dual-spherical-icosphere",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T070-oriented-circumcentric-dual-spherical-icosphere.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T070-oriented-circumcentric-dual-spherical-icosphere"
+    },
+    {
+      "id": "THM:T071-angular-dec-consistency-proof-obligations",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T071-angular-dec-consistency-proof-obligations.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T071-angular-dec-consistency-proof-obligations"
+    },
+    {
+      "id": "THM:T071-conditional-angular-dec-consistency-ellis-icosphere",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T071-conditional-angular-dec-consistency-ellis-icosphere.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T071-conditional-angular-dec-consistency-ellis-icosphere"
+    },
+    {
+      "id": "THM:T113H-metric-variation-control-suite",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113H-metric-variation-control-suite.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T113H-metric-variation-control-suite"
+    },
+    {
+      "id": "THM:T113I-ekn-solid-nonlinear-tail-and-mass",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T113I-ekn-solid-nonlinear-tail-and-mass.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T113I-ekn-solid-nonlinear-tail-and-mass"
+    },
+    {
+      "id": "THM:T124-mixed-tensor-product-3x3prime",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T124-mixed-tensor-product-3x3prime.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T124-mixed-tensor-product-3x3prime"
+    },
+    {
+      "id": "THM:T144-2i-molien-cumulative-hilbert-odd-degree-correspondence",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T144-2i-molien-cumulative-hilbert-odd-degree-correspondence.md",
+      "topic_hub": "H-SPECTRAL",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T144-2i-molien-cumulative-hilbert-odd-degree-correspondence"
+    },
+    {
+      "id": "THM:T145-square-reflection-prism-biverse-rgs-carrier",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T145-square-reflection-prism-biverse-rgs-carrier.md",
+      "topic_hub": "H-PRISM",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T145-square-reflection-prism-biverse-rgs-carrier"
+    },
+    {
+      "id": "THM:T146-dodecahedral-dual-q6-barycentre-spectral-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T146-dodecahedral-dual-q6-barycentre-spectral-audit.md",
+      "topic_hub": "H-SPECTRAL",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T146-dodecahedral-dual-q6-barycentre-spectral-audit"
+    },
+    {
+      "id": "THM:T147-golden-tangential-spectrum-fibonacci-period-two",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T147-golden-tangential-spectrum-fibonacci-period-two.md",
+      "topic_hub": "H-PRISM",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T147-golden-tangential-spectrum-fibonacci-period-two"
+    },
+    {
+      "id": "THM:T148-elliptic-order-three-fibonacci-period-two-singularity",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T148-elliptic-order-three-fibonacci-period-two-singularity.md",
+      "topic_hub": "H-PRISM",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T148-elliptic-order-three-fibonacci-period-two-singularity"
+    },
+    {
+      "id": "THM:T149-supergolden-dodecahedral-whitney-hodge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T149-supergolden-dodecahedral-whitney-hodge.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T149-supergolden-dodecahedral-whitney-hodge"
+    },
+    {
+      "id": "THM:T149-symmetric-fibonacci-fricke-period-three-period-six-orbits",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T149-symmetric-fibonacci-fricke-period-three-period-six-orbits.md",
+      "topic_hub": "H-PRISM",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T149-symmetric-fibonacci-fricke-period-three-period-six-orbits"
+    },
+    {
+      "id": "THM:T150-d6-fibonacci-hexagram-antipodal-two-sheet-correspondence",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T150-d6-fibonacci-hexagram-antipodal-two-sheet-correspondence.md",
+      "topic_hub": "H-PRISM",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T150-d6-fibonacci-hexagram-antipodal-two-sheet-correspondence"
+    },
+    {
+      "id": "THM:T151-spectral-expectation-weights-state-selection",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T151-spectral-expectation-weights-state-selection.md",
+      "topic_hub": "H-SPECTRAL",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T151-spectral-expectation-weights-state-selection"
+    },
+    {
+      "id": "THM:T152-mckay-ade-calabi-yau-crepant-resolutions",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T152-mckay-ade-calabi-yau-crepant-resolutions.md",
+      "topic_hub": "H-SPECTRAL",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T152-mckay-ade-calabi-yau-crepant-resolutions"
+    },
+    {
+      "id": "THM:T153-pyramid-cuboctahedron-rhombic-dodecahedron-j-complex-connection",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T153-pyramid-cuboctahedron-rhombic-dodecahedron-j-complex-connection.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T153-pyramid-cuboctahedron-rhombic-dodecahedron-j-complex-connection"
+    },
+    {
+      "id": "THM:T154-in2infinity-extended-jitterbug-audit",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T154-in2infinity-extended-jitterbug-audit.md",
+      "topic_hub": "H-SPECTRAL",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T154-in2infinity-extended-jitterbug-audit"
+    },
+    {
+      "id": "THM:T154-rgs-spatial-coframe-constraint-splitting",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T154-rgs-spatial-coframe-constraint-splitting.md",
+      "topic_hub": "H-RGS",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T154-rgs-spatial-coframe-constraint-splitting"
+    },
+    {
+      "id": "THM:T155-dodecahedral-gauss-map-levi-civita-hodge",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T155-dodecahedral-gauss-map-levi-civita-hodge.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T155-dodecahedral-gauss-map-levi-civita-hodge"
+    },
+    {
+      "id": "THM:T155-rhombic-cuboctahedron-snub-cube-transition",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T155-rhombic-cuboctahedron-snub-cube-transition.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T155-rhombic-cuboctahedron-snub-cube-transition"
+    },
+    {
+      "id": "THM:T156-rhombicuboctahedron-snub-cube-incidence",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T156-rhombicuboctahedron-snub-cube-incidence.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T156-rhombicuboctahedron-snub-cube-incidence"
+    },
+    {
+      "id": "THM:T156-vesica-mobius-elastic-farey-half",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T156-vesica-mobius-elastic-farey-half.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T156-vesica-mobius-elastic-farey-half"
+    },
+    {
+      "id": "THM:T157-full-covariant-whitney-curvature",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T157-full-covariant-whitney-curvature.md",
+      "topic_hub": "H-Q6",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T157-full-covariant-whitney-curvature"
+    },
+    {
+      "id": "THM:T157-vertex-fixed-metric-obstruction-jitterbug",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T157-vertex-fixed-metric-obstruction-jitterbug.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T157-vertex-fixed-metric-obstruction-jitterbug"
+    },
+    {
+      "id": "THM:T158-interior-pullback-covariant-whitney",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T158-interior-pullback-covariant-whitney.md",
+      "topic_hub": "H-Q6",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T158-interior-pullback-covariant-whitney"
+    },
+    {
+      "id": "THM:T158-standard-snub-cube-twist-angle",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T158-standard-snub-cube-twist-angle.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T158-standard-snub-cube-twist-angle"
+    },
+    {
+      "id": "THM:T159-curved-feec-mesh-refinement",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T159-curved-feec-mesh-refinement.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T159-curved-feec-mesh-refinement"
+    },
+    {
+      "id": "THM:T159-vertex-fixed-metric-obstruction-jitterbug",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T159-vertex-fixed-metric-obstruction-jitterbug.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T159-vertex-fixed-metric-obstruction-jitterbug"
+    },
+    {
+      "id": "THM:T160-standard-snub-cube-twist-angle",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/T160-standard-snub-cube-twist-angle.md",
+      "topic_hub": "H-VESICA",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "T160-standard-snub-cube-twist-angle"
+    },
+    {
+      "id": "THM:TSMR-H_half_balance_fractal_pentagon",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/TSMR-H_half_balance_fractal_pentagon.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "TSMR-H_half_balance_fractal_pentagon"
+    },
+    {
+      "id": "THM:TSMR-I_singular_cumulative_pentagonal_lift",
+      "kind": "theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "path": "theorems/TSMR-I_singular_cumulative_pentagonal_lift.md",
+      "topic_hub": "H-OTHER",
+      "inventory_snapshot": "2026-11-27-main",
+      "record_key": "TSMR-I_singular_cumulative_pentagonal_lift"
+    },
+    {
+      "id": "SUITE:S01",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S01",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S02",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S02",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S03",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S03",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S04",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S04",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S05",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S05",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "SUITE:S06",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S06",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "SUITE:S07",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S07",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "SUITE:S08",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S08",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "SUITE:S09",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S09",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "SUITE:S10",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S10",
+      "topic_hub": "H-Q6"
+    },
+    {
+      "id": "SUITE:S11",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S11",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S12",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S12",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S13",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S13",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S14",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S14",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S15",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S15",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S16",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S16",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S17",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S17",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S18",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S18",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S19",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S19",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S20",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S20",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S21",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S21",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S22",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S22",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S23",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S23",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S24",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S24",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S25",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S25",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S26",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S26",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S27",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S27",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S28",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S28",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S29",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S29",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S30",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S30",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S31",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S31",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S32",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S32",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S33",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S33",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S34",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S34",
+      "topic_hub": "H-PRISM"
+    },
+    {
+      "id": "SUITE:S35",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S35",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "SUITE:S36",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S36",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "SUITE:S37",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S37",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "SUITE:S38",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S38",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "SUITE:S39",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S39",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "SUITE:S40",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S40",
+      "topic_hub": "H-D5"
+    },
+    {
+      "id": "SUITE:S41",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S41",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S42",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S42",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S43",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S43",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S44",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S44",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S45",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S45",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S46",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S46",
+      "topic_hub": "H-RGS"
+    },
+    {
+      "id": "SUITE:S47",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S47",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S48",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S48",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S49",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S49",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S50",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S50",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "SUITE:S51",
+      "kind": "formal-suite-record",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md",
+      "record_id": "S51",
+      "topic_hub": "H-SPECTRAL"
+    },
+    {
+      "id": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "kind": "proposed-theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "repository_branch": "rgs-q6-antitwin-spacetime-bridge",
+      "path": "theorems/T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift.md",
+      "title": "Q6–IVM–rhombic triacontahedron Lorentzian spin lift",
+      "status": "candidate/open interfaces"
     }
   ],
   "edges": [
@@ -4406,6 +5229,699 @@
       "relation": "thematic-index-classification",
       "status": "provisional",
       "caveat": "Topic assignment is provisional. This is a thematic index edge, not a proof dependency; inspect the full record and its assumptions before adding direct mathematical edges."
+    },
+    {
+      "from": "THM:CYM-T001-courant-nodal-domain-bound",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-RGS-Q6-gate-realization",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:EQC-RGS-Q6-minimal-gates",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:FACTOR_HALF_ORIGINS_LIOUVILLE_LITERATURE_2026-11-24",
+      "to": "H-D5",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQ-T002-four-valent-spin-half-intertwiner-dimension",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQ-T003-invariant-one-link-gluing",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQ-T005-rgs-tetrahedron-classical-flux-closure",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:MQM2-dynamical-rgs-q6-symmetry",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:RGS_HALF_SCALE_CARRIER_PROPOSITION_2026-11-24",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T-BIANCHI",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T-DEC-SE3",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T-DEWIT",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T-H2-DISLOC",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T070-oriented-circumcentric-dual-spherical-icosphere",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T071-angular-dec-consistency-proof-obligations",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T071-conditional-angular-dec-consistency-ellis-icosphere",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113H-metric-variation-control-suite",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T113I-ekn-solid-nonlinear-tail-and-mass",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T124-mixed-tensor-product-3x3prime",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T144-2i-molien-cumulative-hilbert-odd-degree-correspondence",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T145-square-reflection-prism-biverse-rgs-carrier",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T146-dodecahedral-dual-q6-barycentre-spectral-audit",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T147-golden-tangential-spectrum-fibonacci-period-two",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T148-elliptic-order-three-fibonacci-period-two-singularity",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T149-supergolden-dodecahedral-whitney-hodge",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T149-symmetric-fibonacci-fricke-period-three-period-six-orbits",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T150-d6-fibonacci-hexagram-antipodal-two-sheet-correspondence",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T151-spectral-expectation-weights-state-selection",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T152-mckay-ade-calabi-yau-crepant-resolutions",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T153-pyramid-cuboctahedron-rhombic-dodecahedron-j-complex-connection",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T154-in2infinity-extended-jitterbug-audit",
+      "to": "H-SPECTRAL",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T154-rgs-spatial-coframe-constraint-splitting",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T155-dodecahedral-gauss-map-levi-civita-hodge",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T155-rhombic-cuboctahedron-snub-cube-transition",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T156-rhombicuboctahedron-snub-cube-incidence",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T156-vesica-mobius-elastic-farey-half",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T157-full-covariant-whitney-curvature",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T157-vertex-fixed-metric-obstruction-jitterbug",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T158-interior-pullback-covariant-whitney",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T158-standard-snub-cube-twist-angle",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T159-curved-feec-mesh-refinement",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T159-vertex-fixed-metric-obstruction-jitterbug",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:T160-standard-snub-cube-twist-angle",
+      "to": "H-VESICA",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:TSMR-H_half_balance_fractal_pentagon",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "THM:TSMR-I_singular_cumulative_pentagonal_lift",
+      "to": "H-OTHER",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "Newly inventoried from the 27-Nov-2026 live tree. Filename-based topic only; not a proof dependency. Inspect the theorem body before upgrading."
+    },
+    {
+      "from": "SUITE:S01",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S02",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S03",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S04",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S05",
+      "to": "H-Q6",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S06",
+      "to": "H-Q6",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S07",
+      "to": "H-Q6",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S08",
+      "to": "H-Q6",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S09",
+      "to": "H-Q6",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S10",
+      "to": "H-Q6",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S11",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S12",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S13",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S14",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S15",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S16",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S17",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S18",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S19",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S20",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S21",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S22",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S23",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S24",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S25",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S26",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S27",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S28",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S29",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S30",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S31",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S32",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S33",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S34",
+      "to": "H-PRISM",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S35",
+      "to": "H-D5",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S36",
+      "to": "H-D5",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S37",
+      "to": "H-D5",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S38",
+      "to": "H-D5",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S39",
+      "to": "H-D5",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S40",
+      "to": "H-D5",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S41",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S42",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S43",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S44",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S45",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S46",
+      "to": "H-RGS",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S47",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S48",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S49",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S50",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "SUITE:S51",
+      "to": "H-SPECTRAL",
+      "relation": "formal-suite-topic-classification",
+      "status": "provisional",
+      "caveat": "Range-based navigation label from the 51-step register; not a proof dependency. Verify exact content before adding direct mathematical edges."
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "H-Q6",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "T161 is on the open primary-repository PR branch. Hub links are navigational; the IVM map, physical Lorentzian lift and continuum spin limit remain open."
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "H-PRISM",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "T161 is on the open primary-repository PR branch. Hub links are navigational; the IVM map, physical Lorentzian lift and continuum spin limit remain open."
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "H-RGS",
+      "relation": "thematic-index-classification",
+      "status": "provisional",
+      "caveat": "T161 is on the open primary-repository PR branch. Hub links are navigational; the IVM map, physical Lorentzian lift and continuum spin limit remain open."
     }
   ]
 }
