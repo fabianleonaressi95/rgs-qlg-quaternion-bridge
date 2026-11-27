@@ -65,12 +65,12 @@ def _image_matching(matching, permutation):
     return tuple(sorted(_image_pair(pair, permutation) for pair in matching))
 
 
-def _orbit_decomposition(items, permutations_only):
+def _orbit_decomposition(items, permutations_only, image):
     unseen = set(items)
     orbits = []
     while unseen:
         seed = min(unseen)
-        orbit = {_image_item(seed, p) for p in permutations_only}
+        orbit = {image(seed, p) for p in permutations_only}
         orbits.append(tuple(sorted(orbit)))
         unseen.difference_update(orbit)
     return tuple(sorted(orbits, key=lambda orbit: (len(orbit), orbit)))
@@ -92,13 +92,15 @@ def audit_icosahedral_matching_orbits():
     partitions = _all_partitions()
     matchings = tuple(_all_matchings())
 
-    global _image_item
-    _image_item = _image_pair
-    pair_orbits = _orbit_decomposition(pairs, permutations_only)
-    _image_item = _image_partition
-    partition_orbits = _orbit_decomposition(partitions, permutations_only)
-    _image_item = _image_matching
-    matching_orbits = _orbit_decomposition(matchings, permutations_only)
+    if len(set(permutations_only)) != 60:
+        raise ArithmeticError("permutation projection is not faithful on the six axes")
+    pair_orbits = _orbit_decomposition(pairs, permutations_only, _image_pair)
+    partition_orbits = _orbit_decomposition(
+        partitions, permutations_only, _image_partition
+    )
+    matching_orbits = _orbit_decomposition(
+        matchings, permutations_only, _image_matching
+    )
 
     c6 = np.asarray(build_icosahedral_c6()["C6"], dtype=float)
     c6_integer = np.rint(c6).astype(int)
