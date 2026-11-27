@@ -7,6 +7,7 @@ from scripts.discrete_cartan_core import (
     gauge_transform,
     lorentz_boost_x,
     minkowski_metric,
+    tetrahedron_boundary_bianchi,
 )
 
 
@@ -99,3 +100,40 @@ def test_curved_holonomy_can_be_paired_with_zero_face_closure():
     T = face_torsion((0, 1, 2), links, coframes)
     assert not np.allclose(H, np.eye(4))
     assert np.allclose(T, 0.0, atol=1e-12)
+
+
+
+def lorentz_boost_y(rapidity):
+    c = float(np.cosh(rapidity))
+    s = float(np.sinh(rapidity))
+    return np.array(
+        [[c, 0.0, s, 0.0],
+         [0.0, 1.0, 0.0, 0.0],
+         [s, 0.0, c, 0.0],
+         [0.0, 0.0, 0.0, 1.0]],
+        dtype=float,
+    )
+
+
+def test_tetrahedron_affine_boundary_bianchi_identity():
+    # Store all six positively oriented edges of the tetrahedron.
+    # Noncommuting boosts ensure the test is not restricted to an Abelian subgroup.
+    links = {
+        (0, 1): lorentz_boost_x(0.17),
+        (0, 2): lorentz_boost_y(-0.23),
+        (0, 3): lorentz_boost_x(-0.11) @ lorentz_boost_y(0.19),
+        (1, 2): lorentz_boost_y(0.31) @ lorentz_boost_x(-0.07),
+        (1, 3): lorentz_boost_x(0.13) @ lorentz_boost_y(-0.29),
+        (2, 3): lorentz_boost_y(0.09) @ lorentz_boost_x(0.21),
+    }
+    rng = np.random.default_rng(20261127)
+    coframes = {
+        edge: rng.normal(size=4)
+        for edge in links
+    }
+
+    result = tetrahedron_boundary_bianchi(links, coframes, atol=2e-10)
+    assert result["curvature_norm"] < 2e-10
+    assert result["torsion_norm"] < 2e-10
+    assert result["expanded_torsion_norm"] < 2e-10
+    assert result["passed"] == 1.0
