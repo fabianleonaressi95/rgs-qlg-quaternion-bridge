@@ -1,5 +1,5 @@
 {
-  "schema": "unified-two-repository-theorem-graph/v3",
+  "schema": "unified-two-repository-theorem-graph/v4",
   "repositories": [
     "fabianleonaressi95/theorem",
     "fabianleonaressi95/rgs-qlg-quaternion-bridge"
@@ -11,7 +11,7 @@
     "verified_or_reviewed_direct_edges": 54,
     "classification_edges": 338,
     "hub_to_companion_edges": 30,
-    "note": "284 main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), all 51 formal suite records, and 306 unique dependency declarations from the primary generated register added as explicitly unreviewed/provisional edges. The register covers only 280 of the 284 main theorem files; 4 T157–T160 records are absent. A further 101 dependency tokens are ambiguous because of duplicate display IDs, and 3 do not resolve. Six direct T161 interface edges remain separately reviewed and caveated. The original 54 reviewed direct crosswalk arrows are preserved.",
+    "note": "284 primary main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), all 51 formal suite records, and 306 unique dependency declarations from the primary generated register added as explicitly unreviewed/provisional edges. The register covers only 280 of the 284 main theorem files; four T157–T160 records are absent. A further 101 dependency tokens are ambiguous because of duplicate display IDs, and three do not resolve. Six direct T161 interface edges remain separately reviewed and caveated. The original 54 reviewed direct crosswalk arrows are preserved.",
     "total_nodes": 393,
     "total_edges": 734,
     "companion_formal_suite_records": 51,
