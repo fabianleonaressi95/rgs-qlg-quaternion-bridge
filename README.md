@@ -151,3 +151,8 @@ This repository contains source code, focused mathematical specifications, tests
 The finite algebraic core is implemented in [scripts/discrete_cartan_core.py](scripts/discrete_cartan_core.py), with covariance and closure tests in [tests/test_discrete_cartan_core.py](tests/test_discrete_cartan_core.py). These are local finite-complex checks only; no Bianchi or continuum-limit claim is made.
 
 The Cartan prototype now also implements the exact affine Poincare boundary identity on a tetrahedral 3-cell (`tetrahedron_boundary_bianchi`) and tests it on all five tetrahedral facets of a 4-simplex. This is a finite combinatorial identity, not a continuum Bianchi/convergence theorem.
+
+
+## Cartan refinement and local continuum consistency
+
+- [Cartan refinement consistency theorem and continuum-limit gates](research/CARTAN_REFINEMENT_CONSISTENCY_THEOREM_2026-11-27.md) — under a specified smooth 4D Lorentzian coframe and independent connection sampled on a shape-regular refinement family, the affine face holonomy and translational closure have leading terms given by curvature and Cartan torsion. This proves local consistency for smooth sampled fields only. Convergence of arbitrary discrete fields/solutions, a Q6-derived 4D mesh, a discrete action and the Lorentzian spinorial limit remain open.
