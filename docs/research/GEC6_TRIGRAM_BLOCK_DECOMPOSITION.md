@@ -105,3 +105,6 @@ PYTHONPATH=. python examples/gec6_trigram_decomposition_audit.py
 ## 7. Icosahedral selection of a matching family
 
 The existing six-axis icosahedral representation distinguishes a five-element orbit of perfect matchings from a ten-element orbit. The diagonal lower-to-upper matching belongs to the five-element orbit, but each 3+3 partition admits two special cross-matchings, interchanged by its six-element A5 stabilizer. The full signed A5 action does not descend to the GEC-6 contraction quotient: only six of its 60 elements preserve `ker(c)`, exactly the selected block-partition stabilizer. See [the full orbit and compatibility audit](GEC6_ICOSAHEDRAL_MATCHING_ORBITS.md).
+
+
+The distinguished five-element matching orbit has five distinct stabilizers of order 12, each with element-order profile 1 identity, 3 elements of order 2 and 8 of order 3; these are the five (A_4) subgroups of (A_5). A generic matching has stabilizer order 6. This gives the five special matchings a group-theoretic tetrahedral interpretation, but still does not select one matching from the family. See [the full orbit and compatibility audit](GEC6_ICOSAHEDRAL_MATCHING_ORBITS.md).
