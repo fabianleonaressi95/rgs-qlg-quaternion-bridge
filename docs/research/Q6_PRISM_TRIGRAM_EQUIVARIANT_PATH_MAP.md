@@ -4,11 +4,11 @@
 
 ## 1. I-Ching bit convention and symmetry
 
-Write a Q6 vertex as (v=(ell,u)in{0,1}^3\times\{0,1}^3), where bits (0,1,2) are the lower trigram and bits (3,4,5) are the upper trigram. The source symmetry used here is
+Write a Q6 vertex as (v=(\ell,u)\in\{0,1\}^3\times\{0,1\}^3), where bits (0,1,2) are the lower trigram and bits (3,4,5) are the upper trigram. The source symmetry used here is
 
-[
+\[
 H=S_3^{\mathrm{lower}}\times S_3^{\mathrm{upper}},
-]
+\]
 
 the independent permutations of the three line positions within each trigram. The target action permutes the three equal (C_6) factors according to (S_3^{\mathrm{lower}}) and fixes the (C_{64}) and (C_5) factors; (S_3^{\mathrm{upper}}) acts trivially on the target.
 
@@ -16,16 +16,16 @@ This is a nontrivial I-Ching block symmetry, but it is not the full hyperoctahed
 
 ## 2. Edge-path assignment
 
-Let (k=|u|) be the Hamming weight of the upper trigram. All 64 source vertices map to the PRISM basepoint (p=(0,0,0,0,0)). Orient each source edge positively from bit (d=0) to bit (d=1).
+Let (k=|u|\in\{0,1,2,3\}) be the Hamming weight of the upper trigram. All 64 source vertices map to the PRISM basepoint (p=(0,0,0,0,0)). Orient each source edge positively from bit (d=0) to bit (d=1).
 
 For a source edge in lower-trigram direction (d\in\{0,1,2\}), assign a based target loop with winding vector, in factor order ((C_{64},C_6^{(0)},C_6^{(1)},C_6^{(2)},C_5)),
 
-[
+\[
 w_d(k)=
 \bigl(\mathbf1_{k\ge2},\;k\,\delta_{0d},\;k\,\delta_{1d},\;k\,\delta_{2d},\;\mathbf1_{k=3}\bigr).
-]
+\]
 
-The loop traverses each indicated factor positively the prescribed integer number of times, in the fixed order (C_6^{(d)}), (C_{64}), (C_5). For edges in upper-trigram directions (3,4,5), use the constant path. Reverse-oriented edges use the reversed path. Each edge path starts and ends at (p), so the assignment defines a continuous map from the entire source graph.
+The loop traverses the indicated factors positively, in the fixed order (C_{64}), (C_6^{(d)}), (C_5), with the prescribed number of full turns. For edges in upper-trigram directions (3,4,5), use the constant path. Reverse-oriented edges use the reversed path. Each edge path starts and ends at (p), so the assignment defines a continuous map from the entire source graph.
 
 The assignment depends only on the upper-trigram Hamming weight and the distinguished lower direction. Therefore it is equivariant under (S_3^{\mathrm{lower}}\times S_3^{\mathrm{upper}}) with the stated target action.
 
@@ -33,29 +33,29 @@ The assignment depends only on the upper-trigram Hamming weight and the distingu
 
 For a mixed square in lower direction (d) and upper direction (j), with the other two upper bits having weight (k\in\{0,1,2\}), orient the boundary as lower edge, upper edge, reversed lower edge, reversed upper edge. Its target winding is
 
-[
+\[
 q_{d,k}=
 \bigl(\mathbf1_{k\ge2}-\mathbf1_{k+1\ge2},\;
 -\delta_{0d},-\delta_{1d},-\delta_{2d},\;
 \mathbf1_{k=3}-\mathbf1_{k+1=3}\bigr).
-]
+\]
 
 In particular, the five source squares with ((d,k)=(0,0),(1,0),(2,0),(0,1),(0,2)) map respectively to
 
-[
+\[
 -e_{C_6^{(0)}},\
 -e_{C_6^{(1)}},\
 -e_{C_6^{(2)}},\
 -e_{C_{64}}-e_{C_6^{(0)}},\
 -e_{C_5}-e_{C_6^{(0)}}.
-]
+\]
 
 These five vectors form an integral basis of (mathbb Z^5): the corresponding (5\times5) minor has determinant (\pm1). Since each is the image of an actual Q6 graph cycle, the induced homomorphism
 
-[
+\[
 H_1(Q_6^{(1)};\mathbb Z)\cong\mathbb Z^{129}
 \longrightarrow H_1(P;\mathbb Z)\cong\mathbb Z^5
-]
+\]
 
 is surjective over the integers, not merely of rank five over the rationals.
 
