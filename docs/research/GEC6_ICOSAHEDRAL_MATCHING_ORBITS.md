@@ -144,3 +144,16 @@ A5-equivariant quotient map is constructed.
 PYTHONPATH=. python -m pytest tests/test_gec6_icosahedral_matching_orbits.py -q
 PYTHONPATH=. python -m src.gec6_icosahedral_matching_orbits
 ```
+
+
+The five special matchings have five **distinct** stabilizers. Each stabilizer
+has order 12 and element-order profile
+\[
+1\text{ identity},\quad 3\text{ elements of order }2,\quad
+8\text{ elements of order }3,
+\]
+so each is isomorphic to (A_4). Thus the five-element matching orbit is
+naturally indexed by the five conjugate tetrahedral (A_4) subgroups of
+(A_5). A generic matching has stabilizer order 6. This gives the five-orbit
+a concrete group-theoretic interpretation, without selecting one of its
+five members.
