@@ -16,6 +16,12 @@ def test_c6_tensor_selects_the_five_matching_orbit_not_one_matching():
     assert result["C6_product_classes_equal_A5_matching_orbits"]
     assert result["diagonal_matching_in_special_orbit"]
     assert result["diagonal_matching_orbit_size"] == 5
+    assert result["special_matching_stabilizer_orders"] == [12]
+    assert result["distinct_special_matching_stabilizers"] == 5
+    assert result["special_matching_stabilizer_element_order_profiles"] == [
+        {"1": 1, "2": 3, "3": 8}
+    ] * 5
+    assert result["generic_matching_stabilizer_orders"] == [6]
 
 
 def test_each_trigram_partition_has_two_special_cross_matchings():
