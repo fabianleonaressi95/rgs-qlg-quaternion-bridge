@@ -11,7 +11,7 @@ This repository develops finite mathematical constructions and computational aud
 The 51-step sequence formerly expanded in this README is now maintained as a dedicated mathematical register:
 
 - **[Integrated mathematical suite — 51 formal records](docs/INTEGRATED_MATHEMATICAL_SUITE_FORMALIZATION_2026-11-25.md)** — definitions, precise claims, evidence status, dependencies and proof obligations for every step from quaternionic foundations through Q6, RGS/FEM, qutrit networks, Kathara, Q6–PRISM, A5/De Aquino, shear/Green–Kubo and Pellis.
-- [51-step evidence and implementation matrix](docs/51_STEP_EVIDENCE_MATRIX_2026-11-26.md) — source/test/result traceability and outstanding proof obligations.
+- [51-step evidence and implementation matrix](docs/51_STEP_EVIDENCE_MATRIX_2026-11-26.md) — source/test/result traceability and outstanding proof obligations. Post-snapshot supplements for merged PRs #233–#234 are recorded at the end of that matrix.
 - [Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md) and [machine-readable edge registry](docs/UNIFIED_THEOREM_EDGES.json).
 - [Master catalogue of laws and theorems](docs/MASTER_CATALOGUE_LAWS_THEOREMS.md), [Phase 6–10 addendum](docs/MASTER_CATALOGUE_PHASE6_10_ADDENDUM.md) and [machine-readable catalogue](results/catalogue/laws_theorems_registry.json).
 - [27-chapter programme crosswalk](https://github.com/fabianleonaressi95/theorem/blob/main/research/UNIFIED_PROGRAM_27_CHAPTER_CROSSWALK_2026-11-24.md).
