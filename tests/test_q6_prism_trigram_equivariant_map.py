@@ -1,7 +1,5 @@
-from itertools import permutations
-
 from src.q6_prism_trigram_equivariant_map import (
-    BASE, LENGTHS, audit, edge_path, edge_winding, q6_edges,
+    BASE, LENGTHS, audit, determinant, edge_path, q6_edges,
     selected_unimodular_square_images, square_winding, symmetry_audit,
 )
 
@@ -21,7 +19,6 @@ def test_q6_edge_counts_and_based_path_assignment():
 
 
 def test_five_square_images_are_unimodular():
-    import sympy as sp
     columns = selected_unimodular_square_images()
     assert columns == [
         (0, -1, 0, 0, 0),
@@ -30,8 +27,8 @@ def test_five_square_images_are_unimodular():
         (-1, -1, 0, 0, 0),
         (0, -1, 0, 0, -1),
     ]
-    matrix = sp.Matrix.hstack(*(sp.Matrix(c) for c in columns))
-    assert abs(int(matrix.det())) == 1
+    matrix = [[columns[col][row] for col in range(5)] for row in range(5)]
+    assert abs(determinant(matrix)) == 1
 
 
 def test_square_winding_formula_for_all_upper_weights():
