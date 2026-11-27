@@ -121,3 +121,6 @@ Status labels:
 
 The precise modules and callable functions used for a benchmark must be identified by repository commit SHA and recorded in its provenance manifest.
 This repository contains source code, focused mathematical specifications, tests and reproducible finite audits. The programme-wide theorem register and cross-project proof architecture are maintained in [THEOREM](https://github.com/fabianleonaressi95/theorem).
+
+
+The nine mixed directions form a single orbit under independent lower/upper relabellings \(S_3\times S_3\). A 3+6 “matched/unmatched” split exists only after choosing a lower-to-upper coordinate matching and restricting to diagonal \(S_3\); it is not intrinsic to the full block symmetry. See the orbit-classification section in the dossier and the extended audit.
