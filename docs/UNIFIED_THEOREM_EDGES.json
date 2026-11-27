@@ -11,11 +11,11 @@
     "verified_or_reviewed_direct_edges": 54,
     "classification_edges": 338,
     "hub_to_companion_edges": 30,
-    "note": "Reconciled 27-Nov-2026 live primary main tree (284 theorem Markdown records), plus one proposed T161 record on the open primary PR branch and all 51 formal suite records. Filename/range-derived topic edges are navigational only, not proof dependencies. Existing reviewed direct crosswalk edges are preserved unchanged.",
-    "total_nodes": 389,
-    "total_edges": 422,
+    "note": "284 main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), and all 51 formal suite records. Six direct T161 interface edges are now recorded with explicit shared objects and caveats. Other new filename/range classifications remain provisional; the original 54 reviewed edges are preserved.",
+    "total_nodes": 393,
+    "total_edges": 428,
     "companion_formal_suite_records": 51,
-    "proposed_theorem_records": 1
+    "proposed_theorem_records": 5
   },
   "nodes": [
     {
@@ -2967,6 +2967,46 @@
       "path": "theorems/T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift.md",
       "title": "Q6–IVM–rhombic triacontahedron Lorentzian spin lift",
       "status": "candidate/open interfaces"
+    },
+    {
+      "id": "THM:branch:T146-q6-ivm-psu-spinorial-lift",
+      "kind": "proposed-theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "repository_branch": "rgs-q6-antitwin-spacetime-bridge",
+      "path": "theorems/T146-q6-ivm-psu-spinorial-lift.md",
+      "display_id": "T146",
+      "title": "Q6–IVM–PSU golden carrier and spatial spinorial lift",
+      "status": "branch proposal"
+    },
+    {
+      "id": "THM:branch:T147-spinorial-rgs-q6-spin6-dirac-antitwin",
+      "kind": "proposed-theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "repository_branch": "rgs-q6-antitwin-spacetime-bridge",
+      "path": "theorems/T147-spinorial-rgs-q6-spin6-dirac-antitwin.md",
+      "display_id": "T147",
+      "title": "Spin(6), golden 3+3 split and Lorentz spinor distinction",
+      "status": "branch proposal"
+    },
+    {
+      "id": "THM:branch:T148-psu-antitwin-chiral-fluid-gauge",
+      "kind": "proposed-theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "repository_branch": "rgs-q6-antitwin-spacetime-bridge",
+      "path": "theorems/T148-psu-antitwin-chiral-fluid-gauge.md",
+      "display_id": "T148",
+      "title": "PSU–Anti-Twin right/left chiral fluid lock",
+      "status": "branch proposal"
+    },
+    {
+      "id": "THM:branch:T149-q6-clifford-graph-dirac-spectrum",
+      "kind": "proposed-theorem-record",
+      "repository": "fabianleonaressi95/theorem",
+      "repository_branch": "rgs-q6-antitwin-spacetime-bridge",
+      "path": "theorems/T149-q6-clifford-graph-dirac-spectrum.md",
+      "display_id": "T149",
+      "title": "Q6 Clifford graph Dirac exact gap",
+      "status": "branch proposal"
     }
   ],
   "edges": [
@@ -5923,6 +5963,54 @@
       "relation": "thematic-index-classification",
       "status": "provisional",
       "caveat": "T161 is on the open primary-repository PR branch. Hub links are navigational; the IVM map, physical Lorentzian lift and continuum spin limit remain open."
+    },
+    {
+      "from": "THM:T129-q6-cut-project-purcell-shape-map",
+      "to": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "relation": "uses-definition",
+      "status": "direct-geometric-dependency",
+      "shared_object": "golden P_parallel/P_perp 6D orthogonal frame and centred Q6 cube",
+      "caveat": "T161 reuses T129's frame and makes the internal projected cube's six-segment zonotope explicit; T129's Purcell calibration C remains separate and is not inherited as a physical constant."
+    },
+    {
+      "from": "THM:branch:T146-q6-ivm-psu-spinorial-lift",
+      "to": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "relation": "geometric-successor",
+      "status": "candidate-interface",
+      "shared_object": "same 64-state golden Q6 carrier and six icosahedral axes",
+      "caveat": "T146's 64 tetrahedron-cell identification remains open. T161 distinguishes 64 projected Q6 points from 32 extreme zonotope vertices and does not assert 64 tetrahedra."
+    },
+    {
+      "from": "THM:branch:T147-spinorial-rgs-q6-spin6-dirac-antitwin",
+      "to": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "relation": "representation-input",
+      "status": "finite-exact plus open Lorentzian extension",
+      "shared_object": "Spin(6) lift of the golden SO(6) frame and explicit distinction from Spin+(1,3)",
+      "caveat": "The Euclidean Spin(6) lift does not derive a time direction or identify Spin(6) with Spin+(1,3)."
+    },
+    {
+      "from": "THM:branch:T148-psu-antitwin-chiral-fluid-gauge",
+      "to": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "relation": "conditional-coframe-input",
+      "status": "conditional",
+      "shared_object": "two-sheet fluid modes v0=(u+ + u-)/2 and s_AT=(u+ - u-)/2 with right/left sheet lock",
+      "caveat": "T161's Minkowski normalization requires future unit-timelike u± in a common Lorentzian metric; the fluid variables have not yet been shown to satisfy this."
+    },
+    {
+      "from": "THM:branch:T149-q6-clifford-graph-dirac-spectrum",
+      "to": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "relation": "negative-constraint",
+      "status": "exact-finite-obstruction",
+      "shared_object": "bare identity-link Q6 Clifford graph operator has D^2=-3I/2 and no zero modes",
+      "caveat": "T161 cannot claim a continuum Dirac limit from this operator; a refinement-consistent/domain-wall/overlap construction is still required."
+    },
+    {
+      "from": "THM:T150-d6-fibonacci-hexagram-antipodal-two-sheet-correspondence",
+      "to": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "relation": "comparison-only",
+      "status": "finite-exact suborbit correspondence",
+      "shared_object": "Q6 antipodal complement and two-sheet 32-pair organization",
+      "caveat": "T150 concerns a specified six-state D6 orbit, not all 64 projected points, the triacontahedron's 32 vertices, or the IVM tetrahedron cells."
     }
   ]
 }
