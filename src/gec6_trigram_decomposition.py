@@ -44,6 +44,18 @@ def antipodal_vertex(vertex):
     return vertex ^ 63
 
 
+def mixed_pair_orbits_independent():
+    """Orbits of the 9 mixed pairs under S3(lower) x S3(upper)."""
+    return (tuple((i, j) for i in LOWER for j in UPPER),)
+
+
+def mixed_pair_orbits_diagonal():
+    """Orbits under the diagonal S3 after identifying i <-> i+3."""
+    matched = tuple((i, i + 3) for i in LOWER)
+    unmatched = tuple((i, j + 3) for i in LOWER for j in LOWER if i != j)
+    return matched, unmatched
+
+
 def audit():
     lower, mixed, upper = pair_sectors()
     all_pairs = set(lower) | set(mixed) | set(upper)
@@ -59,7 +71,11 @@ def audit():
         for pair in mixed:
             assert wedge_image(pair, sigma)[1] in mixed_set
 
-    # Complementing all bits leaves every coordinate-pair direction unchanged.
+    independent_orbits = mixed_pair_orbits_independent()
+    diagonal_orbits = mixed_pair_orbits_diagonal()
+    assert tuple(map(len, independent_orbits)) == (9,)
+    assert tuple(map(len, diagonal_orbits)) == (3, 6)
+
     antipodal_checks = 0
     for v in range(64):
         av = antipodal_vertex(v)
@@ -74,6 +90,8 @@ def audit():
         "total_pair_directions": len(all_pairs),
         "block_preserving_group_order": 36,
         "block_swap_extended_group_order": len(group),
+        "mixed_orbits_under_independent_S3xS3": list(map(len, independent_orbits)),
+        "mixed_orbits_under_diagonal_S3": list(map(len, diagonal_orbits)),
         "antipodal_vertex_checks": 64,
         "antipodal_coordinate_pair_checks": antipodal_checks,
         "status": "exact finite combinatorial audit; representation ranks proved in documentation",
