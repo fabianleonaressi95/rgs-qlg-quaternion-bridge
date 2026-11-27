@@ -233,3 +233,8 @@ D6 permits 1⊕2 and therefore two blocks in the sheet-blind commutant. If a lar
 ## Evidence matrix
 
 The implementation/test/result traceability audit for all 51 records is maintained in [51-step evidence and implementation matrix](51_STEP_EVIDENCE_MATRIX_2026-11-26.md). File presence is not proof; test execution and theorem status must be assessed separately.
+
+
+## Post-snapshot evidence supplements (2026-11-27)
+
+The 51-record register remains canonical. Subsequent merged work on GEC-6 and RGS vierbein reconstruction supplements S35 and S11, respectively, in [the evidence matrix](51_STEP_EVIDENCE_MATRIX_2026-11-26.md). The GEC-6 antipodal statement is restricted to the global bit complement; general bit translations carry the pair-orientation sign `(-1)^(t_i+t_j)` and do not generally descend to the `A5` quotient. No physical or TEGR status is promoted.
