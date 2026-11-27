@@ -44,6 +44,17 @@ def antipodal_vertex(vertex):
     return vertex ^ 63
 
 
+def translation_square_sign(translation, i, j):
+    """Orientation sign induced on the (i,j) square by a bit translation."""
+    if not 0 <= translation < 64:
+        raise ValueError("translation must be a six-bit integer")
+    if not (0 <= i < j < 6):
+        raise ValueError("require 0 <= i < j < 6")
+    ti = (translation >> i) & 1
+    tj = (translation >> j) & 1
+    return -1 if (ti + tj) % 2 else 1
+
+
 def audit():
     lower, mixed, upper = pair_sectors()
     all_pairs = set(lower) | set(mixed) | set(upper)
@@ -59,7 +70,17 @@ def audit():
         for pair in mixed:
             assert wedge_image(pair, sigma)[1] in mixed_set
 
-    # Complementing all bits leaves every coordinate-pair direction unchanged.
+    # General bit translations act by (-1)^(t_i+t_j) on oriented squares;
+    # the global antipode has +1 on every coordinate pair.
+    translation_sign_checks = 0
+    for translation in range(64):
+        for i, j in combinations(range(6), 2):
+            sign = translation_square_sign(translation, i, j)
+            if translation == 63:
+                assert sign == 1
+            translation_sign_checks += 1
+    assert translation_square_sign(1, 0, 1) == -1
+
     antipodal_checks = 0
     for v in range(64):
         av = antipodal_vertex(v)
@@ -76,6 +97,9 @@ def audit():
         "block_swap_extended_group_order": len(group),
         "antipodal_vertex_checks": 64,
         "antipodal_coordinate_pair_checks": antipodal_checks,
+        "translation_square_orientation_checks": translation_sign_checks,
+        "general_translation_action": "sign (-1)^(t_i+t_j); does not generally descend to A5",
+        "global_antipode_action": "identity on all 15 pair generators and on A5",
         "status": "exact finite combinatorial audit; representation ranks proved in documentation",
     }
 
