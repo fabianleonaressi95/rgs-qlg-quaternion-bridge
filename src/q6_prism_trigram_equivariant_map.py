@@ -7,7 +7,6 @@ permuting the three C6 target factors. It is graph-only, not a filled-cube map.
 from __future__ import annotations
 
 from itertools import permutations
-from typing import Iterable
 
 LENGTHS = (64, 6, 6, 6, 5)
 BASE = (0, 0, 0, 0, 0)
@@ -73,8 +72,6 @@ def square_winding(lower_direction: int, upper_direction: int,
 
 def selected_unimodular_square_images() -> list[tuple[int, ...]]:
     """Five square images forming a Z-basis of target H1."""
-    # Three k=0 squares give the C6 generators; k=1 and k=2
-    # squares in lower direction 0 then add the C64 and C5 generators.
     return [
         square_winding(0, 3, 0),
         square_winding(1, 3, 0),
@@ -82,6 +79,19 @@ def selected_unimodular_square_images() -> list[tuple[int, ...]]:
         square_winding(0, 3, 1),
         square_winding(0, 3, 3),
     ]
+
+
+def determinant(matrix: list[list[int]]) -> int:
+    """Exact determinant by the Leibniz formula (used only for a 5x5 minor)."""
+    n = len(matrix)
+    total = 0
+    for p in permutations(range(n)):
+        inversions = sum(p[i] > p[j] for i in range(n) for j in range(i + 1, n))
+        term = (-1 if inversions % 2 else 1)
+        for i in range(n):
+            term *= matrix[i][p[i]]
+        total += term
+    return total
 
 
 def permute_bits(v: int, permutation: tuple[int, int, int, int, int, int]) -> int:
@@ -128,9 +138,9 @@ def audit() -> dict:
     edges = q6_edges()
     paths = [edge_path(v, d) for v, _w, d in edges]
     selected = selected_unimodular_square_images()
-    # The five rows are the images of five source square cycles.
-    import sympy as sp
-    matrix = sp.Matrix.hstack(*(sp.Matrix(x) for x in selected))
+    # Rows are target coordinates; columns are the five selected square images.
+    matrix = [[selected[col][row] for col in range(5)] for row in range(5)]
+    det = determinant(matrix)
     return {
         "source": "Q6 graph 1-skeleton with lower/upper trigram bit blocks",
         "source_vertices": 64,
@@ -143,8 +153,8 @@ def audit() -> dict:
         "nonconstant_source_edge_paths": sum(len(p) > 1 for p in paths),
         "total_target_path_steps": sum(len(p) - 1 for p in paths),
         "selected_square_images": [list(x) for x in selected],
-        "selected_minor_determinant": int(matrix.det()),
-        "induced_H1_map_is_surjective": abs(int(matrix.det())) == 1,
+        "selected_minor_determinant": det,
+        "induced_H1_map_is_surjective": abs(det) == 1,
         "equivariance": symmetry_audit(),
         "scope": "integral graph-homology surjection; no extension over all filled Q6 plaquettes is asserted",
     }
