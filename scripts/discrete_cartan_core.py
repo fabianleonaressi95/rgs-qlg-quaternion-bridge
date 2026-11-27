@@ -62,18 +62,24 @@ def edge_data(
     return inverse_edge(edge, links, coframes)
 
 
-def face_holonomy(
-    face: Sequence[int],
-    links: Mapping[Edge, Matrix],
-    coframes: Mapping[Edge, Vector] | None = None,
-) -> Matrix:
+def oriented_link(edge: Edge, links: Mapping[Edge, Matrix]) -> Matrix:
+    """Fetch an oriented link, deriving the reverse solely from L_wv=L_vw^-1."""
+    v, w = edge
+    if (v, w) in links:
+        return np.asarray(links[(v, w)], dtype=float)
+    if (w, v) in links:
+        return np.linalg.inv(np.asarray(links[(w, v)], dtype=float))
+    raise KeyError(f"missing link data for {edge} or its reverse")
+
+
+def face_holonomy(face: Sequence[int], links: Mapping[Edge, Matrix]) -> Matrix:
     """Based face holonomy for an ordered triangular face (v0,v1,v2)."""
     if len(face) != 3:
         raise ValueError("face_holonomy expects an ordered triangle")
     v0, v1, v2 = map(int, face)
-    L01, _ = edge_data((v0, v1), links, coframes or {})
-    L12, _ = edge_data((v1, v2), links, coframes or {})
-    L20, _ = edge_data((v2, v0), links, coframes or {})
+    L01 = oriented_link((v0, v1), links)
+    L12 = oriented_link((v1, v2), links)
+    L20 = oriented_link((v2, v0), links)
     return L01 @ L12 @ L20
 
 
