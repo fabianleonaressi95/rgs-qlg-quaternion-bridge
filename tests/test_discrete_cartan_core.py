@@ -137,3 +137,39 @@ def test_tetrahedron_affine_boundary_bianchi_identity():
     assert result["torsion_norm"] < 2e-10
     assert result["expanded_torsion_norm"] < 2e-10
     assert result["passed"] == 1.0
+
+
+
+def test_all_five_tetrahedral_facets_of_a_4_simplex():
+    # A 4-simplex has five tetrahedral boundary cells. Relabel each facet
+    # to the local [0,1,2,3] convention and audit its affine boundary identity.
+    vertices = range(5)
+    all_edges = [(i, j) for i in vertices for j in vertices if i < j]
+    rng = np.random.default_rng(20261128)
+    links = {}
+    coframes = {}
+    for edge in all_edges:
+        links[edge] = lorentz_boost_x(float(rng.uniform(-0.3, 0.3))) @ lorentz_boost_y(
+            float(rng.uniform(-0.3, 0.3))
+        )
+        coframes[edge] = rng.normal(size=4)
+
+    for omitted in vertices:
+        facet = [v for v in vertices if v != omitted]
+        relabel = {old: new for new, old in enumerate(facet)}
+        facet_links = {
+            (relabel[i], relabel[j]): value
+            for (i, j), value in links.items()
+            if i in relabel and j in relabel
+        }
+        facet_coframes = {
+            (relabel[i], relabel[j]): value
+            for (i, j), value in coframes.items()
+            if i in relabel and j in relabel
+        }
+        result = tetrahedron_boundary_bianchi(
+            facet_links, facet_coframes, atol=5e-10
+        )
+        assert result["curvature_norm"] < 5e-10
+        assert result["torsion_norm"] < 5e-10
+        assert result["passed"] == 1.0
