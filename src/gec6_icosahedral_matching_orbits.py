@@ -7,6 +7,7 @@ are audited separately; these actions must not be conflated.
 from __future__ import annotations
 
 from itertools import combinations, permutations
+from functools import lru_cache
 import numpy as np
 
 from src.rgs_icosahedral_q6_intertwiner import icosahedral_signed_axis_representation
@@ -18,6 +19,7 @@ DIAGONAL_MATCHING = ((0, 3), (1, 4), (2, 5))
 BLOCK_PARTITION = (0, 1, 2)
 
 
+@lru_cache(maxsize=1)
 def _signed_actions():
     data = icosahedral_signed_axis_representation()
     actions = []
