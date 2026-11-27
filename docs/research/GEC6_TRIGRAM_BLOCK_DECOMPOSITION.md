@@ -100,3 +100,8 @@ Run:
 PYTHONPATH=. python -m pytest tests/test_gec6_trigram_decomposition.py -q
 PYTHONPATH=. python examples/gec6_trigram_decomposition_audit.py
 ~~~
+
+
+## 7. Icosahedral selection of a matching family
+
+The existing six-axis icosahedral representation distinguishes a five-element orbit of perfect matchings from a ten-element orbit. The diagonal lower-to-upper matching belongs to the five-element orbit, but each 3+3 partition admits two special cross-matchings, interchanged by its six-element A5 stabilizer. The full signed A5 action does not descend to the GEC-6 contraction quotient: only six of its 60 elements preserve `ker(c)`, exactly the selected block-partition stabilizer. See [the full orbit and compatibility audit](GEC6_ICOSAHEDRAL_MATCHING_ORBITS.md).
