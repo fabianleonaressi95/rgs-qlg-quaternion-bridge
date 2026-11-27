@@ -66,9 +66,17 @@ The mixed sector alone reaches the entire rank-five quotient. This makes the nin
 
 ## 4. Antipodal complement
 
-The antipodal map on Q6 vertices is \(a(v)=v\oplus63\), complementing all six bits. More generally, every bit translation \(v\mapsto v\oplus t\), \(t\in(\mathbb Z/2)^6\), preserves each coordinate-pair square curl. Hence the induced action of the translation subgroup \(C_2^6\) on \(\Lambda^2(\mathbb Z^6)\), and therefore on \(A_5\), is trivial.
+The antipodal map on Q6 vertices is \\(a(v)=v\\oplus63\\), complementing all six bits. The orientation convention matters: graph edges are globally oriented from bit 0 to bit 1. Under a bit translation \\(v\\mapsto v\\oplus t\\), the induced orientation on a coordinate-pair square \\(Q_{ij}\\) changes by
+\\[
+\\boxed{\\epsilon_{ij}(t)=(-1)^{t_i+t_j}.}
+\\]
+Thus a general element of \\(C_2^6\\) does **not** act trivially on \\(\\Lambda^2(\\mathbb Z^6)\\). In fact, for a translation flipping only coordinate 0, the relation
+\\[
+r=e_0\\wedge e_1+e_1\\wedge e_2-e_0\\wedge e_2\\in\\ker c
+\\]
+is sent to \\(-e_0\\wedge e_1+e_1\\wedge e_2+e_0\\wedge e_2\\), whose contraction is \\(2(e_2-e_1)\\ne0\\). Therefore this general translation action does not descend to the quotient \\(A_5\\).
 
-In particular, the Q6 antipodal involution acts as the identity on the GEC-6 cycle quotient. This does **not** mean it fixes every individual Q6 vertex, edge, or graph cycle; it means only that its induced action on this quotient is trivial.
+For the antipodal translation \\(t=(1,1,1,1,1,1)\\), however, \\(t_i+t_j=2\\) for every pair, so \\(\\epsilon_{ij}(t)=+1\\). The identity and the global antipode are precisely the two bit translations acting trivially on every pair generator. Consequently the Q6 antipodal involution acts as the identity on the GEC-6 quotient. This does **not** mean it fixes every individual Q6 vertex, edge, or graph cycle.
 
 ## 5. What this does and does not establish
 
