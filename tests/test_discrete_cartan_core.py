@@ -33,7 +33,7 @@ def test_boosts_preserve_lorentz_metric():
 def test_face_holonomy_and_torsion_transform_covariantly():
     links, coframes = triangle_data()
     face = (0, 1, 2)
-    H = face_holonomy(face, links, coframes)
+    H = face_holonomy(face, links)
     T = face_torsion(face, links, coframes)
 
     frames = {
@@ -64,7 +64,7 @@ def test_exact_coframe_closes_when_connection_is_identity():
         (0, 2): points[2] - points[0],
     }
     assert np.allclose(face_torsion((0, 1, 2), links, coframes), 0.0, atol=1e-14)
-    assert np.allclose(face_holonomy((0, 1, 2), links, coframes), I, atol=1e-14)
+    assert np.allclose(face_holonomy((0, 1, 2), links), I, atol=1e-14)
 
 
 def test_flat_connection_can_have_nonzero_coframe_closure():
