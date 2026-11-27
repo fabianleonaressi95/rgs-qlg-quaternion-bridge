@@ -130,3 +130,8 @@ This repository contains source code, focused mathematical specifications, tests
 - The archived normalized four-component \((\Delta X,\Delta r)\) feature is **not** the carrier's symmetrized three-component spatial coframe. The audit compares both and separately checks the raw spatial Q6 torsion against the previous A13 report.
 - Reproduce with: PYTHONPATH=. python scripts/audit_rgs_psu_carrier_connection.py; python -m pytest tests/test_rgs_psu_carrier_connection.py -q.
 - Provenance boundary: this is generator-level reconstruction; the original A13 NPZ payload is not bytewise reloaded or compared.
+
+
+### Icosahedral matching orbits in GEC-6
+
+The six-axis icosahedral action splits the 15 perfect matchings into a distinguished orbit of five and a generic orbit of ten. The diagonal trigram matching is special; the five special matchings have five distinct A4 stabilizers. Each lower/upper 3+3 split has two special cross-matchings, not one. The full signed A5 action does not descend to the GEC-6 contraction quotient; only a six-element subgroup does. [Dossier and reproduction](docs/research/GEC6_ICOSAHEDRAL_MATCHING_ORBITS.md).
