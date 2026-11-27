@@ -42,7 +42,7 @@ def test_face_holonomy_and_torsion_transform_covariantly():
         2: lorentz_boost_x(0.23),
     }
     links2, coframes2 = gauge_transform(links, coframes, frames)
-    H2 = face_holonomy(face, links2, coframes2)
+    H2 = face_holonomy(face, links2)
     T2 = face_torsion(face, links2, coframes2)
 
     h0 = frames[0]
@@ -75,7 +75,7 @@ def test_flat_connection_can_have_nonzero_coframe_closure():
         (1, 2): np.array([0.0, 1.0, 0.0, 0.0]),
         (0, 2): np.array([0.0, 0.0, 0.0, 0.0]),
     }
-    H = face_holonomy((0, 1, 2), links, coframes)
+    H = face_holonomy((0, 1, 2), links)
     T = face_torsion((0, 1, 2), links, coframes)
     assert np.allclose(H, I)
     assert np.linalg.norm(T) > 0.0
@@ -95,7 +95,7 @@ def test_curved_holonomy_can_be_paired_with_zero_face_closure():
     E02 = -L02 @ E20
     coframes = {(0, 1): E01, (1, 2): E12, (0, 2): E02}
 
-    H = face_holonomy((0, 1, 2), links, coframes)
+    H = face_holonomy((0, 1, 2), links)
     T = face_torsion((0, 1, 2), links, coframes)
     assert not np.allclose(H, np.eye(4))
     assert np.allclose(T, 0.0, atol=1e-12)
