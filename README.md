@@ -6,6 +6,10 @@ This repository develops finite mathematical constructions and computational aud
 
 > **Evidence policy:** PROVED, FINITE-EXACT, NUMERICAL, CONDITIONAL, CANDIDATE and OPEN are distinct statuses. A finite test is not a continuum theorem or a physical derivation.
 
+## Ten-family discrete geometry to physics bridge
+
+- **[Ten-family discrete-geometry/physics bridge](docs/TEN_FAMILY_DISCRETE_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md)** — ten stable family nodes, eight shared geometric interfaces, and 16 inspected theorem-card links; none is silently promoted to a proof dependency.
+
 ## Record-level theorem dependency reconciliation
 
 - **[Record-level audit](docs/T161_RECORD_LEVEL_DEPENDENCY_RECONCILIATION_2026-11-27.md)** imports 306 uniquely declared theorem dependencies from the primary register as explicitly unreviewed graph edges. It also records 101 ambiguous references, 3 unresolved references, and the four main-tree cards missing from the generated register. These are not promoted to proof dependencies.
