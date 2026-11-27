@@ -147,3 +147,5 @@ This repository contains source code, focused mathematical specifications, tests
 ## Discrete Cartan implementation specification
 
 - [Discrete Cartan implementation specification](docs/DISCRETE_CARTAN_Q6_PSU_ANTITWIN_IMPLEMENTATION_2026-11-27.md) — finite-complex data model and DCart-01–10 audit matrix for independent Lorentz links and coframes, face curvature holonomy, torsion closure, Bianchi identities and Anti-Twin separation.
+
+The finite algebraic core is implemented in [scripts/discrete_cartan_core.py](scripts/discrete_cartan_core.py), with covariance and closure tests in [tests/test_discrete_cartan_core.py](tests/test_discrete_cartan_core.py). These are local finite-complex checks only; no Bianchi or continuum-limit claim is made.
