@@ -147,3 +147,97 @@ residual and residue; FSS fit window, exponent, residuals and sensitivity.
 - Candidate: omega_L -> U/3 and Z_L -> U/3.
 - Open: robust pole tracking, eta -> 0, larger-size FSS, physical
   thermodynamic-limit interpretation.
+
+
+## Literature comparison and scope audit (27 November 2026)
+
+### 1. Critical Aubry–André point
+
+The one-dimensional nearest-neighbour Aubry–André operator
+\[
+H_0=-t\sum_j(c^\dagger_{j+1}c_j+\mathrm{h.c.})
++V\sum_j\cos(2\pi\alpha j+\theta)n_j
+\]
+has the self-dual localization threshold \(|V|=2|t|\) in the standard irrational, single-frequency model. Thus \(t=1,V=2\) is correctly identified as the critical point of the *one-particle Hamiltonian*. This does not by itself establish a critical point or universality class for an interacting many-body response at finite \(U\). The distinction matters because the legacy calculation diagonalizes \(H_0\) and inserts \(U\) only in a subsequent scalar denominator.
+
+### 2. Fibonacci sizes are not the same as a Fibonacci rational approximant protocol
+
+The reported lengths are
+\[
+55=F_{10},\quad144=F_{12},\quad377=F_{14},\quad987=F_{16}.
+\]
+They are valid Fibonacci lengths, but the historical code holds \(\alpha=1/\phi\) irrational and uses open boundaries. It does **not** replace \(\alpha\) by \(F_{k-1}/F_k\). Much of the periodic/antiperiodic finite-size literature instead pairs \(L=F_k\) with a rational convergent \(\alpha_k=F_{k-1}/F_k\), so the potential is commensurate with the finite ring. These are different finite-size sequences. They may share the same irrational thermodynamic target, but their finite-size corrections and boundary effects are not interchangeable.
+
+The 2024 generalized-Aubry–André fidelity-susceptibility study explicitly discusses Fibonacci rational approximants, boundary conditions, and filling-dependent subsequences. Its model and observable are not the legacy dipole proxy, so it is a methodological comparator, not a numerical benchmark for the 12 CSV rows. The 2022 p-wave-paired AAH work also uses Fibonacci size scaling, but its pairing term and critical point between extended and critical phases make it a different Hamiltonian.
+
+### 3. What critical quasiperiodic scaling literature supports
+
+The established literature supports multifractal critical eigenstates and nontrivial finite-size scaling in Fibonacci/quasiperiodic systems. Fujiwara, Kohmoto and Tokihiro (1989) analyze multifractal wave functions on a Fibonacci lattice. Szabó and Schneider (2018) find that characteristic energy scaling in the Aubry–André model need not be described by a single power law: it depends on the continued-fraction structure of the irrational frequency and is organized by a discrete renormalization procedure. Consequently, a fit of the form
+\[
+y_N=y_\infty+aN^{-p}
+\]
+is a useful *descriptive ansatz*, not a literature-guaranteed asymptotic law for every observable at criticality. For the present four sizes, the exponent must be tested for fit-window and exponent sensitivity; log-periodic or subsequence-dependent corrections should be considered before claiming a universal power law.
+
+### 4. Dipole response versus density response
+
+The legacy vertex is \(X_{jj}=j/N\). Its spectral weights \(|\langle m|X|n\rangle|^2\) define a position/dipole-weighted one-particle spectrum. It is not the standard finite-momentum density vertex
+\[
+\rho_q=\sum_j e^{iqj}n_j,
+\]
+nor the standard fermionic Lindhard/Lehmann response, whose transition weights contain the occupation difference \(f_m-f_n\). In a many-fermion system the latter is essential: Pauli blocking selects occupied-to-empty transitions. At \(q=0\), total particle number is conserved and the finite-frequency density response vanishes. The small-\(q\) expansion connects the nontrivial density vertex to position only after the constant term is removed and the appropriate powers of \(q\) and normalization are retained. The legacy \(X=j/N\) calculation therefore cannot be relabelled as a density response merely by calling it a polarizability.
+
+For optical conductivity, Kubo–Greenwood formulations use occupation differences and current/velocity matrix elements (or an equivalent carefully treated position formulation), together with an explicit energy broadening. This is the appropriate comparison class for a dipole/optical calculation; it is not a direct validation of the legacy formula, which omits occupations.
+
+### 5. RPA and the spinless nearest-neighbour interaction
+
+For \(U\sum_j n_jn_{j+1}\), the Fourier transform of the *direct bare density interaction* is \(V(q)=2U\cos q\) when each undirected bond is counted once. The scalar expression
+\[
+\chi_{\mathrm{RPA}}=\frac{\chi_0}{1-V(q)\chi_0}
+\]
+is a direct-channel RPA approximation. It is not the exact response of the interacting quasiperiodic chain. For spinless fermions, exchange/antisymmetrization and vertex corrections require care; a scalar direct-channel kernel alone does not establish that all relevant channels have been included. The exact interacting benchmark would require a many-body method (for example, controlled exact diagonalization at small sizes, DMRG/tensor networks where applicable, or a separately justified time-dependent Hartree–Fock/response approximation). The legacy denominator \(1-U\operatorname{Re}\Pi_0\) is even further removed: it has no specified \(q\), no occupation factors, and no derived nearest-neighbour kernel.
+
+### 6. Broadening is not intrinsic damping
+
+The historical \(\eta=0.02\) is inserted into every discrete transition denominator. The reported \(\gamma_L\simeq0.0200\)–\(0.0202\) is therefore numerically pinned to the imposed resolution scale. In a finite isolated chain the exact spectrum is discrete; a nonzero width obtained after fixed Lorentzian broadening is not, by itself, an intrinsic decay rate. A physical linewidth requires a controlled \(\eta\to0^+\) study and a thermodynamic-limit prescription, or a specified bath/self-energy that supplies genuine decay. The Kubo–Greenwood literature likewise treats \(\eta\) as a numerical smearing parameter, not automatically as a material lifetime.
+
+### 7. Comparison table
+
+| Feature | Historical calculation | Relevant literature standard | Audit |
+|---|---|---|---|
+| Critical point | \(V=2t\) | Self-dual AA threshold | Correct for the one-particle AA operator |
+| Irrationality | Fixed \(1/\phi\) | Often rational Fibonacci convergents on finite rings | Different finite-size protocol |
+| Boundary | OBC | Often periodic/antiperiodic for rational approximants | Boundary corrections must not be mixed |
+| Sizes | \(F_{10},F_{12},F_{14},F_{16}\) | Fibonacci subsequences can depend on filling and observable | Valid sizes, but not a complete universal scaling prescription |
+| Vertex | \(X=j/N\) | \(\rho_q\) for density; current/velocity for conductivity | Dipole proxy, not density susceptibility |
+| Occupations | None | \(f_m-f_n\) in fermionic linear response | Missing for a many-body density response |
+| Interaction | Scalar \(U\) | Momentum-dependent direct kernel plus exchange/vertex treatment as required | Not a validated spinless t–V response |
+| Width | Fixed \(\eta=0.02\) | \(\eta\to0^+\) and/or physical bath | Historical \(\gamma\) is resolution-dominated |
+| Residue | \(1/(U|\partial_\omega\Re\Pi_0|)\) | Complex simple-pole residue from analytic derivative | Not the standard RPA pole residue |
+| Scaling | Four sizes, visually convergent | Scaling-function/subsequence and correction analysis | Candidate trend only |
+
+### 8. Quantitative legacy trend: what can and cannot be said
+
+The tabulated values approach approximately \(\omega_L\simeq U/3\) and \(Z_L\simeq U/3\) over the four reported sizes. This is a faithful description of the CSV, not an independently reproduced result and not a prediction established by the cited critical-scaling literature. In particular, the literature on multifractal eigenstates or fidelity susceptibility does not predict these particular dipole-proxy roots or the equality of these two legacy quantities.
+
+The CSV must therefore remain archival. No numerical comparison of its \(\omega_L,\gamma_L,Z_L\) with published collective-mode data is justified until the observable, occupations, momentum, interaction approximation, and linewidth convention are matched.
+
+### 9. Bibliographic anchors
+
+1. S. Aubry and G. André, “Analyticity breaking and Anderson localization in incommensurate lattices,” *Ann. Israel Phys. Soc.* **3**, 133 (1980). Foundational self-duality/localization threshold.
+2. T. Fujiwara, M. Kohmoto and T. Tokihiro, “Multifractal wave functions on a Fibonacci lattice,” *Phys. Rev. B* **40**, 7413(R) (1989), DOI: 10.1103/PhysRevB.40.7413. Critical multifractal wave functions and finite-size analysis.
+3. A. Szabó and U. Schneider, “Non-power-law universality in one-dimensional quasicrystals,” *Phys. Rev. B* **98**, 134201 (2018), DOI: 10.1103/PhysRevB.98.134201. Continued-fraction-dependent, non-power-law critical scaling.
+4. T. Lv, Y.-B. Liu, T.-C. Yi, L. Li, M. Liu and W.-L. You, “Exploring unconventional quantum criticality in the p-wave-paired Aubry–André–Harper model,” *Phys. Rev. B* **106**, 144205 (2022), DOI: 10.1103/PhysRevB.106.144205. Fibonacci FSS in a paired, different model.
+5. Y.-B. Liu et al., “Quantum criticality of generalized Aubry–André models with exact mobility edges using fidelity susceptibility,” *Phys. Rev. E* **109**, 054123 (2024), DOI: 10.1103/PhysRevE.109.054123. Filling-dependent FSS and Fibonacci approximants in generalized models.
+6. Wannier90 documentation, “Kubo formula: optical conductivity and joint density of states,” Kubo–Greenwood expression with occupation differences, velocity matrix elements and explicit smearing. A methodological reference for optical response, not a paper benchmarking the legacy data.
+7. “Current Density Functional Theory for one-dimensional fermions,” arXiv:0809.2175 (2008). Relevant discussion of response approximations for one-dimensional spinless fermions with nearest-neighbour interactions.
+
+### 10. Consequence for the next numerical stage
+
+The literature comparison supports the following order of work:
+
+- **A — legacy reproduction:** reproduce the exact OBC, fixed-phase, \(X=j/N\), no-occupation calculation from the recovered listing. Compare the generated 12 outputs to the archived CSV, with explicit tolerances. This is a code-reproducibility check only.
+- **B — optical/dipole benchmark:** if the scientific question is the dipole mode, replace the legacy weights with a properly defined occupied-state Kubo response and report the chosen filling/temperature. Keep this separate from density response.
+- **C — density response:** specify particle number/filling, temperature and nonzero \(q\); calculate the Lehmann \(\chi_0^R(q,z)\), then compare direct RPA against an independent many-body benchmark at accessible sizes.
+- **D — critical FSS:** compare fixed-irrational OBC data against a separate rational-approximant Fibonacci sequence. Analyze parity/subsequence effects, boundary sensitivity, \(\eta\)-dependence, fit-window dependence, and possible log-periodic corrections.
+
+No filling, temperature, or momentum is inferred from the literature or silently assigned to the historical calculation.
