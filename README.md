@@ -134,4 +134,4 @@ This repository contains source code, focused mathematical specifications, tests
 
 ### Icosahedral matching orbits in GEC-6
 
-The six-axis icosahedral action splits the 15 perfect matchings into a distinguished orbit of five and a generic orbit of ten. The diagonal trigram matching is special, but each lower/upper 3+3 split has two special cross-matchings, not one. The full signed A5 action does not descend to the GEC-6 contraction quotient; only a six-element subgroup does. [Dossier and reproduction](docs/research/GEC6_ICOSAHEDRAL_MATCHING_ORBITS.md).
+The six-axis icosahedral action splits the 15 perfect matchings into a distinguished orbit of five and a generic orbit of ten. The diagonal trigram matching is special; the five special matchings have five distinct A4 stabilizers. Each lower/upper 3+3 split has two special cross-matchings, not one. The full signed A5 action does not descend to the GEC-6 contraction quotient; only a six-element subgroup does. [Dossier and reproduction](docs/research/GEC6_ICOSAHEDRAL_MATCHING_ORBITS.md).
