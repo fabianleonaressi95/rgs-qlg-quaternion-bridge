@@ -75,6 +75,21 @@ PYTHONPATH=. python -m pytest tests/test_rgs_ellis_refinement.py -v
 
 This is a scalar Riemannian convergence question, not a claim about Lorentzian dynamics, spinorial convergence, teleparallel field equations, Yang–Mills or QCD.
 
+## GEC-6 trigram block decomposition
+
+The exterior-square pair module splits relative to the fixed I-Ching bit blocks (lower 0,1,2; upper 3,4,5) as 3 lower-internal + 9 mixed + 3 upper-internal directions. Its block-preserving wreath symmetry is (S3 x S3) semidirect C2. The mixed sector alone surjects under contraction onto the rank-five A5 quotient; the antipodal complement acts trivially on that quotient. The traditional I-Ching interpretation of the mixed sector and any physical coupling law remain open.
+
+- [GEC-6 trigram block decomposition](docs/research/GEC6_TRIGRAM_BLOCK_DECOMPOSITION.md)
+- [Exact implementation](src/gec6_trigram_decomposition.py)
+- [Focused tests](tests/test_gec6_trigram_decomposition.py)
+- [Audit example](examples/gec6_trigram_decomposition_audit.py)
+
+Reproduce:
+~~~bash
+PYTHONPATH=. python -m pytest tests/test_gec6_trigram_decomposition.py -q
+PYTHONPATH=. python examples/gec6_trigram_decomposition_audit.py
+~~~
+
 ## Reproducibility and evidence requirements
 
 Every benchmark or claim must identify:
