@@ -7,6 +7,7 @@ are audited separately; these actions must not be conflated.
 from __future__ import annotations
 
 from itertools import combinations, permutations
+from collections import Counter
 from functools import lru_cache
 import numpy as np
 
@@ -78,6 +79,16 @@ def _orbit_decomposition(items, permutations_only, image):
     return tuple(sorted(orbits, key=lambda orbit: (len(orbit), orbit)))
 
 
+def _permutation_order(permutation):
+    identity = tuple(range(6))
+    current = identity
+    for order in range(1, 61):
+        current = tuple(permutation[current[i]] for i in range(6))
+        if current == identity:
+            return order
+    raise ArithmeticError("permutation order exceeded the A5 group order")
+
+
 def _cross_matchings(partition):
     lower = tuple(partition)
     upper = tuple(i for i in range(6) if i not in set(lower))
@@ -134,6 +145,23 @@ def audit_icosahedral_matching_orbits():
     }
     special_orbit = set(matching_orbits[0])
     generic_orbit = set(matching_orbits[1])
+    special_stabilizers = []
+    special_stabilizer_profiles = []
+    for matching in sorted(special_orbit):
+        stabilizer = {
+            p for p in permutations_only
+            if _image_matching(matching, p) == matching
+        }
+        profile = Counter(_permutation_order(p) for p in stabilizer)
+        special_stabilizers.append(frozenset(stabilizer))
+        special_stabilizer_profiles.append(
+            {str(order): profile[order] for order in sorted(profile)}
+        )
+
+    generic_stabilizer_orders = {
+        sum(_image_matching(matching, p) == matching for p in permutations_only)
+        for matching in generic_orbit
+    }
 
     return {
         "group_order": len(actions),
@@ -147,6 +175,14 @@ def audit_icosahedral_matching_orbits():
         ),
         "diagonal_matching_in_special_orbit": diagonal in special,
         "diagonal_matching_orbit_size": len(diagonal_orbit),
+        "special_matching_stabilizer_orders": sorted({
+            len(stabilizer) for stabilizer in special_stabilizers
+        }),
+        "distinct_special_matching_stabilizers": len(set(special_stabilizers)),
+        "special_matching_stabilizer_element_order_profiles": (
+            special_stabilizer_profiles
+        ),
+        "generic_matching_stabilizer_orders": sorted(generic_stabilizer_orders),
         "special_cross_matchings_per_three_plus_three_partition": sorted(
             {len(value) for value in special_cross_by_partition.values()}
         ),
