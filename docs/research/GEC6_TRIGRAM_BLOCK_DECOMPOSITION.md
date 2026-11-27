@@ -92,3 +92,40 @@ Run:
 PYTHONPATH=. python -m pytest tests/test_gec6_trigram_decomposition.py -q
 PYTHONPATH=. python examples/gec6_trigram_decomposition_audit.py
 ~~~
+
+
+## 7. Orbit classification of the nine mixed pairs: intrinsic versus aligned
+
+Write a mixed direction as \(e_i\wedge e_{3+j}\), with \(i,j\in\{0,1,2\}\). The nine directions are the cells of a 3-by-3 array.
+
+Under the full block-preserving group \(S_3^{(L)}\times S_3^{(U)}\), the action is
+\[
+(i,j)\longmapsto(p(i),q(j)).
+\]
+It is transitive on all nine cells. Therefore the **intrinsic orbit decomposition is one orbit of size 9**. There is no invariant distinction between “matched” and “unmatched” mixed pairs under independent relabelling of the two trigrams.
+
+A 3+6 split appears only after choosing an identification of lower and upper coordinate positions, \(i\leftrightarrow i+3\), and restricting to the diagonal subgroup
+\[
+\Delta S_3=\{(p,p):p\in S_3\}\subset S_3^{(L)}\times S_3^{(U)}.
+\]
+Then the cells split into:
+- matched/diagonal cells \((i,i)\): one orbit of size 3;
+- unmatched/off-diagonal cells \((i,j), i\ne j\): one orbit of size 6.
+
+As rational \(\Delta S_3\)-modules, the diagonal subspace is the 3-dimensional permutation representation
+\[
+\mathbf 1\oplus W,
+\]
+while the off-diagonal subspace is the regular representation
+\[
+\mathbf 1\oplus\mathrm{sgn}\oplus W\oplus W.
+\]
+Thus the full mixed sector restricts as
+\[
+2\mathbf 1\oplus\mathrm{sgn}\oplus3W
+\quad(2+1+6=9).
+\]
+
+**Interpretive constraint:** the 3+6 split is mathematically valid but depends on a chosen cross-block coordinate matching. It is not invariant under the full \(S_3\times S_3\) symmetry and must not be presented as an intrinsic I-Ching distinction unless that matching is independently justified by the model. The antipodal bit complement does not select such a matching; its induced action on pair directions is trivial.
+
+The code audit records both orbit counts (9) and (3,6). These are exact finite permutation checks, not a physical interaction classification.
