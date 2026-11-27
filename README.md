@@ -117,6 +117,7 @@ The conditional geometric criterion and remaining proof obligations are document
 ## Mathematical starting point: SU(2) to SO(3)
 
 Unit quaternions form a group isomorphic to SU(2). The standard map
+
     rho: SU(2) -> SO(3)
 
 is a double covering:
@@ -237,6 +238,7 @@ The [flat-torus G0–G3 refinement benchmark](docs/FLAT_TORUS_G0_G3_AUDIT.md) no
 The [flat-torus G4 common-L2 embedding](docs/FLAT_TORUS_G4_COMMON_L2_EMBEDDING.md) now defines the P1 reconstruction map and exact consistent mass inner product. The [flat-torus G5 stability audit](docs/FLAT_TORUS_G5_STABILITY.md) proves coercivity and Rellich compactness for that regular flat family only; curved RGS G6 liminf/recovery remains OPEN.
 
 The [flat periodic P1 G6 proof](docs/FLAT_TORUS_G6_P1_MOSCO_PROOF.md) establishes Mosco liminf and recovery for the regular Freudenthal finite-element family under the G4-G5 hypotheses. This theorem is separate from, and does not settle, the curved RGS-Q6 Mosco problem.
+
 The [curved Ellis–RGS refinement (G1)](docs/RGS_ELLIS_CURVED_REFINEMENT_G1.md) now uses the recovered 64B/O_h coordinates and the RGS spherical-branch metric. Its finite-domain geometric family and P1 audits are distinct from the still-open curved Mosco G4–G6 proof and from a full RGS-EMS field-equation solution.
 
 The [curved Ellis–RGS G4 common-L2 embedding](docs/RGS_ELLIS_CURVED_G4_COMMON_L2.md) now defines J_h into the single Hilbert space L2(M_L,dmu_g) and assembles mass/stiffness using the exact curved Ellis metric. Curved G5 uniform estimates and G6 Mosco convergence remain separate proof gates.
@@ -476,6 +478,7 @@ The [Culler–Q3/Q6–Omega–Beneš research dossier](docs/research/CULLER_INTE
 ## Exhaustive Omega-8 / Beneš-8 routing audit
 
 The recovered historical 8×8 routing counts have now been independently reimplemented under an explicit shuffle-normalized switch-stage convention. See the [exhaustive audit](docs/research/OMEGA_BENES_8X8_EXHAUSTIVE_AUDIT.md), [enumerator](src/interconnection_networks_8x8.py), [tests](tests/test_interconnection_networks_8x8.py), and [audit runner](examples/interconnection_networks_8x8_audit.py). The model reaches 4,096 distinct permutations for Omega-8 and all 40,320 permutations for Beneš-8; bit reversal is blocked by Omega-8 and routed by Beneš-8. These are finite combinatorial results for the declared topology, not a Q6/Green–Kubo physical equivalence.
+
 
 ## Exact Q3–Q6–Omega/Beneš bridge and PRISM boundary
 
