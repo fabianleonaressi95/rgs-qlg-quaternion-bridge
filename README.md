@@ -122,3 +122,11 @@ Status labels:
 
 The precise modules and callable functions used for a benchmark must be identified by repository commit SHA and recorded in its provenance manifest.
 This repository contains source code, focused mathematical specifications, tests and reproducible finite audits. The programme-wide theorem register and cross-project proof architecture are maintained in [THEOREM](https://github.com/fabianleonaressi95/theorem).
+
+
+### RGS–PSU carrier connection comparison (27 November 2026)
+
+- [Archived PSU connection versus carrier-derived coframe](docs/RGS_PSU_CARRIER_CONNECTION_COMPARISON_2026-11-27.md) — the A13 shortest-radial-rotation link and the PR #476 carrier link are the same \(SO(3)\) connection in ambient versus local radial frames. The local gauge fixes the radial axis, reducing links to the \(SO(2)\) stabilizer and spin lifts to diagonal \(U(1)\).
+- The archived normalized four-component \((\Delta X,\Delta r)\) feature is **not** the carrier's symmetrized three-component spatial coframe. The audit compares both and separately checks the raw spatial Q6 torsion against the previous A13 report.
+- Reproduce with: PYTHONPATH=. python scripts/audit_rgs_psu_carrier_connection.py; python -m pytest tests/test_rgs_psu_carrier_connection.py -q.
+- Provenance boundary: this is generator-level reconstruction; the original A13 NPZ payload is not bytewise reloaded or compared.
