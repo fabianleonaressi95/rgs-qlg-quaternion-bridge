@@ -1,0 +1,21 @@
+{
+  "source": "Q6 graph 1-skeleton with lower/upper trigram bit blocks",
+  "source_vertices": 64,
+  "source_edges": 192,
+  "target": "C64 x C6^3 x C5",
+  "target_H1": "Z^5",
+  "lower_trigram_bits": [0, 1, 2],
+  "upper_trigram_bits": [3, 4, 5],
+  "edge_paths_are_based_loops": true,
+  "selected_square_images": [
+    [0, -1, 0, 0, 0],
+    [0, 0, -1, 0, 0],
+    [0, 0, 0, -1, 0],
+    [-1, -1, 0, 0, 0],
+    [0, -1, 0, 0, -1]
+  ],
+  "selected_minor_determinant": 1,
+  "induced_H1_map_is_surjective": true,
+  "symmetry": "S3(lower) x S3(upper), target S3 permutes C6 factors",
+  "scope": "graph-only path-valued homology map; no metric or dynamics claim"
+}
