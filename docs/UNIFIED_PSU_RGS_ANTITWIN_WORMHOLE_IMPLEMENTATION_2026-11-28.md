@@ -35,6 +35,15 @@ Input: throat-adjacent 4-cells and their Lorentz frames. Output: coframe on each
 Input: coframe and gluing. Output: independent \(SO^+(1,3)\) links and affine edge data. Reuse existing face_holonomy and face_torsion conventions; retain the exact affine tetrahedral boundary identity. Test that curvature and torsion can vary independently.
 
 ### WQ6-05 — one action, two independent variations
+The master specification records both continuum Palatini variations and the exact discrete variation structure
+\[
+\delta_L S_h\sim\sum_f\epsilon_{abcd}\left[
+(\delta_LB_f^{ab})X_f^{cd}
++B_f^{ab}\,\mathrm D(\log)_{H_f}[\delta H_f]^{cd}\right],
+\quad
+\delta H_f=\sum_jL_1\cdots L_{j-1}(\delta L_j)L_{j+1}\cdots L_m.
+\]
+Implementation must compute the Fréchet derivative of the selected matrix-log branch and include the variation of all transports entering \(B_f\).
 Implement the discrete Palatini–Cartan face action with explicit branch-controlled matrix logarithms, transported area bivectors, cosmological term, matter term and throat/interface term. Derive and implement separate gradients with respect to coframe and Lorentz links. Validate analytic gradients against finite differences and gauge covariance. Do not replace the derivative of log(H) by H^{-1}dH for noncommuting matrices.
 
 ### WQ6-06 — wormhole and limiting solutions
