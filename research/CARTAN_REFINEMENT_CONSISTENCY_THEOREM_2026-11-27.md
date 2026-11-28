@@ -150,7 +150,7 @@ A reproducible numerical audit is implemented in `scripts/audit_cartan_refinemen
 The manufactured smooth field is defined on a 2D coordinate plane inside the 4D Lorentzian model:
 [
 omega_x=yB,qquad omega_y=xA,qquad
-e_x=(1,0,0,0)^T,qquad e_y=(0,1,0,0)^T+x,c,
+e_x=(0,1,0,0)^T,qquad e_y=(0,0,1,0)^T+x,c,
 ]
 where (A=0.7K_x), (B=0.4K_y) are noncommuting Lorentz boost generators and (c=(0.3,0.2,-0.1,0.4)^T). At the origin,
 [
