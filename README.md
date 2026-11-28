@@ -167,4 +167,4 @@ The Cartan prototype now also implements the exact affine Poincare boundary iden
   PYTHONPATH=. python scripts/audit_cartan_refinement_consistency.py
   PYTHONPATH=. python -m pytest tests/test_cartan_refinement_consistency.py -q
   ```
-- The synthetic noncommuting Lorentz connection has nonzero curvature and torsion. The audit checks the face-area scaling and observed convergence orders. It is local smooth-sampling evidence only, not a proof of Q6-to-4D Lorentzian convergence or convergence of discrete solutions.
+- The synthetic noncommuting Lorentz connection has nonzero curvature and torsion. The audit checks face-area scaling and observed convergence orders. The companion note now proves the local face-consistency proposition by a radial-gauge remainder argument under exact smooth sampling; the numerical audit is supporting evidence for one manufactured field. Neither establishes Q6-to-4D Lorentzian reconstruction or convergence of discrete solutions.
