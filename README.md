@@ -156,3 +156,15 @@ The Cartan prototype now also implements the exact affine Poincare boundary iden
 ## Cartan refinement and local continuum consistency
 
 - [Cartan refinement consistency theorem and continuum-limit gates](research/CARTAN_REFINEMENT_CONSISTENCY_THEOREM_2026-11-27.md) — under a specified smooth 4D Lorentzian coframe and independent connection sampled on a shape-regular refinement family, the affine face holonomy and translational closure have leading terms given by curvature and Cartan torsion. This proves local consistency for smooth sampled fields only. Convergence of arbitrary discrete fields/solutions, a Q6-derived 4D mesh, a discrete action and the Lorentzian spinorial limit remain open.
+
+
+### Manufactured Cartan refinement audit
+
+- [Local consistency specification and continuum-limit gates](research/CARTAN_REFINEMENT_CONSISTENCY_THEOREM_2026-11-27.md)
+- [Manufactured-solution audit](scripts/audit_cartan_refinement_consistency.py) and [focused tests](tests/test_cartan_refinement_consistency.py).
+- Reproduce:
+  ```bash
+  PYTHONPATH=. python scripts/audit_cartan_refinement_consistency.py
+  PYTHONPATH=. python -m pytest tests/test_cartan_refinement_consistency.py -q
+  ```
+- The synthetic noncommuting Lorentz connection has nonzero curvature and torsion. The audit checks the face-area scaling and observed convergence orders. It is local smooth-sampling evidence only, not a proof of Q6-to-4D Lorentzian convergence or convergence of discrete solutions.
