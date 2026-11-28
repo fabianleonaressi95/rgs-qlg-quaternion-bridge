@@ -162,11 +162,11 @@ The observed face errors are:
 
 | (h) | curvature face error | torsion face error | observed order R | observed order T |
 |---:|---:|---:|---:|---:|
-| 0.2000 | 5.279724e-05 | 2.1158138e-03 | — | — |
-| 0.1000 | 3.299832e-06 | 2.6645046e-04 | 4.000 | 2.989 |
-| 0.0500 | 2.062395e-07 | 3.3468677e-05 | 4.000 | 2.993 |
-| 0.0250 | 1.288997e-08 | 4.1949603e-06 | 4.000 | 2.996 |
-| 0.0125 | 8.056230e-10 | 5.2511961e-07 | 4.000 | 2.998 |
+| 0.2000 | 5.279724e-05 | 7.7047789e-04 | — | — |
+| 0.1000 | 3.299832e-06 | 9.8119266e-05 | 4.000 | 2.973 |
+| 0.0500 | 2.062395e-07 | 1.2381329e-05 | 4.000 | 2.986 |
+| 0.0250 | 1.288997e-08 | 1.5550480e-06 | 4.000 | 2.993 |
+| 0.0125 | 8.056230e-10 | 1.9484565e-07 | 4.000 | 2.997 |
 
 The curvature order four is a cancellation specific to this manufactured field; the generic local estimate targeted by the proposition is (O(h^3)) for the unnormalized face observable. The torsion error exhibits the expected (O(h^3)). After division by the face area, the corresponding density errors scale as (O(h^2)) for this curvature example and (O(h)) for torsion.
 
