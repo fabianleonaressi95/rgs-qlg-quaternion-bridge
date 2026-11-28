@@ -57,6 +57,26 @@ The earlier PSU–Anti-Twin model used a toroidal throat, with PSU and Anti-Twin
 
 For the toroidal chart require \(N>0\), \(r>0\), and \(R-r>0\), with smooth matching and finite invariants. The spherical comparison \(R(u)=\sqrt{u^2+r_0^2}\) is not a replacement for the toroidal geometry.
 
+A concrete local coframe is
+\[
+e^0=N(l)c\,dt,\quad e^1=dl,\quad
+e^2=r(l)d\theta,\quad e^3=A(l,\theta)d\varphi,\quad
+A=R(l)+r(l)\cos\theta.
+\]
+Its volume density is \(NcrA\). Thus \(N,r,A>0\) gives rank four, and \(R-r>0\) is a sufficient global angular-patch condition. For even throat profiles \(N,r,R\), the coframe remains nondegenerate at \(l=0\). A reference torsion-free connection has
+\[
+\omega_{\rm LC}{}^0{}_1=(N'/N)e^0,\quad
+\omega_{\rm LC}{}^2{}_1=(r'/r)e^2,\quad
+\omega_{\rm LC}{}^3{}_1=(\partial_lA/A)e^3,\quad
+\omega_{\rm LC}{}^3{}_2=(\partial_\theta A/(rA))e^3.
+\]
+The independent connection is \(\omega=\omega_{\rm LC}+K\), \(K_{ab}=-K_{ba}\), so
+\[
+T^a=K^a{}_b\wedge e^b,\qquad
+R(\omega)=R(\omega_{\rm LC})+D_{\rm LC}K+K\wedge K.
+\]
+This reference decomposition does not impose \(K=0\); independent variation remains mandatory.
+
 ## 5. Status boundary
 
 **Already available:** exact Q6 cubical counts; T129/T161 golden frame; T148 two-sheet algebra; T149 bare-operator obstruction; finite affine Cartan core and tests; exact affine tetrahedral boundary identity; local smooth-sampling Cartan consistency proof and manufactured RK4 audit.
