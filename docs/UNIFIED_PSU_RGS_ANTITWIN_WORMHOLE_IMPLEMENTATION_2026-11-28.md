@@ -77,6 +77,12 @@ R(\omega)=R(\omega_{\rm LC})+D_{\rm LC}K+K\wedge K.
 \]
 This reference decomposition does not impose \(K=0\); independent variation remains mandatory.
 
+A minimal throat-localized test connection is \(K^{02}=\kappa(l)\,dl\), \(K^{20}=-K^{02}\). It gives nonzero torsion components \(T^0=-\kappa\,dl\wedge e^2\) and \(T^2=-\kappa\,dl\wedge e^0\) (for \(\eta=(+---)\) and the stated internal-index convention). Along a radial path the reference connection has no \(dl\) component, so the test transport is
+\[
+\mathcal P_\gamma=\exp\!\left[-J_{02}\int_\gamma\kappa(l)\,dl\right].
+\]
+This is a kinematic manufactured ansatz for testing throat transport and finite torsion, not a solution of the action. Its curvature, interface matching and field equation for \(\kappa\) still have to be derived.
+
 ## 5. Status boundary
 
 **Already available:** exact Q6 cubical counts; T129/T161 golden frame; T148 two-sheet algebra; T149 bare-operator obstruction; finite affine Cartan core and tests; exact affine tetrahedral boundary identity; local smooth-sampling Cartan consistency proof and manufactured RK4 audit.
