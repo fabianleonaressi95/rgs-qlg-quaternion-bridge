@@ -11,9 +11,9 @@
     "verified_or_reviewed_direct_edges": 54,
     "classification_edges": 338,
     "hub_to_companion_edges": 30,
-    "note": "284 primary main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), all 51 formal suite records, and 306 unique dependency declarations from the primary generated register added as explicitly unreviewed/provisional edges. The register covers only 280 of the 284 main theorem files; four T157–T160 records are absent. A further 101 dependency tokens are ambiguous because of duplicate display IDs, and three do not resolve. Six direct T161 interface edges remain separately reviewed and caveated. The original 54 reviewed direct crosswalk arrows are preserved. Ten canonical programme-family nodes (Q6, GOLDEN, IVM, CELL, REP, SPACETIME, ANALYSIS, DYNAMICS, ARITH, MORPH) and eight discrete-geometry interface nodes have been added. Family-interface edges are architectural, not proof implications. Sixteen record-to-family interfaces are based on inspected theorem cards and remain non-proof classifications. The detailed bridge and literature baseline are in the primary repository's TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md.",
-    "total_nodes": 411,
-    "total_edges": 780,
+    "note": "284 primary main-tree theorem records plus five proposed theorem records on the primary open PR branch (T146–T149 and T161), all 51 formal suite records, and 306 unique dependency declarations from the primary generated register added as explicitly unreviewed/provisional edges. The register covers only 280 of the 284 main theorem files; four T157–T160 records are absent. A further 101 dependency tokens are ambiguous because of duplicate display IDs, and three do not resolve. Six direct T161 interface edges remain separately reviewed and caveated. The original 54 reviewed direct crosswalk arrows are preserved. Ten canonical programme-family nodes (Q6, GOLDEN, IVM, CELL, REP, SPACETIME, ANALYSIS, DYNAMICS, ARITH, MORPH) and eight discrete-geometry interface nodes have been added. Family-interface edges are architectural, not proof implications. Sixteen record-to-family interfaces are based on inspected theorem cards and remain non-proof classifications. The detailed bridge and literature baseline are in the primary repository's TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md. Unified PSU–RGS–Anti-Twin wormhole construction added as one companion-document node with eight open workstream nodes (Q6 4D resolution, two-sheet throat, coframe, Cartan transport, action, wormhole/ER limit, spinorial transport, solution convergence). Its programme/dependency/interface edges are explicitly non-proof and do not promote T161/T148/T149 or any open task.",
+    "total_nodes": 420,
+    "total_edges": 804,
     "companion_formal_suite_records": 51,
     "proposed_theorem_records": 5,
     "register_declared_dependencies_added": 306,
@@ -21,7 +21,10 @@
     "register_dependency_unresolved": 3,
     "programme_families": 10,
     "discrete_geometry_interfaces": 8,
-    "reviewed_record_family_interfaces": 16
+    "reviewed_record_family_interfaces": 16,
+    "construction_programmes": 1,
+    "construction_workstreams": 8,
+    "wormhole_programme_edges": 24
   },
   "nodes": [
     {
@@ -3139,6 +3142,78 @@
       "title": "Refinement and continuum comparison",
       "role": "Compatible maps, stability, Mosco/strong-resolvent and spectral limits",
       "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "id": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "kind": "companion-document",
+      "repository": "fabianleonaressi95/rgs-qlg-quaternion-bridge",
+      "path": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md",
+      "title": "Unified PSU–RGS–Anti-Twin wormhole construction crosswalk",
+      "status": "integrated specification; construction tasks open"
+    },
+    {
+      "id": "WQ6:WQ6-01",
+      "kind": "construction-workstream",
+      "title": "Q6 four-dimensional resolution",
+      "role": "Manifold-like 4D refinement, attaching maps and local links",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-02",
+      "kind": "construction-workstream",
+      "title": "Two-sheet throat gluing",
+      "role": "PSU–Anti-Twin double cover, throat interface and transition maps",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-03",
+      "kind": "construction-workstream",
+      "title": "Lorentzian coframe regularity",
+      "role": "Nondegenerate coframe, signature and regularity across the throat",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-04",
+      "kind": "construction-workstream",
+      "title": "Independent Cartan transport",
+      "role": "Independent Lorentz links, curvature, torsion and affine transport",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-05",
+      "kind": "construction-workstream",
+      "title": "Discrete Palatini–Cartan action",
+      "role": "One action with independent coframe and connection variations",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-06",
+      "kind": "construction-workstream",
+      "title": "Wormhole and Schwarzschild–Kruskal limits",
+      "role": "Traversability, energy conditions and non-traversable Einstein–Rosen limit",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-07",
+      "kind": "construction-workstream",
+      "title": "Spinorial throat transport",
+      "role": "Spin+(1,3) lift, two-sheet spinor matching and Dirac refinement",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "id": "WQ6:WQ6-08",
+      "kind": "construction-workstream",
+      "title": "Convergence of discrete solutions",
+      "role": "Stability, compactness and identification of continuum critical points",
+      "status": "open-work-package",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
     }
   ],
   "edges": [
@@ -9617,6 +9692,197 @@
       "shared_object": "Exact integer representation recurrence and multiplicity coefficients",
       "caveat": "The theorem card was inspected for this interface. This is topical/evidentiary support, not a proof-dependency edge.",
       "source": "TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-01",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-02",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-03",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-04",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-05",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-06",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-07",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DOC:UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE",
+      "to": "WQ6:WQ6-08",
+      "relation": "contains-workstream",
+      "status": "programme-structure-not-proof",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-01",
+      "to": "WQ6:WQ6-02",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-02",
+      "to": "WQ6:WQ6-03",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-03",
+      "to": "WQ6:WQ6-04",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-04",
+      "to": "WQ6:WQ6-05",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-05",
+      "to": "WQ6:WQ6-06",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-04",
+      "to": "WQ6:WQ6-07",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-06",
+      "to": "WQ6:WQ6-08",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-07",
+      "to": "WQ6:WQ6-08",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "WQ6:WQ6-05",
+      "to": "WQ6:WQ6-08",
+      "relation": "construction-dependency",
+      "status": "proposed-dependency-open",
+      "caveat": "Programme ordering only; not a theorem implication until the corresponding construction and proof obligations are completed.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "THM:T161-q6-ivm-rhombic-triacontahedron-lorentzian-spin-lift",
+      "to": "WQ6:WQ6-01",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "golden Q6 carrier and conditional Lorentzian frame",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "THM:branch:T148-psu-antitwin-chiral-fluid-gauge",
+      "to": "WQ6:WQ6-02",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "two-sheet PSU–Anti-Twin algebra; geometric throat gluing remains open",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "THM:branch:T149-q6-clifford-graph-dirac-spectrum",
+      "to": "WQ6:WQ6-07",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "bare Q6 Clifford obstruction; new refinement operator required",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DG-CARTAN",
+      "to": "WQ6:WQ6-04",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "independent connection and curvature/torsion interface",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DG-ACTION",
+      "to": "WQ6:WQ6-05",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "variational action interface",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DG-LIMIT",
+      "to": "WQ6:WQ6-08",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "refinement and continuum comparison interface",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
+    },
+    {
+      "from": "DG-SPIN",
+      "to": "WQ6:WQ6-07",
+      "relation": "construction-input-interface",
+      "status": "reviewed-scope-not-proof",
+      "shared_object": "Spin+(1,3) interface",
+      "caveat": "This edge connects an existing result/interface to the unified construction; it does not assert that the open work package is proved.",
+      "source": "docs/UNIFIED_PSU_RGS_ANTITWIN_WORMHOLE_IMPLEMENTATION_2026-11-28.md"
     }
   ]
 }
