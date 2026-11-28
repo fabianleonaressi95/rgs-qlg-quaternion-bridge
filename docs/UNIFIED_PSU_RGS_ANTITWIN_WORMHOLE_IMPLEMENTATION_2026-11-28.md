@@ -81,7 +81,7 @@ A minimal throat-localized test connection is \(K^{02}=\kappa(l)\,dl\), \(K^{20}
 \[
 \mathcal P_\gamma=\exp\!\left[-J_{02}\int_\gamma\kappa(l)\,dl\right].
 \]
-This is a kinematic manufactured ansatz for testing throat transport and finite torsion, not a solution of the action. Its curvature, interface matching and field equation for \(\kappa\) still have to be derived.
+This is a kinematic manufactured ansatz for testing throat transport and finite torsion, not a solution of the action. Its curvature, interface matching and field equation for \(\kappa\) still have to be derived. A corresponding candidate sheet-frame transition is \(g_{+-}=\exp(-\chi_\Sigma J_{02})\), \(g_{-+}=g_{+-}^{-1}\), with \(\chi_\Sigma=\int_{\gamma_\Sigma}\kappa(l)\,dl\). The sheet-label exchange \(J_{AT}=\tau_x\) remains distinct from this Lorentz transport.
 
 ## 5. Status boundary
 
