@@ -141,3 +141,39 @@ This refinement statement is an interface result, not a replacement for the ten-
 ## References and methodological baseline
 
 The construction is framed against discrete exterior calculus, finite element exterior calculus, Regge-type discretization, and lattice gauge holonomy. Those literatures provide methods and comparison points; they do not prove the RGS/Q6-specific refinement gates above. The existing programme bibliography remains in `research/TEN_FAMILY_DISCRETE_DIFFERENTIAL_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md`.
+
+
+## 8. Manufactured-solution convergence audit
+
+A reproducible numerical audit is implemented in `scripts/audit_cartan_refinement_consistency.py`, with focused tests in `tests/test_cartan_refinement_consistency.py`.
+
+The manufactured smooth field is defined on a 2D coordinate plane inside the 4D Lorentzian model:
+[
+omega_x=yB,qquad omega_y=xA,qquad
+e_x=(1,0,0,0)^T,qquad e_y=(0,1,0,0)^T+x,c,
+]
+where (A=0.7K_x), (B=0.4K_y) are noncommuting Lorentz boost generators and (c=(0.3,0.2,-0.1,0.4)^T). At the origin,
+[
+R_{xy}=A-B,qquad T_{xy}=c.
+]
+Every oriented edge affine transport is integrated from (dG/dt=Gmathcal A_t) by RK4 with 64 steps; the triangular face is ([0,(h,0),(0,h)]). The matrix logarithm is evaluated by its convergent power series near identity.
+
+The observed face errors are:
+
+| (h) | curvature face error | torsion face error | observed order R | observed order T |
+|---:|---:|---:|---:|---:|
+| 0.2000 | 5.279724e-05 | 2.1158138e-03 | — | — |
+| 0.1000 | 3.299832e-06 | 2.6645046e-04 | 4.000 | 2.989 |
+| 0.0500 | 2.062395e-07 | 3.3468677e-05 | 4.000 | 2.993 |
+| 0.0250 | 1.288997e-08 | 4.1949603e-06 | 4.000 | 2.996 |
+| 0.0125 | 8.056230e-10 | 5.2511961e-07 | 4.000 | 2.998 |
+
+The curvature order four is a cancellation specific to this manufactured field; the generic local estimate targeted by the proposition is (O(h^3)) for the unnormalized face observable. The torsion error exhibits the expected (O(h^3)). After division by the face area, the corresponding density errors scale as (O(h^2)) for this curvature example and (O(h)) for torsion.
+
+Reproduce:
+```bash
+PYTHONPATH=. python scripts/audit_cartan_refinement_consistency.py
+PYTHONPATH=. python -m pytest tests/test_cartan_refinement_consistency.py -q
+```
+
+This experiment supports the local smooth-sampling consistency claim for one noncommuting manufactured Cartan field. It does not prove uniform estimates for all smooth fields, stability/compactness, convergence of discrete solutions, or a Q6-derived Lorentzian refinement.
