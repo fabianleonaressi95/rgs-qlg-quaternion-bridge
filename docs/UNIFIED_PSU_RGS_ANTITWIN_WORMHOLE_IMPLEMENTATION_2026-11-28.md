@@ -38,9 +38,9 @@ Input: coframe and gluing. Output: independent \(SO^+(1,3)\) links and affine ed
 Implement the discrete Palatini–Cartan face action with explicit branch-controlled matrix logarithms, transported area bivectors, cosmological term, matter term and throat/interface term. Derive and implement separate gradients with respect to coframe and Lorentz links. Validate analytic gradients against finite differences and gauge covariance. Do not replace the derivative of log(H) by H^{-1}dH for noncommuting matrices.
 
 ### WQ6-06 — wormhole and limiting solutions
-Implement the earlier toroidal throat ansatz as the primary historical branch:
+Implement the earlier toroidal throat ansatz as the primary historical branch. It was originally written with signature \((-+++ )\); use the overall-sign-equivalent \((+---)\) convention of T161 throughout this implementation:
 \[
-ds^2=-N(l)^2c^2dt^2+dl^2+r(l)^2d\theta^2+
+ds^2=+N(l)^2c^2dt^2-dl^2-r(l)^2d\theta^2-
 [R(l)+r(l)\cos\theta]^2d\varphi^2.
 \]
 Keep the spherical two-ended ansatz as a separate comparison. Check regularity, no horizon on a traversable branch, tidal forces, energy conditions from the same action, and throat flux balance. Then construct a controlled decoupling family and compare its limit with Schwarzschild in regular Kruskal coordinates. The Einstein–Rosen limit is non-traversable and must not be labelled an open traversable wormhole.
