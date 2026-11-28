@@ -37,8 +37,8 @@ def affine_generator(x: float, y: float, dx: float, dy: float) -> np.ndarray:
     """Pull back the smooth Cartan connection to a straight edge tangent."""
     omega_x = y * B_CURV
     omega_y = x * A_CURV
-    e_x = np.array([1.0, 0.0, 0.0, 0.0])
-    e_y = np.array([0.0, 1.0, 0.0, 0.0]) + x * TORSION_VECTOR
+    e_x = np.array([0.0, 1.0, 0.0, 0.0])
+    e_y = np.array([0.0, 0.0, 1.0, 0.0]) + x * TORSION_VECTOR
 
     out = np.zeros((5, 5), dtype=float)
     out[:4, :4] = dx * omega_x + dy * omega_y
