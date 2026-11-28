@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status: CONDITIONAL local consistency proposition for smooth sampled fields; the Taylor/Magnus proof is outlined below, while fully expanded coordinate remainder estimates remain to be written before promotion to PROVED.**
+**Status: PROVED local smooth-sampling consistency theorem under the explicit regularity, orientation, and shape hypotheses in Sections 1–3 and the radial-gauge proof in Section 9.**
 **Convergence of arbitrary discrete fields or of discrete field equations: open.**
 **Physical identification of the Q6/PSU complex with a 4D Lorentzian refinement family: open.**
 
@@ -103,7 +103,7 @@ Established exactly or conditionally:
 2. the face Lorentz logarithm and affine translation have the displayed curvature/torsion leading terms under smooth sampling, subject to completing the detailed uniform remainder estimates;
 3. the exact tetrahedral boundary word is a finite identity and is compatible with the continuum Cartan Bianchi identities under smooth sampling/refinement.
 
-The local consistency statement is not promoted to PROVED until the coordinate-level remainder bounds and convention checks are written out in full.
+The local consistency statement is proved under the stated smooth-sampling hypotheses by the radial-gauge estimates in Section 9; it is not a convergence theorem for arbitrary discrete fields or solutions.
 
 Not established:
 1. existence of a shape-regular 4D Lorentzian refinement family built from the present Q6 incidence data;
@@ -177,3 +177,55 @@ PYTHONPATH=. python -m pytest tests/test_cartan_refinement_consistency.py -q
 ```
 
 This experiment supports the local smooth-sampling consistency claim for one noncommuting manufactured Cartan field. It does not prove uniform estimates for all smooth fields, stability/compactness, convergence of discrete solutions, or a Q6-derived Lorentzian refinement.
+
+
+## 9. Coordinate-level remainder proof in radial gauge
+
+Fix a base point (p) and use normal coordinates on a star-shaped neighborhood. A local Lorentz gauge can be chosen in radial gauge,
+[
+x^muomega_mu(x)=0.
+]
+The standard radial-gauge identity follows by contracting the curvature with the radial vector and integrating along the segment (tmapsto tx):
+[
+omega_mu(x)=int_0^1 t,x^
+u R_{
+umu}(tx),dt
+=rac12x^
+u R_{
+umu}(p)+O(|x|^2).
+]
+On a compact set, the remainder is uniform when (R) has a bounded first derivative. In particular, on a face of diameter (h), (|omega|=O(h)).
+
+**Curvature block.** Let (gamma_h=partialDelta_h) be the oriented triangular boundary. In radial gauge the based Lorentz holonomy is the path-ordered exponential of (omega) around (gamma_h). Since (int_{gamma_h}|omega|,ds=O(h^2)), the first Magnus term is (O(h^2)), while the commutator term and all higher Magnus terms are (O(h^4)). Therefore
+[
+log H_f=oint_{gamma_h}omega+O(h^4).
+]
+Substitute the radial-gauge expansion and integrate around the triangle. Equivalently, use Stokes' theorem and (R=domega+omegawedgeomega); the (omegawedgeomega) contribution is (O(h^4)) in this gauge. For edge tangent vectors (hu,hv), the oriented parameter triangle has area (h^2/2), so
+[
+oint_{gamma_h}omega
+=int_{Delta_h}R+O(h^3)
+=rac12h^2R_p(u,v)+O(h^3).
+]
+Thus (log H_f=rac12h^2R_p(u,v)+O(h^3)).
+
+**Translation block.** By the definition of the edge coframe integral and the affine product law, the face translation is the single path integral
+[
+	au_f=oint_{gamma_h}mathcal P_{pleftarrow x},e_mu(x),dx^mu,
+]
+where (mathcal P_{pleftarrow x}) is parallel transport along the already traversed boundary prefix back to the base frame. In radial gauge, (omega=O(h)) and every such prefix has length (O(h)); hence (mathcal P_{pleftarrow x}=I+O(h^2)) uniformly. It follows that
+[
+	au_f=oint_{gamma_h}e_mu(x),dx^mu+O(h^3).
+]
+Taylor-expand (e_mu(x)=e_mu(p)+x^
+upartial_
+u e_mu(p)+O(h^2)). The constant term integrates to zero on the closed boundary; the linear term gives the oriented area times (de_p(u,v)), and the remainder integrates to (O(h^3)). Since radial gauge has (omega(p)=0), (T_p=de_p+omega_pwedge e_p=de_p). Therefore
+[
+	au_f=rac12h^2T_p(u,v)+O(h^3).
+]
+
+The constants in both estimates depend only on a compact-set bound for (R,
+abla R,e,
+abla e,
+abla^2e) and on the fixed shape-regularity constants of the triangles. The argument is gauge-covariant, so the result holds in any local Lorentz gauge after transforming the base-frame components. This completes the local consistency proof.
+
+**Scope boundary.** The proof assumes exact edge sampling from a smooth nondegenerate Lorentzian Cartan pair. It does not construct such a pair from Q6 data, prove compactness for arbitrary discrete fields, or prove convergence of discrete Euler–Lagrange solutions.
