@@ -6,6 +6,18 @@ This repository develops finite mathematical constructions and computational aud
 
 > **Evidence policy:** PROVED, FINITE-EXACT, NUMERICAL, CONDITIONAL, CANDIDATE and OPEN are distinct statuses. A finite test is not a continuum theorem or a physical derivation.
 
+## Ten-family discrete geometry to physics bridge
+
+- **[Ten-family discrete-geometry/physics bridge](docs/TEN_FAMILY_DISCRETE_GEOMETRY_PHYSICS_BRIDGE_2026-11-27.md)** — ten stable family nodes, eight shared geometric interfaces, and 16 inspected theorem-card links; none is silently promoted to a proof dependency.
+
+## Record-level theorem dependency reconciliation
+
+- **[Record-level audit](docs/T161_RECORD_LEVEL_DEPENDENCY_RECONCILIATION_2026-11-27.md)** imports 306 uniquely declared theorem dependencies from the primary register as explicitly unreviewed graph edges. It also records 101 ambiguous references, 3 unresolved references, and the four main-tree cards missing from the generated register. These are not promoted to proof dependencies.
+
+## T161 programme-wide geometric integration
+
+- **[Unified theorem dependency graph](docs/UNIFIED_THEOREM_DEPENDENCY_GRAPH.md)** and [machine-readable registry v3](docs/UNIFIED_THEOREM_EDGES.json) now include the 284 theorem Markdown records in the primary repository's 27-November main-tree snapshot, the 51 formal suite records S01–S51, and the proposed T161 Q6–golden cut-and-project–rhombic triacontahedron–IVM–Lorentzian spin node. New filename/range classifications are explicitly provisional navigation links, not proof dependencies. T161 is distinct from the existing T150 Fibonacci/two-sheet theorem.
+
 ## Canonical suite formalization
 
 The 51-step sequence formerly expanded in this README is now maintained as a dedicated mathematical register:
@@ -130,3 +142,29 @@ This repository contains source code, focused mathematical specifications, tests
 - The archived normalized four-component \((\Delta X,\Delta r)\) feature is **not** the carrier's symmetrized three-component spatial coframe. The audit compares both and separately checks the raw spatial Q6 torsion against the previous A13 report.
 - Reproduce with: PYTHONPATH=. python scripts/audit_rgs_psu_carrier_connection.py; python -m pytest tests/test_rgs_psu_carrier_connection.py -q.
 - Provenance boundary: this is generator-level reconstruction; the original A13 NPZ payload is not bytewise reloaded or compared.
+
+
+## Discrete Cartan implementation specification
+
+- [Discrete Cartan implementation specification](docs/DISCRETE_CARTAN_Q6_PSU_ANTITWIN_IMPLEMENTATION_2026-11-27.md) — finite-complex data model and DCart-01–10 audit matrix for independent Lorentz links and coframes, face curvature holonomy, torsion closure, Bianchi identities and Anti-Twin separation.
+
+The finite algebraic core is implemented in [scripts/discrete_cartan_core.py](scripts/discrete_cartan_core.py), with covariance and closure tests in [tests/test_discrete_cartan_core.py](tests/test_discrete_cartan_core.py). These are local finite-complex checks only; no Bianchi or continuum-limit claim is made.
+
+The Cartan prototype now also implements the exact affine Poincare boundary identity on a tetrahedral 3-cell (`tetrahedron_boundary_bianchi`) and tests it on all five tetrahedral facets of a 4-simplex. This is a finite combinatorial identity, not a continuum Bianchi/convergence theorem.
+
+
+## Cartan refinement and local continuum consistency
+
+- [Cartan refinement consistency theorem and continuum-limit gates](research/CARTAN_REFINEMENT_CONSISTENCY_THEOREM_2026-11-27.md) — under a specified smooth 4D Lorentzian coframe and independent connection sampled on a shape-regular refinement family, the affine face holonomy and translational closure have leading terms given by curvature and Cartan torsion. This proves local consistency for smooth sampled fields only. Convergence of arbitrary discrete fields/solutions, a Q6-derived 4D mesh, a discrete action and the Lorentzian spinorial limit remain open.
+
+
+### Manufactured Cartan refinement audit
+
+- [Local consistency specification and continuum-limit gates](research/CARTAN_REFINEMENT_CONSISTENCY_THEOREM_2026-11-27.md)
+- [Manufactured-solution audit](scripts/audit_cartan_refinement_consistency.py) and [focused tests](tests/test_cartan_refinement_consistency.py).
+- Reproduce:
+  ```bash
+  PYTHONPATH=. python scripts/audit_cartan_refinement_consistency.py
+  PYTHONPATH=. python -m pytest tests/test_cartan_refinement_consistency.py -q
+  ```
+- The synthetic noncommuting Lorentz connection has nonzero curvature and torsion. The audit checks face-area scaling and observed convergence orders. The companion note now proves the local face-consistency proposition by a radial-gauge remainder argument under exact smooth sampling; the numerical audit is supporting evidence for one manufactured field. Neither establishes Q6-to-4D Lorentzian reconstruction or convergence of discrete solutions.
